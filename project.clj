@@ -8,14 +8,44 @@
   
   :min-lein-version "2.7.1"
 
-  :dependencies [[org.clojure/clojure "1.9.0-beta4"]
+  :dependencies [[org.clojure/clojure "1.9.0"]
                  [org.clojure/clojurescript "1.9.946"]
-                 [org.clojure/core.async  "0.3.443"]]
+                 [org.clojure/core.async  "0.4.474"]
+                 [com.rpl/specter "1.1.0"]
+
+                 ;; cljs dependencies
+                 [cljs-ajax "0.7.3"]
+                 [cljs-css-modules "0.2.1"]
+                 ;[sablono "0.7.4"]
+                 ;; need to specify this for sablono
+                 ;; when not using devcards
+                 ;[cljsjs/react "15.4.2-2"]
+                 ;[cljsjs/react-dom "15.4.2-2"]
+                 [devcards "0.2.4"]
+
+                 ; should we upgrade Rum and use React16 ???
+                 [rum "0.10.8"]
+                 [cljs-css-modules "0.2.1"]
+
+                 [figwheel-sidecar "0.5.14"]
+                 [cljs-css-modules "0.2.1"]
+
+                 ; routing
+                 [funcool/bide "1.6.0"]
+
+                 [binaryage/devtools "0.9.9"]
+
+                 ]
 
   :plugins [[lein-figwheel "0.5.14"]
+            [lein-less "1.7.5"]
+            [lein-ancient "0.6.15"]
             [lein-cljsbuild "1.1.7" :exclusions [[org.clojure/clojure]]]]
 
   :source-paths ["src"]
+
+  :less {:source-paths ["resources/less/bootstrap/boostrap.less"]
+         :target-path "resources/public/css"}
 
   :cljsbuild {:builds
               [{:id "dev"
@@ -29,7 +59,7 @@
                            ;; in the default browser once Figwheel has
                            ;; started and compiled your application.
                            ;; Comment this out once it no longer serves you.
-                           :open-urls ["http://localhost:3449/index.html"]}
+                           :open-urls ["http://localhost:4449/index.html"]}
 
                 :compiler {:main predict-prostate.core
                            :asset-path "js/compiled/out"
@@ -50,7 +80,7 @@
                            :pretty-print false}}]}
 
   :figwheel {;; :http-server-root "public" ;; default and assumes "resources"
-             ;; :server-port 3449 ;; default
+             :server-port 4449 ;; default
              ;; :server-ip "127.0.0.1"
 
              :css-dirs ["resources/public/css"] ;; watch and update CSS
@@ -92,7 +122,7 @@
   ;; Setting up nREPL for Figwheel and ClojureScript dev
   ;; Please see:
   ;; https://github.com/bhauman/lein-figwheel/wiki/Using-the-Figwheel-REPL-within-NRepl
-  :profiles {:dev {:dependencies [[binaryage/devtools "0.9.4"]
+  :profiles {:dev {:dependencies [[binaryage/devtools "0.9.9"]
                                   [figwheel-sidecar "0.5.14"]
                                   [com.cemerick/piggieback "0.2.2"]]
                    ;; need to add dev source path here to get user.clj loaded
