@@ -4,8 +4,8 @@
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
 
-  
-  
+
+
   :min-lein-version "2.7.1"
 
   :dependencies [[org.clojure/clojure "1.9.0"]
@@ -40,12 +40,20 @@
   :plugins [[lein-figwheel "0.5.14"]
             [lein-less "1.7.5"]
             [lein-ancient "0.6.15"]
-            [lein-cljsbuild "1.1.7" :exclusions [[org.clojure/clojure]]]]
+            [lein-cljsbuild "1.1.7" :exclusions [[org.clojure/clojure]]]
+            ;[lein-autoprefix "0.1.0-SNAPSHOT"]
+            [lein-pprint "1.2.0"]
+            ]
 
   :source-paths ["src"]
 
-  :less {:source-paths ["resources/less/bootstrap/boostrap.less"]
-         :target-path "resources/public/css"}
+  :less {:source-paths ["resources/less/style.less"]
+         :target-path "resources/public/css/style.css"}
+
+  :autoprefix {:files ["resources/public/css/test.css"
+                       "resources/public/css/style.css"]
+               :browsers "last 2 versions, > 1%, IE 9, IE 10"
+               :css-out "resources/public/css"}
 
   :cljsbuild {:builds
               [{:id "dev"
