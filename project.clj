@@ -50,10 +50,12 @@
   :less {:source-paths ["resources/less/style.less"]
          :target-path "resources/public/css/style.css"}
 
-  :autoprefix {:files ["resources/public/css/test.css"
-                       "resources/public/css/style.css"]
+  :autoprefix {:source-path "resources/less/postcss/"
+               :dest-path "resources/public/css"
+               :files ["test.css"
+                       "style.css"]
                :browsers "last 2 versions, > 1%, IE 9, IE 10"
-               :css-out "resources/public/css"}
+               }
 
   :cljsbuild {:builds
               [{:id "dev"
