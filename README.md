@@ -6,6 +6,20 @@ FIXME: Write a one-line description of your library/project.
 
 FIXME: Write a paragraph about the library/project and highlight its goals.
 
+## Prerquisites
+
+Download https://github.com/twbs/bootstrap/archive/v3.3.7.zip and place the unzipped
+bootstrap-3.3.7 folder in src.
+
+Install lein-autoprefix from the winton github in order to rebuild
+bootstrap with autoprefixing. Then run.
+
+```
+lein less once
+lein autoprefix
+```
+Note: This was a work in progress at time of writing. So check!
+
 ## Setup
 
 To get an interactive development environment run:
