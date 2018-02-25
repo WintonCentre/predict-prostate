@@ -30,7 +30,7 @@ survival, up to the projected survival of breast-cancer-free women "
 
                 ;; The set of widgets
                 :on-screen-inputs        #{}
-                :on-screen-treatments    (sorted-set-by t-comp)
+                :on-screen-treatments    #{}
 
                 :show-uncertainty        :no
 

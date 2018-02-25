@@ -130,16 +130,7 @@
     :as   v3-data
     }]
 
-  (run-prostate (numeric age)
-           size
-           (nodes-v2 nodes micromets)
-           (grade-v2 grade)
-           (er-status-v2 er-status)
-           (detection-v2 mode)
-           (chemoGen-v2 chemo)
-           (her2-status-v2 her2-status)
-           (ki67-v2 ki67-status)
-           rtime)
+  (run-prostate {})
 
   )
 

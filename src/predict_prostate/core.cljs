@@ -20,6 +20,13 @@
   (rum/mount (root) (gdom/getElement "app"))
   )
 
+;; This appears to be necessary.
+(def loaded-id (js/setInterval
+                 #(when (#{"loaded" "complete"} (.-readyState js/document))
+                    (js/clearInterval loaded-id)
+                    (main))
+                 10))
+
 (defn on-js-reload []
   ;; optionally touch your app-state to force rerendering depending on
   ;; your application

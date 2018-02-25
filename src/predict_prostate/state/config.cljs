@@ -76,24 +76,6 @@
                   #{"v2.1"}
                   (:enable-radio (get-settings! {:enable-radio :no})))
 
-   #_(->Input-group :heart-dose
-                  "Heart Dose (Gy)"
-                  :numeric-input
-                  {:min 0 :max 50 :step 0.1 :precision 1}
-                  false false true
-                  :treatment
-                  #{"research"}
-                  nil)
-
-   #_(->Input-group :lung-dose
-                  "Ipsilateral lung dose (Gy)"
-                  :numeric-input
-                  {:min 0 :max 50 :step 0.1 :precision 1}
-                  false false true
-                  :treatment
-                  #{"research"}
-                  nil)
-
    (->Input-group :horm
                   "Hormone Therapy"
                   :radio-group
@@ -135,26 +117,6 @@
                   false false false
                   :trp
                   #{"v2.1"}
-                  nil)
-
-   ;; inputs from here on
-   #_(->Input-group :neo
-                  "Neo-adjuvant chemotherapy?"
-                  :radio-group
-                  [[:yes "Yes"]
-                   [:no "No"]]
-                  false false false
-                  :trp
-                  #{"next-gen" "research"}
-                  :no)
-   #_(->Input-group :surgery
-                  "Surgery"
-                  :radio-group
-                  [[:conserving "Conserving"]
-                   [:mastectomy "Mastectomy"]]
-                  false false false
-                  :trp
-                  #{"next-gen" "research"}
                   nil)
 
    ;; need to split this (v1.2 and v2 go down to 25 years), else min is 35
@@ -206,22 +168,6 @@
                   :metric-bmi
                   {:precision 1 :unit "kg/m^2"}
                   true false true
-                  :prp
-                  #{"research"}
-                  nil)
-   #_(->Input-group :performance
-                  "Performance status"
-                  :radio-group
-                  (into [] (zipmap (map #(keyword (str "perf" %)) (range 5)) (range 5)))
-                  false false true
-                  :prp
-                  #{"research"}
-                  nil)
-   #_(->Input-group :ethnicity
-                  "Ethnicity"
-                  :select
-                  {:menu [nil "White" "Black" "Indian subcontinent" "East Asian incl Chinese" "Other"]}
-                  false false true
                   :prp
                   #{"research"}
                   nil)
