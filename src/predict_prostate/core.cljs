@@ -1,14 +1,24 @@
 (ns predict-prostate.core
-    (:require ))
+  (:require [rum.core :as rum]
+            [goog.dom :as gdom]
+            [predict-prostate.state.mutations :refer [mutator]]
+            [predict-prostate.pages.root :refer [root]])
+
+  (:require-macros [devcards.core :as dc :refer [defcard deftest]]
+                   ))
 
 (enable-console-print!)
 
-(println "This text is printed from src/predict-prostate/core.cljs. Go ahead and edit it and see reloading in action.")
+;;;; Start the mutator!
+(defonce once-only-guard
+  (mutator)
+  )
 
-;; define your app data so that it doesn't get over-written on reload
-
-(defonce app-state (atom {:text "Hello world!"}))
-
+(defn main []
+  ;; conditionally start the app based on whether the #main-app-area
+  ;; node is on the page
+  (rum/mount (root) (gdom/getElement "app"))
+  )
 
 (defn on-js-reload []
   ;; optionally touch your app-state to force rerendering depending on

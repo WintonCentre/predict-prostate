@@ -25,6 +25,7 @@
 
                  ; should we upgrade Rum and use React16 ???
                  [rum "0.10.8"]
+                 [pubsub "0.2.1"]
                  [cljs-css-modules "0.2.1"]
 
                  [figwheel-sidecar "0.5.14"]
