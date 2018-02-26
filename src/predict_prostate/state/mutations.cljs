@@ -38,7 +38,7 @@
   (doseq [[key topic] (input-changes)
           :when key
           :when topic]
-    "don't zap the settings local stirage on startup"
+    "don't zap the settings local storage on startup"
     (if (= key :enable-radio)
       (let [enable-radio (:enable-radio (get-settings! {:enable-radio :no}))]
         (reset! (input-cursor :enable-radio) enable-radio))
@@ -173,6 +173,7 @@
 (comment
 
   (publish route-change [:home nil nil])
+  (publish route-change [:tool nil nil])
 
   (get-input-default input-groups :neo)
 

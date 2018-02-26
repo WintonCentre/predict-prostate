@@ -31,271 +31,78 @@
   to be graphed or displayed. "
   [
    ;; treatments first
-   (->Input-group :chemo
-                  "Chemotherapy"
+   (->Input-group :primary-rx
+                  "Treatment Regime"
                   :radio-group
-                  [[nil "None"]
-                   [:2nd "2nd gen"]
-                   [:3rd "3rd gen"]
+                  [[0 "Conservative"]
+                   [1 "Radical"]
                    ]
                   false false nil
-                  :treatment
-                  #{"v1.2" "v2.1"}
-                  nil)
+                  :primary-rx
+                  #{"prostate"}
+                  0
+                  )
 
-   #_(->Input-group :chemo
-                  "Chemotherapy"
-                  :radio-group-vertical
-                  [[:taxane "Taxane-containing"]
-                   [:anthra "Anthra"]
-                   [:cmf "CMF"]
-                   [nil "None"]]
-                  false false nil
-                  :treatment
-                  #{"next-gen" "research"}
-                  nil)
-
-   (->Input-group :radio
-                  "Radiotherapy"
-                  :radio-group
-                  [[nil "No"]
-                   [:yes "Yes"]]
-                  false false nil
-                  :treatment
-                  #{"v2.1"}
-                  nil)
-
-   ; note that radiotherapy is enabled by a setting stored in localstorage
-   (->Input-group :enable-radio
-                  "Enable radiotherapy"
-                  :radio-group
-                  [[:no "No"]
-                   [:yes "Yes"]]
-                  false false nil
-                  :settings
-                  #{"v2.1"}
-                  (:enable-radio (get-settings! {:enable-radio :no})))
-
-   (->Input-group :horm
-                  "Hormone Therapy"
-                  :radio-group
-                  [
-                   [nil "No"]
-                   [:yes "Yes"]
-                   ]
-                  false false nil
-                  :treatment
-                  #{"v1.2" "v2.1"}
-                  nil)
-
-   (->Input-group :bis
-                  "Bisphosphonates"
-                  :radio-group
-                  [[nil "No"]
-                   [:yes "Yes"]]
-                  false false nil
-                  :treatment
-                  #{"v2.1"}
-                  nil)
-
-   (->Input-group :tra
-                  "Trastuzumab"
-                  :radio-group
-                  [
-                   [nil "No"]
-                   [:yes "Yes"]
-                   ]
-                  false false nil
-                  :treatment
-                  #{"v1.2" "v2.1"}
-                  nil)
-
-   (->Input-group :surgery-assumed
-                  "Prior treatments"
-                  :string
-                  "Surgery is assumed"
-                  false false false
-                  :trp
-                  #{"v2.1"}
-                  nil)
-
-   ;; need to split this (v1.2 and v2 go down to 25 years), else min is 35
+   ;; INPUTS
    (->Input-group :age
                   "Age at diagnosis"
                   :numeric-input
-                  {:min 25 :max 85 :step 1 :precision 0}
+                  {:min 18 :max 100 :step 1 :precision 0}
                   false false true
                   :prp
-                  #{"v1.2" "v2.1" "next-gen" "research"}
+                  #{"prostate"}
                   "")
-   (->Input-group :post-meno
-                  "Post Menopausal?"
-                  :radio-group
-                  [[:post "Yes"]
-                   [:pre "No"]]
-                  false false true
-                  :prp
-                  #{"v2.1"}
-                  nil)
-   #_(->Input-group :smoking
-                  "Smoker?"
-                  :radio-group
-                  [[:current "Current"]
-                   [:ex "Ex"]
-                   [:never "Never"]]
-                  false false true
-                  :prp
-                  #{"next-gen" "research"}
-                  nil)
-   #_(->Input-group :height
-                  "Height"
+   (->Input-group :psa
+                  "PSA"
                   :numeric-input
-                  {:min 1 :max 3 :step 0.01 :precision 2 :unit "m"}
+                  {:min 0 :max 100 :step 1 :precision 1}
                   false false true
                   :prp
-                  #{"research"}
-                  nil)
-   #_(->Input-group :weight
-                  "Weight"
-                  :numeric-input
-                  {:min 20 :max 200 :step 0.05 :precision 2 :unit "kg"}
-                  false false true
-                  :prp
-                  #{"research"}
-                  nil)
-   #_(->Input-group :bmi
-                  "BMI"
-                  :metric-bmi
-                  {:precision 1 :unit "kg/m^2"}
-                  true false true
-                  :prp
-                  #{"research"}
-                  nil)
-   (->Input-group :mode
-                  "Detected by"
-                  :radio-group
-                  [[:screen "Screening"]
-                   [:symptomatic "Symptoms"]]
-                  false false true
-                  :trp
-                  #{"v1.2" "v2.1" "next-gen" "research"}
-                  nil)
-   (->Input-group :grade
-                  "Tumour grade"
-                  :radio-group
-                  [[:grade1 1] [:grade2 2] [:grade3 3]]
-                  false false true
-                  :trp
-                  #{"v1.2" "v2.1" "next-gen" "research"}
-                  nil)
-   (->Input-group :size
-                  "Tumour size (mm)"
-                  :numeric-input
-                  {:min 0 :max 500 :step 5 :precision 0}
-                  false false true
-                  :trp
-                  #{"v1.2" "v2.1"}
+                  #{"prostate"}
                   "")
-   #_(->Input-group :size
-                    "Size"
-                    :radio-group
-                    [[:size1 "< 20 mm"]
-                     [:size2 "20-49 mm"]
-                     [:size3 "> 49 mm"]]
-                    false false true
-                    :trp
-                    #{"next-gen" "research"}
-                    nil)
-   #_(->Input-group :side
-                  "Side"
+   (->Input-group :t-stage
+                  "Tumour stage"
                   :radio-group
-                  [[:left "Left"] [:right "Right"]]
-                  false false true
-                  :trp
-                  #{"next-gen" "research"}
-                  nil)
-   #_(->Input-group :type
-                  "Type"
-                  :radio-group
-                  [[:lobular "Lobular"]
-                   [:ductal "Ductal"]
-                   [:other "Other"]]
-                  false false true
-                  :trp
-                  #{"research"}
-                  nil)
-   (->Input-group :nodes
-                  "Positive nodes"
-                  :numeric-input
-                  {:min 0 :max 100 :step 1 :precision 0}
-                  false false true
-                  :arp
-                  #{"v1.2" "v2.1"}
-                  "")
-   #_(->Input-group :nodes
-                    "Positive nodes"
-                    :radio-group
-                    [[:nodes0 "0"]
-                     [:nodes1-3 "1-3"]
-                     [:nodes4-9 "4-9"]
-                     [:nodes10+ "over 9"]]
-                    false false true
-                    :arp
-                    #{"next-gen" "research"}
-                    nil)
-   (->Input-group :micromets
-                  "Micrometastases"
-                  :radio-group
-                  [[:yes "Yes"]
-                   [:no "No"]]
-                  false false true
-                  :arp
-                  #{"v2.1" "research"}
-                  :disabled)
-   (->Input-group :er-status
-                  "ER status"
-                  :radio-group
-                  [[:yes "Positive"]
-                   [:no "Negative"]]
+                  [[1 "1"]
+                   [2 "2"]
+                   [3 "3"]
+                   [4 "4"]]
                   false false false
-                  :arp
-                  #{"v1.2" "v2.1" "next-gen" "research"}
+                  :prp
+                  #{"prostate"}
                   nil)
-   (->Input-group :her2-status
-                  "HER2 status"
+   (->Input-group :grade-group
+                  "Grade Group"
                   :radio-group
-                  [[:yes "Positive"]
-                   [:no "Negative"]]
-                  false false true
-                  :arp
-                  #{"v1.2" "v2.1" "next-gen" "research"}
+                  [[1 "1"]
+                   [2 "2"]
+                   [3 "3"]
+                   [4 "4"]
+                   [5 "5"]]
+                  false false false
+                  :prp
+                  #{"prostate"}
                   nil)
-   (->Input-group :ki67-status
-                  "Ki-67 status"
+   (->Input-group :biopsy50
+                  "Biopsy"
                   :radio-group
-                  [[:yes "Positive"]
-                   [:no "Negative"]]
+                  [[1 "1"]
+                   [2 "2"]]
                   false false true
-                  :arp
-                  #{"v1.2" "v2.1"}
+                  :prp
+                  #{"prostate"}
                   nil)
-   #_(->Input-group :pr-status
-                  "PR status"
+   (->Input-group :charlson-comorbidity
+                  "Comorbidity"
                   :radio-group
-                  [[:yes "Positive"]
-                   [:no "Negative"]]
-                  false false true
-                  :arp
-                  #{"next-gen" "research"}
+                  [[0 "0"]
+                   [1 "1"]]
+                  false false false
+                  :prp
+                  #{"prostate"}
                   nil)
-   #_(->Input-group :oncotype
-                  "Oncotype Dx score"
-                  :numeric-input
-                  {:min 0 :max 100 :step 1 :precision 0 :unit "%"}
-                  false false true
-                  :arp
-                  #{"next-gen" "research"}
-                  nil)
+
+   ; Switches
 
    (->Input-group :result-year
                   "Years after surgery"

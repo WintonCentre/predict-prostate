@@ -11,7 +11,7 @@
 (def router
   (r/router [["/" :home]
              ["/home" :home]
-             ;["/tool" :tool]
+             ["/tool" :tool]
              ]))
 
 (defn on-navigate

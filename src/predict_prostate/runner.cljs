@@ -33,14 +33,9 @@
 
   (publish results-change
            (when (recalculate-model? input-map)
-             ;(.log js/console "publishing " (predict2-from-v3-inputs (assoc input-map :rtime 10)))
-             ;(into {} (:results_time (predict2-from-v3-inputs (assoc input-map :rtime 10))))
-             (predict-prostate (assoc input-map :rtime 10))
+             (predict-prostate (assoc input-map :n 10))
              )))
 
-(defmethod recalculate-model "research"
-  [model input-map]
-  )
 
 
 (comment                                                    ;; --- tests
@@ -48,11 +43,5 @@
   (recalculate-model? (input-map))
   @results-cursor
 
-  (recalculate-model "v1.2" {:a 1 :b 2})
-  ; v1.2 {:a 1, :b 2}
-  ; => nil
 
-  (recalculate-model "v2.1" {:a 1 :b 2})
-  ; v2.1 {:a 1, :b 2}
-  ; => nil
   )

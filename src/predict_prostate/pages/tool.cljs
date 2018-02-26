@@ -8,7 +8,7 @@
             [predict-prostate.router :refer [router]]
             [predict-prostate.content-reader :refer [section all-subsections]]
             [predict-prostate.layout.input-panels :refer [inputs-column]]
-    ;[predict-prostate.layout.treatments-panel :refer [treatments-panel treatments-options]]
+            [predict-prostate.layout.treatments-panel :refer [treatments-panel treatments-options]]
     ;[predict-prostate.layout.result-panel :refer [results]]
             [predict-prostate.layout.header :refer [header footer]]
             [predict-prostate.state.mutations :refer [clear-inputs]]
@@ -46,22 +46,23 @@
 
 
 
-#_(rum/defc treatments-with-results < rum/reactive []
-    (if (nil? (rum/react results-cursor))
-      [:.alert.alert-danger {:role  "alert"
-                             :style {:font-size "18px"}} "Treatment options and results will appear here when you have filled in all the information needed."]
+(rum/defc treatments-with-results < rum/reactive []
+  (if (nil? (rum/react results-cursor))
+    [:.alert.alert-danger {:role  "alert"
+                           :style {:font-size "18px"}} "Treatment options and results will appear here when you have filled in all the information needed."]
 
-      [:.row
-       [:.col-md-12
-        [:h2 {:style {:margin-top 0 :float "left"}} "Options"]
-        [:div {:style {:float "right"}} (settings-button)]
-        (treatments-options)
-        (results true)
-        [:#side-effect-warning.alert.alert-danger.clearfix {:role  "alert"
-                                                            :style {:font-size  "18px"
-                                                                    :margin-top "20px"}}
-         (all-subsections "tool-postamble")
-         ]]]))
+    [:.row
+     [:.col-md-12
+      [:h2 {:style {:margin-top 0 :float "left"}} "Options"]
+      [:div {:style {:float "right"}} (settings-button)]
+      (treatments-options)
+      ;(results true)
+      [:#side-effect-warning.alert.alert-danger.clearfix {:role  "alert"
+                                                          :style {:font-size  "18px"
+                                                                  :margin-top "20px"}}
+       (all-subsections "tool-postamble")
+       ]]]))
+
 
 (rum/defc tool []
   (let [[_ & preamble] (section "tool-preamble")]
@@ -82,8 +83,8 @@
                      :style {:min-height "calc(100vh - 200px)"}}
          (titled-panel* {:title "Treatment Options and Results"
                          :class (:treatments-header treatments-style)}
-           [:div "Treatments"]                              ;(treatments-with-results)
-           )
+                        [:div (treatments-with-results)]
+                        )
          ]]
        (footer)
        (top-modal)

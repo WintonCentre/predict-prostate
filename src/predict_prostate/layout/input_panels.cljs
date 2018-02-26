@@ -56,14 +56,6 @@
 ;;;
 ;; PATIENT RELATED
 ;;;
-(rum/defc patient-related-help < rum/static []
-  [:div {:id "patient-related-help"}
-   [:h1 "Patient related factors"]
-   [:h2 "Age at diagnosis"]
-   [:p "Many risk factors depend on the age of the patient."]
-   [:h2 "Surgery"
-    [:p "May be breast-conserving surgery or a mastectomy."]]])
-
 
 (rum/defc patient-related-form < rum/reactive [model-keys]
   [:div
@@ -71,18 +63,16 @@
    [:form.form-horizontal {:on-key-press key-event
                            :on-submit submit-event}
     (when (model-keys :age) (form-entry {:label "Age" :key :age}))
-    (when (model-keys :post-meno) (form-entry {:label "Post Menopausal?" :key :post-meno}))
-    [:hr]
+    (when (model-keys :psa) (form-entry {:label "PSA" :key :psa}))
+    (when (model-keys :t-stage) (form-entry {:label "T stage" :key :t-stage}))
+    (when (model-keys :grade-group) (form-entry {:label "Grade Group" :key :grade-group}))
+    (when (model-keys :biopsy50) (form-entry {:label "Biopsy" :key :biopsy50}))
+    (when (model-keys :charlson-comorbidity) (form-entry {:label "Comorb" :key :charlson-comorbidity}))
     ]])
 
 (rum/defc patient-related-panel < rum/static [model-keys]
-  [:div
-
-   (titled-panel
-     {:key   "about-the-patient"
-      :title "About the patient"
-      :help  patient-related-help}
-     (patient-related-form model-keys))]
+  (titled-panel {}
+                (patient-related-form model-keys))
   )
 
 ;;;
