@@ -1,6 +1,7 @@
 (ns predict-prostate.models.prostate
   (:require [common.data-frame :refer [cell-apply cell-update cell-sums cell-diffs]]
-            [common.utils :refer [deltas]]))
+            [common.utils :refer [deltas]]
+            ))
 
 (def exp js/Math.exp)
 (def ln js/Math.log)
@@ -10,23 +11,26 @@
 
 ; stata L 19
 (defn pi-pcsm [{:keys [age psa t-stage grade-group primary-rx protect biopsy50]}]
-  "gen pi-pcsm = 0.002219*((age/10)^3 -341.1652608) + 0.1066838*(ln((psa+1)/100)+1.635612967) + .1271878*(t_stage==2) + .3912962*(t_stage==3) + .5572669*(t_stage==4) + .2404877*(gradegroup==2) + .5844514*(gradegroup==3) + .840747*(gradegroup==4) + 1.480844*(gradegroup==5) + -.7277408*(primaryRx==1) + 1.070543*(primaryRx==3) + -0.46204*(Protect==1) + -0.67334*(Protect==2) + -0.5811587*(biopsy50==1) + 0.55990146*(biopsy50==2)"
+  "gen pi-pcsm = 0.002219*((age/10)^3 -341.1652608) + 0.1066838*(ln((psa+1)/100)+1.635612967) + .1271878*(t_stage==2)
+  + .3912962*(t_stage==3) + .5572669*(t_stage==4) + .2404877*(gradegroup==2) + .5844514*(gradegroup==3)
+  + .840747*(gradegroup==4) + 1.480844*(gradegroup==5) + -.7277408*(primaryRx==1) + 1.070543*(primaryRx==3)
+  + -0.46204*(Protect==1) + -0.67334*(Protect==2) + -0.5811587*(biopsy50==1) + 0.55990146*(biopsy50==2)"
   (+ (* 0.002219 (+ (pow (/ age 10) 3) -341.1652608))
-     (* 0.1066838 (+ (ln (/ (inc psa) 100)) 1.635612967))
-     (get {2 0.1271878
-           3 0.3912962
-           4 0.5572669} t-stage)
-     (get {2 0.2404877
-           3 0.5844514
-           4 0.840747
-           5 1.480844} grade-group)
-     (get {1 -0.7277408
-           3 1.070543} primary-rx)
-     (get {1 -0.46204
-           2 -0.67334} protect)
-     (get {1 -0.5811587
-           2 0.55990146} biopsy50)
-     ))
+    (* 0.1066838 (+ (ln (/ (inc psa) 100)) 1.635612967))
+    (get {2 0.1271878
+          3 0.3912962
+          4 0.5572669} t-stage)
+    (get {2 0.2404877
+          3 0.5844514
+          4 0.840747
+          5 1.480844} grade-group)
+    (get {1 -0.7277408
+          3 1.070543} primary-rx)
+    (get {1 -0.46204
+          2 -0.67334} protect)
+    (get {1 -0.5811587
+          2 0.55990146} biopsy50)
+    ))
 (comment
   (pi-pcsm {:age 45 :psa 85 :t-stage 3 :grade-group 5 :primary-rx 0 :protect 0 :biopsy50 0})
   ;=> 1.4757039089297683
@@ -35,7 +39,7 @@
 (defn pi-npcm [{:keys [age charlson-comorbidity]}]
   "gen pi-npcm = 0.1229245*(age-69.8749646) + 0.6640308*(charlson_comorbidity==1)"
   (+ (* 0.1229245 (- age 69.8749646))
-     (get {1 0.6640308} charlson-comorbidity))
+    (get {1 0.6640308} charlson-comorbidity))
   )
 (comment
   (pi-npcm {:age 45 :charlson-comorbidity 1})
@@ -52,8 +56,8 @@
     (defn bs-PCSM [time]
       "exp(-17.03262 + 1311.891*(time^-2) + 1.726887*(ln(time)))"
       (exp (+ -17.03262
-              (* 1311.891 (pow time -2))
-              (* 1.726887 (ln time))))
+             (* 1311.891 (pow time -2))
+             (* 1.726887 (ln time))))
       )
     (comment
       (bs-PCSM (days 10))
@@ -63,8 +67,8 @@
     (defn bs-NPCM [time]
       "exp(-12.45735 + 1.317565*(ln(time)) + 3.01e-12*(time^3))"
       (exp (+ -12.45735
-              (* 1.317565 (ln time))
-              (* 3.01e-12 (pow time 3))))
+             (* 1.317565 (ln time))
+             (* 3.01e-12 (pow time 3))))
       )
     (comment
       (bs-NPCM (days 10))
@@ -76,29 +80,35 @@
 (defn pcsm-at-t [time pi]
   "1 - exp(-exp(pi-pcsm)*exp(-17.03262 + 1311.891*(time^-2) + 1.726887*(ln(time))))"
   (+ 1
-     (- (exp (* (- (exp pi))
-                (exp (+ -17.03262
-                        (* 1311.891 (pow time -2))
-                        (* 1.726887 (ln time)))))))))
+    (- (exp (* (- (exp pi))
+              (exp (+ -17.03262
+                     (* 1311.891 (pow time -2))
+                     (* 1.726887 (ln time)))))))))
 (comment
   (pcsm-at-t (days 10)))
+
+(defn f [{:keys [n a b c]
+          :or   {c 3 n 10}
+          :as   foo}]
+  [foo c n])
 
 
 (defn npcm-at-t [time pi]
   "1 - exp(-exp(piNPCM)*exp(-12.45735 + 1.317565*(ln(time)) + 3.01e-12*(time^3)))"
   (+ 1
-     (- (exp (* (- (exp pi))
-                (exp (+ -12.45735
-                        (* 1.317565 (ln time))
-                        (* 3.01e-12 (pow time 3))))))))) ; 3.01e-12 !!!!
+    (- (exp (* (- (exp pi))
+              (exp (+ -12.45735
+                     (* 1.317565 (ln time))
+                     (* 3.01e-12 (pow time 3)))))))))       ; 3.01e-12 !!!!
 
 (defn run-prostate [{:keys [n age grade-group psa t-stage charlson-comorbidity primary-rx protect biopsy50]
-                         :as   args}]
+                     :as   args
 
-  (println "args = " args)
-  (let [                                                    ;defaults {:n 10 :age 45 :grade-group 5 :psa 85 :t-stage 3 :charlson-comorbidity 1 :primary-rx 0 :protect 0 :biopsy50 0}
-        ;args (merge defaults (first args))
-        z (println "args:::" args)
+                     }]
+
+  (let [;defaults {:n 10 :age 45 :grade-group 5 :psa 85 :t-stage 3 :charlson-comorbidity 1 :primary-rx 0 :protect 0 :biopsy50 0}
+
+
 
         ;calculate the PCSM prognostic index (pi)
         piPCSM (pi-pcsm args)
@@ -144,7 +154,7 @@
         ;
         ;'all cause mortality'
         ;
-        allcauseM (map #(- 1 (* %1 %2 )) PCSsurvival NPCsurvival)
+        allcauseM (map #(- 1 (* %1 %2)) PCSsurvival NPCsurvival)
         ;(0.005535976336812465 0.01741962778769468 0.03411802269051689 0.05483556505613563 0.0789835662715267 0.1060704395470139 0.1356633605530203 0.16737197747451704 0.20084110431861169 0.23574775252364877)
 
         allcauseM-inyear (deltas 0 allcauseM)
@@ -187,7 +197,7 @@
         ; (99.53069897172345 98.46801502716171 96.94673786575045 95.04188918111227 92.81121167355501 90.30470806745315 87.56807493105853 84.64426128988357 81.57429628296775 78.39780523023171)
         ]
 
-    {:pred-PC-cum pred-PC-cum
+    {:pred-PC-cum  pred-PC-cum
      :pred-NPC-cum pred-NPC-cum}
 
     ;(println "piPCSM" piPCSM)

@@ -31,7 +31,7 @@
 
     (println "transformed input-map" tim)
 
-    (println "result:" (run-prostate [tim])))
+    (println "result:" (run-prostate tim)))
 
 
   true

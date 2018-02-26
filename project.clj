@@ -12,6 +12,7 @@
                  [org.clojure/clojurescript "1.9.946"]
                  [org.clojure/core.async  "0.4.474"]
                  [com.rpl/specter "1.1.0"]
+                 [org.clojure/spec.alpha "0.1.143"]
 
                  ;; cljs dependencies
                  [cljs-ajax "0.7.3"]
