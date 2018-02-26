@@ -1,16 +1,16 @@
 (ns predict-prostate.pages.root
   (:require                                                 ;[org.martinklepsch.derivatives :refer [rum-derivatives]]
-            [rum.core :as rum]
-            [predict-prostate.state.run-time :refer [rtdb route     ;drv-spec
+    [rum.core :as rum]
+    [predict-prostate.state.run-time :refer [rtdb route     ;drv-spec
                                              ]]
-            [predict-prostate.pages.home :refer [home]]
+    [predict-prostate.pages.home :refer [home]]
     ;       [predict-prostate.pages.about :refer [about]]
     ;       [predict-prostate.pages.patient :refer [patient]]
     ;       [predict-prostate.pages.clinician :refer [clinician]]
-    ;       [predict-prostate.pages.predict-v2 :refer [v2]]
+    [predict-prostate.pages.tool :refer [tool]]
     ;       [predict-prostate.pages.news :refer [news]]
     ;       [predict-prostate.pages.not-found :refer [not-found]]
-            ))
+    ))
 
 
 (rum/defc root < rum/reactive                               ;(rum-derivatives drv-spec)
@@ -23,7 +23,7 @@
        ;:about (about)
        ;:patient (patient)
        ;:clinician (clinician)
-       ;:tool (v2)
+       :tool (tool)
        ;:not-found (not-found)
        ;[:div "404"]
        )]))
