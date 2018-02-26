@@ -20,9 +20,9 @@
 
   (let [
         tim (-> input-map
-                (update :age identity)
+                (update :age read-string)
                 (update :n (constantly 10))
-                (update :psa identity)
+                (update :psa read-string)
                 (update :t-stage identity)
                 (update :grade-group identity)
                 (update :charlson-comorbidity identity)

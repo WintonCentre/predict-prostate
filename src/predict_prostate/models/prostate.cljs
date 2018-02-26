@@ -95,9 +95,9 @@
 (defn run-prostate [{:keys [n age grade-group psa t-stage charlson-comorbidity primary-rx protect biopsy50]
                          :as   args}]
 
-  (println "args = " (first args))
-  (let [defaults {:n 10 :age 45 :grade-group 5 :psa 85 :t-stage 3 :charlson-comorbidity 1 :primary-rx 0 :protect 0 :biopsy50 0}
-        args (merge defaults (first args))
+  (println "args = " args)
+  (let [                                                    ;defaults {:n 10 :age 45 :grade-group 5 :psa 85 :t-stage 3 :charlson-comorbidity 1 :primary-rx 0 :protect 0 :biopsy50 0}
+        ;args (merge defaults (first args))
         z (println "args:::" args)
 
         ;calculate the PCSM prognostic index (pi)
@@ -187,9 +187,8 @@
         ; (99.53069897172345 98.46801502716171 96.94673786575045 95.04188918111227 92.81121167355501 90.30470806745315 87.56807493105853 84.64426128988357 81.57429628296775 78.39780523023171)
         ]
 
-    {:overall-survival overall-survival
-     :NPCM NPCM
-     :PCSM 100}
+    {:pred-PC-cum pred-PC-cum
+     :pred-NPC-cum pred-NPC-cum}
 
     ;(println "piPCSM" piPCSM)
     ;(println "piNPCM" piNPCM)
