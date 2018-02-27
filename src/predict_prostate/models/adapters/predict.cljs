@@ -5,27 +5,17 @@
             [goog.object :refer [getValueByKeys]]
             ))
 
-;;;
-;; Call predict-prostate - cljs version (slower but nicer!)
-;;;
-
-
-
 (defn predict-prostate
-  "Call the v2 model using v3 data. Note that fields that MUST be entered should NOT have default values. This is so we
-  can detect incomplete entries by looking for nil values."
+  "Run the prostate model, mapping input factors to numeric model parameters."
   [input-map]
-
   (-> input-map
-      (update :age read-string)
-      (update :n (constantly 10))
-      (update :psa read-string)
-      (update :t-stage identity)
-      (update :grade-group identity)
-      (update :charlson-comorbidity identity)
-      (update :biopsy50 #(if (= :unknown %) 0 %))
-      (assoc :protect 0)
-      (run-prostate))
-
-  )
+    (update :age read-string)
+    (update :n (constantly 10))
+    (update :psa read-string)
+    (update :t-stage identity)
+    (update :grade-group identity)
+    (update :charlson-comorbidity identity)
+    (update :biopsy50 #(if (= :unknown %) 0 %))
+    (assoc :protect 0)
+    (run-prostate)))
 

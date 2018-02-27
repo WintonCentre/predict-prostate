@@ -293,10 +293,10 @@
     [:section#tool-postamble "Postamble"
      [:section#dummy ""
       [:h3 "Important"]
-      [:p "These results are estimates based on data from women with similar characteristics.
-     There are other important factors, such as lifestyle, which affect outcomes. Your doctor will help you put these
+      [:p "These results are estimates based on data from men with similar characteristics.
+     There are other important factors such as lifestyle, which affect outcomes. Your doctor will help you put these
      results in context."]
-      [:h3 "Side effects"]
+      [:h3 "Potential Harms"]
       [:p "The treatments listed above can have side effects. The following websites provide excellent advice and
      information on these treatments and their potential side effects:"]
 
@@ -304,28 +304,28 @@
       [:ul {:style {:font-size       "120%"
                     :list-style-type "none"}}
        [:li {:key 1}
-        [:a {:href "http://www.cancerresearchuk.org/about-cancer/breast-cancer/treatment" :target "blank"} "Cancer research UK"]]
+        [:a {:href "http://www.cancerresearchuk.org/about-cancer/prostate-cancer/treatment" :target "blank"} "Cancer research UK"]]
        [:li {:key 2}
-        [:a {:href "https://www.nhs.uk/conditions/breast-cancer/treatment/" :target "blank"} "NHS"]]]
+        [:a {:href "https://www.nhs.uk/conditions/prostate-cancer/treatment/" :target "blank"} "NHS"]]]
 
 
-      [:h4 "More information about side effects:"]
+      [:h4 "More information about potential harms:"]
       [:ul {:style {:font-size       "120%"
                     :list-style-type "none"}}
        [:li {:key 3}
-        [:a {:href "https://www.breastcancercare.org.uk/information-support/facing-breast-cancer/going-through-treatment-breast-cancer/side-effects\n" :target "blank"} "Breast Cancer Care"]]
+        [:a {:href "https://www.nhs.uk/conditions/prostate-cancer/treatment/#radical-prostatectomy" :target "blank"} "Radical prostatectomy"]]
        [:li {:key 2}
-        [:a {:href "https://www.macmillan.org.uk/information-and-support/breast-cancer/coping/side-effects-and-symptoms" :target "blank"} "Macmillan"]]
-       #_[:li {:key 0}
-          [:a {:href "https://www.nhs.uk/pages/home.aspx" :target "_blank"} "NHS Choices"]]
+        [:a {:href "https://www.nhs.uk/conditions/prostate-cancer/treatment/#radiotherapy" :target "blank"} "Radiotherapy"]]
        ]
       [:h4 "Sources of advice and support:"]
       [:ul {:style {:font-size       "120%"
                     :list-style-type "none"}}
        [:li {:key 3}
-        [:a {:href "https://www.breastcancercare.org.uk/information-support/support-you/someone-talk" :target "blank"} "Breast Cancer Care"]]
+        [:a {:href "http://www.macmillan.org.uk/" :target "blank"} "Macmillan"]]
        [:li {:key 0}
-        [:a {:href "https://www.nhs.uk/conditions/breast-cancer/treatment/#psychological-help" :target "_blank"} "NHS"]]
+        [:a {:href "http://prostatecanceruk.org/" :target "_blank"} "Prostate Cancer UK"]]
+       [:li {:key 0}
+          [:a {:href "https://www.nhs.uk/pages/home.aspx" :target "_blank"} "NHS Choices"]]
        ]
       ]]
 

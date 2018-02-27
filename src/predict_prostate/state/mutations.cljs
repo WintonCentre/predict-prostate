@@ -77,7 +77,7 @@
             (= key :age)
             (reset! (input-cursor :age) (if (or (= "" value) (nil? value))
                                           ""
-                                          (str (clip {:value value :min 0 :max 85})))
+                                          (str (clip {:value value :min 0 :max 100})))
               )
 
             ;; when nodes changes to zero, micromets can be entered, otherwise, and initially, they are disabled

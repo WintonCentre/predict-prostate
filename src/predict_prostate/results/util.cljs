@@ -154,9 +154,9 @@
   (let [p (if (< d 10) (if high 1 0) 0)]
     (.toFixed (js/Number. d) p)))
 
-(defn one-dp [d]
+(defn one-dp [d p]
   "return a string representation of a number such as a percentage."
-  (.toFixed (js/Number. d) 1))
+  (.toFixed (js/Number. d) p))
 
 (defn to-percent
   "convert float fraction to a decimal percent value at full precision"

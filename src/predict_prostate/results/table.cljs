@@ -23,20 +23,30 @@
   "return a cursor containing the selected year"
   (input-cursor :result-year))
 
-(defn percent [d]
-  (str (one-dp (* 100 d)) "%"))
+(defn percent
+  ([d]
+   (percent d 0))
+  ([d p]
+   (str (one-dp (* 100 d) p) "%")))
 
 (defn extract-data [results year]
   (let [year (dec year)
         conservative-survival (- 1 (+ (nth (get-in results [:conservative :pred-PC-cum]) year)
-                                      (nth (get-in results [:conservative :pred-NPC-cum]) year)))
+                                     (nth (get-in results [:conservative :pred-NPC-cum]) year)))
+        radical-low-survival (- 1 (+ (nth (get-in results [:radical-low :pred-PC-cum]) year)
+                                    (nth (get-in results [:radical-low :pred-NPC-cum]) year)))
+        radical-high-survival (- 1 (+ (nth (get-in results [:radical-high :pred-PC-cum]) year)
+                                    (nth (get-in results [:radical-high :pred-NPC-cum]) year)))
         radical-survival (- 1 (+ (nth (get-in results [:radical :pred-PC-cum]) year)
-                                 (nth (get-in results [:radical :pred-NPC-cum]) year)))
+                                (nth (get-in results [:radical :pred-NPC-cum]) year)))
 
-        data {:conservative {:overall (percent conservative-survival)
-                             :benefit "-"}
-              :radical      {:overall (percent radical-survival)
-                             :benefit (percent (- radical-survival conservative-survival))}}]
+        data {:dotted-orange (percent (nth (get-in results [:conservative :NPC-survival]) year) 0)
+              :conservative  {:overall (percent conservative-survival)
+                              :benefit "-"}
+              :radical       {:overall (percent radical-survival)
+                              :benefit-low (percent (- radical-low-survival conservative-survival) 1)
+                              :benefit-high (percent (- radical-high-survival conservative-survival) 1)
+                              :benefit (percent (- radical-survival conservative-survival) 1)}}]
     (println "data " data)
     data))
 
@@ -62,15 +72,14 @@
           [:td "Radical treatment"]
           [:td (get-in data [:radical :benefit])            ;(benefit% data :horm uncertainty?)
            (if uncertainty?
-             (str " (" "2%" "–" "4%")
-             "")]
+             (str " (" (get-in data [:radical :benefit-high]) "–" (get-in data [:radical :benefit-low]) ")"))]
           [:td (get-in data [:radical :overall])]
           ])
        [:tr
         [:td {:col-span 3}
          "If these men were cancer free, "
-         "90"                                               ; (Math.round (- 100 (:oth data)))
-         "% would survive "
+         (get data :dotted-orange)                          ; (Math.round (- 100 (:oth data)))
+         " would survive "
          (rum/react (input-cursor :result-year))
          " years."]
         ]

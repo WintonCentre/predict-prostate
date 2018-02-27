@@ -24,8 +24,10 @@
           3 0.5844514
           4 0.840747
           5 1.480844} grade-group)
-    (get {1 -0.7277408
-          3 1.070543} primary-rx)
+    (get {0.9 -1.0498221                                    ; radical low (log 0.35)
+          1   -0.7277408                                    ; radical (log 0.483)
+          1.1 -0.4004776                                    ; radical high (log 0.67)
+          3   1.070543} primary-rx)
     (get {1 -0.46204
           2 -0.67334} protect)
     (get {1 -0.5811587
@@ -199,7 +201,7 @@
 
     {:pred-PC-cum  pred-PC-cum
      :pred-NPC-cum pred-NPC-cum
-     :npc-survival NPCsurvival}
+     :NPC-survival NPCsurvival}
 
     ;(println "piPCSM" piPCSM)
     ;(println "piNPCM" piNPCM)
