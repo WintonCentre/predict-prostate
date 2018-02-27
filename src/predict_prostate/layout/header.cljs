@@ -19,8 +19,10 @@
       [:.col-xs-4
        [:.row
         [:.col-sm-10
-         [:img.img-responsive {:src "assets/logo-pos.png"}]
-         [:p.pull-right {:style {:padding-left "00px"
+         [:img.img-responsive {:src   "assets/logo-prostate.png"
+                               :style {:margin-left "-15px"
+                                       :margin-bottom "5px"}}]
+         #_[:p.pull-right {:style {:padding-left "00px"
                                  :text-align   "right"
                                  :font-weight  "bold"
                                  :font-size    "16px"

@@ -198,7 +198,8 @@
         ]
 
     {:pred-PC-cum  pred-PC-cum
-     :pred-NPC-cum pred-NPC-cum}
+     :pred-NPC-cum pred-NPC-cum
+     :npc-survival NPCsurvival}
 
     ;(println "piPCSM" piPCSM)
     ;(println "piNPCM" piNPCM)

@@ -1,6 +1,6 @@
 (ns predict-prostate.models.runner
   (:require [predict-prostate.state.run-time :refer [results-change results-cursor input-map
-                                             on-screen-inputs-cursor]]
+                                                     on-screen-inputs-cursor]]
             [predict-prostate.models.adapters.predict :refer [predict-prostate]]
             [pubsub.feeds :refer [publish]]
             ))
@@ -33,7 +33,11 @@
 
   (publish results-change
            (when (recalculate-model? input-map)
-             (predict-prostate (assoc input-map :n 10))
+             (let [results {:conservative (predict-prostate (assoc input-map :n 10 :primary-rx 0))
+                            :radical      (predict-prostate (assoc input-map :n 10 :primary-rx 0))}]
+               (println results)
+               results
+               )
              )))
 
 
@@ -42,6 +46,5 @@
 
   (recalculate-model? (input-map))
   @results-cursor
-
 
   )

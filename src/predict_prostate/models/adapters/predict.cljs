@@ -16,24 +16,16 @@
   can detect incomplete entries by looking for nil values."
   [input-map]
 
-  (println "input-map:" input-map)
+  (-> input-map
+      (update :age read-string)
+      (update :n (constantly 10))
+      (update :psa read-string)
+      (update :t-stage identity)
+      (update :grade-group identity)
+      (update :charlson-comorbidity identity)
+      (update :biopsy50 #(if (= :unknown %) 0 %))
+      (assoc :protect 0)
+      (run-prostate))
 
-  (let [
-        tim (-> input-map
-                (update :age read-string)
-                (update :n (constantly 10))
-                (update :psa read-string)
-                (update :t-stage identity)
-                (update :grade-group identity)
-                (update :charlson-comorbidity identity)
-                (update :biopsy50 #(if (= :unknown %) 0 %))
-                (assoc :protect 0))]
-
-    (println "transformed input-map" tim)
-
-    (println "result:" (run-prostate tim)))
-
-
-  true
   )
 

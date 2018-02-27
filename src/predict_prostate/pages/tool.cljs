@@ -9,7 +9,7 @@
             [predict-prostate.content-reader :refer [section all-subsections]]
             [predict-prostate.layout.input-panels :refer [inputs-column]]
             [predict-prostate.layout.treatments-panel :refer [treatments-panel treatments-options]]
-    ;[predict-prostate.layout.result-panel :refer [results]]
+            [predict-prostate.layout.result-panel :refer [results]]
             [predict-prostate.layout.header :refer [header footer]]
             [predict-prostate.state.mutations :refer [clear-inputs]]
             [predict-prostate.state.run-time :refer [results-cursor help-key-change
@@ -27,7 +27,7 @@
 (defstyle treatments-style
   ["div" {:font-size "12px"}]
   [".treatments-header"
-   {:background-color "#B63D97 !important"
+   {:background-color "#005fB1 !important"
     :color            "white !important"
     :font-size        "10px !important"}
    ["form" {:border "1px solid red"}]])
@@ -56,7 +56,7 @@
       [:h2 {:style {:margin-top 0 :float "left"}} "Options"]
       [:div {:style {:float "right"}} (settings-button)]
       (treatments-options)
-      ;(results true)
+      (results true)
       [:#side-effect-warning.alert.alert-danger.clearfix {:role  "alert"
                                                           :style {:font-size  "18px"
                                                                   :margin-top "20px"}}

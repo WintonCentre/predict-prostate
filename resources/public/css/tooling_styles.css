@@ -4,10 +4,12 @@ p {
 }
 
 .emphasise {
- border-left: 4px solid #B63D97;
- font-style: italic;
+ border-left: 4px solid #005FB1;
+ color: #005fB1;
+ //font-style: italic;
  display: inline-block;
  padding: 20px;
+ //font-family: courier
 }
 
 .panel-body {
@@ -71,24 +73,24 @@ form .form-group {
 
 /* navbar background */
 .navbar-inverse {
-    background-color: #005eb8;
-    border-color: #005eb8;
+    background-color: #777799;
+    border-color: #777799;
 }
 
 /* active button background */
 .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
     color: #fff;
-    background-color: #00417f;
+    background-color: #444466; //#00417f;
 }
 
 /* hamburger background */
 .navbar-inverse .navbar-toggle {
-    background-color: #00417f;
+    background-color: #444466; //#00417f;
 }
 
 /* unselected menu item text */
 .navbar-inverse .navbar-nav>li>a {
-    color: #cce6ff;
+    color: #CCCCDD;
 }
 
 
@@ -115,20 +117,20 @@ form .form-group {
 }
 
 .btn-danger {
- background-color: #B63D97 !important;
- border-color: #B63D97 !important;
+ background-color: #005fB1 !important;  //#B63D97 !important;
+ border-color: #005fB1 !important; //#B63D97 !important;
 }
 .btn-danger:hover {
-  background-color: #993278 !important;
-  border-color: #993278 !important;
+  background-color: #004B88 !important;
+  border-color: #004B88 !important;
  }
 
 .btn-danger:focus {
- background-color: #B63D97 !important;
+ background-color: #004B88 !important;
 }
 
 .btn-danger:active {
- background-color: #B63D97 !important;
+ background-color: #004B88 !important;
 }
 
 /*
@@ -172,9 +174,9 @@ form .form-group {
 
 
 .alert-danger {
-  color: #993278;
-  background-color: #ffdbf1;
-  border-color: #ebccd1;
+  color: #005FB1;
+  background-color: #ddeeff; //#ffdbf1;
+  border-color: #ddeeff;
 }
 
 /**
@@ -196,7 +198,7 @@ form .form-group {
  * Tool accordion
  */
 #data-input > div > .panel-default > .panel-heading {
-  background-color: #B63D97 !important;
+  background-color: #005FB1 !important;
   color: #ffffff !important;
 }
 
@@ -261,7 +263,7 @@ form .form-group {
  */
  .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
    color: #fff;
-   background-color: #B63D97;
+   background-color: #005FB1;
  }
 /*
 .nav-tabs {
