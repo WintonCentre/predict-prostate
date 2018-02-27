@@ -6,7 +6,7 @@
                                                      filter-results->stacked-bar-props result-scroll-height]]
             [predict-prostate.state.run-time :refer [input-cursor input-change input-widget input-label results-cursor]]
             [predict-prostate.components.button :refer [year-picker]]
-            [predict-prostate.results.util :refer [lookup ->Item treatment-callout-text strip-root avoid-decimals]]
+            [predict-prostate.results.util :refer [lookup ->Item treatment-callout-text strip-root one-dp]]
 
             [pubsub.feeds :refer [publish]]
             ))
@@ -24,7 +24,7 @@
   (input-cursor :result-year))
 
 (defn percent [d]
-  (str (* 100 (avoid-decimals d true)) "%"))
+  (str (one-dp (* 100 d)) "%"))
 
 (defn extract-data [results year]
   (let [year (dec year)
@@ -35,7 +35,7 @@
 
         data {:conservative {:overall (percent conservative-survival)
                              :benefit "-"}
-              :radical      {:overall (percent (- 1 radical-survival))
+              :radical      {:overall (percent radical-survival)
                              :benefit (percent (- radical-survival conservative-survival))}}]
     (println "data " data)
     data))

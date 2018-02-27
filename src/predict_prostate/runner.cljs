@@ -34,7 +34,7 @@
   (publish results-change
            (when (recalculate-model? input-map)
              (let [results {:conservative (predict-prostate (assoc input-map :n 10 :primary-rx 0))
-                            :radical      (predict-prostate (assoc input-map :n 10 :primary-rx 0))}]
+                            :radical      (predict-prostate (assoc input-map :n 10 :primary-rx 1))}]
                (println results)
                results
                )
