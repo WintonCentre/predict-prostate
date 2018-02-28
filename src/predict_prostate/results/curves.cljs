@@ -54,13 +54,7 @@
   (let [point (fn [x y] (str (X x) " " (Y y)))
         coord (fn [m] (point (:x m) (:y m)))
         rev-data (reverse data)
-        [d1 d2 d3] data
         ]
-    (println "d1" d1)
-    (println "d2" d2)
-    (println "d3" d3)
-
-
     [:g
      (map-indexed (fn [i d] [:polygon {:key    (str "p" i)
                                        :fill   (treatment-fills (- (dec (count data)) i))
@@ -192,7 +186,7 @@
 
 (defn some-benefit? [data treatment-key] (pos? (benefit data treatment-key)))
 
-(rum/defc legend [data]
+(rum/defc legend < rum/reactive [data]
   [:div {:width "100%"}
    [:div {:style {:border-top     (str "4px dashed " dashed-stroke)
                   :width          "50px"
@@ -202,23 +196,23 @@
    [:div {:style {:display     "inline-block"
                   :margin-left "10px"
                   :width       "calc(100% - 60px)"}} [:p " Survival of these men if they were free of cancer"]]
-   (when (some-benefit? data :primary-rx)
-     [:p (dead-icon (fill 2)) " Additional benefit of radical treatment"])
-   [:p (dead-icon (fill 3)) " Conservative"]])
+   (when (pos? (rum/react (input-cursor :primary-rx)))
+     [:p (dead-icon (fill 1)) " Additional benefit of radical treatment"])
+   [:p (dead-icon (fill 2)) " Conservative treatment"]])
 
 
 
 
 (defn extract-data [results]
   "extract plot data from the model run"
-  (let [years (range 0 11)
+  (let [                                                    ;years (range 0 11)
         one-sum #(* 100 (- 1 (+ %1 %2)))
         radical-survival (map one-sum
                               (get-in results [:radical :pred-PC-cum])
-                              (get-in results [:radical :pred-NPC-cum]) years)
+                              (get-in results [:radical :pred-NPC-cum]))
         conservative-survival (map one-sum
                                    (get-in results [:conservative :pred-PC-cum])
-                                   (get-in results [:conservative :pred-NPC-cum]) years)]
+                                   (get-in results [:conservative :pred-NPC-cum]))]
     [
      conservative-survival
      radical-survival
@@ -231,14 +225,9 @@
 (rum/defcs results-in-curves < rum/static rum/reactive sizing-mixin [state]
   (let [width (rum/react (:width state))
         side-by-side (> width 600)
-        treatment-keys []
-
         data (extract-data (rum/react results-cursor))
-
         cum-data (format-year-data data)
         ]
-    (println "count cum-data" (count cum-data))
-
     [:div {:style {:position "relative"}}
 
      [:p {:style {:margin-top "15px"}}
@@ -253,7 +242,7 @@
                     :width          (if side-by-side "30%" "100%")
                     :display        "inline-block"}}
       ; :todo curves legend
-      ;(legend data)
+      (legend data)
       ]
 
      ]))

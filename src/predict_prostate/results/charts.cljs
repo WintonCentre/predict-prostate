@@ -6,7 +6,7 @@
                                            to-percent avoid-decimals min-label-percent
                                            strip-root fill data-fill fill-data-url
                                             callout-data-fill  dashed-stroke]]
-            [predict-prostate.results.common :refer [stacked-yearly-values stacked-bar-yearly-props filter-results->stacked-bar-props result-scroll-height]]
+            [predict-prostate.results.common :refer [stacked-yearly-values stacked-bar-yearly-props result-scroll-height]]
             [predict-prostate.state.run-time :refer [model input-cursor input-widget input-label
                                              enabled-treatments results-cursor on-screen-treatments-cursor
                                              ]]
@@ -224,10 +224,36 @@
      subtitle-under]
     ]])
 
+(defn extract-data
+  "Different models use different treatment widgets, so we need to use these to react to the correct
+  treatments and lookup the appropriate result-data.
 
-(defn get-year-treatment-benefit
-  [chart-props treatment-key year]
-  (select-one [:dataset (keypath year) ALL #(= (:treatment-key %) treatment-key) :value] chart-props))
+  Must be called from a reactive"
+  [results]
+
+  (let [years [5 10]
+        one-sum #(* 100 (- 1 (+ %1 %2)))
+        radical-survival (map one-sum
+                              (get-in results [:radical :pred-PC-cum])
+                              (get-in results [:radical :pred-NPC-cum]))
+        conservative-survival (map one-sum
+                                   (get-in results [:conservative :pred-PC-cum])
+                                   (get-in results [:conservative :pred-NPC-cum]))]
+    [
+     conservative-survival
+     radical-survival
+     (map #(* 100 %) (get-in results [:conservative :NPC-survival])) ; dotted orange
+     ]
+    )
+  ;;
+  ;; NB This provides the WIRED UP title set!
+  ;;
+  {:title          "Overall Survival"
+   :subtitle-over  "for women with breast cancer, 5 and 10 years after surgery"
+   :subtitle-under "years after surgery"
+   :dataset        []}
+
+  )
 
 (rum/defcs stacked-bar < rum/reactive sizing-mixin
   [state
@@ -237,21 +263,15 @@
            font-scale 1}
     :as   props}]
 
-  (let [treatments (concat [:surgery] (enabled-treatments (rum/react on-screen-treatments-cursor)) [:br :oth])
-        results (rum/react results-cursor)
+  (let [results (rum/react results-cursor)
         width-1 (rum/react (:width state))
         side-by-side (> width-1 600)
         ]
 
-    (when-let [chart-props (filter-results->stacked-bar-props {:model      model
-                                                               :treatments treatments
-                                                               :results    results
-                                                               :horm-yes   (rum/react (input-cursor :horm))
-                                                               :tra-yes    (rum/react (input-cursor :tra))} [5 10])]
+    [:div "Hello"]
+    (when-let [chart-props (extract-data results)]
 
-      (let [uncertainty? (= :yes (rum/react (input-cursor :show-uncertainty)))
-            benefit (partial get-year-treatment-benefit chart-props)
-            some-benefit? #(pos? (+ (benefit % 5) (benefit % 10)))
+      #_(let [benefit (partial get-year-treatment-benefit chart-props)
             add-benefit (fn [treatment-key treatment]
                           (let [bene5 (avoid-decimals (benefit treatment-key 5))
                                 bene10 (avoid-decimals (benefit treatment-key 10))]
@@ -287,23 +307,12 @@
           [:div {:style {:display     "inline-block"
                          :margin-left "10px"
                          :width       "calc(100% - 60px)"}} [:p "Survival of these women if they were free of cancer"]]
-          (when (some-benefit? :tra)
-            [:p (dead-icon (fill 0)) (add-benefit :tra "trastuzumab")])
-          (when (some-benefit? :chemo)
-            [:p (dead-icon (fill 1)) (add-benefit :chemo "chemotherapy")])
-          (when (some-benefit? :horm)
-            [:p (dead-icon (fill 2)) (add-benefit :horm "hormone therapy")])
-          [:p (dead-icon (fill 3)) " Surgery only survival is " (avoid-decimals (benefit :surgery 5)) "% at 5 years and " (avoid-decimals (benefit :surgery 10)) "% at 10 years"]
+          (when (pos? (rum/react (input-cursor :primary-rx)))
+            [:p (dead-icon (fill 1)) " Additional benefit of radical treatment"])
+          [:p (dead-icon (fill 2)) " Conservative treatment"]
+
           ]]))))
 
-(comment
-
-  (filter-results->stacked-bar-props {:model      "v2.1"
-                                      :treatments '(:surgery :horm :chemo :tra)
-                                      :results    @results-cursor
-                                      :tra-yes    "yes"
-                                      :horm-yes   "yes"} [5])
-  )
 
 (rum/defc results-in-charts []
   "Content of the Charts tab, showing treatment options"
