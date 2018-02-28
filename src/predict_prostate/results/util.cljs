@@ -72,7 +72,8 @@
 (def cat-scale-6-4 ["#00008b" "#e16665" "#8722ae"  "#5fd1e6" "#67a4b6" "#dd1493"])
 ;; http://gka.github.io/palettes/#diverging|c0=0000aa,blue,darkorange|c1=6ce5ff,teal,dd1493|steps=6|bez0=1|bez1=1|coL0=1|coL1=1
 (def cat-scale-6-5 ["#0000aa" "#e56961" "#9427b3"  "#5fd1e6" "#67a4b6" "#dd1493"])
-(def cat-scale-6-6 ["#0000aa" "#5fd1e6" "#e56961" "#9427b3" "#67a4b6" "#dd1493"])
+(def cat-scale-6-6 ["#0000aa" "#5fd1e6" "#ffffff"           ;"#e56961" "#9427b3" "#67a4b6" "#dd1493"
+                    ])
 
 (def fills (into [] (reverse cat-scale-6-6)))
 
@@ -114,17 +115,8 @@
 (def min-label-percent 3)
 
 (defn treatment-fills [index]
-  "survival colour bands by data-index"
-  (cond
-    (<= index 5)
-    (fill (- 5 index))
-
-    (= index 6)
-    "#ffffff"
-
-    (= index 7)
-    "#000000"
-    )
+  "reverse order of fills for treatment plot"
+  (fill (- 2 index))
   )
 
 ; use a line to indicate women's survival without breast cancer
@@ -236,7 +228,7 @@
   [model treatment-key benefit]
   (str benefit "% " (get-in treatment-callout-templates [model treatment-key])))
 
-(defn lookup
+#_(defn lookup
   "Attempt to derive a plausible value for each individual treatment from the combined values that Predict
   v1.2 and v2.1 give us. It should be fine for the standard input combinations that are graphed in v1.2 and v2.1."
   [{:keys [model treatments result key horm-yes tra-yes]}]
@@ -308,70 +300,3 @@
           :else 0)
         )
       :else 10)))
-
-
-(comment
-  (lookup {:model      "v2.1"
-           :treatments #{:chemo :horm :tra}
-           :result     {:bcSpecSur 0.4495268506028409, :cumOverallSurOL 0.41329243111142366, :cumOverallSurHormo 0.1284467702423861, :cumOverallSurChemo 0, :cumOverallSurCandH 0.1284467702423861, :cumOverallSurCHT 0.23040898151056183}
-           :key        :tra
-           :horm-yes   true
-           :tra-yes    true
-           })
-  ; => 10
-
-  (lookup {:model      "v2.1"
-           :treatments #{:chemo :horm :tra}
-           :result     {:bcSpecSur 0.4495268506028409, :cumOverallSurOL 0.41329243111142366, :cumOverallSurHormo 0.1284467702423861, :cumOverallSurChemo 0, :cumOverallSurCandH 0.1284467702423861, :cumOverallSurCHT 0.23040898151056183}
-           :key        :surgery
-           :horm-yes   :yes})
-  ; => 41
-
-  (lookup {:model      "v2.1"
-           :treatments #{:chemo :horm :tra}
-           :result     {:bcSpecSur 0.4495268506028409, :cumOverallSurOL 0.41329243111142366, :cumOverallSurHormo 0.1284467702423861, :cumOverallSurChemo 0, :cumOverallSurCandH 0.1284467702423861, :cumOverallSurCHT 0.23040898151056183}
-           :key        :surgery
-           :horm-yes   :yes})
-  ; => 41
-
-  (lookup {:model      "v2.1"
-           :treatments #{:chemo :horm :tra}
-           :result     {:bcSpecSur 0.4495268506028409, :cumOverallSurOL 0.41329243111142366, :cumOverallSurHormo 0.1284467702423861, :cumOverallSurChemo 0, :cumOverallSurCandH 0.1284467702423861, :cumOverallSurCHT 0.23040898151056183}
-           :horm-yes   true
-           :key        :horm})
-  ; => 13
-  )
-
-
-#_(defn stacked-yearly-values
-    "Lookup treatments and create a stacked bar dataset from model results, indexed by year"
-    [{:keys [model treatments horm-yes tra-yes results]} year]
-
-    (mapv (fn [key]
-            (do #_(println "looked up " key "->" (lookup {:model      model
-                                                          :treatments treatments
-                                                          :key        key
-                                                          :result     (get results year)}))
-              [key (lookup {:model      model
-                            :treatments treatments
-                            :horm-yes   horm-yes
-                            :tra-yes    tra-yes
-                            :key        key
-                            :result     (get results year)})]))
-          treatments))
-
-
-
-(comment
-  (stacked-yearly-values {:model      "v2.1"
-                          :treatments (map strip-root [:surgery :horm :chemo :tra])
-                          :results    @results-cursor
-                          :tra-yes    true
-                          :horm-yes   true} 5)
-
-  ; => [[:surgery 88] [:horm 3.7] [:chemo 0] [:tra 2.4]]
-
-  )
-
-
-

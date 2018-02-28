@@ -6,7 +6,7 @@
             [predict-prostate.results.common :refer [stacked-yearly-values stacked-bar-yearly-props
                                              filter-results->stacked-bar-props result-scroll-height]]
             [predict-prostate.state.run-time :refer [input-change input-cursor input-widget input-label results-cursor]]
-            [predict-prostate.results.util :refer [lookup ->Item treatment-callout-text strip-root fill avoid-decimals]]
+            [predict-prostate.results.util :refer [->Item treatment-callout-text strip-root fill avoid-decimals]]
             [graphics.simple-icons :refer [icon]]
             [pubsub.feeds :refer [publish]]
             ))

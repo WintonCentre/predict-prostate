@@ -1,6 +1,6 @@
 (ns predict-prostate.results.common
   (:require [rum.core :as rum]
-            [predict-prostate.results.util :refer [strip-root lookup ->Item treatment-callout-text]]
+            [predict-prostate.results.util :refer [strip-root ->Item treatment-callout-text]]
             [predict-prostate.state.run-time :refer [input-cursor results-cursor]]))
 
 (def result-scroll-height "850px")
@@ -10,7 +10,7 @@
   Each data-item is a key value pair ordered in the same way as incoming treatments vector."
   [{:keys [model treatments horm-yes tra-yes results]} year]
 
-  (mapv (fn [key]
+  #_(mapv (fn [key]
           [key (lookup {:model      model
                         :treatments treatments
                         :horm-yes   horm-yes
@@ -18,17 +18,6 @@
                         :key        key
                         :result     (get results year)})])
         treatments))
-
-(comment
-  (stacked-yearly-values {:model      "v2.1"
-                          :treatments (map strip-root [:surgery :horm :chemo :tra :br :oth])
-                          :results    @results-cursor
-                          :tra-yes    true
-                          :horm-yes   true} 5)
-
-  ; => [[:surgery 88] [:horm 3.7] [:chemo 0] [:tra 2.4]]
-
-  )
 
 
 (defn stacked-bar-yearly-props

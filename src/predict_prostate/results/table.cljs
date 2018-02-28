@@ -6,7 +6,7 @@
                                                      filter-results->stacked-bar-props result-scroll-height]]
             [predict-prostate.state.run-time :refer [input-cursor input-change input-widget input-label results-cursor]]
             [predict-prostate.components.button :refer [year-picker]]
-            [predict-prostate.results.util :refer [lookup ->Item treatment-callout-text strip-root one-dp]]
+            [predict-prostate.results.util :refer [->Item treatment-callout-text strip-root one-dp]]
 
             [pubsub.feeds :refer [publish]]
             ))
@@ -46,7 +46,6 @@
                               :benefit-low (percent (- radical-low-survival conservative-survival) 1)
                               :benefit-high (percent (- radical-high-survival conservative-survival) 1)
                               :benefit (percent (- radical-survival conservative-survival) 1)}}]
-    (println "data " data)
     data))
 
 (rum/defc tables < rum/reactive [data]

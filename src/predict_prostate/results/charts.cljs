@@ -2,7 +2,7 @@
   (:require [rum.core :as rum]
             [com.rpl.specter :as t :refer [select-one ALL keypath]]
             [predict-prostate.mixins :refer [sizing-mixin]]
-            [predict-prostate.results.util :refer [Item lookup ->Item treatment-callout-text
+            [predict-prostate.results.util :refer [Item ->Item treatment-callout-text
                                            to-percent avoid-decimals min-label-percent
                                            strip-root fill data-fill fill-data-url
                                             callout-data-fill  dashed-stroke]]
@@ -224,25 +224,6 @@
      subtitle-under]
     ]])
 
-(comment
-  (lookup "2.0" #{:surgery :horm} :horm @results-cursor)
-  (into {} (map (partial stacked-bar-yearly-props
-                         {:model      "v2.1"
-                          :treatments [:horm :chemo :tra]
-                          :results    @results-cursor
-                          :horm-yes   true
-                          :tra-yes    true}) [5 10]))
-
-  ; working test (age 28 er- her2+ ki67+ symptoms 20mm grade2 nodes4 no-mets)
-  {5
-   [{:treatment-key :horm, :value 0}
-    {:treatment-key :chemo, :value 13}
-    {:treatment-key :tra, :value 8}],
-   10
-   [{:treatment-key :horm, :value 0}
-    {:treatment-key :chemo, :value 15}
-    {:treatment-key :tra, :value 10}]}
-  )
 
 (defn get-year-treatment-benefit
   [chart-props treatment-key year]

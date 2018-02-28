@@ -1,7 +1,7 @@
 (ns predict-prostate.results.curves
   (:require [clojure.string :as str]
             [rum.core :as rum]
-            [predict-prostate.results.util :refer [lookup strip-root callout-fill fill treatment-fills use-line
+            [predict-prostate.results.util :refer [strip-root callout-fill fill treatment-fills use-line
                                            without-stroke dashed-stroke]]
             [predict-prostate.state.run-time :refer [results-cursor input-cursor]]
             [predict-prostate.results.common :refer [stacked-yearly-values result-scroll-height]]
@@ -37,113 +37,10 @@
              }])
 
 
-
-(comment
-  fill
-  (getValueByKeys 0)
-
-  (into {} (map (partial stacked-yearly-values
-                         (assoc result-data :horm-yes horm-yes :tra-yes tra-yes)) [1 2])))
-
-
-(defn filter-results->stacked-curve-data
-  "Different models use different treatment widgets, so we need to use these to react to the correct
-  treatments and lookup the appropriate result-data."
-  [{:keys [model treatments results horm-yes tra-yes] :as result-data} years]
-
-  (cond
-    (#{"v1.2" "v2.1"} model)
-
-    {:title          "Breast Cancer Survival"
-     :subtitle-over  "over 10 years"
-     :subtitle-under "years after surgery"
-     :dataset        (mapv (partial stacked-yearly-values
-                                    (assoc result-data :horm-yes horm-yes :tra-yes tra-yes)) years)}
-
-    :else
-    (throw (js/Error. "no Oxford curves yet"))
-
-    ))
-
-(comment
-  (stacked-yearly-values {:model      "v2.1"
-                          :treatments (map strip-root [:surgery :horm :chemo :tra :br :oth])
-                          :results    @results-cursor
-                          :tra-yes    true
-                          :horm-yes   true} 5) ˆ
-
-  (filter-results->stacked-curve-data
-    {:model      "v2.1"
-     :treatments (map strip-root [:surgery :horm :chemo :tra :br :oth])
-     :results    @results-cursor
-     :horm-yes   true
-     :tra-yes    true} [0 1 2 3 4 5])
-  )
-
-
-(defn transpose [m]
-  "transpose a 2D data matrix"
-  (apply mapv vector m))
-
-(comment
-  (transpose [[1 2] [3 4]])
-  ;=> [[1 3] [2 4]]
-
-  (transpose [[1 2 3] [4 5 6]])
-  ;=> [[1 4] [2 5] [3 6]]
-  )
-
-
-(defn get-data
-  [{:keys [model treatments results horm-yes tra-yes] :as result-data} years]
-  (let [curve-data (filter-results->stacked-curve-data result-data years)]
-    (for [y years]
-      (into {} (for [treatment (nth (:dataset curve-data) y)]
-                 treatment)))))
-
-
-(defn other-as-delta
-  "Convert other cause of death to a survival delta"
-  [data]
-  (select [ALL VAL :oth] data)
-  (transform [ALL VAL :oth] (fn [m v] (- (- 100 (:oth m)) (+ (:surgery m) (:horm m) (:chemo m) (:tra m)))) data))
-
-
-
 (defn format-year-data [transposed]
-  (println "transposed: " transposed)
+  "Convert a vector of y-values to "
   (into [] (for [t transposed]
              (into [] (map-indexed (fn [i v] {:x i :y v}) t)))))
-
-(comment
-  (def data (get-data
-              {:model      "v2.1"
-               :treatments (map strip-root [:surgery :horm :chemo :tra :oth])
-               :results    @results-cursor
-               :horm-yes   true
-               :tra-yes    true} (range 11)))
-  (def oth-data (get-data
-                  {:model      "v2.1"
-                   :treatments [:oth]
-                   :results    @results-cursor
-                   :horm-yes   true
-                   :tra-yes    true} (range 11)))
-  data
-  oth-data
-
-  (map #(reductions + (select [MAP-VALS] %)) data)
-
-  (map (comp #(- 100 %) :oth) oth-data)
-
-  (other-as-delta data)
-
-  )
-
-
-
-
-;;;;;;;;;;;;;;
-
 
 
 (rum/defc plot [{:keys [X Y]} data]
@@ -156,7 +53,13 @@
    [{:x 0, :y 100} {:x 1, :y 99.93906220645762} ... {:x 9, :y 98.75403990843078} {:x 10, :y 98.5298358866154}])"
   (let [point (fn [x y] (str (X x) " " (Y y)))
         coord (fn [m] (point (:x m) (:y m)))
-        rev-data (reverse data)]
+        rev-data (reverse data)
+        [d1 d2 d3] data
+        ]
+    (println "d1" d1)
+    (println "d2" d2)
+    (println "d3" d3)
+
 
     [:g
      (map-indexed (fn [i d] [:polygon {:key    (str "p" i)
@@ -250,9 +153,7 @@
                  :y          (Y 0)}
           "Years after surgery"]]
 
-        #_(println "all-data" data)
-        #_(rum/with-key (other-plot {:X X :Y Y} (last data)) "other-area")
-        (rum/with-key (plot {:X X :Y Y} (if use-line (butlast data) data)) "plot")
+        (rum/with-key (plot {:X X :Y Y} data) "plot")
 
         ; Add grid overlay
         (map-indexed (fn [k x_k] [:line {:key              (str "x" x_k)
@@ -284,7 +185,6 @@
   (let [margin {:top 10 :right 10 :bottom 0 :left 0}
         padding {:top 20 :right 0 :bottom 60 :left 80}
         outer {:width 400 :height 400}]
-    (println "raw-data" cum-data)
     [:div (curves-container (space outer margin padding [0 10] 5 [0 100] 5) cum-data)]))
 
 (defn benefit [data tk]
@@ -312,7 +212,7 @@
 (defn extract-data [results]
   "extract plot data from the model run"
   (let [years (range 0 11)
-        one-sum #(- 1 (+ %1 %2))
+        one-sum #(* 100 (- 1 (+ %1 %2)))
         radical-survival (map one-sum
                               (get-in results [:radical :pred-PC-cum])
                               (get-in results [:radical :pred-NPC-cum]) years)
@@ -320,9 +220,8 @@
                                    (get-in results [:conservative :pred-PC-cum])
                                    (get-in results [:conservative :pred-NPC-cum]) years)]
     [
-
-     (map #(* 100 %) conservative-survival)
-     (map #(* 100 %) radical-survival)
+     conservative-survival
+     radical-survival
      (map #(* 100 %) (get-in results [:conservative :NPC-survival])) ; dotted orange
      ]
     ))
@@ -336,7 +235,9 @@
 
         data (extract-data (rum/react results-cursor))
 
-        cum-data (format-year-data data)]
+        cum-data (format-year-data data)
+        ]
+    (println "count cum-data" (count cum-data))
 
     [:div {:style {:position "relative"}}
 
@@ -356,22 +257,3 @@
       ]
 
      ]))
-
-(comment
-
-  (lookup {:model      "v2.1"
-           :treatments #{:chemo :horm :tra}
-           :result     {:bcSpecSur 0.4495268506028409, :cumOverallSurOL 0.41329243111142366, :cumOverallSurHormo 0.1284467702423861, :cumOverallSurChemo 0, :cumOverallSurCandH 0.1284467702423861, :cumOverallSurCHT 0.23040898151056183}
-           :key        :tra
-           :horm-yes   true
-           :tra-yes    true
-           })
-
-
-  (stacked-yearly-values {:model      "v2.1"
-                          :treatments (map strip-root [:surgery :horm :chemo :tra])
-                          :results    @results-cursor
-                          :tra-yes    true
-                          :horm-yes   true} 5)
-
-  )

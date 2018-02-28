@@ -9,7 +9,7 @@
                                              filter-results->stacked-bar-props result-scroll-height]]
             [predict-prostate.state.run-time :refer [rtdb input-cursor input-widget input-label results-cursor]]
             [predict-prostate.components.button :refer [year-picker]]
-            [predict-prostate.results.util :refer [lookup ->Item treatment-callout-text strip-root avoid-decimals]]
+            [predict-prostate.results.util :refer [->Item treatment-callout-text strip-root avoid-decimals]]
 
             [pubsub.feeds :refer [publish]]
             ))
