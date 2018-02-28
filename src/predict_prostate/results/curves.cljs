@@ -111,6 +111,7 @@
 
 
 (defn format-year-data [transposed]
+  (println "transposed: " transposed)
   (into [] (for [t transposed]
              (into [] (map-indexed (fn [i v] {:x i :y v}) t)))))
 
@@ -147,6 +148,12 @@
 
 (rum/defc plot [{:keys [X Y]} data]
 
+  "data should look something like this:
+  ([{:x 0, :y 100} {:x 1, :y 98.89556593176486} ... {:x 9, :y 64.83779488900586} {:x 10, :y 60.8297996952587}]
+   [{:x 0, :y 100} {:x 1, :y 98.89556593176486} ... {:x 9, :y 64.83779488900586} {:x 10, :y 60.8297996952587}]
+   [{:x 0, :y 100} {:x 1, :y 98.89556593176486} ... {:x 9, :y 64.83779488900586} {:x 10, :y 60.8297996952587}]
+   [{:x 0, :y 100} {:x 1, :y 98.89556593176486} ... {:x 9, :y 64.83779488900586} {:x 10, :y 60.8297996952587}]
+   [{:x 0, :y 100} {:x 1, :y 99.93906220645762} ... {:x 9, :y 98.75403990843078} {:x 10, :y 98.5298358866154}])"
   (let [point (fn [x y] (str (X x) " " (Y y)))
         coord (fn [m] (point (:x m) (:y m)))
         rev-data (reverse data)]
@@ -245,7 +252,7 @@
 
         #_(println "all-data" data)
         #_(rum/with-key (other-plot {:X X :Y Y} (last data)) "other-area")
-        ;(rum/with-key (plot {:X X :Y Y} (if use-line (butlast data) data)) "plot")
+        (rum/with-key (plot {:X X :Y Y} (if use-line (butlast data) data)) "plot")
 
         ; Add grid overlay
         (map-indexed (fn [k x_k] [:line {:key              (str "x" x_k)
@@ -272,13 +279,12 @@
 
        ]]]))
 
-
 (rum/defc curves < rum/reactive rum/static (rum/local [] ::data)
   [cum-data]
   (let [margin {:top 10 :right 10 :bottom 0 :left 0}
         padding {:top 20 :right 0 :bottom 60 :left 80}
         outer {:width 400 :height 400}]
-
+    (println "raw-data" cum-data)
     [:div (curves-container (space outer margin padding [0 10] 5 [0 100] 5) cum-data)]))
 
 (defn benefit [data tk]
@@ -301,17 +307,36 @@
    [:p (dead-icon (fill 3)) " Conservative"]])
 
 
+
+
+(defn extract-data [results]
+  "extract plot data from the model run"
+  (let [years (range 0 11)
+        one-sum #(- 1 (+ %1 %2))
+        radical-survival (map one-sum
+                              (get-in results [:radical :pred-PC-cum])
+                              (get-in results [:radical :pred-NPC-cum]) years)
+        conservative-survival (map one-sum
+                                   (get-in results [:conservative :pred-PC-cum])
+                                   (get-in results [:conservative :pred-NPC-cum]) years)]
+    [
+
+     (map #(* 100 %) conservative-survival)
+     (map #(* 100 %) radical-survival)
+     (map #(* 100 %) (get-in results [:conservative :NPC-survival])) ; dotted orange
+     ]
+    ))
+
+
+
 (rum/defcs results-in-curves < rum/static rum/reactive sizing-mixin [state]
   (let [width (rum/react (:width state))
         side-by-side (> width 600)
         treatment-keys []
 
-        data (other-as-delta (get-data
-                               {:model      "v2.1"
-                                :treatments treatment-keys
-                                :results    (rum/react results-cursor)} (range 0 11)))
+        data (extract-data (rum/react results-cursor))
 
-        cum-data (format-year-data (transpose (map #(reductions + (select [MAP-VALS] %)) data)))]
+        cum-data (format-year-data data)]
 
     [:div {:style {:position "relative"}}
 
@@ -326,7 +351,8 @@
                     :vertical-align "top"
                     :width          (if side-by-side "30%" "100%")
                     :display        "inline-block"}}
-      (legend data)
+      ; :todo curves legend
+      ;(legend data)
       ]
 
      ]))
