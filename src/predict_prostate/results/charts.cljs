@@ -3,13 +3,13 @@
             [com.rpl.specter :as t :refer [select-one ALL keypath]]
             [predict-prostate.mixins :refer [sizing-mixin]]
             [predict-prostate.results.util :refer [Item ->Item treatment-callout-text
-                                           to-percent avoid-decimals min-label-percent
-                                           strip-root fill data-fill fill-data-url
-                                            callout-data-fill  dashed-stroke]]
+                                                   to-percent avoid-decimals min-label-percent
+                                                   strip-root fill data-fill fill-data-url
+                                                   callout-data-fill dashed-stroke]]
             [predict-prostate.results.common :refer [stacked-yearly-values stacked-bar-yearly-props result-scroll-height]]
             [predict-prostate.state.run-time :refer [model input-cursor input-widget input-label
-                                             enabled-treatments results-cursor on-screen-treatments-cursor
-                                             ]]
+                                                     enabled-treatments results-cursor on-screen-treatments-cursor
+                                                     ]]
             [predict-prostate.components.primitives :refer [dead-icon]]
             [pubsub.feeds :refer [publish]]
             [clojure.string :refer [join]]
@@ -27,38 +27,38 @@
 (def z-back 1)
 
 (defstyle stacked-bar-chart-style
-          [".chart" {:page-break-before "always"}
-           [".chart-wrapper" {:background-color "white" :color "black" :position "relative" :margin-top "0ex"
-                              }]
-           [".stacked-bar" {:position "absolute" :bottom "8ex" :top "2ex" :left "16%"
-                            :right    "16%" :background-color "whitesmoke" :color "black"}
+  [".chart" {:page-break-before "always"}
+   [".chart-wrapper" {:background-color "white" :color "black" :position "relative" :margin-top "0ex"
+                      }]
+   [".stacked-bar" {:position "absolute" :bottom "8ex" :top "2ex" :left "16%"
+                    :right    "16%" :background-color "whitesmoke" :color "black"}
 
-            [".h-tick" {:position "absolute" :width "100%" :height "0%"}
-             [".h-label" {:position "absolute" :top 0 :color "#888" :left "-3em" :width "calc(100% + 6em)"}
-              [".left" {:position "absolute" :left "-0.5em" :width "3em" :text-align "right" :top "-1ex"}]
-              [".right" {:position "absolute" :right "-0.5em" :width "3em" :text-align "left" :top "-1ex"}]]
-             [".line" {:border-bottom "1px solid #CCC"}]]
+    [".h-tick" {:position "absolute" :width "100%" :height "0%"}
+     [".h-label" {:position "absolute" :top 0 :color "#888" :left "-3em" :width "calc(100% + 6em)"}
+      [".left" {:position "absolute" :left "-0.5em" :width "3em" :text-align "right" :top "-1ex"}]
+      [".right" {:position "absolute" :right "-0.5em" :width "3em" :text-align "left" :top "-1ex"}]]
+     [".line" {:border-bottom "1px solid #CCC"}]]
 
-            [".bar" {:position "absolute" :background-color "white" :border "1px solid #CCC" :border-bottom "none"}
-             [".bar-label" {:position   "absolute" :color "black" :left "0%" :width "100%"
-                            :text-align "center" :font-size "1.2em"
-                            }]
-             [".bar-item" {:position           "absolute" :width "100%" :left 0
-                           :transition         "height 300ms, bottom 300ms, opacity 3000ms" :transition-timing-function "ease-out"
-                           :-webkit-transition "height 300ms, bottom 300ms, opacity 300ms" :-webkit-transition-timing-function "ease-out"
-                           :-moz-transition    "height 300ms, bottom 300ms, opacity 300ms" :-moz-transition-timing-function "ease-out"}
-              [".bar-item-label" {:position "absolute" :width "100%" :text-align "center"
-                                  :bottom   "1.37ex" :border "1px none red"}]]]
+    [".bar" {:position "absolute" :background-color "white" :border "1px solid #CCC" :border-bottom "none"}
+     [".bar-label" {:position   "absolute" :color "black" :left "0%" :width "100%"
+                    :text-align "center" :font-size "1.2em"
+                    }]
+     [".bar-item" {:position           "absolute" :width "100%" :left 0
+                   :transition         "height 300ms, bottom 300ms, opacity 3000ms" :transition-timing-function "ease-out"
+                   :-webkit-transition "height 300ms, bottom 300ms, opacity 300ms" :-webkit-transition-timing-function "ease-out"
+                   :-moz-transition    "height 300ms, bottom 300ms, opacity 300ms" :-moz-transition-timing-function "ease-out"}
+      [".bar-item-label" {:position "absolute" :width "100%" :text-align "center"
+                          :bottom   "1.37ex" :border "1px none red"}]]]
 
-            [".callout" {:position   "absolute"
-                         :transition "height 300ms, bottom 300ms" :transition-timing-function "ease-out"}
-             [".box" {:width   "7em" :height "6.65ex" :position "absolute" :bottom "-3.25ex"
-                      :padding "0.5ex 1ex 0.3ex 0.5ex" :text-align "right" :color "white" :border-radius "0.5ex"}
-              [".total" {:position "absolute" :left "0.6ex" :bottom "1.3ex" :color "white" :font-size "1.2em"}]]
-             [".arrow" {:position   "absolute" :bottom "-1ex" :width 0 :height 0
-                        :border-top "1ex solid transparent" :border-bottom "1ex solid transparent"}]]
-            ]
-           ])
+    [".callout" {:position   "absolute"
+                 :transition "height 300ms, bottom 300ms" :transition-timing-function "ease-out"}
+     [".box" {:width   "7em" :height "6.65ex" :position "absolute" :bottom "-3.25ex"
+              :padding "0.5ex 1ex 0.3ex 0.5ex" :text-align "right" :color "white" :border-radius "0.5ex"}
+      [".total" {:position "absolute" :left "0.6ex" :bottom "1.3ex" :color "white" :font-size "1.2em"}]]
+     [".arrow" {:position   "absolute" :bottom "-1ex" :width 0 :height 0
+                :border-top "1ex solid transparent" :border-bottom "1ex solid transparent"}]]
+    ]
+   ])
 
 (rum/defc <-n%-text->
   "Left or Right callout"
@@ -105,14 +105,14 @@
     [:.right {:key 2} h]]])
 
 
-(rum/defc bar-item-label [{:keys [key height ] :or {key 1 height 0}}]
+(rum/defc bar-item-label [{:keys [key height] :or {key 1 height 0}}]
   [:.bar-item-label {:key key :style {:height "50%" :color "#ffffff"}}
    (str height "%")
    ])
 
 (rum/defcs bar-item < rum/static
                       "A stacked bar item"
-  [state {:keys [key bottom height fill background-url label callout-text ?above treatment-key ]
+  [state {:keys [key bottom height fill background-url label callout-text ?above treatment-key]
           :or   {key          1 bottom 0 height 0 fill "red" background-url ""
                  callout-text "Label here" ?above true}}]
 
@@ -126,7 +126,7 @@
                         :bottom bottom}}
 
     ;; internal value label
-    (let [height (avoid-decimals (js/parseFloat height))                  ; (js/parseInt height)
+    (let [height (avoid-decimals (js/parseFloat height))    ; (js/parseInt height)
           ]
       (when (>= height min-label-percent)
         (bar-item-label {:key 1 :height height})))
@@ -206,16 +206,16 @@
           ; remove :br and :oth fields for bar plot
           (let [plot-data (-> data (butlast) (butlast))]
             (rum/with-key
-              (bar {:label-under   year
-                    :dataset       plot-data
+              (bar {:label-under year
+                    :dataset     plot-data
                     ; pass :oth field separately
-                    :oth           (-> data (last) (:value))
-                    :left          (if left? "30%" nil)
-                    :right         (if left? nil "25%")
-                    :width         "20%"
-                    :total         (reduce + (mapv :value data))
-                    :callout       (partial callout {:percent (reduce + (mapv :value plot-data))
-                                                     :text    (str "survive " year " yrs")})})
+                    :oth         (-> data (last) (:value))
+                    :left        (if left? "30%" nil)
+                    :right       (if left? nil "25%")
+                    :width       "20%"
+                    :total       (reduce + (mapv :value data))
+                    :callout     (partial callout {:percent (reduce + (mapv :value plot-data))
+                                                   :text    (str "survive " year " yrs")})})
               year)))
 
         ))
@@ -226,34 +226,25 @@
 
 (defn extract-data
   "Different models use different treatment widgets, so we need to use these to react to the correct
-  treatments and lookup the appropriate result-data.
+  treatments and lookup the appropriate result-data."
 
-  Must be called from a reactive"
   [results]
-
-  (let [years [5 10]
-        one-sum #(* 100 (- 1 (+ %1 %2)))
+  (let [one-sum #(* 100 (- 1 (+ %1 %2)))
         radical-survival (map one-sum
                               (get-in results [:radical :pred-PC-cum])
                               (get-in results [:radical :pred-NPC-cum]))
         conservative-survival (map one-sum
                                    (get-in results [:conservative :pred-PC-cum])
                                    (get-in results [:conservative :pred-NPC-cum]))]
-    [
-     conservative-survival
-     radical-survival
-     (map #(* 100 %) (get-in results [:conservative :NPC-survival])) ; dotted orange
-     ]
-    )
-  ;;
-  ;; NB This provides the WIRED UP title set!
-  ;;
-  {:title          "Overall Survival"
-   :subtitle-over  "for women with breast cancer, 5 and 10 years after surgery"
-   :subtitle-under "years after surgery"
-   :dataset        []}
-
-  )
+    {:title                 "Overall Survival"
+     :subtitle-over         "for men with prostate cancer, 5 and 10 years after surgery"
+     :subtitle-under        "years after surgery"
+     :conservative-survival conservative-survival
+     :radical-survival      radical-survival
+     :radical-benefit       (map #(- %1 %2) radical-survival conservative-survival)
+     :dotted-orange         (map #(* 100 %) (get-in results [:conservative :NPC-survival])) ; dotted orange
+     }
+    ))
 
 (rum/defcs stacked-bar < rum/reactive sizing-mixin
   [state
@@ -268,17 +259,15 @@
         side-by-side (> width-1 600)
         ]
 
-    [:div "Hello"]
-    (when-let [chart-props (extract-data results)]
 
-      #_(let [benefit (partial get-year-treatment-benefit chart-props)
-            add-benefit (fn [treatment-key treatment]
-                          (let [bene5 (avoid-decimals (benefit treatment-key 5))
-                                bene10 (avoid-decimals (benefit treatment-key 10))]
-                            (str " Additional benefit of " treatment " is " bene5 "% at 5 years and " bene10 "% at 10 years")))]
+    (when-let [chart-props (extract-data results)]
+      [:div "Hello"]
+      (let [bene5 (nth (:radical-benefit chart-props) 5)
+            bene10 (nth (:radical-benefit chart-props) 10)
+            benefit (str " Additional benefit of radical treatment is " bene5 "% at 5 years and " bene10 "% at 10 years")]
         [:div
          [:p {:style {:margin-top "15px"}}
-          "This graph shows the percentage of women surviving at 5 and 10 years. These results are based on the inputs and treatments you selected"]
+          "This graph shows the percentage of men surviving at 5 and 10 years. These results are based on the inputs and treatments you selected"]
 
          [:div {:class-name (:chart chart-style)
                 :style      {:width      (str (if side-by-side width 100) "%")
@@ -290,7 +279,8 @@
           [:.chart-wrapper {:style {:position    "relative"
                                     :padding-top (* width-1 h-over-w)}}
 
-           (rum/with-key (inner-stacked-bar chart-props) 1)]
+           ;(rum/with-key (inner-stacked-bar chart-props) 1)
+           ]
 
           ]
          [:div {:style {:vertical-align "top"
@@ -306,7 +296,7 @@
                          :vertical-align "top"}}]
           [:div {:style {:display     "inline-block"
                          :margin-left "10px"
-                         :width       "calc(100% - 60px)"}} [:p "Survival of these women if they were free of cancer"]]
+                         :width       "calc(100% - 60px)"}} [:p "Survival of these men if they were free of cancer"]]
           (when (pos? (rum/react (input-cursor :primary-rx)))
             [:p (dead-icon (fill 1)) " Additional benefit of radical treatment"])
           [:p (dead-icon (fill 2)) " Conservative treatment"]
