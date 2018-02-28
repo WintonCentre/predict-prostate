@@ -65,7 +65,7 @@
     (when (model-keys :age) (form-entry {:label "Age" :key :age}))
     (when (model-keys :psa) (form-entry {:label "PSA" :key :psa}))
     (when (model-keys :t-stage) (form-entry {:label "T stage" :key :t-stage}))
-    (when (model-keys :grade-group) (form-entry {:label "Grade Group" :key :grade-group}))
+    (when (model-keys :grade-group) (form-entry {:label "Histological grade group" :key :grade-group}))
     (when (model-keys :biopsy50) (form-entry {:label "Biopsy" :key :biopsy50}))
     (when (model-keys :charlson-comorbidity) (form-entry {:label "Comorb" :key :charlson-comorbidity}))
     ]])

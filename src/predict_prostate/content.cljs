@@ -59,7 +59,7 @@
 
    [:row
     #_[:.col-sm-12
-     (sidefx-table2 nil)]
+       (sidefx-table2 nil)]
     [:col-sm-12
      [:p treatment " have an additional survival benefit of 2% at 5 years and 5% at 10 years."]
      [:p [:strong "Links to more info:"]
@@ -314,18 +314,18 @@
                     :list-style-type "none"}}
        [:li {:key 3}
         [:a {:href "https://www.nhs.uk/conditions/prostate-cancer/treatment/#radical-prostatectomy" :target "blank"} "Radical prostatectomy"]]
-       [:li {:key 2}
+       [:li {:key 4}
         [:a {:href "https://www.nhs.uk/conditions/prostate-cancer/treatment/#radiotherapy" :target "blank"} "Radiotherapy"]]
        ]
       [:h4 "Sources of advice and support:"]
       [:ul {:style {:font-size       "120%"
                     :list-style-type "none"}}
-       [:li {:key 3}
+       [:li {:key 1}
         [:a {:href "http://www.macmillan.org.uk/" :target "blank"} "Macmillan"]]
-       [:li {:key 0}
+       [:li {:key 2}
         [:a {:href "http://prostatecanceruk.org/" :target "_blank"} "Prostate Cancer UK"]]
-       [:li {:key 0}
-          [:a {:href "https://www.nhs.uk/pages/home.aspx" :target "_blank"} "NHS Choices"]]
+       [:li {:key 3}
+        [:a {:href "https://www.nhs.uk/pages/home.aspx" :target "_blank"} "NHS Choices"]]
        ]
       ]]
 
@@ -394,104 +394,31 @@
      [:p [:i "Either type in the number or use the '+' or '-' buttons to adjust it. You can also use the up and down
      arrow keys to step by 1, or the right and left arrow keys to step by 5. Hold a key down for repeated steps."]]]
 
-    [:section#detected-by "Detected by"
-     [:p "The breast cancer may have been detected through screening or by the appearance of symptoms."]
-     [:p "Click on 'Unknown' if this information is not available."]]
+    [:section#psa "PSA"
+     [:p "PSA (prostate-specific antigen level) at the point diagnosis - i.e prior to biopsy or treatment."]]
 
     [:section#size "Size"
      [:p "The approximate size of the tumour in millimetres."]]
 
-    [:section#grade "Tumour grade"
-     [:p "The " [:strong "grade"] " describes how different the cancer cells are from normal
-     cells. In a pathology report these are sometimes listed as 'differentiation':"]
-     [:ul {:style {:font-size "1.2em"}}
-      [:li [:strong "Grade 1 (Well differentiated)"] " - the cells are growing slowly and are similar to healthy cells"]
-      [:li [:strong "Grade 2 (Moderately differentiated)"] " - the cells are growing faster and are less similar to the healthy ones"]
-      [:li [:strong "Grade 3 (Poorly differentiated)"] " - the cells are very different from healthy ones and often fast-growing"]]
-     [:p "Click on 'Unknown' if this information is not available."]]
+    [:section#t-stage "Clinical stage"
+     [:p "The clinical tumour stage according to the TNM classification. T stage 1, 2, 3, or 4."]]
 
-    [:section#micrometastases "Micrometastases"
-     [:p [:strong "Micrometastases"] " are small groups of cancer cells found in the lymph glands. "]
-     [:p "This input is disabled unless you have entered 0 for the number of positive nodes"]
+    [:section#histological-grade-group "Histological grade group"
+     [:p "The reported grade group from the diagnostic prostate biopsies. This can be derived from the Gleason score."]]
 
-     [:p "Click on 'Unknown' if this information is not available."]]
+    [:section#biopsy "Biopsy"
+     [:p "The proportion of cores with any prostate cancer."]]
 
-    [:section#positive-nodes "Positive nodes"
-     [:p "The number of " [:strong "positive nodes"] ". These are lymph nodes under the arm that contain cancer cells. They will have been counted
-    during surgery. A pathology report may be quote a pair of numbers such as 2/10, meaning 10 lymph nodes were
-     examined and 2 cancer cells were found in 2 of them. In this case you would enter '2' in the box."]
-     [:p "If you enter '0' here, the " [:strong "micrometastases"] " input will be enabled."]]
+    [:section#comorb "Comorbidity"
+     [:p "Choose 'yes' if the patient has been admitted to hospital in the 2 years prior
+     to diagnosis and has a history of one (or more) of the following:"
+      [:br]
+      "Myocardial infarction, Congestive heart failure, Peripheral vascular disease (including aortic aneurysm >= 6 cm),
+      Cerebrovascular disease (Stroke or TIA), Dementia, Chronic pulmonary disease, Connective tissue disease, Peptic
+      ulcer disease, Liver disease, Diabetes (excluding diet-controlled diabetes alone), Hemiplegia, Moderate or severe
+      renal disease, Cancer (EXCLUDING THIS PROSTATE CANCER) (exclude if > 5 y from diagnosis), Leukemia (acute or
+      chronic), Lymphoma, AIDS."]]
 
-    [:section#er-status "ER status"
-     [:p [:strong "ER status"] " refers to whether or not the tumour cells have receptors for the hormone oestrogen and
-    progesterone. Cells with these receptors depend on those hormones to grow, and so hormone therapies (such as
-    tamoxifen or aromatase inhibitors) may be successful.  About two thirds of breast cancer tumours are positive for
-    one of these hormone receptors. "]
-
-     ;;   [:p "Whether or not you have been through the menopause will be important in assessing the best treatment for you if
-     ;;   your tumour is ER or PR positive."]
-
-     [:p "It is essential to know the " [:strong "ER status"] " of the tumour in order to use this web tool because it makes such a
-    difference to the treatment options and outcomes."]
-
-     ]
-
-    [:section#her2-status "HER2 status"
-     [:p [:strong "HER2 status"] " refers to whether or not the tumour cells have high numbers of the HER2 receptors.  HER2 is known
-    as a growth factor, and having a high number of HER2 receptors on the cells can cause the them to keep growing and
-    dividing too much.  About a quarter of breast cancer tumours have a high number of HER2 receptors and are known as
-    ‘HER2 positive’.  There are some chemotherapy drugs that are specifically targeted to HER2 positive tumours, such
-    as trastuzumab (Herceptin) and others."]
-     [:p "Click on 'Unknown' if this information is not available."]]
-
-    [:section#ki-67-status "Ki-67 Status"
-
-     [:p [:strong "Ki-67"] " is a protein found in cells when they are preparing to divide, and so the percentage of Ki-67 cells in a
-    tumour can indicate how fast the tumour is growing.  If your tumour is tested for Ki-67 you will simply be told
-    whether it is ‘positive’ (meaning there are a high number of cells with the Ki-67 protein), or ‘negative’ (meaning
-    there are a low number of cells with the Ki-67 protein)"]
-     [:p "Click on 'Unknown' if this information is not available."]
-     ]
-
-    [:section#about-the-tumour-biological.input-box "About the tumour (biological characteristics)"
-
-     [:p "It is increasingly possible to determine precise characteristics of a tumour that will show what kinds of
-    treatment will work best to defeat it."]
-
-     [:p "This section collects information about the key markers that are now routinely tested for in the English health
-    system."]
-
-     [:p [:strong "ER status"] " and " [:strong "PR status"] " refers to whether or not the tumour cells have receptors for the hormones oestrogen and
-    progesterone. Cells with these receptors depend on those hormones to grow, and so hormone therapies (such as
-    tamoxifen or aromatase inhibitors) may be successful.  About two thirds of breast cancer tumours are positive for
-    one of these hormone receptors. "]
-
-     ;;   [:p "Whether or not you have been through the menopause will be important in assessing the best treatment for you if
-     ;;   your tumour is ER or PR positive."]
-
-     [:p "It is essential to know the " [:strong "ER status"] " of the tumour in order to use this web tool because it makes such a
-    difference to the treatment options and outcomes."]
-
-     [:p [:strong "HER2 status"] " refers to whether or not the tumour cells have high numbers of the HER2 receptors.  HER2 is known
-    as a growth factor, and having a high number of HER2 receptors on the cells can cause the them to keep growing and
-    dividing too much.  About a quarter of breast cancer tumours have a high number of HER2 receptors and are known as
-    ‘HER2 positive’.  There are some chemotherapy drugs that are specifically targeted to HER2 positive tumours, such
-    as trastuzumab (Herceptin) and others."]
-
-     [:p [:strong "Ki-67"] " is a protein found in cells when they are preparing to divide, and so the percentage of Ki-67 cells in a
-    tumour can indicate how fast the tumour is growing.  If your tumour is tested for Ki-67 you will simply be told
-    whether it is ‘positive’ (meaning there are a high number of cells with the Ki-67 protein), or ‘negative’ (meaning
-    there are a low number of cells with the Ki-67 protein)"]
-
-     ;;    [:p "Oncotype Dx is one of a number of genomic tests that are now available. These look at a range of genes in a
-     ;;    tumour to make an assessment of how likely it might be to recur.  Oncotype Dx is now used in England to test some
-     ;;    early-stage cancers to help inform treatment options.  It is not suitable for all tumour types.\n\nYou need to enter
-     ;;    a value for all of these tests in the tool, but if the test has not been performed, or you do not know the result,
-     ;;    simply select " (unknown) "."]
-
-     [:p "Once this information has been entered for a woman, these boxes will disappear and you will not be able to
-    change them. This is to make the website clearer and simpler."]
-     ]
 
     [:section#surgery "Treatments already received"
      [:p "This tool is useful in helping to decide on additional therapies after any surgery has taken place"]

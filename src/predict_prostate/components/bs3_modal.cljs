@@ -1,6 +1,6 @@
 (ns predict-prostate.components.bs3-modal
   (:require [rum.core :as rum]
-            #_[predict-prostate.content-reader :refer [section]]
+            [predict-prostate.content-reader :refer [section]]
             [predict-prostate.state.run-time :refer [help-key-cursor input-widget]]))
 
 (rum/defc top-modal < rum/reactive
@@ -8,7 +8,7 @@
                       are using jQuery to locate it."
   []
   (let [help-key (rum/react help-key-cursor)
-        help ["Header" "Content"]                          ;(section help-key)
+        help (section help-key)
         [help-header & help-content] (if (seq help)
                                        help
                                        ["help header" [:p "help content"]])

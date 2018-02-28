@@ -48,6 +48,7 @@ re-tag #"([^\s\.#]+)(?:#([^\s\.#]+))?(?:\.([^\s#]+))?")
 
 (defn section
   ([node id]
+   (println "node" "id" id)
    (let [{:keys [x xs]} (match-node node id)]
      xs
      #_(map-indexed #(add-hiccup-key (str "k" %1) %2) xs)))

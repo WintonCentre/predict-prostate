@@ -199,9 +199,9 @@
         ; (99.53069897172345 98.46801502716171 96.94673786575045 95.04188918111227 92.81121167355501 90.30470806745315 87.56807493105853 84.64426128988357 81.57429628296775 78.39780523023171)
         ]
 
-    {:pred-PC-cum  pred-PC-cum
-     :pred-NPC-cum pred-NPC-cum
-     :NPC-survival NPCsurvival}
+    {:pred-PC-cum  (cons 0 pred-PC-cum)
+     :pred-NPC-cum (cons 0 pred-NPC-cum)
+     :NPC-survival (cons 1 NPCsurvival)}
 
     ;(println "piPCSM" piPCSM)
     ;(println "piNPCM" piNPCM)

@@ -234,7 +234,7 @@
                  :class-name (:annotation styles)
                  :x          (X 1)
                  :y          (Y 0)}
-          "Percentage of women surviving"]]
+          "Percentage of men surviving"]]
 
         [:g {:key "x-title" :transform (str "translate(0 50)")}
          [:text {:key        "note"
@@ -245,7 +245,7 @@
 
         #_(println "all-data" data)
         #_(rum/with-key (other-plot {:X X :Y Y} (last data)) "other-area")
-        (rum/with-key (plot {:X X :Y Y} (if use-line (butlast data) data)) "plot")
+        ;(rum/with-key (plot {:X X :Y Y} (if use-line (butlast data) data)) "plot")
 
         ; Add grid overlay
         (map-indexed (fn [k x_k] [:line {:key              (str "x" x_k)
@@ -275,14 +275,11 @@
 
 (rum/defc curves < rum/reactive rum/static (rum/local [] ::data)
   [cum-data]
-  (let [
-        margin {:top 10 :right 10 :bottom 0 :left 0}
+  (let [margin {:top 10 :right 10 :bottom 0 :left 0}
         padding {:top 20 :right 0 :bottom 60 :left 80}
         outer {:width 400 :height 400}]
 
-    [:div
-     (curves-container (space outer margin padding [0 10] 5 [0 100] 5) cum-data)
-     ]))
+    [:div (curves-container (space outer margin padding [0 10] 5 [0 100] 5) cum-data)]))
 
 (defn benefit [data tk]
   (tk (nth data 10)))
@@ -298,36 +295,28 @@
                   :vertical-align "top"}}]
    [:div {:style {:display     "inline-block"
                   :margin-left "10px"
-                  :width       "calc(100% - 60px)"}} [:p " Survival of these women if they were free of cancer"]]
-   (when (some-benefit? data :tra)
-     [:p (dead-icon (fill 0)) " Additional benefit of trastuzumab"])
-   (when (some-benefit? data :chemo)
-     [:p (dead-icon (fill 1)) " Additional benefit of chemotherapy"])
-   (when (some-benefit? data :horm)
-     [:p (dead-icon (fill 2)) " Additional benefit of hormone therapy"])
-   [:p (dead-icon (fill 3)) " Surgery only"]])
+                  :width       "calc(100% - 60px)"}} [:p " Survival of these men if they were free of cancer"]]
+   (when (some-benefit? data :primary-rx)
+     [:p (dead-icon (fill 2)) " Additional benefit of radical treatment"])
+   [:p (dead-icon (fill 3)) " Conservative"]])
 
 
 (rum/defcs results-in-curves < rum/static rum/reactive sizing-mixin [state]
   (let [width (rum/react (:width state))
         side-by-side (> width 600)
-        horm-yes (rum/react (input-cursor :horm))
-        tra-yes (rum/react (input-cursor :tra))
-        treatment-keys [:surgery :horm :chemo :tra :oth :br]
+        treatment-keys []
 
         data (other-as-delta (get-data
                                {:model      "v2.1"
                                 :treatments treatment-keys
-                                :results    (rum/react results-cursor)
-                                :horm-yes   horm-yes
-                                :tra-yes    tra-yes} (range 0 11)))
+                                :results    (rum/react results-cursor)} (range 0 11)))
 
         cum-data (format-year-data (transpose (map #(reductions + (select [MAP-VALS] %)) data)))]
 
     [:div {:style {:position "relative"}}
 
      [:p {:style {:margin-top "15px"}}
-      "This graph shows the percentage of women surviving up to 10 years. These results are based on the inputs and treatments you selected"]
+      "This graph shows the percentage of men surviving up to 10 years. These results are based on the inputs and treatments you selected"]
 
 
      [:div {:style {:width   (if side-by-side "70%" "100%")

@@ -53,7 +53,7 @@
                   #{"prostate"}
                   "")
    (->Input-group :psa
-                  "PSA"
+                  "PSA (ng/ml)"
                   :numeric-input
                   {:min 0 :max 100 :step 1 :precision 1}
                   false false true
@@ -61,7 +61,7 @@
                   #{"prostate"}
                   "")
    (->Input-group :t-stage
-                  "Tumour stage"
+                  "Clinical stage"
                   :radio-group
                   [[1 "1"]
                    [2 "2"]
@@ -72,7 +72,7 @@
                   #{"prostate"}
                   nil)
    (->Input-group :grade-group
-                  "Grade Group"
+                  "Histological grade group"
                   :radio-group
                   [[1 "1"]
                    [2 "2"]
@@ -84,10 +84,10 @@
                   #{"prostate"}
                   nil)
    (->Input-group :biopsy50
-                  "Biopsy"
+                  "Number of biopsy cores involved"
                   :radio-group
-                  [[1 "1"]
-                   [2 "2"]]
+                  [[1 "fewer than half"]
+                   [2 "half or more"]]
                   false false true
                   :prp
                   #{"prostate"}
@@ -95,8 +95,8 @@
    (->Input-group :charlson-comorbidity
                   "Comorbidity"
                   :radio-group
-                  [[0 "0"]
-                   [1 "1"]]
+                  [[0 "No"]
+                   [1 "Yes"]]
                   false false false
                   :prp
                   #{"prostate"}

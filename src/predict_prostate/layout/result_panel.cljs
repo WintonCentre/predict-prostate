@@ -49,7 +49,7 @@
 (rum/defc result-panes < rum/static []
   [:.tab-content
    (result-tab-pane "table" results-in-table)
-   ;(result-tab-pane "curves"  results-in-curves)
+   (result-tab-pane "curves"  results-in-curves)
    ;(result-tab-pane "charts" results-in-charts)
    ;(result-tab-pane "icons" results-in-icons)
    ;(result-tab-pane "texts" results-in-text)
