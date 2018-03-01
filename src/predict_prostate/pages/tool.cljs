@@ -2,7 +2,6 @@
   (:require [rum.core :as rum]
             [cljs-css-modules.macro :refer-macros [defstyle]]
             [predict-prostate.components.bs3-modal :refer [top-modal settings-modal]]
-            [predict-prostate.components.button :refer [settings-button]]
             [bide.core :as r]
             [graphics.simple-icons :as simple]
             [predict-prostate.router :refer [router]]
@@ -54,7 +53,6 @@
     [:.row
      [:.col-md-12
       [:h2 {:style {:margin-top 0 :float "left"}} "Options"]
-      [:div {:style {:float "right"}} (settings-button)]
       (treatments-options)
       (results true)
       [:#side-effect-warning.alert.alert-danger.clearfix {:role  "alert"

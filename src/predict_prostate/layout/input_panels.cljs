@@ -4,6 +4,8 @@
                                              input-cursor
                                              input-change
                                              ]]
+            [predict-prostate.components.button :refer [settings-button]]
+
     ;[predict-prostate.layout.input-panels :refer [clear-all-button]]
             [predict-prostate.layout.navbar :refer [clear-all-button]]
             [predict-prostate.state.load-config :refer [live-keys-by-model]]
@@ -59,13 +61,20 @@
 
 (rum/defc patient-related-form < rum/reactive [model-keys]
   [:div
-   (clear-all-button {:on-click clear-inputs})
+   (clear-all-button {:on-click clear-inputs :style {:float "left"}})
+   [:div {:style {:float "right"
+                  :margin-top "8px"
+                  :margin-right "15px"}} (settings-button)]
+
    [:form.form-horizontal {:on-key-press key-event
                            :on-submit submit-event}
     (when (model-keys :age) (form-entry {:label "Age" :key :age}))
     (when (model-keys :psa) (form-entry {:label "PSA" :key :psa}))
     (when (model-keys :t-stage) (form-entry {:label "T stage" :key :t-stage}))
-    (when (model-keys :grade-group) (form-entry {:label "Histological grade group" :key :grade-group}))
+    (when (#{nil :grade-group} (rum/react (input-cursor :hist-scale)))
+      (form-entry {:label "Histological grade group" :key :grade-group}))
+    (when (= :gleason (rum/react (input-cursor :hist-scale)))
+      (form-entry {:label "Gleason scale" :key :gleason}))
     (when (model-keys :biopsy50) (form-entry {:label "Biopsy" :key :biopsy50}))
     (when (model-keys :charlson-comorbidity) (form-entry {:label "Comorb" :key :charlson-comorbidity}))
     ]])

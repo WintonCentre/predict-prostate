@@ -71,6 +71,15 @@
                   :prp
                   #{"prostate"}
                   nil)
+   (->Input-group :hist-scale
+                  "Histological scale"
+                  :radio-group
+                  [[:grade-group "Histological grade group"]
+                   [:gleason "Gleason scale"]]
+                  false false false
+                  :prp
+                  #{"prostate"}
+                  :grade-group)
    (->Input-group :grade-group
                   "Histological grade group"
                   :radio-group
@@ -79,6 +88,18 @@
                    [3 "3"]
                    [4 "4"]
                    [5 "5"]]
+                  false false false
+                  :prp
+                  #{"prostate"}
+                  nil)
+   (->Input-group :gleason
+                  "Gleason scale"
+                  :radio-group
+                  [[1 "3+3"]
+                   [2 "3+4"]
+                   [3 "4+3"]
+                   [4 "8"]
+                   [5 "9 or 10"]]
                   false false false
                   :prp
                   #{"prostate"}

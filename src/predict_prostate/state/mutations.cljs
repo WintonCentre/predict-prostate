@@ -1,5 +1,6 @@
 (ns predict-prostate.state.mutations
   (:require [predict-prostate.state.run-time :refer [model
+                                                     histology-cursor
                                                      input-cursor
                                                      input-change
                                                      input-changes
@@ -74,6 +75,23 @@
           (log topic @(input-cursor key) value)
 
           (cond
+
+            (= key :hist-scale)
+            (do
+              (reset! (input-cursor :hist-scale) value)
+              ; copy the value from the old scale to the newly selected scale
+              (println "before switch" [(input-cursor :grade-group) (input-cursor :gleason)])
+              (if (= value :gleason)
+                (reset! (input-cursor :gleason) @(input-cursor :grade-group))
+                (reset! (input-cursor :grade-group) @(input-cursor :gleason)))
+              (println "after switch" [(input-cursor :grade-group) (input-cursor :gleason)]))
+
+            (#{:gleason :grade-group} key)
+            (do
+              (reset! (input-cursor :gleason) value)
+              (reset! (input-cursor :grade-group) value))
+
+
             (= key :age)
             (reset! (input-cursor :age) (if (or (= "" value) (nil? value))
                                           ""

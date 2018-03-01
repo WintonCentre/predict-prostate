@@ -435,7 +435,7 @@
     ;; Treatment Options and Results
     ;;
     [:section#settings "Settings"
-     [:p "Should " [:strong "Radiotherapy"] " be enabled as a treatment option?"]
+     [:p "Choose the histological scale to use"]
      ]
 
 

@@ -50,12 +50,9 @@
                       :dangerouslySetInnerHTML {:__html "&times;"}}]
       [:h4.modal-title "Settings"]]
      [:.modal-body
-      [:p "Should " [:strong "radiotherapy"] " be included as a treatment option in this tool? "]
-      (input-widget :enable-radio)
-      [:p "The benefits or harms of radiotherapy are estimated from a 2011 study - see the clinician information for
-       more detail. The harms and benefits we are able to present here are averaged over the whole population. They may differ
-       markedly in individual cases due to factors such as radiation dose, location of the target area, and patient
-       behaviours such as smoking"]]
+      [:p "Configure the inputs to use either Grade group or Gleason scale entries."]
+      (input-widget :hist-scale)
+      ]
      [:.modal-footer
       [:button.btn.btn-default {:type     "button"
                                 :on-click #(.modal (js/$ "#settingsModal") "hide")}

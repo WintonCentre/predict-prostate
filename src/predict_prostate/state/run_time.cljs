@@ -22,6 +22,10 @@
 survival, up to the projected survival of breast-cancer-free women "
 (defonce rtdb
          (atom {
+
+                ;; Histology is common to :gleason and grade-group inputs
+                :histology               nil
+
                 :recalculate-error-state 0
 
                 :active-results-pane     "table"
@@ -53,9 +57,12 @@ survival, up to the projected survival of breast-cancer-free women "
                 ;; The state of the tool left-column accordion
                 :hide-warning            false
                 :test                    "test"
+
                 }))
 
 (defonce estimates (atom nil))
+
+(defonce histology-cursor (rum/cursor rtdb :histology))
 
 (defonce hide-warning-cursor (rum/cursor rtdb :hide-warning))
 (defonce hide-warning-change (make-topic :hide-warning-change))
@@ -130,27 +137,6 @@ survival, up to the projected survival of breast-cancer-free women "
 (defn input-access [key]
   (get-in @rtdb [:input-config :access key]))
 
-
-;;;
-;; An attempt to use derivatives to get a reactive value for enabled-treatments...
-;;
-;; It stumbles on my storage of rum cursors inside state. Maybe this was a bad move...
-;;
-;; To resurrect the idea I think we'd have to replace cursors with derivatives - those in :input-config at least
-;;;
-#_(def drv-spec
-  {:base               [[] rtdb]
-   :ostc               [[:base] (fn [base] (:on-screen-treatments base))]
-   ;:horm               [[:base] (fn [base] @(get-in base [:input-config :cursor :horm]))]
-   ;:tra                [[:base] (fn [base] @(get-in base [:input-config :cursor :tra]))]
-   :bis                [[] (get-in rtdb [:input-config :cursor :bis])]
-   :enabled-treatments [[:bis] (fn [bis] (str bis))]})
-
-(defn enabled-treatments [otsc]
-  "Given a list of on screen treatments, return only those that are enabled"
-  (into (sorted-set.) (filter #(not= @(input-cursor %) :disabled) otsc))
-  )
-
 (defn input-map
   "This is the map of values that we feed into the model.
   Keys are unqualified (i.e. they don't refer to the selected treatment option).
@@ -188,11 +174,6 @@ survival, up to the projected survival of breast-cancer-free women "
   @on-screen-treatments-cursor
   ; A set! (It could be ordered to save n needing graphable-treatment)
   ; => #{:chemo :horm :tra}
-
-  @enabled-treatments
-  ; This is ordered! on-screen-inputs-cursor with radiation doses removed (since they don't appear in the show/explain options)
-  ; Order
-  ; => (:chemo :horm :tra)
 
   (input-map)
   ; This is the map of values that we feed into the model.

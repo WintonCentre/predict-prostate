@@ -11,11 +11,4 @@
   [:nav.navbar.navbar-default
    [:.container-fluid
     [:.navbar-header {:style {:margin-left 0}}
-     "Predict " model ": Breast Cancer Survival"]
-    #_[:form.navbar-form.navbar-right
-     ;(clear-all-button {:on-click clear-inputs})
-     ]]])
-
-(comment
-  (input-changes)
-  )
+     "Predict " model ": Breast Cancer Survival"]]])

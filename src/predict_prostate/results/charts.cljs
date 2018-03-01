@@ -8,7 +8,7 @@
                                                    callout-data-fill dashed-stroke]]
             [predict-prostate.results.common :refer [stacked-yearly-values stacked-bar-yearly-props result-scroll-height]]
             [predict-prostate.state.run-time :refer [model input-cursor input-widget input-label
-                                                     enabled-treatments results-cursor on-screen-treatments-cursor
+                                                     results-cursor on-screen-treatments-cursor
                                                      ]]
             [predict-prostate.components.primitives :refer [dead-icon]]
             [pubsub.feeds :refer [publish]]
@@ -146,25 +146,26 @@
   [{:keys [key left right width label-over label-under dataset callout oth]
     :or   {key 1 label-over nil label-under nil dataset []}
     :as   params}]
-  ;(println "bar params " params)
-  ;(.log js/console "bar dataset" dataset)
+
+  (println "bar params " params)
+
   (let [n (count dataset)
         sums (into [] (reductions + (cons 0 (map :value dataset))))
         inline-style (merge {:height "100%"}
                             {:left left :right right :width width})]
 
-    ;(println dataset)
+    (println "dataset" dataset)
 
     [:.bar {:key key :style inline-style}
      (bar-label {:key 2 :text label-under :top? false})
      (map-indexed #(rum/with-key
                      (bar-item {:bottom         (str (sums %1) "%")
                                 :height         (str (:value %2) "%")
-                                :fill           (fill (- n %1 1))
-                                :background-url (data-fill (- n %1 1))
+                                :background-url (data-fill (if (= (:treatment-key %2) :conservative) 2 1) ;(- n %1 1)
+                                                           )
                                 :treatment-key  (:treatment-key %2)
                                 :?above         (nil? right)})
-                     (+ %1 4))
+                     (+ %1 1))
                   dataset)
 
      (when callout (rum/with-key (callout (fill (dec n))) 3))
@@ -183,7 +184,7 @@
 
 (rum/defc inner-stacked-bar < rum/static
                               "This currently supports a left and a right stacked bar with callouts left and right and top"
-  [{:keys [dataset style title subtitle-under]}]
+  [{:keys [conservative-survival radical-benefit dotted-orange style title subtitle-under]}]
 
   [:div
 
@@ -196,27 +197,30 @@
 
     (map-indexed #(rum/with-key (h-tick-line (str %2 "%")) (str "tick" %1)) (range 0 110 10))
 
-    (let [years (sort (keys dataset))]
+    (let [years [5 10]]
       (for [year years
             :let [left? (= year (first years))
-                  data (get dataset year)
+                  data [{:treatment-key :conservative :value (nth conservative-survival year)}
+                        {:treatment-key :radical :value (nth radical-benefit year)}
+                        ]
                   callout (if left? n%-text-> <-n%-text)]]
 
-        (do
-          ; remove :br and :oth fields for bar plot
-          (let [plot-data (-> data (butlast) (butlast))]
-            (rum/with-key
-              (bar {:label-under year
-                    :dataset     plot-data
-                    ; pass :oth field separately
-                    :oth         (-> data (last) (:value))
-                    :left        (if left? "30%" nil)
-                    :right       (if left? nil "25%")
-                    :width       "20%"
-                    :total       (reduce + (mapv :value data))
-                    :callout     (partial callout {:percent (reduce + (mapv :value plot-data))
-                                                   :text    (str "survive " year " yrs")})})
-              year)))
+
+        ; remove :br and :oth fields for bar plot
+        (let [plot-data data]
+          (println "plot-data" plot-data)
+          (rum/with-key
+            (bar {:label-under year
+                  :dataset     data
+                  ; pass :oth field separately
+                  :oth         (- 100 (nth dotted-orange year))
+                  :left        (if left? "30%" nil)
+                  :right       (if left? nil "25%")
+                  :width       "20%"
+                  :total       (reduce + (mapv :value data))
+                  :callout     (partial callout {:percent (reduce + (mapv :value plot-data))
+                                                 :text    (str "survive " year " yrs")})})
+            year))
 
         ))
 
@@ -278,8 +282,8 @@
 
           [:.chart-wrapper {:style {:position    "relative"
                                     :padding-top (* width-1 h-over-w)}}
-
-           ;(rum/with-key (inner-stacked-bar chart-props) 1)
+           (println "chart-props " chart-props)
+           (rum/with-key (inner-stacked-bar chart-props) 1)
            ]
 
           ]

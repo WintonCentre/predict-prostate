@@ -2,8 +2,8 @@
   (:require [clojure.string :as str]
             [rum.core :as rum]
             [predict-prostate.results.util :refer [strip-root callout-fill fill treatment-fills use-line
-                                           without-stroke dashed-stroke]]
-            [predict-prostate.state.run-time :refer [results-cursor input-cursor]]
+                                                   without-stroke dashed-stroke]]
+            [predict-prostate.state.run-time :refer [results-cursor input-cursor on-screen-treatments-cursor]]
             [predict-prostate.results.common :refer [stacked-yearly-values result-scroll-height]]
             [predict-prostate.components.primitives :refer [dead-icon]]
             [predict-prostate.mixins :refer [sizing-mixin]]
@@ -14,7 +14,7 @@
             [svg.scales :refer [->Identity nice-linear i->o o->i in out ticks tick-format-specifier]]
             [svg.mixins :refer [patch-svg-attrs]]
             [goog.object :as gobj :refer [getValueByKeys]]
-            [com.rpl.specter :refer [select transform VAL ALL MAP-VALS nthpath walker]]
+    ;[com.rpl.specter :refer [select transform VAL ALL MAP-VALS nthpath walker]]
             ))
 
 
@@ -37,44 +37,53 @@
              }])
 
 
-(defn format-year-data [transposed]
-  "Convert a vector of y-values to "
-  (into [] (for [t transposed]
-             (into [] (map-indexed (fn [i v] {:x i :y v}) t)))))
+(defn as-point-series [plot-layers]
+  "Convert a vector of data-layers of time-series y-values to a vector of time-series of [x y] points."
+  (println "plot=layers" plot-layers)
+  (let [formatted (into [] (for [time-series plot-layers]
+                             (into [] (map-indexed (fn [i v] [i v]) time-series))))]
+    (println "formatted:" formatted)
+    formatted))
 
-
-(rum/defc plot [{:keys [X Y]} data]
-
-  "data should look something like this:
-  ([{:x 0, :y 100} {:x 1, :y 98.89556593176486} ... {:x 9, :y 64.83779488900586} {:x 10, :y 60.8297996952587}]
-   [{:x 0, :y 100} {:x 1, :y 98.89556593176486} ... {:x 9, :y 64.83779488900586} {:x 10, :y 60.8297996952587}]
-   [{:x 0, :y 100} {:x 1, :y 98.89556593176486} ... {:x 9, :y 64.83779488900586} {:x 10, :y 60.8297996952587}]
-   [{:x 0, :y 100} {:x 1, :y 98.89556593176486} ... {:x 9, :y 64.83779488900586} {:x 10, :y 60.8297996952587}]
-   [{:x 0, :y 100} {:x 1, :y 99.93906220645762} ... {:x 9, :y 98.75403990843078} {:x 10, :y 98.5298358866154}])"
-  (let [point (fn [x y] (str (X x) " " (Y y)))
-        coord (fn [m] (point (:x m) (:y m)))
-        rev-data (reverse data)
-        ]
+(rum/defc line-plot [{:keys [X Y] :as scale} point-series line-style]
+  "X and Y are the x-axis and y-axis scale functions.
+  Data should look something like this:
+  [[0 100]  [1 98.89556593176486]  ... [9 64.83779488900586]  [10 60.8297996952587]]"
+  (println "data" point-series)
+  (let [point (fn [x y] (str (X x) " " (Y y)))]
     [:g
-     (map-indexed (fn [i d] [:polygon {:key    (str "p" i)
-                                       :fill   (treatment-fills (- (dec (count data)) i))
-                                       :points (str/join ", " [
-                                                               (str/join ", " (map #(coord (d %)) (range 11)))
-                                                               (str/join ", "
-                                                                         [(point 10 0)
-                                                                          (point 0 0)]
-                                                                         )])}])
-                  rev-data)
-     (map-indexed (fn [i d] [:polyline {:key    (str "l" i)
-                                        :fill   "none"
-                                        :stroke dashed-stroke :strokeDasharray "8,8" :strokeWidth 5 :strokeLinecap "round"
-                                        :points (map #(coord (d %)) (range 11))
-                                        }])
-                  [(first rev-data)])
-     ]
+     [:polyline (merge {:points (map #(apply point %) point-series)} line-style)]]))
 
-    )
-  )
+(rum/defc area-plot
+  "scale contains the x-axis and y-axis scale functions.
+  Point series should look something like this:
+  [[0 100]  [1 98.89556593176486]  ... [9 64.83779488900586]  [10 60.8297996952587]]
+  Baseline is the "
+  ([{:keys [X Y] :as scale} point-series area-style]
+   (area-plot scale point-series area-style 0))
+  ([{:keys [X Y] :as scale} point-series area-style base]
+   (println "data" point-series)
+   (let [point (fn [x y] (str (X x) " " (Y y)))]
+     [:g
+      [:polygon (merge {:points (str/join ", " [(str/join ", " (map #(apply point %) point-series))
+                                                (str/join ", " [(point (first (last point-series)) base)
+                                                                (point (first (first point-series)) base)])])}
+                       area-style)]])))
+
+(rum/defc plot [{:keys [X Y] :as scale} data]
+  "X and Y are the x-axis and y-axis scale functions.
+  Data should look something like this:
+  ([[0 100]  [1 98.89556593176486]  ... [9 64.83779488900586]  [10 60.8297996952587] ]
+   [[0 100]  [1 98.89556593176486]  ... [9 64.83779488900586]  [10 60.8297996952587] ]
+   [[0 100]  [1 98.89556593176486]  ... [9 64.83779488900586]  [10 60.8297996952587] ]
+   [[0 100]  [1 98.89556593176486]  ... [9 64.83779488900586]  [10 60.8297996952587] ]
+   [[0 100]  [1 99.93906220645762]  ... [9 98.75403990843078]  [10 98.5298358866154] ])"
+  [:g
+   ;(map-indexed #(rum/with-key (area-plot scale (nth data %1) {:fill (treatment-fills %1)}) (str "a" %1)) area-data)
+   (area-plot scale (nth data 1) {:fill (treatment-fills 1)})
+   (area-plot scale (nth data 0) {:fill (treatment-fills 0)})
+   (line-plot scale (last data) {:fill "none" :stroke dashed-stroke :strokeDasharray "8,8" :strokeWidth 5 :strokeLinecap "round"})
+   ])
 
 
 (rum/defc curves-container [{:keys [outer margin inner padding width height x y]} data]
@@ -147,7 +156,7 @@
                  :y          (Y 0)}
           "Years after surgery"]]
 
-        (rum/with-key (plot {:X X :Y Y} data) "plot")
+        (rum/with-key (plot {:X X :Y Y} (as-point-series data)) "plot")
 
         ; Add grid overlay
         (map-indexed (fn [k x_k] [:line {:key              (str "x" x_k)
@@ -175,11 +184,11 @@
        ]]]))
 
 (rum/defc curves < rum/reactive rum/static (rum/local [] ::data)
-  [cum-data]
+  [data]
   (let [margin {:top 10 :right 10 :bottom 0 :left 0}
         padding {:top 20 :right 0 :bottom 60 :left 80}
         outer {:width 400 :height 400}]
-    [:div (curves-container (space outer margin padding [0 10] 5 [0 100] 5) cum-data)]))
+    [:div (curves-container (space outer margin padding [0 10] 5 [0 100] 5) data)]))
 
 (defn benefit [data tk]
   (tk (nth data 10)))
@@ -195,38 +204,35 @@
                   :vertical-align "top"}}]
    [:div {:style {:display     "inline-block"
                   :margin-left "10px"
-                  :width       "calc(100% - 60px)"}} [:p " Survival of these men if they were free of cancer"]]
+                  :width       "calc(100% - 60px)"}}
+    [:p " Survival of these men if they were free of cancer"]]
    (when (pos? (rum/react (input-cursor :primary-rx)))
      [:p (dead-icon (fill 1)) " Additional benefit of radical treatment"])
    [:p (dead-icon (fill 2)) " Conservative treatment"]])
 
 
-
-
-(defn extract-data [results]
-  "extract plot data from the model run"
-  (let [                                                    ;years (range 0 11)
+(defn extract-data [results radical?]
+  "extract plot data from the model run. Include radical treatment if radical?"
+  (let [;years (range 0 11)
         one-sum #(* 100 (- 1 (+ %1 %2)))
-        radical-survival (map one-sum
-                              (get-in results [:radical :pred-PC-cum])
-                              (get-in results [:radical :pred-NPC-cum]))
+        radical-survival (when radical? (map one-sum
+                                             (get-in results [:radical :pred-PC-cum])
+                                             (get-in results [:radical :pred-NPC-cum])))
         conservative-survival (map one-sum
                                    (get-in results [:conservative :pred-PC-cum])
                                    (get-in results [:conservative :pred-NPC-cum]))]
-    [
-     conservative-survival
-     radical-survival
+    [conservative-survival
+     (when radical? radical-survival)
      (map #(* 100 %) (get-in results [:conservative :NPC-survival])) ; dotted orange
-     ]
-    ))
-
+     ]))
 
 
 (rum/defcs results-in-curves < rum/static rum/reactive sizing-mixin [state]
   (let [width (rum/react (:width state))
         side-by-side (> width 600)
-        data (extract-data (rum/react results-cursor))
-        cum-data (format-year-data data)
+        radical? (= 1 (rum/react (input-cursor :primary-rx)))
+        data (extract-data (rum/react results-cursor) radical?)
+        ;point-series (as-point-series data)
         ]
     [:div {:style {:position "relative"}}
 
@@ -236,13 +242,10 @@
 
      [:div {:style {:width   (if side-by-side "70%" "100%")
                     :display "inline-block"}}
-      [:div {:style {:padding "15px 40px 0px 0px"}} (curves cum-data)]]
+      [:div {:style {:padding "15px 40px 0px 0px"}} (curves data)]]
      [:div {:style {:padding-top    "30px"
                     :vertical-align "top"
                     :width          (if side-by-side "30%" "100%")
                     :display        "inline-block"}}
-      ; :todo curves legend
       (legend data)
-      ]
-
-     ]))
+      ]]))
