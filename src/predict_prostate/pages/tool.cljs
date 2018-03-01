@@ -7,7 +7,7 @@
             [predict-prostate.router :refer [router]]
             [predict-prostate.content-reader :refer [section all-subsections]]
             [predict-prostate.layout.input-panels :refer [inputs-column]]
-            [predict-prostate.layout.treatments-panel :refer [treatments-panel treatments-options]]
+            [predict-prostate.layout.treatments-panel :refer [treatments-options]]
             [predict-prostate.layout.result-panel :refer [results]]
             [predict-prostate.layout.header :refer [header footer]]
             [predict-prostate.state.mutations :refer [clear-inputs]]
@@ -43,7 +43,12 @@
     [:h3.panel-title title]]
    [:.panel-body children]])
 
-
+(rum/defc treatment-caveats []
+  [:#side-effect-warning.alert.alert-danger.clearfix {:role  "alert"
+                                                      :style {:font-size "18px"
+                                                              ;:margin-top "20px"
+                                                              }}
+   (all-subsections "tool-postamble")])
 
 (rum/defc treatments-with-results < rum/reactive []
   (if (nil? (rum/react results-cursor))
@@ -55,14 +60,11 @@
       [:h2 {:style {:margin-top 0 :float "left"}} "Options"]
       (treatments-options)
       (results true)
-      [:#side-effect-warning.alert.alert-danger.clearfix {:role  "alert"
-                                                          :style {:font-size  "18px"
-                                                                  :margin-top "20px"}}
-       (all-subsections "tool-postamble")
-       ]]]))
+      ;(treatment-caveats)
+      ]]))
 
 
-(rum/defc tool []
+(rum/defc tool < rum/reactive []
   (let [[_ & preamble] (section "tool-preamble")]
     [:.container
      [:.row
@@ -78,14 +80,21 @@
 
          ]
         [:.col-sm-7 {:key   2
-                     :style {:min-height "calc(100vh - 200px)"}}
+                     :style {:min-height (if (rum/react results-cursor) "0" "calc(100vh - 200px)")}
+                     }
          (titled-panel* {:title "Treatment Options and Results"
                          :class (:treatments-header treatments-style)}
                         [:div (treatments-with-results)]
                         )
-         ]]
+         ]
+        ]
+       [:.row {:key 3}
+        [:.col-xs-12
+         (when (rum/react results-cursor) (treatment-caveats))]]
+
        (footer)
        (top-modal)
        (settings-modal)]]
+
      ]))
 

@@ -109,13 +109,7 @@
                      :vertical-align "middle"
                      }} children]
       ]
-     (cond
-       (= :tra tk) [:div {:style {:color "#AAA" :margin-top "0" :margin-left "155px"}}
-                    "Available when HER2 status is positive"]
-       (= :bis tk) [:div {:style {:color "#AAA" :margin-top "0" :margin-left "155px"}}
-                    "Available for post-menopausal women"]
-       (= :horm tk) [:div {:style {:color "#AAA" :margin-top "0" :margin-left "155px"}}
-                     "Available when ER-status is positive"])
+
      ])
   )
 
@@ -155,7 +149,6 @@
     [:form.form-horizontal {:style {:width     width
                                     :font-size (* (/ width-1 25) font-scale)}}
      [:div
-      ;(assumed-treatment "Surgery" :surgery-assumed)
       (labelled-treatment "Regime" :primary-rx)
       ]]))
 
@@ -167,21 +160,6 @@
     (treatments-form {:h-over-w 1.5}))
   )
 
-(rum/defc treatments-panel < rum/static
-  [{:keys [col1 col2]}]
-
-  (titled-panel
-    {:key   "adjuvant-treatments"
-     :title "Adjuvant Treatments"
-     :help  #(jsx "div" {} "No help")
-     :class (:treatments-header treatments-style)}
-    (if col1
-      [:.row
-       [:.col-md-6 (treatments-options)]
-       (when col2 [:.col-md-6 (col2)])]
-      (treatments-options)
-      ))
-  )
 
 (comment
 
