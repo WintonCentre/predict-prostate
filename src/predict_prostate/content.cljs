@@ -434,9 +434,6 @@
     ;;
     ;; Treatment Options and Results
     ;;
-    [:section#settings "Settings"
-     [:p "Choose the histological scale to use"]
-     ]
 
 
     [:section#hormone-therapy "Hormone Therapy"

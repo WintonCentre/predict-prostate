@@ -24,12 +24,12 @@
   )
 
 ;;
-;; Define a multimethod that recalculate-models predictions based on a selected model
+;; Define a multimethod to
 ;;
-(defmulti recalculate-model "recalculates the selected model" (fn [model inputs] model))
 
-(defmethod recalculate-model "prostate"
-  [model input-map]
+(defn recalculate-model
+  "recalculate-model predictions based on a selected model"
+  [input-map]
 
   (publish results-change
     (when (recalculate-model? input-map)

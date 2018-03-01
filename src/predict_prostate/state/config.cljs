@@ -79,7 +79,7 @@
                   false false false
                   :prp
                   #{"prostate"}
-                  :grade-group)
+                  :gleason)
    (->Input-group :grade-group
                   "Histological grade group"
                   :radio-group

@@ -1,9 +1,9 @@
 (ns predict-prostate.layout.input-panels
   (:require [rum.core :as rum]
             [predict-prostate.state.run-time :refer [model
-                                             input-cursor
-                                             input-change
-                                             ]]
+                                                     input-cursor
+                                                     input-change
+                                                     ]]
             [predict-prostate.components.button :refer [settings-button]]
 
     ;[predict-prostate.layout.input-panels :refer [clear-all-button]]
@@ -43,7 +43,7 @@
 
 (rum/defc treatments-received-form < rum/static [model-keys]
   [:form.form-horizontal {:on-key-press key-event
-                          :on-submit submit-event}
+                          :on-submit    submit-event}
    ])
 
 (rum/defc treatments-received-panel < rum/static [model-keys]
@@ -62,26 +62,40 @@
 (rum/defc patient-related-form < rum/reactive [model-keys]
   [:div
    (clear-all-button {:on-click clear-inputs :style {:float "left"}})
-   [:div {:style {:float "right"
-                  :margin-top "8px"
+   [:div {:style {:float        "right"
+                  :margin-top   "8px"
                   :margin-right "15px"}} (settings-button)]
 
    [:form.form-horizontal {:on-key-press key-event
-                           :on-submit submit-event}
+                           :on-submit    submit-event}
     (when (model-keys :age) (form-entry {:label "Age" :key :age}))
     (when (model-keys :psa) (form-entry {:label "PSA" :key :psa}))
     (when (model-keys :t-stage) (form-entry {:label "T stage" :key :t-stage}))
-    (when (#{nil :grade-group} (rum/react (input-cursor :hist-scale)))
-      (form-entry {:label "Histological grade group" :key :grade-group}))
-    (when (= :gleason (rum/react (input-cursor :hist-scale)))
-      (form-entry {:label "Gleason scale" :key :gleason}))
+
+
+    #_(form-entry {:label (if (= :grade-group (rum/react (input-cursor :hist-scale)))
+                          "Histological grade group"
+                          "Gleason scale")
+                 :key   (if (= :grade-group (rum/react (input-cursor :hist-scale)))
+                          :grade-group
+                          :gleason)})
+
+    [:div {:style {:display (if (= :grade-group (rum/react (input-cursor :hist-scale)))
+                              "block"
+                              "none")}}
+     (form-entry {:label "Histological grade group" :key :grade-group})]
+    [:div {:style {:display (if (= :grade-group (rum/react (input-cursor :hist-scale)))
+                              "none"
+                              "block")}}
+     (form-entry {:label "Gleason scale" :key :gleason})]
+
     (when (model-keys :biopsy50) (form-entry {:label "Biopsy" :key :biopsy50}))
     (when (model-keys :charlson-comorbidity) (form-entry {:label "Comorb" :key :charlson-comorbidity}))
     ]])
 
 (rum/defc patient-related-panel < rum/static [model-keys]
   (titled-panel {}
-                (patient-related-form model-keys))
+    (patient-related-form model-keys))
   )
 
 ;;;
@@ -91,6 +105,7 @@
 (rum/defc tumour-related-form < rum/reactive rum/static [model-keys]
   [:form.form-horizontal {:on-key-press key-event
                           :on-submit    submit-event}
+
    (when (model-keys :size) (form-entry {:label "Size" :key :size}))
    (when (model-keys :grade) (form-entry {:label "Grade" :key :grade}))
    (when (model-keys :mode) (form-entry {:label "Detected by" :key :mode}))
@@ -102,7 +117,6 @@
                      :margin-left "145px"
                      :margin-top  -5}} "Enabled when positive nodes is zero"]
       ])
-   [:hr]
    ])
 
 (rum/defc tumour-related-panel < rum/static [model-keys]
@@ -118,7 +132,7 @@
 
 (rum/defc hormone-form < rum/static [model-keys]
   [:form.form-horizontal {:on-key-press key-event
-                          :on-submit submit-event}
+                          :on-submit    submit-event}
    (when (model-keys :er-status) (form-entry {:label "ER status" :key :er-status}))
    (when (model-keys :her2-status) (form-entry {:label "HER2 status" :key :her2-status}))
    (when (model-keys :ki67-status) (form-entry {:label "Ki-67 status" :key :ki67-status}))

@@ -40,10 +40,10 @@
           :when key
           :when topic]
     "don't zap the settings local storage on startup"
-    (if (= key :enable-radio)
-      (let [enable-radio (:enable-radio (get-settings! {:enable-radio :no}))]
-        (reset! (input-cursor :enable-radio) enable-radio))
-      (publish topic (if (#{:age :size :nodes} key) "" nil))))
+    (if (= key :hist-scale)
+      (let [hist-scale (:hist-scale (get-settings! {:hist-scale :grade-group}))]
+        (reset! (input-cursor :hist-scale) hist-scale))
+      (publish topic (if (#{:age :psa} key) "" nil))))
   (publish results-change nil)
   )
 
@@ -79,12 +79,13 @@
             (= key :hist-scale)
             (do
               (reset! (input-cursor :hist-scale) value)
+              (put-settings! {:hist-scale value})
+
               ; copy the value from the old scale to the newly selected scale
-              (println "before switch" [(input-cursor :grade-group) (input-cursor :gleason)])
               (if (= value :gleason)
                 (reset! (input-cursor :gleason) @(input-cursor :grade-group))
                 (reset! (input-cursor :grade-group) @(input-cursor :gleason)))
-              (println "after switch" [(input-cursor :grade-group) (input-cursor :gleason)]))
+              )
 
             (#{:gleason :grade-group} key)
             (do
@@ -95,60 +96,17 @@
             (= key :age)
             (reset! (input-cursor :age) (if (or (= "" value) (nil? value))
                                           ""
-                                          (str (clip {:value value :min 0 :max 100})))
-              )
+                                          (str (clip {:value value :min 0 :max 100}))))
 
-            ;; when nodes changes to zero, micromets can be entered, otherwise, and initially, they are disabled
-            (= key :nodes)
-            (do (if (zero? (js/parseInt value))
-                  (reset! (input-cursor :micromets) nil)
-                  (reset! (input-cursor :micromets) :disabled))
-                (reset! (input-cursor :nodes) value))
-
-            ;; when :er-status is negative, hormone therapy is disabled
-            (= key :er-status)
-            (do (cond
-                  (= :no @(input-cursor :er-status)) (reset! (input-cursor :horm) nil)
-                  (= :no value) (reset! (input-cursor :horm) :disabled)
-                  )
-                (reset! (input-cursor :er-status) value))
-
-            ;; when :post-meno is pre, bisphosphonates are disabled
-            (= key :post-meno)
-            (do (cond
-                  (= :pre @(input-cursor :post-meno)) (reset! (input-cursor :bis) nil)
-                  ;(= nil @(input-cursor :post-meno)) (reset! (input-cursor :bis) nil)
-                  (= :pre value) (reset! (input-cursor :bis) :disabled)
-                  ;(= nil value) (reset! (input-cursor :bis) :disabled)
-                  )
-                (reset! (input-cursor :post-meno) value))
-
-            ;; when :her2-status is negative, trastuzumab is disabled
-            (= key :her2-status)
-            (do
-              (cond
-                (= :no @(input-cursor :her2-status)) (reset! (input-cursor :tra) nil)
-                (= :no value) (reset! (input-cursor :tra) :disabled)
-                )
-              (reset! (input-cursor :her2-status) value)
-              )
-
-            ;;
-            (= key :enable-radio)
-            (do
-              (.log js/console ":enable-radio" value)
-              (reset! (input-cursor :enable-radio) value)
-              (put-settings! {:enable-radio value}))
 
             :else
             (reset! (input-cursor key) (if (nil? value)
                                          (get-input-default input-groups key)
                                          value))
             )
-          #_(reset! (input-cursor key) (if (nil? value) (get-input-default input-groups key) value))
 
           ;; This is the one and only spot where we recalculate the model!
-          (recalculate-model model (input-map))))))
+          (recalculate-model (input-map))))))
 
 
   ;; various

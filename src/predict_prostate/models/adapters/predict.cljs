@@ -8,6 +8,7 @@
 (defn predict-prostate
   "Run the prostate model, mapping input factors to numeric model parameters."
   [input-map]
+  (println "running model!!!!!!!!!" (:grade-group input-map))
   (-> input-map
       (update :age read-string)
       (update :n (constantly 10))
