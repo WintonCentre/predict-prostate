@@ -2,11 +2,9 @@
   (:require [rum.core :as rum]
             [predict-prostate.components.helpful-form-groups :refer [form-entry]]
             [predict-prostate.state.config :refer [input-groups get-input-default]]
-            [predict-prostate.results.common :refer [stacked-yearly-values stacked-bar-yearly-props
-                                                     filter-results->stacked-bar-props result-scroll-height]]
             [predict-prostate.state.run-time :refer [input-cursor input-change input-widget input-label results-cursor]]
             [predict-prostate.components.button :refer [year-picker]]
-            [predict-prostate.results.util :refer [->Item treatment-callout-text strip-root one-dp]]
+            [predict-prostate.results.util :refer [one-dp]]
 
             [pubsub.feeds :refer [publish]]
             ))

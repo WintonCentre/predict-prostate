@@ -4,15 +4,13 @@
             [clojure.string :as s :refer [replace lower-case]]
             [cljs-css-modules.macro :refer-macros [defstyle]]
             [graphics.simple-icons :refer [icon]]
-            [predict-prostate.mixins :refer [sizing-mixin]]
+            [predict-prostate.mixins :refer [sizing-mixin treatment-monitor]]
             [predict-prostate.state.run-time :refer [model results-cursor input-widget input-cursor input-label]]
             [predict-prostate.components.panels :refer [titled-panel]]
             [predict-prostate.components.button :refer [small-help-button treatment-help-button]]
             [predict-prostate.state.load-config :refer [live-keys-by-model]]
             [predict-prostate.state.localStorage :refer [get-settings!]]
-            [predict-prostate.mixins :refer [treatment-monitor]]
             [predict-prostate.content-reader :refer [all-subsections]]
-    ;[predict-prostate.results.util :refer [strip-root]]
             [pubsub.feeds :refer [publish]]
             [interop.jsx :refer [jsx]]))
 

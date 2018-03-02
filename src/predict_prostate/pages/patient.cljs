@@ -8,7 +8,7 @@
             ))
 
 
-(rum/defc patient < rum/static [section-id]
+(rum/defc patient < rum/static []
   [:.container
    [:.row
     [:.col-sm-12

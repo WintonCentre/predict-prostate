@@ -4,7 +4,6 @@
     [clojure.string :refer [index-of starts-with?]]
     [clojure.pprint :refer [cl-format]]
     [clojure.set :refer [union]]
-    ;[predict-prostate.results.util :refer [strip-root]]
     [predict-prostate.state.config :refer [event-bus]]
     [pubsub.feeds :refer [->Topic]]
     ))

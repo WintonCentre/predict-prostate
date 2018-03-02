@@ -3,7 +3,6 @@
             [predict-prostate.results.util :refer [fill]]
             [predict-prostate.state.run-time :refer [input-cursor results-cursor input-widget input-change]]
             [predict-prostate.state.config :refer [input-groups get-input-default]]
-    ;[predict-prostate.results.common :refer [stacked-yearly-values filter-results->stacked-bar-props result-scroll-height]]
             [predict-prostate.components.button :refer [horiz-radio-button-group year-picker]]
             [predict-prostate.components.helpful-form-groups :refer [form-entry]]
             [predict-prostate.components.primitives :refer [pic pic-dead open-icon dead-icon]]
@@ -15,7 +14,6 @@
 (def br-deaths-fill "#fcc")
 (def oth-deaths-fill "#888")
 
-;; todo: move to predict-prostate.results.common or util
 (defn set-default [key]
   "Set the default state of an input after it is mounted. Use this on tab switching if something has to go back to default."
   {:did-mount (fn [state]

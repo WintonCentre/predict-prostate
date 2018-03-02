@@ -11,7 +11,6 @@
             [predict-prostate.results.icons :refer [results-in-icons]]
             [predict-prostate.results.text :refer [results-in-text]]
             [predict-prostate.content-reader :refer [all-subsections]]
-            [predict-prostate.results.sidefx :refer [results-in-sidefx]]
             ))
 
 

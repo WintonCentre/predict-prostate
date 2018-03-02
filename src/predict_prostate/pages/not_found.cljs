@@ -6,7 +6,7 @@
             [predict-prostate.content-reader :refer [all-subsections]]))
 
 
-(rum/defc not-found < rum/static [section-id]
+(rum/defc not-found < rum/static []
 
   [:.container
    [:.row

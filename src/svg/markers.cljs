@@ -54,7 +54,6 @@
 (rum/defcs dot < (rum/local nil ::hover)
   [state r cx cy & [c-name]]
   [:g
-   (when @(::hover state) (halo cx cy) true)
    (halo cx cy @(::hover state))
    [:circle (merge {:class-name ((op c-name) styles)
                     :r          r
@@ -70,7 +69,6 @@
 (rum/defcs square < (rum/local nil ::hover)
   [state r cx cy & [c-name]]
   [:g
-   ;(when @(::hover state) (halo cx cy))
    (halo cx cy @(::hover state))
    [:g
     [:rect (merge (marker-hovers state)

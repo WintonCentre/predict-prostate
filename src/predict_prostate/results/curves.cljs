@@ -1,10 +1,9 @@
 (ns predict-prostate.results.curves
   (:require [clojure.string :as str]
             [rum.core :as rum]
-            [predict-prostate.results.util :refer [strip-root callout-fill fill treatment-fills use-line
+            [predict-prostate.results.util :refer [callout-fill fill treatment-fills use-line
                                                    without-stroke dashed-stroke]]
             [predict-prostate.state.run-time :refer [results-cursor input-cursor on-screen-treatments-cursor]]
-            [predict-prostate.results.common :refer [stacked-yearly-values result-scroll-height]]
             [predict-prostate.components.primitives :refer [dead-icon]]
             [predict-prostate.mixins :refer [sizing-mixin]]
             [pubsub.feeds :refer [publish]]

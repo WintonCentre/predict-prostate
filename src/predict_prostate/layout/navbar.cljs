@@ -11,4 +11,4 @@
   [:nav.navbar.navbar-default
    [:.container-fluid
     [:.navbar-header {:style {:margin-left 0}}
-     "Predict " model ": Breast Cancer Survival"]]])
+     "Predict " model ": Prostate Cancer Survival"]]])

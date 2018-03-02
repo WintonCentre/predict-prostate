@@ -2,11 +2,9 @@
   (:require [rum.core :as rum]
             [com.rpl.specter :as t :refer [select-one ALL keypath]]
             [predict-prostate.mixins :refer [sizing-mixin]]
-            [predict-prostate.results.util :refer [Item ->Item treatment-callout-text
-                                                   to-percent avoid-decimals min-label-percent
-                                                   strip-root fill data-fill fill-data-url
+            [predict-prostate.results.util :refer [to-percent avoid-decimals min-label-percent
+                                                   fill data-fill fill-data-url
                                                    callout-data-fill dashed-stroke]]
-            [predict-prostate.results.common :refer [stacked-yearly-values stacked-bar-yearly-props result-scroll-height]]
             [predict-prostate.state.run-time :refer [model input-cursor input-widget input-label
                                                      results-cursor on-screen-treatments-cursor
                                                      ]]

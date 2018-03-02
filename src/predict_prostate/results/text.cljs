@@ -6,20 +6,17 @@
             [predict-prostate.state.run-time :refer [input-change input-cursor results-cursor]]
             [predict-prostate.results.util :refer [fill avoid-decimals]]
             [graphics.simple-icons :refer [icon]]
-            [pubsub.feeds :refer [publish]]
-            ))
+            [pubsub.feeds :refer [publish]]))
 
 
 (def round js/Math.round)
 
-;; todo: move to predict-prostate.results.common or util
 (defn set-default [key]
   "Set the default state of an input after it is mounted. Use this on tab switching if something has to go back to default."
   {:did-mount (fn [state]
                 (let [default (get-input-default input-groups key)]
                   (publish (input-change key) default))
                 state)})
-
 
 (defn emph [n]
   (if false
@@ -33,17 +30,13 @@
     [:.row
      [:.col-sm-12 {:style {:margin-top "20px" :margin-left "-8px" :margin-bottom "10px" :display "inline-block"}}
       [:p "Based on the information you have entered:"]
-      (year-picker) [:span {:style {:font-size "16px"}} " years after surgery"]
-
-      ]
+      (year-picker) [:span {:style {:font-size "16px"}} " years after surgery"]]
 
      [:.col-sm-12
       [:p (emph cs) " out of " (emph 100) " men are alive at " years " years with " (emph "conservative treatment") "."]
 
       (when radical?
-        [:p (emph rs) " out of " (emph 100) " men treated (an extra " (emph benefit) ") are alive because of " (emph "radical treatment") "."])
-
-      ]]))
+        [:p (emph rs) " out of " (emph 100) " men treated (an extra " (emph benefit) ") are alive because of " (emph "radical treatment") "."])]]))
 
 
 (defn extract-data
@@ -83,4 +76,4 @@
       [:.col-sm-12
        [:p "Of the men who would not survive,
        " (emph (- 100 (js/Math.round (nth (:dotted-orange data) year))))
-        " would die due to causes not related to breast cancer."]]]]))
+        " would die due to causes not related to prostate cancer."]]]]))

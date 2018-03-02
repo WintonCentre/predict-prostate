@@ -8,7 +8,7 @@
             ))
 
 
-(rum/defc clinician < rum/static [section-id]
+(rum/defc clinician < rum/static []
   [:.container {:style {:height "100%"}}
    [:.row
     [:.col-sm-12

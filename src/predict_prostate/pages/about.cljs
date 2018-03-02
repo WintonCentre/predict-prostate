@@ -8,7 +8,7 @@
             ))
 
 
-(rum/defc about < rum/static [section-id]
+(rum/defc about < rum/static []
   [:.container
    [:.row
     [:.col-sm-12

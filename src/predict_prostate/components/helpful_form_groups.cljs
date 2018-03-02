@@ -1,5 +1,5 @@
 (ns predict-prostate.components.helpful-form-groups
-  (:require [clojure.string :refer [replace lower-case]]
+  (:require [clojure.string :as str]
             [rum.core :as rum]
             [predict-prostate.components.select :refer [picker]]
             [predict-prostate.state.run-time :refer [input-cursor input-change input-widget input-label]]
@@ -49,6 +49,6 @@
 (rum/defc form-entry < rum/reactive active-monitor [{:keys [label key] :as props}]
   (helpful-input {:label   (input-label key)                ;label
                   :key     key
-                  :help-id (if label (replace (lower-case label) " " "-"))
+                  :help-id (if label (str/replace (str/lower-case label) " " "-"))
                   :error   (error? (rum/react (input-cursor key)))}
                  (input-widget key)))

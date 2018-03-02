@@ -21,7 +21,7 @@
     ))
 
 
-(rum/defc home < rum/static [section-id]
+(rum/defc home < rum/static []
 
   [:.container
    [:.row
