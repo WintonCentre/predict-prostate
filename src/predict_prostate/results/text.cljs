@@ -3,17 +3,16 @@
             [predict-prostate.components.helpful-form-groups :refer [form-entry]]
             [predict-prostate.state.config :refer [input-groups get-input-default]]
             [predict-prostate.components.button :refer [year-picker]]
-            [predict-prostate.results.common :refer [stacked-yearly-values stacked-bar-yearly-props
-                                             filter-results->stacked-bar-props result-scroll-height]]
-            [predict-prostate.state.run-time :refer [input-change input-cursor input-widget input-label results-cursor]]
-            [predict-prostate.results.util :refer [->Item treatment-callout-text strip-root fill avoid-decimals]]
+            [predict-prostate.state.run-time :refer [input-change input-cursor results-cursor]]
+            [predict-prostate.results.util :refer [fill avoid-decimals]]
             [graphics.simple-icons :refer [icon]]
             [pubsub.feeds :refer [publish]]
             ))
 
 
+(def round js/Math.round)
 
-;; todo: move to predict-prostate.results.comon or util
+;; todo: move to predict-prostate.results.common or util
 (defn set-default [key]
   "Set the default state of an input after it is mounted. Use this on tab switching if something has to go back to default."
   {:did-mount (fn [state]
@@ -21,48 +20,16 @@
                   (publish (input-change key) default))
                 state)})
 
-;; todo: move to predict-prostate.results.comon or util
-(defn year-selected []
-  "return a cursor containing the selected year"
-  (input-cursor :result-year))
-
-(defn benefit [data key]
-  (key data))
-
-
-(defn benefits [data & keys]
-  (apply + (map #(% data) keys)))
-
 
 (defn emph [n]
   (if false
     [:span {:style {:font-size "16px" :font-weight "bold"}} n]
     n))
 
-(comment
-  ; later
-  (def icons? false)
-  (defn woman [] (icon {:family :ionicon} "ion-woman"))
-  (defn line [data treatments key]
-    [:p [:span {:style {:font-size "14px" :color fill :line-height "0px"}}] (map woman (range (benefits data key)))])
-  )
-
-(rum/defc texts < rum/static [years data treatments]
-  (let [surg (benefits data :surgery)
-        horm (benefits data :horm)
-        chemo (benefits data :chemo)
-        tra (benefits data :tra)
-
-
-
-        list-item (fn [horm chemo tra]
-                    (let [sum-scht (Math.round (+ surg horm chemo tra))
-                          delta-cht (- sum-scht (Math.round surg))]
-                      (when (pos? (+ horm chemo tra))
-                        [:li [:p (emph sum-scht) " out of " (emph 100) " women treated (an extra " (emph delta-cht) ") are alive because of "
-                              (when (pos? horm) (emph "hormone therapy"))
-                              (when (pos? chemo) (emph (str (if (pos? horm) ", and " " ") "chemotherapy")))
-                              (when (pos? tra) (emph (str (if (or (pos? horm) (pos? chemo)) ", and ") "trastuzumab"))) "."]])))]
+(rum/defc texts < rum/static [years data radical?]
+  (let [cs (round (nth (:conservative-survival data) years))
+        rs (round (nth (:radical-survival data) years))
+        benefit (- rs cs)]
     [:.row
      [:.col-sm-12 {:style {:margin-top "20px" :margin-left "-8px" :margin-bottom "10px" :display "inline-block"}}
       [:p "Based on the information you have entered:"]
@@ -71,42 +38,49 @@
       ]
 
      [:.col-sm-12
-      [:p (emph (Math.round surg)) " out of " (emph 100) " women are alive at " years " years with " (emph "surgery only") "."]
+      [:p (emph cs) " out of " (emph 100) " men are alive at " years " years with " (emph "conservative treatment") "."]
 
-      [:ul
-       (when (pos? horm)
-         (list-item horm 0 0))
-       (when (pos? chemo)
-         (list-item horm chemo 0))
-       (when (pos? tra)
-         (list-item horm chemo tra))
-       ]
-
+      (when radical?
+        [:p (emph rs) " out of " (emph 100) " men treated (an extra " (emph benefit) ") are alive because of " (emph "radical treatment") "."])
 
       ]]))
 
 
+(defn extract-data
+  "Different models use different treatment widgets, so we need to use these to react to the correct
+  treatments and lookup the appropriate result-data."
+
+  [results]
+  (let [one-sum #(* 100 (- 1 (+ %1 %2)))
+        radical-survival (map one-sum
+                              (get-in results [:radical :pred-PC-cum])
+                              (get-in results [:radical :pred-NPC-cum]))
+        conservative-survival (map one-sum
+                                   (get-in results [:conservative :pred-PC-cum])
+                                   (get-in results [:conservative :pred-NPC-cum]))]
+    {:title                 "Overall Survival"
+     :subtitle-over         "for men with prostate cancer, 5 and 10 years after surgery"
+     :subtitle-under        "years after surgery"
+     :conservative-survival conservative-survival
+     :radical-survival      radical-survival
+     :radical-benefit       (map #(- %1 %2) radical-survival conservative-survival)
+     :dotted-orange         (map #(* 100 %) (get-in results [:conservative :NPC-survival])) ; dotted orange
+     }
+    ))
+
 (rum/defc results-in-text < rum/reactive (set-default :result-year) []
-  (let [horm-yes (rum/react (input-cursor :horm))
-        tra-yes (rum/react (input-cursor :tra))
-        year (rum/react (year-selected))
-        treatments (map strip-root [:surgery :horm :chemo :tra :br :oth])
-        data (into {} (stacked-yearly-values {:model      "v2.1"
-                                              :treatments treatments
-                                              :results    (rum/react results-cursor)
-                                              :tra-yes    tra-yes
-                                              :horm-yes   horm-yes} year))]
+  (let [year (rum/react (input-cursor :result-year))
+        data (extract-data (rum/react results-cursor))
+        radical? (= 1 (rum/react (input-cursor :primary-rx)))]
 
     [:div
 
      [:.row
       [:.col-sm-12
-       (texts year data treatments)]]
+       (texts year data radical?)]]
 
      [:.row
       [:.col-sm-12
-       [:p "Of the women who would not survive, " (emph (js/Math.round (:oth data))) " would die due to causes not related to breast cancer."]
-       ]]
-     ]
-
-    ))
+       [:p "Of the men who would not survive,
+       " (emph (- 100 (js/Math.round (nth (:dotted-orange data) year))))
+        " would die due to causes not related to breast cancer."]]]]))

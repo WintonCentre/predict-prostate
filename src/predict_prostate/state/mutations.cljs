@@ -49,7 +49,7 @@
 
 
 (defn log [topic old new]
-  (println "Mutate: " topic " " old " -> " new)
+  ;(println "Mutate: " topic " " old " -> " new)
   )
 
 (defn subscribe-to [change cursor & [silent]]

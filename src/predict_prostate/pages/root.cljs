@@ -4,12 +4,12 @@
     [predict-prostate.state.run-time :refer [rtdb route     ;drv-spec
                                              ]]
     [predict-prostate.pages.home :refer [home]]
-    ;       [predict-prostate.pages.about :refer [about]]
-    ;       [predict-prostate.pages.patient :refer [patient]]
-    ;       [predict-prostate.pages.clinician :refer [clinician]]
+    [predict-prostate.pages.about :refer [about]]
+    [predict-prostate.pages.patient :refer [patient]]
+    [predict-prostate.pages.clinician :refer [clinician]]
     [predict-prostate.pages.tool :refer [tool]]
     ;       [predict-prostate.pages.news :refer [news]]
-    ;       [predict-prostate.pages.not-found :refer [not-found]]
+    [predict-prostate.pages.not-found :refer [not-found]]
     ))
 
 
@@ -20,10 +20,10 @@
     [:div
      (case page
        :home (home)
-       ;:about (about)
-       ;:patient (patient)
-       ;:clinician (clinician)
+       :about (about)
+       :patient (patient)
+       :clinician (clinician)
        :tool (tool)
-       ;:not-found (not-found)
-       ;[:div "404"]
+       :not-found (not-found)
+       [:div "404"]
        )]))

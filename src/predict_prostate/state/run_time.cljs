@@ -28,7 +28,7 @@ survival, up to the projected survival of breast-cancer-free women "
 
                 :recalculate-error-state 0
 
-                :active-results-pane     "table"
+                :active-results-pane     "curves"
                 :active-mockup           "Mockup 1"         ;used for adverse effects mockups
                 :incomplete              true
 

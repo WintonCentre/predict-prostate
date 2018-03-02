@@ -39,17 +39,14 @@
 
 (defn as-point-series [plot-layers]
   "Convert a vector of data-layers of time-series y-values to a vector of time-series of [x y] points."
-  (println "plot=layers" plot-layers)
-  (let [formatted (into [] (for [time-series plot-layers]
-                             (into [] (map-indexed (fn [i v] [i v]) time-series))))]
-    (println "formatted:" formatted)
-    formatted))
+  (into [] (for [time-series plot-layers]
+             (into [] (map-indexed (fn [i v] [i v]) time-series)))))
 
 (rum/defc line-plot [{:keys [X Y] :as scale} point-series line-style]
   "X and Y are the x-axis and y-axis scale functions.
   Data should look something like this:
   [[0 100]  [1 98.89556593176486]  ... [9 64.83779488900586]  [10 60.8297996952587]]"
-  (println "data" point-series)
+
   (let [point (fn [x y] (str (X x) " " (Y y)))]
     [:g
      [:polyline (merge {:points (map #(apply point %) point-series)} line-style)]]))
@@ -59,16 +56,16 @@
   Point series should look something like this:
   [[0 100]  [1 98.89556593176486]  ... [9 64.83779488900586]  [10 60.8297996952587]]
   Baseline is the "
-  ([{:keys [X Y] :as scale} point-series area-style]
+  ([scale point-series area-style]
    (area-plot scale point-series area-style 0))
-  ([{:keys [X Y] :as scale} point-series area-style base]
-   (println "data" point-series)
-   (let [point (fn [x y] (str (X x) " " (Y y)))]
-     [:g
-      [:polygon (merge {:points (str/join ", " [(str/join ", " (map #(apply point %) point-series))
-                                                (str/join ", " [(point (first (last point-series)) base)
-                                                                (point (first (first point-series)) base)])])}
-                       area-style)]])))
+  ([{:keys [X Y]} point-series area-style base]
+   (when (seq point-series)
+     (let [point (fn [x y] (str (X x) " " (Y y)))]
+       [:g
+        [:polygon (merge {:points (str/join ", " [(str/join ", " (map #(apply point %) point-series))
+                                                  (str/join ", " [(point (first (last point-series)) base)
+                                                                  (point (first (first point-series)) base)])])}
+                         area-style)]]))))
 
 (rum/defc plot [{:keys [X Y] :as scale} data]
   "X and Y are the x-axis and y-axis scale functions.

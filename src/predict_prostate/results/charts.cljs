@@ -147,14 +147,10 @@
     :or   {key 1 label-over nil label-under nil dataset []}
     :as   params}]
 
-  (println "bar params " params)
-
   (let [n (count dataset)
         sums (into [] (reductions + (cons 0 (map :value dataset))))
         inline-style (merge {:height "100%"}
                             {:left left :right right :width width})]
-
-    (println "dataset" dataset)
 
     [:.bar {:key key :style inline-style}
      (bar-label {:key 2 :text label-under :top? false})
@@ -181,8 +177,10 @@
                     :border-top     "4px dashed #FA0"}}]
      ]))
 
+(defn treatment-selected [item]
+  )
 
-(rum/defc inner-stacked-bar < rum/static
+(rum/defc inner-stacked-bar < rum/static rum/reactive
                               "This currently supports a left and a right stacked bar with callouts left and right and top"
   [{:keys [conservative-survival radical-benefit dotted-orange style title subtitle-under]}]
 
@@ -197,18 +195,22 @@
 
     (map-indexed #(rum/with-key (h-tick-line (str %2 "%")) (str "tick" %1)) (range 0 110 10))
 
-    (let [years [5 10]]
+    (let [years [5 10]
+          radical? (= 1 (rum/react (input-cursor :primary-rx)))]
       (for [year years
             :let [left? (= year (first years))
-                  data [{:treatment-key :conservative :value (nth conservative-survival year)}
-                        {:treatment-key :radical :value (nth radical-benefit year)}
-                        ]
+
+                  data (filter #(if (= (:treatment-key %) :radical) radical? true)
+                               [{:treatment-key :conservative :value (nth conservative-survival year)}
+                                {:treatment-key :radical :value (nth radical-benefit year)}])
+
+
+
                   callout (if left? n%-text-> <-n%-text)]]
 
 
         ; remove :br and :oth fields for bar plot
         (let [plot-data data]
-          (println "plot-data" plot-data)
           (rum/with-key
             (bar {:label-under year
                   :dataset     data
@@ -282,7 +284,6 @@
 
           [:.chart-wrapper {:style {:position    "relative"
                                     :padding-top (* width-1 h-over-w)}}
-           (println "chart-props " chart-props)
            (rum/with-key (inner-stacked-bar chart-props) 1)
            ]
 

@@ -72,7 +72,10 @@
 (def cat-scale-6-4 ["#00008b" "#e16665" "#8722ae"  "#5fd1e6" "#67a4b6" "#dd1493"])
 ;; http://gka.github.io/palettes/#diverging|c0=0000aa,blue,darkorange|c1=6ce5ff,teal,dd1493|steps=6|bez0=1|bez1=1|coL0=1|coL1=1
 (def cat-scale-6-5 ["#0000aa" "#e56961" "#9427b3"  "#5fd1e6" "#67a4b6" "#dd1493"])
-(def cat-scale-6-6 ["#0000aa" "#5fd1e6" "#ffffff"           ;"#e56961" "#9427b3" "#67a4b6" "#dd1493"
+(def cat-scale-6-6 ["#0000aa"
+                    "#00afef"
+                    ;"#5fd1e6"
+                    "#ffffff"           ;"#e56961" "#9427b3" "#67a4b6" "#dd1493"
                     ])
 
 (def fills (into [] (reverse cat-scale-6-6)))

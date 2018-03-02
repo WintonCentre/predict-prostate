@@ -113,22 +113,27 @@
 
    [:section#about-page "About"
     [:section#who "Who developed the PREDICT programme?"
+     [:p {:style {:color "red"}} "replace text here"]
+
      [:p "PREDICT has been developed by a partnership between The Breast Unit at Cambridge University NHS Hospital, the
     University of Cambridge Department of Oncology and the NHS Eastern Cancer Registry and Information Centre (ECRIC)."]]
 
     [:section#how "How was the computer programme developed?"
+     [:p {:style {:color "red"}} "replace text here"]
      [:p "The team used information held by the Eastern Cancer Registry and Information Centre on nearly 5700 women treated
     for breast cancer between 1999 and 2003. Using this information we were able to see how individual factors affected
     survival at five years and ten years."]]
 
     [:section#where "Where can I find more information on Breast Cancer?"
+     [:p {:style {:color "red"}} "replace text here"]
      [:p "There is a great deal of information on Breast Cancer on the web. One of best and most reliable sources is Cancer
     Research UK. The information is written by experts, is up to date and in a style that is easy to understand."]]
     ]
 
    [:section#patient-information "Patient Information"
-    [:section#what-it-does "What is PREDICT?"
 
+    [:section#what-it-does "What is PREDICT?"
+     [:p {:style {:color "red"}} "replace text here"]
      [:p "Nothing can ever tell an individual woman what is going to happen to her – but we believe that in order to make
     decisions about treatment options it’s important that people are given as much information as is possible about the
     potential effects of each treatment option."]
@@ -137,13 +142,14 @@
     made in consultation between the patient and a qualified doctor."]]
 
     [:section#what-it-says "What does it tell me?"
+     [:p {:style {:color "red"}} "replace text here"]
      [:p "This web tool aims to give women who have had surgery for breast cancer as accurate information as is
     possible about the potential effects of further treatment options available to them. This version of the tool was 
      developed using data from over 5,000 women with breast cancer from England and has been carefully tested on data 
      from another 23,000 women with breast cancer from around the world."]]
 
     [:section#how-does-it-know "How does it know what a treatment will do for me?"
-
+     [:p {:style {:color "red"}} "replace text here"]
      [:p "It can’t tell you what will happen to you, but it will look at the evidence to tell you a ‘best guess’ at the
     chances of different outcomes."]
 
@@ -157,7 +163,7 @@
 
 
     [:section#how-accurate "How accurate is it?"
-
+     [:p {:style {:color "red"}} "replace text here"]
      [:p "Once the tool had been made, it was tested to see whether it could accurately predict outcomes for women.
      This was done by taking the data held in England for another 5,000 women whose outcomes were known, and running 
      the tool for each of them as if they were new patients to see how accurate it was. It was then tested in the same way
@@ -170,7 +176,9 @@
       [:a {:href "https://breast-cancer-research.biomedcentral.com/articles/10.1186/s13058-017-0852-3"} "here"] "."]]]
 
    [:section#clinician-information "Clinician Information"
+
     [:section#professionals "Information for professionals"
+     [:p {:style {:color "red"}} "replace text here"]
      [:p "Welcome to PREDICT, an online prognostication and treatment benefit tool designed to help clinicians and
      patients make informed decisions about treatment following breast cancer surgery. The survival estimates, presented
      both with and without adjuvant therapy (hormone therapy, chemotherapy and trastuzumab), are provided for 5 and 10
@@ -193,7 +201,7 @@
      >5% chemotherapy recommended.\n\nThe relative risk reduction for hormone therapy is based on 5 years of tamoxifen."]]
 
     [:section#model-development "Model development"
-
+     [:p {:style {:color "red"}} "replace text here"]
      [:p "The model was derived from cancer registry information on 5,694 women treated in East Anglia from 1999-2003.
      Breast cancer mortality models for ER positive and ER negative tumours were constructed using Cox proportional
      hazards, adjusted for known prognostic factors and mode of detection (symptomatic versus screen-detected).
@@ -202,7 +210,7 @@
      in January 2010."]]
 
     [:section#model-validation "Model validation"
-
+     [:p {:style {:color "red"}} "replace text here"]
      [:p "The clinical validity of a prediction model can be defined as the accuracy of the model to predict future
      events. The two key measures of clinical validity are calibration and discrimination."]
 
@@ -223,6 +231,7 @@
      Surgical Oncology."]]
 
     [:section#v1-1 "Model extension: HER2 status (version 1.1)"
+     [:p {:style {:color "red"}} "replace text here"]
      [:p "The model was updated in October 2011 to include HER2 status. Estimates for the prognostic effect of HER2
       status were based on analysis of 10,179 cases collected by the Breast Cancer Association Consortium (BCAC). A
       validation of the new model in the British Columbia dataset was published in the British Journal of Cancer. This
@@ -233,7 +242,7 @@
       years in published trials."]]
 
     [:section#v1-2 "Model extension: KI67 status (version 1.2)"
-
+     [:p {:style {:color "red"}} "replace text here"]
      [:p "More recently we have added KI67 status to the model. The prognostic effect of KI67 was taken from published
       data showing that ER positive tumours that express KI67 are associated with a 30 percent poorer relative survival."]
 
@@ -246,6 +255,7 @@
      BMC Cancer."]]
 
     [:section#refitting "Model re-fitting (version 2.0)"
+     [:p {:style {:color "red"}} "replace text here"]
      [:p "While the overall fit of the model has been good in multiple independent case series, PREDICT has been shown
      to underestimate breast cancer specific mortality in women diagnosed under the age of 40, particularly those with
      ER positive disease (See publication [5]). Another limitation of the model is the use of discrete categories for
@@ -267,7 +277,7 @@
      PREDICT v2.0 was good in all age groups."]]
 
     [:section#oncotype "PREDICT and Oncotype DX™"
-
+     [:p {:style {:color "red"}} "replace text here"]
      [:p "Oncotype DX™ is a prognostic model (breast cancer recurrence) based on a test of gene expression profiles in
      tumours. It has recently been recommended by NICE (DG10) for use in women with oestrogen receptor positive (ER+),
      lymph node negative (LN−) and human epidermal growth factor receptor 2 negative (HER2−) early breast cancer to

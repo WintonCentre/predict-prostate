@@ -39,11 +39,10 @@
                      :radical      (predict-prostate (assoc inputs :primary-rx 1))
                      :radical-high (predict-prostate (assoc inputs :primary-rx 1.1))
                      }]
-        (println results)
+        ;(println results)
         results
         )
       )))
-
 
 
 (comment                                                    ;; --- tests

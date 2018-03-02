@@ -37,20 +37,20 @@
 (rum/defc result-tabs < rum/static []
   [:ul.nav.nav-pills {:role  "tablist"
                       :style {:font-size "16px"}}
-   (map #(rum/with-key (result-tab-button %) %) ["table"
-                                                 "curves"
+   (map #(rum/with-key (result-tab-button %) %) ["curves"
                                                  "charts"
+                                                 "table"
                                                  "texts"
                                                  "icons"
                                                  ])])
 
 (rum/defc result-panes < rum/static []
   [:.tab-content
-   (result-tab-pane "table" results-in-table)
    (result-tab-pane "curves"  results-in-curves)
    (result-tab-pane "charts" results-in-charts)
+   (result-tab-pane "table" results-in-table)
    ;(result-tab-pane "icons" results-in-icons)
-   ;(result-tab-pane "texts" results-in-text)
+   (result-tab-pane "texts" results-in-text)
    ])
 
 (rum/defc result-panel < rum/reactive []
