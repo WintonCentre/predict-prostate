@@ -95,7 +95,7 @@
 
    [:section#home-how-use "How do I use Predict?"
     [:p {:key 3} "You enter details about the cancer, and then select different treatment options to see how effective they are."]
-    [:div {:key 2 :style {:border-left  "3px solid #BC3D95"
+    [:div {:key 2 :style {:border-left  "3px solid #005FB1"
                           :padding-left "10px"}}
      [:p "We recommend that patients use this tool with their doctor."]]]
 

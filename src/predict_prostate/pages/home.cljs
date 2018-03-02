@@ -2,7 +2,7 @@
   (:require [rum.core :as rum]
             [cljs-css-modules.macro :refer-macros [defstyle]]
             [predict-prostate.layout.header :refer [header footer]]
-    #_[predict-prostate.content-reader :refer [section all-subsections]]
+            [predict-prostate.content-reader :refer [section all-subsections]]
             [predict-prostate.state.run-time :refer [route-change]]
             [graphics.simple-icons :refer [icon]]
             [pubsub.feeds :refer [publish]]
@@ -11,8 +11,7 @@
 
 (rum/defc block [{:keys [section-id extras]}]
 
-  (let [[title & content] ["Title" "Content"]               ;(section section-id)
-        ]
+  (let [[title & content] (section section-id)]
     [:.panel                                                ;.panel-default
      [:.panel-heading {:key 1 :style {:color "#005EB4" :background-color "#ffffff" :padding-bottom 0}}
       [:h2 title]]
@@ -33,15 +32,15 @@
       [:.col-sm-12
        [:.row
         [:.col-sm-5
-         ;(rum/with-key (block {:section-id "home-what-is"}) 1)
-         ;(rum/with-key (block {:section-id "home-what-tell"}) 2)
-         #_(rum/with-key (block {:section-id "home-how-use"
-                                 :extras     [:button.btn.btn-primary.btn-lg.pull-right {:style    {:margin-right  "5px"
-                                                                                                    :margin-bottom "5px"}
-                                                                                         :on-click #(publish route-change [:tool nil nil])}
+         (rum/with-key (block {:section-id "home-what-is"}) 1)
+         (rum/with-key (block {:section-id "home-what-tell"}) 2)
+         (rum/with-key (block {:section-id "home-how-use"
+                               :extras     [:button.btn.btn-primary.btn-lg.pull-right {:style    {:margin-right  "5px"
+                                                                                                  :margin-bottom "5px"}
+                                                                                       :on-click #(publish route-change [:tool nil nil])}
 
 
-                                              (icon {:family :ionicon} "ion-stats-bars") " Predict Tool"]}) 3)]
+                                            (icon {:family :ionicon} "ion-stats-bars") " Predict Tool"]}) 3)]
 
 
         [:.col-xs-12.col-sm-7 {:style {:border "1px none #CCCCCC" :border-radius "10px" :padding "15px" :margin-left "-15px" :padding-top "50px"}}
@@ -53,7 +52,6 @@
        ]]
 
      (footer)]]])
-
 
 (comment
   {:style {:border "1px solid grey" :padding "10px" :height "370px"}}
