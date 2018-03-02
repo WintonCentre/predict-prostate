@@ -122,7 +122,7 @@
   (fill (- 2 index))
   )
 
-; use a line to indicate women's survival without breast cancer
+; use a line to indicate survival without cancer
 (def use-line true)
 
 
@@ -188,7 +188,7 @@
 ;;;
 
 ; defines a data-item.
-(defrecord Item [treatment-key value])
+#_(defrecord Item [treatment-key value])
 
 ;;
 ;; Chart annotation texts for use in callouts, titles, sub-titles etc.
@@ -208,7 +208,6 @@
                :horm    "benefit of adjuvant hormone treatment"
                :chemo   "additional benefit of adjuvant chemotherapy"
                :tra     "additional benefit of trastuzumab"
-               ;:br      "women without breast cancer"
                :oth     "death from other causes"
                }
    "next-gen" {:surgery "survival with no adjuvant treatment"
@@ -227,7 +226,7 @@
                :no-bc   "survival with no breast cancer"}})
 
 
-(defn treatment-callout-text
+#_(defn treatment-callout-text
   [model treatment-key benefit]
   (str benefit "% " (get-in treatment-callout-templates [model treatment-key])))
 

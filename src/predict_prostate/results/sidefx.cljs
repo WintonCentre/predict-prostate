@@ -5,11 +5,11 @@
             [predict-prostate.state.config :refer [input-groups get-input-default]]
             [predict-prostate.state.run-time :refer [input-cursor input-change
                                              mockup-change mockup-cursor]]
-            [predict-prostate.results.common :refer [stacked-yearly-values stacked-bar-yearly-props
+            #_[predict-prostate.results.common :refer [stacked-yearly-values stacked-bar-yearly-props
                                              filter-results->stacked-bar-props result-scroll-height]]
             [predict-prostate.state.run-time :refer [rtdb input-cursor input-widget input-label results-cursor]]
             [predict-prostate.components.button :refer [year-picker]]
-            [predict-prostate.results.util :refer [->Item treatment-callout-text strip-root avoid-decimals]]
+            [predict-prostate.results.util :refer [strip-root avoid-decimals]]
 
             [pubsub.feeds :refer [publish]]
             ))
@@ -194,7 +194,7 @@
                      :style {:font-size "16px"}}
    (map #(rum/with-key (mockup-button (str "Mockup " %)) %) (range 1 4))])
 
-(rum/defc mockup1 [data]
+#_(rum/defc mockup1 [data]
   [:div
    [:.row {:style {:margin-top " 20px "}}
     [:.col-sm-4
@@ -238,7 +238,7 @@
        [:li [:a {:href "https://www.macmillan.org.uk/information-and-support/breast-cancer/coping/side-effects-and-symptoms"}
              " Macmillan"]]]]]]])
 
-(rum/defc mockup3 [data]
+#_(rum/defc mockup3 [data]
   [:div
    [:.row {:style {:margin-top " 20px "}}
     [:.col-sm-12
@@ -259,19 +259,12 @@
 (rum/defc mockup-panes < rum/reactive []
   (let [horm-yes (rum/react (input-cursor :horm))
         tra-yes (rum/react (input-cursor :tra))
-        data (into {} (stacked-yearly-values {:model      "v2.1"
-                                              :treatments [:surgery
-                                                           :horm :horm-low :horm-high
-                                                           :chemo :chemo-low :chemo-high
-                                                           :tra :tra-low :tra-high
-                                                           :br :oth]
-                                              :results    (rum/react results-cursor)
-                                              :tra-yes    tra-yes
-                                              :horm-yes   horm-yes} (rum/react (year-selected))))]
+        data [1]                                            ;:todo add an extract-data for this
+        ]
     [:.tab-content
-     (mockup-tab-pane "Mockup 1" #(mockup1 data))
+     ;(mockup-tab-pane "Mockup 1" #(mockup1 data))
      (mockup-tab-pane "Mockup 2" #(mockup2 data))
-     (mockup-tab-pane "Mockup 3" #(mockup3 data))
+     ;(mockup-tab-pane "Mockup 3" #(mockup3 data))
      ]))
 
 (rum/defc results-in-sidefx < rum/static (set-default :result-year) []

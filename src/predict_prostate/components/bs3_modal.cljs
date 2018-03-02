@@ -11,7 +11,7 @@
         help (section help-key)
         [help-header & help-content] (if (seq help)
                                        help
-                                       ["help header" [:p "help content"]])
+                                       ["help header" [:p {:style {:color "red"}} "add content"]])
         help-text (into [] (cons :div help-content))
         ]
 

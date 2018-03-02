@@ -3,7 +3,7 @@
             [predict-prostate.results.util :refer [fill]]
             [predict-prostate.state.run-time :refer [input-cursor results-cursor input-widget input-change]]
             [predict-prostate.state.config :refer [input-groups get-input-default]]
-            [predict-prostate.results.common :refer [stacked-yearly-values filter-results->stacked-bar-props result-scroll-height]]
+    ;[predict-prostate.results.common :refer [stacked-yearly-values filter-results->stacked-bar-props result-scroll-height]]
             [predict-prostate.components.button :refer [horiz-radio-button-group year-picker]]
             [predict-prostate.components.helpful-form-groups :refer [form-entry]]
             [predict-prostate.components.primitives :refer [pic pic-dead open-icon dead-icon]]
@@ -113,7 +113,7 @@
 
       [:row
        [:.col-xs-12
-        [:p {:style {:margin-top "15px"}} "This display shows the outcomes for 100 women. These results are based on the inputs and treatments you selected."]
+        [:p {:style {:margin-top "15px"}} "This display shows the outcomes for 100 men. These results are based on the inputs and treatments you selected."]
         #_(form-entry {:key :result-year})
 
 
