@@ -2,7 +2,6 @@
 .DS_Store
 figwheel_server.log
 *jar
-*.psd
 /lib/
 /classes/
 /out/
