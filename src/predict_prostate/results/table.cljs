@@ -48,7 +48,8 @@
 
 (rum/defc tables < rum/reactive [data]
 
-  (let [uncertainty? (= :yes (rum/react (input-cursor :show-uncertainty)))]
+  (let [uncertainty? (= :yes (rum/react (input-cursor :show-uncertainty)))
+        radical? (= 1 (rum/react (input-cursor :primary-rx)))]
     [:.table-responsive {:style {:margin-top "15px"
                                  :font-size  "1.2em"}}
      [:table.table.table-hover {:style {:padding 0 :margin 0 :font-size "16px"}}
@@ -63,7 +64,7 @@
         [:td "Conservative treatment "]
         [:td "-"]
         [:td (get-in data [:conservative :overall])]]
-       (when true                                           ;(pos? (:horm data))
+       (when radical?                                          ;(pos? (:horm data))
          [:tr
           [:td "Radical treatment"]
           [:td (get-in data [:radical :benefit])            ;(benefit% data :horm uncertainty?)

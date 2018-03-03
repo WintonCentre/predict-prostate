@@ -11,12 +11,16 @@
 (def router
   (r/router [["/" :home]
              ["/home" :home]
+             ["/about" :about]
+             ["/patient" :patient]
+             ["/clinician" :clinician]
              ["/tool" :tool]
              ]))
 
 (defn on-navigate
   "A function which will be called on each route change."
   [name params query]
+  ;(println "on-navigate " name)
   (reset! route [name params query])
   )
 
