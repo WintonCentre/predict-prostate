@@ -403,6 +403,9 @@
     [:section#histological-grade-group "Histological grade group"
      [:p "The reported grade group from the diagnostic prostate biopsies. This can be derived from the Gleason score."]]
 
+    [:section#gleason-scale "Gleason scale"
+     [:p "The Gleason group from the diagnostic prostate biopsies. This can be derived from the Grade Group."]]
+
     [:section#biopsy "Biopsy"
      [:p "The proportion of cores with any prostate cancer."]]
 
