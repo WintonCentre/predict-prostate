@@ -91,10 +91,13 @@ Whenever code changes, it is recompiled and reloaded
 into the running program without the need for a screen refresh. We
 generate a source-map for chrome developer tools so code may be inspected
 and exercised in the browser in javascript or clojurescript. Similarly,
-we use the binaryage devtools to allow easy navigation through either
-javascript or clojurescript data structures. We also make good use
-of the clojurescript REPL (Read Evaluate Print Loop) to support code
-evaluations within the editor.
+we use the [binaryage devtools](https://github.com/binaryage/cljs-devtools)
+to allow easy navigation through either
+javascript or clojurescript data structures.
+
+However as in all clojure programming, the main development tool is
+the REPL (Read Evaluate Print Loop) which supports code
+evaluation within the editor.
 
 Our clojurescript-aware editor is the free [Intellij community edition](https://www.jetbrains.com/idea/download)
 augmented with the [Cursive plugin](https://cursive-ide.com/) for Clojure/Clojurescript). Other editors
@@ -114,7 +117,7 @@ The `scrip/repl.clj` file is already in the distribution, so you don't need
 to make it. If you name this configuration 'figwheel' it will appear next
 to the green 'run' arrow in the intellij menu bar.
 
-## Development testing
+## Starting the REPL
 
 Click the 'run' arrow.
 
@@ -123,6 +126,16 @@ Once the code has been compiled, it will launch your default browser at
 the URL http://localhost:4449 where you should be able to see the
 development web site.
 
+You can type clojurescript expressions into the bottom half of the REPL
+window, and they will be evaluated in the top half. Try
+```clj
+(+ 3 2)
+```
+
+It is usually more
+convenient however to send selected sections of code from an editor window
+to the REPL for evaluation. See the `Tools > REPL` commands
+in Intellij/Cursive.
 
 ## Development release
 
