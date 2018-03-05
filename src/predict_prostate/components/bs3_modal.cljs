@@ -50,7 +50,7 @@
                       :dangerouslySetInnerHTML {:__html "&times;"}}]
       [:h4.modal-title "Settings"]]
      [:.modal-body
-      [:p "Configure the inputs to use either Grade group or Gleason scale entries."]
+      [:p "Configure the histological scale to use either Grade group or Gleason or both."]
       (input-widget :hist-scale)
       ]
      [:.modal-footer

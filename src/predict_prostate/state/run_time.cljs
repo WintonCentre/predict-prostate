@@ -18,7 +18,7 @@
 
 
 "When plotting adjuvant treatments, we start from a baseline of surgery only, adding treatments and hopefully improving
-survival, up to the projected survival of breast-cancer-free women "
+survival, up to the projected survival of prostate-cancer-free men "
 (defonce rtdb
          (atom {
 

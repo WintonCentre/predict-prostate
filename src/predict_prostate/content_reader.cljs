@@ -83,7 +83,7 @@ re-tag #"([^\s\.#]+)(?:#([^\s\.#]+))?(?:\.([^\s#]+))?")
 
   (def mock-data* [:section#about-the-patient.input-box "About the patient"
 
-                   [:p "This section collects information about the person with breast cancer which may affect the treatment choices
+                   [:p "This section collects information about the person with prostate cancer which may affect the treatment choices
     available to them or the outcomes of those treatments."]
 
                    [:p "The options available are those recorded in the English health service records, as the tool is based on a

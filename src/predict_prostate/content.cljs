@@ -55,7 +55,7 @@
    [:.row {:style {:margin-top " 0px "}}
     [:.col-sm-12
      [:p "The table shows information on the adverse effects you may experience if your treatment includes " treatment
-      ". The data is based on women of a similar age. It does " [:strong "not"] " take account of dosage, or of interactions between treatments."]]]
+      ". The data is based on men of a similar age. It does " [:strong "not"] " take account of dosage, or of interactions between treatments."]]]
 
    [:row
     #_[:.col-sm-12
@@ -64,7 +64,7 @@
      [:p treatment " have an additional survival benefit of 2% at 5 years and 5% at 10 years."]
      [:p [:strong "Links to more info:"]
       [:ul {:style {:list-style-type "none"}}
-       [:li [:a {:href "https://www.macmillan.org.uk/information-and-support/breast-cancer/coping/side-effects-and-symptoms"}
+       [:li [:a {:href "https://www.macmillan.org.uk/information-and-support/prostate-cancer/coping/side-effects-and-symptoms"}
              " Macmillan"]]]]]]])
 
 (rum/defc progress [percent]
@@ -85,29 +85,29 @@
      [:p "We're sorry, but that page doesn't exist on this site."]
      [:p "Try clicking on 'Home' in the navigation bar instead."]]]
 
-   [:section#strap-line "Clear data on breast cancer treatment outcomes"]
+   [:section#strap-line "Clear data on prostate cancer treatment outcomes"]
 
    [:section#home-what-is "What is Predict?"
-    [:p {:key 1} "Predict is a tool that helps doctors and patients decide on treatments to have after surgery for breast cancer."]
+    [:p {:key 1} "Predict is a tool that helps doctors and patients decide on whether to have conservative or radical treatment for prostate cancer."]
     [:p {:key 2} "We recommend patients read the "
      [:a {:key 1 :href "#/patient"} "patient information"]
      [:span {:key 2 :style {:font-size "16px"}} " section before using the tool."]]]
 
-   [:section#home-how-use "How do I use Predict?"
+   [:section#home-how-use "How do I use Predict/Prostate?"
     [:p {:key 3} "You enter details about the cancer, and then select different treatment options to see how effective they are."]
     [:div {:key 2 :style {:border-left  "3px solid #005FB1"
                           :padding-left "10px"}}
      [:p "We recommend that patients use this tool with their doctor."]]]
 
    [:section#home-what-tell "What will Predict tell me?"
-    [:p {:key 4} "The predict tool shows you how different treatments affect the percentage of women that survive over ten years following surgery."]]
+    [:p {:key 4} "The predict tool shows you how different treatments affect the percentage of men that survive over ten years after diagnosis."]]
 
    ;[:section#home-page "Welcome to the PREDICT website"
    ;
    ; [:section#welcome "Welcome to the PREDICT website"
-   ;  [:p "After surgery for breast cancer there are several types of treatment available."]
+   ;  [:p "After surgery for prostate cancer there are several types of treatment available."]
    ;
-   ;  [:p "This website uses data from thousands of women to show you how treatments improve survival rates."]
+   ;  [:p "This website uses data from thousands of men to show you how treatments improve survival rates."]
    ;
    ;  [:p "We recommend that you use this site with your doctor or read the ‘Patient Information’ section before using the tool."]]]
 
@@ -115,18 +115,18 @@
     [:section#who "Who developed the PREDICT programme?"
      [:p {:style {:color "red"}} "replace text here"]
 
-     [:p "PREDICT has been developed by a partnership between The Breast Unit at Cambridge University NHS Hospital, the
+     #_[:p "PREDICT has been developed by a partnership between The Breast Unit at Cambridge University NHS Hospital, the
     University of Cambridge Department of Oncology and the NHS Eastern Cancer Registry and Information Centre (ECRIC)."]]
 
     [:section#how "How was the computer programme developed?"
      [:p {:style {:color "red"}} "replace text here"]
-     [:p "The team used information held by the Eastern Cancer Registry and Information Centre on nearly 5700 women treated
-    for breast cancer between 1999 and 2003. Using this information we were able to see how individual factors affected
+     #_[:p "The team used information held by the Eastern Cancer Registry and Information Centre on nearly 5700 men treated
+    for prostate cancer between 1999 and 2003. Using this information we were able to see how individual factors affected
     survival at five years and ten years."]]
 
-    [:section#where "Where can I find more information on Breast Cancer?"
+    [:section#where "Where can I find more information on Prostate Cancer?"
      [:p {:style {:color "red"}} "replace text here"]
-     [:p "There is a great deal of information on Breast Cancer on the web. One of best and most reliable sources is Cancer
+     [:p "There is a great deal of information on Prostate Cancer on the web. One of best and most reliable sources is Cancer
     Research UK. The information is written by experts, is up to date and in a style that is easy to understand."]]
     ]
 
@@ -134,7 +134,7 @@
 
     [:section#what-it-does "What is PREDICT?"
      [:p {:style {:color "red"}} "replace text here"]
-     [:p "Nothing can ever tell an individual woman what is going to happen to her – but we believe that in order to make
+     [:p "Nothing can ever tell an individual man what is going to happen to him – but we believe that in order to make
     decisions about treatment options it’s important that people are given as much information as is possible about the
     potential effects of each treatment option."]
 
@@ -143,44 +143,46 @@
 
     [:section#what-it-says "What does it tell me?"
      [:p {:style {:color "red"}} "replace text here"]
-     [:p "This web tool aims to give women who have had surgery for breast cancer as accurate information as is
-    possible about the potential effects of further treatment options available to them. This version of the tool was 
-     developed using data from over 5,000 women with breast cancer from England and has been carefully tested on data 
-     from another 23,000 women with breast cancer from around the world."]]
+     [:p "This web tool aims to give men who have had surgery for prostate cancer as accurate information as is
+    possible about the potential effects of further treatment options available to them. "]
+     #_[:p "This version of the tool was
+     developed using data from over 5,000 men with prostate cancer from England and has been carefully tested on data
+     from another 23,000 men with prostate cancer from around the world."]]
 
     [:section#how-does-it-know "How does it know what a treatment will do for me?"
      [:p {:style {:color "red"}} "replace text here"]
      [:p "It can’t tell you what will happen to you, but it will look at the evidence to tell you a ‘best guess’ at the
     chances of different outcomes."]
 
-     [:p "The maths behind the tool is based on data from both clinical trials and from thousands of women who
-    have undergone breast cancer treatment in the recent past in England. These two types of data are combined to
-    help produce the best assessment possible of the potential outcomes for women who have breast cancer now, depending
+     [:p "The maths behind the tool is based on data from both clinical trials and from thousands of men who
+    have undergone prostate cancer treatment in the recent past in England. These two types of data are combined to
+    help produce the best assessment possible of the potential outcomes for men who have prostate cancer now, depending
     on characteristics about them and their tumour."]
 
-     [:p "It is adjusted to take into account that the outcomes and treatment options available for women now are
-    different from those for women 20 or so years ago whose data may be included."]]
+     #_[:p "It is adjusted to take into account that the outcomes and treatment options available for men now are
+    different from those for men 20 or so years ago whose data may be included."]]
 
 
     [:section#how-accurate "How accurate is it?"
      [:p {:style {:color "red"}} "replace text here"]
-     [:p "Once the tool had been made, it was tested to see whether it could accurately predict outcomes for women.
-     This was done by taking the data held in England for another 5,000 women whose outcomes were known, and running 
+     #_[:p "Once the tool had been made, it was tested to see whether it could accurately predict outcomes for men.
+     This was done by taking the data held in England for another 5,000 men whose outcomes were known, and running
      the tool for each of them as if they were new patients to see how accurate it was. It was then tested in the same way
-     with data from women in different parts of the world, and all these results have been published."]
+     with data from men in different parts of the world, and all these results have been published."]
 
-     [:p "This work has shown that this tool gives as good a guess as we currently can as to what is likely to happen to women
+     [:p "This work has shown that this tool gives as good a guess as we currently can as to what is likely to happen to men
      opting for different treatments."]
 
-     [:p "For more technical details on the maths behind this tool, please click "
-      [:a {:href "https://breast-cancer-research.biomedcentral.com/articles/10.1186/s13058-017-0852-3"} "here"] "."]]]
+     #_[:p "For more technical details on the maths behind this tool, please click "
+      [:a {:href "https://prostate-cancer-research.biomedcentral.com/articles/10.1186/s13058-017-0852-3"} "here"] "."]]]
 
    [:section#clinician-information "Clinician Information"
 
     [:section#professionals "Information for professionals"
      [:p {:style {:color "red"}} "replace text here"]
      [:p "Welcome to PREDICT, an online prognostication and treatment benefit tool designed to help clinicians and
-     patients make informed decisions about treatment following breast cancer surgery. The survival estimates, presented
+     patients make informed decisions about treatment following diagnosis. "]
+     #_[:p "The survival estimates, presented
      both with and without adjuvant therapy (hormone therapy, chemotherapy and trastuzumab), are provided for 5 and 10
      years following surgery. Development of the model was a collaborative project between the Cambridge Breast Unit,
      University of Cambridge Department of Oncology and the Eastern Cancer Information and Registration Centre (ECRIC)
@@ -189,23 +191,23 @@
      [:p "We welcome any feedback you may have about PREDICT. If you have questions about its development or there are
      features you would like to have added to the model please let us know by emailing us at info@predict.nhs.uk."]
 
-     [:p "The model is easy to use following data entry for an individual patient including patient age, tumour size,
+     #_[:p "The model is easy to use following data entry for an individual patient including patient age, tumour size,
      tumour grade, number of positive nodes, ER status, HER2 status, KI67 status and mode of detection. Survival
      estimates, with and without adjuvant therapy, are presented in visual and text formats. Treatment benefits for
      hormone therapy and chemotherapy are calculated by applying relative risk reductions from the Oxford overview to
-     the breast cancer specific mortality. Predicted mortality reductions are available for both second generation
+     the prostate cancer specific mortality. Predicted mortality reductions are available for both second generation
      (anthracycline-containing, >4 cycles or equivalent) and third generation (taxane-containing) chemotherapy regimens."]
 
-     [:p "The Cambridge Breast Unit (UK) uses the absolute 10-year survival benefit from chemotherapy to guide decision
+     #_[:p "The Cambridge Breast Unit (UK) uses the absolute 10-year survival benefit from chemotherapy to guide decision
      making for adjuvant chemotherapy as follows: <3% no chemotherapy; 3-5% chemotherapy discussed as a possible option;
      >5% chemotherapy recommended.\n\nThe relative risk reduction for hormone therapy is based on 5 years of tamoxifen."]]
 
     [:section#model-development "Model development"
      [:p {:style {:color "red"}} "replace text here"]
-     [:p "The model was derived from cancer registry information on 5,694 women treated in East Anglia from 1999-2003.
+     #_[:p "The model was derived from cancer registry information on 5,694 men treated in East Anglia from 1999-2003.
      Breast cancer mortality models for ER positive and ER negative tumours were constructed using Cox proportional
      hazards, adjusted for known prognostic factors and mode of detection (symptomatic versus screen-detected).
-     The survival estimates for an individual patient are based on the average co morbidity for women with breast cancer
+     The survival estimates for an individual patient are based on the average co morbidity for men with prostate cancer
      of a similar age. Further information about the model is provided in a paper published in Breast Cancer Research
      in January 2010."]]
 
@@ -222,26 +224,25 @@
      from a dataset - one being a survivor and the other a non-survivor - the discrimination is the probability that the
      non-survivor will have a higher predicted risk than the survivor."]
 
-     [:p "PREDICT was originally validated using a dataset of over 5000 breast cancer patients from the West Midlands
+     #_[:p "PREDICT was originally validated using a dataset of over 5000 prostate cancer patients from the West Midlands
      Cancer Intelligence Unit."]
 
-     [:p "We also validated PREDICT using a dataset from British Columbia that had been previously used for a validation
-     of Adjuvant! Online. Predict provided overall and breast cancer specific survival estimates that were at least as
+     #_[:p "We also validated PREDICT using a dataset from British Columbia that had been previously used for a validation
+     of Adjuvant! Online. Predict provided overall and prostate cancer specific survival estimates that were at least as
      accurate as estimates from Adjuvant! The results of this validation were published in the European Journal of
      Surgical Oncology."]]
 
-    [:section#v1-1 "Model extension: HER2 status (version 1.1)"
+    #_[:section#v1-1 "Model extension: HER2 status (version 1.1)"
      [:p {:style {:color "red"}} "replace text here"]
-     [:p "The model was updated in October 2011 to include HER2 status. Estimates for the prognostic effect of HER2
+     #_[:p "The model was updated in October 2011 to include HER2 status. Estimates for the prognostic effect of HER2
       status were based on analysis of 10,179 cases collected by the Breast Cancer Association Consortium (BCAC). A
       validation of the new model in the British Columbia dataset was published in the British Journal of Cancer. This
-      showed that inclusion of HER2 status in the model improved the estimates of breast cancer-specific mortality,
+      showed that inclusion of HER2 status in the model improved the estimates of prostate cancer-specific mortality,
       especially in HER2 positive patients."]
 
-     [:p "The benefit of trastuzumab is based on the relative risk reduction of 31 percent in mortality up to five
-      years in published trials."]]
+     ]
 
-    [:section#v1-2 "Model extension: KI67 status (version 1.2)"
+    #_[:section#v1-2 "Model extension: KI67 status (version 1.2)"
      [:p {:style {:color "red"}} "replace text here"]
      [:p "More recently we have added KI67 status to the model. The prognostic effect of KI67 was taken from published
       data showing that ER positive tumours that express KI67 are associated with a 30 percent poorer relative survival."]
@@ -254,33 +255,33 @@
      under the ROC curve improved from 0.7611 to 0.7676 (p=0.005). These data have been accepted for publication in
      BMC Cancer."]]
 
-    [:section#refitting "Model re-fitting (version 2.0)"
+    #_[:section#refitting "Model re-fitting (version 2.0)"
      [:p {:style {:color "red"}} "replace text here"]
      [:p "While the overall fit of the model has been good in multiple independent case series, PREDICT has been shown
-     to underestimate breast cancer specific mortality in women diagnosed under the age of 40, particularly those with
+     to underestimate prostate cancer specific mortality in men diagnosed under the age of 40, particularly those with
      ER positive disease (See publication [5]). Another limitation of the model is the use of discrete categories for
      tumour size and node status which result in “step” changes in risk estimates on moving from one category to the
-     next. For example, a woman with an 18mm or 19mm tumour will be predicted to have the same breast cancer specific
-     mortality if all the other prognostic factors are the same whereas breast cancer specific morality of women with
+     next. For example, a woman with an 18mm or 19mm tumour will be predicted to have the same prostate cancer specific
+     mortality if all the other prognostic factors are the same whereas prostate cancer specific morality of men with
      a 19mm or 20mm tumour will differ. We have therefore refitted the PREDICT prognostic model using the original
      cohort of cases from East Anglia with updated survival time in order to take into account age at diagnosis and to
      smooth out the survival function for tumour size and node status. The fit of the model has been tested in three
      independent data sets that had also been used to validate the original version of PREDICT."]
 
-     [:p "Calibration in ER negative disease validation data set: PREDICT v1.2 over-estimated the number of breast
+     [:p "Calibration in ER negative disease validation data set: PREDICT v1.2 over-estimated the number of prostate
      cancer deaths by 10 per cent (observed 447 compared to 492 predicted). This over-estimation was most notable in the
      larger tumours and in the high-grade tumours. In contrast, the calibration of PREDICT v2.0 in ER negative cases was
       good (predicted 449).\n\nCalibration in ER negative disease validation data set: The calibration of both
-     PREDICT v1.2 and PREDICT v2.0 was good in ER positive cases (observed breast cancer deaths 633 compared to 643
+     PREDICT v1.2 and PREDICT v2.0 was good in ER positive cases (observed prostate cancer deaths 633 compared to 643
      (v1.2) and 634 (v2.0) predicted). However, as previously described, PREDICT v1.2 significantly under-estimated
-     breast cancer specific mortality in women diagnosed with ER positive disease at younger ages, whereas the fit of
+     prostate cancer specific mortality in men diagnosed with ER positive disease at younger ages, whereas the fit of
      PREDICT v2.0 was good in all age groups."]]
 
-    [:section#oncotype "PREDICT and Oncotype DX™"
+    #_[:section#oncotype "PREDICT and Oncotype DX™"
      [:p {:style {:color "red"}} "replace text here"]
-     [:p "Oncotype DX™ is a prognostic model (breast cancer recurrence) based on a test of gene expression profiles in
-     tumours. It has recently been recommended by NICE (DG10) for use in women with oestrogen receptor positive (ER+),
-     lymph node negative (LN−) and human epidermal growth factor receptor 2 negative (HER2−) early breast cancer to
+     [:p "Oncotype DX™ is a prognostic model (prostate cancer recurrence) based on a test of gene expression profiles in
+     tumours. It has recently been recommended by NICE (DG10) for use in men with oestrogen receptor positive (ER+),
+     lymph node negative (LN−) and human epidermal growth factor receptor 2 negative (HER2−) early prostate cancer to
      guide chemotherapy decisions if the person is assessed as being at intermediate risk, and where the information on
      the biological features of the cancer provided by oncotype DX™ is likely to help in predicting the course of the
      disease."]
@@ -297,7 +298,7 @@
     doctor."]]]
 
     [:section#tool-preamble-2 "Preamble 2"
-     [[:p.emphasise {:key 1 :style {:border "none"}} "Complete sections 1 to 3 below, then select from the treatment options to
+     [[:p.emphasise {:key 1 :style {:border "none"}} "Complete the section below, then select from the treatment options to
      see how they improve survival rates. Click on the information buttons to see an explanation of each field."]]]
 
     [:section#tool-postamble "Postamble"
@@ -339,45 +340,31 @@
        ]
       ]]
 
-    [:section#about-the-patient.input-box "About the patient"
+    #_[:section#about-the-patient.input-box "About the patient"
 
-     [:p "This section collects information about the person with breast cancer which may affect the treatment choices
+     [:p "This section collects information about the person with prostate cancer which may affect the treatment choices
     available to them or the outcomes of those treatments."]
 
      [:p "The options available are those recorded in the English health service records, as the tool is based on a
     database of patients from England."]
-
-
-     ;;   [:section#performance-status.input-widget "Performance-status"
-     ;;
-     ;;     [:span " is a rating of frailty, and is used to help choose appropriate chemotherapy options:"
-     ;;      [:ol
-     ;;       [:li {:item 0} "Fully active with no symptoms"]
-     ;;       [:li {:item 1} "Can walk and carry out light work but not strenuous activity"]
-     ;;       [:li {:item 2} "Can walk and look after themselves, up and about more than half of waking hours, but cannot do
-     ;;       any work activity"]
-     ;;       [:li {:item 3} "Not bed bound but capable only of limited self-care and confined to bed or a chair more than half
-     ;;       of waking hours"]
-     ;;       [:li {:item 4} "Totally confined to a bed or chair and unable to look after themselves at all"]
-     ;;       ]]
 
      [:p "It is necessary to select an option for each question, but if you do not know the answer, select " (unknown) "."]
 
      [:p "Once this information has been entered for a woman, these boxes will collapse and the available treatment
      options will be displayed instead."]]
 
-    [:section#about-the-tumour-physical.input-box "About the tumour (physical characteristics)"
+    #_[:section#about-the-tumour-physical.input-box "About the tumour (physical characteristics)"
 
-     [:p "There are several different kinds of breast cancer, and different stages of its development, which will affect
+     [:p "There are several different kinds of prostate cancer, and different stages of its development, which will affect
     the treatment options that are most suitable for a woman, and their outcomes."]
 
-     ;;   [:p "This section collects the information that has been found to be most relevant to treatment choices for women in
+     ;;   [:p "This section collects the information that has been found to be most relevant to treatment choices for men in
      ;;   England, such as whether the tumour was symptomatic or detected through screening, and what type of cancer it is:"]
      ;;
-     ;;   [:p "Invasive ductal breast cancer is the most common type of breast cancer (70-80%), whilst invasive lobular breast
-     ;;   cancer is much rarer – only about 10% of breast cancers."]
+     ;;   [:p "Invasive ductal prostate cancer is the most common type of prostate cancer (70-80%), whilst invasive lobular prostate
+     ;;   cancer is much rarer – only about 10% of prostate cancers."]
      ;;
-     ;;   [:p "There are some other, rare, types such as inflammatory breast cancer (1-2% of cases), and non-invasive breast
+     ;;   [:p "There are some other, rare, types such as inflammatory prostate cancer (1-2% of cases), and non-invasive prostate
      ;;   cancers known as LCIS and DCIS.  For these, select ‘other’ in the options."]
 
      [:p "The " [:strong "size"] " and " [:strong "grade"] " of the tumour are important – the " [:strong "grade"] " describes how different the cancer cells are from normal
@@ -434,7 +421,7 @@
      [:p "This tool is useful in helping to decide on additional therapies after any surgery has taken place"]
 
      #_[:p "This section records the treatment that the woman has already received – whether their surgery was a complete
-        mastectomy or breast-conserving (‘lumpectomy’), and whether they received chemotherapy before surgery (known as
+        mastectomy or prostate-conserving (‘lumpectomy’), and whether they received chemotherapy before surgery (known as
         neo-adjuvant therapy)."]
 
      #_[:p "You need to enter a value for these options to proceed.  Once this information has been entered for a woman,
@@ -449,8 +436,8 @@
     [:section#hormone-therapy "Hormone Therapy"
      [:p [:strong "Hormone therapy"] ", or " [:strong "Endocrine therapy"] ", involves a woman taking drugs to prevent the growth of tumour cells that
     are boosted by the hormones oestrogen or progesterone.  Some hormone therapy drugs act by blocking the action of
-    oestrogen on the cells and some work by lowering the amount of oestrogen in the body (NB hormone therapy for breast
-    cancer is the opposite of hormone replacement therapy or HRT, which is taken by women to help INCREASE oestrogen
+    oestrogen on the cells and some work by lowering the amount of oestrogen in the body (NB hormone therapy for prostate
+    cancer is the opposite of hormone replacement therapy or HRT, which is taken by men to help INCREASE oestrogen
     levels to help deal with side-effects of the menopause)."]
      ]
 
@@ -473,7 +460,7 @@
       [:.row {:style {:margin-top " 0px "}}
        [:.col-sm-12
         [:p "The table shows information on the adverse effects you may experience if your treatment includes
-        chemotherapy. The data is based on women of a similar age. It does " [:strong "not"] " take account of dosage,
+        chemotherapy. The data is based on men of a similar age. It does " [:strong "not"] " take account of dosage,
         or of interactions between treatments."]]]
       ]
      [:div
@@ -504,8 +491,8 @@
 
      [:p [:strong "Endocrine therapy"] ", or " [:strong "hormone therapy"] ", involves a woman taking drugs to prevent the growth of tumour cells that
     are boosted by the hormones oestrogen or progesterone.  Some hormone therapy drugs act by blocking the action of
-    oestrogen on the cells and some work by lowering the amount of oestrogen in the body (NB hormone therapy for breast
-    cancer is the opposite of hormone replacement therapy or HRT, which is taken by women to help INCREASE oestrogen
+    oestrogen on the cells and some work by lowering the amount of oestrogen in the body (NB hormone therapy for prostate
+    cancer is the opposite of hormone replacement therapy or HRT, which is taken by men to help INCREASE oestrogen
     levels to help deal with side-effects of the menopause)."]
 
      [:p [:strong "Chemotherapy"] " uses drugs to weaken or kill cancer cells throughout the body. There are many different
@@ -535,17 +522,17 @@
      ;;    recover, whilst the cancer cells will be killed.  The options in this web tool cover three types of radiotherapy:"]
      ;;
      ;;    [:ul
-     ;;     [:li "Breast/Chest wall – this is when the radiation oncologist targets the beam just to the affected breast area"]
-     ;;     [:li "B/CW +Axilla/SCF – this is a beam that targets both the breast/chest wall and the axilla and supraclavicular
+     ;;     [:li "Breast/Chest wall – this is when the radiation oncologist targets the beam just to the affected prostate area"]
+     ;;     [:li "B/CW +Axilla/SCF – this is a beam that targets both the prostate/chest wall and the axilla and supraclavicular
      ;;     fossa, to kill any cancer cells in the lymph glands in the underarm and collarbone areas near the tumour"]
-     ;;     [:li "B/CW +Axilla/SCF +IMC – this is when the radiotherapy targets the breast/chest wall, the axilla and
-     ;;     supraclavicular fossa and the internal mammary chain (near the breastbone) to reach other lymph nodes."]]
+     ;;     [:li "B/CW +Axilla/SCF +IMC – this is when the radiotherapy targets the prostate/chest wall, the axilla and
+     ;;     supraclavicular fossa and the internal mammary chain (near the prostatebone) to reach other lymph nodes."]]
      ;;
      ;;    [:p "It also allows you to enter the dose of radiation (measured in Gray units, Gy) that the woman’s heart will be
      ;;    exposed to, and the lung on the side that she will be treated (the ‘ipsilateral lung’)."]
      ;;
      ;;    [:p "Bisphosphonates are drugs commonly used to help slow down bone thinning (osteoporosis), but can also be used in
-     ;;    some women to help prevent cancer spreading to the bones. They are only suitable for post-menopausal women."]
+     ;;    some men to help prevent cancer spreading to the bones. They are only suitable for post-menopausal men."]
      ;;    ]
      ]]]
 

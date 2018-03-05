@@ -80,13 +80,13 @@
                           :grade-group
                           :gleason)})
 
-    [:div {:style {:display (if (= :grade-group (rum/react (input-cursor :hist-scale)))
+    [:div {:style {:display (if (#{:grade-group :both} (rum/react (input-cursor :hist-scale)))
                               "block"
-                              "block")}}
+                              "none")}}
      (form-entry {:label "Histological grade group" :key :grade-group})]
-    [:div {:style {:display (if (= :grade-group (rum/react (input-cursor :hist-scale)))
+    [:div {:style {:display (if (#{:gleason :both} (rum/react (input-cursor :hist-scale)))
                               "block"
-                              "block")}}
+                              "none")}}
      (form-entry {:label "Gleason scale" :key :gleason})]
 
     (when (model-keys :biopsy50) (form-entry {:label "Biopsy" :key :biopsy50}))

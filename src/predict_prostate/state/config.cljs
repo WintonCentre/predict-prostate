@@ -72,14 +72,15 @@
                   #{"prostate"}
                   nil)
    (->Input-group :hist-scale
-                  "Histological scale"
+                  "Histological scale visibility"
                   :radio-group
-                  [[:grade-group "Histological grade group"]
-                   [:gleason "Gleason scale"]]
+                  [[:grade-group "Show Grade group"]
+                   [:gleason "Show Gleason scale"]
+                   [:both "Show both"]]
                   false false false
                   :prp
                   #{"prostate"}
-                  :gleason)
+                  :both)
    (->Input-group :grade-group
                   "Histological grade group"
                   :radio-group
@@ -124,7 +125,6 @@
                   nil)
 
    ; Switches
-
    (->Input-group :result-year
                   "Years after surgery"
                   :radio-group
