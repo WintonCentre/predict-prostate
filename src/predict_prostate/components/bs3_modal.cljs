@@ -1,7 +1,12 @@
 (ns predict-prostate.components.bs3-modal
   (:require [rum.core :as rum]
             [predict-prostate.content-reader :refer [section]]
-            [predict-prostate.state.run-time :refer [help-key-cursor input-widget]]))
+            [predict-prostate.state.run-time :refer [help-key-cursor input-widget]]
+            [interop.jsx :refer [jq$ jq$call]]))
+
+(defn hide-modal [id]
+  ;#((oget (jq$ id) "modal") "hide")
+  )
 
 (rum/defc top-modal < rum/reactive
                       "Note that we are assuming the _single_ modal dialog is mounted on #topModal since we
@@ -22,15 +27,15 @@
       [:.modal-content
        [:.modal-header
         [:button.close {:type                    "button "
-                        :on-click                #(.modal (js/$ "#topModal") "hide")
+                        :on-click                #(jq$call "#topModal" "modal" "hide") ; #(.modal (jq$ "#topModal") "hide")
                         :aria-hidden             true
                         :dangerouslySetInnerHTML {:__html "&times;"}}]
         [:h4.modal-title help-header]]
        [:.modal-body help-text]
        [:.modal-footer
         [:button.btn.btn-default {:type     "button"
-                                  :on-click #(.modal (js/$ "#topModal") "hide")}
-         "Close"]]]]]))
+                                  :on-click #(jq$call "#topModal" "modal" "hide")} ; #(.modal (jq$ "#topModal") "hide")
+                                  "Close"]]]]]))
 
 
 (rum/defc settings-modal < rum/reactive
@@ -45,7 +50,7 @@
     [:.modal-content
      [:.modal-header
       [:button.close {:type                    "button "
-                      :on-click                #(.modal (js/$ "#settingsModal") "hide")
+                      :on-click                #(jq$call "#settingsModal" "modal" "hide")
                       :aria-hidden             true
                       :dangerouslySetInnerHTML {:__html "&times;"}}]
       [:h4.modal-title "Settings"]]
@@ -55,5 +60,5 @@
       ]
      [:.modal-footer
       [:button.btn.btn-default {:type     "button"
-                                :on-click #(.modal (js/$ "#settingsModal") "hide")}
+                                :on-click #(jq$call "#settingsModal" "modal" "hide")}
        "Close"]]]]])

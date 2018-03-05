@@ -1,4 +1,16 @@
-(ns interop.jsx)
+(ns interop.jsx
+  (:require [oops.core :refer [oget oset! ocall oapply ocall! oapply!
+                               oget+ oset!+ ocall+ oapply+ ocall!+ oapply!+]]))
+
+;(def oget goog.object.getValueByKeys)
+
+(def jq$ (oget js/window "jQuery"))
+(defn jq$find [id] (jq$ id))
+(defn jq$call
+  ([id method]
+   (ocall+ (jq$find id) method))
+  ([id method p1]
+   (ocall+ (jq$find id) method p1)))
 
 
 ; create alias with aget to avoid advanced compiler optimisation munging "createElement"

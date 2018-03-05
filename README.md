@@ -19,7 +19,7 @@ This is a single page web application written in
 [clojurescript](https://clojurescript.org/).
 The clojurescript compiler generates javascript which runs in an HTML5
 capable browser (Chrome, Safari, Firefox, Opera, IE10+). It uses Bootstrap
-styling to achieve a responsive displaythat adapts to desktop or mobile
+styling to achieve a responsive display that adapts to desktop or mobile
 screen sizes.
 
 In development we load the generated javascript directly in the browser
@@ -38,6 +38,41 @@ augmented with the [Cursive plugin](https://cursive-ide.com/) for Clojure/Clojur
 may be used but some adjustments may be necessary to support hot-loading.
 (For example, if using Emacs with Cider, the figwheel setup is slightly
 different.)
+
+## Production prototyping
+
+Since we are at prototype, this is not yet finalised - in particular,
+some dependencies on external URLs still exist for CSS and js imports.
+
+For production we use the `min` build id which runs the code through the advanced
+optimisation pass of Google's closure compiler. This creates a distribution
+in `resources/public` which can be served as a directory by a simple
+static file web server. Any server capable of serving files from
+a directory will do. Those that come with python or NodeJS are often near
+to hand. See https://gist.github.com/willurd/5720255 for more options.
+
+To create a production build, use the following leiningen command:
+
+```sh
+lein do clean, cljsbuild once min
+```
+
+Switch to the resources/public directory, and start a local web server
+to test.
+```
+cd resources/publica
+
+# for python 2.7
+python -m'SimpleHTTPServer'
+
+# for python 3.3
+python3 -m'http.server'
+
+```
+For these python examples, the test site may then be accessed at
+`http://localhost:8000`
+
+
 
 ## Development Prerequisites
 
@@ -86,32 +121,6 @@ lein ancient
 ```
 for a list of dependencies for which newer versions are available. It is
 safest to apply and test updates one by one.
-
-## Production Releases
-
-Since we are at prototype, this is not yet finalised. For production we
-use the `prod` build id which runs the code through the advanced
-optimisation pass of Google's closure compiler. A distribution will
-be created in `resources` ready for deployment in a suitable container.
-
-The production release may be tested by pointing a local web server at
-the `resources/public' directory. Any server capable of serving files from
-a directory will do. Those that come with python or NodeJS are often to
-hand. See https://gist.github.com/willurd/5720255 for more options.
-
-```sh
-lein do clean, cljsbuild once min
-cd resources/public
-
-# for python 2.7
-python -m'SimpleHTTPServer'
-
-# for python 3.3
-python3 -m'http.server'
-
-```
-For these python examples, the test site may then be accessed at
-`http://localhost:8000`
 
 
 ## Utilities

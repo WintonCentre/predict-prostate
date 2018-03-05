@@ -36,6 +36,7 @@
                  [funcool/bide "1.6.0"]
 
                  [binaryage/devtools "0.9.9"]
+                 [binaryage/oops "0.5.8"]
 
                  ]
 

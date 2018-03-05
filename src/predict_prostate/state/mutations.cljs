@@ -30,6 +30,7 @@
             [clojure.core.async :refer [timeout <!]]
             [bide.core :as r]
             [predict-prostate.router :refer [router]]
+            [interop.jsx :refer [jq$]]
     #_[predict-prostate.results.util :refer [clip]]
             )
   (:require-macros [cljs.core.async.macros :refer [go]]))
@@ -125,14 +126,14 @@
   (subscribe help-key-change
     (fn [_ help-key]
       (reset! help-key-cursor help-key)
-      (.modal (js/$ "#topModal") "show")
+      (.modal (jq$ "#topModal") "show")
       )
     )
 
   (subscribe settings-change
     (fn [_ help-key]
       (reset! settings-cursor help-key)
-      (.modal (js/$ "#settingsModal") "show")
+      (.modal (jq$ "#settingsModal") "show")
       )
     )
 

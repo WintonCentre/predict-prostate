@@ -1,22 +1,23 @@
-(ns predict-prostate.components.bs-mixins)
+(ns predict-prostate.components.bs-mixins
+  (:require [interop.jsx :refer [jq$ jq$call]]))
 
 ;;
 ;; Rum mixins to enable bootstrap popovers and tooltips
 ;;
 
 (defn ready [handler]
-  (.ready (js/$ js/document) handler))
+  (.ready (jq$ js/document) handler))
 
 (def tt-mixin {:did-mount (fn [state]
                             (ready
-                              #(do (.popover (js/$ "[data-toggle=\"popover\"]"))
-                                   (.tooltip (js/$ "[data-toggle = \"tooltip\"]"))))
+                              #(do (jq$call (jq$ "[data-toggle=\"popover\"]") "popover")
+                                   (jq$call (jq$ "[data-toggle = \"tooltip\"]") "tooltip")))
                             state)
                })
 
 (def bs-popover
   {:did-mount (fn [state]
                 (ready
-                  #(.popover (js/$ "[data-toggle=\"popover\"]")))
+                  #(jq$call (jq$ "[data-toggle=\"popover\"]") "popover"))
                 state)
    })

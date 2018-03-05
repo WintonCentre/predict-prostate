@@ -12,7 +12,7 @@
             [predict-prostate.state.localStorage :refer [get-settings!]]
             [predict-prostate.content-reader :refer [all-subsections]]
             [pubsub.feeds :refer [publish]]
-            [interop.jsx :refer [jsx]]))
+            ))
 
 
 (defstyle treatments-style
