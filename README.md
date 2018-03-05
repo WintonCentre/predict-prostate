@@ -7,7 +7,9 @@ for conservative or radical treatments for prostate cancer
 
 > **Prototype**
 
-> **Not to be used**.
+> **Not to be used**
+
+> **Not for release**
 
 The user interface inherits much from the Winton breast cancer
 predict interface which is undergoing separate user testing. A similar
