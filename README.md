@@ -96,7 +96,7 @@ to allow easy navigation through either
 javascript or clojurescript data structures.
 
 However as in all clojure programming, the main development tool is
-the REPL (Read Evaluate Print Loop) which supports code
+the REPL (Read Evaluate Print Loop) ideally one which supports code
 evaluation within the editor.
 
 Our clojurescript-aware editor is the free [Intellij community edition](https://www.jetbrains.com/idea/download)
@@ -104,6 +104,10 @@ augmented with the [Cursive plugin](https://cursive-ide.com/) for Clojure/Clojur
 may be used but some adjustments may be necessary to support hot-loading.
 (For example, if using Emacs with Cider, the figwheel setup is slightly
 different.)
+
+Install Intellij and the Cursive plugin following [these instructions](https://cursive-ide.com/userguide/index.html).
+I recommend enabling the ParEdit option rather than ParInfer for fast
+clojure editing with balanced parenthises.
 
 Start Intellij, and select `File > New Project > From Version Control`.
 This will clone and install the repo and create a new project.
@@ -113,7 +117,7 @@ SDK and will register the project file.
 
 You will need to create a [figwheel run configuration](https://github.com/bhauman/lein-figwheel/wiki/Running-figwheel-in-a-Cursive-Clojure-REPL).
 Follow the link for instructions - look for 'Create a clojure.main Cursive REPL Configuration'.
-The `scrip/repl.clj` file is already in the distribution, so you don't need
+The `script/repl.clj` file is already in the distribution, so you don't need
 to make it. If you name this configuration 'figwheel' it will appear next
 to the green 'run' arrow in the intellij menu bar.
 
