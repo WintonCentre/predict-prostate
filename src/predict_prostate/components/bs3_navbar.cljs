@@ -84,8 +84,7 @@
      [:button.navbar-toggle {:type        "button"
                              :data-toggle "collapse"
                              :data-target "#navbar"}
-      (map (fn [i] [:span.icon-bar {:key i}]) (range 3))]
-     #_[:img.navbar-brand {:style {:padding 10} :src "/assets/logo-neg.png" }]]
+      (map (fn [i] [:span.icon-bar {:key i}]) (range 3))]]
     [:#navbar.collapse.navbar-collapse
      [:ul.nav.navbar-nav
       [:li.active

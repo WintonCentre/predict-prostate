@@ -16,10 +16,10 @@
         ]
     [:.container-fluid
      [:.row
-      [:.col-xs-4
+      [:.col-xs-6
        [:.row
         [:.col-sm-10
-         [:img.img-responsive {:src   "assets/logo-prostate.png"
+         [:img.img-responsive {:src   "assets/predict-prostate.png"
                                :style {:margin-left "-15px"
                                        :margin-bottom "5px"}}]
          #_[:p.pull-right {:style {:padding-left "00px"
@@ -60,15 +60,19 @@
              :border-radius "5px"
              :padding "30px"}}
     [:row
-     [:.col-sm-4
+     [:.col-sm-3
       [:img.img-responsive {:src "assets/phe-neg.png"
                             :style {:margin-bottom "4ex"
                                     :max-width "70%"}}]]
-     [:.col-sm-4
+     [:.col-sm-3
+      [:img.img-responsive {:src "assets/urology.png"
+                            :style {:margin-bottom "3ex"
+                                    :max-width "90%"}}]]
+     [:.col-sm-3
       [:img.img-responsive {:src "assets/ucs-winton-transparent.png"
                             :style {:margin-bottom "3ex"
-                                    :max-width "70%"}}]]
-     [:.col-sm-4
+                                    :max-width "90%"}}]]
+     [:.col-sm-3
       [:img.img-responsive {:src   "assets/nhs-neg.png"
                                        :style {:margin-bottom "3ex"
-                                               :max-width "70%"}}]]]]])
+                                               :max-width "50%"}}]]]]])
