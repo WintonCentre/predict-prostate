@@ -56,8 +56,7 @@
 (defn subscribe-to [change cursor & [silent]]
   (subscribe change
     #(do (when-not silent (log %1 @cursor %2))
-         (reset! cursor %2)
-         )))
+         (reset! cursor %2))))
 
 (defn clip [{:keys [value min max]}]
   (if (>= value min)
@@ -96,6 +95,11 @@
 
             (= key :age)
             (reset! (input-cursor :age) (if (or (= "" value) (nil? value))
+                                          ""
+                                          (str (clip {:value value :min 0 :max 100}))))
+
+            (= key :psa)
+            (reset! (input-cursor :psa) (if (or (= "" value) (nil? value))
                                           ""
                                           (str (clip {:value value :min 0 :max 100}))))
 
