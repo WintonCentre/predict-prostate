@@ -13,7 +13,7 @@
 
     [predict-prostate.components.button :refer [radio-button-group radio-button-group-vertical]]
     [predict-prostate.components.select :refer [picker]]
-    [predict-prostate.components.numeric-input :refer [numeric-input]]))
+    [wc-rum-lib.numeric-input :refer [numeric-input]]))
 
 
 (rum/defc default < rum/static [{:keys [key label type params]} & extra]
@@ -47,7 +47,7 @@
 
 (defmethod make-widget :numeric-input [{:keys [key params]}]
   (numeric-input (assoc params
-                   :key key
+                   :input-ref (input-cursor key)
                    :onChange #(publish (input-change key) %))))
 
 (defmethod make-widget :select [{:keys [key params]}]
