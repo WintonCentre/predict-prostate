@@ -26,6 +26,8 @@ capable browser (Chrome, Safari, Firefox, Opera, IE10+). It uses Bootstrap
 styling to achieve a responsive display that adapts to desktop or mobile
 screen sizes.
 
+## Local dependencies
+
 
 ## Installation
 
