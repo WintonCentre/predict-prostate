@@ -93,17 +93,6 @@
               (reset! (input-cursor :grade-group) value))
 
 
-            (= key :age)
-            (reset! (input-cursor :age) (if (or (= "" value) (nil? value))
-                                          ""
-                                          (str (clip {:value value :min 0 :max 100}))))
-
-            (= key :psa)
-            (reset! (input-cursor :psa) (if (or (= "" value) (nil? value))
-                                          ""
-                                          (str (clip {:value value :min 0 :max 100}))))
-
-
             :else
             (reset! (input-cursor key) (if (nil? value)
                                          (get-input-default input-groups key)

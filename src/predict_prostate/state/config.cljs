@@ -47,7 +47,7 @@
    (->Input-group :age
                   "Age at diagnosis"
                   :numeric-input
-                  {:min 18 :max 100 :step 1 :precision 0}
+                  {:min 35 :max 95 :step 1 :precision 0}
                   false false true
                   :prp
                   #{"prostate"}

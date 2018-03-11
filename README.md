@@ -148,7 +148,8 @@ in Intellij/Cursive.
 ## Development release
 
 Run the `publish.sh` script from the main repo. This simply rsyncs the
-resources/public directory to a web server.
+resources/public directory to a web server. You must have access permissions
+for the web server.
 
 ## Updates
 

@@ -1,6 +1,5 @@
 (ns interop.jsx
-  (:require [oops.core :refer [oget oset! ocall oapply ocall! oapply!
-                               oget+ oset!+ ocall+ oapply+ ocall!+ oapply!+]]))
+  (:require [oops.core :refer [oget ocall+]]))
 
 ;(def oget goog.object.getValueByKeys)
 

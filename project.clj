@@ -28,7 +28,7 @@
                  ; should we upgrade Rum and use React16 ???
                  [rum "0.10.8"]
                  [pubsub "0.2.1"]
-                 [wc-rum-lib "0.1.1"]
+                 [wc-rum-lib "0.1.3"]
                  [cljs-css-modules "0.2.1"]
 
                  ; routing
