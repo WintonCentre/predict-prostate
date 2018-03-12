@@ -22,6 +22,7 @@
                                                      hide-warning-cursor
                                                      show-uncertainty-change
                                                      show-uncertainty-cursor
+                                                     force-recalculation
                                                      ]]
             [predict-prostate.state.config :refer [input-groups get-input-default]]
             [predict-prostate.state.localStorage :refer [get-settings! put-settings!]]
@@ -42,7 +43,7 @@
           :when topic]
     "don't zap the settings local storage on startup"
     (if (= key :hist-scale)
-      (let [hist-scale (:hist-scale (get-settings! {:hist-scale :grade-group}))]
+      (let [hist-scale (:hist-scale (get-settings! {:hist-scale :both}))]
         (reset! (input-cursor :hist-scale) hist-scale))
       (publish topic (if (#{:age :psa} key) "" nil))))
   (publish results-change nil)
@@ -55,8 +56,8 @@
 
 (defn subscribe-to [change cursor & [silent]]
   (subscribe change
-    #(do (when-not silent (log %1 @cursor %2))
-         (reset! cursor %2))))
+             #(do (when-not silent (log %1 @cursor %2))
+                  (reset! cursor %2))))
 
 (defn clip [{:keys [value min max]}]
   (if (>= value min)
@@ -70,38 +71,47 @@
   (doseq [[key change] (input-changes)]
     (when change
       (subscribe change
-        (fn [topic value]
+                 (fn [topic value]
 
-          (log topic @(input-cursor key) value)
+                   (log topic @(input-cursor key) value)
 
-          (cond
+                   (cond
 
-            (= key :hist-scale)
-            (do
-              (reset! (input-cursor :hist-scale) value)
-              (put-settings! {:hist-scale value})
+                     (= key :hist-scale)
+                     (do
+                       (reset! (input-cursor :hist-scale) value)
+                       (put-settings! {:hist-scale value})
 
-              ; copy the value from the old scale to the newly selected scale
-              (if (= value :gleason)
-                (reset! (input-cursor :gleason) @(input-cursor :grade-group))
-                (reset! (input-cursor :grade-group) @(input-cursor :gleason)))
-              )
+                       ; copy the value from the old scale to the newly selected scale
+                       (if (= value :gleason)
+                         (reset! (input-cursor :gleason) @(input-cursor :grade-group))
+                         (reset! (input-cursor :grade-group) @(input-cursor :gleason)))
+                       )
 
-            (#{:gleason :grade-group} key)
-            (do
-              (reset! (input-cursor :gleason) value)
-              (reset! (input-cursor :grade-group) value))
+                     (#{:gleason :grade-group} key)
+                     (do
+                       (reset! (input-cursor :gleason) value)
+                       (reset! (input-cursor :grade-group) value))
 
+                     (= key :h-admissions)
+                     (do
+                       (reset! (input-cursor :h-admissions) value)
+                       (if (= value 0)
+                         (reset! (input-cursor :charlson-comorbidity) nil)))
 
-            :else
-            (reset! (input-cursor key) (if (nil? value)
-                                         (get-input-default input-groups key)
-                                         value))
-            )
+                     :else
+                     (reset! (input-cursor key) (if (nil? value)
+                                                  (get-input-default input-groups key)
+                                                  value))
+                     )
 
-          ;; This is the one and only spot where we recalculate the model!
-          (recalculate-model (input-map))))))
+                   ;; This is the one and only spot where we recalculate the model, and we delay it until
+                   ;; any changes to the on-screen-inputs have been rendered.
+                   (recalculate-model (input-map))))))
 
+  (subscribe force-recalculation
+             (fn [_ _]
+               (recalculate-model (input-map))))
 
   ;; various
   (subscribe-to active-results-change active-results-pane true)
@@ -112,30 +122,30 @@
   (subscribe-to show-uncertainty-change show-uncertainty-cursor true)
 
   (subscribe results-change
-    (fn [_ results]
-      (reset! results-cursor results)))
+             (fn [_ results]
+               (reset! results-cursor results)))
 
 
   (subscribe help-key-change
-    (fn [_ help-key]
-      (reset! help-key-cursor help-key)
-      (.modal (jq$ "#topModal") "show")
-      )
-    )
+             (fn [_ help-key]
+               (reset! help-key-cursor help-key)
+               (.modal (jq$ "#topModal") "show")
+               )
+             )
 
   (subscribe settings-change
-    (fn [_ help-key]
-      (reset! settings-cursor help-key)
-      (.modal (jq$ "#settingsModal") "show")
-      )
-    )
+             (fn [_ help-key]
+               (reset! settings-cursor help-key)
+               (.modal (jq$ "#settingsModal") "show")
+               )
+             )
 
   ;(subscribe-to route-change route true)
   (subscribe route-change
-    (fn [_ [page param1 param2 :as rvec]]
-      ;(prn "route-change" page param1 param2)
-      (reset! route rvec)
-      (r/navigate! router page param1 param2)))
+             (fn [_ [page param1 param2 :as rvec]]
+               ;(prn "route-change" page param1 param2)
+               (reset! route rvec)
+               (r/navigate! router page param1 param2)))
 
   ;; Now clear all values to nil/default
   (clear-inputs))

@@ -36,7 +36,7 @@
   [fill-counts]
   {:pre [(= 100 (reduce + (mapv second fill-counts)))]}
 
-  (println "fill-counts" fill-counts)
+  ;(println "fill-counts" fill-counts)
   (let [cum-counts (into [] (reductions + (mapv second fill-counts)))]
 
     [:div

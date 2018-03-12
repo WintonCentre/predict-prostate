@@ -294,8 +294,9 @@
    [:section#predict-tool "PREDICT tool"
 
     [:section#tool-preamble "Preamble"
-     [:p.emphasise {:key 0 :style {:margin-top "10px"}} [:strong "We recommend that patients use this tool in consultation with their
-    doctor."]]]
+     [:p.emphasise {:key 0 :style {:margin-top "10px"}}
+      [:strong "We recommend that patients use this tool in consultation with their doctor."
+       [:br] "This tool is only for use in men without metastatic disease."]]]
 
     [:section#tool-preamble-2 "Preamble 2"
      [[:p.emphasise {:key 1 :style {:border "none"}} "Complete the section below, then select from the treatment options to
@@ -408,6 +409,10 @@
 
     [:section#biopsy "Biopsy"
      [:p "The proportion of cores with any prostate cancer."]]
+
+    [:section#h-admissions "Hospital admissions in the last 2 years"
+     [:p "This refers to any admission to hospital in the 2 years before prostate cancer diagnosis - anything related
+     to the prostate cancer diagnosis itself should be ignored."]]
 
     [:section#comorb "Comorbidity"
      [:p "Choose 'yes' if the patient has been admitted to hospital in the 2 years prior

@@ -30,19 +30,17 @@
 (defn recalculate-model
   "recalculate-model predictions based on a selected model"
   [input-map]
-
+  ;(println "input-map " (input-map))
   (publish results-change
     (when (recalculate-model? input-map)
+      ;(println "recalc")
       (let [inputs (assoc input-map :n 10)
             results {:conservative (predict-prostate (assoc inputs :primary-rx 0))
                      :radical-low  (predict-prostate (assoc inputs :primary-rx 0.9))
                      :radical      (predict-prostate (assoc inputs :primary-rx 1))
                      :radical-high (predict-prostate (assoc inputs :primary-rx 1.1))
                      }]
-        ;(println results)
-        results
-        )
-      )))
+        results))))
 
 
 (comment                                                    ;; --- tests

@@ -106,6 +106,7 @@ survival, up to the projected survival of prostate-cancer-free men "
 (defonce mockup-cursor (rum/cursor rtdb :active-mockup))
 (defonce mockup-change (make-topic :active-mockup))
 
+(defonce force-recalculation (make-topic :force-recalculation))
 
 ;;;
 ;; Input keys
@@ -138,8 +139,7 @@ survival, up to the projected survival of prostate-cancer-free men "
 
 (defn input-map
   "This is the map of values that we feed into the model.
-  Keys are unqualified (i.e. they don't refer to the selected treatment option).
-  Values are however sensitive to the treatment option setting."
+  Keys are unqualified (i.e. they don't refer to the selected treatment option)."
   []
   (into {}
         (map (fn [[k v]] [k @v])

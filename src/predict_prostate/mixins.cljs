@@ -1,6 +1,8 @@
 (ns predict-prostate.mixins
   (:require [clojure.set :refer [difference]]
-            [predict-prostate.state.run-time :refer [on-screen-inputs-cursor on-screen-treatments-cursor]]))
+            [predict-prostate.state.run-time :refer [force-recalculation]]
+            [pubsub.feeds :refer [publish]]
+            [predict-prostate.state.run-time :refer [on-screen-inputs-cursor on-screen-treatments-cursor input-map]]))
 
 (defn arg-local
   "Works like the rum/local mixin, but the initial value is taken
@@ -37,15 +39,18 @@
 
 (def active-monitor
   "Since the inputs are configurable and sometimes hidden, we need to actively monitor which ones are on screen at
-  any one time. This is so we know when to switch to on treatments."
+  any one time. This is so we know when to switch on treatments."
   {
    :did-mount    (fn [state]
                    (let [[{:keys [key]}] (:rum/args state)]
-                     (swap! on-screen-inputs-cursor conj key))
+                     (swap! on-screen-inputs-cursor conj key)
+                     (publish force-recalculation nil)
+                     )
                    state)
    :will-unmount (fn [state]
                    (let [[{:keys [key]}] (:rum/args state)]
-                     (swap! on-screen-inputs-cursor difference #{key}))
+                     (swap! on-screen-inputs-cursor disj key)
+                     (publish force-recalculation nil))
                    state)
    })
 
@@ -61,7 +66,7 @@
                    state)
    :will-unmount (fn [state]
                    (let [[{:keys [key]} _] (:rum/args state)]
-                     (swap! on-screen-treatments-cursor difference #{key}))
+                     (swap! on-screen-treatments-cursor disj #{key}))
                    state)
    })
 

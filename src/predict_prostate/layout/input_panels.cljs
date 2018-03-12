@@ -72,14 +72,6 @@
     (when (model-keys :psa) (form-entry {:label "PSA" :key :psa}))
     (when (model-keys :t-stage) (form-entry {:label "T stage" :key :t-stage}))
 
-
-    #_(form-entry {:label (if (= :grade-group (rum/react (input-cursor :hist-scale)))
-                          "Histological grade group"
-                          "Gleason scale")
-                 :key   (if (= :grade-group (rum/react (input-cursor :hist-scale)))
-                          :grade-group
-                          :gleason)})
-
     [:div {:style {:display (if (#{:grade-group :both} (rum/react (input-cursor :hist-scale)))
                               "block"
                               "none")}}
@@ -90,7 +82,10 @@
      (form-entry {:label "Gleason scale" :key :gleason})]
 
     (when (model-keys :biopsy50) (form-entry {:label "Biopsy" :key :biopsy50}))
-    (when (model-keys :charlson-comorbidity) (form-entry {:label "Comorb" :key :charlson-comorbidity}))
+    (when (model-keys :h-admissions) (form-entry {:label "h-admissions" :key :h-admissions}))
+
+    (when (= (rum/react (input-cursor :h-admissions)) 1)
+      (when (model-keys :charlson-comorbidity) (form-entry {:label "Comorb" :key :charlson-comorbidity})))
     ]])
 
 (rum/defc patient-related-panel < rum/static [model-keys]

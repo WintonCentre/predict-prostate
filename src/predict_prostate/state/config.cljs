@@ -114,6 +114,15 @@
                   :prp
                   #{"prostate"}
                   nil)
+   (->Input-group :h-admissions
+                  "Hospital admission in last 2 years?"
+                  :radio-group
+                  [[0 "No"]
+                   [1 "Yes"]]
+                  false false false
+                  :prp
+                  #{"prostate"}
+                  nil)
    (->Input-group :charlson-comorbidity
                   "Comorbidity"
                   :radio-group
