@@ -82,9 +82,9 @@
 
      [:div {:style {:display        "inline-block"
                     :margin-left    "10px"
-                    :width          "140px"
+                    :width          "30px"
                     :vertical-align "middle"}}
-      (when help-id (treatment-help-button {:help-id (s/replace (lower-case help-id) " " "-")}))]
+      (when help-id (small-help-button {:help-id (s/replace (lower-case help-id) " " "-")}))]
 
      [:div {:style {:display        "inline-block"
                     :vertical-align "middle"

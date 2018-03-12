@@ -50,21 +50,6 @@
   [:strong "Unknown"])
 
 
-(rum/defc adverse-effects [treatment]
-  [:div
-   [:.row {:style {:margin-top " 0px "}}
-    [:.col-sm-12
-     [:p "The table shows information on the adverse effects you may experience if your treatment includes " treatment
-      ". The data is based on men of a similar age. It does " [:strong "not"] " take account of dosage, or of interactions between treatments."]]]
-
-   [:row
-    [:col-sm-12
-     [:p treatment " have an additional survival benefit of 2% at 5 years and 5% at 10 years."]
-     [:p [:strong "Links to more info:"]
-      [:ul {:style {:list-style-type "none"}}
-       [:li [:a {:href "https://www.macmillan.org.uk/information-and-support/prostate-cancer/coping/side-effects-and-symptoms"}
-             " Macmillan"]]]]]]])
-
 (rum/defc progress [percent]
   [:.progress {:style {:background-color "#94d3f0"}}
    [:.progress-bar {:role          "progress-bar"
@@ -269,53 +254,12 @@
     [:section#surgery "Treatments already received"
      [:p "This tool is useful in helping to decide on additional therapies after any surgery has taken place"]]
 
+    [:section#regime "Treatment Regimes"
+     [:p "Explain Conservative and Radical Treatments"]]
+
     ;;
     ;; Treatment Options and Results
     ;;
-
-
-    [:section#hormone-therapy "Hormone Therapy"
-     [:p [:strong "Hormone therapy"] ", or " [:strong "Endocrine therapy"] ", involves a woman taking drugs to prevent the growth of tumour cells that
-    are boosted by the hormones oestrogen or progesterone.  Some hormone therapy drugs act by blocking the action of
-    oestrogen on the cells and some work by lowering the amount of oestrogen in the body (NB hormone therapy for prostate
-    cancer is the opposite of hormone replacement therapy or HRT, which is taken by men to help INCREASE oestrogen
-    levels to help deal with side-effects of the menopause)."]
-     ]
-
-    [:section#chemotherapy "Chemotherapy"
-     [:p [:strong "Chemotherapy"] " uses drugs to weaken or kill cancer cells throughout the body. There are many different
-    chemotherapy drugs which work on different kinds of tumour cell, and they are often given in combinations to
-    maximise their effectiveness.  The options in this web tool cover generic chemotherapy regimes used most commonly
-    in England: "]
-     [:ul {:style {:font-size "1.2em"}}
-      [:li [:strong "No chemotherapy at all"]]
-      [:li [:strong "2nd gen"] " is short for second-generation chemotherapy drug regimes such as FEC (fluorouracil, epirubicin and
-      cyclophosphamide), CAF or FAC (Cyclophosphamide, doxorubicin, and 5-fluorouracil), AC-T (doxorubicin/cyclophosphamide
-      followed by paclitaxel) or Docetaxel plus cyclophosphamide"]
-      [:li [:strong "3rd gen"] " is short for third-generation chemotherapy drug regimes such as
-      DAC (Docetaxel, doxorubicin, and cyclophosphamide), Sequential FEC-taxane, Dose dense sequential doxorubicin/
-      cyclophosphamide-paclitaxel (AC-T) etc."]]
-
-     [:h4 "Potential Harms of the treatment"]
-     [:div
-      [:.row {:style {:margin-top " 0px "}}
-       [:.col-sm-12
-        [:p "The table shows information on the adverse effects you may experience if your treatment includes
-        chemotherapy. The data is based on men of a similar age. It does " [:strong "not"] " take account of dosage,
-        or of interactions between treatments."]]]
-      ]
-     [:div
-      (adverse-effects "Chemotherapy")]
-     ]
-
-    [:section#bisphosphonates "Bisphosphonates"
-     [:p "Bisphosphonate text here"]]
-
-    [:section#radiotherapy "Radiotherapy"
-     [:p "Radiotherapy text here"]]
-
-    [:section#trastuzumab "Trastuzumab"
-     [:p [:strong "Trastuzumab"] " is a chemotherapy drug that specifically targets HER2 positive tumours."]]
 
     [:section#show-ranges "Show ranges"
      [:p "The default values are the best estimate of the benefit. When you click on show ranges, a 95% prediction
@@ -344,7 +288,7 @@
      [:ul {:style {:font-size "1.2em"}}
       [:li [:strong "No chemotherapy at all"]]
       [:li [:strong "2nd gen"] " is short for second-generation chemotherapy drug regimes such as FEC (fluorouracil, epirubicin and
-      cyclophosphamide), CAF or FAC (Cyclophosphamide, doxorubicin, and 5-fluorouracil), AC-T (doxorubicin/cyclophosphamide 
+      cyclophosphamide), CAF or FAC (Cyclophosphamide, doxorubicin, and 5-fluorouracil), AC-T (doxorubicin/cyclophosphamide
       followed by paclitaxel) or Docetaxel plus cyclophosphamide"]
       [:li [:strong "3rd gen"] " is short for third-generation chemotherapy drug regimes such as
       DAC (Docetaxel, doxorubicin, and cyclophosphamide), Sequential FEC-taxane, Dose dense sequential doxorubicin/
