@@ -58,8 +58,6 @@
       ". The data is based on men of a similar age. It does " [:strong "not"] " take account of dosage, or of interactions between treatments."]]]
 
    [:row
-    #_[:.col-sm-12
-       (sidefx-table2 nil)]
     [:col-sm-12
      [:p treatment " have an additional survival benefit of 2% at 5 years and 5% at 10 years."]
      [:p [:strong "Links to more info:"]
@@ -102,30 +100,15 @@
    [:section#home-what-tell "What will Predict tell me?"
     [:p {:key 4} "The predict tool shows you how different treatments affect the percentage of men that survive over ten years after diagnosis."]]
 
-   ;[:section#home-page "Welcome to the PREDICT website"
-   ;
-   ; [:section#welcome "Welcome to the PREDICT website"
-   ;  [:p "After surgery for prostate cancer there are several types of treatment available."]
-   ;
-   ;  [:p "This website uses data from thousands of men to show you how treatments improve survival rates."]
-   ;
-   ;  [:p "We recommend that you use this site with your doctor or read the ‘Patient Information’ section before using the tool."]]]
-
    [:section#about-page "About"
     [:section#who "Who developed the PREDICT programme?"
-     [:p {:style {:color "red"}} "replace text here"]
-
-     #_[:p "PREDICT has been developed by a partnership between The Breast Unit at Cambridge University NHS Hospital, the
-    University of Cambridge Department of Oncology and the NHS Eastern Cancer Registry and Information Centre (ECRIC)."]]
+     [:p {:style {:color "red"}} "edit text here"]]
 
     [:section#how "How was the computer programme developed?"
-     [:p {:style {:color "red"}} "replace text here"]
-     #_[:p "The team used information held by the Eastern Cancer Registry and Information Centre on nearly 5700 men treated
-    for prostate cancer between 1999 and 2003. Using this information we were able to see how individual factors affected
-    survival at five years and ten years."]]
+     [:p {:style {:color "red"}} "edit text here"]]
 
     [:section#where "Where can I find more information on Prostate Cancer?"
-     [:p {:style {:color "red"}} "replace text here"]
+     [:p {:style {:color "red"}} "edit text here"]
      [:p "There is a great deal of information on Prostate Cancer on the web. One of best and most reliable sources is Cancer
     Research UK. The information is written by experts, is up to date and in a style that is easy to understand."]]
     ]
@@ -133,7 +116,7 @@
    [:section#patient-information "Patient Information"
 
     [:section#what-it-does "What is PREDICT?"
-     [:p {:style {:color "red"}} "replace text here"]
+     [:p {:style {:color "red"}} "edit text here"]
      [:p "Nothing can ever tell an individual man what is going to happen to him – but we believe that in order to make
     decisions about treatment options it’s important that people are given as much information as is possible about the
     potential effects of each treatment option."]
@@ -142,77 +125,46 @@
     made in consultation between the patient and a qualified doctor."]]
 
     [:section#what-it-says "What does it tell me?"
-     [:p {:style {:color "red"}} "replace text here"]
+     [:p {:style {:color "red"}} "edit text here"]
      [:p "This web tool aims to give men who have had surgery for prostate cancer as accurate information as is
     possible about the potential effects of further treatment options available to them. "]
-     #_[:p "This version of the tool was
-     developed using data from over 5,000 men with prostate cancer from England and has been carefully tested on data
-     from another 23,000 men with prostate cancer from around the world."]]
+     ]
 
     [:section#how-does-it-know "How does it know what a treatment will do for me?"
-     [:p {:style {:color "red"}} "replace text here"]
+     [:p {:style {:color "red"}} "edit text here"]
      [:p "It can’t tell you what will happen to you, but it will look at the evidence to tell you a ‘best guess’ at the
     chances of different outcomes."]
 
      [:p "The maths behind the tool is based on data from both clinical trials and from thousands of men who
     have undergone prostate cancer treatment in the recent past in England. These two types of data are combined to
     help produce the best assessment possible of the potential outcomes for men who have prostate cancer now, depending
-    on characteristics about them and their tumour."]
-
-     #_[:p "It is adjusted to take into account that the outcomes and treatment options available for men now are
-    different from those for men 20 or so years ago whose data may be included."]]
+    on characteristics about them and their tumour."]]
 
 
     [:section#how-accurate "How accurate is it?"
-     [:p {:style {:color "red"}} "replace text here"]
-     #_[:p "Once the tool had been made, it was tested to see whether it could accurately predict outcomes for men.
-     This was done by taking the data held in England for another 5,000 men whose outcomes were known, and running
-     the tool for each of them as if they were new patients to see how accurate it was. It was then tested in the same way
-     with data from men in different parts of the world, and all these results have been published."]
+     [:p {:style {:color "red"}} "edit text here"]
 
      [:p "This work has shown that this tool gives as good a guess as we currently can as to what is likely to happen to men
      opting for different treatments."]
 
-     #_[:p "For more technical details on the maths behind this tool, please click "
-      [:a {:href "https://prostate-cancer-research.biomedcentral.com/articles/10.1186/s13058-017-0852-3"} "here"] "."]]]
+     ]]
 
    [:section#clinician-information "Clinician Information"
 
     [:section#professionals "Information for professionals"
-     [:p {:style {:color "red"}} "replace text here"]
+     [:p {:style {:color "red"}} "edit text here"]
      [:p "Welcome to PREDICT, an online prognostication and treatment benefit tool designed to help clinicians and
      patients make informed decisions about treatment following diagnosis. "]
-     #_[:p "The survival estimates, presented
-     both with and without adjuvant therapy (hormone therapy, chemotherapy and trastuzumab), are provided for 5 and 10
-     years following surgery. Development of the model was a collaborative project between the Cambridge Breast Unit,
-     University of Cambridge Department of Oncology and the Eastern Cancer Information and Registration Centre (ECRIC)
-     and was supported by an unrestricted educational grant from Pfizer Limited."]
+
 
      [:p "We welcome any feedback you may have about PREDICT. If you have questions about its development or there are
-     features you would like to have added to the model please let us know by emailing us at info@predict.nhs.uk."]
-
-     #_[:p "The model is easy to use following data entry for an individual patient including patient age, tumour size,
-     tumour grade, number of positive nodes, ER status, HER2 status, KI67 status and mode of detection. Survival
-     estimates, with and without adjuvant therapy, are presented in visual and text formats. Treatment benefits for
-     hormone therapy and chemotherapy are calculated by applying relative risk reductions from the Oxford overview to
-     the prostate cancer specific mortality. Predicted mortality reductions are available for both second generation
-     (anthracycline-containing, >4 cycles or equivalent) and third generation (taxane-containing) chemotherapy regimens."]
-
-     #_[:p "The Cambridge Breast Unit (UK) uses the absolute 10-year survival benefit from chemotherapy to guide decision
-     making for adjuvant chemotherapy as follows: <3% no chemotherapy; 3-5% chemotherapy discussed as a possible option;
-     >5% chemotherapy recommended.\n\nThe relative risk reduction for hormone therapy is based on 5 years of tamoxifen."]]
+     features you would like to have added to the model please let us know by emailing us at info@predict.nhs.uk."]]
 
     [:section#model-development "Model development"
-     [:p {:style {:color "red"}} "replace text here"]
-     #_[:p "The model was derived from cancer registry information on 5,694 men treated in East Anglia from 1999-2003.
-     Breast cancer mortality models for ER positive and ER negative tumours were constructed using Cox proportional
-     hazards, adjusted for known prognostic factors and mode of detection (symptomatic versus screen-detected).
-     The survival estimates for an individual patient are based on the average co morbidity for men with prostate cancer
-     of a similar age. Further information about the model is provided in a paper published in Breast Cancer Research
-     in January 2010."]]
+     [:p {:style {:color "red"}} "edit text here"]]
 
     [:section#model-validation "Model validation"
-     [:p {:style {:color "red"}} "replace text here"]
+     [:p {:style {:color "red"}} "edit text here"]
      [:p "The clinical validity of a prediction model can be defined as the accuracy of the model to predict future
      events. The two key measures of clinical validity are calibration and discrimination."]
 
@@ -222,73 +174,7 @@
      event in individual patients. The discrimination statistic is a number between zero and one. It is generally
      obtained from the area under a receiver-operator characteristic curve. If a random pair of patients is selected
      from a dataset - one being a survivor and the other a non-survivor - the discrimination is the probability that the
-     non-survivor will have a higher predicted risk than the survivor."]
-
-     #_[:p "PREDICT was originally validated using a dataset of over 5000 prostate cancer patients from the West Midlands
-     Cancer Intelligence Unit."]
-
-     #_[:p "We also validated PREDICT using a dataset from British Columbia that had been previously used for a validation
-     of Adjuvant! Online. Predict provided overall and prostate cancer specific survival estimates that were at least as
-     accurate as estimates from Adjuvant! The results of this validation were published in the European Journal of
-     Surgical Oncology."]]
-
-    #_[:section#v1-1 "Model extension: HER2 status (version 1.1)"
-     [:p {:style {:color "red"}} "replace text here"]
-     #_[:p "The model was updated in October 2011 to include HER2 status. Estimates for the prognostic effect of HER2
-      status were based on analysis of 10,179 cases collected by the Breast Cancer Association Consortium (BCAC). A
-      validation of the new model in the British Columbia dataset was published in the British Journal of Cancer. This
-      showed that inclusion of HER2 status in the model improved the estimates of prostate cancer-specific mortality,
-      especially in HER2 positive patients."]
-
-     ]
-
-    #_[:section#v1-2 "Model extension: KI67 status (version 1.2)"
-     [:p {:style {:color "red"}} "replace text here"]
-     [:p "More recently we have added KI67 status to the model. The prognostic effect of KI67 was taken from published
-      data showing that ER positive tumours that express KI67 are associated with a 30 percent poorer relative survival."]
-
-     [:p "KI67 positivity for the PREDICT model was defined as greater than 10 percent of tumour cells staining
-     positive."]
-
-     [:p "We have validated the version of PREDICT that includes KI67 using a data set from Nottingham. The addition of
-     KI67 led to a small improvement in calibration and discimination in 1,274 patients with ER+ disease - the area
-     under the ROC curve improved from 0.7611 to 0.7676 (p=0.005). These data have been accepted for publication in
-     BMC Cancer."]]
-
-    #_[:section#refitting "Model re-fitting (version 2.0)"
-     [:p {:style {:color "red"}} "replace text here"]
-     [:p "While the overall fit of the model has been good in multiple independent case series, PREDICT has been shown
-     to underestimate prostate cancer specific mortality in men diagnosed under the age of 40, particularly those with
-     ER positive disease (See publication [5]). Another limitation of the model is the use of discrete categories for
-     tumour size and node status which result in “step” changes in risk estimates on moving from one category to the
-     next. For example, a woman with an 18mm or 19mm tumour will be predicted to have the same prostate cancer specific
-     mortality if all the other prognostic factors are the same whereas prostate cancer specific morality of men with
-     a 19mm or 20mm tumour will differ. We have therefore refitted the PREDICT prognostic model using the original
-     cohort of cases from East Anglia with updated survival time in order to take into account age at diagnosis and to
-     smooth out the survival function for tumour size and node status. The fit of the model has been tested in three
-     independent data sets that had also been used to validate the original version of PREDICT."]
-
-     [:p "Calibration in ER negative disease validation data set: PREDICT v1.2 over-estimated the number of prostate
-     cancer deaths by 10 per cent (observed 447 compared to 492 predicted). This over-estimation was most notable in the
-     larger tumours and in the high-grade tumours. In contrast, the calibration of PREDICT v2.0 in ER negative cases was
-      good (predicted 449).\n\nCalibration in ER negative disease validation data set: The calibration of both
-     PREDICT v1.2 and PREDICT v2.0 was good in ER positive cases (observed prostate cancer deaths 633 compared to 643
-     (v1.2) and 634 (v2.0) predicted). However, as previously described, PREDICT v1.2 significantly under-estimated
-     prostate cancer specific mortality in men diagnosed with ER positive disease at younger ages, whereas the fit of
-     PREDICT v2.0 was good in all age groups."]]
-
-    #_[:section#oncotype "PREDICT and Oncotype DX™"
-     [:p {:style {:color "red"}} "replace text here"]
-     [:p "Oncotype DX™ is a prognostic model (prostate cancer recurrence) based on a test of gene expression profiles in
-     tumours. It has recently been recommended by NICE (DG10) for use in men with oestrogen receptor positive (ER+),
-     lymph node negative (LN−) and human epidermal growth factor receptor 2 negative (HER2−) early prostate cancer to
-     guide chemotherapy decisions if the person is assessed as being at intermediate risk, and where the information on
-     the biological features of the cancer provided by oncotype DX™ is likely to help in predicting the course of the
-     disease."]
-
-     [:p "The oncotype DX™ recurrence score has been shown to be a prognostic factor independent of the other variables
-     included in PREDICT. However, the incremental improvement in discrimination that it would be expected to provide
-     has not been established. We are seeking to identify relevant data that will enable this to be done.\n\n"]]]
+     non-survivor will have a higher predicted risk than the survivor."]]]
 
 
    [:section#predict-tool "PREDICT tool"
@@ -341,51 +227,7 @@
        ]
       ]]
 
-    #_[:section#about-the-patient.input-box "About the patient"
 
-     [:p "This section collects information about the person with prostate cancer which may affect the treatment choices
-    available to them or the outcomes of those treatments."]
-
-     [:p "The options available are those recorded in the English health service records, as the tool is based on a
-    database of patients from England."]
-
-     [:p "It is necessary to select an option for each question, but if you do not know the answer, select " (unknown) "."]
-
-     [:p "Once this information has been entered for a woman, these boxes will collapse and the available treatment
-     options will be displayed instead."]]
-
-    #_[:section#about-the-tumour-physical.input-box "About the tumour (physical characteristics)"
-
-     [:p "There are several different kinds of prostate cancer, and different stages of its development, which will affect
-    the treatment options that are most suitable for a woman, and their outcomes."]
-
-     ;;   [:p "This section collects the information that has been found to be most relevant to treatment choices for men in
-     ;;   England, such as whether the tumour was symptomatic or detected through screening, and what type of cancer it is:"]
-     ;;
-     ;;   [:p "Invasive ductal prostate cancer is the most common type of prostate cancer (70-80%), whilst invasive lobular prostate
-     ;;   cancer is much rarer – only about 10% of prostate cancers."]
-     ;;
-     ;;   [:p "There are some other, rare, types such as inflammatory prostate cancer (1-2% of cases), and non-invasive prostate
-     ;;   cancers known as LCIS and DCIS.  For these, select ‘other’ in the options."]
-
-     [:p "The " [:strong "size"] " and " [:strong "grade"] " of the tumour are important – the " [:strong "grade"] " describes how different the cancer cells are from normal
-     cells. In a pathology report these are sometimes listed as 'differentiation':"]
-
-     [:ul {:style {:font-size "1.2em"}}
-      [:li [:strong "Grade 1 (Well differentiated)"] " - the cells are growing slowly and are similar to healthy cells"]
-      [:li [:strong "Grade 2 (Moderately differentiated)"] " - the cells are growing faster and are less similar to the healthy ones"]
-      [:li [:strong "Grade 3 (Poorly differentiated)"] " - the cells are very different from healthy ones and often fast-growing"]]
-
-     [:p "The number of " [:strong "positive nodes"] " – lymph nodes from under the arm that have cancer cells found in them - will have been counted
-    during surgery. On a pathology report it may be quoted as a pair of numbers such as 2/10, meaning 10 lymph nodes were
-     examined and 2 of them had cancer cells found in them. In this case you would enter '2' in the box."]
-
-     [:p [:strong "Micrometastases"] " are small groups of cancer cells are found in the lymph glands. If present these should be discovered during
-     surgery."]
-
-     [:p "It is necessary to select an option for each question, but if you do not know the answer, select " (unknown) "."]
-
-     ]
     [:section#age "Age"
      [:p "The age when the cancer was diagnosed."]
 
@@ -415,8 +257,7 @@
      to the prostate cancer diagnosis itself should be ignored."]]
 
     [:section#comorb "Comorbidity"
-     [:p "Choose 'yes' if the patient has been admitted to hospital in the 2 years prior
-     to diagnosis and has a history of one (or more) of the following:"
+     [:p "Tick yes if you have a history of any of the following conditions:"
       [:br]
       "Myocardial infarction, Congestive heart failure, Peripheral vascular disease (including aortic aneurysm >= 6 cm),
       Cerebrovascular disease (Stroke or TIA), Dementia, Chronic pulmonary disease, Connective tissue disease, Peptic
@@ -426,15 +267,7 @@
 
 
     [:section#surgery "Treatments already received"
-     [:p "This tool is useful in helping to decide on additional therapies after any surgery has taken place"]
-
-     #_[:p "This section records the treatment that the woman has already received – whether their surgery was a complete
-        mastectomy or prostate-conserving (‘lumpectomy’), and whether they received chemotherapy before surgery (known as
-        neo-adjuvant therapy)."]
-
-     #_[:p "You need to enter a value for these options to proceed.  Once this information has been entered for a woman,
-        these boxes will disappear and you will not be able to change them. This is to make the website clearer and simpler."]
-     ]
+     [:p "This tool is useful in helping to decide on additional therapies after any surgery has taken place"]]
 
     ;;
     ;; Treatment Options and Results
@@ -517,31 +350,6 @@
       DAC (Docetaxel, doxorubicin, and cyclophosphamide), Sequential FEC-taxane, Dose dense sequential doxorubicin/
       cyclophosphamide-paclitaxel (AC-T) etc."]]
 
-
-
-
-     ;;    [:ul
-     ;;     [:li "Taxane-containing drugs help stop cancer cells dividing"]
-     ;;     [:li "‘Anthra’ is short for anthracyclines, which damage cancer cells and kill them"]
-     ;;     [:li "‘CMF’ stands for the regime of Cytoxan, methotrexate and fluorouracil"]]
-     ;;
-     ;;    [:p "Radiotherapy uses a high energy beam of radiation targeted at the tumour area to damage and kill cancer cells.
-     ;;    The radiation affects cancer cells more than normal cells so normal cells in the path of the beam will repair and
-     ;;    recover, whilst the cancer cells will be killed.  The options in this web tool cover three types of radiotherapy:"]
-     ;;
-     ;;    [:ul
-     ;;     [:li "Breast/Chest wall – this is when the radiation oncologist targets the beam just to the affected prostate area"]
-     ;;     [:li "B/CW +Axilla/SCF – this is a beam that targets both the prostate/chest wall and the axilla and supraclavicular
-     ;;     fossa, to kill any cancer cells in the lymph glands in the underarm and collarbone areas near the tumour"]
-     ;;     [:li "B/CW +Axilla/SCF +IMC – this is when the radiotherapy targets the prostate/chest wall, the axilla and
-     ;;     supraclavicular fossa and the internal mammary chain (near the prostatebone) to reach other lymph nodes."]]
-     ;;
-     ;;    [:p "It also allows you to enter the dose of radiation (measured in Gray units, Gy) that the woman’s heart will be
-     ;;    exposed to, and the lung on the side that she will be treated (the ‘ipsilateral lung’)."]
-     ;;
-     ;;    [:p "Bisphosphonates are drugs commonly used to help slow down bone thinning (osteoporosis), but can also be used in
-     ;;    some men to help prevent cancer spreading to the bones. They are only suitable for post-menopausal men."]
-     ;;    ]
      ]]]
 
   )
