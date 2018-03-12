@@ -10,6 +10,7 @@
             [predict-prostate.results.charts :refer [results-in-charts]]
             [predict-prostate.results.icons :refer [results-in-icons]]
             [predict-prostate.results.text :refer [results-in-text]]
+            [predict-prostate.results.sidefx :refer [results-in-sidefx]]
             [predict-prostate.content-reader :refer [all-subsections]]
             ))
 
@@ -41,6 +42,7 @@
                                                  "table"
                                                  "texts"
                                                  "icons"
+                                                 "Treatment side effects"
                                                  ])])
 
 (rum/defc result-panes < rum/static []
@@ -50,6 +52,7 @@
    (result-tab-pane "table" results-in-table)
    (result-tab-pane "icons" results-in-icons)
    (result-tab-pane "texts" results-in-text)
+   (result-tab-pane "Treatment side effects" results-in-sidefx)
    ])
 
 (rum/defc result-panel < rum/reactive []
