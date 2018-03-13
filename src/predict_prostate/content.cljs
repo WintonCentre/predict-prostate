@@ -77,13 +77,13 @@
      [:span {:key 2 :style {:font-size "16px"}} " section before using the tool."]]]
 
    [:section#home-how-use "How do I use Predict/Prostate?"
-    [:p {:key 3} "You enter details about the cancer, and then select different treatment options to see how effective they are."]
+    [:p {:key 3} "You enter details about yourself and your prostate cancer, and then select different treatment options to see how effective they are."]
     [:div {:key 2 :style {:border-left  "3px solid #005FB1"
                           :padding-left "10px"}}
      [:p "We recommend that patients use this tool with their doctor."]]]
 
    [:section#home-what-tell "What will Predict tell me?"
-    [:p {:key 4} "The predict tool shows you how different treatments affect the percentage of men that survive over ten years after diagnosis."]]
+    [:p {:key 4} "The predict tool shows you how different management strategies affect the percentage of men that survive ten and fifteen years after diagnosis."]]
 
    [:section#about-page "About"
     [:section#who "Who developed the PREDICT programme?"
@@ -111,7 +111,7 @@
 
     [:section#what-it-says "What does it tell me?"
      [:p {:style {:color "red"}} "edit text here"]
-     [:p "This web tool aims to give men who have had surgery for prostate cancer as accurate information as is
+     [:p "This web tool aims to give men who have been diagnosed with prostate cancer as accurate information as is
     possible about the potential effects of further treatment options available to them. "]
      ]
 
@@ -120,8 +120,7 @@
      [:p "It can’t tell you what will happen to you, but it will look at the evidence to tell you a ‘best guess’ at the
     chances of different outcomes."]
 
-     [:p "The maths behind the tool is based on data from both clinical trials and from thousands of men who
-    have undergone prostate cancer treatment in the recent past in England. These two types of data are combined to
+     [:p "The maths behind the tool is based on data from thousands of men who have undergone prostate cancer treatment in the recent past in England. These data are used to
     help produce the best assessment possible of the potential outcomes for men who have prostate cancer now, depending
     on characteristics about them and their tumour."]]
 
@@ -177,7 +176,7 @@
      [:section#dummy ""
       [:h3 "Important"]
       [:p "These results are estimates based on data from men with similar characteristics.
-     There are other important factors such as lifestyle, which affect outcomes. Your doctor will help you put these
+     There are other important factors such as lifestyle, and other chronic conditions which affect outcomes. Your doctor will help you put these
      results in context."]
       [:h3 "Potential Harms"]
       [:p "The treatments listed above can have side effects. The following websites provide excellent advice and
