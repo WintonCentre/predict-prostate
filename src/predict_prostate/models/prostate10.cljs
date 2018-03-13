@@ -1,4 +1,4 @@
-(ns predict-prostate.models.prostate
+(ns predict-prostate.models.prostate10
   (:require [common.data-frame :refer [cell-apply cell-update cell-sums cell-diffs]]
             [common.utils :refer [deltas]]
             ))

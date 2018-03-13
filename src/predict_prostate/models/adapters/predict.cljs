@@ -1,5 +1,5 @@
 (ns predict-prostate.models.adapters.predict
-  (:require [predict-prostate.models.prostate :refer [run-prostate]]
+  (:require [predict-prostate.models.prostate10 :refer [run-prostate]]
             [clojure.string :refer [starts-with?]]
             [cljs.reader :refer [read-string]]
             [goog.object :refer [getValueByKeys]]
