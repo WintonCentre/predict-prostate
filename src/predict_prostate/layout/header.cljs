@@ -19,7 +19,7 @@
       [:.col-xs-6
        [:.row
         [:.col-sm-10
-         [:img.img-responsive {:src   "assets/predict-prostate.png"
+         [:img.img-responsive {:src   "assets/prostate-angle-man.png"
                                :style {:margin-left "-15px"
                                        :margin-bottom "5px"}}]
          #_[:p.pull-right {:style {:padding-left "00px"
