@@ -85,7 +85,7 @@
     (when (model-keys :h-admissions) (form-entry {:label "h-admissions" :key :h-admissions}))
 
     (when (= (rum/react (input-cursor :h-admissions)) 1)
-      (when (model-keys :charlson-comorbidity) (form-entry {:label "Comorb" :key :charlson-comorbidity})))
+      (when (model-keys :charlson-comorbidity) (form-entry {:label "comorb" :key :charlson-comorbidity})))
     ]])
 
 (rum/defc patient-related-panel < rum/static [model-keys]

@@ -241,7 +241,7 @@
      [:p "This refers to any admission to hospital in the 2 years before prostate cancer diagnosis - anything related
      to the prostate cancer diagnosis itself should be ignored."]]
 
-    [:section#comorb "Comorbidity"
+    [:section#comorb  "Comorbidity"
      [:p "Tick yes if you have a history of any of the following conditions:"
       [:br]
       "Myocardial infarction, Congestive heart failure, Peripheral vascular disease (including aortic aneurysm >= 6 cm),
