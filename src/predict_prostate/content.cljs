@@ -256,6 +256,17 @@
     [:section#regime "Treatment Regimes"
      [:p "Explain Conservative and Radical Treatments"]]
 
+    ;; Treatment side effects
+
+    [:section#side-effects-am "Active Monitoring"
+     [:p {:style {:color "red"}} "edit me"]]
+
+    [:section#side-effects-rp "Radical Prostatectomy"
+     [:p {:style {:color "red"}} "edit me"]]
+
+    [:section#side-effects-rt "Radiotherapy"
+     [:p {:style {:color "red"}} "edit me"]]
+
     ;;
     ;; Treatment Options and Results
     ;;

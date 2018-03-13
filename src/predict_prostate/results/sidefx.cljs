@@ -2,6 +2,7 @@
 
   (:require [rum.core :as rum]
             [predict-prostate.components.helpful-form-groups :refer [form-entry]]
+            [predict-prostate.components.button :refer [small-help-button]]
             [predict-prostate.state.config :refer [input-groups get-input-default]]
             [predict-prostate.state.run-time :refer [input-cursor input-change
                                                      mockup-change mockup-cursor]]
@@ -21,6 +22,9 @@
                                     :background-color "#bc3d95"}}
     [:span.sr-only (str percent) "% Complete"]]])
 
+(rum/defc help [help-id]
+  [:.pull-right (small-help-button {:help-id help-id})])
+
 (rum/defc sidefx-table1 []
 
   [:.table-responsive {:key   1
@@ -30,9 +34,9 @@
     [:thead
      [:tr.info
       [:th "Incontinence"]
-      [:th "Active " [:br] "Monitoring" [:br] "(AM)"]
-      [:th "Radical " [:br] "Prostatectomy" [:br] "(RP)"]
-      [:th "Radiotherapy" [:br] "(RT)"]
+      [:th "Active " [:br] "Monitoring" [:br] "(AM)" [:.pull-right (help "side-effects-am")]]
+      [:th "Radical " [:br] "Prostatectomy" [:br] "(RP)"  (help "side-effects-rp")]
+      [:th "Radiotherapy" [:br] "(RT)"  (help "side-effects-rt")]
       ]]
     [:tbody
      [:tr
@@ -59,9 +63,9 @@
     [:thead
      [:tr.info
       [:th "Erections"]
-      [:th "Active " [:br] "Monitoring" [:br] "(AM)"]
-      [:th "Radical " [:br] "Prostatectomy" [:br] "(RP)"]
-      [:th "Radiotherapy" [:br] "(RT)"]
+      [:th "Active " [:br] "Monitoring" [:br] "(AM)" [:.pull-right (help "side-effects-am")]]
+      [:th "Radical " [:br] "Prostatectomy" [:br] "(RP)" (help "side-effects-rp")]
+      [:th "Radiotherapy" [:br] "(RT)" (help "side-effects-rt")]
       ]]
     [:tbody
      [:tr
@@ -92,9 +96,9 @@
     [:thead
      [:tr.info
       [:th "Bowel habits"]
-      [:th "Active" [:br] "Monitoring" [:br] "(AM)"]
-      [:th "Radical " [:br] "Prostatectomy" [:br] "(RP)"]
-      [:th "Radiotherapy" [:br] "(RT)"]
+      [:th "Active" [:br] "Monitoring" [:br] "(AM)" [:.pull-right (help "side-effects-am")]]
+      [:th "Radical " [:br] "Prostatectomy" [:br] "(RP)"  (help "side-effects-rp")]
+      [:th "Radiotherapy" [:br] "(RT)" (help "side-effects-rt")]
       ]]
     [:tbody
      [:tr
