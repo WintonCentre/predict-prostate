@@ -150,7 +150,7 @@
                  :class-name (:annotation styles)
                  :x          (X 2.5)
                  :y          (Y 0)}
-          "Years after surgery"]]
+          "Years after diagnosis"]]
 
         (rum/with-key (plot {:X X :Y Y} (as-point-series data)) "plot")
 

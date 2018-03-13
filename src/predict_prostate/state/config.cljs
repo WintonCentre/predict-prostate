@@ -135,7 +135,7 @@
 
    ; Switches
    (->Input-group :result-year
-                  "Years after surgery"
+                  "Years after diagnosis"
                   :radio-group
                   [[5 "5 years"]
                    [10 "10 years"]]

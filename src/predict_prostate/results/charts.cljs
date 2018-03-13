@@ -241,8 +241,8 @@
                                    (get-in results [:conservative :pred-PC-cum])
                                    (get-in results [:conservative :pred-NPC-cum]))]
     {:title                 "Overall Survival"
-     :subtitle-over         "for men with prostate cancer, 5 and 10 years after surgery"
-     :subtitle-under        "years after surgery"
+     :subtitle-over         "for men with prostate cancer, 5 and 10 years after diagnosis"
+     :subtitle-under        "years after diagnosis"
      :conservative-survival conservative-survival
      :radical-survival      radical-survival
      :radical-benefit       (map #(- %1 %2) radical-survival conservative-survival)

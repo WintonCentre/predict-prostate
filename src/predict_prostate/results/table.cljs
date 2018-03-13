@@ -92,7 +92,7 @@
       [:.col-sm-12
        [:p {:style {:margin-top "15px"}} "This table shows the survival percentages based on the information you have provided."]
 
-       (year-picker) [:span {:style {:font-size "16px"}} " years after surgery"]
+       (year-picker) [:span {:style {:font-size "16px"}} " years after diagnosis"]
        ]
       [:.col-sm-12 {:style {:margin-bottom "15px"}}
        (tables data)
