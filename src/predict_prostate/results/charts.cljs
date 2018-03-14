@@ -232,7 +232,7 @@
   "Different models use different treatment widgets, so we need to use these to react to the correct
   treatments and lookup the appropriate result-data."
 
-  [results]
+  [results radical?]
   (let [one-sum #(* 100 (- 1 (+ %1 %2)))
         radical-survival (map one-sum
                               (get-in results [:radical :pred-PC-cum])
@@ -246,7 +246,7 @@
      :conservative-survival conservative-survival
      :radical-survival      radical-survival
      :radical-benefit       (map #(- %1 %2) radical-survival conservative-survival)
-     :dotted-orange         (map #(* 100 %) (get-in results [:conservative :NPC-survival])) ; dotted orange
+     :dotted-orange         (map #(* 100 (- 1 %)) (get-in results [(if radical? :radical :conservative) :pred-NPC-cum])) ; dotted orange
      }
     ))
 
@@ -259,12 +259,13 @@
     :as   props}]
 
   (let [results (rum/react results-cursor)
+        radical? (= 1 (rum/react (input-cursor :primary-rx)))
         width-1 (rum/react (:width state))
         side-by-side (> width-1 600)
         ]
 
 
-    (when-let [chart-props (extract-data results)]
+    (when-let [chart-props (extract-data results radical?)]
       [:div "Hello"]
       (let [bene5 (nth (:radical-benefit chart-props) 5)
             bene10 (nth (:radical-benefit chart-props) 10)
