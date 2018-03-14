@@ -43,7 +43,7 @@
   "Different models use different treatment widgets, so we need to use these to react to the correct
   treatments and lookup the appropriate result-data."
 
-  [results]
+  [results radical?]
   (let [one-sum #(* 100 (- 1 (+ %1 %2)))
         radical-survival (map one-sum
                               (get-in results [:radical :pred-PC-cum])
@@ -57,14 +57,15 @@
      :conservative-survival conservative-survival
      :radical-survival      radical-survival
      :radical-benefit       (map #(- %1 %2) radical-survival conservative-survival)
-     :dotted-orange         (map #(* 100 %) (get-in results [:conservative :NPC-survival])) ; dotted orange
+     :dotted-orange         (map #(* 100 (- 1 %)) (get-in results [(if radical? :radical :conservative) :pred-NPC-cum]))
      }
     ))
 
 (rum/defc results-in-text < rum/reactive (set-default :result-year) []
   (let [year (rum/react (input-cursor :result-year))
-        data (extract-data (rum/react results-cursor))
-        radical? (= 1 (rum/react (input-cursor :primary-rx)))]
+        radical? (= 1 (rum/react (input-cursor :primary-rx)))
+        data (extract-data (rum/react results-cursor) radical?)
+        ]
 
     [:div
 
@@ -75,5 +76,5 @@
      [:.row
       [:.col-sm-12
        [:p "Of the men who would not survive,
-       " (emph (- 100 (js/Math.round (nth (:dotted-orange data) year))))
+       " (emph (- 100 (round (nth (:dotted-orange data) year))))
         " would die due to causes not related to prostate cancer."]]]]))

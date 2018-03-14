@@ -22,11 +22,11 @@
                 state)})
 
 (defn color-picker [fill-counts cum-counts n]
-  {:fill (cond
-           (< n (cum-counts 0)) (get-in fill-counts [0 0])
-           (< n (cum-counts 1)) (get-in fill-counts [1 0])
-           (< n (cum-counts 2)) (get-in fill-counts [2 0])
-           :else (get-in fill-counts [3 0]))
+  {:fill   (cond
+             (< n (cum-counts 0)) (get-in fill-counts [0 0])
+             (< n (cum-counts 1)) (get-in fill-counts [1 0])
+             (< n (cum-counts 2)) (get-in fill-counts [2 0])
+             :else (get-in fill-counts [3 0]))
    :filled (< n (cum-counts 1))})
 
 (rum/defc placed-icons
@@ -57,7 +57,7 @@
   "Different models use different treatment widgets, so we need to use these to react to the correct
   treatments and lookup the appropriate result-data."
 
-  [results]
+  [results radical?]
   (let [one-sum #(* 100 (- 1 (+ %1 %2)))
         radical-survival (map one-sum
                               (get-in results [:radical :pred-PC-cum])
@@ -71,7 +71,9 @@
      :conservative-survival conservative-survival
      :radical-survival      radical-survival
      :radical-benefit       (map #(- %1 %2) radical-survival conservative-survival)
-     :dotted-orange         (map #(* 100 %) (get-in results [:conservative :NPC-survival])) ; dotted orange
+     :dotted-orange         (map #(* 100 (- 1 %)) (get-in results [(if radical? :radical :conservative) :pred-NPC-cum])) ; dotted orange
+
+     ;:dotted-orange         (map #(* 100 %) (get-in results [:conservative :NPC-survival])) ; dotted orange
      }
     ))
 
@@ -79,7 +81,7 @@
 (rum/defc results-in-icons < rum/reactive (set-default :result-year) []
 
   (let [radical? (= 1 (rum/react (input-cursor :primary-rx)))
-        data (extract-data (rum/react results-cursor))
+        data (extract-data (rum/react results-cursor) radical?)
         years (rum/react (input-cursor :result-year))
         cs (round (nth (:conservative-survival data) years))
         rs (if radical? (round (nth (:radical-survival data) years)) 0)
