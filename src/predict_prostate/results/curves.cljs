@@ -219,7 +219,7 @@
                                    (get-in results [:conservative :pred-NPC-cum]))]
     [conservative-survival
      (when radical? radical-survival)
-     (map #(* 100 %) (get-in results [:conservative :NPC-survival])) ; dotted orange
+     (map #(* 100 (- 1 %)) (get-in results [(if radical? :radical :conservative) :pred-NPC-cum])) ; dotted orange
      ]))
 
 

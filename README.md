@@ -53,9 +53,19 @@ If not, install it from https://leiningen.org/
 For production we use the `min` build id which runs the code through the advanced
 optimisation pass of Google's closure compiler.
 
-To create the production build, use the following leiningen command:
+To create the production build, download the repository or clone it using git and use the following leiningen command:
+
+> Todo: I need to publish a couple of libraries used by this repo. `pubsub` and `wc-rum-libs` are dependencies not yet here or on Maven.
+
+These instructions assume a MacOSX or Unix/Linux development system is to hand.
+If running Windows, you should be able to load up a unix virtual box first
+and run things in that.
 
 ```sh
+# if using git...
+git clone https://gitlab.com/gmp26/predict-prostate.git
+
+cd predict-prostate
 lein do clean, cljsbuild once min
 ```
 
@@ -84,6 +94,13 @@ python3 -m'http.server'
 For these python examples, the production site may be tested at
 `http://localhost:8000`.
 
+
+The repo contains a couple of scripts that automate these steps:
+
+* `./build.sh` will compile the application. And after testing it, run
+* `./publish.sh`
+
+> You will need to edit the URL in the publish script so it syncs to your server.
 
 ## Development Prerequisites
 

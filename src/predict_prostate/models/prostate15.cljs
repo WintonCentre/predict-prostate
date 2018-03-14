@@ -24,9 +24,9 @@
            3 0.5464889
            4 0.7411321
            5 1.367963} grade-group)
-     (get {0.9 -1.0498221                                   ; radical low (log 0.35)  ;todo uncertainty
-           1   -0.6837094                                   ; radical (log 0.483)
-           1.1 -0.4004776                                   ; radical high (log 0.67) ;todo uncertainty
+     (get {0.9 (ln 0.35)                                   ; radical low (now log 0.38) (was log 0.35)  ;todo uncertainty
+           1   (ln 0.5)                                   ; radical (now log 0.5) (was log 0.483)
+           1.1 (ln 0.67)                                   ; radical high (now log 0.67) (was log 0.67) ;todo uncertainty
            3   0.9084921} primary-rx)
      #_(get {1 -0.46204                                     ;todo check
              2 -0.67334} protect)
