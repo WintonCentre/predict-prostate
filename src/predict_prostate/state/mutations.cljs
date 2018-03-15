@@ -1,5 +1,6 @@
 (ns predict-prostate.state.mutations
-  (:require [predict-prostate.state.run-time :refer [model
+  (:require [predict-prostate.state.run-time :refer [N      ; the number of years in the model
+                                                     model
                                                      histology-cursor
                                                      input-cursor
                                                      input-change
@@ -105,13 +106,13 @@
                                                   value))
                      )
 
-                   ;; This is the one and only spot where we recalculate the model, and we delay it until
+                   ;; This and the following subscribe are the only spots where we recalculate the model, and we delay it until
                    ;; any changes to the on-screen-inputs have been rendered.
-                   (recalculate-model (input-map))))))
+                   (recalculate-model (input-map) N)))))
 
   (subscribe force-recalculation
              (fn [_ _]
-               (recalculate-model (input-map))))
+               (recalculate-model (input-map) N)))
 
   ;; various
   (subscribe-to active-results-change active-results-pane true)

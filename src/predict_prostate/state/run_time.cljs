@@ -10,6 +10,7 @@
 
 (def model "prostate")
 (def unknown "Unknown")
+(def N 10)
 
 (defn make-topic
   "Make a new topic on which to report events"

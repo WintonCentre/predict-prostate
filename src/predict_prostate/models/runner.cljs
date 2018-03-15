@@ -23,24 +23,23 @@
   (recalculate-model? (input-map))
   )
 
-;;
-;; Define a multimethod to
-;;
-
 (defn recalculate-model
-  "recalculate-model predictions based on a selected model"
-  [input-map]
-  ;(println "input-map " (input-map))
-  (publish results-change
-    (when (recalculate-model? input-map)
-      ;(println "recalc")
-      (let [inputs (assoc input-map :n 10)
-            results {:conservative (predict-prostate (assoc inputs :primary-rx 0))
-                     :radical-low  (predict-prostate (assoc inputs :primary-rx 0.9))
-                     :radical      (predict-prostate (assoc inputs :primary-rx 1))
-                     :radical-high (predict-prostate (assoc inputs :primary-rx 1.1))
-                     }]
-        results))))
+  "recalculate-model predictions based on a selected model for n years.
+  Arity 1 is for 10 years"
+  ([input-map n]
+    ;(println "input-map " (input-map))
+   (publish results-change
+            (when (recalculate-model? input-map)
+              ;(println "recalc")
+              (let [inputs (assoc input-map :n 10)
+                    results {:conservative (predict-prostate (assoc inputs :primary-rx 0))
+                             :radical-low  (predict-prostate (assoc inputs :primary-rx 0.9))
+                             :radical      (predict-prostate (assoc inputs :primary-rx 1))
+                             :radical-high (predict-prostate (assoc inputs :primary-rx 1.1))
+                             }]
+                results))))
+  ([input-map]
+    (recalculate-model input-map 10)))
 
 
 (comment                                                    ;; --- tests
