@@ -86,7 +86,7 @@
     :line1
     [:g
      ;(map-indexed #(rum/with-key (area-plot scale (nth data %1) {:fill (treatment-fills %1)}) (str "a" %1)) area-data)
-     (area-plot scale (last data)  {:fill "#88f8f8"})
+     (area-plot scale (last data)  {:fill "#88ddff"})
      ;(area-plot scale (nth data 1) {:fill (treatment-fills 1)})
      (area-plot scale (nth data 0) {:fill (treatment-fills 0)})
      (line-plot scale (nth data 1) {:fill "none" :stroke (treatment-fills 0)  :strokeWidth 2 :strokeLinecap "round"})
@@ -221,6 +221,23 @@
 
 (defn some-benefit? [data treatment-key] (pos? (benefit data treatment-key)))
 
+(rum/defc legend-item
+  [{:keys [label extra-style icon]}]
+  [:div
+   [:div {:key   3
+          :style (merge {:width          "50px"
+                         :display        "inline-block"
+                         :margin-top     "15px"
+                         :vertical-align "top"
+                         :text-align     "right"}
+                   extra-style)}
+    (when icon icon)]
+   [:div {:key   4
+          :style {:display     "inline-block"
+                  :margin-left "10px"
+                  :width       "calc(100% - 60px)"}}
+    [:p label]]])
+
 (rum/defc legend < rum/reactive [data]
   [:div {:width "100%"}
    [:div {:style {:border-top     (str "4px dashed " dashed-stroke)
@@ -234,35 +251,7 @@
     [:p " Survival if treatment was always curative"]]
    (when (pos? (rum/react (input-cursor :primary-rx)))
      [:p (dead-icon (fill 1)) " Estimated survival with radical treatment"])
-   [:p (dead-icon (fill 2)) " Conservative management"]])
 
-(rum/defc legend2 < rum/reactive [data]
-  [:div {:width "100%"}
-   [:div {:key   1
-          :style {:border-top     (str "5px dashed " dashed-stroke)
-                  :width          "50px"
-                  :display        "inline-block"
-                  :margin-top     "15px"
-                  :vertical-align "top"}}]
-   [:div {:key   2
-          :style {:display     "inline-block"
-                  :margin-left "10px"
-                  :width       "calc(100% - 60px)"}}
-    [:p "Survival if treatment was always curative"]]
-
-   (when (pos? (rum/react (input-cursor :primary-rx)))
-     [:div
-      [:div {:key   3
-             :style {:border-top     (str "5px solid " dashed-stroke)
-                     :width          "50px"
-                     :display        "inline-block"
-                     :margin-top     "15px"
-                     :vertical-align "top"}}]
-      [:div {:key   4
-             :style {:display     "inline-block"
-                     :margin-left "10px"
-                     :width       "calc(100% - 60px)"}}
-       [:p " Estimated survival with radical treatment"]]])
    [:div
     [:div {:key   3
            :style {:width          "50px"
@@ -270,14 +259,44 @@
                    :margin-top     "15px"
                    :vertical-align "top"
                    :text-align "right"}}
-     (dead-icon (fill 2))]
+     (dead-icon (treatment-fills 0))]
     [:div {:key   4
            :style {:display     "inline-block"
                    :margin-left "10px"
                    :width       "calc(100% - 60px)"}}
      [:p " Conservative management"]]]
 
-   ;[:p (dead-icon (fill 2)) " Conservative management"]
+   ])
+
+(rum/defc legend2 < rum/reactive [plot-style radical?]
+  [:div {:width "100%"}
+   (legend-item {:label "Survival if treatment was always curative"
+                 :extra-style {:border-top     (str "5px dashed " dashed-stroke)}
+                 :icon nil})
+
+   (when radical?
+     (condp = plot-style
+       :area1
+       (legend-item {:label       "Estimated survival with radical treatment"
+                     :extra-style nil
+                     :icon        (dead-icon (treatment-fills 1))})
+
+       :line1
+       [:div
+        (legend-item {:label       "Estimated survival with radical treatment"
+                      :extra-style {:border-top (str "3px solid " (treatment-fills 0))}
+                      :icon        nil})
+        (legend-item {:label       "Potential range of treatment benefit"
+                      :extra-style nil
+                      :icon        (dead-icon "#88ddff")})]
+       :line2
+       (legend-item {:label       "Estimated survival with radical treatment"
+                     :extra-style {:border-top (str "5px solid " dashed-stroke)}
+                     :icon        nil})))
+
+   (legend-item {:label "Conservative management"
+                 :icon (dead-icon (treatment-fills 0))})
+
    ])
 
 (defn extract-data [results radical?]
@@ -301,6 +320,7 @@
         side-by-side (> width 600)
         radical? (= 1 (rum/react (input-cursor :primary-rx)))
         data (extract-data (rum/react results-cursor) radical?)
+        plot-style (rum/react (input-cursor :plot-style))
         ;point-series (as-point-series data)
         ]
     [:div {:style {:position "relative"}}
@@ -316,5 +336,5 @@
                     :vertical-align "top"
                     :width          (if side-by-side "30%" "100%")
                     :display        "inline-block"}}
-      (legend2 data)
+      (legend2 plot-style radical?)
       ]]))
