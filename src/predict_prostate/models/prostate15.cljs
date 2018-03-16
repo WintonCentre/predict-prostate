@@ -10,12 +10,9 @@
 
 
 ; stata L 19
-(defn pi-pcsm [{:keys [age psa t-stage grade-group primary-rx protect biopsy50]}]
-  "gen pi-pcsm = 0.002219*((age/10)^3 -341.1652608) + 0.1066838*(ln((psa+1)/100)+1.635612967) + .1271878*(t_stage==2)
-  + .3912962*(t_stage==3) + .5572669*(t_stage==4) + .2404877*(gradegroup==2) + .5844514*(gradegroup==3)
-  + .840747*(gradegroup==4) + 1.480844*(gradegroup==5) + -.7277408*(primaryRx==1) + 1.070543*(primaryRx==3)
-  + -0.46204*(Protect==1) + -0.67334*(Protect==2) + -0.5811587*(biopsy50==1) + 0.55990146*(biopsy50==2)"
-  (+ (* 0.0026005 (+ (pow (/ age 10) 3) 341.155151))
+(defn pi-pcsm [{:keys [age psa t-stage grade-group primary-rx protect biopsy50 ]}]
+  "gen pi-pcsm = 0.0026005*((age/10)^3-341.155151) + 0.185959*(ln((psa+1)/100)+1.636423432) + .1614922*(t_stage==2) + .39767881*(t_stage==3) + .6330977*(t_stage==4) + .2791641*(gradegroup==2) + .5464889*(gradegroup==3) + .7411321*(gradegroup==4) + 1.367963*(gradegroup==5) + -.6837094*(primaryRx==1) + .9084921*(primaryRx==3) -0.617722958*(biopsy50==1) + 0.579225231*(biopsy50==2)\n"
+  (+ (* 0.0026005 (- (pow (/ age 10) 3) 341.155151))
      (* 0.185959 (+ (ln (/ (inc psa) 100)) 1.636423432))
      (get {2 0.1614922
            3 0.39767881
@@ -24,9 +21,9 @@
            3 0.5464889
            4 0.7411321
            5 1.367963} grade-group)
-     (get {0.9 (ln 0.35)                                   ; radical low (now log 0.38) (was log 0.35)  ;todo uncertainty
-           1   (ln 0.5)                                   ; radical (now log 0.5) (was log 0.483)
-           1.1 (ln 0.67)                                   ; radical high (now log 0.67) (was log 0.67) ;todo uncertainty
+     (get {0.9 (ln 0.35)                                    ; radical low (now log 0.38) (was log 0.35)  ;todo uncertainty
+           1   -0.6837094
+           1.1 (ln 0.67)                                    ; radical high (now log 0.67) (was log 0.67) ;todo uncertainty
            3   0.9084921} primary-rx)
      #_(get {1 -0.46204                                     ;todo check
              2 -0.67334} protect)
@@ -198,33 +195,65 @@
         NPCM (map #(- 100 (* % 100)) pred-PC-cum)
         ; (99.53069897172345 98.46801502716171 96.94673786575045 95.04188918111227 92.81121167355501 90.30470806745315 87.56807493105853 84.64426128988357 81.57429628296775 78.39780523023171)
         ]
+    (array-map
+      ;; unused
+      ;:piPCSM piPCSM
+      ;:piNPCM piNPCM
+      ;:PCSMatT (map #(pcsm-at-t (days %) piPCSM) (range 1 16))
+      ;:PCSM_mortrate_year PCSM-mortrate-year
+      ;:NPCMatT NPCMatT
+      ;:NPCM-mortrate-year NPCM-mortrate-year
+      ;:PCSsurvival PCSsurvival
 
-    {:pred-PC-cum  (cons 0 pred-PC-cum)
-     :pred-NPC-cum (cons 0 pred-NPC-cum)
-     :NPC-survival (cons 1 NPCsurvival)}
-
-    ;(println "piPCSM" piPCSM)
-    ;(println "piNPCM" piNPCM)
-    ;(println "PCSMatT" PCSMatT)
-    ;(println "PCSM-mortrate-year" PCSM-mortrate-year)
-    ;(println "PCS-survival-year" PCS-survival-year)
-    ;(println "NPCMatT" NPCMatT)
-    ;(println "NPCM-mortrate-year" NPCM-mortrate-year)
-    ;(println "NPC-survival-year" NPC-survival-year)
-    ;(println "PCSsurvival" PCSsurvival)
-    ;(println "NPCsurvival" NPCsurvival)
-    ;(println "allcauseM" allcauseM)
-    ;(0.005535976336812465 0.01741962778769468 0.03411802269051689 0.05483556505613563 0.0789835662715267 0.1060704395470139 0.1356633605530203 0.16737197747451704 0.20084110431861169 0.23574775252364877)
-    ;(println "allcauseM-inyear" allcauseM-inyear)
-    ;(println "proportionPC-cum" proportionPC-cum)
-    ;(println "proportionPC" proportionPC)
-    ;(println "propn-NPC" propn-NPC)
-    ;(println "pred-PC-year" pred-PC-year)
-    ;(println "pred-PC-cum" pred-PC-cum)
-    ;(println "pred-NPC-year" pred-NPC-year)
-    ;(println "pred-NPC-cum" pred-NPC-cum)
-    ;(println "overall-survival" overall-survival)
-    ;(println "NPCM" NPCM)
+      ;; used
+      :NPCsurvival NPCsurvival
+      :pred-PC-cum (cons 0 pred-PC-cum)
+      :pred-NPC-cum (cons 0 pred-NPC-cum)
+      :NPC-survival (cons 1 NPCsurvival)
+      )
 
     )
+  )
+
+(comment
+
+  (run-prostate {:n                    15
+                 :age                  65
+                 :grade-group          4
+                 :psa                  11
+                 :t-stage              2
+                 :charlson-comorbidity 0
+                 :primary-rx           0
+                 :biopsy50             0
+                 })
+
+  (run-prostate {:n                    15
+                 :age                  65
+                 :grade-group          4
+                 :psa                  11
+                 :t-stage              2
+                 :charlson-comorbidity 1
+                 :primary-rx           0
+                 :biopsy50             0
+                 })
+
+  (run-prostate {:n                    15
+                 :age                  65
+                 :grade-group          4
+                 :psa                  11
+                 :t-stage              2
+                 :charlson-comorbidity 1
+                 :primary-rx           1
+                 :biopsy50             0
+                 })
+
+  (run-prostate {:n                    15
+                 :age                  65
+                 :grade-group          4
+                 :psa                  11
+                 :t-stage              2
+                 :charlson-comorbidity 1
+                 :primary-rx           1
+                 :biopsy50             1
+                 })
   )

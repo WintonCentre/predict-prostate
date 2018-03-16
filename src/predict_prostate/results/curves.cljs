@@ -3,7 +3,7 @@
             [rum.core :as rum]
             [predict-prostate.results.util :refer [callout-fill fill treatment-fills use-line
                                                    without-stroke dashed-stroke]]
-            [predict-prostate.state.run-time :refer [results-cursor input-cursor on-screen-treatments-cursor]]
+            [predict-prostate.state.run-time :refer [N results-cursor input-cursor on-screen-treatments-cursor]]
             [predict-prostate.components.primitives :refer [dead-icon]]
             [predict-prostate.mixins :refer [sizing-mixin]]
             [pubsub.feeds :refer [publish]]
@@ -88,7 +88,7 @@
                                inner)
         width (if (nil? width) (- (:width inner) (:left padding) (:right padding)) width)
         height (if (nil? height) (- (:height inner) (:top padding) (:bottom padding)) height)
-        x (if (nil? x) (->Identity [0 width] 10) x)
+        x (if (nil? x) (->Identity [0 width] N) x)
         x-ticks (ticks x)                                   ;(if (nil? x-ticks) (ticks 0 width 10) x-ticks)
         y (if (nil? y) (->Identity [0 height] 10) y)
         y-ticks (ticks y)                                   ;(if (nil? y-ticks) (ticks 0 height 5) y-ticks)
@@ -162,18 +162,18 @@
                                          :y2               (Y 100)
                                          :stroke           "#fff"
                                          :stroke-opacity   0.5
-                                         :stroke-width     (if (odd? k) 2 1)
-                                         :stroke-dasharray (if (odd? k) "5 5" "2 10")}])
-                     (range 1 10))
+                                         :stroke-width     1
+                                         :stroke-dasharray (if (zero? (mod (inc k) 5)) "5 5" "2 10")}])
+                     (range 1 N))
 
         (map-indexed (fn [k y_k] [:line {:key              (str "y" y_k)
                                          :x1               (X 0)
-                                         :x2               (X 10)
+                                         :x2               (X N)
                                          :y1               (Y y_k)
                                          :y2               (Y y_k)
                                          :stroke           "#fff"
                                          :stroke-opacity   0.5
-                                         :stroke-width     (if (odd? k) 1 1)
+                                         :stroke-width     1
                                          :stroke-dasharray (if (odd? k) "5 5" "2 10")}])
                      (range 10 100 10))]
 
@@ -184,7 +184,7 @@
   (let [margin {:top 10 :right 10 :bottom 0 :left 0}
         padding {:top 20 :right 0 :bottom 60 :left 80}
         outer {:width 400 :height 400}]
-    [:div (curves-container (space outer margin padding [0 10] 5 [0 100] 5) data)]))
+    [:div (curves-container (space outer margin padding [0 N] 3 [0 100] 5) data)]))
 
 (defn benefit [data tk]
   (tk (nth data 10)))
@@ -201,10 +201,10 @@
    [:div {:style {:display     "inline-block"
                   :margin-left "10px"
                   :width       "calc(100% - 60px)"}}
-    [:p " Survival of these men if they were free of cancer"]]
+    [:p " Survival if treatment was always curative"]]
    (when (pos? (rum/react (input-cursor :primary-rx)))
-     [:p (dead-icon (fill 1)) " Additional benefit of radical treatment"])
-   [:p (dead-icon (fill 2)) " Conservative treatment"]])
+     [:p (dead-icon (fill 1)) " Estimated survival with radical treatment"])
+   [:p (dead-icon (fill 2)) " Conservative management"]])
 
 
 (defn extract-data [results radical?]

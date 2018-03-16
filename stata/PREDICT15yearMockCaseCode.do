@@ -9,9 +9,9 @@ gen age_time = age + _n
 gen gradegroup = 4           // gradegroup
 gen psa  = 11                 // ng/ml
 gen t_stage = 2              // 
-gen charlson_comorbidity =  0            // charlson comorbidity score
-gen primaryRx =   0          // 0=AS 'Treatment'=1 adt=3
-gen biopsy50 = 0			// 0=Unknown/not included 1=<50% cores involved 2=>=50% cores involved
+gen charlson_comorbidity =  1            // charlson comorbidity score
+gen primaryRx =   1          // 0=AS 'Treatment'=1 adt=3
+gen biopsy50 =1			// 0=Unknown/not included 1=<50% cores involved 2=>=50% cores involved
 
 *calculate the PCSM prognostic index (pi)
 

@@ -6,6 +6,7 @@
             [graphics.simple-icons :as simple]
             [predict-prostate.router :refer [router]]
             [predict-prostate.content-reader :refer [section all-subsections]]
+            [predict-prostate.components.button :refer [settings-button]]
             [predict-prostate.layout.input-panels :refer [inputs-column]]
             [predict-prostate.layout.treatments-panel :refer [treatments-options]]
             [predict-prostate.layout.result-panel :refer [results]]
@@ -72,7 +73,9 @@
        (header)
        [:.row {:key 1 :style {:vertical-align "middle"}}
         [:.col-xs-8 {:key 1}
-         preamble]]
+         preamble]
+        [:.col-xs-4 {:key 2}
+         [:.pull-right {:style {:margin-top "30px"}} (settings-button)]]]
        [:.row {:key 2}
         [:.col-sm-5
          (titled-panel {:title "Inputs"

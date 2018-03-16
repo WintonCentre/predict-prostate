@@ -62,7 +62,7 @@
 (rum/defc patient-related-form < rum/reactive [model-keys]
   [:div
    (clear-all-button {:on-click clear-inputs :style {:float "left"}})
-   [:div {:style {:float        "right"
+   #_[:div {:style {:float        "right"
                   :margin-top   "8px"
                   :margin-right "15px"}} (settings-button)]
 
