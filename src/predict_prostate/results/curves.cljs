@@ -64,9 +64,9 @@
         [:polygon (merge {:points (str/join ", " [(str/join ", " (map #(apply point %) point-series))
                                                   (str/join ", " [(point (first (last point-series)) base)
                                                                   (point (first (first point-series)) base)])])}
-                         area-style)]]))))
+                    area-style)]]))))
 
-(rum/defc plot [{:keys [X Y] :as scale} data]
+(rum/defc plot [{:keys [X Y] :as scale} plot-style data]
   "X and Y are the x-axis and y-axis scale functions.
   Data should look something like this:
   ([[0 100]  [1 98.89556593176486]  ... [9 64.83779488900586]  [10 60.8297996952587] ]
@@ -74,15 +74,42 @@
    [[0 100]  [1 98.89556593176486]  ... [9 64.83779488900586]  [10 60.8297996952587] ]
    [[0 100]  [1 98.89556593176486]  ... [9 64.83779488900586]  [10 60.8297996952587] ]
    [[0 100]  [1 99.93906220645762]  ... [9 98.75403990843078]  [10 98.5298358866154] ])"
-  [:g
-   ;(map-indexed #(rum/with-key (area-plot scale (nth data %1) {:fill (treatment-fills %1)}) (str "a" %1)) area-data)
-   (area-plot scale (nth data 1) {:fill (treatment-fills 1)})
-   (area-plot scale (nth data 0) {:fill (treatment-fills 0)})
-   (line-plot scale (last data) {:fill "none" :stroke dashed-stroke :strokeDasharray "8,8" :strokeWidth 5 :strokeLinecap "round"})
-   ])
+  (condp = plot-style
+    :area1
+    [:g
+     ;(map-indexed #(rum/with-key (area-plot scale (nth data %1) {:fill (treatment-fills %1)}) (str "a" %1)) area-data)
+     (area-plot scale (nth data 1) {:fill (treatment-fills 1)})
+     (area-plot scale (nth data 0) {:fill (treatment-fills 0)})
+     (line-plot scale (last data) {:fill "none" :stroke dashed-stroke :strokeDasharray "8,8" :strokeWidth 5 :strokeLinecap "round"})
+     ]
+
+    :line1
+    [:g
+     ;(map-indexed #(rum/with-key (area-plot scale (nth data %1) {:fill (treatment-fills %1)}) (str "a" %1)) area-data)
+     (area-plot scale (last data)  {:fill "#88f8f8"})
+     ;(area-plot scale (nth data 1) {:fill (treatment-fills 1)})
+     (area-plot scale (nth data 0) {:fill (treatment-fills 0)})
+     (line-plot scale (nth data 1) {:fill "none" :stroke (treatment-fills 0)  :strokeWidth 2 :strokeLinecap "round"})
+
+     (line-plot scale (last data) {:fill "none" :stroke dashed-stroke :strokeDasharray "8,8" :strokeWidth 5 :strokeLinecap "round"})
+     ]
+
+    :line2
+    [:g
+     ;(map-indexed #(rum/with-key (area-plot scale (nth data %1) {:fill (treatment-fills %1)}) (str "a" %1)) area-data)
+     ;(area-plot scale (last data)  {:fill "#88f8f8"})
+     ;(area-plot scale (nth data 1) {:fill (treatment-fills 1)})
+     (area-plot scale (nth data 0) {:fill (treatment-fills 0)})
+     (line-plot scale (nth data 1) {:fill "none" :stroke dashed-stroke  :strokeWidth 5 :strokeLinecap "round"})
+
+     (line-plot scale (last data) {:fill "none" :stroke dashed-stroke :strokeDasharray "8,8" :strokeWidth 5 :strokeLinecap "round"})
+     ]
+
+    [:text (str "bad plot-style" plot-style)]
+    ))
 
 
-(rum/defc curves-container [{:keys [outer margin inner padding width height x y]} data]
+(rum/defc curves-container [{:keys [outer margin inner padding width height x y]} plot-style data]
   (let [inner (if (nil? inner) {:width  (- (:width outer) (:left margin) (:right margin))
                                 :height (- (:height outer) (:top margin) (:bottom margin))}
                                inner)
@@ -152,7 +179,7 @@
                  :y          (Y 0)}
           "Years after diagnosis"]]
 
-        (rum/with-key (plot {:X X :Y Y} (as-point-series data)) "plot")
+        (rum/with-key (plot {:X X :Y Y} plot-style (as-point-series data)) "plot")
 
         ; Add grid overlay
         (map-indexed (fn [k x_k] [:line {:key              (str "x" x_k)
@@ -164,7 +191,7 @@
                                          :stroke-opacity   0.5
                                          :stroke-width     1
                                          :stroke-dasharray (if (zero? (mod (inc k) 5)) "5 5" "2 10")}])
-                     (range 1 N))
+          (range 1 N))
 
         (map-indexed (fn [k y_k] [:line {:key              (str "y" y_k)
                                          :x1               (X 0)
@@ -175,7 +202,7 @@
                                          :stroke-opacity   0.5
                                          :stroke-width     1
                                          :stroke-dasharray (if (odd? k) "5 5" "2 10")}])
-                     (range 10 100 10))]
+          (range 10 100 10))]
 
        ]]]))
 
@@ -184,7 +211,10 @@
   (let [margin {:top 10 :right 10 :bottom 0 :left 0}
         padding {:top 20 :right 0 :bottom 60 :left 80}
         outer {:width 400 :height 400}]
-    [:div (curves-container (space outer margin padding [0 N] 3 [0 100] 5) data)]))
+    [:div (curves-container
+            (space outer margin padding [0 N] 3 [0 100] 5)
+            (rum/react (input-cursor :plot-style))
+            data)]))
 
 (defn benefit [data tk]
   (tk (nth data 10)))
@@ -206,17 +236,60 @@
      [:p (dead-icon (fill 1)) " Estimated survival with radical treatment"])
    [:p (dead-icon (fill 2)) " Conservative management"]])
 
+(rum/defc legend2 < rum/reactive [data]
+  [:div {:width "100%"}
+   [:div {:key   1
+          :style {:border-top     (str "5px dashed " dashed-stroke)
+                  :width          "50px"
+                  :display        "inline-block"
+                  :margin-top     "15px"
+                  :vertical-align "top"}}]
+   [:div {:key   2
+          :style {:display     "inline-block"
+                  :margin-left "10px"
+                  :width       "calc(100% - 60px)"}}
+    [:p "Survival if treatment was always curative"]]
+
+   (when (pos? (rum/react (input-cursor :primary-rx)))
+     [:div
+      [:div {:key   3
+             :style {:border-top     (str "5px solid " dashed-stroke)
+                     :width          "50px"
+                     :display        "inline-block"
+                     :margin-top     "15px"
+                     :vertical-align "top"}}]
+      [:div {:key   4
+             :style {:display     "inline-block"
+                     :margin-left "10px"
+                     :width       "calc(100% - 60px)"}}
+       [:p " Estimated survival with radical treatment"]]])
+   [:div
+    [:div {:key   3
+           :style {:width          "50px"
+                   :display        "inline-block"
+                   :margin-top     "15px"
+                   :vertical-align "top"
+                   :text-align "right"}}
+     (dead-icon (fill 2))]
+    [:div {:key   4
+           :style {:display     "inline-block"
+                   :margin-left "10px"
+                   :width       "calc(100% - 60px)"}}
+     [:p " Conservative management"]]]
+
+   ;[:p (dead-icon (fill 2)) " Conservative management"]
+   ])
 
 (defn extract-data [results radical?]
   "extract plot data from the model run. Include radical treatment if radical?"
   (let [;years (range 0 11)
         one-sum #(* 100 (- 1 (+ %1 %2)))
         radical-survival (when radical? (map one-sum
-                                             (get-in results [:radical :pred-PC-cum])
-                                             (get-in results [:radical :pred-NPC-cum])))
+                                          (get-in results [:radical :pred-PC-cum])
+                                          (get-in results [:radical :pred-NPC-cum])))
         conservative-survival (map one-sum
-                                   (get-in results [:conservative :pred-PC-cum])
-                                   (get-in results [:conservative :pred-NPC-cum]))]
+                                (get-in results [:conservative :pred-PC-cum])
+                                (get-in results [:conservative :pred-NPC-cum]))]
     [conservative-survival
      (when radical? radical-survival)
      (map #(* 100 (- 1 %)) (get-in results [(if radical? :radical :conservative) :pred-NPC-cum])) ; dotted orange
@@ -233,7 +306,7 @@
     [:div {:style {:position "relative"}}
 
      [:p {:style {:margin-top "15px"}}
-      "This graph shows the percentage of men surviving up to 10 years. These results are based on the inputs and treatments you selected"]
+      "This graph shows the percentage of men surviving up to " N " years. These results are based on the inputs and treatment you selected"]
 
 
      [:div {:style {:width   (if side-by-side "70%" "100%")
@@ -243,5 +316,5 @@
                     :vertical-align "top"
                     :width          (if side-by-side "30%" "100%")
                     :display        "inline-block"}}
-      (legend data)
+      (legend2 data)
       ]]))
