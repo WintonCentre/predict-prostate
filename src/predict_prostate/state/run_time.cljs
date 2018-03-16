@@ -21,48 +21,52 @@
 "When plotting adjuvant treatments, we start from a baseline of surgery only, adding treatments and hopefully improving
 survival, up to the projected survival of prostate-cancer-free men "
 (defonce rtdb
-         (atom {
+  (atom {
 
-                ;; Histology is common to :gleason and grade-group inputs
-                :histology               nil
+         ;; Histology is common to :gleason and grade-group inputs
+         ;:histology               nil
 
-                :recalculate-error-state 0
+         ;; Plot style
+         :plot-style              nil
 
-                :active-results-pane     "curves"
-                :active-mockup           "Mockup 1"         ;used for adverse effects mockups
-                :incomplete              true
+         :recalculate-error-state 0
 
-                ;; The set of widgets
-                :on-screen-inputs        #{}
-                :on-screen-treatments    #{}
+         :active-results-pane     "curves"
+         :active-mockup           "Mockup 1"                ;used for adverse effects mockups
+         :incomplete              true
 
-                :show-uncertainty        :no
+         ;; The set of widgets
+         :on-screen-inputs        #{}
+         :on-screen-treatments    #{}
 
-                ;; model results.
-                ;; These should be non-nil when all inputs are complete.
-                ;; Result data structure can be dependent on model
-                :results                 []
+         :show-uncertainty        :no
 
-                ;; active route
-                :route                   [:home nil nil]
+         ;; model results.
+         ;; These should be non-nil when all inputs are complete.
+         ;; Result data structure can be dependent on model
+         :results                 []
 
-                ;; help
-                :help-key                "about-the-patient"
-                :help-header             "Help header"
-                :help-content            "Help content"
+         ;; active route
+         :route                   [:home nil nil]
 
-                ;; settings modal initially not shown
-                :settings-visible        false
+         ;; help
+         :help-key                "about-the-patient"
+         :help-header             "Help header"
+         :help-content            "Help content"
 
-                ;; The state of the tool left-column accordion
-                :hide-warning            false
-                :test                    "test"
+         ;; settings modal initially not shown
+         :settings-visible        false
 
-                }))
+         ;; The state of the tool left-column accordion
+         :hide-warning            false
+         :test                    "test"
+
+         }))
 
 (defonce estimates (atom nil))
 
-(defonce histology-cursor (rum/cursor rtdb :histology))
+;(defonce histology-cursor (rum/cursor rtdb :histology))
+;(defonce plot-style-cursor (rum/cursor rtdb :plot-style))
 
 (defonce hide-warning-cursor (rum/cursor rtdb :hide-warning))
 (defonce hide-warning-change (make-topic :hide-warning-change))
@@ -99,7 +103,7 @@ survival, up to the projected survival of prostate-cancer-free men "
 
 
 #_(defonce treatment-selection-cursor (rum/derived-atom [treatments-visible-cursor results-cursor] ::treatment-selection
-                                                        (fn [a b] (and a b))))
+                                        (fn [a b] (and a b))))
 
 (defonce active-results-pane (rum/cursor rtdb :active-results-pane))
 (defonce active-results-change (make-topic :active-results-pane))
@@ -143,9 +147,9 @@ survival, up to the projected survival of prostate-cancer-free men "
   Keys are unqualified (i.e. they don't refer to the selected treatment option)."
   []
   (into {}
-        (map (fn [[k v]] [k @v])
-             (filter (fn [[k _]]
-                       ((union @on-screen-inputs-cursor @on-screen-treatments-cursor) k)) (input-cursors)))))
+    (map (fn [[k v]] [k @v])
+      (filter (fn [[k _]]
+                ((union @on-screen-inputs-cursor @on-screen-treatments-cursor) k)) (input-cursors)))))
 
 (defn recalculate-model?
   "return true if the model can be calculated, else nil.

@@ -1,7 +1,6 @@
 (ns predict-prostate.state.mutations
   (:require [predict-prostate.state.run-time :refer [N      ; the number of years in the model
                                                      model
-                                                     histology-cursor
                                                      input-cursor
                                                      input-change
                                                      input-changes

@@ -29,8 +29,7 @@
 
   If a treatment widget has value 'nil' we do not flag it as an error. Instead we assume the treatment is not
   to be graphed or displayed. "
-  [
-   ;; treatments first
+  [;; treatments first
    (->Input-group :primary-rx
                   "Treatment Regime"
                   :radio-group
@@ -42,6 +41,17 @@
                   #{"prostate"}
                   0
                   )
+
+   (->Input-group :plot-style
+     "Plot style"
+     :radio-group
+     [[:area1 "Original"]
+      [:line1 "Line"]
+      [:line2 "Line+Uncertainty"]]
+     false false nil
+     :plot-style
+     #{"prostate"}
+     nil)
 
    ;; INPUTS
    (->Input-group :age

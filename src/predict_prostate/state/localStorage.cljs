@@ -4,11 +4,12 @@
 
 (defn get-settings!
   [default-value]
-  (if-let [settings (.getItem js/localStorage "predict-2.1-settings")]
+  (if-let [settings (.getItem js/localStorage "predict-prostate-1.0")]
     (read-string settings)
     default-value
     ))
 
 (defn put-settings!
   [settings]
-  (.setItem js/localStorage "predict-2.1-settings" settings))
+  (let [old-settings (get-settings! {})]
+    (.setItem js/localStorage "predict-prostate-1.0" (merge old-settings settings))))
