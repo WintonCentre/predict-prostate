@@ -4,12 +4,21 @@
 
 (defn get-settings!
   [default-value]
-  (if-let [settings (.getItem js/localStorage "predict-prostate-1.0")]
-    (read-string settings)
-    default-value
-    ))
+  (let [x (if-let [settings (.getItem js/localStorage "predict-prostate-1.0")]
+            (read-string settings)
+            default-value)]
+    (println "loading " x)
+    x))
 
 (defn put-settings!
   [settings]
+  (println "saving " settings)
   (let [old-settings (get-settings! {})]
     (.setItem js/localStorage "predict-prostate-1.0" (merge old-settings settings))))
+
+(comment
+
+  (put-settings! {})
+  (get-settings! {})
+  (put-settings! {:plot-style :area1})
+  )
