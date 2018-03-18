@@ -74,36 +74,42 @@
    [[0 100]  [1 98.89556593176486]  ... [9 64.83779488900586]  [10 60.8297996952587] ]
    [[0 100]  [1 98.89556593176486]  ... [9 64.83779488900586]  [10 60.8297996952587] ]
    [[0 100]  [1 99.93906220645762]  ... [9 98.75403990843078]  [10 98.5298358866154] ])"
+  (println "dotted " data)
   (condp = plot-style
     :area1
     [:g
      ;(map-indexed #(rum/with-key (area-plot scale (nth data %1) {:fill (treatment-fills %1)}) (str "a" %1)) area-data)
      (area-plot scale (nth data 1) {:fill (treatment-fills 1)})
      (area-plot scale (nth data 0) {:fill (treatment-fills 0)})
-     (line-plot scale (last data) {:fill "none" :stroke dashed-stroke :strokeDasharray "8,8" :strokeWidth 5 :strokeLinecap "round"})
+     (line-plot scale (nth data 2) {:fill "none" :stroke dashed-stroke :strokeDasharray "8,8" :strokeWidth 5 :strokeLinecap "round"})
      ]
 
     :line1
     [:g
      ;(map-indexed #(rum/with-key (area-plot scale (nth data %1) {:fill (treatment-fills %1)}) (str "a" %1)) area-data)
-     (area-plot scale (last data)  {:fill "#88ddff"})
+     (area-plot scale (nth data 2) {:fill "#88ddff"})
+     ;(area-plot scale (nth data 3) {:fill "#88aaee"})
+     (line-plot scale (nth data 2) {:fill "none" :stroke dashed-stroke :strokeDasharray "8,8" :strokeWidth 5 :strokeLinecap "round"})
+     ;(area-plot scale (nth data 4) {:fill "#88ddff"})
      ;(area-plot scale (nth data 1) {:fill (treatment-fills 1)})
      (area-plot scale (nth data 0) {:fill (treatment-fills 0)})
-     (line-plot scale (nth data 1) {:fill "none" :stroke (treatment-fills 0)  :strokeWidth 2 :strokeLinecap "round"})
+     (line-plot scale (nth data 1) {:fill "none" :stroke (treatment-fills 0) :strokeWidth 2 :strokeLinecap "round"})
 
-     (line-plot scale (last data) {:fill "none" :stroke dashed-stroke :strokeDasharray "8,8" :strokeWidth 5 :strokeLinecap "round"})
      ]
 
     :line2
     [:g
      ;(map-indexed #(rum/with-key (area-plot scale (nth data %1) {:fill (treatment-fills %1)}) (str "a" %1)) area-data)
-     ;(area-plot scale (last data)  {:fill "#88f8f8"})
+     (area-plot scale (nth data 2) {:fill "#88ddff"})
+     (line-plot scale (nth data 2) {:fill "none" :stroke dashed-stroke :strokeDasharray "8,8" :strokeWidth 5 :strokeLinecap "round"})
+     (area-plot scale (nth data 3) {:fill "#88aaee"})
+     (area-plot scale (nth data 4) {:fill "#88ddff"})
      ;(area-plot scale (nth data 1) {:fill (treatment-fills 1)})
      (area-plot scale (nth data 0) {:fill (treatment-fills 0)})
-     (line-plot scale (nth data 1) {:fill "none" :stroke dashed-stroke  :strokeWidth 5 :strokeLinecap "round"})
+     (line-plot scale (nth data 1) {:fill "none" :stroke (treatment-fills 0) :strokeWidth 2 :strokeLinecap "round"})
 
-     (line-plot scale (last data) {:fill "none" :stroke dashed-stroke :strokeDasharray "8,8" :strokeWidth 5 :strokeLinecap "round"})
      ]
+
 
     [:text (str "bad plot-style" plot-style)]
     ))
@@ -258,7 +264,7 @@
                    :display        "inline-block"
                    :margin-top     "15px"
                    :vertical-align "top"
-                   :text-align "right"}}
+                   :text-align     "right"}}
      (dead-icon (treatment-fills 0))]
     [:div {:key   4
            :style {:display     "inline-block"
@@ -270,9 +276,9 @@
 
 (rum/defc legend2 < rum/reactive [plot-style radical?]
   [:div {:width "100%"}
-   (legend-item {:label "Survival if treatment was always curative"
-                 :extra-style {:border-top     (str "5px dashed " dashed-stroke)}
-                 :icon nil})
+   (legend-item {:label       "Survival if treatment was always curative"
+                 :extra-style {:border-top (str "5px dashed " dashed-stroke)}
+                 :icon        nil})
 
    (when radical?
      (condp = plot-style
@@ -290,12 +296,19 @@
                       :extra-style nil
                       :icon        (dead-icon "#88ddff")})]
        :line2
-       (legend-item {:label       "Estimated survival with radical treatment"
-                     :extra-style {:border-top (str "5px solid " dashed-stroke)}
-                     :icon        nil})))
+       [:div
+        (legend-item {:label       "Estimated survival with radical treatment"
+                      :extra-style {:border-top (str "3px solid " (treatment-fills 0))}
+                      :icon        nil})
+        (legend-item {:label       "Likely range of radical treatment benefit"
+                      :extra-style nil
+                      :icon        (dead-icon "#88aaee")})
+        (legend-item {:label       "Potential range of treatment benefit"
+                      :extra-style nil
+                      :icon        (dead-icon "#88ddff")})]))
 
    (legend-item {:label "Conservative management"
-                 :icon (dead-icon (treatment-fills 0))})
+                 :icon  (dead-icon (treatment-fills 0))})
 
    ])
 
@@ -306,12 +319,21 @@
         radical-survival (when radical? (map one-sum
                                           (get-in results [:radical :pred-PC-cum])
                                           (get-in results [:radical :pred-NPC-cum])))
+        radical-low (when radical? (map one-sum
+                                     (get-in results [:radical-low :pred-PC-cum])
+                                     (get-in results [:radical-low :pred-NPC-cum])))
+        radical-high (when radical? (map one-sum
+                                      (get-in results [:radical-high :pred-PC-cum])
+                                      (get-in results [:radical-high :pred-NPC-cum])))
         conservative-survival (map one-sum
                                 (get-in results [:conservative :pred-PC-cum])
                                 (get-in results [:conservative :pred-NPC-cum]))]
-    [conservative-survival
-     (when radical? radical-survival)
-     (map #(* 100 (- 1 %)) (get-in results [(if radical? :radical :conservative) :pred-NPC-cum])) ; dotted orange
+    [conservative-survival                                  ; 0 conservative
+     (when radical? radical-survival)                       ; 1 radical
+     ;(map #(* 100 (- 1 %)) (get-in results [(if radical? :radical :conservative) :pred-NPC-cum])) ; 2 dotted orange
+     (map #(* 100 %) (get-in results [:conservative :NPC-survival]))
+     (when radical? radical-low)                            ; 3 low range
+     (when radical? radical-high)                           ; 4 high range
      ]))
 
 

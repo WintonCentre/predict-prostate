@@ -30,13 +30,16 @@
     ;(println "input-map " (input-map))
    (publish results-change
             (when (recalculate-model? input-map)
-              (println "recalc" n)
               (let [inputs input-map
+                    radical (predict-prostate (assoc inputs :primary-rx 1) n)
                     results {:conservative (predict-prostate (assoc inputs :primary-rx 0) n)
                              :radical-low  (predict-prostate (assoc inputs :primary-rx 0.9) n)
                              :radical      (predict-prostate (assoc inputs :primary-rx 1) n)
                              :radical-high (predict-prostate (assoc inputs :primary-rx 1.1) n)
-                             }]
+                             }
+                    ]
+                (assert (= radical (:radical results)))
+                (println "radical = " (get radical :pred-PC-cum))
                 results))))
   ([input-map]
     (recalculate-model input-map 10)))

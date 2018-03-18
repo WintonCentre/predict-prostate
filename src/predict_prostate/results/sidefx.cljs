@@ -119,7 +119,6 @@
 
 
 (rum/defc results-in-sidefx < rum/static []
-  (println "sidefx")
   [:div {:style {:margin-top "15px"}}
    [:div
     [:.row {:style {:margin-top " 20px "}}

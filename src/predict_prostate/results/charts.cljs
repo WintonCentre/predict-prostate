@@ -193,7 +193,7 @@
 
     (map-indexed #(rum/with-key (h-tick-line (str %2 "%")) (str "tick" %1)) (range 0 110 10))
 
-    (let [years [5 10]
+    (let [years [10 15]
           radical? (= 1 (rum/react (input-cursor :primary-rx)))]
       (for [year years
             :let [left? (= year (first years))
@@ -241,12 +241,14 @@
                                    (get-in results [:conservative :pred-PC-cum])
                                    (get-in results [:conservative :pred-NPC-cum]))]
     {:title                 "Overall Survival"
-     :subtitle-over         "for men with prostate cancer, 5 and 10 years after diagnosis"
+     :subtitle-over         "for men with prostate cancer, 10 and 15 years after diagnosis"
      :subtitle-under        "years after diagnosis"
      :conservative-survival conservative-survival
      :radical-survival      radical-survival
      :radical-benefit       (map #(- %1 %2) radical-survival conservative-survival)
-     :dotted-orange         (map #(* 100 (- 1 %)) (get-in results [(if radical? :radical :conservative) :pred-NPC-cum])) ; dotted orange
+
+     ;:dotted-orange         (map #(* 100 (- 1 %)) (get-in results [(if radical? :radical :conservative) :pred-NPC-cum])) ; dotted orange
+     :dotted-orange         (map #(* 100 %) (get-in results [(if radical? :radical :conservative) :NPC-survival])) ; dotted orange
      }
     ))
 
@@ -272,7 +274,7 @@
             benefit (str " Additional benefit of radical treatment is " bene5 "% at 5 years and " bene10 "% at 10 years")]
         [:div
          [:p {:style {:margin-top "15px"}}
-          "This graph shows the percentage of men surviving at 5 and 10 years. These results are based on the inputs and treatments you selected"]
+          "This graph shows the percentage of men surviving at 10 and 15 years. These results are based on the inputs and treatments you selected"]
 
          [:div {:class-name (:chart chart-style)
                 :style      {:width      (str (if side-by-side width 100) "%")

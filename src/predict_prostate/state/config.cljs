@@ -148,7 +148,8 @@
                   "Years after diagnosis"
                   :radio-group
                   [[5 "5 years"]
-                   [10 "10 years"]]
+                   [10 "10 years"]
+                   [15 "15 years"]]
                   false false false
                   :tables
                   #{"v2.1"}
@@ -169,8 +170,7 @@
 
 
 (defn get-input-default [input-groups key]
-  (:default (first (get-in (group-by :key input-groups) [key])))
-  )
+  (:default (first (get-in (group-by :key input-groups) [key]))))
 
 
 (comment
