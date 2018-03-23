@@ -50,11 +50,12 @@ survival, up to the projected survival of prostate-cancer-free men "
          :route                   [:home nil nil]
 
          ;; help
-         :help-key                "about-the-patient"
+         :help-key                nil
          :help-header             "Help header"
          :help-content            "Help content"
 
          ;; settings modal initially not shown
+         :help-visible        false
          :settings-visible        false
 
          ;; The state of the tool left-column accordion
@@ -88,6 +89,9 @@ survival, up to the projected survival of prostate-cancer-free men "
 
 (defonce settings-cursor (rum/cursor rtdb :settings-visible))
 (defonce settings-change (make-topic :settings-change))
+
+(defonce help-cursor (rum/cursor rtdb :settings-visible))
+(defonce help-change (make-topic :settings-change))
 
 ;; input keys that are currently on-screen
 (defonce on-screen-inputs-cursor (rum/cursor rtdb :on-screen-inputs))

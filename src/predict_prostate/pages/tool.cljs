@@ -12,7 +12,9 @@
             [predict-prostate.layout.result-panel :refer [results]]
             [predict-prostate.layout.header :refer [header footer]]
             [predict-prostate.state.mutations :refer [clear-inputs]]
-            [predict-prostate.state.run-time :refer [results-cursor help-key-change
+            [predict-prostate.state.run-time :refer [results-cursor
+                                                     help-key-change help-key-cursor
+                                                     settings-cursor
                                                      hide-warning-change hide-warning-cursor]]
             [pubsub.feeds :refer [publish]]
             ))
@@ -66,10 +68,11 @@
 
 
 (rum/defc tool < rum/reactive []
-  (let [[_ & preamble] (section "tool-preamble")]
+  (let [[_ & preamble] (section "tool-preamble")
+        modal-active (or (rum/react settings-cursor) (rum/react help-key-cursor))]
     [:.container
-     [:.row
-      [:.col-xs-12
+     [:div {:class-name (str "row" (when modal-active " modal-active"))}
+      [:.col-xs-12 {:style {:opacity 1}}
        (header)
        [:.row {:key 1 :style {:vertical-align "middle"}}
         [:.col-xs-8 {:key 1}
@@ -93,11 +96,11 @@
         ]
        [:.row {:key 3}
         [:.col-xs-12
-         (when (rum/react results-cursor) (treatment-caveats))]]
+         (when (rum/react results-cursor) (treatment-caveats))]]]
 
-       (footer)
-       (top-modal)
-       (settings-modal)]]
+      (footer)]
+     (top-modal)
+     (settings-modal)]
 
-     ]))
+    ))
 

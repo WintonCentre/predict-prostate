@@ -139,20 +139,19 @@
     (fn [_ results]
       (reset! results-cursor results)))
 
-
   (subscribe help-key-change
     (fn [_ help-key]
       (reset! help-key-cursor help-key)
-      (.modal (jq$ "#topModal") "show")
-      )
-    )
+      (if help-key
+        (.modal (jq$ "#topModal") "show")
+        (.modal (jq$ "#topModal") "hide"))))
 
   (subscribe settings-change
     (fn [_ help-key]
       (reset! settings-cursor help-key)
-      (.modal (jq$ "#settingsModal") "show")
-      )
-    )
+      (if help-key
+        (.modal (jq$ "#settingsModal") "show")
+        (.modal (jq$ "#settingsModal") "hide"))))
 
   ;(subscribe-to route-change route true)
   (subscribe route-change

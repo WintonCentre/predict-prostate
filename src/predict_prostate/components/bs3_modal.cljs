@@ -1,12 +1,14 @@
 (ns predict-prostate.components.bs3-modal
   (:require [rum.core :as rum]
             [predict-prostate.content-reader :refer [section]]
-            [predict-prostate.state.run-time :refer [help-key-cursor input-widget]]
+            [predict-prostate.state.run-time :refer [help-key-cursor help-key-change settings-change input-widget settings-cursor]]
+            [pubsub.feeds :refer [publish]]
             [interop.jsx :refer [jq$ jq$call]]))
 
-(defn hide-modal [id]
-  ;#((oget (jq$ id) "modal") "hide")
-  )
+(defn hide
+  [element-id]
+  (jq$call element-id "modal" "hide"))
+
 
 (rum/defc top-modal < rum/reactive
                       "Note that we are assuming the _single_ modal dialog is mounted on #topModal since we
@@ -27,20 +29,21 @@
       [:.modal-content
        [:.modal-header
         [:button.close {:type                    "button "
-                        :on-click                #(jq$call "#topModal" "modal" "hide") ; #(.modal (jq$ "#topModal") "hide")
+                        :on-click                #(publish help-key-change nil) ; #(hide "#topModal")
                         :aria-hidden             true
                         :dangerouslySetInnerHTML {:__html "&times;"}}]
         [:h4.modal-title help-header]]
        [:.modal-body help-text]
        [:.modal-footer
         [:button.btn.btn-default {:type     "button"
-                                  :on-click #(jq$call "#topModal" "modal" "hide")} ; #(.modal (jq$ "#topModal") "hide")
-                                  "Close"]]]]]))
+                                  :on-click #(publish help-key-change nil) ;#(hide "#topModal")
+                                  }
+         "Close"]]]]]))
 
 
 (rum/defc settings-modal < rum/reactive
-                      "Note that we are assuming the _single_ modal dialog is mounted on #topModal since we
-                      are using jQuery to locate it."
+                           "Note that we are assuming the _single_ modal dialog is mounted on #topModal since we
+                           are using jQuery to locate it."
   []
 
   [:#settingsModal.modal.fade {:role        "dialog"
@@ -50,7 +53,7 @@
     [:.modal-content
      [:.modal-header
       [:button.close {:type                    "button "
-                      :on-click                #(jq$call "#settingsModal" "modal" "hide")
+                      :on-click                #(publish settings-change nil) ;(hide "#settingsModal")
                       :aria-hidden             true
                       :dangerouslySetInnerHTML {:__html "&times;"}}]
       [:h4.modal-title "Settings"]]
@@ -63,5 +66,6 @@
       ]
      [:.modal-footer
       [:button.btn.btn-default {:type     "button"
-                                :on-click #(jq$call "#settingsModal" "modal" "hide")}
+                                :on-click #(publish settings-change nil) ; #(hide "#settingsModal")
+                                }
        "Close"]]]]])

@@ -280,6 +280,7 @@ form .form-group {
 }
 */
 
+
 /**
  * footer
  */
@@ -291,6 +292,21 @@ form .form-group {
  * Results media filters
  */
 @media print {
+/*
+  .modal-backdrop {
+    display; none;
+    color: blue;
+    background-color: red;
+    background-image: url("data:image/gif;base64,R0lGODlhAQABAPAAAP8AAP///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==");
+    background-width 100%;
+  }
+  .modal-backdrop.in {
+    opacity: 1
+  }
+  */
+  .modal-active {
+    display:none;
+  }
   .screen-only {
     display: none
   }
