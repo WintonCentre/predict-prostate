@@ -46,8 +46,7 @@
      "Plot style"
      :radio-group
      [[:area1 "Original"]
-      [:line1 "Line"]
-      [:line2 "Line+Uncertainty"]]
+      [:line1 "Line"]]
      false false nil
      :plot-style
      #{"prostate"}
@@ -147,8 +146,7 @@
    (->Input-group :result-year
                   "Years after diagnosis"
                   :radio-group
-                  [[5 "5 years"]
-                   [10 "10 years"]
+                  [[10 "10 years"]
                    [15 "15 years"]]
                   false false false
                   :tables

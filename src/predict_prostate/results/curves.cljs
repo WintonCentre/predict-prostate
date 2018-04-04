@@ -66,7 +66,7 @@
                                                                   (point (first (first point-series)) base)])])}
                     area-style)]]))))
 
-(rum/defc plot [{:keys [X Y] :as scale} plot-style data]
+(rum/defc plot [{:keys [X Y] :as scale} plot-style data radical?]
   "X and Y are the x-axis and y-axis scale functions.
   Data should look something like this:
   ([[0 100]  [1 98.89556593176486]  ... [9 64.83779488900586]  [10 60.8297996952587] ]
@@ -86,18 +86,21 @@
 
     :line1
     [:g
-     ;(map-indexed #(rum/with-key (area-plot scale (nth data %1) {:fill (treatment-fills %1)}) (str "a" %1)) area-data)
-     (area-plot scale (nth data 2) {:fill "#88ddff"})
-     ;(area-plot scale (nth data 3) {:fill "#88aaee"})
+     ; light blue fill
+     (when radical? (area-plot scale (nth data 2) {:fill "#88ddff"}))
+
+     ; dotted orange
      (line-plot scale (nth data 2) {:fill "none" :stroke dashed-stroke :strokeDasharray "8,8" :strokeWidth 5 :strokeLinecap "round"})
-     ;(area-plot scale (nth data 4) {:fill "#88ddff"})
-     ;(area-plot scale (nth data 1) {:fill (treatment-fills 1)})
+
+     ; dark blue conservative
      (area-plot scale (nth data 0) {:fill (treatment-fills 0)})
+
+     ; dark blue line
      (line-plot scale (nth data 1) {:fill "none" :stroke (treatment-fills 0) :strokeWidth 2 :strokeLinecap "round"})
 
      ]
 
-    :line2
+    #_#_:line2
     [:g
      ;(map-indexed #(rum/with-key (area-plot scale (nth data %1) {:fill (treatment-fills %1)}) (str "a" %1)) area-data)
      (area-plot scale (nth data 2) {:fill "#88ddff"})
@@ -115,7 +118,7 @@
     ))
 
 
-(rum/defc curves-container [{:keys [outer margin inner padding width height x y]} plot-style data]
+(rum/defc curves-container [{:keys [outer margin inner padding width height x y]} plot-style data radical?]
   (let [inner (if (nil? inner) {:width  (- (:width outer) (:left margin) (:right margin))
                                 :height (- (:height outer) (:top margin) (:bottom margin))}
                                inner)
@@ -185,7 +188,7 @@
                  :y          (Y 0)}
           "Years after diagnosis"]]
 
-        (rum/with-key (plot {:X X :Y Y} plot-style (as-point-series data)) "plot")
+        (rum/with-key (plot {:X X :Y Y} plot-style (as-point-series data) radical?) "plot")
 
         ; Add grid overlay
         (map-indexed (fn [k x_k] [:line {:key              (str "x" x_k)
@@ -220,7 +223,9 @@
     [:div (curves-container
             (space outer margin padding [0 N] 3 [0 100] 5)
             (rum/react (input-cursor :plot-style))
-            data)]))
+            data
+            (pos? (rum/react (input-cursor :primary-rx)))
+            )]))
 
 (defn benefit [data tk]
   (tk (nth data 10)))
@@ -319,12 +324,6 @@
         radical-survival (when radical? (map one-sum
                                           (get-in results [:radical :pred-PC-cum])
                                           (get-in results [:radical :pred-NPC-cum])))
-        radical-low (when radical? (map one-sum
-                                     (get-in results [:radical-low :pred-PC-cum])
-                                     (get-in results [:radical-low :pred-NPC-cum])))
-        radical-high (when radical? (map one-sum
-                                      (get-in results [:radical-high :pred-PC-cum])
-                                      (get-in results [:radical-high :pred-NPC-cum])))
         conservative-survival (map one-sum
                                 (get-in results [:conservative :pred-PC-cum])
                                 (get-in results [:conservative :pred-NPC-cum]))]
@@ -332,8 +331,6 @@
      (when radical? radical-survival)                       ; 1 radical
      ;(map #(* 100 (- 1 %)) (get-in results [(if radical? :radical :conservative) :pred-NPC-cum])) ; 2 dotted orange
      (map #(* 100 %) (get-in results [:conservative :NPC-survival]))
-     (when radical? radical-low)                            ; 3 low range
-     (when radical? radical-high)                           ; 4 high range
      ]))
 
 

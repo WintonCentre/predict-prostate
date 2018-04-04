@@ -121,9 +121,9 @@
         #_(input-widget :result-year)
         [:span {:style {:font-size "16px"}} " years after diagnosis"]
 
-        (if (= 5 (rum/react (input-cursor :result-year)))
-          (render-year 5 data)
-          (render-year 10 data))]
+        (if (= 10 (rum/react (input-cursor :result-year)))
+          (render-year 10 data)
+          (render-year 15 data))]
 
        ]
 

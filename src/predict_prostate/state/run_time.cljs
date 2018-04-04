@@ -31,7 +31,7 @@ survival, up to the projected survival of prostate-cancer-free men "
 
          :recalculate-error-state 0
 
-         :active-results-pane     "curves"
+         :active-results-pane     "charts"
          :active-mockup           "Mockup 1"                ;used for adverse effects mockups
          :incomplete              true
 

@@ -63,8 +63,7 @@
 
 (rum/defc year-picker []
   (horiz-radio-button-group {:key    :result-year
-                             :values [[5 "5"]
-                                      [10 "10"]
+                             :values [[10 "10"]
                                       [15 "15"]
                                       ]}
                             (input-cursor :result-year)))

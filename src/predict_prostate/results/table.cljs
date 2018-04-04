@@ -36,7 +36,7 @@
                                     (nth (get-in results [:radical-high :pred-NPC-cum]) year)))
         radical-survival (- 1 (+ (nth (get-in results [:radical :pred-PC-cum]) year)
                                 (nth (get-in results [:radical :pred-NPC-cum]) year)))
-        data {:dotted-orange (percent (- 1 (nth (get-in results [(if radical? :radical :conservative) :pred-NPC-cum]) year)) 0)
+        data {:dotted-orange (percent (nth (get-in results [:conservative :NPC-survival]) year)) ;(percent (- 1 (nth (get-in results [(if radical? :radical :conservative) :pred-NPC-cum]) year)) 0)
               :conservative  {:overall (percent conservative-survival)
                               :benefit "-"}
               :radical       {:overall      (percent radical-survival)
@@ -73,7 +73,7 @@
           ])
        [:tr
         [:td {:col-span 3}
-         "If these men were cancer free, "
+         "If treatment was always curative "
          (get data :dotted-orange)                          ; (Math.round (- 100 (:oth data)))
          " would survive "
          (rum/react (input-cursor :result-year))

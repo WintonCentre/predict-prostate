@@ -4,11 +4,12 @@
             [predict-prostate.mixins :refer [sizing-mixin]]
             [predict-prostate.results.util :refer [to-percent avoid-decimals min-label-percent
                                                    fill data-fill fill-data-url
-                                                   callout-data-fill dashed-stroke]]
+                                                   callout-data-fill dashed-stroke treatment-fills]]
             [predict-prostate.state.run-time :refer [model input-cursor input-widget input-label
                                                      results-cursor on-screen-treatments-cursor
                                                      ]]
             [predict-prostate.components.primitives :refer [dead-icon]]
+            [predict-prostate.results.curves :refer [legend2]]
             [pubsub.feeds :refer [publish]]
             [clojure.string :refer [join]]
             [cljs-css-modules.macro :refer-macros [defstyle]]
@@ -35,7 +36,7 @@
      [".h-label" {:position "absolute" :top 0 :color "#888" :left "-3em" :width "calc(100% + 6em)"}
       [".left" {:position "absolute" :left "-0.5em" :width "3em" :text-align "right" :top "-1ex"}]
       [".right" {:position "absolute" :right "-0.5em" :width "3em" :text-align "left" :top "-1ex"}]]
-     [".line" {:border-bottom "1px solid #CCC"}]]
+     [".line" {:border-bottom "2px solid #CCC"}]]
 
     [".bar" {:position "absolute" :background-color "white" :border "1px solid #CCC" :border-bottom "none"}
      [".bar-label" {:position   "absolute" :color "black" :left "0%" :width "100%"
@@ -110,23 +111,28 @@
 
 (rum/defcs bar-item < rum/static
                       "A stacked bar item"
-  [state {:keys [key bottom height fill background-url label callout-text ?above treatment-key]
+  [state {:keys [key bottom height fill background-url callout-text ?above item-id plot-style radical]
           :or   {key          1 bottom 0 height 0 fill "red" background-url ""
                  callout-text "Label here" ?above true}}]
 
   [:div {:key key}
-   [:img.bar-item {:src   background-url
-                   :style {:height height
-                           :bottom bottom}}]
+   (when (or (= item-id 0) (= plot-style :area1))
+     [:img.bar-item {:src   background-url
+                     :style {:height height
+                             :bottom bottom}}])
    [:.bar-item {:key   1
                 ;:tab-index 0
-                :style {:height height
-                        :bottom bottom}}
+                :style {:height     height
+                        :bottom     bottom
+                        :border-top (if (and (= 1 item-id) radical (= plot-style :line1))
+                                      (str "3px solid " (treatment-fills 0))
+                                      "none")
+                        }}
 
     ;; internal value label
     (let [height (avoid-decimals (js/parseFloat height))    ; (js/parseInt height)
           ]
-      (when (>= height min-label-percent)
+      (when (and (= plot-style :area1) (>= height min-label-percent))
         (bar-item-label {:key 1 :height height})))
 
     ]])
@@ -141,38 +147,45 @@
 (rum/defc bar < rum/static
                 "Render a bar and its callouts.
                 Callouts are currently specific to a treatments view rather than a cause of death view."
-  [{:keys [key left right width label-over label-under dataset callout oth]
+  [{:keys [key left right width label-over label-under dataset callout oth radical plot-style]
     :or   {key 1 label-over nil label-under nil dataset []}
     :as   params}]
 
   (let [n (count dataset)
         sums (into [] (reductions + (cons 0 (map :value dataset))))
         inline-style (merge {:height "100%"}
-                            {:left left :right right :width width})]
+                       {:left left :right right :width width})]
 
     [:.bar {:key key :style inline-style}
-     (bar-label {:key 2 :text label-under :top? false})
-     (map-indexed #(rum/with-key
-                     (bar-item {:bottom         (str (sums %1) "%")
-                                :height         (str (:value %2) "%")
-                                :background-url (data-fill (if (= (:treatment-key %2) :conservative) 2 1) ;(- n %1 1)
-                                                           )
-                                :treatment-key  (:treatment-key %2)
-                                :?above         (nil? right)})
-                     (+ %1 1))
-                  dataset)
+     [:div {:style {:position         "absolute"
+                    :top              (str "calc(" oth "% - 2px)")
+                    :bottom           0
+                    :left             "-5px"
+                    :right            "-5px"
+                    :z-index          0
+                    :margin           "0 5px"
+                    :background-color "white"
+                    :pointer-events   "none"
+                    :border-top       "4px dashed #FA0"
+                    }}
+      [:img.bar-item {:src   (apply fill-data-url (if (or (not radical) (= plot-style :area1)) [255 255 255] [136 221 255]))
+                      :style {:height "100%"}
+                      }]]
+     [:div
+      (bar-label {:key 2 :text label-under :top? false})
+      (map-indexed #(rum/with-key
+                      (bar-item {:bottom         (str (sums %1) "%")
+                                 :height         (str (:value %2) "%")
+                                 :background-url (data-fill (if (= (:treatment-key %2) :conservative) 2 1))
+                                 :?above         (nil? right)
+                                 :item-id        %1
+                                 :radical        radical
+                                 :plot-style     plot-style})
+                      (+ %1 1))
+        dataset)
 
-     (when callout (rum/with-key (callout (fill (dec n))) 3))
+      (when callout (rum/with-key (callout (fill (dec n))) 3))]
 
-
-     [:div {:style {:position       "absolute"
-                    :top            (str "calc(" oth "% - 2px)")
-                    :bottom         0
-                    :left           "-5px"
-                    :right          "-5px"
-                    :z-index        10
-                    :pointer-events "none"
-                    :border-top     "4px dashed #FA0"}}]
      ]))
 
 (defn treatment-selected [item]
@@ -180,7 +193,7 @@
 
 (rum/defc inner-stacked-bar < rum/static rum/reactive
                               "This currently supports a left and a right stacked bar with callouts left and right and top"
-  [{:keys [conservative-survival radical-benefit dotted-orange style title subtitle-under]}]
+  [{:keys [conservative-survival radical-benefit dotted-orange style title subtitle-under radical plot-style]}]
 
   [:div
 
@@ -199,8 +212,8 @@
             :let [left? (= year (first years))
 
                   data (filter #(if (= (:treatment-key %) :radical) radical? true)
-                               [{:treatment-key :conservative :value (nth conservative-survival year)}
-                                {:treatment-key :radical :value (nth radical-benefit year)}])
+                         [{:treatment-key :conservative :value (nth conservative-survival year)}
+                          {:treatment-key :radical :value (nth radical-benefit year)}])
 
 
 
@@ -219,7 +232,9 @@
                   :width       "20%"
                   :total       (reduce + (mapv :value data))
                   :callout     (partial callout {:percent (reduce + (mapv :value plot-data))
-                                                 :text    (str "survive " year " yrs")})})
+                                                 :text    (str "survive " year " yrs")})
+                  :radical     radical
+                  :plot-style  plot-style})
             year))
 
         ))
@@ -232,14 +247,14 @@
   "Different models use different treatment widgets, so we need to use these to react to the correct
   treatments and lookup the appropriate result-data."
 
-  [results radical?]
+  [results radical? plot-style]
   (let [one-sum #(* 100 (- 1 (+ %1 %2)))
         radical-survival (map one-sum
-                              (get-in results [:radical :pred-PC-cum])
-                              (get-in results [:radical :pred-NPC-cum]))
+                           (get-in results [:radical :pred-PC-cum])
+                           (get-in results [:radical :pred-NPC-cum]))
         conservative-survival (map one-sum
-                                   (get-in results [:conservative :pred-PC-cum])
-                                   (get-in results [:conservative :pred-NPC-cum]))]
+                                (get-in results [:conservative :pred-PC-cum])
+                                (get-in results [:conservative :pred-NPC-cum]))]
     {:title                 "Overall Survival"
      :subtitle-over         "for men with prostate cancer, 10 and 15 years after diagnosis"
      :subtitle-under        "years after diagnosis"
@@ -249,6 +264,8 @@
 
      ;:dotted-orange         (map #(* 100 (- 1 %)) (get-in results [(if radical? :radical :conservative) :pred-NPC-cum])) ; dotted orange
      :dotted-orange         (map #(* 100 %) (get-in results [(if radical? :radical :conservative) :NPC-survival])) ; dotted orange
+     :plot-style            plot-style
+     :radical               radical?
      }
     ))
 
@@ -261,13 +278,14 @@
     :as   props}]
 
   (let [results (rum/react results-cursor)
+        plot-style (rum/react (input-cursor :plot-style))
         radical? (= 1 (rum/react (input-cursor :primary-rx)))
         width-1 (rum/react (:width state))
         side-by-side (> width-1 600)
         ]
 
 
-    (when-let [chart-props (extract-data results radical?)]
+    (when-let [chart-props (extract-data results radical? plot-style)]
       [:div "Hello"]
       (let [bene5 (nth (:radical-benefit chart-props) 5)
             bene10 (nth (:radical-benefit chart-props) 10)
@@ -289,25 +307,13 @@
            ]
 
           ]
-         [:div {:style {:vertical-align "top"
-                        :padding-top    (if side-by-side "20px" "20px")
-                        :width          (str (- 100 (if side-by-side width 0)) "%")
-                        :display        "inline-block"
-                        }}
-          [:p]
-          [:div {:style {:border-top     (str "4px dashed " dashed-stroke)
-                         :width          "50px"
-                         :display        "inline-block"
-                         :margin-top     "15px"
-                         :vertical-align "top"}}]
-          [:div {:style {:display     "inline-block"
-                         :margin-left "10px"
-                         :width       "calc(100% - 60px)"}} [:p "Survival of these men if they were free of cancer"]]
-          (when (pos? (rum/react (input-cursor :primary-rx)))
-            [:p (dead-icon (fill 1)) " Additional benefit of radical treatment"])
-          [:p (dead-icon (fill 2)) " Conservative treatment"]
 
-          ]]))))
+         ; legend
+         [:div {:style {:vertical-align "top"
+                        :padding-top    (if side-by-side "40px" "20px")
+                        :width          (str (- 100 (if side-by-side width 0)) "%")
+                        :display        "inline-block"}}
+          (legend2 plot-style radical?)]]))))
 
 
 (rum/defc results-in-charts []
