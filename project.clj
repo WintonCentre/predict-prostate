@@ -30,6 +30,9 @@
                  [pubsub "0.2.1"]
                  [wc-rum-lib "0.1.3"]
                  [cljs-css-modules "0.2.1"]
+                 [cljsjs/jquery "1.9.1-0"]
+                 [cljsjs/bootstrap "3.3.6-0"]
+
 
                  ; routing
                  [funcool/bide "1.6.0"]
@@ -78,6 +81,7 @@
                            :output-to "resources/public/js/compiled/predict_prostate.js"
                            :output-dir "resources/public/js/compiled/out"
                            :source-map-timestamp true
+
                            ;; To console.log CLJS data-structures make sure you enable devtools in Chrome
                            ;; https://github.com/binaryage/cljs-devtools
                            :preloads [devtools.preload]}}
@@ -89,6 +93,11 @@
                 :compiler {:output-to "resources/public/js/compiled/predict_prostate.js"
                            :main predict-prostate.core
                            :optimizations :advanced
+                           :pseudo-names true
+                           :externs ["externs/bootstrap.js"
+                                     "externs/jquery.js"]
+                           :infer-externs true
+                           :language-in  :ecmascript5
                            :pretty-print false}}]}
 
   :figwheel {;; :http-server-root "public" ;; default and assumes "resources"

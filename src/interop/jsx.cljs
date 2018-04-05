@@ -3,6 +3,7 @@
 
 ;(def oget goog.object.getValueByKeys)
 
+
 (def jq$ (oget js/window "jQuery"))
 (defn jq$find [id] (jq$ id))
 (defn jq$call

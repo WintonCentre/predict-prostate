@@ -5,6 +5,9 @@
             [pubsub.feeds :refer [publish]]
             [interop.jsx :refer [jq$ jq$call]]))
 
+(set! *warn-on-infer* true)
+
+
 (defn hide
   [element-id]
   (jq$call element-id "modal" "hide"))
