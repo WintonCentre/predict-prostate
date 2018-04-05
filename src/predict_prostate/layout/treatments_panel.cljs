@@ -9,7 +9,6 @@
             [predict-prostate.components.panels :refer [titled-panel]]
             [predict-prostate.components.button :refer [small-help-button treatment-help-button]]
             [predict-prostate.state.load-config :refer [live-keys-by-model]]
-            [predict-prostate.state.localStorage :refer [get-settings!]]
             [predict-prostate.content-reader :refer [all-subsections]]
             [pubsub.feeds :refer [publish]]
             ))

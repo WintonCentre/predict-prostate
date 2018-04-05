@@ -46,11 +46,21 @@
     (cond
       (= key :hist-scale)
       (let [{:keys [hist-scale]} (get-settings! {:hist-scale :both})]
-        (reset! (input-cursor :hist-scale) hist-scale))
+        (if (#{:grade-group :gleason :both} hist-scale)
+          (reset! (input-cursor :hist-scale) hist-scale)
+          (do
+            (put-settings! {:hist-scale :both})
+            (reset! (input-cursor :hist-scale) :both))
+          ))
 
       (= key :plot-style)
-      (let [{:keys [plot-style]} (get-settings! {:plot-style :area1})]
-        (reset! (input-cursor :plot-style) plot-style))
+      (let [{:keys [plot-style]} (get-settings! {:plot-style :line1})]
+        (if (#{:area1 :line1} plot-style)
+          (reset! (input-cursor :plot-style) plot-style)
+          (do
+            (put-settings! {:plot-style :line11})
+            (reset! (input-cursor :plot-style) :line11))
+          ))
 
       :else
       (publish topic (if (#{:age :psa} key) "" nil))))

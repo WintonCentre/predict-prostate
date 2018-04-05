@@ -104,7 +104,7 @@
                      :as   args
 
                      }]
-  (println "run-prostate args" (map (fn [[k v]] [k v (type v)]) args))
+
   (let [;defaults {:n 10 :age 45 :grade-group 5 :psa 85 :t-stage 3 :charlson-comorbidity 1 :primary-rx 0 :protect 0 :biopsy50 0}
 
 

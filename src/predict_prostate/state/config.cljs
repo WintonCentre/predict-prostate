@@ -1,8 +1,7 @@
 (ns predict-prostate.state.config
   (:require [rum.core :as rum]
     ;[predict-prostate.eventbus :refer [event-bus]]
-            [pubsub.feeds :refer [->Topic publish create-feed]]
-            [predict-prostate.state.localStorage :refer [get-settings!]]))
+            [pubsub.feeds :refer [->Topic publish create-feed]]))
 
 
 (def event-bus (create-feed))

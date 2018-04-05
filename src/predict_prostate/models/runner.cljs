@@ -38,8 +38,6 @@
                              :radical-high (predict-prostate (assoc inputs :primary-rx 1.1) n)
                              }
                     ]
-                (assert (= radical (:radical results)))
-                (println "radical = " (get radical :pred-PC-cum))
                 results))))
   ([input-map]
     (recalculate-model input-map 10)))
