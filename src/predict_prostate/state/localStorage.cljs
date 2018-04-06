@@ -5,7 +5,7 @@
 (defn get-settings!
   [default-value]
   (let [x (if-let [settings (.getItem js/localStorage "predict-prostate-1.0")]
-            (read-string settings)
+            (merge default-value (read-string settings))
             default-value)]
     x))
 
