@@ -87,11 +87,11 @@
 
    [:section#about-page "About"
     [:section#who "Who developed the PREDICT programme?"
-     [:p {:style {:color "red"}} "PREDICT:Prostate has been developed by a partnership between the Academic Urology Group and the Department of Cancer Epidemiology at the University of Cambridge 
+     [:p  "PREDICT:Prostate has been developed by a partnership between the Academic Urology Group and the Department of Cancer Epidemiology at the University of Cambridge
       in collaboration with the National Cancer Registration and Analysis Service (NCRAS) at Public Health England"]]
 
     [:section#how "How was the computer programme developed?"
-     [:p {:style {:color "red"}} "The team used information held by the Eastern region cancer registry on over 7000 men diagnosed with non-metastatic prostate cancer between 2000 and 2010.
+     [:p  "The team used information held by the Eastern region cancer registry on over 7000 men diagnosed with non-metastatic prostate cancer between 2000 and 2010.
       Using this information they were able to explore how individual factors affected survival over ten and fifteen years"]]
 
     [:section#where "Where can I find more information on Prostate Cancer?"
@@ -102,7 +102,6 @@
    [:section#patient-information "Patient Information"
 
     [:section#what-it-does "What is PREDICT?"
-     [:p {:style {:color "red"}} "edit text here"]
      [:p "Nothing can ever tell an individual man what is going to happen to him – but we believe that in order to make
     decisions about treatment options it’s important that people are given as much information as is possible about the
     potential effects of each treatment option."]
@@ -111,13 +110,11 @@
     made in consultation between the patient and a qualified doctor."]]
 
     [:section#what-it-says "What does it tell me?"
-     [:p {:style {:color "red"}} "edit text here"]
      [:p "This web tool aims to give men who have been diagnosed with prostate cancer as accurate information as is
     possible about the potential effects of further treatment options available to them. "]
      ]
 
     [:section#how-does-it-know "How does it know what a treatment will do for me?"
-     [:p {:style {:color "red"}} "edit text here"]
      [:p "It can’t tell you what will happen to you, but it will look at the evidence to tell you a ‘best guess’ at the
     chances of different outcomes."]
 
@@ -127,8 +124,6 @@
 
 
     [:section#how-accurate "How accurate is it?"
-     [:p {:style {:color "red"}} "edit text here"]
-
      [:p "This work has shown that this tool gives as good a guess as we currently can as to what is likely to happen to men
      opting for different management strategies."]
 
@@ -137,7 +132,6 @@
    [:section#clinician-information "Clinician Information"
 
     [:section#professionals "Information for professionals"
-     [:p {:style {:color "red"}} "edit text here"]
      [:p "Welcome to PREDICT:Prostate, an online prognostication and treatment benefit tool designed to help clinicians and
      patients make informed decisions about treatment following diagnosis of non-metastatic prostate cancer.
      PREDICT:Prostate has been developed by a partnership between the Academic Urology Group and the Department of Cancer Epidemiology at the University of Cambridge 
@@ -153,12 +147,12 @@
      features you would like to have added to the model please let us know by emailing us at info@predict.nhs.uk."]]
 
     [:section#model-development "Model development"
-     [:p {:style {:color "red"}} "The model is derived from 7063 men diagnosed in Eastern England between 2000 and 2010. 
+     [:p  "The model is derived from 7063 men diagnosed in Eastern England between 2000 and 2010.
       Prostate cancer-specific and non-prostate cancer mortality models were constructed using Cox proportional hazards and fractional polynomials, adjusting for known prognostic factors. 
       Further information about the model is available in abstracts presented at the European Association of Urology and American Urological Association conferences 2018.  "]]
 
     [:section#model-validation "Model validation"
-     [:p {:style {:color "red"}} "The model has been validated amongst a randomly selected cohort of 3026 different men from the Eastern England cohort.
+     [:p  "The model has been validated amongst a randomly selected cohort of 3026 different men from the Eastern England cohort.
       The model has also been validated in a Singaporean cohort of 2546 men diagnosed with non-metastatic prostate cancer. In both cohorts the model performed better than the current three-tier risk stratification system."]
      [:p "The clinical validity of a prediction model can be defined as the accuracy of the model to predict future
      events. The two key measures of clinical validity are calibration and discrimination."]
@@ -274,14 +268,14 @@
     ;; Treatment side effects
 
     [:section#side-effects-am "Active Monitoring"
-     [:p {:style {:color "red"}} "'Active Monitoring' was the term used for conservative management within the ProtecT study, where this data is from. Men were predominantly monitored by PSA."]]
+     [:p  "'Active Monitoring' was the term used for conservative management within the ProtecT study, where this data is from. Men were predominantly monitored by PSA."]]
 
     [:section#side-effects-rp "Radical Prostatectomy"
-     [:p {:style {:color "red"}} "Radical prostatectomy refers to surgical removal of the whole prostate gland, with or without the nearby lymph nodes.
+     [:p  "Radical prostatectomy refers to surgical removal of the whole prostate gland, with or without the nearby lymph nodes.
       Within this study the majority were performed by an open operation"]]
 
     [:section#side-effects-rt "Radiotherapy"
-     [:p {:style {:color "red"}} "Radiotherapy in the ProtecT study included combined androgen deprivation therapy for 3-6 months before and during external beam radiotherapy at a total dose of 74Gy in37 fractions."]]
+     [:p  "Radiotherapy in the ProtecT study included combined androgen deprivation therapy for 3-6 months before and during external beam radiotherapy at a total dose of 74Gy in37 fractions."]]
 
     ;;
     ;; Treatment Options and Results
