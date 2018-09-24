@@ -16,6 +16,8 @@
                                                      help-key-change
                                                      settings-cursor
                                                      settings-change
+                                                     print-cursor
+                                                     print-change
                                                      route
                                                      route-change
                                                      hide-warning-change
@@ -162,6 +164,13 @@
       (if help-key
         (.modal (jq$ "#settingsModal") "show")
         (.modal (jq$ "#settingsModal") "hide"))))
+
+
+  (subscribe print-change
+             (fn [_ val]
+               (reset! print-cursor val)
+               (.modal (js/$ "#printModal") "show"))
+             )
 
   ;(subscribe-to route-change route true)
   (subscribe route-change

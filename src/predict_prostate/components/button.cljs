@@ -1,6 +1,6 @@
 (ns predict-prostate.components.button
   (:require [rum.core :as rum]
-            [predict-prostate.state.run-time :refer [unknown input-cursor input-change help-key-change settings-change]]
+            [predict-prostate.state.run-time :refer [unknown input-cursor input-change help-key-change settings-change print-change]]
             [graphics.simple-icons :as simple]
             [pubsub.feeds :refer [publish]]
             [clojure.pprint :refer [cl-format]]
@@ -125,4 +125,20 @@
      (simple/icon {:family :fa} "cog") " Settings"]))
 
 
+(rum/defc print-button < rum/static []
+  [:button.btn.btn-danger.btn-lg.screen-only.pull-right
+   {:type         "button"
+    :role         "button"
+    :aria-label   "show printable results"
+    :tab-index    "0"
+    :data-toggle  "modal"
+    :data-target  "#printModal"
+    :title        "Print Results"
+    :data-content "Print content"
+    :on-click     #(publish print-change "print")
+    :style        {:margin-right 15}
+    :on-key-down  #(when (= "Enter" (.. % -nativeEvent -code))
+                     (publish print-change "print"))
+    }
+   (simple/icon {:family :fa} "print") " Print"])
 
