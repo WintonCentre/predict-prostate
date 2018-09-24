@@ -267,6 +267,9 @@
 
     ;; Treatment side effects
 
+    [:section#side-effects-cm "Conservative Management"
+     [:p  "'Active Monitoring' was the term used for conservative management within the ProtecT study, where this data is from. Men were predominantly monitored by PSA."]]
+
     [:section#side-effects-am "Active Monitoring"
      [:p  "'Active Monitoring' was the term used for conservative management within the ProtecT study, where this data is from. Men were predominantly monitored by PSA."]]
 
@@ -277,6 +280,11 @@
     [:section#side-effects-rt "Radiotherapy"
      [:p  "Radiotherapy in the ProtecT study included combined androgen deprivation therapy for 3-6 months before and during external beam radiotherapy at a total dose of 74Gy in37 fractions."]]
 
+    [:section#nerve-sparing "Nerve-sparing"
+     [:p "Nerve-sparing radical prostatectomy"]]
+
+    [:section#non-nerve-sparing "Non-nerve-sparing"
+     [:p "Non-nerve-sparing radical prostatectomy"]]
     ;;
     ;; Treatment Options and Results
     ;;

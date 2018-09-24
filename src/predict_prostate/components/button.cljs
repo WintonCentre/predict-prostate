@@ -76,7 +76,8 @@
 ;; Buttons invoking modals
 ;;;
 
-(rum/defc small-help-button < rum/static [{:keys [help-id icon-name title text] :as props} ]
+
+(rum/defc small-help-button < rum/static [{:keys [help-id icon-name title text] :as props}]
   [:button.btn.btn-info.btn-sm
    {:type         "button"
     :role         "button"
@@ -88,16 +89,10 @@
     :data-content "Help TBD"
     :on-click     #(publish help-key-change help-id)
     :on-key-down  #(when (= "Enter" (.. % -nativeEvent -code))
-                     (publish help-key-change help-id))
-    ;:style
-    #_{:color            "#fff"
-       :border-color     (get fills-by-treatment help-id)
-       :background-color (get fills-by-treatment help-id)
-       ;:margin-top "-3px"
-       }}
+                     (publish help-key-change help-id))}
    (simple/icon {:family :fa} "info") ""])
 
-(rum/defc treatment-help-button < rum/static [{:keys [help-id icon-name title text] :as props} ]
+(rum/defc treatment-help-button < rum/static [{:keys [help-id icon-name title text] :as props}]
   [:button.btn.btn-info.btn-sm
    {:type         "button"
     :role         "button"
@@ -109,13 +104,7 @@
     :data-content "Help TBD"
     :on-click     #(publish help-key-change help-id)
     :on-key-down  #(when (= "Enter" (.. % -nativeEvent -code))
-                     (publish help-key-change help-id))
-    ;:style
-    #_{:color            "#fff"
-       :border-color     (get fills-by-treatment help-id)
-       :background-color (get fills-by-treatment help-id)
-       ;:margin-top "-3px"
-       }}
+                     (publish help-key-change help-id))}
    (simple/icon {:family :fa} "warning") " Potential harms"])
 
 

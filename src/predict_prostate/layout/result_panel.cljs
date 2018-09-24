@@ -27,7 +27,8 @@
 
 (rum/defc result-tab-pane < rum/reactive [label content]
   [:div {:id    label :role "tabpanel"
-         :class (str "tab-pane" (if (= (rum/react active-results-pane) label) "active" nil))}
+         :class (str "tab-pane" (if (= (rum/react active-results-pane) label) "active" nil))
+         }
    (when (= (rum/react active-results-pane) label)
      (if content
        (content)
@@ -42,7 +43,7 @@
                                                  "table"
                                                  "texts"
                                                  "icons"
-                                                 "Treatment side effects"
+                                                 ;"Treatment side effects"
                                                  ])])
 
 (rum/defc result-panes < rum/static []
@@ -52,7 +53,7 @@
    (result-tab-pane "table" results-in-table)
    (result-tab-pane "icons" results-in-icons)
    (result-tab-pane "texts" results-in-text)
-   (result-tab-pane "Treatment side effects" results-in-sidefx)
+   #_(result-tab-pane "Treatment side effects" results-in-sidefx)
    ])
 
 (rum/defc result-panel < rum/reactive []
@@ -67,6 +68,8 @@
    [:.row
     [:.col-md-12
      [:div
-      (result-panel)]]
+      (result-panel)
+      [:h2 "Side effects"]
+      (results-in-sidefx)]]
 
     ]])
