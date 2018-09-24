@@ -51,7 +51,7 @@
 
     [".callout" {:position   "absolute"
                  :transition "height 300ms, bottom 300ms" :transition-timing-function "ease-out"}
-     [".box" {:width   "7em" :height "6.65ex" :position "absolute" :bottom "-3.25ex"
+     [".box" {:width   "7em" :height "10ex" :position "absolute" :bottom "-4.7ex"
               :padding "0.5ex 1ex 0.3ex 0.5ex" :text-align "right" :color "white" :border-radius "0.5ex"}
       [".total" {:position "absolute" :left "0.6ex" :bottom "1.3ex" :color "white" :font-size "1.2em"}]]
      [".arrow" {:position   "absolute" :bottom "-1ex" :width 0 :height 0
@@ -232,7 +232,7 @@
                   :width       "20%"
                   :total       (reduce + (mapv :value data))
                   :callout     (partial callout {:percent (reduce + (mapv :value plot-data))
-                                                 :text    (str "survive " year " yrs")})
+                                                 :text    (str "survive at least " year " years")})
                   :radical     radical
                   :plot-style  plot-style})
             year))

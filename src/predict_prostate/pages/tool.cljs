@@ -1,12 +1,12 @@
 (ns predict-prostate.pages.tool
   (:require [rum.core :as rum]
             [cljs-css-modules.macro :refer-macros [defstyle]]
-            [predict-prostate.components.bs3-modal :refer [top-modal settings-modal]]
+            [predict-prostate.components.bs3-modal :refer [top-modal settings-modal print-modal]]
             [bide.core :as r]
             [graphics.simple-icons :as simple]
             [predict-prostate.router :refer [router]]
             [predict-prostate.content-reader :refer [section all-subsections]]
-            [predict-prostate.components.button :refer [settings-button]]
+            [predict-prostate.components.button :refer [settings-button print-button]]
             [predict-prostate.layout.input-panels :refer [inputs-column]]
             [predict-prostate.layout.treatments-panel :refer [treatments-options]]
             [predict-prostate.layout.result-panel :refer [results]]
@@ -63,8 +63,39 @@
       [:h2 {:style {:margin-top 0 :float "left"}} "Options"]
       (treatments-options)
       (results true)
-      ;(treatment-caveats)
+      (print-button)
       ]]))
+
+#_(rum/defc treatments-with-results < rum/reactive []
+  (if (nil? (rum/react results-cursor))
+    [:.row
+     [:.col-sm-10.col-sm-offset-1.col-xs-12
+      [:div {:style {:background-color alison-blue-1
+                     :padding          "10px 10px 3px 10px"
+                     :margin-bottom    20}}
+       [:div {:style {:color     alison-blue-2
+                      :font-size "20px"}}
+
+        [:p {:style {:padding-bottom 0}}
+         (simple/icon {:family :fa :style {:font-size 35 :padding-right 8}} "info-circle")
+
+         " Treatment options and results will appear here when you have filled in all the information needed above."]]]]]
+    [:div
+     [:.row
+      [:.col-md-6.clearfix
+       [:h3 "Treatment Options"]
+       (treatments-options)
+       [:.hidden-xs.hidden-sm
+        (print-button)]
+       ]
+      [:.col-md-6.screen-only
+       (results {:printable (= :print (rum/react media-cursor))})]
+
+      [:.hidden-md.hidden-lg
+       (print-button)]]
+
+     ]))
+
 
 
 (rum/defc tool < rum/reactive []
@@ -100,7 +131,9 @@
 
       (footer)]
      (top-modal)
-     (settings-modal)]
+     (settings-modal)
+     (print-modal)
+     ]
 
     ))
 

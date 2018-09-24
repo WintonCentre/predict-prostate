@@ -120,6 +120,10 @@ survival, up to the projected survival of prostate-cancer-free men "
 
 (defonce force-recalculation (make-topic :force-recalculation))
 
+(defn year-selected []
+  "return a cursor containing the selected year"
+  (input-cursor :result-year))
+
 ;;;
 ;; Input keys
 ;;;

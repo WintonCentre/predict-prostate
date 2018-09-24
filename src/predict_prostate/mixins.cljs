@@ -1,6 +1,7 @@
 (ns predict-prostate.mixins
   (:require [clojure.set :refer [difference]]
-            [predict-prostate.state.run-time :refer [force-recalculation]]
+            [predict-prostate.state.run-time :refer [force-recalculation input-change input-cursor]]
+            [predict-prostate.state.config :refer [get-input-default input-groups]]
             [pubsub.feeds :refer [publish]]
             [predict-prostate.state.run-time :refer [on-screen-inputs-cursor on-screen-treatments-cursor input-map]]))
 
@@ -71,3 +72,12 @@
    })
 
 
+
+(defn set-default [key]
+  "If an input is unmounted and remounted, it should take it's default value on remount from the app state.
+  If it's mounted fresh, it should take its default from the configured default."
+  {:did-mount (fn [state]
+                (publish (input-change key) (if-let [val @(input-cursor key)]
+                                              val
+                                              (get-input-default input-groups key)))
+                state)})

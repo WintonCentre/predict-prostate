@@ -175,22 +175,22 @@
           [:br]
           "Surgery, or Radiotherapy for Prostate Cancer" [:br] "Donovan et al [2016]"]]
 
-      [:p
-       [:ul
-        [:li "The following estimates assume that function is normal before treatment."]
-        [:li "These are not individualised estimates to you, and may vary depending on the treatment centre and other
+
+      [:ul {:style {:font-size 16}}
+       [:li "The following estimates assume that function is normal before treatment."]
+       [:li "These are not individualised estimates to you, and may vary depending on the treatment centre and other
        factors. Information on outcomes in your local centre may be available from your clinician."]
-        [:li "Estimates for erectile dysfunction have been derived from a large American study. The full research can be
+       [:li "Estimates for erectile dysfunction have been derived from a large American study. The full research can be
        read here: "
-         [:a {:href   "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5782813/"
-              :target "_blank"}
-          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5782813/"]]
-        [:li "Estimates for incontinence and bowel dysfunction have been taken from the UK-based Prostate Testing for
+        [:a {:href   "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5782813/"
+             :target "_blank"}
+         "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5782813/"]]
+       [:li "Estimates for incontinence and bowel dysfunction have been taken from the UK-based Prostate Testing for
        Cancer and Treatment (ProtecT) trial. The full research can be read here: "
-         [:a {:href "https://www.nejm.org/doi/full/10.1056/NEJMoa1606221"
-              :target "_blank"}
-          "https://www.nejm.org/doi/full/10.1056/NEJMoa1606221"]]
-        ]]]
+        [:a {:href   "https://www.nejm.org/doi/full/10.1056/NEJMoa1606221"
+             :target "_blank"}
+         "https://www.nejm.org/doi/full/10.1056/NEJMoa1606221"]]
+       ]]
      ]
 
     [:row
