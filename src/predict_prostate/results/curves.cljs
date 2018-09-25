@@ -259,7 +259,7 @@
    [:div {:style {:display     "inline-block"
                   :margin-left "10px"
                   :width       "calc(100% - 60px)"}}
-    [:p " Survival if treatment was always curative"]]
+    [:p " Survival if cancer does not progress"]]
    (when (pos? (rum/react (input-cursor :primary-rx)))
      [:p (dead-icon (fill 1)) " Estimated survival with radical treatment"])
 
@@ -281,7 +281,7 @@
 
 (rum/defc legend2 < rum/reactive [plot-style radical?]
   [:div {:width "100%"}
-   (legend-item {:label       "Survival if treatment was always curative"
+   (legend-item {:label       "Survival if cancer does not progress"
                  :extra-style {:border-top (str "5px dashed " dashed-stroke)}
                  :icon        nil})
 
