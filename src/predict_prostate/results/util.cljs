@@ -61,17 +61,8 @@
 
 (def dashed-stroke "#FA0")
 ;;
-;; Cloure scale designed in chroma.js
+;; Colour scale designed in chroma.js, then heavily modified!
 ;;
-(def cat-scale-6-0 ["#ffcc0" "#ff8888" "#00cdf2" "#D838B9" "#008600" "#272a75"])
-;; http://gka.github.io/palettes/#diverging|c0=darkblue,blue,darkorange|c1=lightblue,teal,dd1493|steps=6|bez0=1|bez1=1|coL0=1|coL1=1
-(def cat-scale-6-1 ["#00008b" "#8722ae" "#e16665"   "#95c6d2" "#7e9eac" "#dd1493"])
-(def cat-scale-6-2 ["#00008b" "#77008b" "#af1e83" "#d53f73" "#eb5e5a" "#f17b31"])
-(def cat-scale-6-3 ["#00008b" "#e16665" "#8722ae"  "#95c6d2" "#7e9eac" "#dd1493"])
-;; http://gka.github.io/palettes/#diverging|c0=darkblue,blue,darkorange|c1=6ce5ff,teal,dd1493|steps=6|bez0=1|bez1=1|coL0=1|coL1=1
-(def cat-scale-6-4 ["#00008b" "#e16665" "#8722ae"  "#5fd1e6" "#67a4b6" "#dd1493"])
-;; http://gka.github.io/palettes/#diverging|c0=0000aa,blue,darkorange|c1=6ce5ff,teal,dd1493|steps=6|bez0=1|bez1=1|coL0=1|coL1=1
-(def cat-scale-6-5 ["#0000aa" "#e56961" "#9427b3"  "#5fd1e6" "#67a4b6" "#dd1493"])
 (def cat-scale-6-6 ["#0000aa"
                     "#00afef"
                     ;"#5fd1e6"
@@ -86,8 +77,6 @@
   ([index]
    (fills index))
   )
-
-(def fills-by-treatment (zipmap ["trastuzumab" "chemotherapy" "hormone-therapy" "surgery"] fills))
 
 (defn stepsToRGBArray
   [index]
@@ -119,8 +108,11 @@
 
 (defn treatment-fills [index]
   "reverse order of fills for treatment plot"
-  (fill (- 2 index))
+  (fill (- (dec (count fills)) index))
   )
+
+(def over-estimate-fill) "#99eeff"
+(def under-estimate-fill "#88ddff")
 
 ; use a line to indicate survival without cancer
 (def use-line true)

@@ -120,10 +120,6 @@ survival, up to the projected survival of prostate-cancer-free men "
 
 (defonce force-recalculation (make-topic :force-recalculation))
 
-(defn year-selected []
-  "return a cursor containing the selected year"
-  (input-cursor :result-year))
-
 ;;;
 ;; Input keys
 ;;;
@@ -161,6 +157,11 @@ survival, up to the projected survival of prostate-cancer-free men "
     (map (fn [[k v]] [k @v])
       (filter (fn [[k _]]
                 ((union @on-screen-inputs-cursor @on-screen-treatments-cursor) k)) (input-cursors)))))
+
+
+(defn year-selected []
+  "return a cursor containing the selected year"
+  (input-cursor :result-year))
 
 (defn recalculate-model?
   "return true if the model can be calculated, else nil.

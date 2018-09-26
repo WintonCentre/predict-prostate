@@ -87,7 +87,6 @@
                            "Note that we are assuming the _single_ modal dialog is mounted on #topModal since we
                            are using jQuery to locate it."
   []
-
   [:#settingsModal.modal.fade {:role        "dialog"
                                ;:tabIndex -1
                                :aria-hidden "true"}

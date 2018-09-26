@@ -120,18 +120,22 @@
      [:img.bar-item {:src   background-url
                      :style {:height height
                              :bottom bottom}}])
+   (when (or (= item-id 1) (= plot-style :line1))
+     [:img.bar-item {:src   background-url
+                     :style {:height height
+                             :bottom bottom}}])
    [:.bar-item {:key   1
                 ;:tab-index 0
-                :style {:height     height
-                        :bottom     bottom
-                        :border-top (if (and (= 1 item-id) radical (= plot-style :line1))
-                                      (str "3px solid " (treatment-fills 0))
-                                      "none")
+                :style {:height           height
+                        :bottom           bottom
+                        ;:background-color (when (= key 1) "red")
+                        :border-top       (if (and (= 1 item-id) radical (#{:line1 :line2} plot-style))
+                                            (str "3px solid " (treatment-fills 0))
+                                            "none")
                         }}
 
     ;; internal value label
-    (let [height (avoid-decimals (js/parseFloat height))    ; (js/parseInt height)
-          ]
+    (let [height (avoid-decimals (js/parseFloat height))]
       (when (and (= plot-style :area1) (>= height min-label-percent))
         (bar-item-label {:key 1 :height height})))
 
@@ -154,7 +158,7 @@
   (let [n (count dataset)
         sums (into [] (reductions + (cons 0 (map :value dataset))))
         inline-style (merge {:height "100%"}
-                       {:left left :right right :width width})]
+                            {:left left :right right :width width})]
 
     [:.bar {:key key :style inline-style}
      [:div {:style {:position         "absolute"
@@ -168,21 +172,37 @@
                     :pointer-events   "none"
                     :border-top       "4px dashed #FA0"
                     }}
-      [:img.bar-item {:src   (apply fill-data-url (if (or (not radical) (= plot-style :area1)) [255 255 255] [136 221 255]))
+      [:img.bar-item {:src   (apply fill-data-url (if (or (not radical) (= plot-style :area1))
+                                                    [255 255 255]
+                                                    (if (= plot-style :line1)
+                                                      [136 221 255]
+                                                      [190 235 255])))
                       :style {:height "100%"}
                       }]]
      [:div
+      (println "dataset " dataset)
       (bar-label {:key 2 :text label-under :top? false})
+
+      (comment
+        ;dataset looks like this:
+        [{:treatment-key :conservative, :value 83.84078058126754} {:treatment-key :radical, :value 7.104726369432939}]
+        )
+
       (map-indexed #(rum/with-key
                       (bar-item {:bottom         (str (sums %1) "%")
                                  :height         (str (:value %2) "%")
-                                 :background-url (data-fill (if (= (:treatment-key %2) :conservative) 2 1))
+                                 :background-url (if (= (:treatment-key %2) :conservative)
+                                                   (data-fill 2)
+                                                   (data-fill 1)
+                                                   )
+                                 ;(data-fill (if (= (:treatment-key %2) :conservative) 2 1))
                                  :?above         (nil? right)
                                  :item-id        %1
                                  :radical        radical
                                  :plot-style     plot-style})
                       (+ %1 1))
-        dataset)
+                   dataset)
+
 
       (when callout (rum/with-key (callout (fill (dec n))) 3))]
 
@@ -212,8 +232,8 @@
             :let [left? (= year (first years))
 
                   data (filter #(if (= (:treatment-key %) :radical) radical? true)
-                         [{:treatment-key :conservative :value (nth conservative-survival year)}
-                          {:treatment-key :radical :value (nth radical-benefit year)}])
+                               [{:treatment-key :conservative :value (nth conservative-survival year)}
+                                {:treatment-key :radical :value (nth radical-benefit year)}])
 
 
 
@@ -250,11 +270,11 @@
   [results radical? plot-style]
   (let [one-sum #(* 100 (- 1 (+ %1 %2)))
         radical-survival (map one-sum
-                           (get-in results [:radical :pred-PC-cum])
-                           (get-in results [:radical :pred-NPC-cum]))
+                              (get-in results [:radical :pred-PC-cum])
+                              (get-in results [:radical :pred-NPC-cum]))
         conservative-survival (map one-sum
-                                (get-in results [:conservative :pred-PC-cum])
-                                (get-in results [:conservative :pred-NPC-cum]))]
+                                   (get-in results [:conservative :pred-PC-cum])
+                                   (get-in results [:conservative :pred-NPC-cum]))]
     {:title                 "Overall Survival"
      :subtitle-over         "for men with prostate cancer, 10 and 15 years after diagnosis"
      :subtitle-under        "years after diagnosis"

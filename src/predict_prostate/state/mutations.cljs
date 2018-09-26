@@ -60,8 +60,8 @@
         (if (#{:area1 :line1} plot-style)
           (reset! (input-cursor :plot-style) plot-style)
           (do
-            (put-settings! {:plot-style :line11})
-            (reset! (input-cursor :plot-style) :line11))
+            (put-settings! {:plot-style :line1})
+            (reset! (input-cursor :plot-style) :line1))
           ))
 
       :else

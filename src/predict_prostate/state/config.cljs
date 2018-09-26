@@ -1,6 +1,5 @@
 (ns predict-prostate.state.config
   (:require [rum.core :as rum]
-    ;[predict-prostate.eventbus :refer [event-bus]]
             [pubsub.feeds :refer [->Topic publish create-feed]]))
 
 
@@ -45,7 +44,8 @@
      "Plot style"
      :radio-group
      [[:area1 "Original"]
-      [:line1 "Line"]]
+      [:line1 "Line"]
+      [:line2 "Line v2"]]
      false false nil
      :plot-style
      #{"prostate"}
