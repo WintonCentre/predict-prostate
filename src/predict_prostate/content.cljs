@@ -184,8 +184,8 @@
      There are other important factors such as lifestyle, and other chronic conditions which affect outcomes. Your doctor will help you put these
      results in context."]
       [:h3 "Potential Harms"]
-      [:p "The treatments listed above can have side effects. The following websites provide excellent advice and
-     information on these treatments and their potential side effects:"]
+      [:p "The treatments listed above can have potential harms. The following websites provide excellent advice and
+     information on these treatments and their potential harms:"]
 
       [:h4 "More information about treatments:"]
       [:ul {:style {:font-size       "120%"
@@ -265,7 +265,7 @@
       In modern practice this is often referred to as 'active surveillance' which may involve more intensive monitoring. 
       Radical treatment here refers to radical prostatectomy (surgery) or radical radiotherapy"]]
 
-    ;; Treatment side effects
+    ;; Treatment potential harms
 
     [:section#side-effects-cm "Conservative Management"
      [:p  "'Active Monitoring' was the term used for conservative management within the ProtecT study, where this data is from. Men were predominantly monitored by PSA."]]

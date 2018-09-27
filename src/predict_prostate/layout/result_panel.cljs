@@ -43,7 +43,6 @@
                                                  "table"
                                                  "texts"
                                                  "icons"
-                                                 ;"Treatment side effects"
                                                  ])])
 
 (rum/defc result-panes < rum/static []
@@ -69,7 +68,7 @@
     [:.col-md-12
      [:div
       (result-panel)
-      [:h2 "Side effects"]
+      [:h2 "Potential Harms"]
       (results-in-sidefx)]]
 
     ]])

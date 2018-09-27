@@ -36,7 +36,7 @@
    [:table.table.table-hover.table-bordered {:style {:padding 0 :margin 0 :font-size "16px"}}
     [:thead
      [:tr.info
-      [:th "Side effect"]
+      [:th "Potential Harm"]
       [:th "Conservative " [:br] "Management" [:br] "(CM)" [:.pull-right (help "side-effects-am")]]
       [:th "Radical " [:br] "Prostatectomy" [:br] "(RP)" (help "side-effects-rp")]
       [:th "Radiotherapy" [:br] "(RT)" (help "side-effects-rt")]
