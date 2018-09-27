@@ -3,8 +3,8 @@
             [com.rpl.specter :as t :refer [select-one ALL keypath]]
             [predict-prostate.mixins :refer [sizing-mixin]]
             [predict-prostate.results.util :refer [to-percent avoid-decimals min-label-percent
-                                                   fill data-fill fill-data-url
-                                                   callout-data-fill dashed-stroke treatment-fills]]
+                                                   fill data-fill fill-data-url hex-data-url fills-by-style*
+                                                   dashed-stroke treatment-fills treatment-fills*]]
             [predict-prostate.state.run-time :refer [model input-cursor input-widget input-label
                                                      results-cursor on-screen-treatments-cursor
                                                      ]]
@@ -126,12 +126,12 @@
                              :bottom bottom}}])
    [:.bar-item {:key   1
                 ;:tab-index 0
-                :style {:height           height
-                        :bottom           bottom
+                :style {:height     height
+                        :bottom     bottom
                         ;:background-color (when (= key 1) "red")
-                        :border-top       (if (and (= 1 item-id) radical (#{:line1 :line2} plot-style))
-                                            (str "3px solid " (treatment-fills 0))
-                                            "none")
+                        :border-top (if (and (= 1 item-id) radical (#{:line1 :line2} plot-style))
+                                      (str "3px solid " (treatment-fills 0))
+                                      "none")
                         }}
 
     ;; internal value label
@@ -160,23 +160,22 @@
         inline-style (merge {:height "100%"}
                             {:left left :right right :width width})]
 
+    ; render dashed-line rectangle
     [:.bar {:key key :style inline-style}
-     [:div {:style {:position         "absolute"
-                    :top              (str "calc(" oth "% - 2px)")
-                    :bottom           0
-                    :left             "-5px"
-                    :right            "-5px"
-                    :z-index          0
-                    :margin           "0 5px"
-                    :background-color "white"
-                    :pointer-events   "none"
-                    :border-top       "4px dashed #FA0"
+     [:div {:style {:position       "absolute"
+                    :top            (str "calc(" oth "% - 2px)")
+                    :bottom         0
+                    :left           "-5px"
+                    :right          "-5px"
+                    :z-index        0
+                    :margin         "0 5px"
+                    :pointer-events "none"
+                    :border-top     "4px dashed #FA0"
                     }}
-      [:img.bar-item {:src   (apply fill-data-url (if (or (not radical) (= plot-style :area1))
-                                                    [255 255 255]
-                                                    (if (= plot-style :line1)
-                                                      [136 221 255]
-                                                      [190 235 255])))
+      [:img.bar-item {:src   (hex-data-url (if radical
+                                             (:radical-above (plot-style fills-by-style*))
+                                             "#ffffff"))
+
                       :style {:height "100%"}
                       }]]
      [:div
@@ -189,17 +188,14 @@
         )
 
       (map-indexed #(rum/with-key
-                      (bar-item {:bottom         (str (sums %1) "%")
-                                 :height         (str (:value %2) "%")
-                                 :background-url (if (= (:treatment-key %2) :conservative)
-                                                   (data-fill 2)
-                                                   (data-fill 1)
-                                                   )
-                                 ;(data-fill (if (= (:treatment-key %2) :conservative) 2 1))
-                                 :?above         (nil? right)
-                                 :item-id        %1
-                                 :radical        radical
-                                 :plot-style     plot-style})
+                      (bar-item {:bottom     (str (sums %1) "%")
+                                 :height     (str (:value %2) "%")
+                                 :background-url
+                                             (hex-data-url ((:treatment-key %2) (plot-style fills-by-style*)))
+                                 :?above     (nil? right)
+                                 :item-id    %1
+                                 :radical    radical
+                                 :plot-style plot-style})
                       (+ %1 1))
                    dataset)
 
@@ -208,8 +204,6 @@
 
      ]))
 
-(defn treatment-selected [item]
-  )
 
 (rum/defc inner-stacked-bar < rum/static rum/reactive
                               "This currently supports a left and a right stacked bar with callouts left and right and top"
