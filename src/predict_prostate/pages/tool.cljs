@@ -11,6 +11,7 @@
             [predict-prostate.layout.treatments-panel :refer [treatments-options]]
             [predict-prostate.layout.result-panel :refer [results]]
             [predict-prostate.layout.header :refer [header footer]]
+            [predict-prostate.results.util :refer [alison-blue-1 alison-blue-2 alison-blue-3 alison-blue-4 alison-blue-5]]
             [predict-prostate.state.mutations :refer [clear-inputs]]
             [predict-prostate.state.run-time :refer [results-cursor
                                                      help-key-change help-key-cursor
@@ -66,50 +67,46 @@
       (print-button)
       ]]))
 
-#_(rum/defc treatments-with-results < rum/reactive []
-  (if (nil? (rum/react results-cursor))
-    [:.row
-     [:.col-sm-10.col-sm-offset-1.col-xs-12
-      [:div {:style {:background-color alison-blue-1
-                     :padding          "10px 10px 3px 10px"
-                     :margin-bottom    20}}
-       [:div {:style {:color     alison-blue-2
-                      :font-size "20px"}}
-
-        [:p {:style {:padding-bottom 0}}
-         (simple/icon {:family :fa :style {:font-size 35 :padding-right 8}} "info-circle")
-
-         " Treatment options and results will appear here when you have filled in all the information needed above."]]]]]
-    [:div
-     [:.row
-      [:.col-md-6.clearfix
-       [:h3 "Treatment Options"]
-       (treatments-options)
-       [:.hidden-xs.hidden-sm
-        (print-button)]
-       ]
-      [:.col-md-6.screen-only
-       (results {:printable (= :print (rum/react media-cursor))})]
-
-      [:.hidden-md.hidden-lg
-       (print-button)]]
-
-     ]))
-
-
 
 (rum/defc tool < rum/reactive []
   (let [[_ & preamble] (section "tool-preamble")
         modal-active (or (rum/react settings-cursor) (rum/react help-key-cursor))]
-    [:.container
+    [:.container-fluid
      [:div {:class-name (str "row" (when modal-active " modal-active"))}
       [:.col-xs-12 {:style {:opacity 1}}
        (header)
-       [:.row {:key 1 :style {:vertical-align "middle"}}
-        [:.col-xs-8 {:key 1}
-         preamble]
-        [:.col-xs-4 {:key 2}
-         [:.pull-right {:style {:margin-top "30px"}} (settings-button)]]]
+       [:#main-content.row {:tab-index -1
+                            :style     {:margin-left  -30
+                                        :margin-right -30}}
+        [:.col-xs-12
+         [:div {:style {:position         "relative"
+                        :width            "100%"
+                        :background-color alison-blue-1
+                        }}
+          [:div {:style {:position   "absolute"
+                         :width      "100%"
+                         :top        0
+                         :bottom     "20%"
+                         :opacity    0.25
+                         :background "linear-gradient(rgba(255,255,255,0), #fff)"
+                         }}]
+          [:.row.screen-only
+           [:.col-sm-4.col-sm-offset-2
+            [:img.img-responsive {:src         "assets/tool-banner.png"
+                                  :alt         "Predict tool banner imagery"
+                                  :aria-hidden true
+                                  :style       {:margin-left "5%" :zoom 0.7}}]]
+           [:.col-sm-6
+            [:row
+             [:.col-xs-8 preamble]
+             [:.col-xs-4
+              [:div {:style {:margin "40px 0 0 0px"}} (settings-button)]]]]]
+          [:.row.print-only
+           [:.col-sm-10.col-sm-offset-1
+            preamble]]
+          ]]]
+
+
        [:.row {:key 2}
         [:.col-sm-5
          (titled-panel {:title "Inputs"

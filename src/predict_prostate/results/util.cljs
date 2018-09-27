@@ -174,3 +174,20 @@
   (to-percent 0.002345)
   )
 
+;;;
+;; Alison styling
+;;;
+;;;
+;; Some colours
+(def prostate-blue "#225FB1")
+(def NHS-blue "#005EB4")
+(def alison-blue-1 "#d3e7fd")                               ; home page block
+(def alison-blue-1-rgb [211 231 253])                       ; home page block
+(def alison-blue-2 "#002e5d")                               ; navbar & footer
+(def alison-blue-3 "#257ce1")                               ; h1,h2.., primary button
+(def alison-blue-5 "#edf5ff")                               ; treatment options results background
+(def alison-blue-4 "#ffffff")                               ; treatment options results background (reverted)
+(def alison-pink "#b4078d")                               ; treatment options results background (reverted)
+
+
+
