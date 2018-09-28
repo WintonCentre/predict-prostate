@@ -1,0 +1,4 @@
+-Addition of a 'print' button to enable export of outputs.
+-A new graded colouring around estimated survival with radical treatment, as per David's suggestion. (If possible could this be added as another option alongside the 2 current presentations, and we can test which is most popular/effective).
+-Moving 'treatment side effects' to the right - so that it's more obviously separate from the individualised results.
+-We will send across updated treatment side effect information in the coming days - once we've decided upon the optimum data to use.

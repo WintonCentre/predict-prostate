@@ -16,6 +16,8 @@
                                                      help-key-change
                                                      settings-cursor
                                                      settings-change
+                                                     print-cursor
+                                                     print-change
                                                      route
                                                      route-change
                                                      hide-warning-change
@@ -58,8 +60,8 @@
         (if (#{:area1 :line1} plot-style)
           (reset! (input-cursor :plot-style) plot-style)
           (do
-            (put-settings! {:plot-style :line11})
-            (reset! (input-cursor :plot-style) :line11))
+            (put-settings! {:plot-style :line1})
+            (reset! (input-cursor :plot-style) :line1))
           ))
 
       :else
@@ -162,6 +164,13 @@
       (if help-key
         (.modal (jq$ "#settingsModal") "show")
         (.modal (jq$ "#settingsModal") "hide"))))
+
+
+  (subscribe print-change
+             (fn [_ val]
+               (reset! print-cursor val)
+               (.modal (js/$ "#printModal") "show"))
+             )
 
   ;(subscribe-to route-change route true)
   (subscribe route-change

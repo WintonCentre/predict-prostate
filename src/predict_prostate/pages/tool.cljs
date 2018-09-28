@@ -1,16 +1,17 @@
 (ns predict-prostate.pages.tool
   (:require [rum.core :as rum]
             [cljs-css-modules.macro :refer-macros [defstyle]]
-            [predict-prostate.components.bs3-modal :refer [top-modal settings-modal]]
+            [predict-prostate.components.bs3-modal :refer [top-modal settings-modal print-modal]]
             [bide.core :as r]
             [graphics.simple-icons :as simple]
             [predict-prostate.router :refer [router]]
             [predict-prostate.content-reader :refer [section all-subsections]]
-            [predict-prostate.components.button :refer [settings-button]]
+            [predict-prostate.components.button :refer [settings-button print-button]]
             [predict-prostate.layout.input-panels :refer [inputs-column]]
             [predict-prostate.layout.treatments-panel :refer [treatments-options]]
             [predict-prostate.layout.result-panel :refer [results]]
             [predict-prostate.layout.header :refer [header footer]]
+            [predict-prostate.results.util :refer [alison-blue-1 alison-blue-2 alison-blue-3 alison-blue-4 alison-blue-5]]
             [predict-prostate.state.mutations :refer [clear-inputs]]
             [predict-prostate.state.run-time :refer [results-cursor
                                                      help-key-change help-key-cursor
@@ -63,22 +64,49 @@
       [:h2 {:style {:margin-top 0 :float "left"}} "Options"]
       (treatments-options)
       (results true)
-      ;(treatment-caveats)
+      (print-button)
       ]]))
 
 
 (rum/defc tool < rum/reactive []
   (let [[_ & preamble] (section "tool-preamble")
         modal-active (or (rum/react settings-cursor) (rum/react help-key-cursor))]
-    [:.container
+    [:.container-fluid
      [:div {:class-name (str "row" (when modal-active " modal-active"))}
       [:.col-xs-12 {:style {:opacity 1}}
        (header)
-       [:.row {:key 1 :style {:vertical-align "middle"}}
-        [:.col-xs-8 {:key 1}
-         preamble]
-        [:.col-xs-4 {:key 2}
-         [:.pull-right {:style {:margin-top "30px"}} (settings-button)]]]
+       [:#main-content.row {:tab-index -1
+                            :style     {:margin-left  -30
+                                        :margin-right -30}}
+        [:.col-xs-12
+         [:div {:style {:position         "relative"
+                        :width            "100%"
+                        :background-color alison-blue-1
+                        }}
+          [:div {:style {:position   "absolute"
+                         :width      "100%"
+                         :top        0
+                         :bottom     "20%"
+                         :opacity    0.25
+                         :background "linear-gradient(rgba(255,255,255,0), #fff)"
+                         }}]
+          [:.row.screen-only
+           [:.col-sm-4.col-sm-offset-2
+            [:img.img-responsive {:src         "assets/tool-banner.png"
+                                  :alt         "Predict tool banner imagery"
+                                  :aria-hidden true
+                                  :style       {:margin-left "5%" :zoom 0.7}}]]
+           [:.col-sm-6
+            [:row
+             [:.col-xs-8 preamble]
+             [:.col-xs-4
+              [:div {:style {:margin "40px 0 0 0px"}} (settings-button)]]]]]
+          [:.row.print-only
+           [:.col-sm-10.col-sm-offset-1
+            preamble]]
+          ]]]
+
+
        [:.row {:key 2}
         [:.col-sm-5
          (titled-panel {:title "Inputs"
@@ -100,7 +128,9 @@
 
       (footer)]
      (top-modal)
-     (settings-modal)]
+     (settings-modal)
+     (print-modal)
+     ]
 
     ))
 

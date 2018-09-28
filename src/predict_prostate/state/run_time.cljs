@@ -90,6 +90,9 @@ survival, up to the projected survival of prostate-cancer-free men "
 (defonce settings-cursor (rum/cursor rtdb :settings-visible))
 (defonce settings-change (make-topic :settings-change))
 
+(defonce print-cursor (rum/cursor rtdb :print-visible))
+(defonce print-change (make-topic :print-change))
+
 (defonce help-cursor (rum/cursor rtdb :settings-visible))
 (defonce help-change (make-topic :settings-change))
 
@@ -154,6 +157,11 @@ survival, up to the projected survival of prostate-cancer-free men "
     (map (fn [[k v]] [k @v])
       (filter (fn [[k _]]
                 ((union @on-screen-inputs-cursor @on-screen-treatments-cursor) k)) (input-cursors)))))
+
+
+(defn year-selected []
+  "return a cursor containing the selected year"
+  (input-cursor :result-year))
 
 (defn recalculate-model?
   "return true if the model can be calculated, else nil.

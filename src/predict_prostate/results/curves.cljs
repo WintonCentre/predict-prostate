@@ -1,8 +1,7 @@
 (ns predict-prostate.results.curves
   (:require [clojure.string :as str]
             [rum.core :as rum]
-            [predict-prostate.results.util :refer [callout-fill fill treatment-fills use-line
-                                                   without-stroke dashed-stroke]]
+            [predict-prostate.results.util :refer [fill treatment-fills dashed-stroke fills-by-style*]]
             [predict-prostate.state.run-time :refer [N results-cursor input-cursor on-screen-treatments-cursor]]
             [predict-prostate.components.primitives :refer [dead-icon]]
             [predict-prostate.mixins :refer [sizing-mixin]]
@@ -100,18 +99,25 @@
 
      ]
 
-    #_#_:line2
+    :line2
     [:g
-     ;(map-indexed #(rum/with-key (area-plot scale (nth data %1) {:fill (treatment-fills %1)}) (str "a" %1)) area-data)
-     (area-plot scale (nth data 2) {:fill "#88ddff"})
+     ; light blue fill
+     (when radical? (area-plot scale (nth data 2) {:fill (:radical-above (:line2 fills-by-style*))}))
+
+     ; light blue fill
+     (when radical? (area-plot scale (nth data 1) {:fill (:radical (:line2 fills-by-style*))}))
+
+     ; dotted orange
      (line-plot scale (nth data 2) {:fill "none" :stroke dashed-stroke :strokeDasharray "8,8" :strokeWidth 5 :strokeLinecap "round"})
-     (area-plot scale (nth data 3) {:fill "#88aaee"})
-     (area-plot scale (nth data 4) {:fill "#88ddff"})
-     ;(area-plot scale (nth data 1) {:fill (treatment-fills 1)})
+
+     ; dark blue conservative
      (area-plot scale (nth data 0) {:fill (treatment-fills 0)})
+
+     ; dark blue line
      (line-plot scale (nth data 1) {:fill "none" :stroke (treatment-fills 0) :strokeWidth 2 :strokeLinecap "round"})
 
      ]
+
 
 
     [:text (str "bad plot-style" plot-style)]
@@ -259,7 +265,7 @@
    [:div {:style {:display     "inline-block"
                   :margin-left "10px"
                   :width       "calc(100% - 60px)"}}
-    [:p " Survival if treatment was always curative"]]
+    [:p " Survival if cancer does not progress"]]
    (when (pos? (rum/react (input-cursor :primary-rx)))
      [:p (dead-icon (fill 1)) " Estimated survival with radical treatment"])
 
@@ -281,7 +287,7 @@
 
 (rum/defc legend2 < rum/reactive [plot-style radical?]
   [:div {:width "100%"}
-   (legend-item {:label       "Survival if treatment was always curative"
+   (legend-item {:label       "Survival if cancer does not progress"
                  :extra-style {:border-top (str "5px dashed " dashed-stroke)}
                  :icon        nil})
 
@@ -302,15 +308,16 @@
                       :icon        (dead-icon "#88ddff")})]
        :line2
        [:div
+
+        (legend-item {:label       "Potential range of treatment benefit above estimate"
+                      :extra-style nil
+                      :icon        (dead-icon (:radical-above (plot-style fills-by-style*)))})
         (legend-item {:label       "Estimated survival with radical treatment"
                       :extra-style {:border-top (str "3px solid " (treatment-fills 0))}
                       :icon        nil})
-        (legend-item {:label       "Likely range of radical treatment benefit"
+        (legend-item {:label       "Potential range of treatment benefit below estimate"
                       :extra-style nil
-                      :icon        (dead-icon "#88aaee")})
-        (legend-item {:label       "Potential range of treatment benefit"
-                      :extra-style nil
-                      :icon        (dead-icon "#88ddff")})]))
+                      :icon        (dead-icon (:radical (plot-style fills-by-style*)))})]))
 
    (legend-item {:label "Conservative management"
                  :icon  (dead-icon (treatment-fills 0))})

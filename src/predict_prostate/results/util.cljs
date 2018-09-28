@@ -16,8 +16,7 @@
         enc2 (bit-or (bit-shift-left (bit-and e1 3) 4) (bit-shift-right e2 4))
         enc3 (bit-or (bit-shift-left (bit-and e2 15) 2) (bit-shift-right e3 6))
         enc4 (bit-and e3 63)]
-    (join [(keys enc1) (keys enc2) (keys enc3) (keys enc4)])
-    ))
+    (join [(keys enc1) (keys enc2) (keys enc3) (keys enc4)])))
 
 (defn encode-rgb [r g b]
   (join [(encode-triplet 0 r g) (encode-triplet b 255 255)]))
@@ -25,80 +24,85 @@
 (defn generate-pixel [encoded-color]
   (join ["data:image/gif;base64,R0lGODlhAQABAPAA" encoded-color "/yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="]))
 
-(defn fill-data-url [r g b]
+(defn fill-data-url
+  "Generates a 1 px data url from an rgb colour"
+  [r g b]
   (generate-pixel (encode-rgb r g b)))
 
-(comment
-  (encode-triplet 0 0 0)
-  ;=> "AAAA"
-
-  (encode-triplet 255 128 1)
-  ;=> "/4AB"
-  )
-
-(def dark-fill #js [109 63 148])                            ;"mid-blue-theme"
-
-(def light-fill #js [0 176 207])
-
-(def callout-fill-array #js [238 196 128])
-
-(def callout-fill (rgbArrayToHex callout-fill-array))
-
-(comment
-  (lighten (hexToRgb "#DD8800") 0.5)
-  (rgbToHex (lighten (hexToRgb "#DD8800") 0.5))
-  (rgbToHex #js [238 196 128])
-  )
-
-(comment
-  (rgbArrayToHex dark-fill)
-  (rgbArrayToHex light-fill)
-  (fill 0)                                                ;=> light-fill
-  (fill 1)
-  (fill 2)
-  (fill 3)
-  )
+(defn hex-data-url
+  "Generates a 1 px data url from a hex colour"
+  [hex]
+  (apply fill-data-url (hexToRgb hex)))
 
 (def dashed-stroke "#FA0")
+
 ;;
-;; Cloure scale designed in chroma.js
+;; Colour scale designed in chroma.js, then heavily modified!
 ;;
-(def cat-scale-6-0 ["#ffcc0" "#ff8888" "#00cdf2" "#D838B9" "#008600" "#272a75"])
-;; http://gka.github.io/palettes/#diverging|c0=darkblue,blue,darkorange|c1=lightblue,teal,dd1493|steps=6|bez0=1|bez1=1|coL0=1|coL1=1
-(def cat-scale-6-1 ["#00008b" "#8722ae" "#e16665"   "#95c6d2" "#7e9eac" "#dd1493"])
-(def cat-scale-6-2 ["#00008b" "#77008b" "#af1e83" "#d53f73" "#eb5e5a" "#f17b31"])
-(def cat-scale-6-3 ["#00008b" "#e16665" "#8722ae"  "#95c6d2" "#7e9eac" "#dd1493"])
-;; http://gka.github.io/palettes/#diverging|c0=darkblue,blue,darkorange|c1=6ce5ff,teal,dd1493|steps=6|bez0=1|bez1=1|coL0=1|coL1=1
-(def cat-scale-6-4 ["#00008b" "#e16665" "#8722ae"  "#5fd1e6" "#67a4b6" "#dd1493"])
-;; http://gka.github.io/palettes/#diverging|c0=0000aa,blue,darkorange|c1=6ce5ff,teal,dd1493|steps=6|bez0=1|bez1=1|coL0=1|coL1=1
-(def cat-scale-6-5 ["#0000aa" "#e56961" "#9427b3"  "#5fd1e6" "#67a4b6" "#dd1493"])
-(def cat-scale-6-6 ["#0000aa"
-                    "#00afef"
-                    ;"#5fd1e6"
-                    "#ffffff"           ;"#e56961" "#9427b3" "#67a4b6" "#dd1493"
-                    ])
+(def above-dashed "#ffffff")
+(def conservative-fill "#0000aa")
+(def radical-fill "#00afef")
+(def radical-range "#88ddff")
+(def radical-below "#88ddff")
+(def radical-above "#beebff")
 
-(def fills (into [] (reverse cat-scale-6-6)))
+(def fills-by-style
+  {:area1 [above-dashed
+           radical-fill
+           conservative-fill]
+   :line1 [above-dashed
+           radical-range
+           conservative-fill]
+   :line2 [above-dashed
+           radical-above
+           radical-below
+           conservative-fill]})
 
-#_(def fills )
+(def fills-by-style*
+  {:area1 {:above above-dashed
+           :radical-above above-dashed
+           :radical radical-fill
+           :conservative conservative-fill}
+   :line1 {:above above-dashed
+           :radical-above radical-range
+           :radical radical-range
+           :conservative conservative-fill}
+   :line2 {:above above-dashed
+           :radical-above radical-above
+           :radical radical-below
+           :conservative conservative-fill}})
 
-(defn fill
-  ([index]
-   (fills index))
+(def fills ["#ffffff"
+            "#00afef"
+            "#0000aa"])
+
+(comment
+  (def f1 #js [136 221 255])                                ;"#88ddff"
+  (def f2 #js [190 235 255])                                ;"#beebff"
+  (apply rgbToHex f1)
+  (apply rgbToHex f2)
   )
 
-(def fills-by-treatment (zipmap ["trastuzumab" "chemotherapy" "hormone-therapy" "surgery"] fills))
-
-(defn stepsToRGBArray
-  [index]
-  (hexToRgb (fill index)))
+(def fill fills)
 
 (defn data-fill [index]
-  "Generates a data-url in steps between dark-fill and light-fill."
-  (apply fill-data-url (stepsToRGBArray index)))
+  "Generates a 1 pixel data-url from a fill index"
+  (apply fill-data-url (hexToRgb (fill index))))
 
-(defn callout-data-fill []
-  (apply fill-data-url callout-fill-array)
+
+; The minimum bar size before a bar label shows up
+(def min-label-percent 3)
+
+
+(defn treatment-fills [index]
+  "reverse order of fills for treatment plot"
+  (fill (- (dec (count fills)) index))
+  )
+
+(defn treatment-fills* [plot-style index]
+  "reverse order of fills for treatment plot"
+  (let [f (plot-style fills-by-style)]
+    (f (- (dec (count f)) index)))
   )
 
 (comment
@@ -109,21 +113,24 @@
   (data-fill 1)
   ; => "data:image/gif;base64,R0lGODlhAQABAPAAAGaMwv///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
 
-  (data-fill 3)
-  ; => "data:image/gif;base64,R0lGODlhAQABAPAAAFA8j////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+  (data-fill 2)
+  ; => "data:image/gif;base64,R0lGODlhAQABAPAAAAAAqv///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+
+  (encode-triplet 0 0 0)
+  ;=> "AAAA"
+
+  (encode-triplet 255 128 1)
+  ;=> "/4AB"
+
+  (lighten (hexToRgb "#DD8800") 0.5)
+  (rgbToHex (lighten (hexToRgb "#DD8800") 0.5))
+  (rgbToHex #js [238 196 128])
+
+  (fill 0)                                                  ;=> light-fill
+  (fill 1)
+  (fill 2)
+  (fill 3)
   )
-
-(def without-stroke {:stroke dashed-stroke :strokeDasharray "8,8" :strokeWidth 5 :strokeLinecap "round"})
-
-(def min-label-percent 3)
-
-(defn treatment-fills [index]
-  "reverse order of fills for treatment plot"
-  (fill (- 2 index))
-  )
-
-; use a line to indicate survival without cancer
-(def use-line true)
 
 
 ;;
@@ -166,4 +173,21 @@
   (to-percent 0.2345 true)
   (to-percent 0.002345)
   )
+
+;;;
+;; Alison styling
+;;;
+;;;
+;; Some colours
+(def prostate-blue "#225FB1")
+(def NHS-blue "#005EB4")
+(def alison-blue-1 "#d3e7fd")                               ; home page block
+(def alison-blue-1-rgb [211 231 253])                       ; home page block
+(def alison-blue-2 "#002e5d")                               ; navbar & footer
+(def alison-blue-3 "#257ce1")                               ; h1,h2.., primary button
+(def alison-blue-5 "#edf5ff")                               ; treatment options results background
+(def alison-blue-4 "#ffffff")                               ; treatment options results background (reverted)
+(def alison-pink "#b4078d")                               ; treatment options results background (reverted)
+
+
 

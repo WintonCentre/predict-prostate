@@ -1,6 +1,6 @@
 (ns predict-prostate.components.button
   (:require [rum.core :as rum]
-            [predict-prostate.state.run-time :refer [unknown input-cursor input-change help-key-change settings-change]]
+            [predict-prostate.state.run-time :refer [unknown input-cursor input-change help-key-change settings-change print-change]]
             [graphics.simple-icons :as simple]
             [pubsub.feeds :refer [publish]]
             [clojure.pprint :refer [cl-format]]
@@ -76,7 +76,8 @@
 ;; Buttons invoking modals
 ;;;
 
-(rum/defc small-help-button < rum/static [{:keys [help-id icon-name title text] :as props} ]
+
+(rum/defc small-help-button < rum/static [{:keys [help-id icon-name title text] :as props}]
   [:button.btn.btn-info.btn-sm
    {:type         "button"
     :role         "button"
@@ -88,16 +89,10 @@
     :data-content "Help TBD"
     :on-click     #(publish help-key-change help-id)
     :on-key-down  #(when (= "Enter" (.. % -nativeEvent -code))
-                     (publish help-key-change help-id))
-    ;:style
-    #_{:color            "#fff"
-       :border-color     (get fills-by-treatment help-id)
-       :background-color (get fills-by-treatment help-id)
-       ;:margin-top "-3px"
-       }}
+                     (publish help-key-change help-id))}
    (simple/icon {:family :fa} "info") ""])
 
-(rum/defc treatment-help-button < rum/static [{:keys [help-id icon-name title text] :as props} ]
+(rum/defc treatment-help-button < rum/static [{:keys [help-id icon-name title text] :as props}]
   [:button.btn.btn-info.btn-sm
    {:type         "button"
     :role         "button"
@@ -109,13 +104,7 @@
     :data-content "Help TBD"
     :on-click     #(publish help-key-change help-id)
     :on-key-down  #(when (= "Enter" (.. % -nativeEvent -code))
-                     (publish help-key-change help-id))
-    ;:style
-    #_{:color            "#fff"
-       :border-color     (get fills-by-treatment help-id)
-       :background-color (get fills-by-treatment help-id)
-       ;:margin-top "-3px"
-       }}
+                     (publish help-key-change help-id))}
    (simple/icon {:family :fa} "warning") " Potential harms"])
 
 
@@ -136,4 +125,20 @@
      (simple/icon {:family :fa} "cog") " Settings"]))
 
 
+(rum/defc print-button < rum/static []
+  [:button.btn.btn-danger.btn-lg.screen-only.pull-right
+   {:type         "button"
+    :role         "button"
+    :aria-label   "show printable results"
+    :tab-index    "0"
+    :data-toggle  "modal"
+    :data-target  "#printModal"
+    :title        "Print Results"
+    :data-content "Print content"
+    :on-click     #(publish print-change "print")
+    :style        {:margin-right 15}
+    :on-key-down  #(when (= "Enter" (.. % -nativeEvent -code))
+                     (publish print-change "print"))
+    }
+   (simple/icon {:family :fa} "print") " Print"])
 
