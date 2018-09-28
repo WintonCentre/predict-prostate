@@ -16,6 +16,8 @@
                                                      help-key-change
                                                      settings-cursor
                                                      settings-change
+                                                     media-cursor
+                                                     media-change
                                                      print-cursor
                                                      print-change
                                                      route
@@ -140,6 +142,8 @@
       (recalculate-model (input-map) N)))
 
   ;; various
+  (subscribe-to media-change media-cursor false)
+
   (subscribe-to active-results-change active-results-pane true)
   (subscribe-to mockup-change mockup-cursor true)
 
@@ -175,7 +179,6 @@
   ;(subscribe-to route-change route true)
   (subscribe route-change
     (fn [_ [page param1 param2 :as rvec]]
-      ;(prn "route-change" page param1 param2)
       (reset! route rvec)
       (r/navigate! router page param1 param2)))
 

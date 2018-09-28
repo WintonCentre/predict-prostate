@@ -1,8 +1,7 @@
 (ns predict-prostate.pages.root
   (:require                                                 ;[org.martinklepsch.derivatives :refer [rum-derivatives]]
     [rum.core :as rum]
-    [predict-prostate.state.run-time :refer [rtdb route     ;drv-spec
-                                             ]]
+    [predict-prostate.state.run-time :refer [rtdb route]]
     [predict-prostate.pages.home :refer [home]]
     [predict-prostate.pages.about :refer [about]]
     [predict-prostate.pages.patient :refer [patient]]

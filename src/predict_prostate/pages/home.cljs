@@ -4,6 +4,9 @@
             [predict-prostate.layout.header :refer [header footer]]
             [predict-prostate.content-reader :refer [section all-subsections]]
             [predict-prostate.state.run-time :refer [route-change]]
+            [predict-prostate.results.util :refer [alison-blue-1 alison-blue-2 alison-blue-3 alison-pink]]
+            [predict-prostate.components.button :refer [start-button]]
+            [interop.utils :refer [scrollTo]]
             [graphics.simple-icons :refer [icon]]
             [pubsub.feeds :refer [publish]]
             ))
@@ -21,7 +24,7 @@
     ))
 
 
-(rum/defc home < rum/static []
+#_(rum/defc home < rum/static []
 
   [:.container
    [:.row
@@ -52,6 +55,68 @@
        ]]
 
      (footer)]]])
+
+(rum/defc home < rum/static []
+
+  [:.container-fluid
+   (header)
+   [:#main-content.row {:tab-index -1
+                        :style     {:margin-left  -30
+                                    :margin-right -30}}
+    [:.col-xs-12
+     [:div {:style {:position         "relative"
+                    :width            "100%"
+                    :background-color alison-blue-1
+                    }}
+      [:div {:style {:position   "absolute"
+                     :width      "100%"
+                     :top        0
+                     :bottom     "20%"
+                     :opacity    0.25
+                     :background "linear-gradient(rgba(255,255,255,0), #fff)"
+                     }}]
+      [:.row
+       [:.col-sm-5.col-sm-offset-1
+        [:h1.alison-blue-2 {:style {:margin "15px" :margin-top 30}} "What is Predict?"]
+        (let [[title [el1 _ p1] [el2 _ p2]] (section "home-what-is")]
+          [:div
+           [el1 {:style {:font-size 20 :margin-left 15}} p1]
+           [el2 {:style {:font-size 14 :margin-left 15}} p2]])
+        (start-button)
+        ]
+       [:.col-sm-6
+        [:img.img-responsive {:src         "assets/icon-imagery.png"
+                              :alt         "banner imagery"
+                              :aria-hidden true
+                              :style       {:margin-left "5%" :width "90%"}}]]]]]]
+   [:.row {:style {:margin "0px -30px 15px"}}
+    [::.col-sm-10.col-sm-offset-1
+     [:.row
+
+      [:.col-md-4
+       (rum/with-key (block {:icon       [:img {:src         "assets/graph-icon.png"
+                                                :alt         "patient icon"
+                                                :aria-hidden true
+                                                :style       {:margin-top 20 :margin-left 15}}]
+                             :section-id "home-what-is"}) 1)]
+      [:.col-md-4
+       (rum/with-key (block {:icon       [:img {:src         "assets/graph-icon.png"
+                                                :alt         "patient icon"
+                                                :aria-hidden true
+                                                :style       {:margin-top 20 :margin-left 15}}]
+                             :section-id "home-how-use"}) 1)]
+      [:.col-md-4
+       (rum/with-key (block {:icon       [:img {:src         "assets/patient-icon.png"
+                                                :alt         "graph icon"
+                                                :aria-hidden true
+                                                :style       {:margin-top 20 :margin-left 15}}]
+                             :section-id "home-what-tell"}) 2)]
+
+
+      ]]]
+   (scrollTo 0)
+   (footer)
+   ])
 
 (comment
   {:style {:border "1px solid grey" :padding "10px" :height "370px"}}

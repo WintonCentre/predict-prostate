@@ -89,7 +89,11 @@
     :data-content "Help TBD"
     :on-click     #(publish help-key-change help-id)
     :on-key-down  #(when (= "Enter" (.. % -nativeEvent -code))
-                     (publish help-key-change help-id))}
+                     (publish help-key-change help-id))
+    :style        {:cursor        "pointer"
+                   :padding       "0px 11px"
+                   :font-size     "20px"
+                   :border-radius 15}}
    (simple/icon {:family :fa} "info") ""])
 
 (rum/defc treatment-help-button < rum/static [{:keys [help-id icon-name title text] :as props}]
@@ -142,3 +146,10 @@
     }
    (simple/icon {:family :fa} "print") " Print"])
 
+(defn start-button []
+  [:div
+   [:button.btn.btn-primary.btn-lg {:style    {:margin 20}
+                                    :aria-label "go to predict tool"
+                                    :type "button"
+                                    :on-click #(publish route-change [:tool nil nil])}
+    (simple/icon {:family :fa} "chevron-right") " Start Predict"]])

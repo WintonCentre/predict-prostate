@@ -71,21 +71,9 @@
     (when (model-keys :age) (form-entry {:label "Age" :key :age}))
     (when (model-keys :psa) (form-entry {:label "PSA" :key :psa}))
     (when (model-keys :t-stage) (form-entry {:label "T stage" :key :t-stage}))
-
-    [:div {:style {:display (if (#{:grade-group :both} (rum/react (input-cursor :hist-scale)))
-                              "block"
-                              "none")}}
-     (form-entry {:label "Histological grade group" :key :grade-group})]
-    [:div {:style {:display (if (#{:gleason :both} (rum/react (input-cursor :hist-scale)))
-                              "block"
-                              "none")}}
-     (form-entry {:label "Gleason scale" :key :gleason})]
-
-    (when (model-keys :biopsy50) (form-entry {:label "Biopsy" :key :biopsy50}))
     (when (model-keys :h-admissions) (form-entry {:label "h-admissions" :key :h-admissions}))
 
-    (when (= (rum/react (input-cursor :h-admissions)) 1)
-      (when (model-keys :charlson-comorbidity) (form-entry {:label "comorb" :key :charlson-comorbidity})))
+
     ]])
 
 (rum/defc patient-related-panel < rum/static [model-keys]
@@ -99,19 +87,23 @@
 
 (rum/defc tumour-related-form < rum/reactive rum/static [model-keys]
   [:form.form-horizontal {:on-key-press key-event
-                          :on-submit    submit-event}
+                          :on-submit    submit-event
+                          :style {:margin-top 60}}
 
-   (when (model-keys :size) (form-entry {:label "Size" :key :size}))
-   (when (model-keys :grade) (form-entry {:label "Grade" :key :grade}))
-   (when (model-keys :mode) (form-entry {:label "Detected by" :key :mode}))
-   (when (model-keys :nodes)
-     [:div
-      (form-entry {:label "Positive nodes" :key :nodes})
-      (form-entry {:label "Micrometastases" :key :micromets})
-      [:div {:style {:color       "#AAA"
-                     :margin-left "145px"
-                     :margin-top  -5}} "Enabled when positive nodes is zero"]
-      ])
+   [:div {:style {:display (if (#{:grade-group :both} (rum/react (input-cursor :hist-scale)))
+                             "block"
+                             "none")}}
+    (form-entry {:label "Histological grade group" :key :grade-group})]
+   [:div {:style {:display (if (#{:gleason :both} (rum/react (input-cursor :hist-scale)))
+                             "block"
+                             "none")}}
+    (form-entry {:label "Gleason scale" :key :gleason})]
+
+   (when (model-keys :biopsy50) (form-entry {:label "Biopsy" :key :biopsy50}))
+
+   (when (= (rum/react (input-cursor :h-admissions)) 1)
+     (when (model-keys :charlson-comorbidity) (form-entry {:label "comorb" :key :charlson-comorbidity})))
+
    ])
 
 (rum/defc tumour-related-panel < rum/static [model-keys]
@@ -141,6 +133,17 @@
       :help  nil}
      (hormone-form model-keys))]
   )
+
+(rum/defc inputs-row < rum/reactive tt-mixin []
+  (let [model-keys (live-keys-by-model model)]
+    [:.row
+     [:.col-sm-6.screen-only {:style {:padding-right 0}}
+      (patient-related-panel model-keys)]
+     [:.col-sm-6.screen-only {:style {:padding-right 0}}
+      (tumour-related-panel model-keys)]
+
+     ]
+    ))
 
 (rum/defc inputs-column < rum/reactive tt-mixin []
   (let [model-keys (live-keys-by-model model)]

@@ -61,10 +61,14 @@ survival, up to the projected survival of prostate-cancer-free men "
          ;; The state of the tool left-column accordion
          :hide-warning            false
          :test                    "test"
-
+         :media                   :screen
          }))
 
 (defonce estimates (atom nil))
+
+
+(defonce media-cursor (rum/cursor rtdb :media))
+(defonce media-change (make-topic :media-change))
 
 ;(defonce histology-cursor (rum/cursor rtdb :histology))
 ;(defonce plot-style-cursor (rum/cursor rtdb :plot-style))

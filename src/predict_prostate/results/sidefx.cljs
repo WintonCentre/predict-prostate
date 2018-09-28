@@ -162,52 +162,61 @@
 
 (rum/defc results-in-sidefx < rum/static []
   [:div {:style {:margin-top "15px"}}
-   [:div
-    [:.row {:style {:margin-top " 20px "}}
-     [:.col-sm-12
-      #_[:p "Data taken from the UK-based Prostate Testing for Cancer and Treatment (ProtecT) trial.
-      1643 men completed questionnaires after being randomly assigned at diagnosis to one of the 3 treatments shown."
-         [:br] [:br]
-         "The full research can be read here: "
-         [:a.pull-right {:href  "http://www.nejm.org/doi/full/10.1056/NEJMoa1606221"
-                         :style {:text-align "right"}}
-          "Patient Reported Outcomes after Monitoring,"
-          [:br]
-          "Surgery, or Radiotherapy for Prostate Cancer" [:br] "Donovan et al [2016]"]]
 
-
-      [:ul {:style {:font-size 16}}
-       [:li "The following estimates assume that function is normal before treatment."]
-       [:li "These are not individualised estimates to you, and may vary depending on the treatment centre and other
+   [:.row {:style {:margin-top " 20px "}}
+    [:.col-sm-12
+     [:ul {:style {:font-size 16}}
+      [:li "The following estimates assume that function is normal before treatment."]
+      [:li "These are not individualised estimates to you, and may vary depending on the treatment centre and other
        factors. Information on outcomes in your local centre may be available from your clinician."]
-       [:li "Estimates for erectile dysfunction have been derived from a large American study. The full research can be
+      [:li "Estimates for erectile dysfunction have been derived from a large American study. The full research can be
        read here: "
-        [:a {:href   "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5782813/"
-             :target "_blank"}
-         "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5782813/"]]
-       [:li "Estimates for incontinence and bowel dysfunction have been taken from the UK-based Prostate Testing for
+       [:a {:href   "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5782813/"
+            :target "_blank"}
+        "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5782813/"]]
+      [:li "Estimates for incontinence and bowel dysfunction have been taken from the UK-based Prostate Testing for
        Cancer and Treatment (ProtecT) trial. The full research can be read here: "
-        [:a {:href   "https://www.nejm.org/doi/full/10.1056/NEJMoa1606221"
-             :target "_blank"}
-         "https://www.nejm.org/doi/full/10.1056/NEJMoa1606221"]]
-       ]]
-     ]
+       [:a {:href   "https://www.nejm.org/doi/full/10.1056/NEJMoa1606221"
+            :target "_blank"}
+        "https://www.nejm.org/doi/full/10.1056/NEJMoa1606221"]]
+      ]]
+    ]
 
-    [:row
-     [:.col-sm-12
-      (sidefx-table)
+   [:row
+    [:.col-sm-12
+     (sidefx-table)]
 
-      #_(sidefx-table1)
+    [:.col-sm-12                                            ; {:style {:margin-top 20}}
+     [:h3 "More Information"]
+     [:p "The following websites provide excellent advice and information on treatments and their potential harms:"]
+     [:h4 "About treatments:"]
+     [:ul {:style {:font-size       "120%"
+                   :list-style-type "none"}}
+      [:li {:key 1}
+       [:a {:href "http://www.cancerresearchuk.org/about-cancer/prostate-cancer/treatment" :target "blank"} "Cancer research UK"]]
+      [:li {:key 2}
+       [:a {:href "https://www.nhs.uk/conditions/prostate-cancer/treatment/" :target "blank"} "NHS"]]]
 
-      #_(sidefx-table2)
 
-      #_(sidefx-table3)
+     [:h4 "About potential harms:"]
+     [:ul {:style {:font-size       "120%"
+                   :list-style-type "none"}}
+      [:li {:key 3}
+       [:a {:href "https://www.nhs.uk/conditions/prostate-cancer/treatment/#radical-prostatectomy" :target "blank"} "Radical prostatectomy"]]
+      [:li {:key 4}
+       [:a {:href "https://www.nhs.uk/conditions/prostate-cancer/treatment/#radiotherapy" :target "blank"} "Radiotherapy"]]
       ]
-     #_[:col-sm-12
-        [:div [:p [:strong "Links to more info:"]]
-         [:ul {:style {:list-style-type "none"}}
-          [:li [:p [:a {:href "https://www.macmillan.org.uk/information-and-support/prostate-cancer/early-prostate-cancer/treating/treatment-decisions/understanding-your-diagnosis/treatment-overview.html"}
-                    " Macmillan"]]]]]]]]]
+     [:h4 "Further advice and support:"]
+     [:ul {:style {:font-size       "120%"
+                   :list-style-type "none"}}
+      [:li {:key 1}
+       [:a {:href "http://www.macmillan.org.uk/" :target "blank"} "Macmillan"]]
+      [:li {:key 2}
+       [:a {:href "http://prostatecanceruk.org/" :target "_blank"} "Prostate Cancer UK"]]
+      [:li {:key 3}
+       [:a {:href "https://www.nhs.uk/pages/home.aspx" :target "_blank"} "NHS Choices"]]
+      ]]
+    ]]
   )
 
 

@@ -57,7 +57,7 @@
 
 (rum/defc result-panel < rum/reactive []
   [:div#results
-   [:h2 {:style {:margin-top 30}} "Results"]
+   [:h3 {:style {:margin-top 20}} "Results"]
    (result-tabs)
    (result-panes)]
   )
@@ -67,8 +67,7 @@
    [:.row
     [:.col-md-12
      [:div
-      (result-panel)
-      [:h2 "Potential Harms"]
-      (results-in-sidefx)]]
+      (result-panel)]
+]
 
     ]])

@@ -3,6 +3,7 @@
             [graphics.simple-icons :refer [icon]]
             [pubsub.feeds :refer [publish]]
             [rum.core :as rum]
+            [predict-prostate.router :refer [navigate-to iref docroot]]
     ;[predict-prostate.results.sidefx :refer [sidefx-table2]]
             )
   )
@@ -177,45 +178,23 @@
      [[:p.emphasise {:key 1 :style {:border "none"}} "Complete the section below, then select from the treatment options to
      see how they impact on survival rates. Click on the information buttons to see an explanation of each field."]]]
 
+    #_[:section#tool-postamble "Postamble"
+     [:section#dummy ""
+      [:h3 "Important"]
+      [:p "These results are estimates based on data from men with similar characteristics.
+     There are other important factors such as lifestyle, and other chronic conditions which affect outcomes. Your doctor will help you put these
+     results in context."]]]
+
     [:section#tool-postamble "Postamble"
      [:section#dummy ""
       [:h3 "Important"]
       [:p "These results are estimates based on data from men with similar characteristics.
      There are other important factors such as lifestyle, and other chronic conditions which affect outcomes. Your doctor will help you put these
      results in context."]
-      [:h3 "Potential Harms"]
-      [:p "The treatments listed above can have potential harms. The following websites provide excellent advice and
-     information on these treatments and their potential harms:"]
-
-      [:h4 "More information about treatments:"]
-      [:ul {:style {:font-size       "120%"
-                    :list-style-type "none"}}
-       [:li {:key 1}
-        [:a {:href "http://www.cancerresearchuk.org/about-cancer/prostate-cancer/treatment" :target "blank"} "Cancer research UK"]]
-       [:li {:key 2}
-        [:a {:href "https://www.nhs.uk/conditions/prostate-cancer/treatment/" :target "blank"} "NHS"]]]
-
-
-      [:h4 "More information about potential harms:"]
-      [:ul {:style {:font-size       "120%"
-                    :list-style-type "none"}}
-       [:li {:key 3}
-        [:a {:href "https://www.nhs.uk/conditions/prostate-cancer/treatment/#radical-prostatectomy" :target "blank"} "Radical prostatectomy"]]
-       [:li {:key 4}
-        [:a {:href "https://www.nhs.uk/conditions/prostate-cancer/treatment/#radiotherapy" :target "blank"} "Radiotherapy"]]
-       ]
-      [:h4 "Sources of advice and support:"]
-      [:ul {:style {:font-size       "120%"
-                    :list-style-type "none"}}
-       [:li {:key 1}
-        [:a {:href "http://www.macmillan.org.uk/" :target "blank"} "Macmillan"]]
-       [:li {:key 2}
-        [:a {:href "http://prostatecanceruk.org/" :target "_blank"} "Prostate Cancer UK"]]
-       [:li {:key 3}
-        [:a {:href "https://www.nhs.uk/pages/home.aspx" :target "_blank"} "NHS Choices"]]
-       ]
-      ]]
-
+      #_[:h3 "Side effects"]
+      #_[:p "The treatments listed above can have side effects which should be taken into account when choosing a treatment
+      regime. See " [:a {:role "button" :on-click #(navigate-to [:about {:page :faqs}])} "the FAQ 'Looking for advice?'"] " for websites providing excellent advice and information on these treatments and their potential
+      side effects:"]]]
 
     [:section#age "Age"
      [:p "The age when the cancer was diagnosed."]

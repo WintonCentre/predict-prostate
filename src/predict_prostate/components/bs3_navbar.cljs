@@ -1,6 +1,6 @@
 (ns predict-prostate.components.bs3-navbar
   (:require [rum.core :as rum]
-            [predict-prostate.router :refer [router hash-fragment]]
+            [predict-prostate.router :refer [router set-location]]
             [bide.core :as r]
             [predict-prostate.state.run-time :refer [route route-change]]
             [pubsub.feeds :refer [publish]]))
@@ -19,86 +19,102 @@
                              :data-toggle "collapse"
                              :data-target (str "#" id)}
       (map (fn [i] [:span.icon-bar {:key i}]) (range 3))]
-     (when logo [:img.navbar-brand {:src logo}])]
+     (when logo [:img.navbar-brand {:src logo :alt "logo"}])]
     (collapsing-navbar {:id id} navbar-menu)]
    ])
 
 
-;==============
-
 (defrecord Nav-item [text on-click target])
 
-(defn target->url [target]
-  (str hash-fragment (apply r/resolve router target)      ;"/" (name target)
-       ))
 
-(defn make-nav-item [{:keys [text on-click target] :as item}]
-  ;(prn target (rum/react route))
-  [:li {:class-name (when (= target (rum/react route)) "active")
-        }
-   [:a.navbar.btn {:on-click    #(on-click target)
-                   :data-toggle "collapse"
-                   :data-target ".navbar-collapse.in"
-                   :href        (target->url target)} text]])
+(defn navigate-to [target]
+  (publish route-change target))
 
-(def navigate-to (partial publish route-change)
-  ;(r/navigate! router target nil nil)
-  )
 
-(def nav-items [
-                (Nav-item. "Home" navigate-to [:home nil nil])
-                (Nav-item. "About" navigate-to [:about nil nil])
-                (Nav-item. "Patient Information" navigate-to [:patient nil nil])
-                (Nav-item. "Clinician Information" navigate-to [:clinician nil nil])
-                (Nav-item. "Predict Tool" navigate-to [:tool nil nil])
-                ])
+(defn make-nav-item [key rt {:keys [text on-click target submenus] :as item}]
+  (if (seq submenus)
+    [:li {:key key :tab-index 0  :style {:cursor "pointer"} :class-name (str "dropdown" (when (= (first target) (first rt)) " active"))}
+     ; removing data-toggle in next line means clicking on a dropdown button does not toggle open status
+     [:a.dropdown-toggle {#_#_:data-toggle "dropdown"
+                          :on-click #(on-click target)} text [:span.caret]]
+     [:ul.dropdown-menu
+      (map-indexed #(make-nav-item %1 rt %2) submenus)]]
+    [:li {:key key :tab-index 0 :style {:cursor "pointer"} :class-name (when (= (first target) (first rt)) "active")}
+     [:a {:on-click    #(on-click target)
+          :data-toggle "collapse"
+          :data-target ".navbar-collapse.in"
+          } text]]))
 
-;================
+
+(def nav-items
+  [(Nav-item. "Home" navigate-to [:home])
+   (assoc (Nav-item. "About Predict" navigate-to [:about {:page :overview :section :overview}])
+     :submenus [(Nav-item. "Overview" navigate-to [:about {:page :overview :section :overview}])
+                (Nav-item. "– Who is it for?" navigate-to [:about {:page :overview :section :whoisitfor}])
+                (Nav-item. "– How Predict works" navigate-to [:about {:page :overview :section :howpredictworks}])
+                (Nav-item. "– Who built Predict" navigate-to [:about {:page :overview :section :whobuiltpredict}])
+                (Nav-item. "Technical" navigate-to [:about {:page :technical}])
+                (Nav-item. "– Development History" navigate-to [:about {:page :technical :section :history}])
+                (Nav-item. "– Previous Versions" navigate-to [:about {:page :technical :section :preversions}])
+                (Nav-item. "– Publications" navigate-to [:about {:page :technical :section :publications}])
+                (Nav-item. "FAQs" navigate-to [:about {:page :faqs}])])
+
+   #_(assoc (Nav-item. "About Predict" navigate-to [:about {:page :overview} {:section :overview}])
+       :submenus [(Nav-item. "Overview" navigate-to [:about {:page :overview} {:section :overview}])
+
+                  (Nav-item. "– Who is it for?" navigate-to [:about {:page :overview} {:section :whoisitfor}])
+                  (Nav-item. "– How Predict works" navigate-to [:about {:page :overview} {:section :howpredictworks}])
+                  (Nav-item. "– Who built Predict" navigate-to [:about {:page :overview} {:section :whobuiltpredict}])
+                  (Nav-item. "Technical" navigate-to [:about {:page :technical}])
+                  (Nav-item. "– Development History" navigate-to [:about {:page :technical} {:section :history}])
+                  (Nav-item. "– Previous Versions" navigate-to [:about {:page :technical} {:section :preversions}])
+                  (Nav-item. "– Publications" navigate-to [:about {:page :technical} {:section :publications}])
+                  (Nav-item. "FAQs" navigate-to [:about {:page :faqs}])])
+
+   (Nav-item. "Predict Tool" navigate-to [:tool])
+   (Nav-item. "Contact" navigate-to [:contact])
+   (assoc (Nav-item. "Legal" navigate-to [:legal {:page :disclaimer}])
+     :submenus [(Nav-item. "Disclaimer" navigate-to [:legal {:page :disclaimer}])
+                (Nav-item. "Algorithm" navigate-to [:legal {:page :algorithm}])
+                (Nav-item. "Privacy & Data Protection" navigate-to [:legal {:page :privacy}])])])
+
+
+
 (rum/defc simple-navbar < rum/static rum/reactive [[menu-items]]
-  (navbar {:id         "navbar"
-           :class-name "navbar-inverse"
-           :logo       nil}
-          (->> menu-items
-               (map make-nav-item)
-               (reduce conj [:ul.nav.navbar-nav])
-               )
-          ))
+  (let [rt (rum/react route)]
+    [:div
+     (navbar {:id         "navbar"
+              :class-name "navbar-inverse"
+              :logo       nil}
+             [:ul.nav.navbar-nav
+              (map-indexed #(make-nav-item %1 rt %2) menu-items)])]))
 
-(comment
-  (reduce conj [:ul.nav.navbar-nav] (map make-nav-item nav-items))
-
-  (->> nav-items
-       (map make-nav-item)
-       (reduce conj [:ul.nav.navbar-nav]))
+(defn scroll-handler
+  "Returns a 'sticky' scroll event handler for a dom-node"
+  [node transition-at]
+  (fn [_]
+    (if (>= (aget js/window "pageYOffset") (+ transition-at (.-offsetTop node)))
+      (.add (.-classList node) "navbar-fixed-top"
+            )
+      (.remove (.-classList node) "navbar-fixed-top"
+               )))
   )
 
-(rum/defc hamburger-navbar []
-  (simple-navbar [nav-items]))
+(def sticky-mixin
+  {:did-mount    (fn [state]
+                   (let [comp (:rum/react-component state)
+                         dom-node (js/ReactDOM.findDOMNode comp)
+                         sh (scroll-handler dom-node 100)]
+                     (js/addEventListener "scroll" sh)
+                     (assoc state ::scroll-handler sh)))
 
+   :will-unmount (fn [state]
+                   (let [comp (:rum/react-component state)
+                         dom-node (js/ReactDOM.findDOMNode comp)
+                         sh (::scroll-handler state)]
+                     (js/removeEventListener "scroll" sh)
+                     (dissoc state ::scroll-handler)))})
 
-
-(rum/defc hamburger-navbar* []
-  [:nav.navbar.navbar-inverse
-   [:.container
-    [:.navbar-header
-     [:button.navbar-toggle {:type        "button"
-                             :data-toggle "collapse"
-                             :data-target "#navbar"}
-      (map (fn [i] [:span.icon-bar {:key i}]) (range 3))]]
-    [:#navbar.collapse.navbar-collapse
-     [:ul.nav.navbar-nav
-      [:li.active
-       [:a {:href "#"} "Home"]]
-      [:li.dropdown {:key 1}
-       [:a.dropdown-toggle {:data-toggle "dropdown"
-                            :href        "#"}
-        "Menu " [:span.caret]]
-       [:ul.dropdown-menu
-        [:li {:key 1} [:a.link {:href "#/News"} "News"]]
-        [:li {:key 2} [:a {:href "#"} "Page 1-2"]]
-        [:li {:key 3} [:a {:href "#"} "Page 1-3"]]]]
-      [:li [:a {:key 2
-                :href "#"} "Page 2"]]
-      [:li [:a {:key 3
-                :href "#"} "Page 3"]]]]]
-   ])
+(rum/defc hamburger-navbar < sticky-mixin []
+  [:nav
+   (simple-navbar [nav-items])])
