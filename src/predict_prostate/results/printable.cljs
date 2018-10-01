@@ -24,6 +24,9 @@
 (defn break-before [& content]
   (reduce conj [:div {:style {:break-inside "avoid"}}] content))
 
+(defn option-range
+  [n]
+  (into {} (map (juxt identity str) (range 1 n))))
 
 (rum/defc inputs-in-print < rum/reactive []
   [:.row
@@ -38,33 +41,32 @@
        [:td (input-label :age)]
        [:td (rum/react (input-cursor :age))]]
       [:tr
-       [:td (input-label :post-meno)]
-       [:td ({:post "Yes" :pre "No" :unknown "Unknown"} (rum/react (input-cursor :post-meno)))]]
+       [:td (input-label :psa)]
+       [:td (rum/react (input-cursor :psa))]]
       [:tr
-       [:td (input-label :er-status)]
-       [:td ({:yes "Positive" :no "Negative"} (rum/react (input-cursor :er-status)))]]
+       [:td (input-label :t-stage)]
+       [:td ((option-range 4)  (rum/react (input-cursor :t-stage)))]]
       [:tr
-       [:td (input-label :her2-status)]
-       [:td ({:yes "Positive" :no "Negative" :unknown "Unknown"} (rum/react (input-cursor :her2-status)))]]
+       [:td (input-label :h-admissions)]
+       [:td ({0 "No" 1 "Yes"} (rum/react (input-cursor :h-admissions)))]]
       [:tr
-       [:td (input-label :ki67-status)]
-       [:td ({:yes "Positive" :no "Negative" :unknown "Unknown"} (rum/react (input-cursor :ki67-status)))]]
+       [:td (input-label :grade-group)]
+       [:td ((option-range 5) (rum/react (input-cursor :grade-group)))]]
       [:tr
-       [:td (input-label :size)]
-       [:td (rum/react (input-cursor :size))]]
+       [:td (input-label :gleason)]
+       [:td ((into {} [[1 "3+3"]
+                       [2 "3+4"]
+                       [3 "4+3"]
+                       [4 "8"]
+                       [5 "9 or 10"]]) (rum/react (input-cursor :gleason)))]]
       [:tr
-       [:td (input-label :grade)]
-       [:td (-> (rum/react (input-cursor :grade)) name last)]]
-      [:tr
-       [:td (input-label :mode)]
-       [:td ({:symptomatic "Symptoms" :screen "Screening" :unknown "Unknown"} (rum/react (input-cursor :mode)))]]
-      [:tr
-       [:td (input-label :nodes)]
-       [:td (rum/react (input-cursor :nodes))]]
-      (when-not (= :disabled (rum/react (input-cursor :micromets)))
+       [:td (input-label :biopsy50)]
+       [:td ((option-range 5) (rum/react (input-cursor :biopsy50)))]]
+      (when (pos? (rum/react (input-cursor :h-admissions)))
         [:tr
-         [:td (input-label :micromets)]
-         [:td (capitalize (name (rum/react (input-cursor :micromets))))]])]]]])
+             [:td (input-label :charlson-comorbidity)]
+             [:td ({0 "No" 1 "Yes"} (rum/react (input-cursor :charlson-comorbidity)))]])
+      ]]]])
 
 (rum/defc treatment-note [title content]
 
@@ -104,42 +106,49 @@
 (rum/defc results-in-print
           < rum/reactive (set-default :result-year)
           []
+  (println "results-in-orint")
   [:.row
    [:.col-sm-12
 
     (avoid-break
       [:h2 "Inputs"]
-      #_(inputs-in-print))
+      (inputs-in-print))
 
     (avoid-break
       [:h2 "Results"]
-      [:p {:style {:margin-top "15px"}} "Based on the information you have provided, these results are for women who have
+      [:p {:style {:margin-top "15px"}} "Based on the information you have provided, these results are for men who have
     already had surgery."]
       [:h3 "Survival table - " (rum/react (year-selected)) " years after surgery."]
       [:div {:style {:max-width "60%" :margin-left "20%"}}
-       #_(results-in-table {:printable true})])
+       #_(results-in-table {:printable true})
+       "results-in-table"])
 
     (avoid-break
       [:h3 "Survival curve"]
-      [:p "This graph shows the percentage of women surviving up to " (rum/react (input-cursor :ten-fifteen)) " years."]
+      [:p "This graph shows the percentage of women surviving up to 15 years."]
       [:div {:style {:max-width "100%" :margin-left "0%"}}
-       #_(results-in-curves {:printable true :width 600})])
+       #_(results-in-curves {:printable true :width 600})
+       "results-in-curves"])
 
     (avoid-break
       [:h3 "Overall survival"]
       [:p "This chart shows the percentage of women surviving " (rum/react (year-selected)) " years after surgery."]
-      #_(results-in-charts {:printable true}))
+      #_(results-in-charts {:printable true})
+      "results-in-charts")
 
     (avoid-break
       [:div.clearfix]
       [:h3 "In Summary"]
-      #_(results-in-text {:printable true}))
+      #_(results-in-text {:printable true})
+      "results-in-text")
 
     (avoid-break
       [:h3 (rum/react (year-selected)) " year outcomes for 100 women"]
-      #_(results-in-icons {:printable true}))
+      #_(results-in-icons {:printable true})
+      "results-in-icons")
     (avoid-break
-      #_(treatments-in-print))
+      #_(treatments-in-print)
+      "treatments-in-print")
 
     (footer)]])
 
