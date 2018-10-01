@@ -43,15 +43,6 @@
 ;(defn rooted [url] (str (if (use-hash-fragment) "" "/predict_v2.1") url))
 (def rooted identity)
 
-#_(def router                                               ;prostate prototype version
-    (r/router [["/" :home]
-               ["/home" :home]
-               ["/about" :about]
-               ["/patient" :patient]
-               ["/clinician" :clinician]
-               ["/tool" :tool]
-               ]))
-
 (def router
   "Longest path must be first."
   (r/router

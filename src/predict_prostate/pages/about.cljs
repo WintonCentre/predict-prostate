@@ -25,7 +25,8 @@
    ])
 
 
-(def page-components {:overview  ["overview" "whatpredictdoes" "whoisitfor" "howpredictworks" "whobuiltpredict"]
+(def page-components {:about ["about"]
+                      :overview  ["overview" "whatpredictdoes" "whoisitfor" "howpredictworks" "whobuiltpredict"]
                       :technical ["technical" "history" "preversions" "publications"]
                       })
 
@@ -54,6 +55,7 @@
                                (scrollTo (if scroll-section (get @(::offsets state) (name scroll-section)) 0))
                                )
                              state)})
+
 
 (rum/defcs about
   "Renders a (text) page given the bide parsed route containing a page, and optionally a section."

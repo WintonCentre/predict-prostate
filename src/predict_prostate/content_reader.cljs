@@ -1,5 +1,6 @@
 (ns predict-prostate.content-reader
   (:require [predict-prostate.content :refer [content]]
+            [predict-prostate.results.util :refer [alison-blue-1 alison-blue-2 alison-blue-3]]
             [rum.core :as rum]))
 
 (def ^{:doc     "Regular expression that parses a CSS-style id and class from an element name."
@@ -7,9 +8,16 @@
 re-tag #"([^\s\.#]+)(?:#([^\s\.#]+))?(?:\.([^\s#]+))?")
 
 (defn match-id [tag id]
-  "return true if tag contains a hash tag-id matching id"
+  "return true if tag contains a hash tag-id matching id."
   (let [[_ _ tag-id _] (re-find re-tag (str tag))]
     (= id tag-id)))
+(comment
+  (match-id ":section#about-the-patient.input-box" "about-the-patient") ;=> true
+  (match-id "#about-the-patient.input-box" "about-the-patient") ;=> false  (doesn't include element tag)
+  (match-id ":#about-the-patient.input-box" "about-the-patient") ;=> true
+  (match-id ":div#about-the-patient.input-box" "about-the-patient") ;=> true (not fussy about element tag)
+  )
+
 
 (defn match-node [node id]
   (let [[x & xs] node]
@@ -31,14 +39,14 @@ re-tag #"([^\s\.#]+)(?:#([^\s\.#]+))?(?:\.([^\s#]+))?")
   )
 
 (comment
-  (add-hiccup-key "key3" [:p ])
-  (add-hiccup-key "key3" [:p.emphasise ])
+  (add-hiccup-key "key3" [:p])
+  (add-hiccup-key "key3" [:p.emphasise])
   ;=> [:p {:key "key3"}]
   (add-hiccup-key "key3" [:p "Hello there"])
   ;=> [:p {:key "key3"} "Hello there"]
   (add-hiccup-key "key3" [:p [:p "Hello there"] [:p "Bye then!"]])
   ;=> [:p {:key "key3"} [:p "Hello there"] [:p "Bye then!"]]
-  (add-hiccup-key "key3" [:p {:foo 1} ])
+  (add-hiccup-key "key3" [:p {:foo 1}])
   ;=> [:p {:foo 1, :key "key3"}]
   (add-hiccup-key "key3" [:p {:foo 2} [:p "Hello there"]])
   ;=> [:p {:foo 2, :key "key3"} [:p "Hello there"]]
@@ -55,15 +63,16 @@ re-tag #"([^\s\.#]+)(?:#([^\s\.#]+))?(?:\.([^\s#]+))?")
   ([id] (section content id))
   )
 
-
-(defn all-subsections [id]
+(defn all-subsections
+  "loop through subsections adding keys."
+  [id]
   (let [node (section id)]
     (for [k (range (count (rest node)))
           :let [[sec title & content] (nth (rest node) k)]]
       [:section {:key k}
-       [:h3 title]
-       (map-indexed #(add-hiccup-key (str "k" %1) %2) content)
-       ;(map-indexed #(rum/with-key %1 %2) content)
+       [:h2 {:style {:color alison-blue-3}} title]
+       (map-indexed #(add-hiccup-key (str "k" %1) %2)
+                    content)
        ])))
 
 (comment
@@ -96,7 +105,7 @@ re-tag #"([^\s\.#]+)(?:#([^\s\.#]+))?(?:\.([^\s#]+))?")
 
   (match-node mock-data "top")
   (match-node mock-data "1")
-  (match-node mock-data "this-one")
+  (match-node mock-data "next-one")
   (match-node mock-data "foo")
 
   (match-node mock-data* "about-the-patient")
