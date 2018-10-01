@@ -59,6 +59,7 @@
   "Renders a (text) page given the bide parsed route containing a page, and optionally a section."
   < (rum/local {} ::offsets) < rum/static scroller [state route]
   (let [[_ {page :page scroll-section :section}] route
+        _ (println "route " route "scroll-section " scroll-section)
         page (keyword page)
         scroll-section (keyword scroll-section)
         [_ & preamble] (section "tool-preamble")]
@@ -83,7 +84,8 @@
 
      ;(scrollTo (if scroll-section (get @(::offsets state) (name scroll-section)) 0))
 
-     (footer)]))
+     [:.row.screen-only
+      (footer)]]))
 
 
 

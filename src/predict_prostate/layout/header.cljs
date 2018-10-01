@@ -46,13 +46,9 @@
    [:.col-md-3.col-md-offset-2.text-center
     [:img {:src "assets/tool-icon.png" :alt "tool-icon" :aria-hidden true}]
     [:h3 "Want to use Predict?"]
-    [:p "This tool helps to understand how treatments for breast cancer can improve survival rates after surgery."]
-    (start-button)
-    #_[:button.btn.btn-primary.btn-lg
-       {:on-click #(publish route-change [:tool nil nil])}
-       (icon {:family :fa} "right-arrow")
-       "Start Predict"]
-    ]
+    [:p "This tool helps to understand how treatments for prostate cancer may improve survival rates after surgery."]
+    (start-button)]
+
    [:.col-md-3..col-md-offset-2.text-center {:style {:margin-top "20px"}}
     [:img {:src "assets/faq-icon.png" :alt "faq-icon" :aria-hidden true}]
     [:h3 "Someone to talk to?"]

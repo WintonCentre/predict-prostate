@@ -26,35 +26,35 @@
 
 #_(rum/defc home < rum/static []
 
-  [:.container
-   [:.row
-    [:.col-sm-12
-     (header)
-
-     [:.row {:style {:margin-top "20px"}}
+    [:.container
+     [:.row
       [:.col-sm-12
-       [:.row
-        [:.col-sm-5
-         (rum/with-key (block {:section-id "home-what-is"}) 1)
-         (rum/with-key (block {:section-id "home-what-tell"}) 2)
-         (rum/with-key (block {:section-id "home-how-use"
-                               :extras     [:button.btn.btn-primary.btn-lg.pull-right {:style    {:margin-right  "5px"
-                                                                                                  :margin-bottom "5px"}
-                                                                                       :on-click #(publish route-change [:tool nil nil])}
+       (header)
+
+       [:.row {:style {:margin-top "20px"}}
+        [:.col-sm-12
+         [:.row
+          [:.col-sm-5
+           (rum/with-key (block {:section-id "home-what-is"}) 1)
+           (rum/with-key (block {:section-id "home-what-tell"}) 2)
+           (rum/with-key (block {:section-id "home-how-use"
+                                 :extras     [:button.btn.btn-primary.btn-lg.pull-right {:style    {:margin-right  "5px"
+                                                                                                    :margin-bottom "5px"}
+                                                                                         :on-click #(publish route-change [:tool nil nil])}
 
 
-                                            (icon {:family :ionicon} "ion-stats-bars") " Predict Tool"]}) 3)]
+                                              (icon {:family :ionicon} "ion-stats-bars") " Predict Tool"]}) 3)]
 
 
-        [:.col-xs-12.col-sm-7 {:style {:border "1px none #CCCCCC" :border-radius "10px" :padding "15px" :margin-left "-15px" :padding-top "50px"}}
-         [:row
-          [:.col-xs-12
-           [:img.img-responsive {:src "assets/home-example-screens.png"}]]
-          [:.col-xs-12.text-center {:style {:color "#005EB4" :padding-top "10px" :font-size "14px"}} "Example outputs"]]
+          [:.col-xs-12.col-sm-7 {:style {:border "1px none #CCCCCC" :border-radius "10px" :padding "15px" :margin-left "-15px" :padding-top "50px"}}
+           [:row
+            [:.col-xs-12
+             [:img.img-responsive {:src "assets/home-example-screens.png"}]]
+            [:.col-xs-12.text-center {:style {:color "#005EB4" :padding-top "10px" :font-size "14px"}} "Example outputs"]]
+           ]]
          ]]
-       ]]
 
-     (footer)]]])
+       (footer)]]])
 
 (rum/defc home < rum/static []
 
@@ -112,10 +112,10 @@
                                                 :style       {:margin-top 20 :margin-left 15}}]
                              :section-id "home-what-tell"}) 2)]
 
-
       ]]]
    (scrollTo 0)
-   (footer)
+   [:.row.screen-only
+    (footer)]
    ])
 
 (comment

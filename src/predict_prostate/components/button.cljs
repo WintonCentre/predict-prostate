@@ -1,6 +1,6 @@
 (ns predict-prostate.components.button
   (:require [rum.core :as rum]
-            [predict-prostate.state.run-time :refer [unknown input-cursor input-change help-key-change settings-change print-change]]
+            [predict-prostate.state.run-time :refer [unknown input-cursor input-change help-key-change settings-change print-change route-change]]
             [graphics.simple-icons :as simple]
             [pubsub.feeds :refer [publish]]
             [clojure.pprint :refer [cl-format]]

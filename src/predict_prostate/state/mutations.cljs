@@ -176,7 +176,6 @@
                (.modal (js/$ "#printModal") "show"))
              )
 
-  ;(subscribe-to route-change route true)
   (subscribe route-change
     (fn [_ [page param1 param2 :as rvec]]
       (reset! route rvec)

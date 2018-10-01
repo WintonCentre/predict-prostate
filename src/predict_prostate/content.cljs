@@ -5,6 +5,7 @@
             [rum.core :as rum]
             [predict-prostate.router :refer [navigate-to iref docroot]]
     ;[predict-prostate.results.sidefx :refer [sidefx-table2]]
+            [predict-prostate.results.util :refer [alison-blue-1 alison-blue-2 alison-blue-3]]
             )
   )
 
@@ -61,6 +62,12 @@
                                     :background-color "#bc3d95"}}
     [:span.sr-only (str percent) "% Complete"]]])
 
+(defn page-link [route text]
+  [:button.btn-link {:on-click #(navigate-to route)}
+   [:span {:style {:color     alison-blue-3
+                   :font-size 18}} text]]
+  )
+
 (def content
   "Text for the site"
   [
@@ -71,24 +78,28 @@
 
    [:section#strap-line "Clear data on prostate cancer treatment outcomes"]
 
-   [:section#home-what-is "What is PREDICT:Prostate?"
-    [:p {:key 1} "PREDICT is a tool that helps doctors and patients decide on whether to have conservative or radical management for non-metastatic prostate cancer."]
-    [:p {:key 2} "We recommend patients read the "
-     [:a {:key 1 :href "#/patient"} "patient information"]
-     [:span {:key 2 :style {:font-size "16px"}} " section before using the tool. PREDICT is intended for use amongst men for whom both conservative and radical treatment could be appropriate options"]]]
+   [:section#home-what-is "What is Predict:Prostate?"
+    [:p {:key 1} "Predict is a tool that helps doctors and patients decide on whether to have conservative or radical
+    management for non-metastatic prostate cancer."]
+    [:p {:key 2} ""]
+    ]
 
-   [:section#home-how-use "How do I use PREDICT?"
-    [:p {:key 3} "Enter the details about yourself and your prostate cancer, and then select conservative management and radical treatment to see how effective they are."]
-    [:div {:key 2 :style {:border-left  "3px solid #005FB1"
+   [:section#home-how-use "How do I use Predict?"
+    [:p {:key 2} "Enter the details about yourself and your prostate cancer, and then select conservative management and radical treatment to see how effective they are."]
+    [:p {:key 3} "We recommend patients read the "
+     [:a {:key 1 :href "#/patient"} "patient information"]
+     [:span {:key 2 :style {:font-size "16px"}} " section before using the tool. Predict is intended for use amongst men
+     for whom both conservative and radical treatment could be appropriate options"]]
+    #_[:div {:key 2 :style {:border-left  "3px solid #005FB1"
                           :padding-left "10px"}}
      [:p "We recommend that patients use this tool with their doctor."]]]
 
-   [:section#home-what-tell "What will PREDICT tell me?"
-    [:p {:key 4} "The PREDICT tool shows you how different management strategies affect the percentage of men that survive ten and fifteen years after diagnosis."]]
+   [:section#home-what-tell "What will Predict tell me?"
+    [:p {:key 4} "The Predict tool shows you how different management strategies affect the percentage of men that survive ten and fifteen years after diagnosis."]]
 
    [:section#about-page "About"
-    [:section#who "Who developed the PREDICT programme?"
-     [:p  "PREDICT:Prostate has been developed by a partnership between the Academic Urology Group and the Department of Cancer Epidemiology at the University of Cambridge
+    [:section#who "Who developed the Predict programme?"
+     [:p  "Predict:Prostate has been developed by a partnership between the Academic Urology Group and the Department of Cancer Epidemiology at the University of Cambridge
       in collaboration with the National Cancer Registration and Analysis Service (NCRAS) at Public Health England"]]
 
     [:section#how "How was the computer programme developed?"
@@ -100,9 +111,29 @@
     Research UK. The information is written by experts, is up to date and in a style that is easy to understand."]]
     ]
 
+   ;;
+   ;; about page
+   ;;
+   [:section#overview "Overview"
+    [:section "Overview"
+
+     [:ul {:style {:list-style-image "url(assets/bullet-plus.png)"}}
+      [:li (page-link [:about {:page :overview :section :whoisitfor}] "Who is it for?")]
+      [:li (page-link [:about {:page :overview :section :howpredictworks}] "How Predict works")]
+      [:li (page-link [:about {:page :overview :section :whobuiltpredict}] "Who built Predict")]
+      ]
+
+     [:section
+      [:p "Predict is a tool that helps show how breast cancer treatments after surgery might improve survival rates.
+    Once details about the patient and their cancer have been entered, the tool will show how different treatments would be expected to improve survival
+    rates up to 15 years after diagnosis. This is based on data from similar women in the past. " [:i "It is important to note that these treatments have side effects which
+    should also be considered when deciding on a treatment."]]]
+     ]]
+
+
    [:section#patient-information "Patient Information"
 
-    [:section#what-it-does "What is PREDICT?"
+    [:section#what-it-does "What is Predict?"
      [:p "Nothing can ever tell an individual man what is going to happen to him – but we believe that in order to make
     decisions about treatment options it’s important that people are given as much information as is possible about the
     potential effects of each treatment option."]
@@ -133,9 +164,9 @@
    [:section#clinician-information "Clinician Information"
 
     [:section#professionals "Information for professionals"
-     [:p "Welcome to PREDICT:Prostate, an online prognostication and treatment benefit tool designed to help clinicians and
+     [:p "Welcome to Predict:Prostate, an online prognostication and treatment benefit tool designed to help clinicians and
      patients make informed decisions about treatment following diagnosis of non-metastatic prostate cancer.
-     PREDICT:Prostate has been developed by a partnership between the Academic Urology Group and the Department of Cancer Epidemiology at the University of Cambridge 
+     Predict:Prostate has been developed by a partnership between the Academic Urology Group and the Department of Cancer Epidemiology at the University of Cambridge
     in collaboration with the National Cancer Registration and Analysis Service (NCRAS) at Public Health Englanded. 
     This work has been supported by funding from The Urology Foundation and The Evelyn Trust.
     
@@ -144,7 +175,7 @@
     Displays within the 'charts' and 'curves' are designed to display the uncertainty around this treatment benefit, effectively presenting a range in treatment effect from 0-100% reduction in prostate cancer-specific mortality around our calculated survival estimate."]
 
 
-     [:p "We welcome any feedback you may have about PREDICT. If you have questions about its development or there are
+     [:p "We welcome any feedback you may have about Predict. If you have questions about its development or there are
      features you would like to have added to the model please let us know by emailing us at info@predict.nhs.uk."]]
 
     [:section#model-development "Model development"
@@ -167,7 +198,7 @@
      non-survivor will have a higher predicted risk than the survivor."]]]
 
 
-   [:section#predict-tool "PREDICT tool"
+   [:section#predict-tool "Predict tool"
 
     [:section#tool-preamble "Preamble"
      [:p.emphasise {:key 0 :style {:margin-top "10px"}}
