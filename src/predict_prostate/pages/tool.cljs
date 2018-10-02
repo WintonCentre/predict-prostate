@@ -7,7 +7,8 @@
             [predict-prostate.router :refer [router]]
             [predict-prostate.content-reader :refer [section all-subsections]]
             [predict-prostate.components.button :refer [settings-button print-button]]
-            [predict-prostate.layout.input-panels :refer [inputs-row inputs-column]]
+            [predict-prostate.layout.input-panels :refer [inputs-row ;inputs-column
+                                                          ]]
             [predict-prostate.layout.treatments-panel :refer [treatments-options]]
             [predict-prostate.results.sidefx :refer [results-in-sidefx]]
             [predict-prostate.layout.result-panel :refer [results]]
@@ -30,7 +31,7 @@
 ;; Main layout
 ;;;
 
-(defstyle treatments-style
+#_(defstyle treatments-style
   ["div" {:font-size "12px"}]
   [".treatments-header"
    {:background-color "#005fB1 !important"
@@ -79,18 +80,15 @@
        [:h3 "Treatment Options"]
        (treatments-options)
        [:.hidden-xs.hidden-sm
-        (print-button)]
+        (print-button)
+        ]
        ]
       [:.col-md-6.screen-only
        (results {:printable (= :print (rum/react media-cursor))})]
 
       [:col-md-12
        [:h3 "Potential Harms"]
-       (results-in-sidefx)]
-
-
-      [:.hidden-md.hidden-lg
-       (print-button)]]
+       (results-in-sidefx)]]
 
      ]))
 
@@ -166,7 +164,7 @@
        [:.row.screen-only
         [:.col-sm-12 {:style {:background-color alison-blue-4}}
          [:.row {:key 3}
-          [:.col-sm-10.col-sm-offset-1 {:key 2
+          [:.col-md-10.col-md-offset-1 {:key 2
                                         #_#_:style {:min-height "calc(100vh - 200px)"}}
            (treatments-with-results)
 

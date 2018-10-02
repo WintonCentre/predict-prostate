@@ -560,3 +560,28 @@ position:static;
 width:auto;
 height:auto;
 }
+
+/**
+ * Results media filters
+ */
+
+@media print {
+
+  .modal-active {
+    display:none;
+  }
+  .screen-only {
+    display: none
+  }
+  #results, #side-effect-warning {
+    page-break-before: always;
+  }
+
+}
+
+@media screen {
+  .print-only {
+    display: none
+  }
+}
+

@@ -23,7 +23,8 @@
 
 (defn percent
   ([d]
-   (percent d 0))
+   (str (Math.round (* 100 d)) "%")
+   #_(percent d 0))
   ([d p]
    (str (one-dp (* 100 d) p) "%")))
 
@@ -86,27 +87,24 @@
 (rum/defc results-in-table < rum/reactive
   []
   (let [radical? (= 1 (rum/react (input-cursor :primary-rx)))
+        year (rum/react (input-cursor :result-year))
         data (extract-data (rum/react results-cursor)
                            radical?
-                           (rum/react (input-cursor :result-year)))]
+                           year)
+        text1 "This table shows the percentage of men who survive at least "
+        text2 " years after diagnosis, based on the information you have provided."]
 
-    [:div
-     [:.row
-      [:.col-sm-12 {:style {:font-size "16px"}}
-       "This table shows the percentage of men who survive at least "
-       [:span.screen-only (year-picker)]
-       [:span.print-only {:style {:font-size 16}} (rum/react (input-cursor :result-year))]
-       " years after diagnosis, based on the information you have provided."]
-      [:.col-sm-12 {:style {:margin-bottom "15px"}}
-       (tables data)
-       (when radical?
-         [:.screen-only
-          (form-entry {:key :show-uncertainty :label "show-ranges"})])
-       ]]
+    [:.row {:style {:margin-top 15}}
+     [:.col-sm-12.screen-only {:style {:font-size 16}}
+      text1 [:span.screen-only (year-picker)] text2]
+     [:.col-sm-12.print-only
+      text1 [:span.print-only  year] text2]
+     [:.col-sm-12 {:style {:margin-bottom "15px"}}
+      (tables data)
+      (when radical?
+        [:.screen-only
+         (form-entry {:key :show-uncertainty :label "show-ranges"})])]]))
 
-     ]
-
-    ))
 
 (comment
 

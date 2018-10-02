@@ -13,7 +13,6 @@
             [pubsub.feeds :refer [publish]]
             ))
 
-
 (defstyle treatments-style
   ["div" {:font-size "12px"}]
   [".treatments-header"

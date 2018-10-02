@@ -342,9 +342,9 @@
      ]))
 
 
-(rum/defcs results-in-curves < rum/static rum/reactive sizing-mixin [state]
+(rum/defcs results-in-curves < rum/static rum/reactive sizing-mixin [state {:keys [printable]}]
   (let [width (rum/react (:width state))
-        side-by-side (> width 600)
+        side-by-side (or printable (> width 600))
         radical? (= 1 (rum/react (input-cursor :primary-rx)))
         data (extract-data (rum/react results-cursor) radical?)
         plot-style (rum/react (input-cursor :plot-style))
@@ -357,6 +357,7 @@
 
 
      [:div {:style {:width   (if side-by-side "70%" "100%")
+                    :max-width 350
                     :display "inline-block"}}
       [:div {:style {:padding "15px 40px 0px 0px"}} (curves data)]]
      [:div {:style {:padding-top    "30px"

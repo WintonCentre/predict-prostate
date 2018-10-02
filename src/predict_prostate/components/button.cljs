@@ -4,7 +4,6 @@
             [graphics.simple-icons :as simple]
             [pubsub.feeds :refer [publish]]
             [clojure.pprint :refer [cl-format]]
-            [cljs-css-modules.macro :refer-macros [defstyle]]
             ))
 
 ;; Generic toggle

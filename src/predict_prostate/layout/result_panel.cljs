@@ -8,7 +8,7 @@
             [predict-prostate.results.table :refer [results-in-table]]
             [predict-prostate.results.curves :refer [results-in-curves]]
             [predict-prostate.results.charts :refer [results-in-charts]]
-            [predict-prostate.results.icons :refer [results-in-icons]]
+            [predict-prostate.results.icons :refer [ results-in-icons*]]
             [predict-prostate.results.text :refer [results-in-text]]
             [predict-prostate.results.sidefx :refer [results-in-sidefx]]
             [predict-prostate.content-reader :refer [all-subsections]]
@@ -47,10 +47,10 @@
 
 (rum/defc result-panes < rum/static []
   [:.tab-content
-   (result-tab-pane "charts" results-in-charts)
-   (result-tab-pane "curves"  results-in-curves)
+   (result-tab-pane "charts" #(results-in-charts {:title "Overall Survival"}))
+   (result-tab-pane "curves"  #(results-in-curves {}))
    (result-tab-pane "table" results-in-table)
-   (result-tab-pane "icons" results-in-icons)
+   (result-tab-pane "icons" results-in-icons*)
    (result-tab-pane "texts" results-in-text)
    #_(result-tab-pane "Treatment side effects" results-in-sidefx)
    ])

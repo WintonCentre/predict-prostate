@@ -27,8 +27,8 @@
 
 (defstyle stacked-bar-chart-style
   [".chart" {:page-break-before "always"}
-   [".chart-wrapper" {:background-color "white" :color "black" :position "relative" :margin-top "0ex"
-                      }]
+   [".chart-wrapper" {:background-color "white" :color "black" :position "relative" :margin-top "1ex"
+                      :min-height       "300px"}]
    [".stacked-bar" {:position "absolute" :bottom "8ex" :top "2ex" :left "16%"
                     :right    "16%" :background-color "whitesmoke" :color "black"}
 
@@ -179,7 +179,7 @@
                       :style {:height "100%"}
                       }]]
      [:div
-      (println "dataset " dataset)
+
       (bar-label {:key 2 :text label-under :top? false})
 
       (comment
@@ -261,7 +261,7 @@
   "Different models use different treatment widgets, so we need to use these to react to the correct
   treatments and lookup the appropriate result-data."
 
-  [results radical? plot-style]
+  [title results radical? plot-style]
   (let [one-sum #(* 100 (- 1 (+ %1 %2)))
         radical-survival (map one-sum
                               (get-in results [:radical :pred-PC-cum])
@@ -269,7 +269,7 @@
         conservative-survival (map one-sum
                                    (get-in results [:conservative :pred-PC-cum])
                                    (get-in results [:conservative :pred-NPC-cum]))]
-    {:title                 "Overall Survival"
+    {:title                 title
      :subtitle-over         "for men with prostate cancer, 10 and 15 years after diagnosis"
      :subtitle-under        "years after diagnosis"
      :conservative-survival conservative-survival
@@ -285,7 +285,7 @@
 
 (rum/defcs stacked-bar < rum/reactive sizing-mixin
   [state
-   {:keys [width h-over-w font-scale chart-style]
+   {:keys [width h-over-w font-scale chart-style title printable]
     :or   {width      100
            h-over-w   1
            font-scale 1}
@@ -295,11 +295,11 @@
         plot-style (rum/react (input-cursor :plot-style))
         radical? (= 1 (rum/react (input-cursor :primary-rx)))
         width-1 (rum/react (:width state))
-        side-by-side (> width-1 600)
+        side-by-side (or printable (> width-1 600))
         ]
 
-
-    (when-let [chart-props (extract-data results radical? plot-style)]
+    (println "title: " title)
+    (when-let [chart-props (extract-data title results radical? plot-style)]
       [:div "Hello"]
       (let [bene5 (nth (:radical-benefit chart-props) 5)
             bene10 (nth (:radical-benefit chart-props) 10)
@@ -330,11 +330,15 @@
           (legend2 plot-style radical?)]]))))
 
 
-(rum/defc results-in-charts []
+(rum/defc results-in-charts
   "Content of the Charts tab, showing treatment options"
+  [{:keys [title printable] :as m}]
+  (println "results-in-charts: " title m)
   [:div
    (stacked-bar {:width       70
+                 :title       title
                  :h-over-w    0.65
                  :font-scale  1
+                 :printable printable
                  :chart-style stacked-bar-chart-style})])
 

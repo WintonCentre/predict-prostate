@@ -23,20 +23,27 @@
     [:span {:style {:font-size "16px" :font-weight "bold"}} n]
     n))
 
-(rum/defc texts < rum/static [years data radical?]
+(rum/defc texts < rum/static [years data radical? printable]
   (let [cs (round (nth (:conservative-survival data) years))
         rs (round (nth (:radical-survival data) years))
         benefit (- rs cs)]
     [:.row
-     [:.col-sm-12 {:style {:margin-top "20px" :margin-left "-8px" :margin-bottom "10px" :display "inline-block"}}
-      [:p "Based on the information you have entered:"]
-      (year-picker) [:span {:style {:font-size "16px"}} " years after diagnosis"]]
+     [:.print-only
+      [:.col-sm-12.print-only {:style {:margin-top 0 :margin-bottom "0px" :display "inline-block" :font-size 12}}
+       "Based on the information you have entered, "
+       [:p (emph cs) " out of " (emph 100) " men are alive at years with " (emph "conservative treatment") "."]
 
-     [:.col-sm-12
-      [:p (emph cs) " out of " (emph 100) " men are alive at " years " years with " (emph "conservative treatment") "."]
+       (when radical?
+         [:p (emph rs) " out of " (emph 100) " men treated (an extra " (emph benefit) ") are alive because of " (emph "radical treatment") "."])]]
 
-      (when radical?
-        [:p (emph rs) " out of " (emph 100) " men treated (an extra " (emph benefit) ") are alive because of " (emph "radical treatment") "."])]]))
+     [:.screen-only
+      [:.col-sm-12 {:style {:margin-top 15 :margin-bottom "0px" :display "inline-block" :font-size 16}}
+       [:span "Based on the information you have entered, " (year-picker) " years after diagnosis:"]
+
+       [:p (emph cs) " out of " (emph 100) " men are alive at years with " (emph "conservative treatment") "."]
+
+       (when radical?
+         [:p (emph rs) " out of " (emph 100) " men treated (an extra " (emph benefit) ") are alive because of " (emph "radical treatment") "."])]]]))
 
 
 (defn extract-data
@@ -61,20 +68,16 @@
      }
     ))
 
-(rum/defc results-in-text < rum/reactive (set-default :result-year) []
+(rum/defc results-in-text < rum/reactive (set-default :result-year)
+  [{:keys [printable]}]
   (let [year (rum/react (input-cursor :result-year))
         radical? (= 1 (rum/react (input-cursor :primary-rx)))
         data (extract-data (rum/react results-cursor) radical?)
+        text1 "Of the men who would not survive, "
+        text2 " would die due to causes not related to prostate cancer."
         ]
 
     [:div
-
-     [:.row
-      [:.col-sm-12
-       (texts year data radical?)]]
-
-     [:.row
-      [:.col-sm-12
-       [:p "Of the men who would not survive,
-       " (emph (- 100 (round (nth (:dotted-orange data) year))))
-        " would die due to causes not related to prostate cancer."]]]]))
+     (texts year data radical? printable)
+     [:p.print-only {:style {:font-size 12}} text1 (emph (- 100 (round (nth (:dotted-orange data) year)))) text2]
+     [:p.screen-only {:style {:font-size 16}} text1 (emph (- 100 (round (nth (:dotted-orange data) year)))) text2]]))

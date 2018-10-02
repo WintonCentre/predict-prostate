@@ -14,8 +14,15 @@
             [predict-prostate.results.curves :refer [results-in-curves]]
             [predict-prostate.results.charts :refer [results-in-charts]]
             [predict-prostate.results.text :refer [results-in-text]]
-            [predict-prostate.results.icons :refer [results-in-icons]]
+            [predict-prostate.results.icons :refer [results-in-icons*]]
+            #_[cljs-css-modules.macro :refer-macros [defstyle]]
             ))
+
+#_(defstyle styles
+  ["p" {:font-size   "12px"}]
+  )
+
+
 
 (defn avoid-break [& content]
   (reduce conj [:div {:style {:break-inside "avoid"}}] content))
@@ -103,6 +110,8 @@
          (when bis (treatment-note bis-label (when bis [:div (rest (section "bisphosphonates"))])))
          ]]])))
 
+
+
 (rum/defc results-in-print
           < rum/reactive (set-default :result-year)
           []
@@ -111,41 +120,39 @@
    [:.col-sm-12
 
     (avoid-break
-      [:h2 "Inputs"]
+      [:h4 "Inputs"]
       (inputs-in-print))
 
     (avoid-break
-      [:h2 "Results"]
-      [:p {:style {:margin-top "15px"}} "Survival estimates are based on the treatment you have selected."]
-      [:h3 "Survival table - " (rum/react (year-selected)) " years after diagnosis."]
-      [:div {:style {:max-width "60%" :margin-left "20%"}}
+      [:h4 "Survival curve"]
+      [:div {:style {:max-width "100%" :margin-left "0%"}}
+       (results-in-curves {:printable true})])
+
+    (avoid-break
+      ;[:p {:style {:margin-top "15px"}} "Survival estimates are based on the treatment you have selected."]
+      [:h4 "Survival table - " (rum/react (year-selected)) " years after diagnosis."]
+      [:div {:style {:max-width "60%" :margin-left "0%"}}
        (results-in-table)
        ])
 
     (avoid-break
-      [:h3 "Survival curve"]
-      [:div {:style {:max-width "100%" :margin-left "0%"}}
-       (results-in-curves)])
+      [:h4 "Survival chart"]
+      (results-in-charts {:printable true}))
 
     (avoid-break
-      [:h3 "Overall survival"]
-      [:p "This chart shows the percentage of women surviving " (rum/react (year-selected)) " years after surgery."]
-      #_(results-in-charts {:printable true})
-      "results-in-charts")
+      [:h4 (rum/react (year-selected)) " year outcomes for 100 men"]
+      (results-in-icons* {:printable true})
+      )
 
     (avoid-break
-      [:div.clearfix]
-      [:h3 "In Summary"]
-      #_(results-in-text {:printable true})
-      "results-in-text")
+      ;[:div.clearfix]
+      [:h4 "In Summary"]
+      (results-in-text {:printable true})
+      )
 
     (avoid-break
-      [:h3 (rum/react (year-selected)) " year outcomes for 100 women"]
-      #_(results-in-icons {:printable true})
-      "results-in-icons")
-    (avoid-break
-      #_(treatments-in-print)
-      "treatments-in-print")
+      ;(treatments-in-print)
+      )
 
     (footer)]])
 

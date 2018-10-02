@@ -61,10 +61,6 @@
 
 (rum/defc patient-related-form < rum/reactive [model-keys]
   [:div
-   (clear-all-button {:on-click clear-inputs :style {:float "left"}})
-   #_[:div {:style {:float        "right"
-                  :margin-top   "8px"
-                  :margin-right "15px"}} (settings-button)]
 
    [:form.form-horizontal {:on-key-press key-event
                            :on-submit    submit-event}
@@ -77,8 +73,8 @@
     ]])
 
 (rum/defc patient-related-panel < rum/static [model-keys]
-  (titled-panel {}
-    (patient-related-form model-keys))
+
+  (patient-related-form model-keys)
   )
 
 ;;;
@@ -87,8 +83,7 @@
 
 (rum/defc tumour-related-form < rum/reactive rum/static [model-keys]
   [:form.form-horizontal {:on-key-press key-event
-                          :on-submit    submit-event
-                          :style {:margin-top 60}}
+                          :on-submit    submit-event}
 
    [:div {:style {:display (if (#{:grade-group :both} (rum/react (input-cursor :hist-scale)))
                              "block"
@@ -136,22 +131,15 @@
 
 (rum/defc inputs-row < rum/reactive tt-mixin []
   (let [model-keys (live-keys-by-model model)]
-    [:.row
-     [:.col-sm-6.screen-only {:style {:padding-right 0}}
-      (patient-related-panel model-keys)]
-     [:.col-sm-6.screen-only {:style {:padding-right 0}}
-      (tumour-related-panel model-keys)]
+    [:div
+     [:.row
+      [:.col-sm-12.screen-only
+       (clear-all-button {:on-click clear-inputs})]]
+     [:.row
+      [:.col-sm-6.screen-only {:style {:padding-right 0}}
+       (patient-related-panel model-keys)]
+      [:.col-sm-6.screen-only {:style {:padding-right 0}}
+       (tumour-related-panel model-keys)]
 
-     ]
-    ))
-
-(rum/defc inputs-column < rum/reactive tt-mixin []
-  (let [model-keys (live-keys-by-model model)]
-
-    [:.row
-     [:.col-sm-12 {:style {:padding-right 0}}
-      (patient-related-panel model-keys)
-      (tumour-related-panel model-keys)
-      (hormone-panel model-keys)
       ]]
     ))
