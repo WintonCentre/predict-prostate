@@ -132,31 +132,34 @@
     )
 
 (rum/defc footer []
+  [:div
+   [:.row.print-only
+    [:.col-xs-12
+     [:img {:src "assets/print-footer.png"}]]]
 
+   [:.row-fluid.screen-only {:style {:clear "both"
+                         :color "white"}}
 
-  [:.row-fluid {:style {:clear "both"
-                        :color "white"}}
-
-   [:.col.footer
-    {:style {:width            "100%"
-             :min-height       "200px"
-             :background-color "#1F3754"                    ;NHS-blue
-             :border-radius    "0px"
-             :padding          "30px"}}
-    [:row
-     [:.col-sm-3
-      [:img.img-responsive {:src   "assets/phe-neg.png"
-                            :style {:margin-bottom "4ex"
-                                    :max-width     "70%"}}]]
-     [:.col-sm-3
-      [:img.img-responsive {:src   "assets/urology.png"
-                            :style {:margin-bottom "3ex"
-                                    :max-width     "90%"}}]]
-     [:.col-sm-3
-      [:img.img-responsive {:src   "assets/ucs-winton-transparent.png"
-                            :style {:margin-bottom "3ex"
-                                    :max-width     "90%"}}]]
-     [:.col-sm-3
-      [:img.img-responsive {:src   "assets/nhs-neg.png"
-                            :style {:margin-bottom "3ex"
-                                    :max-width     "50%"}}]]]]])
+    [:.col.footer
+     {:style {:width            "100%"
+              :min-height       "200px"
+              :background-color "#1F3754"                   ;NHS-blue
+              :border-radius    "0px"
+              :padding          "30px"}}
+     [:row
+      [:.col-sm-3
+       [:img.img-responsive {:src   "assets/phe-neg.png"
+                             :style {:margin-bottom "4ex"
+                                     :max-width     "70%"}}]]
+      [:.col-sm-3
+       [:img.img-responsive {:src   "assets/urology.png"
+                             :style {:margin-bottom "3ex"
+                                     :max-width     "90%"}}]]
+      [:.col-sm-3
+       [:img.img-responsive {:src   "assets/ucs-winton-transparent.png"
+                             :style {:margin-bottom "3ex"
+                                     :max-width     "90%"}}]]
+      [:.col-sm-3
+       [:img.img-responsive {:src   "assets/nhs-neg.png"
+                             :style {:margin-bottom "3ex"
+                                     :max-width     "50%"}}]]]]]])

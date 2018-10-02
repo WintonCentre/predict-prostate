@@ -170,14 +170,14 @@
        [:.col-xs-12
         {:style {:margin-top "15px" :font-size 16}} "This display shows the outcomes for 100 men. These results are based on the inputs and treatments you selected "
         [:span.screen-only (year-picker)]
-        [:span.print-only {:style {:font-size 16}} years]
+        [:span.print-only {:style {:font-size 12}} years]
         " years after diagnosis"
 
         (render-year years data)
         ]]]
      [:div {:style {:clear "both"}} " "]]))
 
-(comment
+#_(comment
   ; bc version for comparison
 
   (rum/defc render-icons
@@ -187,14 +187,14 @@
       [:.row {:style {:clear "both"}}
 
 
-       [:.col-md-6 {:style {:position       "relative"
+       [:.col-xs-6 {:style {:position       "relative"
                             :height         230
                             :top            -230
                             :pointer-events "none"
                             }} (placed-icons data)]
 
        ; legend
-       [:.col-md-6 {:style {:padding-top "15px"}}
+       [:.col-xs-6 {:style {:padding-top "15px"}}
         (when (pos? (:oth data))
           [:p {:style legend-style} (open-icon oth-deaths-fill) " " (:oth data) " death" (add-s (:oth data)) " due to other causes"])
         (when (pos? br-deaths)
