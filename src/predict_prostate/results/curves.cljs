@@ -244,7 +244,7 @@
    [:div {:key   3
           :style (merge {:width          "50px"
                          :display        "inline-block"
-                         :margin-top     "15px"
+                         ;:margin-top     "15px"
                          :vertical-align "top"
                          :text-align     "right"}
                    extra-style)}
@@ -288,7 +288,8 @@
 (rum/defc legend2 < rum/reactive [plot-style radical?]
   [:div {:width "100%"}
    (legend-item {:label       "Survival if cancer does not progress"
-                 :extra-style {:border-top (str "5px dashed " dashed-stroke)}
+                 :extra-style {:border-top (str "5px dashed " dashed-stroke)
+                               :margin-top 9}
                  :icon        nil})
 
    (when radical?

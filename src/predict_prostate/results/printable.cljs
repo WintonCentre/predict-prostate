@@ -106,7 +106,7 @@
 (rum/defc results-in-print
           < rum/reactive (set-default :result-year)
           []
-  (println "results-in-orint")
+
   [:.row
    [:.col-sm-12
 
@@ -116,19 +116,16 @@
 
     (avoid-break
       [:h2 "Results"]
-      [:p {:style {:margin-top "15px"}} "Based on the information you have provided, these results are for men who have
-    already had surgery."]
-      [:h3 "Survival table - " (rum/react (year-selected)) " years after surgery."]
+      [:p {:style {:margin-top "15px"}} "Survival estimates are based on the treatment you have selected."]
+      [:h3 "Survival table - " (rum/react (year-selected)) " years after diagnosis."]
       [:div {:style {:max-width "60%" :margin-left "20%"}}
-       #_(results-in-table {:printable true})
-       "results-in-table"])
+       (results-in-table)
+       ])
 
     (avoid-break
       [:h3 "Survival curve"]
-      [:p "This graph shows the percentage of women surviving up to 15 years."]
       [:div {:style {:max-width "100%" :margin-left "0%"}}
-       #_(results-in-curves {:printable true :width 600})
-       "results-in-curves"])
+       (results-in-curves)])
 
     (avoid-break
       [:h3 "Overall survival"]

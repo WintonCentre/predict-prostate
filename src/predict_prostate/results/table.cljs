@@ -29,13 +29,13 @@
 
 (defn extract-data [results radical? year]
   (let [conservative-survival (- 1 (+ (nth (get-in results [:conservative :pred-PC-cum]) year)
-                                     (nth (get-in results [:conservative :pred-NPC-cum]) year)))
+                                      (nth (get-in results [:conservative :pred-NPC-cum]) year)))
         radical-low-survival (- 1 (+ (nth (get-in results [:radical-low :pred-PC-cum]) year)
-                                    (nth (get-in results [:radical-low :pred-NPC-cum]) year)))
+                                     (nth (get-in results [:radical-low :pred-NPC-cum]) year)))
         radical-high-survival (- 1 (+ (nth (get-in results [:radical-high :pred-PC-cum]) year)
-                                    (nth (get-in results [:radical-high :pred-NPC-cum]) year)))
+                                      (nth (get-in results [:radical-high :pred-NPC-cum]) year)))
         radical-survival (- 1 (+ (nth (get-in results [:radical :pred-PC-cum]) year)
-                                (nth (get-in results [:radical :pred-NPC-cum]) year)))
+                                 (nth (get-in results [:radical :pred-NPC-cum]) year)))
         data {:dotted-orange (percent (nth (get-in results [:conservative :NPC-survival]) year)) ;(percent (- 1 (nth (get-in results [(if radical? :radical :conservative) :pred-NPC-cum]) year)) 0)
               :conservative  {:overall (percent conservative-survival)
                               :benefit "-"}
@@ -63,7 +63,7 @@
         [:td "Conservative treatment "]
         [:td "-"]
         [:td (get-in data [:conservative :overall])]]
-       (when radical?                                          ;(pos? (:horm data))
+       (when radical?                                       ;(pos? (:horm data))
          [:tr
           [:td "Radical treatment"]
           [:td (get-in data [:radical :benefit])            ;(benefit% data :horm uncertainty?)
@@ -73,7 +73,7 @@
           ])
        [:tr
         [:td {:col-span 3}
-         "If treatment was always curative "
+         "If the cancer does not progress "
          (get data :dotted-orange)                          ; (Math.round (- 100 (:oth data)))
          " would survive "
          (rum/react (input-cursor :result-year))
@@ -83,18 +83,26 @@
        ]]]))
 
 
-(rum/defc results-in-table < rum/reactive []
-  (let [data (extract-data (rum/react results-cursor)
-                           (= 1 (rum/react (input-cursor :primary-rx)))
+(rum/defc results-in-table < rum/reactive
+  []
+  (let [radical? (= 1 (rum/react (input-cursor :primary-rx)))
+        data (extract-data (rum/react results-cursor)
+                           radical?
                            (rum/react (input-cursor :result-year)))]
 
     [:div
      [:.row
       [:.col-sm-12 {:style {:font-size "16px"}}
-       "This table shows the percentage of men who survive at least " (year-picker) " years after diagnosis, based on the information you have provided."]
+       "This table shows the percentage of men who survive at least "
+       [:span.screen-only (year-picker)]
+       [:span.print-only {:style {:font-size 16}} (rum/react (input-cursor :result-year))]
+       " years after diagnosis, based on the information you have provided."]
       [:.col-sm-12 {:style {:margin-bottom "15px"}}
        (tables data)
-       (form-entry {:key :show-uncertainty :label "show-ranges"})]]
+       (when radical?
+         [:.screen-only
+          (form-entry {:key :show-uncertainty :label "show-ranges"})])
+       ]]
 
      ]
 
