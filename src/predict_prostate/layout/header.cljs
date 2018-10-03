@@ -94,42 +94,6 @@
     (hamburger-navbar)
     ]])
 
-#_(rum/defc header []
-    (let [[strap-line & _] "strap-line"                     ;(section "strap-line")
-          ]
-      [:.container-fluid
-       [:.row
-        [:.col-xs-6
-         [:.row
-          [:.col-sm-5
-           [:img.img-responsive {:src   "assets/prostate-angle-man_1.png"
-                                 :style {:margin-left   "-15px"
-                                         :margin-bottom "5px"}}]
-           #_[:p.pull-right {:style {:padding-left "00px"
-                                     :text-align   "right"
-                                     :font-weight  "bold"
-                                     :font-size    "16px"
-                                     :color        NHS-blue}} strap-line]]]]
-        [:.col-xs-3.pull-right
-         [:img.img-responsive.pull-right {:src   "assets/nhs.png"
-                                          :style {:margin-top   "40px"
-                                                  :margin-right "-15px"}}]
-         #_(radio-button-group {:key              :performance
-                                :aria-label       "Performance"
-                                :aria-describedby "About the tumour help"
-                                :style            {:text-align   "right"
-                                                   :margin-right "-15px"
-                                                   :display      "inline-block"}
-                                :values           [[0 "Printable version"] [1 "Screen version"]]
-                                }
-                               (input-cursor :performance))]
-
-        ]
-       [:.row
-        [:.col
-         (hamburger-navbar)]]
-       ])
-    )
 
 (rum/defc footer []
   [:div
@@ -160,7 +124,4 @@
        [:img.img-responsive {:src   "assets/ucs-winton-transparent.png"
                              :style {:margin-bottom "3ex"
                                      :max-width     "90%"}}]]
-      #_[:.col-sm-3
-       [:img.img-responsive {:src   "assets/nhs-neg.png"
-                             :style {:margin-bottom "3ex"
-                                     :max-width     "50%"}}]]]]]])
+      ]]]])
