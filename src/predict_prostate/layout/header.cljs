@@ -145,9 +145,10 @@
               :min-height       "200px"
               :background-color "#1F3754"                   ;NHS-blue
               :border-radius    "0px"
-              :padding          "30px"}}
+              :padding          "30px"
+              }}
      [:row
-      [:.col-sm-3
+      [:.col-sm-4.col-sm-offset-1
        [:img.img-responsive {:src   "assets/phe-neg.png"
                              :style {:margin-bottom "4ex"
                                      :max-width     "70%"}}]]
@@ -159,7 +160,7 @@
        [:img.img-responsive {:src   "assets/ucs-winton-transparent.png"
                              :style {:margin-bottom "3ex"
                                      :max-width     "90%"}}]]
-      [:.col-sm-3
+      #_[:.col-sm-3
        [:img.img-responsive {:src   "assets/nhs-neg.png"
                              :style {:margin-bottom "3ex"
                                      :max-width     "50%"}}]]]]]])

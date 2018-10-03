@@ -150,6 +150,7 @@
                        [:.col-sm-6 {:style {:position "relative"
                                             :display "inline-block"
                                             :clear "both"
+                                            :pointer-events "none"
                                             :height 260 :top -260}}
                         (placed-icons fill-counts)]
 
