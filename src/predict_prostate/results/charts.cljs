@@ -103,8 +103,18 @@
     [:.left {:key 1} h]
     [:.right {:key 2} h]]])
 
+(rum/defc bar-item-label
+  "A white label for a dark background which also prints in white.
+  SVG is about the only way to force printers to emit text in white."
+  [{:keys [height]}]
+  [:.bar-item-label {:style {:width "100%" :height "50%"}}
+   [:svg {:height 30 :width "100%"}
+    [:text {:x "50%" :y 13 :fill "#ffffff" :text-anchor "middle"}
+     (str height "%")]]
+   ])
 
-(rum/defc bar-item-label [{:keys [key height] :or {key 1 height 0}}]
+
+#_(rum/defc bar-item-label [{:keys [key height] :or {key 1 height 0}}]
   [:.bar-item-label {:key key :style {:height "50%" :color "#ffffff"}}
    (str height "%")
    ])

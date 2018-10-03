@@ -4,7 +4,7 @@
             [predict-prostate.components.helpful-form-groups :refer [form-entry]]
             [predict-prostate.state.config :refer [input-groups get-input-default]]
             [predict-prostate.content-reader :refer [section]]
-            [predict-prostate.state.run-time :refer [input-cursor input-change input-widget input-label results-cursor year-selected]]
+            [predict-prostate.state.run-time :refer [input-cursor input-change input-widget input-label results-cursor year-selected unknown]]
             [predict-prostate.components.button :refer [year-picker]]
             [predict-prostate.mixins :refer [set-default]]
             [predict-prostate.layout.header :refer [footer]]
@@ -15,6 +15,7 @@
             [predict-prostate.results.charts :refer [results-in-charts]]
             [predict-prostate.results.text :refer [results-in-text]]
             [predict-prostate.results.icons :refer [results-in-icons*]]
+            [predict-prostate.results.sidefx :refer [results-in-sidefx]]
             #_[cljs-css-modules.macro :refer-macros [defstyle]]
             ))
 
@@ -52,13 +53,13 @@
        [:td (rum/react (input-cursor :psa))]]
       [:tr
        [:td (input-label :t-stage)]
-       [:td ((option-range 4)  (rum/react (input-cursor :t-stage)))]]
+       [:td ((option-range 5)  (rum/react (input-cursor :t-stage)))]]
       [:tr
        [:td (input-label :h-admissions)]
        [:td ({0 "No" 1 "Yes"} (rum/react (input-cursor :h-admissions)))]]
       [:tr
        [:td (input-label :grade-group)]
-       [:td ((option-range 5) (rum/react (input-cursor :grade-group)))]]
+       [:td ((option-range 6) (rum/react (input-cursor :grade-group)))]]
       [:tr
        [:td (input-label :gleason)]
        [:td ((into {} [[1 "3+3"]
@@ -68,7 +69,9 @@
                        [5 "9 or 10"]]) (rum/react (input-cursor :gleason)))]]
       [:tr
        [:td (input-label :biopsy50)]
-       [:td ((option-range 5) (rum/react (input-cursor :biopsy50)))]]
+       [:td ({1        "fewer than half"
+              2        "half or more"
+              :unknown "Unknown"} (rum/react (input-cursor :biopsy50)))]]
       (when (pos? (rum/react (input-cursor :h-admissions)))
         [:tr
              [:td (input-label :charlson-comorbidity)]
@@ -140,18 +143,16 @@
       (results-in-charts {:printable true}))
 
     (avoid-break
-      [:h4 (rum/react (year-selected)) " year outcomes for 100 men"]
+      [:h4 "Icon array showing " (rum/react (year-selected)) " year outcomes for 100 men"]
       (results-in-icons* {:printable true})
       )
 
     (avoid-break
-      ;[:div.clearfix]
       [:h4 "In Summary"]
       (results-in-text {:printable true})
-      )
+      [:h4 "Potential Harms of treatments"]
+      (results-in-sidefx)
 
-    (avoid-break
-      ;(treatments-in-print)
       )
 
     (footer)]])

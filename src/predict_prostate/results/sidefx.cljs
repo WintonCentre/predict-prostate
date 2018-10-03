@@ -29,136 +29,46 @@
   [:.pull-right (small-help-button {:help-id help-id})])
 
 (rum/defc sidefx-table []
-
-  [:.table-responsive {:key   1
-                       :style {:margin-top "15px"
-                               :font-size  "1.2em"}}
-   [:table.table.table-hover.table-bordered {:style {:padding 0 :margin 0 :font-size "16px"}}
-    [:thead
-     [:tr.info
-      [:th "Potential Harm"]
-      [:th "Conservative " [:br] "Management" [:br] "(CM)" [:.pull-right (help "side-effects-am")]]
-      [:th "Radical " [:br] "Prostatectomy" [:br] "(RP)" (help "side-effects-rp")]
-      [:th "Radiotherapy" [:br] "(RT)" (help "side-effects-rt")]
-      ]]
-    [:tbody
-     [:tr
-      [:td]
-      [:td {:col-span 3} [:strong "Proportion affected after 3 years"]]]
-     [:tr
-      [:td [:strong "Erectile dysfunction"] [:br] "Erections insufficient for intercourse\n"]
-      [:td "27%"]
-      [:td
-       [:button.btn-link {:on-click #(publish help-key-change "nerve-sparing")} "56% ‡" ]
-       [:br]
-       [:button.btn-link {:on-click #(publish help-key-change "non-nerve-sparing")} " 66% *"]]
-      [:td "39%"]]
-     [:tr
-      [:td [:strong "Incontinence"] [:br] "Wear one or more pads per day in the last 4 weeks."]
-      [:td "0.4%"]
-      [:td "19.6%"]
-      [:td "3.0%"]]
-     [:tr
-      [:td [:strong "Bowel issues"] [:br] "Bloody stools about half the time or more frequently"]
-      [:td "1.6%"]
-      [:td "1.2%"]
-      [:td "7.4%"]]
-
-
-     ]]])
-
-#_(rum/defc sidefx-table1 []
-
-  [:.table-responsive {:key   1
-                       :style {:margin-top "15px"
-                               :font-size  "1.2em"}}
-   [:table.table.table-hover.table-bordered {:style {:padding 0 :margin 0 :font-size "16px"}}
-    [:thead
-     [:tr.info
-      [:th "Incontinence"]
-      [:th "Active " [:br] "Monitoring" [:br] "(AM)" [:.pull-right (help "side-effects-am")]]
-      [:th "Radical " [:br] "Prostatectomy" [:br] "(RP)" (help "side-effects-rp")]
-      [:th "Radiotherapy" [:br] "(RT)" (help "side-effects-rt")]
-      ]]
-    [:tbody
-     [:tr
-      [:td {:col-span 4} "Use of 1 or more pads per day in the last 4 weeks"]]
-     [:tr
-      [:td [:strong "1 year"]]
-      [:td "4%"]
-      [:td "26%"]
-      [:td "4%"]]
-     [:tr
-      [:td [:strong "5 years"]]
-      [:td "7%"]
-      [:td "17%"]
-      [:td "3%"]]
-
-     ]]])
-
-#_(rum/defc sidefx-table2 []
-
-  [:.table-responsive {:key   2
-                       :style {:margin-top "15px"
-                               :font-size  "1.2em"}}
-   [:table.table.table-hover.table-bordered {:style {:padding 0 :margin 0 :font-size "16px"}}
-    [:thead
-     [:tr.info
-      [:th "Erections"]
-      [:th "Active " [:br] "Monitoring" [:br] "(AM)" [:.pull-right (help "side-effects-am")]]
-      [:th "Radical " [:br] "Prostatectomy" [:br] "(RP)" (help "side-effects-rp")]
-      [:th "Radiotherapy" [:br] "(RT)" (help "side-effects-rt")]
-      ]]
-    [:tbody
-     [:tr
-      [:td {:col-span 4} "Erections firm enough for intercourse"]
-      ;[:td ""]
-      ;[:td ""]
-      ;[:td ""]
-      ]
-     [:tr
-      [:td [:strong "1 year"]]
-      [:td "49%"]
-      [:td "15%"]
-      [:td "38%"]]
-     [:tr
-      [:td [:strong "5 years"]]
-      [:td "35%"]
-      [:td "20%"]
-      [:td "27%"]]
-
-     ]]])
-
-#_(rum/defc sidefx-table3 []
-
-  [:.table-responsive {:key   3
-                       :style {:margin-top "15px"
-                               :font-size  "1.2em"}}
-   [:table.table.table-hover.table-bordered {:style {:padding 0 :margin 0 :font-size "16px"}}
-    [:thead
-     [:tr.info
-      [:th "Bowel habits"]
-      [:th "Active" [:br] "Monitoring" [:br] "(AM)" [:.pull-right (help "side-effects-am")]]
-      [:th "Radical " [:br] "Prostatectomy" [:br] "(RP)" (help "side-effects-rp")]
-      [:th "Radiotherapy" [:br] "(RT)" (help "side-effects-rt")]
-      ]]
-    [:tbody
-     [:tr
-      [:td {:col-span 4} "Bloody stools about half the time or more frequently"]]
-     [:tr
-      [:td [:strong "1 year"]]
-      [:td "1.4%"]
-      [:td "0.6%"]
-      [:td "3.9%"]]
-     [:tr
-      [:td [:strong "5 years"]]
-      [:td "2.2%"]
-      [:td "0.9%"]
-      [:td "8%"]]
-
-     ]]])
-
-
+  [:div
+   [:.table-responsive {:key   1
+                        :style {:margin-top "15px"
+                                :font-size  "1.2em"}}
+    [:table.table.table-hover.table-bordered {:style {:padding 0 :margin 0 :font-size "16px"}}
+     [:thead
+      [:tr.info
+       [:th "Potential Harm"]
+       [:th "Conservative " [:br] "Management" [:br] "(CM)" [:.pull-right.screen-only (help "side-effects-am")]]
+       [:th "Radical " [:br] "Prostatectomy" [:br] "(RP)" [:.pull-right.screen-only (help "side-effects-rp")]]
+       [:th "Radiotherapy" [:br] "(RT)" [:.pull-right.screen-only (help "side-effects-rt")]]
+       ]]
+     [:tbody
+      [:tr
+       [:td]
+       [:td {:col-span 3} [:strong "Proportion affected after 3 years"]]]
+      [:tr
+       [:td [:strong "Erectile dysfunction"] [:br] "Erections insufficient for intercourse\n"]
+       [:td "27%"]
+       [:td
+        [:button.btn-link {:on-click #(publish help-key-change "nerve-sparing")} "56% ‡"]
+        [:br]
+        [:button.btn-link {:on-click #(publish help-key-change "non-nerve-sparing")} " 66% *"]]
+       [:td "39%"]]
+      [:tr
+       [:td [:strong "Incontinence"] [:br] "Wear one or more pads per day in the last 4 weeks."]
+       [:td "0.4%"]
+       [:td "19.6%"]
+       [:td "3.0%"]]
+      [:tr
+       [:td [:strong "Bowel issues"] [:br] "Bloody stools about half the time or more frequently"]
+       [:td "1.6%"]
+       [:td "1.2%"]
+       [:td "7.4%"]]
+      ]]]
+   [:dl.print-only
+    [:dt "‡"] [:dd "Nerve-sparing radical prostatectomy"]
+    [:dt "*"] [:dd "Non-nerve-sparing radical prostatectomy"]
+    ]
+   ])
 
 (rum/defc results-in-sidefx < rum/static []
   [:div {:style {:margin-top "15px"}}
@@ -187,28 +97,25 @@
      (sidefx-table)]
 
     [:.col-sm-12                                            ; {:style {:margin-top 20}}
-     [:h3 "More Information"]
+     [:h4 "More Information"]
      [:p "The following websites provide excellent advice and information on treatments and their potential harms:"]
-     [:h4 "About treatments:"]
-     [:ul {:style {:font-size       "120%"
-                   :list-style-type "none"}}
+     [:h5 "About treatments:"]
+     [:ul {:style {:list-style-type "none"}}
       [:li {:key 1}
        [:a {:href "http://www.cancerresearchuk.org/about-cancer/prostate-cancer/treatment" :target "blank"} "Cancer research UK"]]
       [:li {:key 2}
        [:a {:href "https://www.nhs.uk/conditions/prostate-cancer/treatment/" :target "blank"} "NHS"]]]
 
 
-     [:h4 "About potential harms:"]
-     [:ul {:style {:font-size       "120%"
-                   :list-style-type "none"}}
+     [:h5 "About potential harms:"]
+     [:ul {:style {:list-style-type "none"}}
       [:li {:key 3}
        [:a {:href "https://www.nhs.uk/conditions/prostate-cancer/treatment/#radical-prostatectomy" :target "blank"} "Radical prostatectomy"]]
       [:li {:key 4}
        [:a {:href "https://www.nhs.uk/conditions/prostate-cancer/treatment/#radiotherapy" :target "blank"} "Radiotherapy"]]
       ]
-     [:h4 "Further advice and support:"]
-     [:ul {:style {:font-size       "120%"
-                   :list-style-type "none"}}
+     [:h5 "Further advice and support:"]
+     [:ul {:style {:list-style-type "none"}}
       [:li {:key 1}
        [:a {:href "http://www.macmillan.org.uk/" :target "blank"} "Macmillan"]]
       [:li {:key 2}

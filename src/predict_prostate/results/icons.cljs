@@ -148,11 +148,12 @@
                       [:.row {:style {:clear "both"}}
 
                        [:.col-sm-6 {:style {:position "relative"
+                                            :display "inline-block"
                                             :clear "both"
                                             :height 260 :top -260}}
                         (placed-icons fill-counts)]
 
-                       [:.col-sm-6 {:style {:padding-top "15px"}}
+                       [:.col-sm-6.screen-only {:style {:padding-top "15px" :position "relative"}}
                         ; legend
 
                         (when (pos? npc-deaths)
@@ -162,19 +163,33 @@
                         (when (pos? benefit)
                           [:p {:style {:font-size "14px"}} (dead-icon (fill 1)) " " benefit " extra survivor" (add-s benefit) " due to radical treatment"])
                         [:p {:style {:font-size "14px"}} (dead-icon (fill 2)) " " cs " survivors with conservative treatment"]
+                        [:div {:style {:clear "both"}}]]
+
+
+                       [:.col-sm-6.print-only {:style {:top "55px" :position "absolute" :left 260}}
+                        ; legend
+                        [:div {:style {:display "inline-block"}}]
+                        (when (pos? npc-deaths)
+                          [:p  (open-icon oth-deaths-fill) " " npc-deaths " death" (add-s npc-deaths) " due to other causes"])
+                        (when (pos? pc-deaths)
+                          [:p  (open-icon br-deaths-fill) " " pc-deaths " prostate cancer related death" (add-s pc-deaths)])
+                        (when (pos? benefit)
+                          [:p  (dead-icon (fill 1)) " " benefit " extra survivor" (add-s benefit) " due to radical treatment"])
+                        [:p  (dead-icon (fill 2)) " " cs " survivors with conservative treatment"]
                         [:div {:style {:clear "both"}}]]])]
 
     [:div
      [:div
       [:.row {:style {:position "relative"}}
-       [:.col-xs-12
+       [:.col-xs-12.screen-only
         {:style {:margin-top "15px" :font-size 16}} "This display shows the outcomes for 100 men. These results are based on the inputs and treatments you selected "
         [:span.screen-only (year-picker)]
         [:span.print-only {:style {:font-size 12}} years]
         " years after diagnosis"
-
-        (render-year years data)
-        ]]]
+        ]
+       [:.col-xs-12
+        (render-year years data)]
+       ]]
      [:div {:style {:clear "both"}} " "]]))
 
 #_(comment
