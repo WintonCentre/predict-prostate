@@ -52,7 +52,6 @@
    (result-tab-pane "table" results-in-table)
    (result-tab-pane "icons" results-in-icons*)
    (result-tab-pane "texts" results-in-text)
-   #_(result-tab-pane "Treatment side effects" results-in-sidefx)
    ])
 
 (rum/defc result-panel < rum/reactive []

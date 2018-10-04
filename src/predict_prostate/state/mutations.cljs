@@ -59,11 +59,20 @@
 
       (= key :plot-style)
       (let [{:keys [plot-style]} (get-settings! {:plot-style :line1})]
-        (if (#{:area1 :line1} plot-style)
+        (if (#{:area1 :line1 :line2} plot-style)
           (reset! (input-cursor :plot-style) plot-style)
           (do
             (put-settings! {:plot-style :line1})
             (reset! (input-cursor :plot-style) :line1))
+          ))
+
+      (= key :ph-style)
+      (let [{:keys [ph-style]} (get-settings! {:ph-style :table})]
+        (if (#{:table :discrete :continuous} ph-style)
+          (reset! (input-cursor :ph-style) ph-style)
+          (do
+            (put-settings! {:ph-style :table})
+            (reset! (input-cursor :ph-style) :table))
           ))
 
       :else
@@ -96,6 +105,7 @@
         (fn [topic value]
 
           (log topic @(input-cursor key) value)
+          (println "mutate [" key " " value "]")
 
           (cond
 
@@ -126,10 +136,18 @@
               (reset! (input-cursor :plot-style) value)
               (put-settings! {:plot-style value}))
 
+            (= key :ph-style)
+            (do
+              (println :ph-style "old: " (input-cursor :ph-style) "new: " value)
+              (reset! (input-cursor :ph-style) value)
+              (put-settings! {:ph-style value}))
+
             :else
             (reset! (input-cursor key) (if (nil? value)
                                          (get-input-default input-groups key)
                                          value))
+
+
 
             )
 

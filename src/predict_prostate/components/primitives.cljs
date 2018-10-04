@@ -33,3 +33,6 @@
   [:svg {:width 20 :height 20}
    [:circle {:cx 10 :cy 10 :r 8 :stroke-width 2.5 :stroke fill :fill "none"}]])
 
+(rum/defc blob [fill size]
+  [:svg {:width size :height size}
+   [:circle {:cx (/ size 2) :cy (+ (/ size 2) 2) :r (- (/ size 2) 2) :fill fill :stroke "none"}]])

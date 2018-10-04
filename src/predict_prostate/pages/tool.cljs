@@ -86,7 +86,7 @@
       [:.col-md-6.screen-only
        (results {:printable (= :print (rum/react media-cursor))})]
 
-      [:col-md-12
+      [:.col-md-12
        [:h3 "Potential Harms"]
        (results-in-sidefx)]]
 

@@ -51,6 +51,17 @@
      #{"prostate"}
      nil)
 
+   (->Input-group :ph-style
+     "Potential Harms style"
+     :radio-group
+     [[:table "Table"]
+      [:discrete "Discrete chart"]
+      [:continuous "Continuous chart"]]
+     false false nil
+     :ph-style
+     #{"prostate"}
+     nil)
+
    ;; INPUTS
    (->Input-group :age
                   "Age at diagnosis"

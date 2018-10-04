@@ -104,6 +104,9 @@
       [:hr]
       [:p "Choose a plot-style"]
       (input-widget :plot-style)
+      [:hr]
+      [:p "Choose a potential harms style"]
+      (input-widget :ph-style)
       ]
      [:.modal-footer
       [:button.btn.btn-default {:type     "button"
