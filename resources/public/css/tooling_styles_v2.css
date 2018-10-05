@@ -100,6 +100,11 @@ form .form-group {
 }
 }
 
+nav.navbar-fixed-top .container {
+  padding-left: 30px;
+}
+
+
 /*
 
 /* navbar background
