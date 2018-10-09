@@ -55,8 +55,7 @@
      "Potential Harms style"
      :radio-group
      [[:table "Table"]
-      [:discrete "Discrete chart"]
-      [:continuous "Continuous chart"]]
+      [:discrete "Discrete chart"]]
      false false nil
      :ph-style
      #{"prostate"}

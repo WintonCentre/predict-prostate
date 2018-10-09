@@ -68,7 +68,7 @@
 
       (= key :ph-style)
       (let [{:keys [ph-style]} (get-settings! {:ph-style :table})]
-        (if (#{:table :discrete :continuous} ph-style)
+        (if (#{:table :discrete} ph-style)
           (reset! (input-cursor :ph-style) ph-style)
           (do
             (put-settings! {:ph-style :table})

@@ -33,6 +33,53 @@
   [:svg {:width 20 :height 20}
    [:circle {:cx 10 :cy 10 :r 8 :stroke-width 2.5 :stroke fill :fill "none"}]])
 
-(rum/defc blob [fill size]
-  [:svg {:width size :height size}
-   [:circle {:cx (/ size 2) :cy (+ (/ size 2) 2) :r (- (/ size 2) 2) :fill fill :stroke "none"}]])
+(rum/defc circ*
+  [fill opacity stroke r cx]
+  [:circle {:cx (+ cx r) :cy r :r r :fill fill :opacity opacity :stroke stroke :stroke-width 1}])
+
+(rum/defc circ
+  [fill stroke r cx]
+  (circ* fill 1 stroke r cx))
+
+
+(rum/defc blob [key fill r]
+  [:svg {:key key :width (* 2 r) :height (* 2 r)}
+   (circ fill (if (= fill "white") "#BBBBBB" "none") r 0)])
+
+
+(rum/defc blob-10 [fill r]
+  (println "blob-10 fill " fill)
+  [:svg {:width (* 21 r) :height (* 2 r)}
+   (map #(rum/with-key (circ fill
+                             (if (= fill "white") "#BBBBBB" "none")
+                             r
+                             (* 2 r %)) (str "b10-" %))
+        (range 10))])
+
+(rum/defc mixed-10
+  ([fill opacity r x]
+   (println "mixed-10* fill " fill)
+   [:svg {:key "m10" :width (* 21 r) :height (* 2 r)}
+    (map #(rum/with-key (circ* fill
+                               1
+                               "none"
+                               r
+                               (* 2 r %)) (str "m10+" %))
+         (range (dec x)))
+    (map #(rum/with-key (circ* fill
+                               opacity
+                               "none"
+                               r
+                               (* 2 r %)) (str "m10+" %))
+         [(dec x)])
+
+    (map #(rum/with-key (circ "white"
+                              "#BBBBBB"
+                              r
+                              (* 2 r (+ x %))) (str "m10-" %))
+         (range (- 10 x)))
+    ])
+
+  ([fill r x]
+   (println "mixed-10 fill " fill)
+   (mixed-10 fill 1 r x)))

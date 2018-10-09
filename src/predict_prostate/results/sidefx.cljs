@@ -1,7 +1,7 @@
 (ns predict-prostate.results.sidefx
 
   (:require [rum.core :as rum]
-            [predict-prostate.components.primitives :refer [blob]]
+            [predict-prostate.components.primitives :refer [blob blob-10 mixed-10]]
             [predict-prostate.components.helpful-form-groups :refer [form-entry]]
             [predict-prostate.components.button :refer [small-help-button]]
             [predict-prostate.state.config :refer [input-groups get-input-default]]
@@ -80,59 +80,94 @@
   []
   [:div {:style {:background-color "#D9EDF7" :padding 10}}
    [:h4 "Potentially permanent harms of"]
-   [:div {:style {:font-size 16}} (blob (:conservative treatment-fills) 15) " Conservative management"]
-   [:div {:style {:font-size 16}} (blob (:radical treatment-fills) 15) " Radical prostectomy"]
-   [:div {:style {:font-size 16}} (blob (:radiotherapy treatment-fills) 15) " Radiotherapy"]]
+   [:div {:style {:font-size 16}} (blob "b1" (:conservative treatment-fills) 5) " Conservative management"]
+   [:div {:style {:font-size 16}} (blob "b2" (:radical treatment-fills) 5) " Radical prostectomy"]
+   [:div {:style {:font-size 16}} (blob "b3" (:radiotherapy treatment-fills) 5) " Radiotherapy"]]
   )
 
-(defn sidefx-content
-  [{:keys [title sub-title]} content]
-  (into [] (conj [:div {:style {:padding 15 :font-size 16}}
-                    [:h5 title]
-                    [:h6 sub-title]
-                    ]
-                   (content))))
+(rum/defc sidefx-bar
+  [{:keys [fewer percent fill]}]
+  (let [tens (quot percent 10)
+        units (mod percent 10)
+        unfilled (- 100 percent)
+        tens-empty (quot unfilled 10)
+        r 4]
+    [:.row
+     [:.col-xs-12 {:key 1 :style {:font-size "120%" :font-weight "bold" :display "inline-block"}}
+      [:span {:style {:width "100%" :text-align "right"}}] (if fewer "Less than ") percent "% "]
+     [:.col-xs-12
+      (map (fn [n] [:span {:key (str "t-" n)} (blob-10 fill r)]) (range tens))
+      (when (pos? units) (mixed-10 fill r units))
+      (map (fn [n] [:span {:key (str "0-" n)} (blob-10 "white" r)]) (range tens-empty))]
+     ]))
+
+(rum/defc fewer-helper
+  ([prefix]
+   (fewer-helper prefix ""))
+  ([prefix n]
+   [:span prefix
+    [:b "fewer than " (if n [:span n " "] "")]]))
 
 (rum/defc sidefx-linear
-  [{:keys [treatment prefix n]}]
-  [:div
-   [:span prefix n]])
+  [{:keys [treatment prefix n fewer]}]
+  (let [quantity [:span (Math.round n) " in 100 "]]
+    [:div
+     [:span prefix (if fewer [:b quantity] quantity)]
+     [:span "men have this issue after 3 years."]
+     (sidefx-bar {:fewer fewer :percent n :fill (treatment treatment-fills)})
+     [:br]
+     ]))
+
+
+(defn sidefx-content
+  [{:keys [title sub-title]} & content]
+  (into [] (conj [:div {:style {:padding 15 :font-size 16}}
+                  [:h4 title]
+                  [:h5 sub-title]]
+                 (map-indexed #(rum/with-key %2 %1) content))))
 
 (rum/defc sidefx-discrete
   []
   [:div {:style {:border "1px solid black" :font-size 16}}
    (sidefx-header)
-   (sidefx-content
-     {:title "Erectile dysfunction" :sub-title "Erections insufficient for intercourse"}
-     #(sidefx-linear {:treatment :conservative
-                      :prefix    "With conservative management, about "
-                      :n         27}))
-   (sidefx-content {:title "Incontinence" :sub-title "Wore one or more pads in the last 4 weeks"}
-                   #(sidefx-linear {:treatment :conservative
-                                    :prefix    "With conservative management, about "
-                                    :n         27}))
-   (sidefx-content {:title "Bowel issues" :sub-title "Bloody stools about half the time or more frequently"}
-                   #(sidefx-linear {:treatment :conservative
-                                    :prefix    "With conservative management, about "
-                                    :n         27}))
-   ])
-
-(rum/defc sidefx-continuous
-  []
-  [:div {:style {:border "1px solid black" :font-size 16}}
-   (sidefx-header)
    (sidefx-content {:title "Erectile dysfunction" :sub-title "Erections insufficient for intercourse"}
-                   #(sidefx-linear {:treatment :conservative
-                                    :prefix    "With conservative management, about "
-                                    :n         27}))
+                   (sidefx-linear {:treatment :conservative
+                                   :prefix    "With conservative management, about "
+                                   :n         27})
+                   (sidefx-linear {:treatment :radical
+                                   :prefix    "With nerve-sparing radical prostatectomy, about "
+                                   :n         56})
+                   (sidefx-linear {:treatment :radical
+                                   :prefix    "With non-nerve-sparing radical prostatectomy, about "
+                                   :n         66})
+                   (sidefx-linear {:treatment :radiotherapy
+                                   :prefix    "With radiotherapy, about "
+                                   :n         39}))
+
    (sidefx-content {:title "Incontinence" :sub-title "Wore one or more pads in the last 4 weeks"}
-                   #(sidefx-linear {:treatment :conservative
-                                    :prefix    "With conservative management, about "
-                                    :n         27}))
+                   (sidefx-linear {:treatment :conservative
+                                   :fewer     true
+                                   :prefix    (fewer-helper "With conservative management, ")
+                                   :n         1})
+                   (sidefx-linear {:treatment :radical
+                                   :prefix    "With radical prostatectomy, about "
+                                   :n         20})
+                   (sidefx-linear {:treatment :radiotherapy
+                                   :prefix    "With radiotherapy, about "
+                                   :n         3}))
+
    (sidefx-content {:title "Bowel issues" :sub-title "Bloody stools about half the time or more frequently"}
-                   #(sidefx-linear {:treatment :conservative
-                                    :prefix    "With conservative management, about "
-                                    :n         27}))
+                   (sidefx-linear {:treatment :conservative
+                                   :prefix    (fewer-helper "With conservative management, ")
+                                   :fewer     true
+                                   :n         2})
+                   (sidefx-linear {:treatment :radical
+                                   :prefix    (fewer-helper "With radical prostatectomy, ")
+                                   :fewer     true
+                                   :n         2})
+                   (sidefx-linear {:treatment :radiotherapy
+                                   :prefix    "With radiotherapy, about "
+                                   :n         7}))
    ]
   )
 
@@ -166,7 +201,6 @@
        (condp = ph-style
          :table (sidefx-table)
          :discrete (sidefx-discrete)
-         :continuous (sidefx-continuous)
          :else (println "bad ph-style setting"))]
 
       [:.col-sm-12                                          ; {:style {:margin-top 20}}

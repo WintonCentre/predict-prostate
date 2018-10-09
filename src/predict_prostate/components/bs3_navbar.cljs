@@ -67,7 +67,6 @@
                 (Nav-item. "Privacy & Data Protection" navigate-to [:legal {:page :privacy}])])])
 
 
-
 (rum/defc simple-navbar < rum/static rum/reactive [[menu-items]]
   (let [rt (rum/react route)]
     [:div
@@ -79,29 +78,61 @@
 
 (defn scroll-handler
   "Returns a 'sticky' scroll event handler for a dom-node"
-  [node transition-at]
+  [node transition-at tolerance]
   (fn [_]
-    (if (>= (aget js/window "pageYOffset") (+ transition-at (.-offsetTop node)))
-      (.add (.-classList node) "navbar-fixed-top"
-            )
-      (.remove (.-classList node) "navbar-fixed-top"
-               )))
-  )
+    (let [y-off (aget js/window "pageYOffset")
+          c (+ transition-at (.-offsetTop node))]
+      (if (>= y-off (+ c tolerance))
+        (.add (.-classList node) "navbar-fixed-top")
+        (when (<= y-off (- c tolerance))
+          (.remove (.-classList node) "navbar-fixed-top"))))))
 
 (def sticky-mixin
   {:did-mount    (fn [state]
                    (let [comp (:rum/react-component state)
                          dom-node (js/ReactDOM.findDOMNode comp)
-                         sh (scroll-handler dom-node 100)]
+                         #_#_sh (scroll-handler dom-node 100)
+                         sh (scroll-handler dom-node 60 40)]
                      (js/addEventListener "scroll" sh)
-                     (assoc state ::scroll-handler sh)))
+                     (assoc state ::scroll-handler sh
+                                  ::y-off (atom (aget js/window "pageYOffset")))))
 
    :will-unmount (fn [state]
                    (let [comp (:rum/react-component state)
                          dom-node (js/ReactDOM.findDOMNode comp)
                          sh (::scroll-handler state)]
                      (js/removeEventListener "scroll" sh)
-                     (dissoc state ::scroll-handler)))})
+                     (dissoc state ::scroll-handler ::y-off)))})
+
+
+(comment
+
+
+  (defn scroll-handler
+    "Returns a 'sticky' scroll event handler for a dom-node"
+    [node transition-at]
+    (fn [_]
+      (if (>= (aget js/window "pageYOffset") (+ transition-at (.-offsetTop node)))
+        (.add (.-classList node) "navbar-fixed-top"
+              )
+        (.remove (.-classList node) "navbar-fixed-top"
+                 )))
+    )
+
+  (def sticky-mixin
+    {:did-mount    (fn [state]
+                     (let [comp (:rum/react-component state)
+                           dom-node (js/ReactDOM.findDOMNode comp)
+                           sh (scroll-handler dom-node 100)]
+                       (js/addEventListener "scroll" sh)
+                       (assoc state ::scroll-handler sh)))
+
+     :will-unmount (fn [state]
+                     (let [comp (:rum/react-component state)
+                           dom-node (js/ReactDOM.findDOMNode comp)
+                           sh (::scroll-handler state)]
+                       (js/removeEventListener "scroll" sh)
+                       (dissoc state ::scroll-handler)))}))
 
 (rum/defc hamburger-navbar < sticky-mixin []
   [:nav
