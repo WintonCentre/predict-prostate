@@ -105,8 +105,6 @@
         (fn [topic value]
 
           (log topic @(input-cursor key) value)
-          (println "mutate [" key " " value "]")
-
           (cond
 
             (= key :hist-scale)
@@ -138,7 +136,6 @@
 
             (= key :ph-style)
             (do
-              (println :ph-style "old: " (input-cursor :ph-style) "new: " value)
               (reset! (input-cursor :ph-style) value)
               (put-settings! {:ph-style value}))
 

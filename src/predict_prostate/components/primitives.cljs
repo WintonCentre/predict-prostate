@@ -48,7 +48,6 @@
 
 
 (rum/defc blob-10 [fill r]
-  (println "blob-10 fill " fill)
   [:svg {:width (* 21 r) :height (* 2 r)}
    (map #(rum/with-key (circ fill
                              (if (= fill "white") "#BBBBBB" "none")
@@ -58,7 +57,6 @@
 
 (rum/defc mixed-10
   ([fill opacity r x]
-   (println "mixed-10* fill " fill)
    [:svg {:key "m10" :width (* 21 r) :height (* 2 r)}
     (map #(rum/with-key (circ* fill
                                1
@@ -81,5 +79,4 @@
     ])
 
   ([fill r x]
-   (println "mixed-10 fill " fill)
    (mixed-10 fill 1 r x)))

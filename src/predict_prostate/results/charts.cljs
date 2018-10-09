@@ -308,7 +308,6 @@
         side-by-side (or printable (> width-1 600))
         ]
 
-    (println "title: " title)
     (when-let [chart-props (extract-data title results radical? plot-style)]
       [:div "Hello"]
       (let [bene5 (nth (:radical-benefit chart-props) 5)
@@ -343,7 +342,6 @@
 (rum/defc results-in-charts
   "Content of the Charts tab, showing treatment options"
   [{:keys [title printable] :as m}]
-  (println "results-in-charts: " title m)
   [:div
    (stacked-bar {:width       70
                  :title       title
