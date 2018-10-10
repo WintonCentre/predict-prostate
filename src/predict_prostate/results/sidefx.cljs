@@ -132,41 +132,41 @@
    (sidefx-header)
    (sidefx-content {:title "Erectile dysfunction" :sub-title "Erections insufficient for intercourse"}
                    (sidefx-linear {:treatment :conservative
-                                   :prefix    "With conservative management, about "
+                                   :prefix    [:span "With " [:b "conservative management"] ", about "]
                                    :n         27})
                    (sidefx-linear {:treatment :radical
-                                   :prefix    "With nerve-sparing radical prostatectomy, about "
+                                   :prefix    [:span "With " [:b "nerve-sparing radical prostatectomy"] ", about "]
                                    :n         56})
                    (sidefx-linear {:treatment :radical
-                                   :prefix    "With non-nerve-sparing radical prostatectomy, about "
+                                   :prefix    [:span "With " [:b "non-nerve-sparing radical prostatectomy"] ", about "]
                                    :n         66})
                    (sidefx-linear {:treatment :radiotherapy
-                                   :prefix    "With radiotherapy, about "
+                                   :prefix    [:span "With " [:b "radiotherapy"] ", about "]
                                    :n         39}))
 
    (sidefx-content {:title "Incontinence" :sub-title "Wore one or more pads in the last 4 weeks"}
                    (sidefx-linear {:treatment :conservative
                                    :fewer     true
-                                   :prefix    (fewer-helper "With conservative management, ")
+                                   :prefix    (fewer-helper [:span "With " [:b "conservative management"] ", "])
                                    :n         1})
                    (sidefx-linear {:treatment :radical
-                                   :prefix    "With radical prostatectomy, about "
+                                   :prefix    [:span "With " [:b "radical prostatectomy"] ", about "]
                                    :n         20})
                    (sidefx-linear {:treatment :radiotherapy
-                                   :prefix    "With radiotherapy, about "
+                                   :prefix    [:span "With " [:b "radiotherapy"] ", about "]
                                    :n         3}))
 
    (sidefx-content {:title "Bowel issues" :sub-title "Bloody stools about half the time or more frequently"}
                    (sidefx-linear {:treatment :conservative
-                                   :prefix    (fewer-helper "With conservative management, ")
+                                   :prefix    (fewer-helper [:span "With " [:b "conservative management"] ", "])
                                    :fewer     true
                                    :n         2})
                    (sidefx-linear {:treatment :radical
-                                   :prefix    (fewer-helper "With radical prostatectomy, ")
+                                   :prefix    (fewer-helper [:span "With " [:b "radical prostatectomy"] ", "])
                                    :fewer     true
                                    :n         2})
                    (sidefx-linear {:treatment :radiotherapy
-                                   :prefix    "With radiotherapy, about "
+                                   :prefix    [:span "With " [:b "radiotherapy"] ", about "]
                                    :n         7}))
    ]
   )

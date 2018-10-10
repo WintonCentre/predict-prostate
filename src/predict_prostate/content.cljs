@@ -182,12 +182,12 @@
    [:section#whobuiltpredict "Who built Predict?"
     [:section "Who built Predict?"
 
-     [:p (copied "Predict:Prostate has been developed by a partnership between the Academic Urology Group and the Department of Cancer Epidemiology at the University of Cambridge
-     in collaboration with the National Cancer Registration and Analysis Service (NCRAS) at Public Health England. This work has been supported by funding from The Urology Foundation and The Evelyn Trust.")]
+     [:p (copied [:span "Predict:Prostate has been developed by a partnership between the " [:a {:href "https://surgery.medschl.cam.ac.uk/divisions-and-groups/academic-urology-group/" :style {:text-decoration "underline"}} "Academic Urology Group and the Department of Cancer Epidemiology at the University of Cambridge"] "
+     in collaboration with the National Cancer Registration and Analysis Service (NCRAS) at Public Health England. This work has been supported by funding from The Urology Foundation and The Evelyn Trust."])]
 
 
      [:p (copied "The website has been built by the ") [:a {:href "https://wintoncentre.maths.cam.ac.uk" :style {:text-decoration "underline"}} "Winton Centre for Risk & Evidence Communication"]
-      (copied "at the University of Cambridge who are funded by a generous donation from the David and Claudia Harding Foundation and the Winton Charitable Foundation.")]
+      (copied " at the University of Cambridge who are funded by a generous donation from the David and Claudia Harding Foundation and the Winton Charitable Foundation.")]
 
      ]]
 
