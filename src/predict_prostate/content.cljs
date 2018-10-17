@@ -97,17 +97,17 @@
 
    ; block 1
    [:section#home-what-is "What is Predict:Prostate?"
-    [:p {:key 1} "Predict is a tool that helps doctors and patients decide on whether to have conservative or radical
+    [:p {:key 1} "Predict is a tool that helps patients and doctors decide on whether to have conservative or radical
     management for non-metastatic prostate cancer."]
     [:p {:key 2} ""]
     ]
 
    ; block 2
    [:section#home-how-use "How do I use Predict?"
-    [:p {:key 2} "Enter the details about yourself and your prostate cancer, and then select conservative management and radical treatment to see how effective they are."]
+    [:p {:key 2} "Enter the details about yourself and your prostate cancer, and then select conservative management or radical treatment to see estimates of how effective they are."]
     [:p {:key 3} "We recommend patients read the "
      [:a {:key 1 :href "#/patient"} "patient information"]
-     [:span {:key 2 :style {:font-size "16px"}} " section before using the tool. Predict is intended for use amongst men
+     [:span {:key 2 :style {:font-size "16px"}} " section before using the tool. Predict is only intended for use amongst men
      for whom both conservative and radical treatment could be appropriate options"]]
     #_[:div {:key 2 :style {:border-left  "3px solid #005FB1"
                             :padding-left "10px"}}
@@ -119,7 +119,7 @@
 
    [:section#about-page "About"
     [:section#who (copied "Who developed the Predict programme?")
-     [:p (copied "Predict:Prostate has been developed by a partnership between the Academic Urology Group and the Department of Cancer Epidemiology at the University of Cambridge
+     [:p (copied "Predict Prostate has been developed by a partnership between the Academic Urology Group and the Department of Cancer Epidemiology at the University of Cambridge
       in collaboration with the National Cancer Registration and Analysis Service (NCRAS) at Public Health England")]]
 
     [:section#how (copied "How was the computer programme developed?")
@@ -151,10 +151,10 @@
 
    [:section#whoisitfor "Who is it for?"
     [:section "Who is it for?"
-     [:p (edit "The tool applies to men with non-metastatic prostate cancer who are deciding between conservative and radical management regimes.")]
+     [:p (edit "The tool is intended for men with non-metastatic prostate cancer who are deciding between conservative and radical management regimes.")]
 
      [:p (edit "Predict only asks for certain information about the cancer. The inputs it asks for are the ones that are
-      helpful in predicting survival rates. ")]
+      most helpful in predicting survival rates. ")]
 
      [:p (copied "Nothing can ever tell an individual man what is going to happen to him – but we believe that in order to make
     decisions about treatment options it’s important that people are given as much information as is possible about the
@@ -166,14 +166,13 @@
 
    [:section#howpredictworks "How Predict works"
     [:section "How Predict works"
-     [:p "The estimates that Predict produces are based on scientific studies that have been conducted into how effective
-     prostate cancer treatments are."]
+     [:p "The estimates that Predict produces are based on observational data from thousands of men from England, UK."]
      [:p (edit "Predict has been tested to make sure that the estimates it produces are as accurate as they can be given current knowledge.")
       (copied "The maths behind the tool is based on data from thousands of men who have been diagnosed with prostate cancer in the recent past in England. These data are used to
     help produce the best assessment possible of the potential outcomes for men who have prostate cancer now, depending
     on characteristics about them and their tumour.")]
      [:p (edit "Although Predict produces good estimates, it cannot say whether an individual patient will survive their
-     cancer or not. It can only provide the average survival rate for people in the past of a similar age and with similar cancers. ")]
+     cancer or not. It can only provide the average survival rate for people in the past of similar age and with similar characteristics. ")]
      [:p (page-link [:about {:page :technical :section :technical}] "The technical section") " has more detail on how Predict was developed and tested."]
      (hr)
      ]]
@@ -182,8 +181,8 @@
    [:section#whobuiltpredict "Who built Predict?"
     [:section "Who built Predict?"
 
-     [:p (copied [:span "Predict:Prostate has been developed by a partnership between the " [:a {:href "https://surgery.medschl.cam.ac.uk/divisions-and-groups/academic-urology-group/" :style {:text-decoration "underline"}} "Academic Urology Group and the Department of Cancer Epidemiology at the University of Cambridge"] "
-     in collaboration with the National Cancer Registration and Analysis Service (NCRAS) at Public Health England. This work has been supported by funding from The Urology Foundation and The Evelyn Trust."])]
+     [:p (copied [:span "Predict Prostate has been developed by a partnership between the " [:a {:href "https://surgery.medschl.cam.ac.uk/divisions-and-groups/academic-urology-group/" :style {:text-decoration "underline"}} "Academic Urology Group and the Department of Cancer Epidemiology at the University of Cambridge"] "
+     in collaboration with the National Cancer Registration and Analysis Service (NCRAS) at Public Health England. This work has been supported by funding from " [:a {:href "https://www.theurologyfoundation.org/" :style {:text-decoration "underline"}} "The Urology Foundation"] " and the Evelyn Trust ])]
 
 
      [:p (copied "The website has been built by the ") [:a {:href "https://wintoncentre.maths.cam.ac.uk" :style {:text-decoration "underline"}} "Winton Centre for Risk & Evidence Communication"]
@@ -201,9 +200,9 @@
       [:li (page-link [:about {:page :technical :section :faqs}] "FAQs")]
       ]
 
-     [:p (edit "Predict is an online tool designed to help clinicians and patients decide between conservative and radical prostate cancer treatment regimes.")]
+     [:p (edit "Predict is an online tool designed to help clinicians and patients decide between initial conservative and radical prostate cancer management.")]
      [:p (edit "The model is easy to use: simply enter data for an individual patient including patient age, PSA, Clinical stage,
-     hospital admission history, histological grade group/Gleason scale, proportion of biopsy cores involved, and any comorbidity. It then
+     hospital admission history, histological grade group/Gleason score, proportion of biopsy cores involved, and any comorbidity. It then
      provides a choice of displays describing expected survival for the next 10 or 15 years.")]
      [:p "Click here to " (page-link [:legal {:page :algorithm} nil] "find out more about the algorithm.")]
      ]]
@@ -211,41 +210,35 @@
 
    [:section#history  "Development History"
     [:section "Development History"
-     [:p (edit "The original model (v1.0) was derived from cancer registry information on 5,694 women treated in East Anglia from 1999-2003.
-      They were followed until 31 December 2007 so that the median length of follow-up was 5.6 years and the maximum was 8 years
-      Breast cancer mortality models for ER positive and ER negative tumours were constructed using Cox proportional
-     hazards, adjusted for known prognostic factors and mode of detection (symptomatic versus screen-detected). The
-     survival estimates for an individual patient are based on the average co morbidity for women with breast cancer of
-     a similar age. Further information about v1.0 is provided in a paper published in ")
-      [:a {:href "http://breast-cancer-research.com/content/12/1/R1"} "Breast Cancer Research in January 2010."]]]
+     [:p (edit "The original model (v1.0) was derived from cancer registry information on 7,062 men treated in East Anglia from 2000-2010.
+      They were followed until 30 September 2016 so that the median length of follow-up was 9.8 years and the maximum was 16 years
+      Mortality models for prostate cancer-specific and non prostate cancer mortality were constructed using Cox proportional
+     hazards, adjusted for known prognostic factors. The overall survival estimates for an individual patient are based on both of these models.
+     Further information is provided from a previous abstract presented at the European Association of Urology conference 2018 ")
+      [:a {:href "https://www.eusupplements.europeanurology.com/article/S1569-9056(18)31764-0/fulltext"} "European Urology Supplements March 2018."]]]
     [:section "Model validation"
      [:p (edit "The clinical validity of a prediction model can be defined as the accuracy of the model to
      predict future events. The two key measures of clinical validity are calibration and discrimination.")]
      [:p (edit "Calibration is how well the model predicts the total number of events in a given data set. A perfectly
      calibrated model is one where the observed (or actual) number of events in a given patient cohort is the same as
      the number of events predicted by the model. Discrimination is how well the model predicts the occurrence of an
-     event in individual patients. The discrimination statistic is a number between zero and one. It is generally
-     obtained from the area under a receiver-operator characteristic (ROC) curve, which is a plot of the true positive rate (sensitivity) against
-      the false positive rate (probability of false alarm).")]
-     [:p (edit "Predict was originally validated using
-     a dataset of over 5000 breast cancer patients from the West Midlands Cancer Intelligence Unit also diagnosed during 1999-2003 and followed for a median of 4.8 years.")]
-     [:p (edit "We also validated Predict using a dataset from British Columbia that had been previously used for a validation
-     of Adjuvant! Online. The British Columbia dataset included women diagnosed with breast cancer 1989-2003 and followed for 10 years.
-      Predict v1.0 provided overall and breast cancer specific survival estimates that were at least as
-     accurate as estimates from Adjuvant! The results of this validation were published in the ")
-      [:a {:href "https://www.ejso.com/article/S0748-7983(11)00051-5/fulltext"} "European Journal of Surgical Oncology."]]]
+     event in individual patients. The discrimination statistic is a number between zero and one - where 1 means the model always predicts who will have
+     a worse outcome. A score of 0.5 would suggest the model will be correct half the time.")]
+     [:p (edit "Predict was originally validated using a dataset of another 3000 prostate cancer patients from the East Anglian 
+    data and a further 2546 men from a separate independent dataset from Hong Kong diagnosed between 1990 and 2015 and followed for 5.1 years.")]]
     [:section "Future version"
-     [:p (edit "?")]
+     [:p (edit "Future iterations of Predict Prostate will hopefully add more granularity to the parameter on biopsy characteristics. The model is currently undergoing tsting
+               in other international cohorts.")]
      ]]
 
    [:section#publications "Publications"
     [:section "Publications"
      [:a {:name "publications"}]
      [:ol
-      [:li  [:p (edit "PREDICT: a new UK prognostic model that predicts survival following surgery for invasive breast cancer. by
-      Wishart GC, Azzato EM, Greenberg DC, Rashbass J, Kearins O, Lawrence G, Caldas C, Pharoah PDP. Breast Cancer Res.
-      2010; 12(1): R1. Published online 2010 January 6. doi: 10.1186/bcr2464. PMCID: PMC2880419. ")
-             [:a {:href "http://breast-cancer-research.com/content/12/1/R1"} "[Full paper online]"]]]
+      [:li  [:p (edit "PREDICT: Prostate – a novel prognostic model that estimates individual survival in newly diagnosed primary non-metastatic prostate cancer 
+                      . by D Thurtle, D Greenberg, LS Lee, H Huang, P Pharoah, VJ Gnanapragasam. European Urology Supplements
+      2018; 17(2): e1328-e1329. Published online 2018 March. doi: 10.1016/S1569-9056(18)31764-0. ")
+             [:a {:href "https://www.eusupplements.europeanurology.com/article/S1569-9056(18)31764-0/fulltext"} "[Abstract online]"]]]
       ]
      ]]
 
