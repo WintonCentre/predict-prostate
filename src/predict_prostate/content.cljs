@@ -182,7 +182,7 @@
     [:section "Who built Predict?"
 
      [:p (copied [:span "Predict Prostate has been developed by a partnership between the " [:a {:href "https://surgery.medschl.cam.ac.uk/divisions-and-groups/academic-urology-group/" :style {:text-decoration "underline"}} "Academic Urology Group and the Department of Cancer Epidemiology at the University of Cambridge"] "
-     in collaboration with the National Cancer Registration and Analysis Service (NCRAS) at Public Health England. This work has been supported by funding from " [:a {:href "https://www.theurologyfoundation.org/" :style {:text-decoration "underline"}} "The Urology Foundation"] " and the Evelyn Trust ])]
+     in collaboration with the National Cancer Registration and Analysis Service (NCRAS) at Public Health England. This work has been supported by funding from " [:a {:href "https://www.theurologyfoundation.org/" :style {:text-decoration "underline"}} "The Urology Foundation"] " and the Evelyn Trust" ])]
 
 
      [:p (copied "The website has been built by the ") [:a {:href "https://wintoncentre.maths.cam.ac.uk" :style {:text-decoration "underline"}} "Winton Centre for Risk & Evidence Communication"]
