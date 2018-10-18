@@ -80,25 +80,47 @@
   []
   [:div {:style {:background-color "#D9EDF7" :padding 10}}
    [:h4 "Potentially permanent harms of"]
-   [:div {:style {:font-size 16}} (blob "b1" (:conservative treatment-fills) 5) " Conservative management"]
-   [:div {:style {:font-size 16}} (blob "b2" (:radical treatment-fills) 5) " Radical prostectomy"]
-   [:div {:style {:font-size 16}} (blob "b3" (:radiotherapy treatment-fills) 5) " Radiotherapy"]]
+   [:div {:style {:font-size 16}} (blob {:key "b1" :fill (:conservative treatment-fills) :r 5}) " Conservative management"]
+   [:div {:style {:font-size 16}} (blob {:key "b2" :fill (:radical treatment-fills) :r 5}) " Radical prostectomy"]
+   [:div {:style {:font-size 16}} (blob {:key "b3" :fill (:radiotherapy treatment-fills) :r 5}) " Radiotherapy"]]
   )
 
+(defn chunker
+  "divide n into chunks, returning number of full tens, remaining units, and empty tens after colouring p items"
+  [n chunk-size p]
+  (if (<= p n)
+    {:tens       (quot p chunk-size)
+     :units      (mod p chunk-size)
+     :tens-empty (quot (- n p) chunk-size)}
+    (js/alert "invalid (chunk " n p chunk-size ")")))
+
+(defn fifty-1 [p] (chunker 50 10 (if (> p 50) 50 p)))
+(defn fifty-2 [p] (chunker 50 10 (if (> p 50) (- p 50) 0)))
+
 (rum/defc sidefx-bar
-  [{:keys [fewer percent fill]}]
-  (let [tens (quot percent 10)
-        units (mod percent 10)
-        unfilled (- 100 percent)
-        tens-empty (quot unfilled 10)
+  [{:keys [fewer percent fill tallies?]}]
+  (let [f1 (fifty-1 percent)
+        f2 (fifty-2 percent)
+        hh (chunker 100 10 percent)
         r 4]
     [:.row
      [:.col-xs-12 {:key 1 :style {:font-size "120%" :font-weight "bold" :display "inline-block"}}
       [:span {:style {:width "100%" :text-align "right"}}] (if fewer "Less than ") percent "% "]
-     [:.col-xs-12
-      (map (fn [n] [:span {:key (str "t-" n)} (blob-10 fill r)]) (range tens))
-      (when (pos? units) (mixed-10 fill r units))
-      (map (fn [n] [:span {:key (str "0-" n)} (blob-10 "white" r)]) (range tens-empty))]
+     (if tallies?
+       [:.col-xs-12
+        [:div {:key 1 :style {:width 220 :display "inline-block"}}
+         (map (fn [n] [:span {:key (str "t-" n)} (blob-10 {:fill fill :r r :tally? true})]) (range (:tens f1)))
+         (when (pos? (:units f1)) (mixed-10 {:fill fill :r r :x (:units f1) :tally? true}))
+         (map (fn [n] [:span {:key (str "0-" n)} (blob-10 {:fill (if tallies? "#BBBBBB" "white") :r r :tally? true})]) (range (:tens-empty f1)))]
+        [:div {:key 2 :style {:width 220 :display "inline-block"}}
+         (map (fn [n] [:span {:key (str "t-" n)} (blob-10 {:fill fill :r r :tally? true})]) (range (:tens f2)))
+         (when (pos? (:units f2)) (mixed-10 {:fill fill :r r :x (:units f2) :tally? true}))
+         (map (fn [n] [:span {:key (str "0-" n)} (blob-10 {:fill (if tallies? "#BBBBBB" "white") :r r :tally? true})]) (range (:tens-empty f2)))]
+        ]
+       [:.col-xs-12
+        (map (fn [n] [:span {:key (str "t-" n)} (blob-10 {:fill fill :r r})]) (range (:tens hh)))
+        (when (pos? (:units hh)) (mixed-10 {:fill fill :r r :x (:units hh)}))
+        (map (fn [n] [:span {:key (str "0-" n)} (blob-10 {:fill "white" :r r})]) (range (:tens-empty hh)))])
      ]))
 
 (rum/defc fewer-helper
@@ -109,12 +131,12 @@
     [:b "fewer than " (if n [:span n " "] "")]]))
 
 (rum/defc sidefx-linear
-  [{:keys [treatment prefix n fewer]}]
+  [{:keys [treatment prefix n fewer tallies?]}]
   (let [quantity [:span (Math.round n) " in 100 "]]
     [:div
      [:span prefix (if fewer [:b quantity] quantity)]
      [:span "men have this issue after 3 years."]
-     (sidefx-bar {:fewer fewer :percent n :fill (treatment treatment-fills)})
+     (sidefx-bar {:fewer fewer :percent n :fill (treatment treatment-fills) :tallies? tallies?})
      [:br]
      ]))
 
@@ -127,47 +149,57 @@
                  (map-indexed #(rum/with-key %2 %1) content))))
 
 (rum/defc sidefx-discrete
-  []
+  [tallies?]
   [:div {:style {:border "1px solid black" :font-size 16}}
    (sidefx-header)
    (sidefx-content {:title "Erectile dysfunction" :sub-title "Erections insufficient for intercourse"}
                    (sidefx-linear {:treatment :conservative
                                    :prefix    [:span "With " [:b "conservative management"] ", about "]
-                                   :n         27})
+                                   :n         27
+                                   :tallies? tallies?})
                    (sidefx-linear {:treatment :radical
                                    :prefix    [:span "With " [:b "nerve-sparing radical prostatectomy"] ", about "]
-                                   :n         56})
+                                   :n         56
+                                   :tallies? tallies?})
                    (sidefx-linear {:treatment :radical
                                    :prefix    [:span "With " [:b "non-nerve-sparing radical prostatectomy"] ", about "]
-                                   :n         66})
+                                   :n         66
+                                   :tallies? tallies?})
                    (sidefx-linear {:treatment :radiotherapy
                                    :prefix    [:span "With " [:b "radiotherapy"] ", about "]
-                                   :n         39}))
+                                   :n         39
+                                   :tallies? tallies?}))
 
    (sidefx-content {:title "Incontinence" :sub-title "Wore one or more pads in the last 4 weeks"}
                    (sidefx-linear {:treatment :conservative
                                    :fewer     true
                                    :prefix    (fewer-helper [:span "With " [:b "conservative management"] ", "])
-                                   :n         1})
+                                   :n         1
+                                   :tallies? tallies?})
                    (sidefx-linear {:treatment :radical
                                    :prefix    [:span "With " [:b "radical prostatectomy"] ", about "]
-                                   :n         20})
+                                   :n         20
+                                   :tallies? tallies?})
                    (sidefx-linear {:treatment :radiotherapy
                                    :prefix    [:span "With " [:b "radiotherapy"] ", about "]
-                                   :n         3}))
+                                   :n         3
+                                   :tallies? tallies?}))
 
    (sidefx-content {:title "Bowel issues" :sub-title "Bloody stools about half the time or more frequently"}
                    (sidefx-linear {:treatment :conservative
                                    :prefix    (fewer-helper [:span "With " [:b "conservative management"] ", "])
                                    :fewer     true
-                                   :n         2})
+                                   :n         2
+                                   :tallies? tallies?})
                    (sidefx-linear {:treatment :radical
                                    :prefix    (fewer-helper [:span "With " [:b "radical prostatectomy"] ", "])
                                    :fewer     true
-                                   :n         2})
+                                   :n         2
+                                   :tallies? tallies?})
                    (sidefx-linear {:treatment :radiotherapy
                                    :prefix    [:span "With " [:b "radiotherapy"] ", about "]
-                                   :n         7}))
+                                   :n         7
+                                   :tallies? tallies?}))
    ]
   )
 
@@ -200,7 +232,8 @@
       [:.col-sm-12
        (condp = ph-style
          :table (sidefx-table)
-         :discrete (sidefx-discrete)
+         :discrete-blob (sidefx-discrete false)
+         :discrete-tally (sidefx-discrete true)
          :else (println "bad ph-style setting"))]
 
       [:.col-sm-12                                          ; {:style {:margin-top 20}}
