@@ -225,7 +225,8 @@
      event in individual patients. The discrimination statistic is a number between zero and one - where 1 means the model always predicts who will have
      a worse outcome. A score of 0.5 would suggest the model will be correct half the time.")]
      [:p (edit "Predict was originally validated using a dataset of another 3000 prostate cancer patients from the East Anglian 
-    data and a further 2546 men from a separate independent dataset from Hong Kong diagnosed between 1990 and 2015 and followed for 5.1 years.")]]
+    data and a further 2546 men from a separate independent dataset from Hong Kong diagnosed between 1990 and 2015 and followed for 5.1 years. Discrimination was 
+    in these two datasets was 0.84 for prostate cancer survival, and 0.77 and 0.76 for overall survival.")]]
     [:section "Future version"
      [:p (edit "Future iterations of Predict Prostate will hopefully add more granularity to the parameter on biopsy characteristics. The model is currently undergoing tsting
                in other international cohorts.")]
@@ -283,65 +284,51 @@
 
      (hr)
      (faq-item "What if I don’t have all the details needed for the input section?"
-               (edit "If you select 'Unknown' for an input, the Predict tool will use the average value. This will simply make the results less personalised."))
+               (edit "The model requires all of these details to be completed with the exception of number of biopsy cores involved. 
+                     If you select 'Unknown' for this, the Predict tool will use the average value. This will simply make the results less personalised. 
+                     All these details should be easily available to your prostate cancer specialist."))
      (hr)
      (faq-item "How do I know that Predict gives the right answers."
-               (edit "Predict estimates what would be expected to happen to women with similar characteristics based on past
-               data. The findings are based on women treated in the East of England but we have also tested that they
-               give the same results on nearly 5,500 women treated in the West Midlands and a large database of women
-               diagnosed under 40 in Nottingham. To the best of our knowledge
-               the Predict tool works equally well for all women in the UK. We have also tested Predict on over 3,000
-               women treated in British Columbia, Canada and a large group of women from the Netherlands. Other groups
-               have also validated Predict using patient groups from the Netherlands and Malaysia. Five scientific papers
-               describing the work have been reviewed by scientists and clinicians (see Publications for details).
-               But Predict can never say what will happen to an individual woman."))
+               (edit "Predict estimates what would be expected to happen to men with similar characteristics based on past
+               data. The findings are based on men diagnosed in the East of England but we have also tested the model 
+               on over 2,500 men diagnosed in Singapore. To the best of our knowledge the Predict tool should work equally well for most men in the UK. 
+               However, Predict can never say what will happen to an individual man."))
      (hr)
      (faq-item "If the data used is from patients decades ago won't the predictions it gives be out of date?"
-               (edit "These predictions are based on patients diagnosed between 1999 and 2004, and include follow-up for up to 15 years.
-               In order to carry out long term predictions older data have to be used.  It is possible that outcomes of these treatments will be different
-               in patients diagnosed today - the use of older data is likely to slightly overestimate the benefit
-               of treatment."))
+               (edit "These predictions are based on patients diagnosed between 2000 and 2010, and include follow-up for up to 16 years.
+               In order to carry out long term predictions older data have to be used.  It is possible that outcomes of cancers diagnosed today, and treatments used today 
+               will be different."))
      (hr)
      (faq-item "What use are these kinds of statistics when as a patient I will either be cured or not?"
-               (edit "Medical treatments don't work for everyone - whilst some people may get a huge benefit, others may get no benefit - only the harmful side effects.
-               This makes choosing whether to try a treatment a difficult and personal choice. For cancer, treatments may be able to delay
-               a cancer coming back or stop it coming back at all. From statistics, based on what has happened to people with similar cancers in the past
-               when they tried a treatment, Predict tries to give the 'best guess' at the sort of benefits that a treatment option might give a particular patient.
-               This can help inform a personal decision on whether to try it or not. Any potential benefits, though, should always be weighed against the possible harms of the side effects."))
-     (hr)
-     (faq-item "What about radiotherapy?"
-               (edit "For some women, radiotherapy is a potential treatment option. We plan to include
-               it in the next version of the model."))
+               (edit "Medical treatments don't work for everyone - whilst some people may get a huge benefit, others may get no benefit - only the harmful side effects of treatment.
+               Particularly in older men or men with other long-term conditions, the overall benefits of prostate cancer treatment can be very small.  This makes choosing whether 
+               or not to have radical treatment a difficult and personal choice.  
+               From statistics, based on what has happened to people with similar cancers in the past when they had treatment, Predict tries to give the 'best guess' at the sort of
+               benefits treatment might give a particular patient.  This can help inform a personal decision on whether to try it or not. Any potential benefits, should also be weighed 
+               against the possible harms of the side effects."))
 
      (hr)
      (faq-item "What about other treatments?"
-               (edit "Many new types of treatment for breast cancer are being researched.  However, we are not able to include new treatments
-               in Predict until large clinical trials have demonstrated the size of the benefit in breast cancer patients."))
+               (edit "Other types of treatment for prostate cancer are available, including those known as 'focal therapy'.  However, we do not have sufficient long-term data on these
+                     treatments and they should be considered experimental currently."))
 
-     #_(hr)
-     #_(faq-item "What about neo-adjuvant treatment?"
-               "Sometimes chemotherapy is advised before initial surgery ('neo-adjuvant' chemotherapy).  The current version of Predict is not designed to be used under these circumstances.")
-     #_(hr)
-     #_(faq-item "What about men with breast cancer?"
-               "Predict has only been designed and tested with data from women and should not be used to make predictions for men with breast cancer.")
      (hr)
      (faq-item "What about metastatic cancer?"
-               (edit "Predict is only relevant for women with early breast cancer. It does not make predictions for women whose breast cancer is already metastatic when diagnosed."))
+               (edit "Predict is not relevant for men with metastatic prostate cancer. It should only be used by men where either conservative management or radical 
+                     treatment (either surgery or radiotherapy) could both be appropriate options according to their doctor."))
      #_(hr)
-     #_(faq-item "What about DCIS or LCIS?"
-               "The calculations in Predict are only for women who have invasive breast cancer. These are not for use by women with DCIS (Ductal carcinoma in situ) or
-               LCIS (Lobular carcinoma in situ).")
+     #_(faq-item "What about HGPIN?"
+               "The calculations in Predict are only for men who have been diagnosed with primary prostate cancer. These are not for use by men with HGPIN (high grade prostatic intra-epithelial neoplasia).")
      (hr)
      (faq-item "Does Predict account for different types of surgery?"
-               (edit "Predict is designed to be used for helping make decisions about treatment after the initial surgery. There is not currently enough
-               data available to be able to take into account the effects of the different types of surgery on outcomes."))
+               (edit "No. Predict does not attempt to differentiate between surgery and radiotherapy, nor between different surgical techniques. Predict was built around data from men diagnosed between 2000 and 2010. During this time period, if men were treated by surgery it may have been by open, laparoscopic ('key-hole'), or 
+                     robotic prostatectomy. We are not able to account for differences in survival outcomes between these operative techniques. At the moment, there is no evidence that any of these 
+                     techniques leads to longer survival."))
      (hr)
      (faq-item "What about side effects?"
-               (edit "At the moment Predict only gives information about the benefits of each treatment, but every
-               treatment also has the potential to cause side effects and it is important to weigh these up when considering
-               treatment options. Charities such as Breast Cancer Care and Macmillan give good information on the side
-               effects of each treatment. We plan to
-               include an estimate of the likelihood of different side effects from each treatment in the next version of Predict."))
+               (edit "Information about potential treatment side effects, or harms, is on the 'Predict Tool page. These are not individualised to your personal details
+                     but are taken from the studies mentioned in the text. Charities such as Prostate Cancer UK and Macmillan give good information on the side
+               effects of each treatment."))
      (hr)
      (faq-item "Who developed the Predict programme?"
                (edit "Development of the model was a collaborative project between the Cambridge Breast Unit, University of
@@ -352,13 +339,12 @@
                [:a {:href "mailto:info@predict.nhs.uk."} "info@predict.nhs.uk."])
      (hr)
      (faq-item "How was the computer programme developed?"
-               [:span (edit "The team used information held by the Eastern Cancer Registry
-                 and Information Centre, now part of the
-                ") [:a {:href "http://www.ncin.org.uk/collecting_and_using_data/national_cancer_data_repository/" :style {:text-decoration "underline"}}
+               [:span (edit "The team used information held by the National Cancer Registration and Analysis Service, part of Public Health England.")
+                [:a {:href "http://www.ncin.org.uk/collecting_and_using_data/national_cancer_data_repository/" :style {:text-decoration "underline"}}
                                           "National Cancer Registration and Analysis Service"]
-                (edit " on nearly 5700 women treated for breast cancer between 1999 and 2003.
-                 Using this information they were able to see how individual factors affected survival at five years and
-                 ten years.")])
+                (edit " on over 7000 men diagnosed with prostate cancer between 2000 and 2010.
+                 Using this information they were able to see how individual factors affected survival at ten years and
+                 fifteen years.")])
      (hr)
      (faq-item "Who designed the website?"
                [:span "The website has been built by the "
@@ -368,9 +354,9 @@
                 [:a {:href "mailto:wintoncentre@maths.cam.ac.uk"} "wintoncentre@maths.cam.ac.uk"] "."])
 
      (hr)
-     (faq-item (edit "Where can I find more information on breast cancer?")
-               (edit "There is a great deal of information on breast cancer on the web. One of best and most reliable
-               sources is Cancer Research UK, along with those from Macmillan and Breast Cancer Care. Their information is written by experts, is up to date and in a style
+     (faq-item (edit "Where can I find more information on prostate cancer?")
+               (edit "There is a great deal of information on prostate cancer on the web. One of best and most reliable
+               sources is Cancer Research UK, along with those from Macmillan and Prostate Cancer UK. Their information is written by experts, is up to date and in a style
                that is easy to understand."))
      ]]
 
@@ -384,48 +370,28 @@
     [:p.screen-only {:key   0
                      :style {:margin "40px 20px 20px" :font-size "20px"}} "We recommend that patients use this tool in consultation with their
     doctor."]
-    [:p.print-only {:key 1} "Predict is a tool that helps show how breast cancer treatments after surgery might improve survival rates.
-    This print out shows what characteristics of the patient and the cancer were entered, and then how different treatments would be expected to improve survival
-    rates up to 15 years after diagnosis. This is based on data from similar women in the past. Treatments usually have side effects as well as benefits, and it is important to
-    consider these as well when making treatment choices. We recommend visiting the sites of charities such as Macmillan and Breast Cancer Now for details about side effects."]]
+    [:p.print-only {:key 1} "Predict is a tool that helps show what impact radical treatment might have on survival rates after prostate cancer diagnosis.
+    This print out shows what characteristics of the patient and the cancer were entered, and how different treatments would be expected to affect survival
+    rates up to 15 years after diagnosis. This is based on data from similar men in the past. Treatments often have side effects as well as benefits, and it is important to
+    consider these as well when making treatment choices. We recommend visiting the sites of charities such as Macmillan and Prostate Cancer UK for details about side effects."]]
 
    [:section#disclaimer "Disclaimer"
     [:section "Disclaimer"
-     [:p (edit "Predict uses an algorithm based on information from many thousands of women diagnosed in England and large randomised
-   controlled trials of different treatment options. However, it can only provide a 'best guess' of likely outcomes based on
+     [:p (edit "Predict uses an algorithm based on information from many thousands of men diagnosed in England. However, it can only provide a 'best guess' of likely outcomes based on
    current knowledge, and it can never provide an accurate prediction for an individual. Patients should always consult their
    own specialist, who will be able to discuss the results in a more personalised context.")]
-     [:p (edit "The theory behind the model has been subject to open academic peer review in ")
-      [:a {:href "http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2880419/?tool=pubmed"} "Breast Cancer Research"] ", the 
-     " [:a {:href "http://www.ncbi.nlm.nih.gov/pubmed/21371853"} "European Journal of Surgical Oncology"] ", the 
-     " [:a {:href "http://www.nature.com/bjc/journal/v107/n5/full/bjc2012338a.html"} "British Journal of Cancer "] "and 
-     " [:a {:href "http://bmccancer.biomedcentral.com/articles/10.1186/1471-2407-14-908"} "BMC Cancer."]
-      (edit " The model has been validated
-     on multiple independent breast cancer cohorts with over 23,000 women diagnosed with breast cancer from England,
-     the Netherlands, Canada and Malaysia with the results published in open academic peer review journals. Every
-     effort has been made to ensure that the data used are accurate, the statistical procedures sound and the computer
-     algorithm robust.")]]]
+     [:p (edit "The theory behind the model has been presented at international conferences. Publication in a peer-reviewed journal is awaited. ")]]]
 
    [:section#algorithm "Algorithm"
     [:section "Explanation of the Predict Algorithm"
 
 
-     [:p (edit "The model is based on a precise mathematical form for the cumulative hazard function: this specifies an
-      individual’s chance of dying in any period of time following surgery from breast cancer, assuming they do not
-      die of some other cause.  The model also contains a cumulative hazard function for dying of other causes,
-      assuming no deaths from breast cancer.  These two process are assumed to be independent and together comprise
-      a competing risks model, where the overall chance of being alive at a certain number of years following
-      surgery is given by the chance of neither of these two events having occurred.")]
+     [:p (edit "The model is based on precise mathematical formulae for the cumulative hazard functions of dying from prostate cancer, and 
+               dying from other causes. These two process cannot both occur - so the two models are adjusted for these 'competing risks' to provide overall 
+               chances of being alive at a certain number of years following diagnosis.")]
 
-     [:p (edit "Details of the form for the baseline cumulative hazards are given in the ")
+     [:p (edit "Further explanation is given in the ")
       [:a {:href (iref "/predict-mathematics.pdf")} [:i.fa.fa-file-pdf-o {:aria-hidden true}] " mathematical description"] "."]
-
-     [:p (edit "For deaths from breast cancer, Predict uses a proportional hazards model in which each risk factor and treatment
-      multiplies the baseline cumulative hazard by a fixed amount known as the hazard ratio or relative risk -
-      essentially the proportional change in annual mortality risk.  This means the cumulative hazard is the product
-      of three components: the baseline hazard (chances of dying from something other than breast cancer), the hazard ratios
-      for the risk factors (the increased risk of death due to breast cancer) and the hazard ratios for
-      the treatments (the decreased risk thanks to the treatments).")]
 
      [:h3 (edit "change tables")]
      [:.table-responsive
@@ -696,7 +662,7 @@
     [:section#histological-grade-group "Histological grade group"
      [:p "The reported grade group from the diagnostic prostate biopsies. This can be derived from the Gleason score."]]
 
-    [:section#gleason-scale "Gleason scale"
+    [:section#gleason-scale "Gleason score"
      [:p "The highest Gleason grade from the diagnostic prostate biopsies."]]
 
     [:section#biopsy "Biopsy"
@@ -705,7 +671,7 @@
       Any number of targeted cores from a new region should be considered as one biopsy. As per the latest AUA guidelines."]]
 
     [:section#h-admissions "Hospital admissions in the last 2 years"
-     [:p "This refers to any admission to hospital in the 2 years before prostate cancer diagnosis - anything related
+     [:p "This refers to any admission to hospital in the 2 years before the prostate cancer diagnosis - anything related
      to the prostate cancer diagnosis itself should be ignored."]]
 
     [:section#comorb "Comorbidity"
