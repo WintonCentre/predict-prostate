@@ -67,12 +67,12 @@
           ))
 
       (= key :ph-style)
-      (let [{:keys [ph-style]} (get-settings! {:ph-style :table})]
+      (let [{:keys [ph-style]} (get-settings! {:ph-style :discrete-tally})]
         (if (#{:table :discrete-bar :discrete-tally} ph-style)
           (reset! (input-cursor :ph-style) ph-style)
           (do
-            (put-settings! {:ph-style :table})
-            (reset! (input-cursor :ph-style) :table))
+            (put-settings! {:ph-style :discrete-tally})
+            (reset! (input-cursor :ph-style) :discrete-tally))
           ))
 
       :else
