@@ -15,7 +15,8 @@
             [predict-prostate.layout.header :refer [header footer]]
             [predict-prostate.results.util :refer [alison-blue-1 alison-blue-2 alison-blue-3 alison-blue-4 alison-blue-5]]
             [predict-prostate.state.mutations :refer [clear-inputs]]
-            [predict-prostate.state.run-time :refer [media-cursor
+            [predict-prostate.state.run-time :refer [input-cursor
+                                                     media-cursor
                                                      results-cursor
                                                      help-key-change help-key-cursor
                                                      settings-cursor
@@ -32,12 +33,12 @@
 ;;;
 
 #_(defstyle treatments-style
-  ["div" {:font-size "12px"}]
-  [".treatments-header"
-   {:background-color "#005fB1 !important"
-    :color            "white !important"
-    :font-size        "10px !important"}
-   ["form" {:border "1px solid red"}]])
+    ["div" {:font-size "12px"}]
+    [".treatments-header"
+     {:background-color "#005fB1 !important"
+      :color            "white !important"
+      :font-size        "10px !important"}
+     ["form" {:border "1px solid red"}]])
 
 (rum/defc titled-panel < rum/static [{:keys [title class body-class]} children]
   [:.panel.panel-default {:class (str "panel-default " body-class)}
@@ -52,11 +53,11 @@
    [:.panel-body children]])
 
 #_(rum/defc treatment-caveats []
-  [:#side-effect-warning.alert.alert-danger.clearfix {:role  "alert"
-                                                      :style {:font-size "18px"
-                                                              ;:margin-top "20px"
-                                                              }}
-   (all-subsections "tool-postamble")])
+    [:#side-effect-warning.alert.alert-danger.clearfix {:role  "alert"
+                                                        :style {:font-size "18px"
+                                                                ;:margin-top "20px"
+                                                                }}
+     (all-subsections "tool-postamble")])
 
 
 
@@ -74,25 +75,39 @@
          (simple/icon {:family :fa :style {:font-size 35 :padding-right 8}} "info-circle")
 
          " Treatment options and results will appear here when you have filled in all the information needed above."]]]]]
-    [:div
-     [:.row
-      [:.col-md-6.clearfix
-       [:h3 "Treatment Options"]
-       (treatments-options)
-       [:.hidden-xs.hidden-sm.clearfix
-        (print-button)
-        ]
-       [:div.alert.alert-info.screen-only {:style {:margin-top 20}}
-        [:p (simple/icon {:family :fa} "arrow-circle-down") " Scroll down for " [:b "Potential Harms of Treatment"]]]
-       ]
-      [:.col-md-6.screen-only
-       (results {:printable (= :print (rum/react media-cursor))})]
+    (if (= :discrete-tally (rum/react (input-cursor :ph-style)))
+      [:div
+       [:.row
+        [:.col-md-6.screen-only
+         [:h3 "Treatment Options"]
+         (treatments-options)
 
-      [:.col-md-12
-       [:h3 "Potential Harms of Treatment"]
-       (results-in-sidefx)]]
+         (results {:printable (= :print (rum/react media-cursor))})
+         [:.hidden-xs.hidden-sm.clearfix
+          (print-button)]
+         ]
 
-     ]))
+        [:.col-md-6.clearfix
+         [:h3 "Potential Harms of Treatment"]
+         (results-in-sidefx)]]]
+
+      [:div
+       [:.row
+        [:.col-md-6.clearfix
+         [:h3 "Treatment Options"]
+         (treatments-options)
+         [:.hidden-xs.hidden-sm.clearfix
+          (print-button)
+          ]
+         [:div.alert.alert-info.screen-only {:style {:margin-top 20}}
+          [:p (simple/icon {:family :fa} "arrow-circle-down") " Scroll down for " [:b "Potential Harms of Treatment"]]]
+         ]
+        [:.col-md-6.screen-only
+         (results {:printable (= :print (rum/react media-cursor))})]
+
+        [:.col-md-12
+         [:h3 "Potential Harms of Treatment"]
+         (results-in-sidefx)]]])))
 
 (rum/defc results-footer < rum/reactive []
   (when (rum/react results-cursor)
@@ -106,18 +121,18 @@
                      }}
 
       [:.col-md-6.col-md-offset-1
-         (all-subsections "tool-postamble")]
+       (all-subsections "tool-postamble")]
       [:.col-md-4.text-center {:style {:margin-top 20 :margin-bottom 20}}
-         #_[:img {:src "assets/faq-icon.png"}]
-         [:img {:src         "assets/faq-icon.png"
-                :alt         "faq icon"
-                :aria-hidden true}]
-         ;(simple/icon {:family :fa :style {:font-size 80 :color alison-blue-2}} "commenting-o")
-         [:h3 "Looking for advice?"]
-         [:button.btn.btn-primary.btn-lg
-          {:on-click #(publish route-change [:about {:page "faqs"} nil])}
-          "See the FAQs"]
-         ]]]))
+       #_[:img {:src "assets/faq-icon.png"}]
+       [:img {:src         "assets/faq-icon.png"
+              :alt         "faq icon"
+              :aria-hidden true}]
+       ;(simple/icon {:family :fa :style {:font-size 80 :color alison-blue-2}} "commenting-o")
+       [:h3 "Looking for advice?"]
+       [:button.btn.btn-primary.btn-lg
+        {:on-click #(publish route-change [:about {:page "faqs"} nil])}
+        "See the FAQs"]
+       ]]]))
 
 
 (rum/defc tool < rum/reactive []

@@ -203,7 +203,35 @@
    ]
   )
 
+(rum/defc sidefx-more-info
+  []
+  [:.col-sm-12                                          ; {:style {:margin-top 20}}
+   [:h4 "More Information"]
+   [:p "The following websites provide excellent advice and information on treatments and their potential harms:"]
+   [:h5 "About treatments:"]
+   [:ul {:style {:list-style-type "none"}}
+    [:li {:key 1}
+     [:a {:href "http://www.cancerresearchuk.org/about-cancer/prostate-cancer/treatment" :target "blank"} "Cancer research UK"]]
+    [:li {:key 2}
+     [:a {:href "https://www.nhs.uk/conditions/prostate-cancer/treatment/" :target "blank"} "NHS"]]]
 
+
+   [:h5 "About potential harms:"]
+   [:ul {:style {:list-style-type "none"}}
+    [:li {:key 3}
+     [:a {:href "https://www.nhs.uk/conditions/prostate-cancer/treatment/#radical-prostatectomy" :target "blank"} "Radical prostatectomy"]]
+    [:li {:key 4}
+     [:a {:href "https://www.nhs.uk/conditions/prostate-cancer/treatment/#radiotherapy" :target "blank"} "Radiotherapy"]]
+    ]
+   [:h5 "Further advice and support:"]
+   [:ul {:style {:list-style-type "none"}}
+    [:li {:key 1}
+     [:a {:href "http://www.macmillan.org.uk/" :target "blank"} "Macmillan"]]
+    [:li {:key 2}
+     [:a {:href "http://prostatecanceruk.org/" :target "_blank"} "Prostate Cancer UK"]]
+    [:li {:key 3}
+     [:a {:href "https://www.nhs.uk/pages/home.aspx" :target "_blank"} "NHS Choices"]]
+    ]])
 
 (rum/defc results-in-sidefx < rum/static rum/reactive []
   (let [ph-style (rum/react (input-cursor :ph-style))]
@@ -236,33 +264,8 @@
          :discrete-tally (sidefx-discrete true)
          :else (println "bad ph-style setting"))]
 
-      [:.col-sm-12                                          ; {:style {:margin-top 20}}
-       [:h4 "More Information"]
-       [:p "The following websites provide excellent advice and information on treatments and their potential harms:"]
-       [:h5 "About treatments:"]
-       [:ul {:style {:list-style-type "none"}}
-        [:li {:key 1}
-         [:a {:href "http://www.cancerresearchuk.org/about-cancer/prostate-cancer/treatment" :target "blank"} "Cancer research UK"]]
-        [:li {:key 2}
-         [:a {:href "https://www.nhs.uk/conditions/prostate-cancer/treatment/" :target "blank"} "NHS"]]]
+      (sidefx-more-info)
 
-
-       [:h5 "About potential harms:"]
-       [:ul {:style {:list-style-type "none"}}
-        [:li {:key 3}
-         [:a {:href "https://www.nhs.uk/conditions/prostate-cancer/treatment/#radical-prostatectomy" :target "blank"} "Radical prostatectomy"]]
-        [:li {:key 4}
-         [:a {:href "https://www.nhs.uk/conditions/prostate-cancer/treatment/#radiotherapy" :target "blank"} "Radiotherapy"]]
-        ]
-       [:h5 "Further advice and support:"]
-       [:ul {:style {:list-style-type "none"}}
-        [:li {:key 1}
-         [:a {:href "http://www.macmillan.org.uk/" :target "blank"} "Macmillan"]]
-        [:li {:key 2}
-         [:a {:href "http://prostatecanceruk.org/" :target "_blank"} "Prostate Cancer UK"]]
-        [:li {:key 3}
-         [:a {:href "https://www.nhs.uk/pages/home.aspx" :target "_blank"} "NHS Choices"]]
-        ]]
       ]])
   )
 
