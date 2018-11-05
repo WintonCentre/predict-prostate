@@ -23,39 +23,6 @@
       (when extras [:div {:key 2} extras])]]
     ))
 
-
-#_(rum/defc home < rum/static []
-
-    [:.container
-     [:.row
-      [:.col-sm-12
-       (header)
-
-       [:.row {:style {:margin-top "20px"}}
-        [:.col-sm-12
-         [:.row
-          [:.col-sm-5
-           (rum/with-key (block {:section-id "home-what-is"}) 1)
-           (rum/with-key (block {:section-id "home-what-tell"}) 2)
-           (rum/with-key (block {:section-id "home-how-use"
-                                 :extras     [:button.btn.btn-primary.btn-lg.pull-right {:style    {:margin-right  "5px"
-                                                                                                    :margin-bottom "5px"}
-                                                                                         :on-click #(publish route-change [:tool nil nil])}
-
-
-                                              (icon {:family :ionicon} "ion-stats-bars") " Predict Tool"]}) 3)]
-
-
-          [:.col-xs-12.col-sm-7 {:style {:border "1px none #CCCCCC" :border-radius "10px" :padding "15px" :margin-left "-15px" :padding-top "50px"}}
-           [:row
-            [:.col-xs-12
-             [:img.img-responsive {:src "assets/home-example-screens.png"}]]
-            [:.col-xs-12.text-center {:style {:color "#005EB4" :padding-top "10px" :font-size "14px"}} "Example outputs"]]
-           ]]
-         ]]
-
-       (footer)]]])
-
 (rum/defc home < rum/static []
 
   [:.container-fluid
@@ -88,7 +55,7 @@
         [:img.img-responsive {:src         "assets/icon-imagery.png"
                               :alt         "banner imagery"
                               :aria-hidden true
-                              :style       {:margin-left "5%" :width "90%"}}]]]]]]
+                              :style       {:width "90%"}}]]]]]]
    [:.row {:style {:margin "0px -30px 15px"}}
     [::.col-sm-10.col-sm-offset-1
      [:.row
