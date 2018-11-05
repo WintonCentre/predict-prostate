@@ -332,12 +332,8 @@
                effects of each treatment.")
      (hr)
      (faq-item "Who developed the Predict programme?"
-               "Development of the model was a collaborative project between the Cambridge Breast Unit, University of
-                Cambridge Department of Oncology and the Eastern Cancer Information and Registration Centre (ECRIC) and was
-                supported by an unrestricted educational grant from Pfizer Limited.
-                They welcome any feedback you may have about Predict. If you have questions about its development or there are
-                features you would like to have added to the model please let them know by emailing "
-               [:a {:href "mailto:info@predict.nhs.uk."} "info@predict.nhs.uk."])
+               "Predict Prostate has been developed by a partnership between the Academic Urology Group and the Department of Cancer Epidemiology at the University of Cambridge
+      in collaboration with the National Cancer Registration and Analysis Service (NCRAS) at Public Health England")
      (hr)
      (faq-item "How was the computer programme developed?"
                [:span "The team used information held by the National Cancer Registration and Analysis Service, part of Public Health England."
