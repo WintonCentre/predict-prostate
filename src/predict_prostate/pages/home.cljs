@@ -23,39 +23,45 @@
       (when extras [:div {:key 2} extras])]]
     ))
 
+(rum/defc home-header
+  []
+  [:#main-content.row {:tab-index -1
+                       :style     {:margin-left  -30
+                                   :margin-right -30}}
+   [:.col-xs-12
+    [:div {:style {:position         "relative"
+                   :width            "100%"
+                   :background-color alison-blue-1
+                   }}
+     [:div {:style {:position   "absolute"
+                    :width      "100%"
+                    :top        0
+                    :bottom     "20%"
+                    :opacity    0.25
+                    :background "linear-gradient(rgba(255,255,255,0), #fff)"
+                    }}]
+     [:.row
+      [:.col-sm-5.col-sm-offset-1
+       [:h1.alison-blue-2 #_{:style {:margin "15px" :margin-top 30}} "What is Predict?"]
+       (let [[title [el1 _ p1] [el2 _ p2]] (section "home-what-is")]
+         [:div
+          [el1 {:style {:font-size 20 :margin-left 15}} p1]
+          [el2 {:style {:font-size 14 :margin-left 15}} p2]])
+       (start-button)
+       ]
+      [:.col-sm-6
+       [:img.img-responsive {:src         "assets/icon-imagery.png"
+                             :alt         "banner imagery"
+                             :aria-hidden true
+                             :style       {:width "90%"}}]]]]]])
+
 (rum/defc home < rum/static []
 
   [:.container-fluid
    (header)
-   [:#main-content.row {:tab-index -1
-                        :style     {:margin-left  -30
-                                    :margin-right -30}}
-    [:.col-xs-12
-     [:div {:style {:position         "relative"
-                    :width            "100%"
-                    :background-color alison-blue-1
-                    }}
-      [:div {:style {:position   "absolute"
-                     :width      "100%"
-                     :top        0
-                     :bottom     "20%"
-                     :opacity    0.25
-                     :background "linear-gradient(rgba(255,255,255,0), #fff)"
-                     }}]
-      [:.row
-       [:.col-sm-5.col-sm-offset-1
-        [:h1.alison-blue-2 {:style {:margin "15px" :margin-top 30}} "What is Predict?"]
-        (let [[title [el1 _ p1] [el2 _ p2]] (section "home-what-is")]
-          [:div
-           [el1 {:style {:font-size 20 :margin-left 15}} p1]
-           [el2 {:style {:font-size 14 :margin-left 15}} p2]])
-        (start-button)
-        ]
-       [:.col-sm-6
-        [:img.img-responsive {:src         "assets/icon-imagery.png"
-                              :alt         "banner imagery"
-                              :aria-hidden true
-                              :style       {:width "90%"}}]]]]]]
+   (home-header)
+
+
    [:.row {:style {:margin "0px -30px 15px"}}
     [::.col-sm-10.col-sm-offset-1
      [:.row

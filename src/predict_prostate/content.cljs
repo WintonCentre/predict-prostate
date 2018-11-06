@@ -209,7 +209,7 @@
      ]]
 
 
-   [:section#history  "Development History"
+   [:section#history "Development History"
     [:section "Development History"
      [:p "The original model (v1.0) was derived from cancer registry information on 7,062 men treated in East Anglia from 2000-2010.
       They were followed until 30 September 2016 so that the median length of follow-up was 9.8 years and the maximum was 16 years
@@ -237,10 +237,10 @@
     [:section "Publications"
      [:a {:name "publications"}]
      [:ol
-      [:li  [:p "PREDICT: Prostate – a novel prognostic model that estimates individual survival in newly diagnosed primary non-metastatic prostate cancer
+      [:li [:p "PREDICT: Prostate – a novel prognostic model that estimates individual survival in newly diagnosed primary non-metastatic prostate cancer
                       . by D Thurtle, D Greenberg, LS Lee, H Huang, P Pharoah, VJ Gnanapragasam. European Urology Supplements
       2018; 17(2): e1328-e1329. Published online 2018 March. doi: 10.1016/S1569-9056(18)31764-0. "
-             [:a {:href "https://www.eusupplements.europeanurology.com/article/S1569-9056(18)31764-0/fulltext"} "[Abstract online]"]]]
+            [:a {:href "https://www.eusupplements.europeanurology.com/article/S1569-9056(18)31764-0/fulltext"} "[Abstract online]"]]]
       ]
      ]]
 
@@ -248,7 +248,7 @@
     [:section "FAQs"
 
      (faq-item "Looking for advice?"
-               [:.col-sm-12                                            ; {:style {:margin-top 20}}
+               [:.col-sm-12                                 ; {:style {:margin-top 20}}
                 [:h3 "More Information"]
                 [:p "The following websites provide excellent advice and information on treatments and their potential harms:"]
                 [:h4 "About treatments:"]
@@ -278,7 +278,6 @@
                  [:li {:key 3}
                   [:a {:href "https://www.nhs.uk/pages/home.aspx" :target "_blank"} "NHS Choices"]]
                  ]]
-
 
                )
 
@@ -319,7 +318,7 @@
                      treatment (either surgery or radiotherapy) could both be appropriate options according to their doctor.")
      #_(hr)
      #_(faq-item "What about HGPIN?"
-               "The calculations in Predict are only for men who have been diagnosed with primary prostate cancer. These are not for use by men with HGPIN (high grade prostatic intra-epithelial neoplasia).")
+                 "The calculations in Predict are only for men who have been diagnosed with primary prostate cancer. These are not for use by men with HGPIN (high grade prostatic intra-epithelial neoplasia).")
      (hr)
      (faq-item "Does Predict account for different types of surgery?"
                "No. Predict does not attempt to differentiate between surgery and radiotherapy, nor between different surgical techniques. Predict was built around data from men diagnosed between 2000 and 2010. During this time period, if men were treated by surgery it may have been by open, laparoscopic ('key-hole'), or
@@ -338,7 +337,7 @@
      (faq-item "How was the computer programme developed?"
                [:span "The team used information held by the National Cancer Registration and Analysis Service, part of Public Health England."
                 [:a {:href "http://www.ncin.org.uk/collecting_and_using_data/national_cancer_data_repository/" :style {:text-decoration "underline"}}
-                                          "National Cancer Registration and Analysis Service"]
+                 "National Cancer Registration and Analysis Service"]
                 " on over 7000 men diagnosed with prostate cancer between 2000 and 2010.
                  Using this information they were able to see how individual factors affected survival at ten years and
                  fifteen years."])
@@ -383,14 +382,13 @@
     [:section "Explanation of the Predict Algorithm"
 
 
-     [:p (edit "The model is based on precise mathematical formulae for the cumulative hazard functions of dying from prostate cancer, and 
+     [:p "The model is based on precise mathematical formulae for the cumulative hazard functions of dying from prostate cancer, and
                dying from other causes. These two process cannot both occur - so the two models are adjusted for these 'competing risks' to provide overall 
-               chances of being alive at a certain number of years following diagnosis.")]
+               chances of being alive at a certain number of years following diagnosis."]
 
-     [:p (edit "Further explanation is given in the ")
+     [:p "Further explanation is given in the "
       [:a {:href (iref "/predict-mathematics.pdf")} [:i.fa.fa-file-pdf-o {:aria-hidden true}] " mathematical description"] "."]
 
-     [:h3 (edit "")]
      [:.table-responsive
       [:table.table.table-bordered {:style {:max-width 600}}
        [:caption "Table 1: Risk-factor coefficients for Prostate Cancer-Specific Mortality (numbers rounded for table)"]
@@ -407,17 +405,17 @@
          [:td "+ 0.186*(ln (" [:i "PSA"] "+1/100)) +1.636"]]
         [:tr
          [:th "Grade group"]
-         [:td "+ 0.28 if " [:i "grade group"]" = 2" [:br] "+0.55 if " [:i "grade group"] " = 3" [:br] "+0.74 if " [:i "grade group"] " = 4 " [:br] "+1.37 if " [:i "grade group"] " = 5"  ]
+         [:td "+ 0.28 if " [:i "grade group"] " = 2" [:br] "+0.55 if " [:i "grade group"] " = 3" [:br] "+0.74 if " [:i "grade group"] " = 4 " [:br] "+1.37 if " [:i "grade group"] " = 5"]]
         [:tr
          [:th "T stage"]
          [:td "+0.16 if " [:i "t stage"] " = 2" [:br] "+0.40 if " [:i "t stage"] " = 3" [:br] "+0.63 if " [:i "t stage"] " = 4"]]
         [:tr
          [:th "Proportion of Positive Cores (PPC)"]
          [:td "-0.62  if " [:i "PPC"] " = <50%" [:br] "+0.58 if " [:i "PPC"] "= 50% or greater"]]
-     [:tr
+        [:tr
          [:th "Primary treatment"]
-         [:td "-0.68  if " [:i "Primary treatment"] " = radical treatment" ]
-        ]]]
+         [:td "-0.68  if " [:i "Primary treatment"] " = radical treatment"]
+         ]]]]
 
      [:.table-responsive
       [:table.table.table-bordered {:style {:max-width 600}}
@@ -432,13 +430,13 @@
          [:td "0.12*(" [:i "age"] " - 69.87)"]]
         [:tr
          [:th "Comorbidity"]
-         [:td "+ 0.64 if " [:i "Charlson comorbidity is 1 or more and a hospital admission in the prior 2 years"] ]]
-        ]]]
+         [:td "+ 0.64 if " [:i "Charlson comorbidity is 1 or more and a hospital admission in the prior 2 years"]]]
+        ]]]]
 
-     ]
+
 
     [:section "Implementation of the Algorithm"
-     [:p (edit "The model used to drive this tool is a clojurescript implementation of the 'PREDICT Prostate' model written in Stata 14. ") ]]
+     [:p "The model used to drive this tool is a clojurescript implementation of the 'PREDICT Prostate' model written in Stata 14. "]]]
 
    [:section#privacy "Privacy"
     [:section "Site Privacy"
@@ -630,7 +628,7 @@
      [:p "This tool is useful in helping to decide on additional therapies after any surgery has taken place"]]
 
     [:section#regime "Treatment Regime"
-     [:p "Conservative management refers to monitoring or observing the disease, without any active treatment. 
+     [:p "Conservative management refers to monitoring or observing the disease, without any active treatment.
       In modern practice this is often referred to as 'active surveillance' which may involve more intensive monitoring. 
       Radical treatment here refers to radical prostatectomy (surgery) or radical radiotherapy"]]
 
@@ -660,8 +658,6 @@
 
     [:section#show-ranges "Show ranges"
      [:p "The default values are the best estimate of the benefit. When you click on show ranges, a 95% prediction
-     interval is added to the table. The true value of the benefit is very unlikely be outside this range"]]
-
-    ]]
+     interval is added to the table. The true value of the benefit is very unlikely be outside this range"]]]]
 
   )
