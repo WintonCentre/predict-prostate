@@ -81,7 +81,7 @@
   [:div {:style {:background-color "#D9EDF7" :padding 10}}
    [:h4 "Potentially permanent harms of"]
    [:div {:style {:font-size 16}} (blob {:key "b1" :fill (:conservative treatment-fills) :r 5}) " Conservative management"]
-   [:div {:style {:font-size 16}} (blob {:key "b2" :fill (:radical treatment-fills) :r 5}) " Radical prostectomy"]
+   [:div {:style {:font-size 16}} (blob {:key "b2" :fill (:radical treatment-fills) :r 5}) " Radical prostatectomy"]
    [:div {:style {:font-size 16}} (blob {:key "b3" :fill (:radiotherapy treatment-fills) :r 5}) " Radiotherapy"]]
   )
 
@@ -152,7 +152,7 @@
   [tallies?]
   [:div {:style {:border "1px solid black" :font-size 16}}
    (sidefx-header)
-   (sidefx-content {:title "Erectile dysfunction" :sub-title "Erections insufficient for intercourse"}
+   (sidefx-content {:title "Erectile dysfunction" :sub-title "Defined as: 'Erections insufficient for intercourse' "}
                    (sidefx-linear {:treatment :conservative
                                    :prefix    [:span "With " [:b "conservative management"] ", about "]
                                    :n         27
@@ -170,7 +170,7 @@
                                    :n         39
                                    :tallies? tallies?}))
 
-   (sidefx-content {:title "Incontinence" :sub-title "Wore one or more pads in the last 4 weeks"}
+   (sidefx-content {:title "Incontinence" :sub-title "Defined as: 'Wore one or more pads in the last 4 weeks' "}
                    (sidefx-linear {:treatment :conservative
                                    :fewer     true
                                    :prefix    (fewer-helper [:span "With " [:b "conservative management"] ", "])
@@ -185,7 +185,7 @@
                                    :n         3
                                    :tallies? tallies?}))
 
-   (sidefx-content {:title "Bowel issues" :sub-title "Bloody stools about half the time or more frequently"}
+   (sidefx-content {:title "Bowel issues" :sub-title "Defined as: 'Bloody stools about half the time or more frequently' "}
                    (sidefx-linear {:treatment :conservative
                                    :prefix    (fewer-helper [:span "With " [:b "conservative management"] ", "])
                                    :fewer     true
