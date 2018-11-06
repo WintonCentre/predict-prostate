@@ -390,110 +390,55 @@
      [:p (edit "Further explanation is given in the ")
       [:a {:href (iref "/predict-mathematics.pdf")} [:i.fa.fa-file-pdf-o {:aria-hidden true}] " mathematical description"] "."]
 
-     [:h3 (edit "change tables")]
+     [:h3 (edit "")]
      [:.table-responsive
       [:table.table.table-bordered {:style {:max-width 600}}
-       [:caption "Table 1: Risk-factor coefficients for Breast Cancer mortality in ER+ patients (numbers rounded for table)"]
+       [:caption "Table 1: Risk-factor coefficients for Prostate Cancer-Specific Mortality (numbers rounded for table)"]
        [:thead
         [:tr
          [:th "Risk Factor"]
          [:th "Logarithm of multiplier of baseline hazard"]]]
        [:tbody
         [:tr
-         [:th "Age at surgery (years)"]
-         [:td "34.5((" [:i "age"] "/10)" [:sup "-2"] " -0.0288)   - 34.2((" [:i "age"] "/10)" [:sup "-2"] "ln(" [:i "age"] "/10) - .051)"]]
+         [:th "Age at diagnosis (years)"]
+         [:td "0.003*((" [:i "age"] "/10)" [:sup "3"] " -341.16) "]]
         [:tr
-         [:th "Size of tumour (mm)"]
-         [:td "+ 0.75 (ln (" [:i "size"] "/100)  +1.55)"]]
+         [:th "PSA at diagnosis (ng/ml)"]
+         [:td "+ 0.186*(ln (" [:i "PSA"] "+1/100)) +1.636"]]
         [:tr
-         [:th "Number of nodes"]
-         [:td "+ 0.71 (ln((" [:i "nodes"] "+1)/10)   +1.39)"]]
+         [:th "Grade group"]
+         [:td "+ 0.28 if " [:i "grade group"]" = 2" [:br] "+0.55 if " [:i "grade group"] " = 3" [:br] "+0.74 if " [:i "grade group"] " = 4 " [:br] "+1.37 if " [:i "grade group"] " = 5"  ]
         [:tr
-         [:th "Grade (1,2,3)"]
-         [:td "+ 0.75 " [:i "grade"]]]
+         [:th "T stage"]
+         [:td "+0.16 if " [:i "t stage"] " = 2" [:br] "+0.40 if " [:i "t stage"] " = 3" [:br] "+0.63 if " [:i "t stage"] " = 4"]]
         [:tr
-         [:th "Screen detected (0,1)"]
-         [:td "- 0.228"]]
-        [:tr
-         [:th "Her2 (0,1)"]
-         [:td "-0.076 if " [:i "her2"] " = 0" [:br] "0.241 if " [:i "her2"] " = 1"]]
-        [:tr
-         [:th "Ki67 (0,1)"]
-         [:td "-0.113  if " [:i "ki67"] " = 0" [:br] "0.149 if " [:i "ki67"] " = 1"]]
+         [:th "Proportion of Positive Cores (PPC)"]
+         [:td "-0.62  if " [:i "PPC"] " = <50%" [:br] "+0.58 if " [:i "PPC"] "= 50% or greater"]]
+     [:tr
+         [:th "Primary treatment"]
+         [:td "-0.68  if " [:i "Primary treatment"] " = radical treatment" ]
         ]]]
 
      [:.table-responsive
       [:table.table.table-bordered {:style {:max-width 600}}
-       [:caption "Table 2: Risk-factor coefficients for Breast Cancer mortality in ER- patients (numbers rounded for table)"]
+       [:caption "Table 2: Risk-factor coefficients for Non Prostate Cancer Mortality (numbers rounded for table)"]
        [:thead
         [:tr
          [:th "Risk Factor"]
          [:th "Logarithm of multiplier of baseline hazard"]]]
        [:tbody
         [:tr
-         [:th "Age at surgery (years)"]
-         [:td "0.0089 (" [:i "age"] " - 56.3)"]]
+         [:th "Age at diagnosis (years)"]
+         [:td "0.12*(" [:i "age"] " - 69.87)"]]
         [:tr
-         [:th "Size of tumour (mm)"]
-         [:td "+ 2.09(√(" [:i "size"] "/100) -0.509)"]]
-        [:tr
-         [:th "Number of nodes"]
-         [:td "+ .626  (ln((" [:i "nodes"] " + 1)/10) + 1.09)"]]
-        [:tr
-         [:th "Grade (1,2,3)"]
-         [:td "+ 1.13    if " [:i "grade"] " = 2 or 3"]]
-        [:tr
-         [:th "Her2 (0,1)"]
-         [:td "-0.076 if " [:i "her2"] " = 0" [:br] "0.241 if " [:i "her2"] " = 1"]]
+         [:th "Comorbidity"]
+         [:td "+ 0.64 if " [:i "Charlson comorbidity is 1 or more and a hospital admission in the prior 2 years"] ]]
         ]]]
 
-     [:.table-responsive
-      [:table.table.table-bordered {:style {:max-width 600}}
-       [:caption "Table 3: Treatment Risk-factor coefficients"]
-       [:thead
-        [:tr
-         [:th "Treatment"]
-         [:th "log(" [:i "RR"] ")"]
-         [:th "approx" [:br] "se of" [:br] "log(" [:i "RR"] ")"]
-         [:th "Hazard ratio" [:br] "Relative risk"]
-         [:th "Source"]]
-        ]
-       [:tbody
-        [:tr
-         [:th "hormone therapy up to 10 years (if ER+)  "]
-         [:td "-0.386"]
-         [:td "0.08"]
-         [:td "0.68"]
-         [:td "Early Breast Cancer Trialists' Collaborative Group (2011) p777"]]
-        [:tr
-         [:th "trastuzumab (if HER2+)"]
-         [:td "-0.357"]
-         [:td "0.08"]
-         [:td "0.70"]
-         [:td "unpublished meta-analysis of 4 large randomised trials"]]
-        [:tr
-         [:th "Bisphosphonates (if post-menopausal)"]
-         [:td "-0.198"]
-         [:td "0.06"]
-         [:td "0.82"]
-         [:td "Early Breast Cancer Trialists' Collaborative Group (2015)"]]
-        [:tr
-         [:th "2" [:sup "nd"] " gen chemotherapy"]
-         [:td "-0.248"]
-         [:td "0.12"]
-         [:td "0.78"]
-         [:td "Early Breast Cancer Trialists' Collaborative Group (2012)"]]
-        [:tr
-         [:th "3" [:sup "rd"] " gen chemotherapy   "]
-         [:td "-0.446"]
-         [:td "0.13"]
-         [:td "0.64"]
-         [:td "Early Breast Cancer Trialists' Collaborative Group (2012)"]]
-        ]]]
      ]
 
     [:section "Implementation of the Algorithm"
-     [:p (edit "The model used to drive this tool is a clojurescript implementation of the Predictv2.1 model written in R maintained by Professor Paul Pharoah. The full implementation is available in a collection of ") [:a {:href "https://github.com/WintonCentre/predict-v21-main"} " open source repositories on GitHub."]]]]
+     [:p (edit "The model used to drive this tool is a clojurescript implementation of the 'PREDICT Prostate' model written in Stata 14. ") ]]
 
    [:section#privacy "Privacy"
     [:section "Site Privacy"
