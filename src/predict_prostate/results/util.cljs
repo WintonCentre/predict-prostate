@@ -34,7 +34,7 @@
   [hex]
   (apply fill-data-url (hexToRgb hex)))
 
-(def dashed-stroke "#FA0")
+(def dashed-stroke "#F40")
 
 ;;
 ;; Colour scale designed in chroma.js, then heavily modified!
@@ -72,9 +72,13 @@
            :radical radical-below
            :conservative conservative-fill}})
 
-(def fills ["#ffffff"
+(def fills* ["#ffffff"
             "#00afef"
             "#0000aa"])
+
+(def fills ["#ffffff"
+            "#99ffff"
+            "#33bbee"])
 
 (comment
   (def f1 #js [136 221 255])                                ;"#88ddff"

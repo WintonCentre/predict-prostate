@@ -72,7 +72,7 @@
    ])
 
 (def treatment-fills
-  {:conservative "#1500AA"
+  {:conservative "#3399ee"                                  ;"#1500AA"
    :radical      "#3DAFEF"
    :radiotherapy "#CC5CA4"})
 
@@ -156,56 +156,56 @@
                    (sidefx-linear {:treatment :conservative
                                    :prefix    [:span "With " [:b "conservative management"] ", about "]
                                    :n         27
-                                   :tallies? tallies?})
+                                   :tallies?  tallies?})
                    (sidefx-linear {:treatment :radical
                                    :prefix    [:span "With " [:b "nerve-sparing radical prostatectomy"] ", about "]
                                    :n         56
-                                   :tallies? tallies?})
+                                   :tallies?  tallies?})
                    (sidefx-linear {:treatment :radical
                                    :prefix    [:span "With " [:b "non-nerve-sparing radical prostatectomy"] ", about "]
                                    :n         66
-                                   :tallies? tallies?})
+                                   :tallies?  tallies?})
                    (sidefx-linear {:treatment :radiotherapy
                                    :prefix    [:span "With " [:b "radiotherapy"] ", about "]
                                    :n         39
-                                   :tallies? tallies?}))
+                                   :tallies?  tallies?}))
 
    (sidefx-content {:title "Incontinence" :sub-title "Defined as: 'Wore one or more pads in the last 4 weeks' "}
                    (sidefx-linear {:treatment :conservative
                                    :fewer     true
                                    :prefix    (fewer-helper [:span "With " [:b "conservative management"] ", "])
                                    :n         1
-                                   :tallies? tallies?})
+                                   :tallies?  tallies?})
                    (sidefx-linear {:treatment :radical
                                    :prefix    [:span "With " [:b "radical prostatectomy"] ", about "]
                                    :n         20
-                                   :tallies? tallies?})
+                                   :tallies?  tallies?})
                    (sidefx-linear {:treatment :radiotherapy
                                    :prefix    [:span "With " [:b "radiotherapy"] ", about "]
                                    :n         3
-                                   :tallies? tallies?}))
+                                   :tallies?  tallies?}))
 
    (sidefx-content {:title "Bowel issues" :sub-title "Defined as: 'Bloody stools about half the time or more frequently' "}
                    (sidefx-linear {:treatment :conservative
                                    :prefix    (fewer-helper [:span "With " [:b "conservative management"] ", "])
                                    :fewer     true
                                    :n         2
-                                   :tallies? tallies?})
+                                   :tallies?  tallies?})
                    (sidefx-linear {:treatment :radical
                                    :prefix    (fewer-helper [:span "With " [:b "radical prostatectomy"] ", "])
                                    :fewer     true
                                    :n         2
-                                   :tallies? tallies?})
+                                   :tallies?  tallies?})
                    (sidefx-linear {:treatment :radiotherapy
                                    :prefix    [:span "With " [:b "radiotherapy"] ", about "]
                                    :n         7
-                                   :tallies? tallies?}))
+                                   :tallies?  tallies?}))
    ]
   )
 
 (rum/defc sidefx-more-info
   []
-  [:.col-sm-12                                          ; {:style {:margin-top 20}}
+  [:.col-sm-12                                              ; {:style {:margin-top 20}}
    [:h4 "More Information"]
    [:p "The following websites provide excellent advice and information on treatments and their potential harms:"]
    [:h5 "About treatments:"]

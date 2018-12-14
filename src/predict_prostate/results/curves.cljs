@@ -86,7 +86,7 @@
     :line1
     [:g
      ; light blue fill
-     (when radical? (area-plot scale (nth data 2) {:fill "#88ddff"}))
+     (when radical? (area-plot scale (nth data 2) {:fill (treatment-fills 1)}))
 
      ; dotted orange
      (line-plot scale (nth data 2) {:fill "none" :stroke dashed-stroke :strokeDasharray "8,8" :strokeWidth 5 :strokeLinecap "round"})
@@ -306,7 +306,8 @@
                       :icon        nil})
         (legend-item {:label       "Potential range of treatment benefit"
                       :extra-style nil
-                      :icon        (dead-icon "#88ddff")})]
+                      :icon        (dead-icon (treatment-fills 1) ;"#88ddff"
+                                              )})]
        :line2
        [:div
 
