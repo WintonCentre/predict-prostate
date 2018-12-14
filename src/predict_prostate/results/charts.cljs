@@ -109,7 +109,7 @@
   [{:keys [height]}]
   [:.bar-item-label {:style {:width "100%" :height "50%"}}
    [:svg {:height 30 :width "100%"}
-    [:text {:x "50%" :y 13 :fill "#ffffff" :text-anchor "middle"}
+    [:text {:x "50%" :y 13 :fill "#000000" :text-anchor "middle"}
      (str height "%")]]
    ])
 
@@ -147,7 +147,8 @@
     ;; internal value label
     (let [height (avoid-decimals (js/parseFloat height))]
       (when (and (= plot-style :area1) (>= height min-label-percent))
-        (bar-item-label {:key 1 :height height})))
+        (bar-item-label {:key 1 :height height})
+        ))
 
     ]])
 
