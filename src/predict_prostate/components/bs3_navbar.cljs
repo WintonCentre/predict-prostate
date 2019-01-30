@@ -28,7 +28,7 @@
 
 
 (defn navigate-to [target]
-  (println "navigating to " target)
+  ;(println "navigating to " target)
   (publish route-change target))
 
 
