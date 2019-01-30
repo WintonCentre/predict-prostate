@@ -35,15 +35,15 @@
 
 (defn docroot [url] (str "/" url))
 
-(def base (if goog.DEBUG "" "/predict_v2.1"))
+(def base (if goog.DEBUG "" ""))
 
 ; internal hrefs
 (defn iref [url] (str (if (use-hash-fragment) "#" "") base url))
 
-;(defn rooted [url] (str (if (use-hash-fragment) "" "/predict_v2.1") url))
-(def rooted identity)
+(defn rooted [url] (str (if (use-hash-fragment) "" "") url))
+;(def rooted identity)
 
-(def router
+(def router                                               ; I see unexplained build failures when I try this???
   "Longest path must be first."
   (r/router
     [[(rooted "/") :home]
@@ -64,7 +64,7 @@
   "A function which will be called on each route change."
   [name params query]
   (if (= name :tool) (track "Open Tool"))                   ;Track open tool event
-  (if (= name :home) (track "Open Home"))                   ;Track open tool event
+  (if (#{:home :homing} name) (track "Open Home"))          ;Track open tool event
 
   (-> (js/$ ".modal") (.modal "hide"))                      ;Hide any visible modals after navigation
   (reset! route [name params query]))

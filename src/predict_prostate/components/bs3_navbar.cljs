@@ -67,6 +67,9 @@
                 (Nav-item. "Algorithm" navigate-to [:legal {:page :algorithm}])
                 (Nav-item. "Privacy & Data Protection" navigate-to [:legal {:page :privacy}])])])
 
+;(def smartmenus {:did-mount (fn [state]
+;                              (js/jQuery.SmartMenus.Bootstrap.init)
+;                              state)})
 
 (rum/defc simple-navbar < rum/static rum/reactive [[menu-items]]
   (let [rt (rum/react route)]
