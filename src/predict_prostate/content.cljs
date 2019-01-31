@@ -473,8 +473,6 @@
         [:td "_hjDonePolls"] [:td "Hotjar cookie. This cookie is set once a visitor completes a poll using the Feedback Poll widget. It is used to ensure that the same poll does not re-appear if it has already been filled in."] [:td "one year"]]
        [:tr
         [:td "_hjMinimizedPolls"] [:td "Hotjar cookie. This cookie is set once a visitor minimizes a Feedback Poll widget. It is used to ensure that the widget stays minimizes when the visitor navigates through the site."] [:td "one year"]]
-       [:tr
-        [:td "mp_*_mixpanel"] [:td "MixPanel cookie. This cookie allows us to carry out user testing on our website in order to improve the user experience and enable us to deliver content that’s relevant."] [:td "one year"]]
        ]]
      ]
     [:section "Can I disable cookies?"
