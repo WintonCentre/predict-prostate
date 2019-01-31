@@ -1,0 +1,43 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}/Users/gmp26/clojure/predict-prostate/stata/stata.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}28 Jan 2019, 16:40:48
+
+{com}. do "/Users/gmp26/clojure/predict-prostate/stata/PREDICT_15yr_MockCase_BRCA_PPCFP_Code.do"
+{txt}
+{com}. clear
+{txt}
+{com}. 
+. quietly {c -(}
+{txt}
+{com}. table time, c(sum pred_PC_cum sum pred_NPC_cum sum allcauseM)
+
+{txt}{hline 10}{c TT}{hline 44}
+     time {c |} sum(pred_P~m)  sum(pred_N~m)  sum(allcau~M)
+{hline 10}{c +}{hline 44}
+      365 {c |}      {res}.0018176       .0093653       .0111829
+      {txt}730 {c |}      {res}.0056928       .0232149       .0289077
+     {txt}1095 {c |}      {res}.0110702       .0393066       .0503768
+     {txt}1460 {c |}      {res}.0177164       .0569866        .074703
+     {txt}1825 {c |}       {res}.025499       .0759806       .1014796
+     {txt}2190 {c |}      {res}.0343472       .0962124       .1305597
+     {txt}2555 {c |}      {res}.0442371       .1177386       .1619757
+     {txt}2920 {c |}      {res}.0551852       .1407145       .1958997
+     {txt}3285 {c |}      {res}.0672436       .1653727       .2326163
+     {txt}3650 {c |}      {res}.0804965       .1920038       .2725003
+     {txt}4015 {c |}      {res}.0950555        .220935       .3159904
+     {txt}4380 {c |}      {res}.1110523       .2524993       .3635516
+     {txt}4745 {c |}      {res}.1286283       .2869894       .4156178
+     {txt}5110 {c |}      {res}.1479172       .3245865       .4725037
+     {txt}5475 {c |}      {res}.1690181       .3652533       .5342714
+{txt}{hline 10}{c BT}{hline 44}
+
+{com}. 
+. 
+. ***If we want to graph these  - the code is in previous iterations of this sheet***
+. 
+{txt}end of do-file
+
+{com}. 
