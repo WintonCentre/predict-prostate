@@ -1,6 +1,5 @@
 (ns predict-prostate.results.charts
   (:require [rum.core :as rum]
-            [com.rpl.specter :as t :refer [select-one ALL keypath]]
             [predict-prostate.mixins :refer [sizing-mixin]]
             [predict-prostate.results.util :refer [to-percent avoid-decimals min-label-percent
                                                    fill data-fill fill-data-url hex-data-url fills-by-style*
@@ -14,7 +13,6 @@
             [clojure.string :refer [join]]
             [cljs-css-modules.macro :refer-macros [defstyle]]
             [cljs.pprint :refer [pp]]
-    ;[goog.color :as col :refer [parse lighten rgbToHex hexToRgb]]
             ))
 
 (defn border [fill] (str "1px solid " fill))

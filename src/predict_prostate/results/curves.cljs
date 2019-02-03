@@ -12,7 +12,6 @@
             [svg.scales :refer [->Identity nice-linear i->o o->i in out ticks tick-format-specifier]]
             [svg.mixins :refer [patch-svg-attrs]]
             [goog.object :as gobj :refer [getValueByKeys]]
-    ;[com.rpl.specter :refer [select transform VAL ALL MAP-VALS nthpath walker]]
             ))
 
 
