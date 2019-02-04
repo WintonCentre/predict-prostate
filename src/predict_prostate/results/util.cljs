@@ -40,7 +40,8 @@
 ;; Colour scale designed in chroma.js, then heavily modified!
 ;;
 (def above-dashed "#ffffff")
-(def conservative-fill "#0000aa")
+#_(def conservative-fill "#0000aa")
+(def conservative-fill "#2222dd")
 (def radical-fill "#00afef")
 (def radical-range "#88ddff")
 (def radical-below "#88ddff")
@@ -74,7 +75,7 @@
 
 (def fills ["#ffffff"
             "#00afef"
-            "#0000aa"])
+            conservative-fill])
 
 (comment
   (def f1 #js [136 221 255])                                ;"#88ddff"

@@ -1,6 +1,7 @@
 (ns predict-prostate.results.sidefx
 
   (:require [rum.core :as rum]
+            [predict-prostate.results.util :refer [conservative-fill]]
             [predict-prostate.components.primitives :refer [blob blob-10 mixed-10]]
             [predict-prostate.components.helpful-form-groups :refer [form-entry]]
             [predict-prostate.components.button :refer [small-help-button]]
@@ -72,7 +73,7 @@
    ])
 
 (def treatment-fills
-  {:conservative "#1500AA"
+  {:conservative "#2222AA"                                  ;conservative-fill #_"#0000AA"
    :radical      "#3DAFEF"
    :radiotherapy "#CC5CA4"})
 
