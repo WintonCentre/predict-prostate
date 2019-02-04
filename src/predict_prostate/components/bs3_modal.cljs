@@ -46,19 +46,19 @@
          "Close"]]]]]))
 
 
+
 (rum/defc cancel-or-print []
   [:div.pull-right
-   [:button.btn.btn-default {:type     "button"
-                             :on-click #(do
-                                          (.modal (js/$ "#printModal") "hide")
-                                          )}
+   [:button.btn.btn-default {:type "button"
+                             :on-click #(do (jq$call "#printModal" "modal" "hide"))
+                             }
     "Cancel"]
    " "
    [:button.btn.btn-primary {:type     "button"
-                             :on-click #(do
-                                          (.modal (js/$ "#printModal") "hide")
-                                          (js/print)
-                                          )}
+                             :on-click #(do (jq$call "#printModal" "modal" "hide")
+                                            (js/print)
+                                            )
+                             }
 
     (simple/icon {:family :fa} "print") " Print"]]
   )

@@ -8,7 +8,7 @@
                    ))
 
 ; We are getting an infer warning on accessing .modal property in bootstrap
-(set! *warn-on-infer* false)
+(set! *warn-on-infer* true)
 
 (enable-console-print!)
 
