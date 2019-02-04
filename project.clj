@@ -36,8 +36,9 @@
                  ; routing
                  [funcool/bide "1.6.0"]
 
-                 [binaryage/devtools "0.9.9"]
-                 [binaryage/oops "0.5.8"]
+                 [binaryage/devtools "0.9.10"]
+                 #_[binaryage/oops "0.5.8"]
+                 [binaryage/oops "0.6.4"]
 
                  ]
 
