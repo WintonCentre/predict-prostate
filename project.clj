@@ -21,10 +21,11 @@
                  ;[cljsjs/react "15.4.2-2"]
                  ;[cljsjs/react-dom "15.4.2-2"]
                  [devcards "0.2.4"]
-                 [figwheel-sidecar "0.5.14"]
+                 [figwheel-sidecar "0.5.18"]
 
                  ; should we upgrade Rum and use React16 ???
-                 [rum "0.10.8"]
+                 #_[rum "0.10.8"]
+                 [rum "0.11.3"]
                  [pubsub "0.2.1"]
                  [wc-rum-lib "0.1.6"]
                  [cljs-css-modules "0.2.1"]
@@ -40,7 +41,7 @@
 
                  ]
 
-  :plugins [[lein-figwheel "0.5.14"]
+  :plugins [[lein-figwheel "0.5.18"]
             [lein-less "1.7.5"]
             [lein-ancient "0.6.15"]
             [lein-cljsbuild "1.1.7" :exclusions [[org.clojure/clojure]]]
