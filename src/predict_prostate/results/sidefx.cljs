@@ -79,7 +79,7 @@
 
 (rum/defc sidefx-header
   []
-  [:div {:style {:background-color "#D9EDF7" :padding 10}}
+  [:div {:style {:background-color "#D9EDF7" :padding 10 :border-radius 3}}
    [:h4 "Potentially permanent harms of"]
    [:div {:style {:font-size 16}} (blob {:key "b1" :fill (:conservative treatment-fills) :r 5}) " Conservative management"]
    [:div {:style {:font-size 16}} (blob {:key "b2" :fill (:radical treatment-fills) :r 5}) " Radical prostatectomy"]
@@ -105,10 +105,10 @@
         hh (chunker 100 10 percent)
         r 4]
     [:.row
-     [:.col-xs-12 {:key 1 :style {:font-size "120%" :font-weight "bold" :display "inline-block"}}
+     [:.col-xs-1 {:key 1 :style {:font-size "120%" :font-weight "bold" :display "inline-block"}}
       [:span {:style {:width "100%" :text-align "right"}}] (if fewer "Less than ") percent "% "]
      (if tallies?
-       [:.col-xs-12
+       [:.col-xs-11 {:style {:margin-top 3}}
         [:div {:key 1 :style {:width 220 :display "inline-block"}}
          (map (fn [n] [:span {:key (str "t-" n)} (blob-10 {:fill fill :r r :tally? true})]) (range (:tens f1)))
          (when (pos? (:units f1)) (mixed-10 {:fill fill :r r :x (:units f1) :tally? true}))
@@ -144,14 +144,14 @@
 
 (defn sidefx-content
   [{:keys [title sub-title]} & content]
-  (into [] (conj [:div {:style {:padding 15 :font-size 16}}
+  (into [] (conj [:div {:style {:padding "0 15px 0 15px" :font-size 16}}
                   [:h4 title]
                   [:h5 sub-title]]
                  (map-indexed #(rum/with-key %2 %1) content))))
 
 (rum/defc sidefx-discrete
   [tallies?]
-  [:div {:style {:border "1px solid black" :font-size 16}}
+  [:div {:style {:border "1px solid #CCCCCC" :border-radius 3 :font-size 16}}
    (sidefx-header)
    (sidefx-content {:title "Erectile dysfunction" :sub-title "Defined as: 'Erections insufficient for intercourse' "}
                    (sidefx-linear {:treatment :conservative
@@ -206,8 +206,8 @@
 
 (rum/defc sidefx-more-info
   []
-  [:.col-sm-12                                          ; {:style {:margin-top 20}}
-   [:h4 "More Information"]
+  [:div  ;.col-sm-12
+   [:h3 "More Information"]
    [:p "The following websites provide excellent advice and information on treatments and their potential harms:"]
    [:h5 "About treatments:"]
    [:ul {:style {:list-style-type "none"}}
@@ -243,7 +243,7 @@
       [:li "The following estimates assume that function is normal before treatment."]
       [:li "These are not individualised estimates to you, and may vary depending on the treatment centre and other
        factors. Information on outcomes in your local centre may be available from your clinician."]
-      [:li "Estimates for erectile dysfunction have been derived from a large American study. The full research can be
+      [:li  "Estimates for erectile dysfunction have been derived from a large American study. The full research can be
        read here: "
        [:a {:href   "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5782813/"
             :target "_blank"}
@@ -260,7 +260,7 @@
     [:.col-sm-12
      (sidefx-discrete true)]
 
-    (sidefx-more-info)
+    #_(sidefx-more-info)
 
     ]]
   )

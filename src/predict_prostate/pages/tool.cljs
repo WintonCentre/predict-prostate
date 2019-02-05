@@ -10,7 +10,7 @@
             [predict-prostate.layout.input-panels :refer [inputs-row ;inputs-column
                                                           ]]
             [predict-prostate.layout.treatments-panel :refer [treatments-options]]
-            [predict-prostate.results.sidefx :refer [results-in-sidefx]]
+            [predict-prostate.results.sidefx :refer [results-in-sidefx sidefx-more-info]]
             [predict-prostate.layout.result-panel :refer [results]]
             [predict-prostate.layout.header :refer [header footer]]
             [predict-prostate.results.util :refer [alison-blue-1 alison-blue-2 alison-blue-3 alison-blue-4 alison-blue-5]]
@@ -22,6 +22,7 @@
                                                      settings-cursor
                                                      hide-warning-change hide-warning-cursor
                                                      route-change]]
+
             [pubsub.feeds :refer [publish]]
             ))
 
@@ -83,6 +84,9 @@
       (treatments-options)
 
       (results {:printable (= :print (rum/react media-cursor))})
+
+      (sidefx-more-info)
+
       [:.hidden-xs.hidden-sm.clearfix
        (print-button)]
       ]

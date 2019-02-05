@@ -250,8 +250,8 @@
                   ; pass :oth field separately
                   :oth         (- 100 (nth dotted-orange year))
                   :left        (if left? "30%" nil)
-                  :right       (if left? nil "25%")
-                  :width       "20%"
+                  :right       (if left? nil "30%")
+                  :width       "18%"
                   :total       (reduce + (mapv :value data))
                   :callout     (partial callout {:percent (reduce + (mapv :value plot-data))
                                                  :text    (str "survive at least " year " years")})
