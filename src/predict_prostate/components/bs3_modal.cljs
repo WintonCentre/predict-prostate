@@ -99,9 +99,7 @@
                       :dangerouslySetInnerHTML {:__html "&times;"}}]
       [:h4.modal-title "Settings"]]
      [:.modal-body
-      [:p "Configure the histological scale to use either Grade group or Gleason or both."]
-      (input-widget :hist-scale)
-      [:hr]
+
       [:p "Choose a plot-style"]
       (input-widget :plot-style)
       [:hr]

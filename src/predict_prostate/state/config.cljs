@@ -90,16 +90,7 @@
                   :prp
                   #{"prostate"}
                   nil)
-   (->Input-group :hist-scale
-                  "Histological scale visibility"
-                  :radio-group
-                  [[:grade-group "Show Grade group"]
-                   [:gleason "Show Gleason scale"]
-                   [:both "Show both"]]
-                  false false false
-                  :prp
-                  #{"prostate"}
-                  :both)
+
    (->Input-group :grade-group
                   "Histological grade group"
                   :radio-group
