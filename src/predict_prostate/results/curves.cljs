@@ -289,7 +289,8 @@
                       :extra-style nil
                       :icon        (dead-icon (:radical-above (plot-style fills-by-style*)))})
         (legend-item {:label       "Estimated survival with radical treatment"
-                      :extra-style {:border-top (str "3px solid " (treatment-fills 0))}
+                      :extra-style {:border-top (str "3px solid " (treatment-fills 0))
+                                    :margin-top 9}
                       :icon        nil})
         (legend-item {:label       "Potential range of treatment benefit below estimate"
                       :extra-style nil
