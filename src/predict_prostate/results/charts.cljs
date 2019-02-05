@@ -128,7 +128,7 @@
      [:img.bar-item {:src   background-url
                      :style {:height height
                              :bottom bottom}}])
-   (when (or (= item-id 1) (= plot-style :line1))
+   (when (= item-id 1)
      [:img.bar-item {:src   background-url
                      :style {:height height
                              :bottom bottom}}])
@@ -137,7 +137,7 @@
                 :style {:height     height
                         :bottom     bottom
                         ;:background-color (when (= key 1) "red")
-                        :border-top (if (and (= 1 item-id) radical (#{:line1 :line2} plot-style))
+                        :border-top (if (and (= 1 item-id) radical (= :line2 plot-style))
                                       (str "3px solid " (treatment-fills 0))
                                       "none")
                         }}

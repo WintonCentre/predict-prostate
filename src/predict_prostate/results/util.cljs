@@ -44,15 +44,12 @@
 (def conservative-fill "#2222dd")
 (def radical-fill "#00afef")
 (def radical-range "#88ddff")
-(def radical-below "#88ddff")
-(def radical-above "#beebff")
+(def radical-below "#00ddff")
+(def radical-above "#eeee88" #_"#beebff")
 
 (def fills-by-style
   {:area1 [above-dashed
            radical-fill
-           conservative-fill]
-   :line1 [above-dashed
-           radical-range
            conservative-fill]
    :line2 [above-dashed
            radical-above
@@ -63,10 +60,6 @@
   {:area1 {:above above-dashed
            :radical-above above-dashed
            :radical radical-fill
-           :conservative conservative-fill}
-   :line1 {:above above-dashed
-           :radical-above radical-range
-           :radical radical-range
            :conservative conservative-fill}
    :line2 {:above above-dashed
            :radical-above radical-above

@@ -50,12 +50,12 @@
     (cond
 
       (= key :plot-style)
-      (let [{:keys [plot-style]} (get-settings! {:plot-style :line1})]
-        (if (#{:area1 :line1 :line2} plot-style)
+      (let [{:keys [plot-style]} (get-settings! {:plot-style :line2})]
+        (if (#{:area1 :line2} plot-style)
           (reset! (input-cursor :plot-style) plot-style)
           (do
-            (put-settings! {:plot-style :line1})
-            (reset! (input-cursor :plot-style) :line1))
+            (put-settings! {:plot-style :line2})
+            (reset! (input-cursor :plot-style) :line2))
           ))
 
       :else

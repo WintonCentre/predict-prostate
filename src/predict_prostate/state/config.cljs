@@ -44,7 +44,6 @@
      "Plot style for treatment benefit"
      :radio-group
      [[:area1 "Area"]
-      #_[:line1 "Line"]
       [:line2 "Line"]]
      false false nil
      :plot-style
