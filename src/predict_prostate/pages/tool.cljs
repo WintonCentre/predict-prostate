@@ -75,39 +75,23 @@
          (simple/icon {:family :fa :style {:font-size 35 :padding-right 8}} "info-circle")
 
          " Treatment options and results will appear here when you have filled in all the information needed above."]]]]]
-    (if (= :discrete-tally (rum/react (input-cursor :ph-style)))
-      [:div
-       [:.row
-        [:.col-md-6.screen-only
-         [:h3 "Treatment Options"]
-         (treatments-options)
 
-         (results {:printable (= :print (rum/react media-cursor))})
-         [:.hidden-xs.hidden-sm.clearfix
-          (print-button)]
-         ]
 
-        [:.col-md-6.clearfix
-         [:h3 "Potential Harms of Treatment"]
-         (results-in-sidefx)]]]
+    [:.row
+     [:.col-md-6.screen-only
+      [:h3 "Treatment Options"]
+      (treatments-options)
 
-      [:div
-       [:.row
-        [:.col-md-6.clearfix
-         [:h3 "Treatment Options"]
-         (treatments-options)
-         [:.hidden-xs.hidden-sm.clearfix
-          (print-button)
-          ]
-         [:div.alert.alert-info.screen-only {:style {:margin-top 20}}
-          [:p (simple/icon {:family :fa} "arrow-circle-down") " Scroll down for " [:b "Potential Harms of Treatment"]]]
-         ]
-        [:.col-md-6.screen-only
-         (results {:printable (= :print (rum/react media-cursor))})]
+      (results {:printable (= :print (rum/react media-cursor))})
+      [:.hidden-xs.hidden-sm.clearfix
+       (print-button)]
+      ]
 
-        [:.col-md-12
-         [:h3 "Potential Harms of Treatment"]
-         (results-in-sidefx)]]])))
+     [:.col-md-6.clearfix
+      [:h3 "Potential Harms of Treatment"]
+      (results-in-sidefx)]]
+
+    ))
 
 (rum/defc results-footer < rum/reactive []
   (when (rum/react results-cursor)

@@ -41,26 +41,16 @@
                   )
 
    (->Input-group :plot-style
-     "Plot style"
+     "Plot style for treatment benefit"
      :radio-group
-     [[:area1 "Original"]
-      [:line1 "Line"]
-      [:line2 "Line v2"]]
+     [[:area1 "Area"]
+      #_[:line1 "Line"]
+      [:line2 "Line"]]
      false false nil
      :plot-style
      #{"prostate"}
      nil)
 
-   (->Input-group :ph-style
-     "Potential Harms style"
-     :radio-group
-     [[:table "Table"]
-      [:discrete-blob "blob chart"]
-      [:discrete-tally "tally chart"]]
-     false false nil
-     :ph-style
-     #{"prostate"}
-     nil)
 
    ;; INPUTS
    (->Input-group :age

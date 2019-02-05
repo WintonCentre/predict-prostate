@@ -58,15 +58,6 @@
             (reset! (input-cursor :plot-style) :line1))
           ))
 
-      (= key :ph-style)
-      (let [{:keys [ph-style]} (get-settings! {:ph-style :discrete-tally})]
-        (if (#{:table :discrete-bar :discrete-tally} ph-style)
-          (reset! (input-cursor :ph-style) ph-style)
-          (do
-            (put-settings! {:ph-style :discrete-tally})
-            (reset! (input-cursor :ph-style) :discrete-tally))
-          ))
-
       :else
       (publish topic (if (#{:age :psa} key) "" nil))))
   (publish results-change nil)
@@ -125,11 +116,6 @@
             (do
               (reset! (input-cursor :plot-style) value)
               (put-settings! {:plot-style value}))
-
-            (= key :ph-style)
-            (do
-              (reset! (input-cursor :ph-style) value)
-              (put-settings! {:ph-style value}))
 
             :else
             (reset! (input-cursor key) (if (nil? value)

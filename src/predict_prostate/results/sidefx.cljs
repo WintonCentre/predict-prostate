@@ -234,40 +234,35 @@
      [:a {:href "https://www.nhs.uk/pages/home.aspx" :target "_blank"} "NHS Choices"]]
     ]])
 
-(rum/defc results-in-sidefx < rum/static rum/reactive []
-  (let [ph-style (rum/react (input-cursor :ph-style))]
-    [:div {:style {:margin-top "15px"}}
+(rum/defc results-in-sidefx []
+  [:div {:style {:margin-top "15px"}}
 
-     [:.row {:style {:margin-top " 20px "}}
-      [:.col-sm-12
-       [:ul {:style {:font-size 16}}
-        [:li "The following estimates assume that function is normal before treatment."]
-        [:li "These are not individualised estimates to you, and may vary depending on the treatment centre and other
+   [:.row {:style {:margin-top " 20px "}}
+    [:.col-sm-12
+     [:ul {:style {:font-size 16}}
+      [:li "The following estimates assume that function is normal before treatment."]
+      [:li "These are not individualised estimates to you, and may vary depending on the treatment centre and other
        factors. Information on outcomes in your local centre may be available from your clinician."]
-        [:li "Estimates for erectile dysfunction have been derived from a large American study. The full research can be
+      [:li "Estimates for erectile dysfunction have been derived from a large American study. The full research can be
        read here: "
-         [:a {:href   "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5782813/"
-              :target "_blank"}
-          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5782813/"]]
-        [:li "Estimates for incontinence and bowel dysfunction have been taken from the UK-based Prostate Testing for
+       [:a {:href   "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5782813/"
+            :target "_blank"}
+        "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5782813/"]]
+      [:li "Estimates for incontinence and bowel dysfunction have been taken from the UK-based Prostate Testing for
        Cancer and Treatment (ProtecT) trial. The full research can be read here: "
-         [:a {:href   "https://www.nejm.org/doi/full/10.1056/NEJMoa1606221"
-              :target "_blank"}
-          "https://www.nejm.org/doi/full/10.1056/NEJMoa1606221"]]
-        ]]
-      ]
+       [:a {:href   "https://www.nejm.org/doi/full/10.1056/NEJMoa1606221"
+            :target "_blank"}
+        "https://www.nejm.org/doi/full/10.1056/NEJMoa1606221"]]
+      ]]
+    ]
 
-     [:row
-      [:.col-sm-12
-       (condp = ph-style
-         :table (sidefx-table)
-         :discrete-blob (sidefx-discrete false)
-         :discrete-tally (sidefx-discrete true)
-         :else (println "bad ph-style setting"))]
+   [:row
+    [:.col-sm-12
+     (sidefx-discrete true)]
 
-      (sidefx-more-info)
+    (sidefx-more-info)
 
-      ]])
+    ]]
   )
 
 

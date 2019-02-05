@@ -23,14 +23,8 @@ survival, up to the projected survival of prostate-cancer-free men "
 (defonce rtdb
          (atom {
 
-                ;; Histology is common to :gleason and grade-group inputs
-                ;:histology               nil
-
                 ;; Plot style
                 :plot-style              nil
-
-                ;; Potential Harms style
-                :ph-style                nil
 
                 :recalculate-error-state 0
 
