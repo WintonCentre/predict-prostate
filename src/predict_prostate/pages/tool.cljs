@@ -81,8 +81,8 @@
 
     [:.row
      [:.col-md-6.screen-only
-      [:h3 "Treatment Options"]
-      (treatments-options)
+      #_[:h3 "Treatment Options"]
+      #_(treatments-options)
 
       (results {:printable (= :print (rum/react media-cursor))})
 

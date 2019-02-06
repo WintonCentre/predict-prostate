@@ -194,19 +194,19 @@
                     :source erectile-source}
 
                    (sidefx-linear {:treatment :conservative
-                                   :prefix    [:span "With " [:b "conservative management"] ", about "]
+                                   :prefix    [:span "With " [:b {:style {:color (:conservative treatment-fills)}} "conservative management"] ", about "]
                                    :n         27
                                    :tallies?  tallies?})
                    (sidefx-linear {:treatment :radical
-                                   :prefix    [:span "With " [:b "nerve-sparing radical prostatectomy"] ", about "]
+                                   :prefix    [:span "With " [:b {:style {:color (:radical treatment-fills)}} "nerve-sparing radical prostatectomy"] ", about "]
                                    :n         56
                                    :tallies?  tallies?})
                    (sidefx-linear {:treatment :radical
-                                   :prefix    [:span "With " [:b "non-nerve-sparing radical prostatectomy"] ", about "]
+                                   :prefix    [:span "With " [:b {:style {:color (:radical treatment-fills)}} "non-nerve-sparing radical prostatectomy"] ", about "]
                                    :n         66
                                    :tallies?  tallies?})
                    (sidefx-linear {:treatment :radiotherapy
-                                   :prefix    [:span "With " [:b "radiotherapy"] ", about "]
+                                   :prefix    [:span "With " [:b {:style {:color (:radiotherapy treatment-fills)}} "radiotherapy"] ", about "]
                                    :n         39
                                    :tallies?  tallies?}))
 
@@ -214,32 +214,32 @@
                     :source incontinence-source}
                    (sidefx-linear {:treatment :conservative
                                    :fewer     true
-                                   :prefix    (fewer-helper [:span "With " [:b "conservative management"] ", "])
+                                   :prefix    (fewer-helper [:span  "With " [:b  {:style {:color (:conservative treatment-fills)}} "conservative management"] ", "])
                                    :n         1
                                    :tallies?  tallies?})
                    (sidefx-linear {:treatment :radical
-                                   :prefix    [:span "With " [:b "radical prostatectomy"] ", about "]
+                                   :prefix    [:span "With " [:b  {:style {:color (:radical treatment-fills)}} "radical prostatectomy"] ", about "]
                                    :n         20
                                    :tallies?  tallies?})
                    (sidefx-linear {:treatment :radiotherapy
-                                   :prefix    [:span "With " [:b "radiotherapy"] ", about "]
+                                   :prefix    [:span "With " [:b  {:style {:color (:radiotherapy treatment-fills)}} "radiotherapy"] ", about "]
                                    :n         3
                                    :tallies?  tallies?}))
 
    (sidefx-content {:title  "Bowel issues" :sub-title "Defined as: 'Bloody stools about half the time or more frequently' "
                     :source bowel-source}
                    (sidefx-linear {:treatment :conservative
-                                   :prefix    (fewer-helper [:span "With " [:b "conservative management"] ", "])
+                                   :prefix    (fewer-helper [:span "With " [:b {:style {:color (:conservative treatment-fills)}} "conservative management"] ", "])
                                    :fewer     true
                                    :n         2
                                    :tallies?  tallies?})
                    (sidefx-linear {:treatment :radical
-                                   :prefix    (fewer-helper [:span "With " [:b "radical prostatectomy"] ", "])
+                                   :prefix    (fewer-helper [:span "With " [:b {:style {:color (:radical treatment-fills)}} "radical prostatectomy"] ", "])
                                    :fewer     true
                                    :n         2
                                    :tallies?  tallies?})
                    (sidefx-linear {:treatment :radiotherapy
-                                   :prefix    [:span "With " [:b "radiotherapy"] ", about "]
+                                   :prefix    [:span "With " [:b {:style {:color (:radiotherapy treatment-fills)}} "radiotherapy"] ", about "]
                                    :n         7
                                    :tallies?  tallies?}))
    ]
