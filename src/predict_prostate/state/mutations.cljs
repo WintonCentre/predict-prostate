@@ -48,31 +48,14 @@
 
     "restore saved settings"
     (cond
-      (= key :hist-scale)
-      (let [{:keys [hist-scale]} (get-settings! {:hist-scale :both})]
-        (if (#{:grade-group :gleason :both} hist-scale)
-          (reset! (input-cursor :hist-scale) hist-scale)
-          (do
-            (put-settings! {:hist-scale :both})
-            (reset! (input-cursor :hist-scale) :both))
-          ))
 
       (= key :plot-style)
-      (let [{:keys [plot-style]} (get-settings! {:plot-style :line1})]
-        (if (#{:area1 :line1 :line2} plot-style)
+      (let [{:keys [plot-style]} (get-settings! {:plot-style :line2})]
+        (if (#{:area1 :line2} plot-style)
           (reset! (input-cursor :plot-style) plot-style)
           (do
-            (put-settings! {:plot-style :line1})
-            (reset! (input-cursor :plot-style) :line1))
-          ))
-
-      (= key :ph-style)
-      (let [{:keys [ph-style]} (get-settings! {:ph-style :discrete-tally})]
-        (if (#{:table :discrete-bar :discrete-tally} ph-style)
-          (reset! (input-cursor :ph-style) ph-style)
-          (do
-            (put-settings! {:ph-style :discrete-tally})
-            (reset! (input-cursor :ph-style) :discrete-tally))
+            (put-settings! {:plot-style :line2})
+            (reset! (input-cursor :plot-style) :line2))
           ))
 
       :else
@@ -133,11 +116,6 @@
             (do
               (reset! (input-cursor :plot-style) value)
               (put-settings! {:plot-style value}))
-
-            (= key :ph-style)
-            (do
-              (reset! (input-cursor :ph-style) value)
-              (put-settings! {:ph-style value}))
 
             :else
             (reset! (input-cursor key) (if (nil? value)

@@ -41,26 +41,15 @@
                   )
 
    (->Input-group :plot-style
-     "Plot style"
+     "Plot style for treatment benefit"
      :radio-group
-     [[:area1 "Original"]
-      [:line1 "Line"]
-      [:line2 "Line v2"]]
+     [[:area1 "Area"]
+      [:line2 "Line"]]
      false false nil
      :plot-style
      #{"prostate"}
      nil)
 
-   (->Input-group :ph-style
-     "Potential Harms style"
-     :radio-group
-     [[:table "Table"]
-      [:discrete-blob "blob chart"]
-      [:discrete-tally "tally chart"]]
-     false false nil
-     :ph-style
-     #{"prostate"}
-     nil)
 
    ;; INPUTS
    (->Input-group :age
@@ -90,16 +79,7 @@
                   :prp
                   #{"prostate"}
                   nil)
-   (->Input-group :hist-scale
-                  "Histological scale visibility"
-                  :radio-group
-                  [[:grade-group "Show Grade group"]
-                   [:gleason "Show Gleason scale"]
-                   [:both "Show both"]]
-                  false false false
-                  :prp
-                  #{"prostate"}
-                  :both)
+
    (->Input-group :grade-group
                   "Histological grade group"
                   :radio-group

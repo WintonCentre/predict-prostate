@@ -1,4 +1,4 @@
-(ns predict-prostate.models.prostate15
+(ns predict-prostate.models.prostate-release
   (:require [common.data-frame :refer [cell-apply cell-update cell-sums cell-diffs]]
             [common.utils :refer [deltas]]
             ))
@@ -9,9 +9,9 @@
 (def abs js/Math.abs)
 
 
-; stata L 19
-(defn pi-pcsm [{:keys [age psa t-stage grade-group primary-rx protect biopsy50 ]}]
-  "gen pi-pcsm = 0.0026005*((age/10)^3-341.155151) + 0.185959*(ln((psa+1)/100)+1.636423432) + .1614922*(t_stage==2) + .39767881*(t_stage==3) + .6330977*(t_stage==4) + .2791641*(gradegroup==2) + .5464889*(gradegroup==3) + .7411321*(gradegroup==4) + 1.367963*(gradegroup==5) + -.6837094*(primaryRx==1) + .9084921*(primaryRx==3) -0.617722958*(biopsy50==1) + 0.579225231*(biopsy50==2)\n"
+; stata L 21
+(defn pi-pcsm [{:keys [age psa t-stage grade-group primary-rx biopsy50 brca ppc]}]
+  "gen pi-pcsm = 0.0026005*((age/10)^3-341.155151) + 0.185959*(ln((psa+1)/100)+1.636423432) + .1614922*(t_stage==2) + .39767881*(t_stage==3) + .6330977*(t_stage==4) + .2791641*(gradegroup==2) + .5464889*(gradegroup==3) + .7411321*(gradegroup==4) + 1.367963*(gradegroup==5) + -.6837094*(primaryRx==1) + .9084921*(primaryRx==3) -0.617722958*(biopsy50==1) + 0.579225231*(biopsy50==2) +(((PPC+0.1811159)/100)^.5-.649019)*1.890134 \n"
   (+ (* 0.0026005 (- (pow (/ age 10) 3) 341.155151))
      (* 0.185959 (+ (ln (/ (inc psa) 100)) 1.636423432))
      (get {2 0.1614922
@@ -25,14 +25,15 @@
            1   -0.6837094
            1.1 (ln 0.67)                                    ; radical high (now log 0.67) (was log 0.67) ;todo uncertainty
            3   0.9084921} primary-rx)
-     #_(get {1 -0.46204                                     ;todo check
-             2 -0.67334} protect)
      (get {1 -0.617722958
            2 0.579225231} biopsy50)
+     (get {0 0
+           1 0.956} brca)
+     (* (- (js/Math.sqrt (/ (+ ppc 0.1811159) 100)) 0.649019) 1.890134)
      ))
 (comment
-  (pi-pcsm {:age 65 :psa 11 :t-stage 2 :grade-group 4 :primary-rx 0 :protect 0 :biopsy50 0})
-  ;=> 1.4757039089297683
+  (pi-pcsm {:age 70 :psa 10 :t-stage 2 :grade-group 2 :primary-rx 0  :biopsy50 0 :brca 0 :ppc 41.9415})
+  ;=> 0.3392995824130641
   )
 
 (defn pi-npcm [{:keys [age charlson-comorbidity]}]
@@ -41,8 +42,8 @@
      (get {1 0.6382002} charlson-comorbidity))
   )
 (comment
-  (pi-npcm {:age 65 :charlson-comorbidity 1})
-  ; => -2.3937117859727
+  (pi-npcm {:age 70 :charlson-comorbidity 0})
+  ; => 0.015422333111626427
   )
 
 

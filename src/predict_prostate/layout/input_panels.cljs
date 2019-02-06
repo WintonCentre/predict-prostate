@@ -85,14 +85,10 @@
   [:form.form-horizontal {:on-key-press key-event
                           :on-submit    submit-event}
 
-   [:div {:style {:display (if (#{:grade-group :both} (rum/react (input-cursor :hist-scale)))
-                             "block"
-                             "none")}}
-    (form-entry {:label "Histological grade group" :key :grade-group})]
-   [:div {:style {:display (if (#{:gleason :both} (rum/react (input-cursor :hist-scale)))
-                             "block"
-                             "none")}}
-    (form-entry {:label "Gleason scale" :key :gleason})]
+
+   (form-entry {:label "Histological grade group" :key :grade-group})
+
+   (form-entry {:label "Gleason scale" :key :gleason})
 
    (when (model-keys :biopsy50) (form-entry {:label "Biopsy" :key :biopsy50}))
 

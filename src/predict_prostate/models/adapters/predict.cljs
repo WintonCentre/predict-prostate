@@ -1,6 +1,6 @@
 (ns predict-prostate.models.adapters.predict
-  (:require [predict-prostate.models.prostate10 :refer [run-prostate]]
-            [predict-prostate.models.prostate15 :as p15]
+  (:require
+            [predict-prostate.models.prostate-release :as model]
             [clojure.string :refer [starts-with?]]
             [cljs.reader :refer [read-string]]
             [goog.object :refer [getValueByKeys]]
@@ -20,9 +20,7 @@
        ;(update :charlson-comorbidity identity)
        (update :biopsy50 #(if (= :unknown %) 0 %))
        (assoc :protect 0)
-       (#(if (<= n 10)
-           (run-prostate %)
-           (p15/run-prostate %)))))
+       (model/run-prostate)))
   ([input-map]
     (predict-prostate input-map 10)))
 

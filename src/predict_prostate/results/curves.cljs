@@ -82,22 +82,6 @@
      (line-plot scale (nth data 2) {:fill "none" :stroke dashed-stroke :strokeDasharray "8,8" :strokeWidth 5 :strokeLinecap "round"})
      ]
 
-    :line1
-    [:g
-     ; light blue fill
-     (when radical? (area-plot scale (nth data 2) {:fill "#88ddff"}))
-
-     ; dotted orange
-     (line-plot scale (nth data 2) {:fill "none" :stroke dashed-stroke :strokeDasharray "8,8" :strokeWidth 5 :strokeLinecap "round"})
-
-     ; dark blue conservative
-     (area-plot scale (nth data 0) {:fill (treatment-fills 0)})
-
-     ; dark blue line
-     (line-plot scale (nth data 1) {:fill "none" :stroke (treatment-fills 0) :strokeWidth 2 :strokeLinecap "round"})
-
-     ]
-
     :line2
     [:g
      ; light blue fill
@@ -298,14 +282,6 @@
                      :extra-style nil
                      :icon        (dead-icon (treatment-fills 1))})
 
-       :line1
-       [:div
-        (legend-item {:label       "Estimated survival with radical treatment"
-                      :extra-style {:border-top (str "3px solid " (treatment-fills 0))}
-                      :icon        nil})
-        (legend-item {:label       "Potential range of treatment benefit"
-                      :extra-style nil
-                      :icon        (dead-icon "#88ddff")})]
        :line2
        [:div
 
@@ -313,7 +289,8 @@
                       :extra-style nil
                       :icon        (dead-icon (:radical-above (plot-style fills-by-style*)))})
         (legend-item {:label       "Estimated survival with radical treatment"
-                      :extra-style {:border-top (str "3px solid " (treatment-fills 0))}
+                      :extra-style {:border-top (str "3px solid " (treatment-fills 0))
+                                    :margin-top 9}
                       :icon        nil})
         (legend-item {:label       "Potential range of treatment benefit below estimate"
                       :extra-style nil
