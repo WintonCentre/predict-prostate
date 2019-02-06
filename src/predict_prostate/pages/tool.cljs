@@ -21,7 +21,8 @@
                                                      help-key-change help-key-cursor
                                                      settings-cursor
                                                      hide-warning-change hide-warning-cursor
-                                                     route-change]]
+                                                     route-change
+                                                     print-change]]
 
             [pubsub.feeds :refer [publish]]
             ))
@@ -87,12 +88,12 @@
 
       (sidefx-more-info)
 
-      [:.hidden-xs.hidden-sm.clearfix
+      #_[:.hidden-xs.hidden-sm.clearfix
        (print-button)]
       ]
 
      [:.col-md-6.clearfix
-      [:h3 "Potential Harms of Treatment"]
+      #_[:h3 "Potential Harms of Treatment"]
       (results-in-sidefx)]]
 
     ))
@@ -100,7 +101,7 @@
 (rum/defc results-footer < rum/reactive []
   (when (rum/react results-cursor)
     [:.col-xs-12
-     [:.row
+     #_[:.row
       [:.col-md-10.col-md-offset-1 (print-button)]]
 
      [:.row {:style {:background-color alison-blue-1
@@ -120,7 +121,26 @@
        [:button.btn.btn-primary.btn-lg
         {:on-click #(publish route-change [:about {:page "faqs"} nil])}
         "See the FAQs"]
-       ]]]))
+       ]]
+
+     [:button.btn.screen-only {:type        "button"
+                               :on-click    #(publish print-change "print")
+                               :on-key-down #(when (= "Enter" (.. % -nativeEvent -code))
+                                               (publish print-change "print"))
+                               :style       {:width                     70
+                                             :opacity                   0.5
+                                             :position                  "fixed"
+                                             :top                       300
+                                             :right                     -1
+                                             :color                     "#ffffff"
+                                             :background-color          "#444466"
+                                             :font-size                 16
+                                             :padding                   "15px 5px 15px 5px"
+                                             :border-top-left-radius    10
+                                             :border-bottom-left-radius 10
+                                             }} (simple/icon {:family :fa} "print") " Print"]
+
+     ]))
 
 
 (rum/defc tool < rum/reactive []

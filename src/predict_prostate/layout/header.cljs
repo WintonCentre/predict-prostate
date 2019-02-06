@@ -112,20 +112,20 @@
               :padding          "30px"
               }}
      [:row
-      [:.col-sm-4.col-sm-offset-1
+      [:.col-sm-3                                           ;.col-sm-offset-1
        [:img.img-responsive {:src   "assets/phe-neg.png"
                              :style {:margin-top 10
                                      :margin-left 10
                                      ;:margin-bottom "4ex"
-                                     :max-width     "150px" #_"70%"}}]]
-      [:.col-sm-3
+                                     :max-width     "120px" #_"70%"}}]]
+      [:.col-sm-4
        [:img.img-responsive {:src   "assets/urology.png"
                              :style {:margin-top 10
                                      ;:margin-bottom "3ex"
-                                     :max-width     "200px" #_"90%"}}]]
-      [:.col-sm-3
+                                     :max-width     "175px" #_"90%"}}]]
+      [:.col-sm-4
        [:img.img-responsive {:src   "assets/ucs-winton-transparent.png"
                              :style {:margin-top 10
                                      ;:margin-bottom "3ex"
-                                     :max-width     "200px" #_"90%"}}]]
+                                     :max-width     "175px" #_"90%"}}]]
       ]]]])
