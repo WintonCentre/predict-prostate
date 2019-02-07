@@ -1,6 +1,6 @@
 (ns predict-prostate.models.adapters.predict
   (:require
-            [predict-prostate.models.prostate-release :as model]
+            [predict-prostate.models.prostate15 :as model]
             [clojure.string :refer [starts-with?]]
             [cljs.reader :refer [read-string]]
             [goog.object :refer [getValueByKeys]]
