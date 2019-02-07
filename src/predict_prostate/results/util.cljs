@@ -159,6 +159,12 @@
   [f]
   (* 100 f))
 
+(defn percent
+  ([d]
+   (str (Math.round (* 100 d)) "%")
+    #_(percent d 0))
+  ([d p]
+   (str (one-dp (* 100 d) p) "%")))
 
 (comment
   (to-percent 0.0032 false)                                 ;=> 0.3
