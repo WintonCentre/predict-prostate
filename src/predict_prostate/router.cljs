@@ -52,3 +52,10 @@
                   :on-navigate on-navigate
                   :html5?      (not (use-hash-fragment))})
 
+(comment
+
+  (r/resolve router :about {:page "history"} nil)
+  ;=> "/about/history
+
+
+  )

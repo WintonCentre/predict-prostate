@@ -173,7 +173,7 @@
     (fn [_ [page param1 param2 :as rvec]]
       (reset! route rvec)
       (r/navigate! router page param1 param2)
-      (when (= page :home) (set! (.-href js/location) (if (use-hash-fragment) "/#" "/")))
+      ;(when (= page :home) (set! (.-href js/location) (if (use-hash-fragment) "/#" "/")))
       ))
 
   ;; Now clear all values to nil/default
