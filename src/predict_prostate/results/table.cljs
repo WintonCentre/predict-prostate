@@ -69,7 +69,7 @@
           ])
        [:tr
         [:td {:col-span 3}
-         "If the cancer does not progress "
+         "If deaths from prostate cancer were excluded "
          (get data :dotted-orange)                          ; (Math.round (- 100 (:oth data)))
          " would survive "
          (rum/react (input-cursor :result-year))

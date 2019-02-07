@@ -45,7 +45,7 @@
 (def radical-fill "#00afef")
 (def radical-range "#88ddff")
 (def radical-below "#00ddff")
-(def radical-above "#eecc88")
+(def radical-above "#eeee88" #_"#beebff")
 
 (def fills-by-style
   {:area1 [above-dashed

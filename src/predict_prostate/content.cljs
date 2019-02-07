@@ -558,7 +558,7 @@
     [:section#tool-preamble "Preamble"
      [:p.emphasise {:key 0 :style {:margin-top "10px"}}
       [:strong "We recommend that patients use this tool in consultation with their doctor."
-       [:br] "This tool is only for use in men without metastatic disease where conservative management and radical treatment are both appropriate options."]]]
+       [:br] "This tool is only for use in men without metastatic disease where conservative management and radical treatment are both options being considered."]]]
 
     [:section#tool-preamble-2 "Preamble 2"
      [[:p.emphasise {:key 1 :style {:border "none"}} "Complete the section below, then select from the treatment options to
