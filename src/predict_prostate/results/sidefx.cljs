@@ -1,7 +1,7 @@
 (ns predict-prostate.results.sidefx
 
   (:require [rum.core :as rum]
-            [predict-prostate.results.util :refer [conservative-fill]]
+            [predict-prostate.results.util :refer [alison-blue-1 conservative-fill]]
             [predict-prostate.components.primitives :refer [blob blob-10 mixed-10]]
             [predict-prostate.components.helpful-form-groups :refer [form-entry]]
             [predict-prostate.components.button :refer [small-help-button]]
@@ -30,47 +30,47 @@
 (rum/defc help [help-id]
   [:.pull-right (small-help-button {:help-id help-id})])
 
-(rum/defc sidefx-table []
-  [:div
-   [:.table-responsive {:key   1
-                        :style {:margin-top "15px"
-                                :font-size  "1.2em"}}
-    [:table.table.table-hover.table-bordered {:style {:padding 0 :margin 0 :font-size "16px"}}
-     [:thead
-      [:tr.info
-       [:th "Potential Harm"]
-       [:th "Conservative " [:br] "Management" [:br] "(CM)" [:.pull-right.screen-only (help "side-effects-am")]]
-       [:th "Radical " [:br] "Prostatectomy" [:br] "(RP)" [:.pull-right.screen-only (help "side-effects-rp")]]
-       [:th "Radiotherapy" [:br] "(RT)" [:.pull-right.screen-only (help "side-effects-rt")]]
-       ]]
-     [:tbody
-      [:tr
-       [:td]
-       [:td {:col-span 3} [:strong "Proportion affected after 3 years"]]]
-      [:tr
-       [:td [:strong "Erectile dysfunction"] [:br] "Erections insufficient for intercourse\n"]
-       [:td "27%"]
-       [:td
-        [:button.btn-link {:on-click #(publish help-key-change "nerve-sparing")} "56% ‡"]
-        [:br]
-        [:button.btn-link {:on-click #(publish help-key-change "non-nerve-sparing")} " 66% *"]]
-       [:td "39%"]]
-      [:tr
-       [:td [:strong "Incontinence"] [:br] "Wear one or more pads per day in the last 4 weeks."]
-       [:td "0.4%"]
-       [:td "19.6%"]
-       [:td "3.0%"]]
-      [:tr
-       [:td [:strong "Bowel issues"] [:br] "Bloody stools about half the time or more frequently"]
-       [:td "1.6%"]
-       [:td "1.2%"]
-       [:td "7.4%"]]
-      ]]]
-   [:dl.print-only
-    [:dt "‡"] [:dd "Nerve-sparing radical prostatectomy"]
-    [:dt "*"] [:dd "Non-nerve-sparing radical prostatectomy"]
-    ]
-   ])
+#_(rum/defc sidefx-table []
+    [:div
+     [:.table-responsive {:key   1
+                          :style {:margin-top "15px"
+                                  :font-size  "1.2em"}}
+      [:table.table.table-hover.table-bordered {:style {:padding 0 :margin 0 :font-size "16px"}}
+       [:thead
+        [:tr.info
+         [:th "Potential Harm"]
+         [:th "Conservative " [:br] "Management" [:br] "(CM)" [:.pull-right.screen-only (help "side-effects-am")]]
+         [:th "Radical " [:br] "Prostatectomy" [:br] "(RP)" [:.pull-right.screen-only (help "side-effects-rp")]]
+         [:th "Radiotherapy" [:br] "(RT)" [:.pull-right.screen-only (help "side-effects-rt")]]
+         ]]
+       [:tbody
+        [:tr
+         [:td]
+         [:td {:col-span 3} [:strong "Proportion affected after 3 years"]]]
+        [:tr
+         [:td [:strong "Erectile dysfunction"] [:br] "Erections insufficient for intercourse\n"]
+         [:td "27%"]
+         [:td
+          [:button.btn-link {:on-click #(publish help-key-change "nerve-sparing")} "56% ‡"]
+          [:br]
+          [:button.btn-link {:on-click #(publish help-key-change "non-nerve-sparing")} " 66% *"]]
+         [:td "39%"]]
+        [:tr
+         [:td [:strong "Incontinence"] [:br] "Wear one or more pads per day in the last 4 weeks."]
+         [:td "0.4%"]
+         [:td "19.6%"]
+         [:td "3.0%"]]
+        [:tr
+         [:td [:strong "Bowel issues"] [:br] "Bloody stools about half the time or more frequently"]
+         [:td "1.6%"]
+         [:td "1.2%"]
+         [:td "7.4%"]]
+        ]]]
+     [:dl.print-only
+      [:dt "‡"] [:dd "Nerve-sparing radical prostatectomy"]
+      [:dt "*"] [:dd "Non-nerve-sparing radical prostatectomy"]
+      ]
+     ])
 
 (def treatment-fills
   {:conservative "#2222AA"                                  ;conservative-fill #_"#0000AA"
@@ -79,11 +79,18 @@
 
 (rum/defc sidefx-header
   []
-  [:div {:style {:background-color "#D9EDF7" :padding 10 :border-radius 3}}
-   [:h4 "Potentially permanent harms of"]
-   [:div {:style {:font-size 16}} (blob {:key "b1" :fill (:conservative treatment-fills) :r 5}) " Conservative management"]
-   [:div {:style {:font-size 16}} (blob {:key "b2" :fill (:radical treatment-fills) :r 5}) " Radical prostatectomy"]
-   [:div {:style {:font-size 16}} (blob {:key "b3" :fill (:radiotherapy treatment-fills) :r 5}) " Radiotherapy"]]
+  [:.col-xs-12 {:style {:margin-bottom 15}}
+   [:.row {:style {:background-color alison-blue-1 #_"#D9EDF7"  :border-radius 3}}
+    [:h4 {:style {:margin-left 15}} "Potentially permanent harms of"]
+    [:.col-sm-6
+     [:div {:style {:font-size 16 :margin-bottom 10}} (blob {:key "b1" :fill (:conservative treatment-fills) :r 7}) " Conservative management"]
+     [:div {:style {:font-size 16 :margin-bottom 10}} (blob {:key "b2" :fill (:radical treatment-fills) :r 7}) " Radical prostatectomy"]
+     [:div {:style {:font-size 16}} (blob {:key "b3" :fill (:radiotherapy treatment-fills) :r 7}) " Radiotherapy"]]
+    [:.col-sm-6
+     [:p {:style {:font-size 14}} "The following estimates assume that the function is normal before treatment.
+    The estimates are not individualised to you or your local treatment centre.
+    Your local team may have data specific to your centre which you can ask about."]
+     ]]]
   )
 
 (defn chunker
@@ -142,71 +149,105 @@
      ]))
 
 
-(defn sidefx-content
-  [{:keys [title sub-title]} & content]
-  (into [] (conj [:div {:style {:padding "0 15px 0 15px" :font-size 16}}
+(rum/defc sidefx-content
+  [{:keys [title sub-title source]} & content]
+  [:div {:style {:padding "0 15px 0 15px" :font-size 16}}
+   [:h4 title]
+   [:h5 sub-title]
+   (map-indexed #(rum/with-key %2 %1) content)
+   (when source [:.alert.alert-info {:style {:font-size 12}} (source)])]
+  #_(into [] (conj [:div {:style {:padding "0 15px 0 15px" :font-size 16}}
                   [:h4 title]
                   [:h5 sub-title]]
-                 (map-indexed #(rum/with-key %2 %1) content))))
+                 (map-indexed #(rum/with-key %2 %1) content)))
+  )
+
+(rum/defc erectile-source []
+  [:span
+   "Estimates for erectile dysfunction have been derived from a large American study. The full research can be
+        read here: "
+   [:a {:href   "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5782813/"
+        :target "_blank"}
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5782813/"]])
+
+(rum/defc incontinence-source []
+  [:span
+   "Estimates for incontinence dysfunction have been taken from the UK-based Prostate Testing for
+       Cancer and Treatment (ProtecT) trial. The full research can be read here: "
+   [:a {:href   "https://www.nejm.org/doi/full/10.1056/NEJMoa1606221"
+        :target "_blank"}
+    "https://www.nejm.org/doi/full/10.1056/NEJMoa1606221"]])
+
+(rum/defc bowel-source []
+  [:span {:font-size 12}
+   "Estimates for bowel dysfunction have been taken from the UK-based Prostate Testing for
+       Cancer and Treatment (ProtecT) trial. The full research can be read here: "
+   [:a {:href   "https://www.nejm.org/doi/full/10.1056/NEJMoa1606221"
+        :target "_blank"}
+    "https://www.nejm.org/doi/full/10.1056/NEJMoa1606221"]])
 
 (rum/defc sidefx-discrete
   [tallies?]
   [:div {:style {:border "1px solid #CCCCCC" :border-radius 3 :font-size 16}}
    (sidefx-header)
-   (sidefx-content {:title "Erectile dysfunction" :sub-title "Defined as: 'Erections insufficient for intercourse' "}
+   (sidefx-content {:title "Erectile dysfunction" :sub-title "Defined as: 'Erections insufficient for intercourse' "
+                    :source erectile-source}
+
                    (sidefx-linear {:treatment :conservative
-                                   :prefix    [:span "With " [:b "conservative management"] ", about "]
+                                   :prefix    [:span "With " [:b {:style {:color (:conservative treatment-fills)}} "conservative management"] ", about "]
                                    :n         27
-                                   :tallies? tallies?})
+                                   :tallies?  tallies?})
                    (sidefx-linear {:treatment :radical
-                                   :prefix    [:span "With " [:b "nerve-sparing radical prostatectomy"] ", about "]
+                                   :prefix    [:span "With " [:b {:style {:color (:radical treatment-fills)}} "nerve-sparing radical prostatectomy"] ", about "]
                                    :n         56
-                                   :tallies? tallies?})
+                                   :tallies?  tallies?})
                    (sidefx-linear {:treatment :radical
-                                   :prefix    [:span "With " [:b "non-nerve-sparing radical prostatectomy"] ", about "]
+                                   :prefix    [:span "With " [:b {:style {:color (:radical treatment-fills)}} "non-nerve-sparing radical prostatectomy"] ", about "]
                                    :n         66
-                                   :tallies? tallies?})
+                                   :tallies?  tallies?})
                    (sidefx-linear {:treatment :radiotherapy
-                                   :prefix    [:span "With " [:b "radiotherapy"] ", about "]
+                                   :prefix    [:span "With " [:b {:style {:color (:radiotherapy treatment-fills)}} "radiotherapy"] ", about "]
                                    :n         39
-                                   :tallies? tallies?}))
+                                   :tallies?  tallies?}))
 
-   (sidefx-content {:title "Incontinence" :sub-title "Defined as: 'Wore one or more pads in the last 4 weeks' "}
+   (sidefx-content {:title   "Incontinence" :sub-title "Defined as: 'Wore one or more pads in the last 4 weeks' "
+                    :source incontinence-source}
                    (sidefx-linear {:treatment :conservative
                                    :fewer     true
-                                   :prefix    (fewer-helper [:span "With " [:b "conservative management"] ", "])
+                                   :prefix    (fewer-helper [:span  "With " [:b  {:style {:color (:conservative treatment-fills)}} "conservative management"] ", "])
                                    :n         1
-                                   :tallies? tallies?})
+                                   :tallies?  tallies?})
                    (sidefx-linear {:treatment :radical
-                                   :prefix    [:span "With " [:b "radical prostatectomy"] ", about "]
+                                   :prefix    [:span "With " [:b  {:style {:color (:radical treatment-fills)}} "radical prostatectomy"] ", about "]
                                    :n         20
-                                   :tallies? tallies?})
+                                   :tallies?  tallies?})
                    (sidefx-linear {:treatment :radiotherapy
-                                   :prefix    [:span "With " [:b "radiotherapy"] ", about "]
+                                   :prefix    [:span "With " [:b  {:style {:color (:radiotherapy treatment-fills)}} "radiotherapy"] ", about "]
                                    :n         3
-                                   :tallies? tallies?}))
+                                   :tallies?  tallies?}))
 
-   (sidefx-content {:title "Bowel issues" :sub-title "Defined as: 'Bloody stools about half the time or more frequently' "}
+   (sidefx-content {:title  "Bowel issues" :sub-title "Defined as: 'Bloody stools about half the time or more frequently' "
+                    :source bowel-source}
                    (sidefx-linear {:treatment :conservative
-                                   :prefix    (fewer-helper [:span "With " [:b "conservative management"] ", "])
+                                   :prefix    (fewer-helper [:span "With " [:b {:style {:color (:conservative treatment-fills)}} "conservative management"] ", "])
                                    :fewer     true
                                    :n         2
-                                   :tallies? tallies?})
+                                   :tallies?  tallies?})
                    (sidefx-linear {:treatment :radical
-                                   :prefix    (fewer-helper [:span "With " [:b "radical prostatectomy"] ", "])
+                                   :prefix    (fewer-helper [:span "With " [:b {:style {:color (:radical treatment-fills)}} "radical prostatectomy"] ", "])
                                    :fewer     true
                                    :n         2
-                                   :tallies? tallies?})
+                                   :tallies?  tallies?})
                    (sidefx-linear {:treatment :radiotherapy
-                                   :prefix    [:span "With " [:b "radiotherapy"] ", about "]
+                                   :prefix    [:span "With " [:b {:style {:color (:radiotherapy treatment-fills)}} "radiotherapy"] ", about "]
                                    :n         7
-                                   :tallies? tallies?}))
+                                   :tallies?  tallies?}))
    ]
   )
 
 (rum/defc sidefx-more-info
   []
-  [:div  ;.col-sm-12
+  [:div                                                     ;.col-sm-12
    [:h3 "More Information"]
    [:p "The following websites provide excellent advice and information on treatments and their potential harms:"]
    [:h5 "About treatments:"]
@@ -237,32 +278,31 @@
 (rum/defc results-in-sidefx []
   [:div {:style {:margin-top "15px"}}
 
-   [:.row {:style {:margin-top " 20px "}}
-    [:.col-sm-12
-     [:ul {:style {:font-size 16}}
-      [:li "The following estimates assume that function is normal before treatment."]
-      [:li "These are not individualised estimates to you, and may vary depending on the treatment centre and other
+   #_[:.row {:style {:margin-top " 20px "}}
+      [:.col-sm-12
+       [:ul {:style {:font-size 16}}
+        [:li "The following estimates assume that function is normal before treatment."]
+        [:li "These are not individualised estimates to you, and may vary depending on the treatment centre and other
        factors. Information on outcomes in your local centre may be available from your clinician."]
-      [:li  "Estimates for erectile dysfunction have been derived from a large American study. The full research can be
+        [:li "Estimates for erectile dysfunction have been derived from a large American study. The full research can be
        read here: "
-       [:a {:href   "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5782813/"
-            :target "_blank"}
-        "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5782813/"]]
-      [:li "Estimates for incontinence and bowel dysfunction have been taken from the UK-based Prostate Testing for
+         [:a {:href   "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5782813/"
+              :target "_blank"}
+          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5782813/"]]
+        [:li "Estimates for incontinence and bowel dysfunction have been taken from the UK-based Prostate Testing for
        Cancer and Treatment (ProtecT) trial. The full research can be read here: "
-       [:a {:href   "https://www.nejm.org/doi/full/10.1056/NEJMoa1606221"
-            :target "_blank"}
-        "https://www.nejm.org/doi/full/10.1056/NEJMoa1606221"]]
-      ]]
-    ]
+         [:a {:href   "https://www.nejm.org/doi/full/10.1056/NEJMoa1606221"
+              :target "_blank"}
+          "https://www.nejm.org/doi/full/10.1056/NEJMoa1606221"]]
+        ]]
+      ]
 
-   [:row
-    [:.col-sm-12
-     (sidefx-discrete true)]
 
-    #_(sidefx-more-info)
+   (sidefx-discrete true)
 
-    ]]
+   #_(sidefx-more-info)
+
+   ]
   )
 
 
