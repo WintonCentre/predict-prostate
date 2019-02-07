@@ -4,7 +4,7 @@
             [predict-prostate.state.config :refer [input-groups get-input-default]]
             [predict-prostate.state.run-time :refer [input-cursor input-change input-widget input-label results-cursor]]
             [predict-prostate.components.button :refer [year-picker]]
-            [predict-prostate.results.util :refer [one-dp]]
+            [predict-prostate.results.util :refer [one-dp percent]]
 
             [pubsub.feeds :refer [publish]]
             ))
@@ -21,12 +21,7 @@
   "return a cursor containing the selected year"
   (input-cursor :result-year))
 
-(defn percent
-  ([d]
-   (str (Math.round (* 100 d)) "%")
-   #_(percent d 0))
-  ([d p]
-   (str (one-dp (* 100 d) p) "%")))
+
 
 (defn extract-data [results radical? year]
   (let [conservative-survival (- 1 (+ (nth (get-in results [:conservative :pred-PC-cum]) year)

@@ -70,68 +70,14 @@
      :conservative-survival conservative-survival
      :radical-survival      radical-survival
      :radical-benefit       (map #(- %1 %2) radical-survival conservative-survival)
-     :dotted-orange         (map #(* 100 (- 1 %)) (get-in results [(if radical? :radical :conservative) :pred-NPC-cum])) ; dotted orange
+     ;:dotted-orange         (map #(* 100 (- 1 %)) (get-in results [(if radical? :radical :conservative) :pred-NPC-cum])) ; dotted orange
 
-     ;:dotted-orange         (map #(* 100 %) (get-in results [:conservative :NPC-survival])) ; dotted orange
+     :dotted-orange         (map #(* 100 %) (get-in results [:conservative :NPC-survival])) ; dotted orange
      }
     ))
 
 
-#_(rum/defc results-in-icons < rum/reactive (set-default :result-year) []
-
-  (let [radical? (= 1 (rum/react (input-cursor :primary-rx)))
-        data (extract-data (rum/react results-cursor) radical?)
-        years (rum/react (input-cursor :result-year))
-        cs (round (nth (:conservative-survival data) years))
-        rs (if radical? (round (nth (:radical-survival data) years)) 0)
-        benefit (if radical? (- rs cs) 0)
-        pc-deaths (round (- (nth (:dotted-orange data) years) cs benefit))
-        npc-deaths (- 100 pc-deaths benefit cs)
-        fill-counts [[(fill 2) cs] [(fill 1) benefit] [br-deaths-fill pc-deaths] [oth-deaths-fill npc-deaths]]
-
-        render-year (fn [year data]
-                      [:.row.clearfix {:style {:position "relative" :clear "both" :min-height "260px"}}
-
-                       [:.col-xs-6
-                        (placed-icons fill-counts)]
-
-                       [:.col-xs-6
-                        ; legend
-                        [:div {:style {:padding-top "20px" :position "absolute" :left "250px"}}
-                         (when (pos? npc-deaths)
-                           [:p {:style {:font-size "14px"}} (open-icon oth-deaths-fill) " " npc-deaths " death" (add-s npc-deaths) " due to other causes"])
-                         (when (pos? pc-deaths)
-                           [:p {:style {:font-size "14px"}} (open-icon br-deaths-fill) " " pc-deaths " prostate cancer related death" (add-s pc-deaths)])
-                         (when (pos? benefit)
-                           [:p {:style {:font-size "14px"}} (dead-icon (fill 1)) " " benefit " extra survivor" (add-s benefit) " due to radical treatment"])
-                         [:p {:style {:font-size "14px"}} (dead-icon (fill 2)) " " cs " survivors with conservative treatment"]
-                         [:div {:style {:clear "both"}}]]]])]
-
-    [:div
-
-     [:div {:style {:position "relative"}}
-
-      [:row {:style {:position "relative"}}
-       [:.col-xs-12
-        [:p {:style {:margin-top "15px"}} "This display shows the outcomes for 100 men. These results are based on the inputs and treatments you selected."]
-        #_(form-entry {:key :result-year})
-
-
-        (year-picker)
-        #_(input-widget :result-year)
-        [:span {:style {:font-size "16px"}} " years after diagnosis"]
-
-        (if (= 10 (rum/react (input-cursor :result-year)))
-          (render-year 10 data)
-          (render-year 15 data))]
-
-       ]
-
-      ]
-     [:div {:style {:clear "both"}} " "]]
-    ))
-
-(rum/defc results-in-icons* < rum/reactive (set-default :result-year)
+(rum/defc results-in-icons* < rum/reactive
   [{:keys [printable]}]
 
   (let [radical? (= 1 (rum/react (input-cursor :primary-rx)))
