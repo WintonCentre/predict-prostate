@@ -140,6 +140,7 @@
     </script>
 
     <script src="js/compiled/predict_prostate.js" type="text/javascript"></script>
+    <link rel="manifest" href="manifest.json">
 </head>
 
 <body style="overflow-x:hidden">
@@ -207,6 +208,19 @@
 </script>
 
 
+<!-- Service Worker -->
+<script>
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js', { scope: '/' })
+            .then(function(registration) {
+                console.log('Service Worker Registered');
+            });
+
+        navigator.serviceWorker.ready.then(function(registration) {
+            console.log('Service Worker Ready');
+        });
+    }
+</script>
 
 
 
