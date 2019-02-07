@@ -248,7 +248,7 @@
    [:div {:style {:display     "inline-block"
                   :margin-left "10px"
                   :width       "calc(100% - 60px)"}}
-    [:p " Survival if cancer does not progress"]]
+    [:p " Survival excluding deaths from prostate cancer"]]
    (when (pos? (rum/react (input-cursor :primary-rx)))
      [:p (dead-icon (fill 1)) " Estimated survival with radical treatment"])
 
@@ -270,7 +270,7 @@
 
 (rum/defc legend2 < rum/reactive [plot-style radical?]
   [:div {:width "100%"}
-   (legend-item {:label       "Survival if cancer does not progress"
+   (legend-item {:label       "Survival excluding deaths from prostate cancer"
                  :extra-style {:border-top (str "5px dashed " dashed-stroke)
                                :margin-top 9}
                  :icon        nil})
