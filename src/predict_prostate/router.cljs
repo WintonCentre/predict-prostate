@@ -1,4 +1,3 @@
-
 (ns predict-prostate.router
   (:require [bide.core :as r]
             [predict-prostate.state.run-time :refer [route route-change]]
@@ -43,7 +42,6 @@
 (defn on-navigate
   "A function which will be called on each route change."
   [name params query]
-
   (-> (js/$ ".modal") (.modal "hide"))                      ;Hide any visible modals after navigation
   (reset! route [name params query]))
 
@@ -54,3 +52,10 @@
                   :on-navigate on-navigate
                   :html5?      (not (use-hash-fragment))})
 
+(comment
+
+  (r/resolve router :about {:page "history"} nil)
+  ;=> "/about/history
+
+
+  )

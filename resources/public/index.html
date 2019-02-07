@@ -141,6 +141,7 @@
 
     <script src="js/compiled/predict_prostate.js" type="text/javascript"></script>
     <link rel="manifest" href="manifest.json">
+    <meta name="theme-color">
 </head>
 
 <body style="overflow-x:hidden">
@@ -210,16 +211,29 @@
 
 <!-- Service Worker -->
 <script>
-    if('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js', { scope: '/' })
-            .then(function(registration) {
-                console.log('Service Worker Registered');
-            });
 
-        navigator.serviceWorker.ready.then(function(registration) {
-            console.log('Service Worker Ready');
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('/sw.js', { scope: '/' });
         });
     }
+
+
+    // if('serviceWorker' in navigator) {
+    //     navigator.serviceWorker.register('/sw.js', { scope: '/' })
+    //         .then(function(registration) {
+    //             console.log('Service Worker Registered');
+    //             console.log(registration);
+    //         }).catch(function(error) {
+    //         // registration failed
+    //         console.log('Registration failed with ' + error);
+    //     });;
+    //
+    //     navigator.serviceWorker.ready.then(function(registration) {
+    //         console.log('Service Worker Ready');
+    //     });
+    // }
+
 </script>
 
 

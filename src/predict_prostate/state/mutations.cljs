@@ -34,7 +34,7 @@
             [pubsub.feeds :refer [publish subscribe]]
             [clojure.core.async :refer [timeout <!]]
             [bide.core :as r]
-            [predict-prostate.router :refer [router]]
+            [predict-prostate.router :refer [router use-hash-fragment]]
             [interop.jsx :refer [jq$]]
     #_[predict-prostate.results.util :refer [clip]]
             )
@@ -172,7 +172,9 @@
   (subscribe route-change
     (fn [_ [page param1 param2 :as rvec]]
       (reset! route rvec)
-      (r/navigate! router page param1 param2)))
+      (r/navigate! router page param1 param2)
+      ;(when (= page :home) (set! (.-href js/location) (if (use-hash-fragment) "/#" "/")))
+      ))
 
   ;; Now clear all values to nil/default
   (clear-inputs))
