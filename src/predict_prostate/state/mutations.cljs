@@ -92,21 +92,23 @@
 
                    (cond
 
+
                      (= :biopsy-cores-taken key)
                      (let [value (if (nil? value) (get-input-default input-groups key) value)
-                           bci (read-string @(input-cursor :biopsy-cores-involved))
-                           bci (if (nil? bci) 1 bci)]
+                           bci (js/parseInt @(input-cursor :biopsy-cores-involved))
+                           bci (if (js/isNaN bci) 1 bci)]
                        (println value " >=? " bci " " key)
-                       (when (>= value bci)
-                         (reset! (input-cursor :biopsy-cores-taken) value)))
+
+                       (reset! (input-cursor :biopsy-cores-involved) (min bci value))
+                       (reset! (input-cursor :biopsy-cores-taken) value))
 
                      (= :biopsy-cores-involved key)
                      (let [value (if (nil? value) (get-input-default input-groups key) value)
-                           bct (read-string @(input-cursor :biopsy-cores-taken))
-                           bct (if (nil? bct) 1 bct)
-                           ]
+                           bct (js/parseInt @(input-cursor :biopsy-cores-taken))
+                           bct (if (js/isNaN bct) 1 bct)]
                        (println value " <=? " bct " " key)
                        (when (<= value bct)
+                         (reset! (input-cursor :biopsy-cores-taken) bct)
                          (reset! (input-cursor :biopsy-cores-involved) value)))
 
                      (= key :hist-scale)
