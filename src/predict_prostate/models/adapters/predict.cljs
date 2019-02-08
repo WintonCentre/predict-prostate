@@ -1,10 +1,13 @@
+
 (ns predict-prostate.models.adapters.predict
   (:require
-            [predict-prostate.models.prostate15 :as model]
-            [clojure.string :refer [starts-with?]]
-            [cljs.reader :refer [read-string]]
-            [goog.object :refer [getValueByKeys]]
-            ))
+    [predict-prostate.models.prostate15 :as mdl]
+    [clojure.string :refer [starts-with?]]
+    [cljs.reader :refer [read-string]]
+    [goog.object :refer [getValueByKeys]]
+    ))
+
+
 
 (defn predict-prostate
   "Run the prostate model, mapping input factors to numeric model parameters.
@@ -20,9 +23,9 @@
        ;(update :charlson-comorbidity identity)
        (update :biopsy50 #(if (= :unknown %) 0 %))
        (assoc :protect 0)
-       (model/run-prostate)))
+       (mdl/run-prostate)))
   ([input-map]
-    (predict-prostate input-map 10)))
+   (predict-prostate input-map 10)))
 
 (comment
 

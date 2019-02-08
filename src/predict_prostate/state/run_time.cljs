@@ -8,7 +8,7 @@
     [pubsub.feeds :refer [->Topic]]
     ))
 
-(def model "prostate")
+(def model "prostate-release")
 (def unknown "Unknown")
 (def N 15)
 

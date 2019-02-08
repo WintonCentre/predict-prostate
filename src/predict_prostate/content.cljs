@@ -612,6 +612,9 @@
      [:p "This refers to any admission to hospital in the 2 years before the prostate cancer diagnosis - anything related
      to the prostate cancer diagnosis itself should be ignored."]]
 
+    [:section#brca "BRCA gene variant"
+     [:p "Enter positive if you have been tested positive for the BRCA gene variant."]]
+
     [:section#comorb "Comorbidity"
      [:p "Select yes if there is a history of any of the following conditions:"
       [:br]

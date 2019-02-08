@@ -86,45 +86,48 @@
     (when change
       (subscribe change
         (fn [topic value]
+          (let [bci (js/parseInt @(input-cursor :biopsy-cores-involved))
+                bct (js/parseInt @(input-cursor :biopsy-cores-taken))]
+            (log topic @(input-cursor key) value)
+            (cond
 
-          (log topic @(input-cursor key) value)
-          (cond
+              (and (= key :biopsy-cores-involved)
+                   (> bci bct))
+              (reset! (input-cursor :biopsy-cores-involved) bct)
 
-            (= key :hist-scale)
-            (do
-              (reset! (input-cursor :hist-scale) value)
-              (put-settings! {:hist-scale value})
+              (= key :hist-scale)
+              (do
+                (reset! (input-cursor :hist-scale) value)
+                (put-settings! {:hist-scale value})
 
-              ; copy the value from the old scale to the newly selected scale
-              (if (= value :gleason)
-                (reset! (input-cursor :gleason) @(input-cursor :grade-group))
-                (reset! (input-cursor :grade-group) @(input-cursor :gleason)))
-              )
+                ; copy the value from the old scale to the newly selected scale
+                (if (= value :gleason)
+                  (reset! (input-cursor :gleason) @(input-cursor :grade-group))
+                  (reset! (input-cursor :grade-group) @(input-cursor :gleason)))
+                )
 
-            (#{:gleason :grade-group} key)
-            (do
-              (reset! (input-cursor :gleason) value)
-              (reset! (input-cursor :grade-group) value))
+              (#{:gleason :grade-group} key)
+              (do
+                (reset! (input-cursor :gleason) value)
+                (reset! (input-cursor :grade-group) value))
 
-            (= key :h-admissions)
-            (do
-              (reset! (input-cursor :h-admissions) value)
-              (if (= value 0)
-                (reset! (input-cursor :charlson-comorbidity) nil)))
+              (= key :h-admissions)
+              (do
+                (reset! (input-cursor :h-admissions) value)
+                (if (= value 0)
+                  (reset! (input-cursor :charlson-comorbidity) nil)))
 
-            (= key :plot-style)
-            (do
-              (reset! (input-cursor :plot-style) value)
-              (put-settings! {:plot-style value}))
+              (= key :plot-style)
+              (do
+                (reset! (input-cursor :plot-style) value)
+                (put-settings! {:plot-style value}))
 
-            :else
-            (reset! (input-cursor key) (if (nil? value)
-                                         (get-input-default input-groups key)
-                                         value))
+              :else
+              (reset! (input-cursor key) (if (nil? value)
+                                           (get-input-default input-groups key)
+                                           value))
 
-
-
-            )
+              ))
 
           ;; This and the following subscribe are the only spots where we recalculate the model, and we delay it until
           ;; any changes to the on-screen-inputs have been rendered.
