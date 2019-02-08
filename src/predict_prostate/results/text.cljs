@@ -40,7 +40,7 @@
       [:.col-sm-12 {:style {:margin-top 15 :margin-bottom "0px" :display "inline-block" :font-size 16}}
        [:span "Based on the information you have entered, " (year-picker) " years after diagnosis:"]
 
-       [:p (emph cs) " out of " (emph 100) " men are alive at years with " (emph "conservative treatment") "."]
+       [:p (emph cs) " out of " (emph 100) " men are alive at " years " years with " (emph "conservative treatment") "."]
 
        (when radical?
          [:p (emph rs) " out of " (emph 100) " men treated (an extra " (emph benefit) ") are alive because of " (emph "radical treatment") "."])]]]))
@@ -79,5 +79,5 @@
 
     [:div
      (texts year data radical? printable)
-     [:p.print-only {:style {:font-size 12}} text1 (emph (- 100 (round (nth (:dotted-orange data) year)))) text2]
-     [:p.screen-only {:style {:font-size 16}} text1 (emph (- 100 (round (nth (:dotted-orange data) year)))) text2]]))
+     [:p.print-only {:style {:font-size 12}} text1 (emph (round (nth (:dotted-orange data) year))) text2]
+     [:p.screen-only {:style {:font-size 16}} text1 (emph (round (nth (:dotted-orange data) year))) text2]]))

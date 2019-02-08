@@ -33,6 +33,7 @@
             [predict-prostate.models.runner :refer [recalculate-model]]
             [pubsub.feeds :refer [publish subscribe]]
             [clojure.core.async :refer [timeout <!]]
+            [cljs.reader :refer [read-string]]
             [bide.core :as r]
             [predict-prostate.router :refer [router use-hash-fragment]]
             [interop.jsx :refer [jq$]]
@@ -70,8 +71,8 @@
 
 (defn subscribe-to [change cursor & [silent]]
   (subscribe change
-    #(do (when-not silent (log %1 @cursor %2))
-         (reset! cursor %2))))
+             #(do (when-not silent (log %1 @cursor %2))
+                  (reset! cursor %2))))
 
 (defn clip [{:keys [value min max]}]
   (if (>= value min)
@@ -85,57 +86,70 @@
   (doseq [[key change] (input-changes)]
     (when change
       (subscribe change
-        (fn [topic value]
-          (let [bci (js/parseInt @(input-cursor :biopsy-cores-involved))
-                bct (js/parseInt @(input-cursor :biopsy-cores-taken))]
-            (log topic @(input-cursor key) value)
-            (cond
+                 (fn [topic value]
 
-              (and (= key :biopsy-cores-involved)
-                   (> bci bct))
-              (reset! (input-cursor :biopsy-cores-involved) bct)
+                   (log topic @(input-cursor key) value)
 
-              (= key :hist-scale)
-              (do
-                (reset! (input-cursor :hist-scale) value)
-                (put-settings! {:hist-scale value})
+                   (cond
 
-                ; copy the value from the old scale to the newly selected scale
-                (if (= value :gleason)
-                  (reset! (input-cursor :gleason) @(input-cursor :grade-group))
-                  (reset! (input-cursor :grade-group) @(input-cursor :gleason)))
-                )
+                     (= :biopsy-cores-taken key)
+                     (let [value (if (nil? value) (get-input-default input-groups key) value)
+                           bci (read-string @(input-cursor :biopsy-cores-involved))
+                           bci (if (nil? bci) 1 bci)]
+                       (println value " >=? " bci " " key)
+                       (when (>= value bci)
+                         (reset! (input-cursor :biopsy-cores-taken) value)))
 
-              (#{:gleason :grade-group} key)
-              (do
-                (reset! (input-cursor :gleason) value)
-                (reset! (input-cursor :grade-group) value))
+                     (= :biopsy-cores-involved key)
+                     (let [value (if (nil? value) (get-input-default input-groups key) value)
+                           bct (read-string @(input-cursor :biopsy-cores-taken))
+                           bct (if (nil? bct) 1 bct)
+                           ]
+                       (println value " <=? " bct " " key)
+                       (when (<= value bct)
+                         (reset! (input-cursor :biopsy-cores-involved) value)))
 
-              (= key :h-admissions)
-              (do
-                (reset! (input-cursor :h-admissions) value)
-                (if (= value 0)
-                  (reset! (input-cursor :charlson-comorbidity) nil)))
+                     (= key :hist-scale)
+                     (do
+                       (reset! (input-cursor :hist-scale) value)
+                       (put-settings! {:hist-scale value})
 
-              (= key :plot-style)
-              (do
-                (reset! (input-cursor :plot-style) value)
-                (put-settings! {:plot-style value}))
+                       ; copy the value from the old scale to the newly selected scale
+                       (if (= value :gleason)
+                         (reset! (input-cursor :gleason) @(input-cursor :grade-group))
+                         (reset! (input-cursor :grade-group) @(input-cursor :gleason)))
+                       )
 
-              :else
-              (reset! (input-cursor key) (if (nil? value)
-                                           (get-input-default input-groups key)
-                                           value))
+                     (#{:gleason :grade-group} key)
+                     (do
+                       (reset! (input-cursor :gleason) value)
+                       (reset! (input-cursor :grade-group) value))
 
-              ))
+                     (= key :h-admissions)
+                     (do
+                       (reset! (input-cursor :h-admissions) value)
+                       (if (= value 0)
+                         (reset! (input-cursor :charlson-comorbidity) nil)))
 
-          ;; This and the following subscribe are the only spots where we recalculate the model, and we delay it until
-          ;; any changes to the on-screen-inputs have been rendered.
-          (recalculate-model (input-map) N)))))
+                     (= key :plot-style)
+                     (do
+                       (reset! (input-cursor :plot-style) value)
+                       (put-settings! {:plot-style value}))
+
+                     :else
+                     (reset! (input-cursor key) (if (nil? value)
+                                                  (get-input-default input-groups key)
+                                                  value))
+
+                     )
+
+                   ;; This and the following subscribe are the only spots where we recalculate the model, and we delay it until
+                   ;; any changes to the on-screen-inputs have been rendered.
+                   (recalculate-model (input-map) N)))))
 
   (subscribe force-recalculation
-    (fn [_ _]
-      (recalculate-model (input-map) N)))
+             (fn [_ _]
+               (recalculate-model (input-map) N)))
 
   ;; various
   (subscribe-to media-change media-cursor false)
@@ -148,22 +162,22 @@
   (subscribe-to show-uncertainty-change show-uncertainty-cursor true)
 
   (subscribe results-change
-    (fn [_ results]
-      (reset! results-cursor results)))
+             (fn [_ results]
+               (reset! results-cursor results)))
 
   (subscribe help-key-change
-    (fn [_ help-key]
-      (reset! help-key-cursor help-key)
-      (if help-key
-        (.modal (jq$ "#topModal") "show")
-        (.modal (jq$ "#topModal") "hide"))))
+             (fn [_ help-key]
+               (reset! help-key-cursor help-key)
+               (if help-key
+                 (.modal (jq$ "#topModal") "show")
+                 (.modal (jq$ "#topModal") "hide"))))
 
   (subscribe settings-change
-    (fn [_ help-key]
-      (reset! settings-cursor help-key)
-      (if help-key
-        (.modal (jq$ "#settingsModal") "show")
-        (.modal (jq$ "#settingsModal") "hide"))))
+             (fn [_ help-key]
+               (reset! settings-cursor help-key)
+               (if help-key
+                 (.modal (jq$ "#settingsModal") "show")
+                 (.modal (jq$ "#settingsModal") "hide"))))
 
 
   (subscribe print-change
@@ -173,11 +187,11 @@
              )
 
   (subscribe route-change
-    (fn [_ [page param1 param2 :as rvec]]
-      (reset! route rvec)
-      (r/navigate! router page param1 param2)
-      ;(when (= page :home) (set! (.-href js/location) (if (use-hash-fragment) "/#" "/")))
-      ))
+             (fn [_ [page param1 param2 :as rvec]]
+               (reset! route rvec)
+               (r/navigate! router page param1 param2)
+               ;(when (= page :home) (set! (.-href js/location) (if (use-hash-fragment) "/#" "/")))
+               ))
 
   ;; Now clear all values to nil/default
   (clear-inputs))

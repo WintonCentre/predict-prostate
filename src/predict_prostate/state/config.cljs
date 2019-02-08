@@ -138,19 +138,19 @@
                   "Biopsy cores taken"
                   :numeric-input
                   {:min 1 :max 100 :step 1 :precision 0}
-                  false false true
+                  false false false
                   :prp
                   #{"prostate-release"}
-                  "")
+                  10)
 
    (->Input-group :biopsy-cores-involved
                   "Biopsy cores with prostate cancer"
                   :numeric-input
                   {:min 0 :max 100 :step 1 :precision 0}
-                  false false true
+                  false false false
                   :prp
                   #{"prostate-release"}
-                  "")
+                  1)
 
    (->Input-group :h-admissions
                   "Hospital admission in last 2 years?"
