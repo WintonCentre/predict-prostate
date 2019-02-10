@@ -91,7 +91,9 @@
 
    (form-entry {:label "Gleason scale" :key :gleason})
 
-   (when (model-keys :biopsy50) (form-entry {:label "Biopsy" :key :biopsy50}))
+   (when (model-keys :biopsy50)
+     (form-entry {:label "Biopsy" :key :biopsy50}))
+
    (when (model-keys :biopsy-done) (form-entry {:label "Biopsy" :key :biopsy-done}))
 
    (when (= (rum/react (input-cursor :biopsy-done)) 1)

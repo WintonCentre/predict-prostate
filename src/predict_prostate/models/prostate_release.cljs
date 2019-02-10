@@ -10,28 +10,38 @@
 
 
 ; stata L 21
-(defn pi-pcsm [{:keys [age psa t-stage grade-group primary-rx biopsy50 brca ppc]}]
+(defn pi-pcsm [{:keys [age psa t-stage grade-group primary-rx brca biopsy50 biopsy-done biopsy-cores-involved biopsy-cores-taken] :as inputs}]
   "gen pi-pcsm = 0.0026005*((age/10)^3-341.155151) + 0.185959*(ln((psa+1)/100)+1.636423432) + .1614922*(t_stage==2) + .39767881*(t_stage==3) + .6330977*(t_stage==4) + .2791641*(gradegroup==2) + .5464889*(gradegroup==3) + .7411321*(gradegroup==4) + 1.367963*(gradegroup==5) + -.6837094*(primaryRx==1) + .9084921*(primaryRx==3) -0.617722958*(biopsy50==1) + 0.579225231*(biopsy50==2) +(((PPC+0.1811159)/100)^.5-.649019)*1.890134 \n"
-  (+ (* 0.0026005 (- (pow (/ age 10) 3) 341.155151))
-     (* 0.185959 (+ (ln (/ (inc psa) 100)) 1.636423432))
-     (get {2 0.1614922
-           3 0.39767881
-           4 0.6330977} t-stage)
-     (get {2 0.2791641
-           3 0.5464889
-           4 0.7411321
-           5 1.367963} grade-group)
-     (get {0.9 (ln 0.35)                                    ; radical low (now log 0.38) (was log 0.35)  ;todo uncertainty
-           1   -0.6837094
-           1.1 (ln 0.67)                                    ; radical high (now log 0.67) (was log 0.67) ;todo uncertainty
-           3   0.9084921} primary-rx)
-     (get {1 -0.617722958
-           2 0.579225231} biopsy50)
-     (get {0 0
-           1 0.956
-           2 0} brca)
-     (* (- (js/Math.sqrt (/ (+ ppc 0.1811159) 100)) 0.649019) 1.890134)
-     ))
+  (let [ppc (if (and biopsy-cores-involved biopsy-cores-taken (= 1 biopsy-done))
+              (* 100 (/ biopsy-cores-involved biopsy-cores-taken))
+              42)]
+
+    (println "inputs = " inputs)
+
+    (+ (* 0.0026005 (- (pow (/ age 10) 3) 341.155151))
+      (* 0.185959 (+ (ln (/ (inc psa) 100)) 1.636423432))
+      (get {2 0.1614922
+            3 0.39767881
+            4 0.6330977} t-stage)
+      (get {2 0.2791641
+            3 0.5464889
+            4 0.7411321
+            5 1.367963} grade-group)
+      (get {0.9 (ln 0.35)                                   ; radical low (now log 0.38) (was log 0.35)  ;todo uncertainty
+            1   -0.6837094
+            1.1 (ln 0.67)                                   ; radical high (now log 0.67) (was log 0.67) ;todo uncertainty
+            3   0.9084921} primary-rx)
+      #_(get {1 -0.617722958
+            2 0.579225231} biopsy50)
+      (get {nil 0
+            0 0
+            1 0.956
+            2 0} brca)
+      (* (- (js/Math.sqrt (/ (+ ppc 0.1811159) 100)) 0.649019) 1.890134)
+      )
+
+
+    ))
 (comment
   (pi-pcsm {:age 70 :psa 10 :t-stage 2 :grade-group 2 :primary-rx 0  :biopsy50 0 :brca 0 :ppc 41.9415})
   ;=> 0.3392995824130641
