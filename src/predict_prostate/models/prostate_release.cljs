@@ -16,7 +16,7 @@
               (* 100 (/ biopsy-cores-involved biopsy-cores-taken))
               42)]
 
-    (println "inputs = " inputs)
+    ;(println "inputs = " inputs)
 
     (+ (* 0.0026005 (- (pow (/ age 10) 3) 341.155151))
       (* 0.185959 (+ (ln (/ (inc psa) 100)) 1.636423432))

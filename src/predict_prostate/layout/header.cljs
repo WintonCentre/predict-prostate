@@ -128,4 +128,9 @@
                              :style {:margin-top 10
                                      ;:margin-bottom "3ex"
                                      :max-width     "175px" #_"90%"}}]]
-      ]]]])
+      ]]]
+   [:.col-sm-12.copy-footer
+    (str "Copyright Ⓒ " (.getFullYear (js/Date.)) " University of Cambridge. All Rights Reserved | ")
+    [:a {:on-click #(publish route-change [:legal {:page "privacy"} nil]) :href "javascript:void(0)"} "Privacy & Data Protection"]
+    " | "
+    [:a {:on-click #(publish route-change [:legal {:page "disclaimer"} nil]) :href "javascript:void(0)"} "Disclaimer"]]])

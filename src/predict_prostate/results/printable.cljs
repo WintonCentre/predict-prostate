@@ -58,6 +58,9 @@
        [:td (input-label :h-admissions)]
        [:td ({0 "No" 1 "Yes"} (rum/react (input-cursor :h-admissions)))]]
       [:tr
+       [:td (input-label :brca)]
+       [:td ({0 "No" 1 "Yes"} (rum/react (input-cursor :brca)))]]
+      [:tr
        [:td (input-label :grade-group)]
        [:td ((option-range 6) (rum/react (input-cursor :grade-group)))]]
       [:tr
@@ -68,10 +71,11 @@
                        [4 "8"]
                        [5 "9 or 10"]]) (rum/react (input-cursor :gleason)))]]
       [:tr
-       [:td (input-label :biopsy50)]
-       [:td ({1        "fewer than half"
-              2        "half or more"
-              :unknown "Unknown"} (rum/react (input-cursor :biopsy50)))]]
+       [:td (input-label :biopsy-cores-taken)]
+       [:td (rum/react (input-cursor :biopsy-cores-taken))]]
+      [:tr
+       [:td (input-label :biopsy-cores-involved)]
+       [:td (rum/react (input-cursor :biopsy-cores-involved))]]
       (when (pos? (rum/react (input-cursor :h-admissions)))
         [:tr
              [:td (input-label :charlson-comorbidity)]
