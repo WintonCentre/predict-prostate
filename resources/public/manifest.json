@@ -4,12 +4,12 @@
   "description": "Predict Prostate",
   "icons": [
     {
-      "src": "/assets/logo_predict_192.png",
+      "src": "/assets/logo_prostate_192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/assets/logo_predict_512.png",
+      "src": "/assets/logo_prostate_512.png",
       "type": "image/png",
       "sizes": "512x512"
     }

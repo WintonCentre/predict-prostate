@@ -1,10 +1,18 @@
 
+// Things in cache will be available when offline.
 const cacheName = `predict-prostate`;
 self.addEventListener('install', e => {
   e.waitUntil(
     caches.open(cacheName).then(cache => {
       return cache.addAll([
         `/`,
+        '/assets/browser-edge.png',
+        '/assets/browser-ie.png',
+        '/assets/browser-firefox.png',
+        '/assets/browser-chrome.png',
+        '/assets/NHS.jpg',
+
+
         // `/index.html`,
         //   'manifest.json',
         //   '/css/jquery.smartmenus.bootstrap.css',
@@ -22,6 +30,8 @@ self.addEventListener('activate', event => {
   event.waitUntil(self.clients.claim());
 });
 
+// when the browser fetches a url, either response with
+// the cached object or go ahead and fetch the actual url
 self.addEventListener('fetch', event => {
   event.respondWith(
     caches.open(cacheName)
@@ -31,3 +41,31 @@ self.addEventListener('fetch', event => {
     })
   );
 });
+
+
+// Alternative STALE WHILE REVALIDATE.
+// self.addEventListener("fetch", function(event) {
+//   const requestURL = new URL(event.request.url);
+//
+//   if (/^(\/css\/|\/js\/)/.test(requestURL.pathname)) {
+//     event.respondWith(returnFromCacheOrFetch(event.request));
+//   }
+// });
+//
+// function returnFromCacheOrFetch(request) {
+//   const cachePromise = caches.open(mainCache);
+//   const matchPromise = cachePromise.then(function(cache) {
+//     return cache.match(request);
+//   });
+//
+//   return Promise.all([cachePromise, matchPromise]).then(function([cache, cacheResponse]) {
+//     // Kick off the update request
+//     const fetchPromise = fetch(request).then(function(fetchResponse) {
+//       // Cache the updated file and then return the response
+//       cache.put(request, fetchResponse.clone());
+//       return fetchResponse;
+//     }
+//     // return the cached response if we have it, otherwise the result of the fetch.
+//     return cacheResponse || fetchPromise;
+//   )});
+// }
