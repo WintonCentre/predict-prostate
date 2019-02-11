@@ -480,7 +480,10 @@
      under ‘Tools’ and ‘Options’ (PC) or ‘Preferences’ (Mac) though the details vary from browser to browser.
      Also, Google offers a " [:a {:href "https://tools.google.com/dlpage/gaoptout"} "tool that you can use to opt out"]
       " of being tracked by Google Analytics. You can add this plugin to your browser by going to Google.
-      For more details about controlling cookies visit the help pages for the browser that you are using."]]]
+      For more details about controlling cookies visit the help pages for the browser that you are using."]]
+
+    [:section "Can I disable hotjar?"
+     [:p "Yes you can. Follow this link for up to date instructions: " [:a {:href "https://www.hotjar.com/legal/compliance/opt-out" :target "_blank"} "How to disable Hotjar"]]]]
 
 
    ;;;
