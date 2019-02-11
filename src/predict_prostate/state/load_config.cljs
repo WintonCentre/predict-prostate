@@ -5,11 +5,11 @@
     [clojure.string :refer [index-of]]
     [predict-prostate.state.config :refer [input-groups event-bus]]
     [predict-prostate.state.run-time :refer [rtdb
-                                     input-cursor
-                                     input-cursors
-                                     input-change
-                                     estimates
-                                     ]]
+                                             input-cursor
+                                             input-cursors
+                                             input-change
+                                             estimates
+                                             ]]
 
     [predict-prostate.components.button :refer [radio-button-group radio-button-group-vertical]]
     [predict-prostate.components.select :refer [picker]]
@@ -72,8 +72,8 @@
   (reduce (fn [m g]
             (let [{:keys [key read-only write-only]} g]
               (-> m
-                (assoc-in [:cursor key] (when-not write-only (rum/cursor-in ref [:widgets key])))
-                (assoc-in [:change key] (when-not read-only (->Topic key event-bus)))
+                  (assoc-in [:cursor key] (when-not write-only (rum/cursor-in ref [:widgets key])))
+                  (assoc-in [:change key] (when-not read-only (->Topic key event-bus)))
                   )))
           old-wiring groups))
 
@@ -94,6 +94,11 @@
   field in the input configuration."
   [model]
   (into #{} (map :key (filter #(and ((:models %) model)) input-groups))))
+(comment
+  (live-keys-by-model "prostate")
+  ;=>
+  #_#{:gleason :age :h-admissions :biopsy50 :psa :plot-style :biopsy-done
+      :charlson-comorbidity :primary-rx :t-stage :grade-group :brca})
 
 
 
