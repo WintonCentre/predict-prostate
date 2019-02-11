@@ -97,7 +97,7 @@
                      (let [value (if (nil? value) (get-input-default input-groups key) value)
                            bci (js/parseInt @(input-cursor :biopsy-cores-involved))
                            bci (if (js/isNaN bci) 1 bci)]
-                       (println value " >=? " bci " " key)
+                       ;(println value " >=? " bci " " key)
 
                        (reset! (input-cursor :biopsy-cores-involved) (min bci value))
                        (reset! (input-cursor :biopsy-cores-taken) value))
@@ -106,7 +106,7 @@
                      (let [value (if (nil? value) (get-input-default input-groups key) value)
                            bct (js/parseInt @(input-cursor :biopsy-cores-taken))
                            bct (if (js/isNaN bct) 1 bct)]
-                       (println value " <=? " bct " " key)
+                       ;(println value " <=? " bct " " key)
                        (when (<= value bct)
                          (reset! (input-cursor :biopsy-cores-taken) bct)
                          (reset! (input-cursor :biopsy-cores-involved) value)))
