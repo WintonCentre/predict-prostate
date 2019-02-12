@@ -92,7 +92,6 @@
 
                    (cond
 
-
                      (= :biopsy-cores-taken key)
                      (let [value (if (nil? value) (get-input-default input-groups key) value)
                            bci (js/parseInt @(input-cursor :biopsy-cores-involved))
@@ -192,7 +191,7 @@
              (fn [_ [page param1 param2 :as rvec]]
                (reset! route rvec)
                (r/navigate! router page param1 param2)
-               ;(when (= page :home) (set! (.-href js/location) (if (use-hash-fragment) "/#" "/")))
+               (when (= page :home) (set! (.-href js/location) (if (use-hash-fragment) "/#" "/")))
                ))
 
   ;; Now clear all values to nil/default

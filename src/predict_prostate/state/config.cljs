@@ -132,7 +132,7 @@
                   false false false
                   :prp
                   #{"prostate-release"}
-                  nil)
+                  "")
 
    (->Input-group :biopsy-cores-taken
                   "Biopsy cores taken"
@@ -141,7 +141,7 @@
                   false false false
                   :prp
                   #{"prostate-release"}
-                  10)
+                  "")
 
    (->Input-group :biopsy-cores-involved
                   "Biopsy cores with prostate cancer"
@@ -150,7 +150,7 @@
                   false false false
                   :prp
                   #{"prostate-release"}
-                  1)
+                  nil)
 
    (->Input-group :h-admissions
                   "Hospital admission in last 2 years?"
