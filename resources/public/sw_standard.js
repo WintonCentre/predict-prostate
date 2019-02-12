@@ -1,8 +1,11 @@
 
 // Things in cache will be available when offline.
-const cacheName = `predict-prostate`;
+const cacheName = `sw-standard`;
+const CACHE = cacheName
 self.addEventListener('install', e => {
-  e.waitUntil(
+    console.log('The service worker is being installed. ' + CACHE);
+
+    e.waitUntil(
     caches.open(cacheName).then(cache => {
       return cache.addAll([
         `/`,
