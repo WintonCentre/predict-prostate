@@ -54,6 +54,8 @@ self.addEventListener('fetch', event => {
     caches.open(cacheName)
       .then(cache => cache.match(event.request, {ignoreSearch: true}))
       .then(response => {
+        // console.log(event.request)
+        event.request.credentials = "include"
       // return fetch(event.request);
       return response || fetch(event.request);
       // return fetch(event.request) || response;

@@ -1,0 +1,9 @@
+.git
+temp_exclude_list
+exclude_list.txt
+clean-copy.sh
+publish-maths-cam.sh
+publish-prostate-predict.sh
+docs/
+resources/
+target/
