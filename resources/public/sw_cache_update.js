@@ -67,13 +67,13 @@ function precache() {
 // resource. Notice that in case of no matching, the promise still resolves
 // but it does with `undefined` as value.
 function fromCache(request) {
-    console.log('request')
-    console.log(request)
+    // console.log('request')
+    // console.log(request)
 
     return caches.open(CACHE).then(function (cache) {
         return cache.match(request).then(function (matching) {
-            console.log('matching')
-            console.log(matching)
+            // console.log('matching')
+            // console.log(matching)
             return matching || Promise.reject('no-match');
         });
     });
