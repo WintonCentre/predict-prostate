@@ -1,8 +1,11 @@
 
 // Things in cache will be available when offline.
-const cacheName = `predict-prostate`;
+const cacheName = `sw-standard`;
+const CACHE = cacheName
 self.addEventListener('install', e => {
-  e.waitUntil(
+    console.log('The service worker is being installed. ' + CACHE);
+
+    e.waitUntil(
     caches.open(cacheName).then(cache => {
       return cache.addAll([
         `/`,
@@ -30,6 +33,23 @@ self.addEventListener('activate', event => {
   event.waitUntil(self.clients.claim());
 });
 
+// self.addEventListener('activate', function(event) {
+//     event.waitUntil(
+//         caches.keys().then(function(cacheNames) {
+//             return Promise.all(
+//                 cacheNames.filter(function(cacheName) {
+//                     // Return true if you want to remove this cache,
+//                     // but remember that caches are shared across
+//                     // the whole origin
+//                 }).map(function(cacheName) {
+//                     return caches.delete(cacheName);
+//                 })
+//             );
+//         })
+//     );
+// });
+
+
 // when the browser fetches a url, either response with
 // the cached object or go ahead and fetch the actual url
 self.addEventListener('fetch', event => {
@@ -37,7 +57,11 @@ self.addEventListener('fetch', event => {
     caches.open(cacheName)
       .then(cache => cache.match(event.request, {ignoreSearch: true}))
       .then(response => {
+        // console.log(event.request)
+        event.request.credentials = "include"
+      // return fetch(event.request);
       return response || fetch(event.request);
+      // return fetch(event.request) || response;
     })
   );
 });

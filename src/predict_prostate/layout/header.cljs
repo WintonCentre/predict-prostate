@@ -44,13 +44,13 @@
                               :margin-top       20
                               :margin-bottom    0}}
    [:.col-md-3.col-md-offset-2.text-center
-    [:img {:src "assets/tool-icon.png" :alt "tool-icon" :aria-hidden true}]
+    [:img {:src "/assets/tool-icon.png" :alt "tool-icon" :aria-hidden true}]
     [:h3 "Want to use Predict?"]
     [:p "This tool helps to understand how treatments for prostate cancer may improve survival rates after surgery."]
     (start-button)]
 
    [:.col-md-3..col-md-offset-2.text-center {:style {:margin-top "20px"}}
-    [:img {:src "assets/faq-icon.png" :alt "faq-icon" :aria-hidden true}]
+    [:img {:src "/assets/faq-icon.png" :alt "faq-icon" :aria-hidden true}]
     [:h3 "Someone to talk to?"]
     [:p " if you are fighting cancer, it’s often easier with support. Here, you can find further information and links."]
     [:button.btn.btn-danger.btn-lg
@@ -78,12 +78,12 @@
   ;(banner)
   [:.row
    [:.col-sm-10.col-sm-offset-1.col-xs-12
-    [:img.img-responsive.pull-right {:src   "assets/NHS.jpg"
+    [:img.img-responsive.pull-right {:src   "/assets/NHS.jpg"
                                      :alt   "NHS logo"
                                      :style {:width         "85px"
                                              :margin-top    "30px"
                                              :margin-bottom "38px"}}]
-    [:img.img-responsive {:src   "assets/prostate-angle-man_1.png"
+    [:img.img-responsive {:src   "/assets/prostate-angle-man_1.png"
                           :alt   "Predict prostate logo"
                           :style {:width         "180px"
                                   :margin-top    "13px"
@@ -99,7 +99,8 @@
   [:div
    [:.row.print-only
     [:.col-xs-12
-     [:img {:src "assets/print-footer.png"}]]]
+     [:img {:src "/assets/print-footer.png"
+            :alt "Footer Logo"}]]]
 
    [:.row-fluid.screen-only {:style {:clear "both"
                          :color "white"}}
@@ -113,18 +114,21 @@
               }}
      [:row
       [:.col-sm-3                                           ;.col-sm-offset-1
-       [:img.img-responsive {:src   "assets/phe-neg.png"
+       [:img.img-responsive {:src   "/assets/phe-neg.png"
+                             :alt   "Public Health Logo"
                              :style {:margin-top 10
                                      :margin-left 10
                                      ;:margin-bottom "4ex"
                                      :max-width     "120px" #_"70%"}}]]
       [:.col-sm-4
-       [:img.img-responsive {:src   "assets/urology.png"
+       [:img.img-responsive {:src   "/assets/urology.png"
+                             :alt   "University of Cam Urology Group Logo"
                              :style {:margin-top 10
                                      ;:margin-bottom "3ex"
                                      :max-width     "175px" #_"90%"}}]]
       [:.col-sm-4
-       [:img.img-responsive {:src   "assets/ucs-winton-transparent.png"
+       [:img.img-responsive {:src   "/assets/ucs-winton-transparent.png"
+                             :alt   "Winton Centre Logo"
                              :style {:margin-top 10
                                      ;:margin-bottom "3ex"
                                      :max-width     "175px" #_"90%"}}]]
