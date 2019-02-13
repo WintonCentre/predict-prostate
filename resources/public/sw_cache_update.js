@@ -47,6 +47,10 @@ function precache() {
             '/assets/logo-pos-al.png',
             '/assets/faq-icon.png',
             '/assets/tool-icon.png',
+            '/assets/touch-icon-ipad.png',
+            '/assets/touch-icon-ipad-retina.png',
+            '/assets/touch-icon-iphone.png',
+            '/assets/touch-icon-iphone-retina.png',
             '/js/mediatypechecker.js',
             '/js/jquery.smartmenus.min.js',
             '/js/jquery.smartmenus.bootstrap.min.js',
@@ -63,13 +67,13 @@ function precache() {
 // resource. Notice that in case of no matching, the promise still resolves
 // but it does with `undefined` as value.
 function fromCache(request) {
-    // console.log('request')
-    // console.log(request)
+    console.log('request')
+    console.log(request)
 
     return caches.open(CACHE).then(function (cache) {
         return cache.match(request).then(function (matching) {
-            // console.log('matching')
-            // console.log(matching)
+            console.log('matching')
+            console.log(matching)
             return matching || Promise.reject('no-match');
         });
     });
