@@ -42,7 +42,7 @@
                     }}]
      [:.row
       [:.col-sm-5.col-sm-offset-1
-       [:h1.alison-blue-2 #_{:style {:margin "15px" :margin-top 30}} "What is Predict?"]
+       [:h1.alison-blue-2 {:style {:margin "15px" :margin-top 30}} "What is Predict?"]
        (let [[title [el1 _ p1] [el2 _ p2]] (section "home-what-is")]
          [:div
           [el1 {:style {:font-size 20 :margin-left 15}} p1]

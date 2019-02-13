@@ -137,7 +137,7 @@
    [:section#overview "Overview"
     [:section "Overview"
 
-     [:ul {:style {:list-style-image "url(assets/bullet-plus.png)"}}
+     [:ul {:style {:list-style-image "url(/assets/bullet-plus.png)"}}
       [:li (page-link [:about {:page :overview :section :whoisitfor}] "Who is it for?")]
       [:li (page-link [:about {:page :overview :section :howpredictworks}] "How Predict works")]
       [:li (page-link [:about {:page :overview :section :whobuiltpredict}] "Who built Predict")]
@@ -193,7 +193,7 @@
    [:section#technical "Technical"
     [:section "Technical"
 
-     [:ul {:style {:list-style-image "url(assets/bullet-plus.png)"}}
+     [:ul {:style {:list-style-image "url(/assets/bullet-plus.png)"}}
       [:li (page-link [:about {:page :technical :section :history}] "Development History")]
       #_[:li (page-link [:about {:page :technical :section :preversions}] "Previous Versions")]
       [:li (page-link [:about {:page :technical :section :publications}] "Publications")]
@@ -473,8 +473,6 @@
         [:td "_hjDonePolls"] [:td "Hotjar cookie. This cookie is set once a visitor completes a poll using the Feedback Poll widget. It is used to ensure that the same poll does not re-appear if it has already been filled in."] [:td "one year"]]
        [:tr
         [:td "_hjMinimizedPolls"] [:td "Hotjar cookie. This cookie is set once a visitor minimizes a Feedback Poll widget. It is used to ensure that the widget stays minimizes when the visitor navigates through the site."] [:td "one year"]]
-       [:tr
-        [:td "mp_*_mixpanel"] [:td "MixPanel cookie. This cookie allows us to carry out user testing on our website in order to improve the user experience and enable us to deliver content that’s relevant."] [:td "one year"]]
        ]]
      ]
     [:section "Can I disable cookies?"
@@ -482,7 +480,10 @@
      under ‘Tools’ and ‘Options’ (PC) or ‘Preferences’ (Mac) though the details vary from browser to browser.
      Also, Google offers a " [:a {:href "https://tools.google.com/dlpage/gaoptout"} "tool that you can use to opt out"]
       " of being tracked by Google Analytics. You can add this plugin to your browser by going to Google.
-      For more details about controlling cookies visit the help pages for the browser that you are using."]]]
+      For more details about controlling cookies visit the help pages for the browser that you are using."]]
+
+    [:section "Can I disable hotjar?"
+     [:p "Yes you can. Follow this link for up to date instructions: " [:a {:href "https://www.hotjar.com/legal/compliance/opt-out" :target "_blank"} "How to disable Hotjar"]]]]
 
 
    ;;;
@@ -560,7 +561,7 @@
     [:section#tool-preamble "Preamble"
      [:p.emphasise {:key 0 :style {:margin-top "10px"}}
       [:strong "We recommend that patients use this tool in consultation with their doctor."
-       [:br] "This tool is only for use in men without metastatic disease where conservative management and radical treatment are both appropriate options."]]]
+       [:br] "This tool is only for use in men without metastatic disease where conservative management and radical treatment are both options being considered."]]]
 
     [:section#tool-preamble-2 "Preamble 2"
      [[:p.emphasise {:key 1 :style {:border "none"}} "Complete the section below, then select from the treatment options to
@@ -613,6 +614,9 @@
     [:section#h-admissions "Hospital admissions in the last 2 years"
      [:p "This refers to any admission to hospital in the 2 years before the prostate cancer diagnosis - anything related
      to the prostate cancer diagnosis itself should be ignored."]]
+
+    [:section#brca "BRCA gene variant"
+     [:p "Enter positive if you have been tested positive for the BRCA gene variant."]]
 
     [:section#comorb "Comorbidity"
      [:p "Select yes if there is a history of any of the following conditions:"

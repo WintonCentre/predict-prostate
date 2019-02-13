@@ -12,7 +12,6 @@
             [svg.scales :refer [->Identity nice-linear i->o o->i in out ticks tick-format-specifier]]
             [svg.mixins :refer [patch-svg-attrs]]
             [goog.object :as gobj :refer [getValueByKeys]]
-    ;[com.rpl.specter :refer [select transform VAL ALL MAP-VALS nthpath walker]]
             ))
 
 
@@ -81,22 +80,6 @@
      (area-plot scale (nth data 1) {:fill (treatment-fills 1)})
      (area-plot scale (nth data 0) {:fill (treatment-fills 0)})
      (line-plot scale (nth data 2) {:fill "none" :stroke dashed-stroke :strokeDasharray "8,8" :strokeWidth 5 :strokeLinecap "round"})
-     ]
-
-    :line1
-    [:g
-     ; light blue fill
-     (when radical? (area-plot scale (nth data 2) {:fill "#88ddff"}))
-
-     ; dotted orange
-     (line-plot scale (nth data 2) {:fill "none" :stroke dashed-stroke :strokeDasharray "8,8" :strokeWidth 5 :strokeLinecap "round"})
-
-     ; dark blue conservative
-     (area-plot scale (nth data 0) {:fill (treatment-fills 0)})
-
-     ; dark blue line
-     (line-plot scale (nth data 1) {:fill "none" :stroke (treatment-fills 0) :strokeWidth 2 :strokeLinecap "round"})
-
      ]
 
     :line2
@@ -265,7 +248,7 @@
    [:div {:style {:display     "inline-block"
                   :margin-left "10px"
                   :width       "calc(100% - 60px)"}}
-    [:p " Survival if cancer does not progress"]]
+    [:p " Survival excluding deaths from prostate cancer"]]
    (when (pos? (rum/react (input-cursor :primary-rx)))
      [:p (dead-icon (fill 1)) " Estimated survival with radical treatment"])
 
@@ -287,7 +270,7 @@
 
 (rum/defc legend2 < rum/reactive [plot-style radical?]
   [:div {:width "100%"}
-   (legend-item {:label       "Survival if cancer does not progress"
+   (legend-item {:label       "Survival excluding deaths from prostate cancer"
                  :extra-style {:border-top (str "5px dashed " dashed-stroke)
                                :margin-top 9}
                  :icon        nil})
@@ -299,14 +282,6 @@
                      :extra-style nil
                      :icon        (dead-icon (treatment-fills 1))})
 
-       :line1
-       [:div
-        (legend-item {:label       "Estimated survival with radical treatment"
-                      :extra-style {:border-top (str "3px solid " (treatment-fills 0))}
-                      :icon        nil})
-        (legend-item {:label       "Potential range of treatment benefit"
-                      :extra-style nil
-                      :icon        (dead-icon "#88ddff")})]
        :line2
        [:div
 
@@ -314,7 +289,8 @@
                       :extra-style nil
                       :icon        (dead-icon (:radical-above (plot-style fills-by-style*)))})
         (legend-item {:label       "Estimated survival with radical treatment"
-                      :extra-style {:border-top (str "3px solid " (treatment-fills 0))}
+                      :extra-style {:border-top (str "3px solid " (treatment-fills 0))
+                                    :margin-top 9}
                       :icon        nil})
         (legend-item {:label       "Potential range of treatment benefit below estimate"
                       :extra-style nil

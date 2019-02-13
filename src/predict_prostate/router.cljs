@@ -1,33 +1,11 @@
-
 (ns predict-prostate.router
   (:require [bide.core :as r]
             [predict-prostate.state.run-time :refer [route route-change]]
             [pubsub.feeds :refer [publish]]
-            [interop.mixpanel :refer [track]]
             )
   )
+
 (enable-console-print!)
-
-;;;
-;; Orignal prostate
-;;;
-
-
-#_(defn on-navigate
-  "A function which will be called on each route change."
-  [name params query]
-  ;(println "on-navigate " name)
-  (reset! route [name params query])
-  )
-
-#_(r/start! router {:default :not-found
-                  :on-navigate on-navigate})
-
-
-;;;
-;; From bc version
-;;;
-
 
 (def old-browser (goog.object.get js/window "oldBrowser"))
 
@@ -43,10 +21,11 @@
 (defn rooted [url] (str (if (use-hash-fragment) "" "") url))
 ;(def rooted identity)
 
-(def router                                               ; I see unexplained build failures when I try this???
+(def router
   "Longest path must be first."
   (r/router
-    [[(rooted "/") :home]
+    [
+     [(rooted "/") :home]
      [(rooted "/home") :home]
      [(rooted "/about/:page/:section") :about]
      [(rooted "/about/:page") :about]
@@ -63,9 +42,6 @@
 (defn on-navigate
   "A function which will be called on each route change."
   [name params query]
-  (if (= name :tool) (track "Open Tool"))                   ;Track open tool event
-  (if (#{:home :homing} name) (track "Open Home"))          ;Track open tool event
-
   (-> (js/$ ".modal") (.modal "hide"))                      ;Hide any visible modals after navigation
   (reset! route [name params query]))
 
@@ -76,3 +52,10 @@
                   :on-navigate on-navigate
                   :html5?      (not (use-hash-fragment))})
 
+(comment
+
+  (r/resolve router :about {:page "history"} nil)
+  ;=> "/about/history
+
+
+  )

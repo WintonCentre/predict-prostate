@@ -58,3 +58,5 @@ resources/public/js/
 !/resources/public/js/predict2-model.js
 !/resources/public/index.html
 /yarn-error.log
+
+.temp_exclude_list

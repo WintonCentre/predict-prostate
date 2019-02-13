@@ -44,13 +44,13 @@
                               :margin-top       20
                               :margin-bottom    0}}
    [:.col-md-3.col-md-offset-2.text-center
-    [:img {:src "assets/tool-icon.png" :alt "tool-icon" :aria-hidden true}]
+    [:img {:src "/assets/tool-icon.png" :alt "tool-icon" :aria-hidden true}]
     [:h3 "Want to use Predict?"]
     [:p "This tool helps to understand how treatments for prostate cancer may improve survival rates after surgery."]
     (start-button)]
 
    [:.col-md-3..col-md-offset-2.text-center {:style {:margin-top "20px"}}
-    [:img {:src "assets/faq-icon.png" :alt "faq-icon" :aria-hidden true}]
+    [:img {:src "/assets/faq-icon.png" :alt "faq-icon" :aria-hidden true}]
     [:h3 "Someone to talk to?"]
     [:p " if you are fighting cancer, it’s often easier with support. Here, you can find further information and links."]
     [:button.btn.btn-danger.btn-lg
@@ -65,7 +65,7 @@
     #_[:a#skippy.sr-only-focusable.pull-right {:tab-index 0
                                                :style     {:cursor "pointer"}
                                                :on-click  #(do (.focus (js/$ content-id)) false)} "Skip to main content"]
-    [:a.pull-right {:tab-index    1
+    [:a.pull-right {:tab-index    0
                     :style        {:cursor "pointer"}
                     :on-key-press #(if (= (.. % -nativeEvent -key) "Enter")
                                      (do (.focus (js/$ content-id)) false))
@@ -78,12 +78,12 @@
   ;(banner)
   [:.row
    [:.col-sm-10.col-sm-offset-1.col-xs-12
-    [:img.img-responsive.pull-right {:src   "assets/NHS.jpg"
+    [:img.img-responsive.pull-right {:src   "/assets/NHS.jpg"
                                      :alt   "NHS logo"
                                      :style {:width         "85px"
                                              :margin-top    "30px"
                                              :margin-bottom "38px"}}]
-    [:img.img-responsive {:src   "assets/prostate-angle-man_1.png"
+    [:img.img-responsive {:src   "/assets/prostate-angle-man_1.png"
                           :alt   "Predict prostate logo"
                           :style {:width         "180px"
                                   :margin-top    "13px"
@@ -99,7 +99,8 @@
   [:div
    [:.row.print-only
     [:.col-xs-12
-     [:img {:src "assets/print-footer.png"}]]]
+     [:img {:src "/assets/print-footer.png"
+            :alt "Footer Logo"}]]]
 
    [:.row-fluid.screen-only {:style {:clear "both"
                          :color "white"}}
@@ -112,20 +113,28 @@
               :padding          "30px"
               }}
      [:row
-      [:.col-sm-4.col-sm-offset-1
-       [:img.img-responsive {:src   "assets/phe-neg.png"
+      [:.col-sm-3                                           ;.col-sm-offset-1
+       [:img.img-responsive {:src   "/assets/phe-neg.png"
+                             :alt   "Public Health Logo"
                              :style {:margin-top 10
                                      :margin-left 10
                                      ;:margin-bottom "4ex"
-                                     :max-width     "150px" #_"70%"}}]]
-      [:.col-sm-3
-       [:img.img-responsive {:src   "assets/urology.png"
+                                     :max-width     "120px" #_"70%"}}]]
+      [:.col-sm-4
+       [:img.img-responsive {:src   "/assets/urology.png"
+                             :alt   "University of Cam Urology Group Logo"
                              :style {:margin-top 10
                                      ;:margin-bottom "3ex"
-                                     :max-width     "200px" #_"90%"}}]]
-      [:.col-sm-3
-       [:img.img-responsive {:src   "assets/ucs-winton-transparent.png"
+                                     :max-width     "175px" #_"90%"}}]]
+      [:.col-sm-4
+       [:img.img-responsive {:src   "/assets/ucs-winton-transparent.png"
+                             :alt   "Winton Centre Logo"
                              :style {:margin-top 10
                                      ;:margin-bottom "3ex"
-                                     :max-width     "200px" #_"90%"}}]]
-      ]]]])
+                                     :max-width     "175px" #_"90%"}}]]
+      ]]]
+   [:.col-sm-12.copy-footer
+    (str "Copyright Ⓒ " (.getFullYear (js/Date.)) " University of Cambridge. All Rights Reserved | ")
+    [:a {:on-click #(publish route-change [:legal {:page "privacy"} nil]) :href "javascript:void(0)"} "Privacy & Data Protection"]
+    " | "
+    [:a {:on-click #(publish route-change [:legal {:page "disclaimer"} nil]) :href "javascript:void(0)"} "Disclaimer"]]])

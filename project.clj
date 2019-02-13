@@ -8,11 +8,9 @@
 
   :min-lein-version "2.7.1"
 
-  :dependencies [[org.clojure/clojure "1.9.0"]
-                 [org.clojure/clojurescript "1.9.946"]
-                 [org.clojure/core.async  "0.4.474"]
-                 [com.rpl/specter "1.1.0"]
-                 [org.clojure/spec.alpha "0.1.143"]
+  :dependencies [[org.clojure/clojure "1.10.0"]
+                 [org.clojure/clojurescript "1.10.516"]
+                 [org.clojure/core.async  "0.4.490"]
 
                  ;; cljs dependencies
                  [cljs-ajax "0.7.3"]
@@ -23,10 +21,11 @@
                  ;[cljsjs/react "15.4.2-2"]
                  ;[cljsjs/react-dom "15.4.2-2"]
                  [devcards "0.2.4"]
-                 [figwheel-sidecar "0.5.14"]
+                 [figwheel-sidecar "0.5.18"]
 
                  ; should we upgrade Rum and use React16 ???
-                 [rum "0.10.8"]
+                 #_[rum "0.10.8"]
+                 [rum "0.11.3"]
                  [pubsub "0.2.1"]
                  [wc-rum-lib "0.1.6"]
                  [cljs-css-modules "0.2.1"]
@@ -37,12 +36,13 @@
                  ; routing
                  [funcool/bide "1.6.0"]
 
-                 [binaryage/devtools "0.9.9"]
-                 [binaryage/oops "0.5.8"]
+                 [binaryage/devtools "0.9.10"]
+                 #_[binaryage/oops "0.5.8"]
+                 [binaryage/oops "0.6.4"]
 
                  ]
 
-  :plugins [[lein-figwheel "0.5.14"]
+  :plugins [[lein-figwheel "0.5.18"]
             [lein-less "1.7.5"]
             [lein-ancient "0.6.15"]
             [lein-cljsbuild "1.1.7" :exclusions [[org.clojure/clojure]]]
@@ -62,43 +62,47 @@
                :browsers "last 2 versions, > 1%, IE 9, IE 10"
                }
 
-  :cljsbuild {:builds
-              [{:id "dev"
-                :source-paths ["src"]
+  :cljsbuild {
+              :builds [
+                       {:id           "min"
+                        :source-paths ["src"]
+                        :compiler     {:output-to     "resources/public/js/compiled/predict_prostate.js"
+                                       :main          predict-prostate.core
+                                       :optimizations :advanced
+                                       :pseudo-names  true
+                                       :closure-defines {goog.DEBUG false}
+                                       :externs       ["externs/bootstrap.js"
+                                                       "externs/jquery.js"]
+                                       :infer-externs true
+                                       :language-in   :ecmascript5
+                                       :pretty-print  false}}
 
-                ;; The presence of a :figwheel configuration here
-                ;; will cause figwheel to inject the figwheel client
-                ;; into your build
-                :figwheel {:on-jsload "predict-prostate.core/on-js-reload"
-                           ;; :open-urls will pop open your application
-                           ;; in the default browser once Figwheel has
-                           ;; started and compiled your application.
-                           ;; Comment this out once it no longer serves you.
-                           :open-urls ["http://localhost:4449/index.html"]}
+                       {:id           "dev"
+                        :source-paths ["src"]
 
-                :compiler {:main predict-prostate.core
-                           :asset-path "js/compiled/out"
-                           :output-to "resources/public/js/compiled/predict_prostate.js"
-                           :output-dir "resources/public/js/compiled/out"
-                           :source-map-timestamp true
+                        ;; The presence of a :figwheel configuration here
+                        ;; will cause figwheel to inject the figwheel client
+                        ;; into your build
+                        :figwheel     {:on-jsload "predict-prostate.core/on-js-reload"
+                                       ;; :open-urls will pop open your application
+                                       ;; in the default browser once Figwheel has
+                                       ;; started and compiled your application.
+                                       ;; Comment this out once it no longer serves you.
+                                       :open-urls ["http://localhost:4449/index.html"]}
 
-                           ;; To console.log CLJS data-structures make sure you enable devtools in Chrome
-                           ;; https://github.com/binaryage/cljs-devtools
-                           :preloads [devtools.preload]}}
-               ;; This next build is a compressed minified build for
-               ;; production. You can build this with:
-               ;; lein cljsbuild once min
-               {:id "min"
-                :source-paths ["src"]
-                :compiler {:output-to "resources/public/js/compiled/predict_prostate.js"
-                           :main predict-prostate.core
-                           :optimizations :advanced
-                           :pseudo-names true
-                           :externs ["externs/bootstrap.js"
-                                     "externs/jquery.js"]
-                           :infer-externs true
-                           :language-in  :ecmascript5
-                           :pretty-print false}}]}
+                        :compiler     {:main                 predict-prostate.core
+                                       :asset-path           "js/compiled/out"
+                                       :output-to            "resources/public/js/compiled/predict_prostate.js"
+                                       :output-dir           "resources/public/js/compiled/out"
+                                       :source-map-timestamp true
+
+                                       ;; To console.log CLJS data-structures make sure you enable devtools in Chrome
+                                       ;; https://github.com/binaryage/cljs-devtools
+                                       :preloads             [devtools.preload]}}
+                       ;; This next build is a compressed minified build for
+                       ;; production. You can build this with:
+                       ;; lein cljsbuild once min
+                       ]}
 
   :figwheel {;; :http-server-root "public" ;; default and assumes "resources"
              :server-port 4449 ;; default

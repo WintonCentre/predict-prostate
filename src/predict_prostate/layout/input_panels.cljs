@@ -68,6 +68,10 @@
     (when (model-keys :psa) (form-entry {:label "PSA" :key :psa}))
     (when (model-keys :t-stage) (form-entry {:label "T stage" :key :t-stage}))
     (when (model-keys :h-admissions) (form-entry {:label "h-admissions" :key :h-admissions}))
+    (when (= (rum/react (input-cursor :h-admissions)) 1)
+      (when (model-keys :charlson-comorbidity) (form-entry {:label "comorb" :key :charlson-comorbidity})))
+    (when (model-keys :brca) (form-entry {:label "BRCA" :key :brca}))
+
 
 
     ]])
@@ -85,19 +89,19 @@
   [:form.form-horizontal {:on-key-press key-event
                           :on-submit    submit-event}
 
-   [:div {:style {:display (if (#{:grade-group :both} (rum/react (input-cursor :hist-scale)))
-                             "block"
-                             "none")}}
-    (form-entry {:label "Histological grade group" :key :grade-group})]
-   [:div {:style {:display (if (#{:gleason :both} (rum/react (input-cursor :hist-scale)))
-                             "block"
-                             "none")}}
-    (form-entry {:label "Gleason scale" :key :gleason})]
 
-   (when (model-keys :biopsy50) (form-entry {:label "Biopsy" :key :biopsy50}))
+   (form-entry {:label "Histological grade group" :key :grade-group})
 
-   (when (= (rum/react (input-cursor :h-admissions)) 1)
-     (when (model-keys :charlson-comorbidity) (form-entry {:label "comorb" :key :charlson-comorbidity})))
+   (form-entry {:label "Gleason scale" :key :gleason})
+   (when (model-keys :biopsy50)
+     (form-entry {:label "Biopsy" :key :biopsy50}))
+
+   (when (model-keys :biopsy-done) (form-entry {:label "Biopsy" :key :biopsy-done}))
+
+   (when (= (rum/react (input-cursor :biopsy-done)) 1)
+     [:div
+      (when (model-keys :biopsy-cores-taken) (form-entry {:label "Number of biopsy cores taken" :key :biopsy-cores-taken}))
+      (when (model-keys :biopsy-cores-involved) (form-entry {:label "Number of biopsy cores with prostate cancer" :key :biopsy-cores-involved}))])
 
    ])
 

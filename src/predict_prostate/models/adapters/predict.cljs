@@ -1,10 +1,31 @@
+
 (ns predict-prostate.models.adapters.predict
-  (:require [predict-prostate.models.prostate10 :refer [run-prostate]]
-            [predict-prostate.models.prostate15 :as p15]
-            [clojure.string :refer [starts-with?]]
-            [cljs.reader :refer [read-string]]
-            [goog.object :refer [getValueByKeys]]
-            ))
+  (:require
+    [predict-prostate.models.prostate-release :as mdl]
+    [clojure.string :refer [starts-with?]]
+    [cljs.reader :refer [read-string]]
+    [goog.object :refer [getValueByKeys]]
+    ))
+
+
+#_(comment                                                    ;prostate15
+  (defn predict-prostate
+    "Run the prostate model, mapping input factors to numeric model parameters.
+    Arity 1 defaults to 10 year prediction using the 10 year model.
+    Arity 2 allows you to say how many but uses the 15 year model if n > 10"
+    ([input-map n]
+     (-> input-map
+       (update :age read-string)
+       (update :n (constantly n))
+       (update :psa read-string)
+       (update :t-stage identity)
+       ;(update :grade-group identity)
+       ;(update :charlson-comorbidity identity)
+       (update :biopsy50 #(if (= :unknown %) 0 %))
+       (assoc :protect 0)
+       (mdl/run-prostate)))
+    ([input-map]
+     (predict-prostate input-map 10))))
 
 (defn predict-prostate
   "Run the prostate model, mapping input factors to numeric model parameters.
@@ -18,13 +39,11 @@
        (update :t-stage identity)
        ;(update :grade-group identity)
        ;(update :charlson-comorbidity identity)
-       (update :biopsy50 #(if (= :unknown %) 0 %))
+       #_(update :biopsy50 #(if (= :unknown %) 0 %))
        (assoc :protect 0)
-       (#(if (<= n 10)
-           (run-prostate %)
-           (p15/run-prostate %)))))
+       (mdl/run-prostate)))
   ([input-map]
-    (predict-prostate input-map 10)))
+   (predict-prostate input-map 10)))
 
 (comment
 

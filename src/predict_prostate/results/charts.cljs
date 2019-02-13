@@ -1,6 +1,5 @@
 (ns predict-prostate.results.charts
   (:require [rum.core :as rum]
-            [com.rpl.specter :as t :refer [select-one ALL keypath]]
             [predict-prostate.mixins :refer [sizing-mixin]]
             [predict-prostate.results.util :refer [to-percent avoid-decimals min-label-percent
                                                    fill data-fill fill-data-url hex-data-url fills-by-style*
@@ -14,12 +13,11 @@
             [clojure.string :refer [join]]
             [cljs-css-modules.macro :refer-macros [defstyle]]
             [cljs.pprint :refer [pp]]
-    ;[goog.color :as col :refer [parse lighten rgbToHex hexToRgb]]
             ))
 
 (defn border [fill] (str "1px solid " fill))
 (defn arrow [fill] (str "2ex solid " fill))
-(def arrow-color [220 150 0])
+(def arrow-color [204 238 248] #_[220 150 0])
 (def arrow-fill (arrow (str "rgb(" (join "," arrow-color) ")")))
 
 (def z-front 20)
@@ -50,6 +48,14 @@
                           :bottom   "1.37ex" :border "1px none red"}]]]
 
     [".callout" {:position   "absolute"
+                 :transition "height 300ms, bottom 300ms" :transition-timing-function "ease-out"}
+     [".box" {:width   "7em" :height "10ex" :position "absolute" :bottom "-4.7ex"
+              :padding "0.5ex 1ex 0.3ex 0.5ex" :text-align "right" :color "#5A8FA9" :border-radius "0.5ex"}
+      [".total" {:position "absolute" :left "0.6ex" :bottom "1.3ex" :color "#5A8FA9" :font-size "1.2em"}]]
+     [".arrow" {:position   "absolute" :bottom "-1ex" :width 0 :height 0
+                :border-top "1ex solid transparent" :border-bottom "1ex solid transparent"}]]
+
+    #_[".callout" {:position   "absolute"
                  :transition "height 300ms, bottom 300ms" :transition-timing-function "ease-out"}
      [".box" {:width   "7em" :height "10ex" :position "absolute" :bottom "-4.7ex"
               :padding "0.5ex 1ex 0.3ex 0.5ex" :text-align "right" :color "white" :border-radius "0.5ex"}
@@ -130,7 +136,7 @@
      [:img.bar-item {:src   background-url
                      :style {:height height
                              :bottom bottom}}])
-   (when (or (= item-id 1) (= plot-style :line1))
+   (when (= item-id 1)
      [:img.bar-item {:src   background-url
                      :style {:height height
                              :bottom bottom}}])
@@ -139,7 +145,7 @@
                 :style {:height     height
                         :bottom     bottom
                         ;:background-color (when (= key 1) "red")
-                        :border-top (if (and (= 1 item-id) radical (#{:line1 :line2} plot-style))
+                        :border-top (if (and (= 1 item-id) radical (= :line2 plot-style))
                                       (str "3px solid " (treatment-fills 0))
                                       "none")
                         }}
@@ -252,8 +258,8 @@
                   ; pass :oth field separately
                   :oth         (- 100 (nth dotted-orange year))
                   :left        (if left? "30%" nil)
-                  :right       (if left? nil "25%")
-                  :width       "20%"
+                  :right       (if left? nil "30%")
+                  :width       "18%"
                   :total       (reduce + (mapv :value data))
                   :callout     (partial callout {:percent (reduce + (mapv :value plot-data))
                                                  :text    (str "survive at least " year " years")})

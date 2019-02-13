@@ -36,31 +36,20 @@
                    ]
                   false false nil
                   :primary-rx
-                  #{"prostate"}
+                  #{"prostate" "prostate-release"}
                   0
                   )
 
    (->Input-group :plot-style
-     "Plot style"
+     "Plot style for treatment benefit"
      :radio-group
-     [[:area1 "Original"]
-      [:line1 "Line"]
-      [:line2 "Line v2"]]
+     [[:area1 "Area"]
+      [:line2 "Line"]]
      false false nil
      :plot-style
-     #{"prostate"}
+     #{"prostate" "prostate-release"}
      nil)
 
-   (->Input-group :ph-style
-     "Potential Harms style"
-     :radio-group
-     [[:table "Table"]
-      [:discrete-blob "blob chart"]
-      [:discrete-tally "tally chart"]]
-     false false nil
-     :ph-style
-     #{"prostate"}
-     nil)
 
    ;; INPUTS
    (->Input-group :age
@@ -69,7 +58,7 @@
                   {:min 35 :max 95 :step 1 :precision 0}
                   false false true
                   :prp
-                  #{"prostate"}
+                  #{"prostate" "prostate-release"}
                   "")
    (->Input-group :psa
                   "PSA (ng/ml)"
@@ -77,7 +66,7 @@
                   {:min 0 :max 100 :step 1 :precision 1}
                   false false true
                   :prp
-                  #{"prostate"}
+                  #{"prostate" "prostate-release"}
                   "")
    (->Input-group :t-stage
                   "Clinical stage"
@@ -88,18 +77,9 @@
                    [4 "4"]]
                   false false false
                   :prp
-                  #{"prostate"}
+                  #{"prostate" "prostate-release"}
                   nil)
-   (->Input-group :hist-scale
-                  "Histological scale visibility"
-                  :radio-group
-                  [[:grade-group "Show Grade group"]
-                   [:gleason "Show Gleason scale"]
-                   [:both "Show both"]]
-                  false false false
-                  :prp
-                  #{"prostate"}
-                  :both)
+
    (->Input-group :grade-group
                   "Histological grade group"
                   :radio-group
@@ -110,7 +90,7 @@
                    [5 "5"]]
                   false false false
                   :prp
-                  #{"prostate"}
+                  #{"prostate" "prostate-release"}
                   nil)
    (->Input-group :gleason
                   "Gleason scale"
@@ -122,10 +102,20 @@
                    [5 "9 or 10"]]
                   false false false
                   :prp
-                  #{"prostate"}
+                  #{"prostate" "prostate-release"}
+                  nil)
+   (->Input-group :brca
+                  "BRCA"
+                  :radio-group
+                  [[0 "Negative"]
+                   [1 "Positive"]
+                   [2 "Untested"]]
+                  false false false
+                  :prp
+                  #{"prostate-release"}
                   nil)
    (->Input-group :biopsy50
-                  "Number of biopsy cores involved"
+                  "Number of biopsy cores with prostate cancer"
                   :radio-group
                   [[1 "fewer than half"]
                    [2 "half or more"]]
@@ -133,6 +123,35 @@
                   :prp
                   #{"prostate"}
                   nil)
+
+   (->Input-group :biopsy-done
+                  "Biopsy data available?"
+                  :radio-group
+                  [[0 "No"]
+                   [1 "Yes"]]
+                  false false false
+                  :prp
+                  #{"prostate-release"}
+                  "")
+
+   (->Input-group :biopsy-cores-taken
+                  "Biopsy cores taken"
+                  :numeric-input
+                  {:min 1 :max 100 :step 1 :precision 0}
+                  false false false
+                  :prp
+                  #{"prostate-release"}
+                  "")
+
+   (->Input-group :biopsy-cores-involved
+                  "Biopsy cores with prostate cancer"
+                  :numeric-input
+                  {:min 0 :max 100 :step 1 :precision 0}
+                  false false false
+                  :prp
+                  #{"prostate-release"}
+                  nil)
+
    (->Input-group :h-admissions
                   "Hospital admission in last 2 years?"
                   :radio-group
@@ -140,8 +159,9 @@
                    [1 "Yes"]]
                   false false false
                   :prp
-                  #{"prostate"}
+                  #{"prostate" "prostate-release"}
                   nil)
+
    (->Input-group :charlson-comorbidity
                   "Comorbidity"
                   :radio-group
@@ -149,7 +169,7 @@
                    [1 "Yes"]]
                   false false false
                   :prp
-                  #{"prostate"}
+                  #{"prostate" "prostate-release"}
                   nil)
 
    ; Switches

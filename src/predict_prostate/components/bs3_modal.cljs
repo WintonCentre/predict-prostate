@@ -46,19 +46,19 @@
          "Close"]]]]]))
 
 
+
 (rum/defc cancel-or-print []
   [:div.pull-right
-   [:button.btn.btn-default {:type     "button"
-                             :on-click #(do
-                                          (.modal (js/$ "#printModal") "hide")
-                                          )}
+   [:button.btn.btn-default {:type "button"
+                             :on-click #(do (jq$call "#printModal" "modal" "hide"))
+                             }
     "Cancel"]
    " "
    [:button.btn.btn-primary {:type     "button"
-                             :on-click #(do
-                                          (.modal (js/$ "#printModal") "hide")
-                                          (js/print)
-                                          )}
+                             :on-click #(do (jq$call "#printModal" "modal" "hide")
+                                            (js/print)
+                                            )
+                             }
 
     (simple/icon {:family :fa} "print") " Print"]]
   )
@@ -99,17 +99,12 @@
                       :dangerouslySetInnerHTML {:__html "&times;"}}]
       [:h4.modal-title "Settings"]]
      [:.modal-body
-      [:p "Configure the histological scale to use either Grade group or Gleason or both."]
-      (input-widget :hist-scale)
-      [:hr]
-      [:p "Choose a plot-style"]
+
+      [:p "Choose a plot style for treatment benefit"]
       (input-widget :plot-style)
-      [:hr]
-      [:p "Choose a potential harms style"]
-      (input-widget :ph-style)
-      ]
-     [:.modal-footer
-      [:button.btn.btn-default {:type     "button"
-                                :on-click #(publish settings-change nil) ; #(hide "#settingsModal")
-                                }
-       "Close"]]]]])
+
+      [:.modal-footer
+       [:button.btn.btn-default {:type     "button"
+                                 :on-click #(publish settings-change nil) ; #(hide "#settingsModal")
+                                 }
+        "Close"]]]]]])

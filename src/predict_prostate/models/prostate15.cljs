@@ -101,9 +101,7 @@
                         (* 2.90e-12 (pow time 3)))))))))    ; 3.01e-12 !!!!
 
 (defn run-prostate [{:keys [n age grade-group psa t-stage charlson-comorbidity primary-rx protect biopsy50]
-                     :as   args
-
-                     }]
+                     :as   args}]
 
   (let [;defaults {:n 10 :age 45 :grade-group 5 :psa 85 :t-stage 3 :charlson-comorbidity 1 :primary-rx 0 :protect 0 :biopsy50 0}
 

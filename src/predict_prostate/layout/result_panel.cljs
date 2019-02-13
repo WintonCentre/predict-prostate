@@ -2,6 +2,7 @@
   (:require [clojure.string :refer [capitalize]]
             [rum.core :as rum]
             [predict-prostate.state.run-time :refer [active-results-pane active-results-change]]
+            [predict-prostate.layout.treatments-panel :refer [treatments-options]]
             [predict-prostate.components.panels :refer [titled-panel]]
             [pubsub.feeds :refer [publish]]
             [interop.jsx :refer [jsx]]
@@ -58,6 +59,7 @@
   [:div#results
    [:h3 {:style {:margin-top 20}} "Results"]
    (result-tabs)
+   (treatments-options)
    (result-panes)]
   )
 

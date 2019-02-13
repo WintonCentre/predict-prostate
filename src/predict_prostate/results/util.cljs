@@ -40,18 +40,16 @@
 ;; Colour scale designed in chroma.js, then heavily modified!
 ;;
 (def above-dashed "#ffffff")
-(def conservative-fill "#0000aa")
+#_(def conservative-fill "#0000aa")
+(def conservative-fill "#2222dd")
 (def radical-fill "#00afef")
 (def radical-range "#88ddff")
-(def radical-below "#88ddff")
-(def radical-above "#beebff")
+(def radical-below "#00ddff")
+(def radical-above "#eeee88" #_"#beebff")
 
 (def fills-by-style
   {:area1 [above-dashed
            radical-fill
-           conservative-fill]
-   :line1 [above-dashed
-           radical-range
            conservative-fill]
    :line2 [above-dashed
            radical-above
@@ -63,10 +61,6 @@
            :radical-above above-dashed
            :radical radical-fill
            :conservative conservative-fill}
-   :line1 {:above above-dashed
-           :radical-above radical-range
-           :radical radical-range
-           :conservative conservative-fill}
    :line2 {:above above-dashed
            :radical-above radical-above
            :radical radical-below
@@ -74,7 +68,7 @@
 
 (def fills ["#ffffff"
             "#00afef"
-            "#0000aa"])
+            conservative-fill])
 
 (comment
   (def f1 #js [136 221 255])                                ;"#88ddff"
@@ -165,6 +159,12 @@
   [f]
   (* 100 f))
 
+(defn percent
+  ([d]
+   (str (Math.round (* 100 d)) "%")
+    #_(percent d 0))
+  ([d p]
+   (str (one-dp (* 100 d) p) "%")))
 
 (comment
   (to-percent 0.0032 false)                                 ;=> 0.3

@@ -7,6 +7,9 @@
   (:require-macros [devcards.core :as dc :refer [defcard deftest]]
                    ))
 
+; We are getting an infer warning on accessing .modal property in bootstrap
+(set! *warn-on-infer* true)
+
 (enable-console-print!)
 
 ;;;; Start the mutator!

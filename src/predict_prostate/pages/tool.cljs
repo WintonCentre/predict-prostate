@@ -10,7 +10,7 @@
             [predict-prostate.layout.input-panels :refer [inputs-row ;inputs-column
                                                           ]]
             [predict-prostate.layout.treatments-panel :refer [treatments-options]]
-            [predict-prostate.results.sidefx :refer [results-in-sidefx]]
+            [predict-prostate.results.sidefx :refer [results-in-sidefx sidefx-more-info]]
             [predict-prostate.layout.result-panel :refer [results]]
             [predict-prostate.layout.header :refer [header footer]]
             [predict-prostate.results.util :refer [alison-blue-1 alison-blue-2 alison-blue-3 alison-blue-4 alison-blue-5]]
@@ -21,7 +21,9 @@
                                                      help-key-change help-key-cursor
                                                      settings-cursor
                                                      hide-warning-change hide-warning-cursor
-                                                     route-change]]
+                                                     route-change
+                                                     print-change]]
+
             [pubsub.feeds :refer [publish]]
             ))
 
@@ -75,44 +77,31 @@
          (simple/icon {:family :fa :style {:font-size 35 :padding-right 8}} "info-circle")
 
          " Treatment options and results will appear here when you have filled in all the information needed above."]]]]]
-    (if (= :discrete-tally (rum/react (input-cursor :ph-style)))
-      [:div
-       [:.row
-        [:.col-md-6.screen-only
-         [:h3 "Treatment Options"]
-         (treatments-options)
 
-         (results {:printable (= :print (rum/react media-cursor))})
-         [:.hidden-xs.hidden-sm.clearfix
-          (print-button)]
-         ]
 
-        [:.col-md-6.clearfix
-         [:h3 "Potential Harms of Treatment"]
-         (results-in-sidefx)]]]
+    [:.row
+     [:.col-md-6.screen-only
+      #_[:h3 "Treatment Options"]
+      #_(treatments-options)
 
-      [:div
-       [:.row
-        [:.col-md-6.clearfix
-         [:h3 "Treatment Options"]
-         (treatments-options)
-         [:.hidden-xs.hidden-sm.clearfix
-          (print-button)
-          ]
-         [:div.alert.alert-info.screen-only {:style {:margin-top 20}}
-          [:p (simple/icon {:family :fa} "arrow-circle-down") " Scroll down for " [:b "Potential Harms of Treatment"]]]
-         ]
-        [:.col-md-6.screen-only
-         (results {:printable (= :print (rum/react media-cursor))})]
+      (results {:printable (= :print (rum/react media-cursor))})
 
-        [:.col-md-12
-         [:h3 "Potential Harms of Treatment"]
-         (results-in-sidefx)]]])))
+      (sidefx-more-info)
+
+      #_[:.hidden-xs.hidden-sm.clearfix
+       (print-button)]
+      ]
+
+     [:.col-md-6.clearfix
+      #_[:h3 "Potential Harms of Treatment"]
+      (results-in-sidefx)]]
+
+    ))
 
 (rum/defc results-footer < rum/reactive []
   (when (rum/react results-cursor)
     [:.col-xs-12
-     [:.row
+     #_[:.row
       [:.col-md-10.col-md-offset-1 (print-button)]]
 
      [:.row {:style {:background-color alison-blue-1
@@ -132,7 +121,26 @@
        [:button.btn.btn-primary.btn-lg
         {:on-click #(publish route-change [:about {:page "faqs"} nil])}
         "See the FAQs"]
-       ]]]))
+       ]]
+
+     [:button.btn.screen-only {:type        "button"
+                               :on-click    #(publish print-change "print")
+                               :on-key-down #(when (= "Enter" (.. % -nativeEvent -code))
+                                               (publish print-change "print"))
+                               :style       {:width                     70
+                                             :opacity                   0.5
+                                             :position                  "fixed"
+                                             :top                       300
+                                             :right                     -1
+                                             :color                     "#ffffff"
+                                             :background-color          "#444466"
+                                             :font-size                 16
+                                             :padding                   "15px 5px 15px 5px"
+                                             :border-top-left-radius    10
+                                             :border-bottom-left-radius 10
+                                             }} (simple/icon {:family :fa} "print") " Print"]
+
+     ]))
 
 
 (rum/defc tool < rum/reactive []
