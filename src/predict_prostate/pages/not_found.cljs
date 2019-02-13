@@ -24,5 +24,6 @@
 
       [:.col-sm-8.col-xs-12 {:style {:min-height "calc(100vh - 200px)"}}
        [:img.img-responsive {:src   "assets/404.jpg"
-                             :style {:margin-top "3ex"}}]]]
+                             :style {:margin-top "3ex"}
+                             :alt   "Not found"}]]]
      (footer)]]])
