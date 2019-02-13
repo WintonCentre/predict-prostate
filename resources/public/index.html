@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Predict Prostate</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="description" content="Prostate cancer survival prediction tool"/>
 
     <!-- for mobiles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,8 +23,9 @@
     <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
     <!-- Bootstrap-react compatible: Latest compiled and minified CSS -->
-    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" integrity="sha384-PmY9l28YgO4JwMKbTvgaS7XNZJ30MK9FAZjjzXtlqyZCqBY6X6bXIkM++IkyinN+" crossorigin="anonymous">
 
     <!-- Bootstrap 3 select CSS -->
     <link rel="stylesheet"
@@ -66,7 +68,7 @@
     -->
 
     <!-- mediatypechecker -->
-    <script src="js/mediatypechecker.js"></script>
+    <script src="js/mediatypechecker.js" async ></script>
 
     <!-- polyfills for non-ES5 capable browsers -->
     <!--[if lte IE 9]>
@@ -130,23 +132,29 @@
 
     </script>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins)
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
 
-    <!-- Latest compiled and minified JavaScript -->
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js" integrity="sha384-vhJnz1OVIdLktyixHY4Uk3OHEwdQqPppqYR8+5mjsauETgLOcEynD9oPHhhz18Nw" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified JavaScript
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-            crossorigin="anonymous"></script>
+            crossorigin="anonymous"></script> -->
 
 
     <!-- SmartMenus jQuery Bootstrap Addon CSS -->
     <link href="css/jquery.smartmenus.bootstrap.css" rel="stylesheet">
 
     <!-- SmartMenus jQuery plugin -->
-    <script type="text/javascript" src="js/jquery.smartmenus.min.js"></script>
+    <script type="text/javascript" async src="js/jquery.smartmenus.min.js"></script>
 
     <!-- SmartMenus jQuery Bootstrap Addon -->
-    <script type="text/javascript" src="js/jquery.smartmenus.bootstrap.min.js"></script>
+    <script type="text/javascript" async src="js/jquery.smartmenus.bootstrap.min.js"></script>
 
     <!--<script async src="https://www.google-analytics.com/analytics.js"></script>-->
     <!--<script async src="js/autotrack.js"></script>-->
@@ -159,8 +167,8 @@
     <!--</script>-->
 
     <script src="js/compiled/predict_prostate.js" type="text/javascript"></script>
-    <link rel="manifest" href="manifest.json" crossorigin=""use-credentials">
-    <meta name="theme-color">
+    <link rel="manifest" href="manifest.json" crossorigin="use-credentials">
+    <meta name="theme-color" content="#ffffff">
 </head>
 
 <body style="overflow-x:hidden">
@@ -169,193 +177,10 @@
 <!-- pre-rendered home page -->
 <div id="app">
     <!-- Insert prerendered home page -->
-
-    <div data-reactroot="">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-10 col-sm-offset-1 col-xs-12"><img src="assets/NHS.jpg" alt="NHS logo"
-                                                                      class="img-responsive pull-right"
-                                                                      style="width: 85px; margin-top: 30px; margin-bottom: 38px;"><img
-                        src="assets/prostate-angle-man_1.png" alt="Predict prostate logo" class="img-responsive"
-                        style="width: 180px; margin-top: 13px; margin-bottom: 6px;"></div>
-                <div class="col-xs-12">
-                    <div class="row screen-only">
-                        <div class="col-sm-11 col-xs-12 skip"><a tabindex="1" class="pull-right"
-                                                                 style="cursor: pointer;">Skip to main content</a></div>
-                    </div>
-                    <nav class="navbar-fixed-top">
-                        <nav class="navbar navbar-inverse">
-                            <div class="container">
-                                <div class="navbar-header">
-                                    <button type="button" data-toggle="collapse" data-target="#navbar"
-                                            class="navbar-toggle"><span class="icon-bar"></span><span
-                                            class="icon-bar"></span><span class="icon-bar"></span></button>
-                                </div>
-                                <div id="navbar" class="collapse navbar-collapse">
-                                    <ul class="nav navbar-nav sm-collapsible" data-smartmenus-id="1549877530464464">
-                                        <li tabindex="0" class="active" style="cursor: pointer;"><a
-                                                data-toggle="collapse" data-target=".navbar-collapse.in">Home</a></li>
-                                        <li tabindex="0" class="dropdown" style="cursor: pointer;"><a
-                                                class="dropdown-toggle has-submenu" id="sm-1549877530464464-1"
-                                                aria-haspopup="true" aria-controls="sm-1549877530464464-2"
-                                                aria-expanded="false"><!-- react-text: 25 -->About Predict
-                                            <!-- /react-text --><span class="caret navbar-toggle sub-arrow"></span></a>
-                                            <ul class="dropdown-menu" id="sm-1549877530464464-2" role="group"
-                                                aria-hidden="true" aria-labelledby="sm-1549877530464464-1"
-                                                aria-expanded="false">
-                                                <li tabindex="0" style="cursor: pointer;"><a data-toggle="collapse"
-                                                                                             data-target=".navbar-collapse.in">About
-                                                    Predict</a></li>
-                                                <li tabindex="0" style="cursor: pointer;"><a data-toggle="collapse"
-                                                                                             data-target=".navbar-collapse.in">–
-                                                    Who is it for?</a></li>
-                                                <li tabindex="0" style="cursor: pointer;"><a data-toggle="collapse"
-                                                                                             data-target=".navbar-collapse.in">–
-                                                    How Predict works</a></li>
-                                                <li tabindex="0" style="cursor: pointer;"><a data-toggle="collapse"
-                                                                                             data-target=".navbar-collapse.in">–
-                                                    Who built Predict</a></li>
-                                                <li tabindex="0" style="cursor: pointer;"><a data-toggle="collapse"
-                                                                                             data-target=".navbar-collapse.in">Technical</a>
-                                                </li>
-                                                <li tabindex="0" style="cursor: pointer;"><a data-toggle="collapse"
-                                                                                             data-target=".navbar-collapse.in">–
-                                                    Development History</a></li>
-                                                <li tabindex="0" style="cursor: pointer;"><a data-toggle="collapse"
-                                                                                             data-target=".navbar-collapse.in">–
-                                                    Publications</a></li>
-                                                <li tabindex="0" style="cursor: pointer;"><a data-toggle="collapse"
-                                                                                             data-target=".navbar-collapse.in">FAQs</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li tabindex="0" style="cursor: pointer;"><a data-toggle="collapse"
-                                                                                     data-target=".navbar-collapse.in">Predict
-                                            Tool</a></li>
-                                        <li tabindex="0" style="cursor: pointer;"><a data-toggle="collapse"
-                                                                                     data-target=".navbar-collapse.in">Contact</a>
-                                        </li>
-                                        <li tabindex="0" class="dropdown" style="cursor: pointer;"><a
-                                                class="dropdown-toggle has-submenu" id="sm-1549877530464464-3"
-                                                aria-haspopup="true" aria-controls="sm-1549877530464464-4"
-                                                aria-expanded="false"><!-- react-text: 50 -->Legal
-                                            <!-- /react-text --><span class="caret navbar-toggle sub-arrow"></span></a>
-                                            <ul class="dropdown-menu" id="sm-1549877530464464-4" role="group"
-                                                aria-hidden="true" aria-labelledby="sm-1549877530464464-3"
-                                                aria-expanded="false">
-                                                <li tabindex="0" style="cursor: pointer;"><a data-toggle="collapse"
-                                                                                             data-target=".navbar-collapse.in">Disclaimer</a>
-                                                </li>
-                                                <li tabindex="0" style="cursor: pointer;"><a data-toggle="collapse"
-                                                                                             data-target=".navbar-collapse.in">Algorithm</a>
-                                                </li>
-                                                <li tabindex="0" style="cursor: pointer;"><a data-toggle="collapse"
-                                                                                             data-target=".navbar-collapse.in">Privacy
-                                                    &amp; Data Protection</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </nav>
-                    </nav>
-                </div>
-            </div>
-            <div id="main-content" tabindex="-1" class="row" style="margin-left: -30px; margin-right: -30px;">
-                <div class="col-xs-12">
-                    <div style="position: relative; width: 100%; background-color: rgb(211, 231, 253);">
-                        <div style="position: absolute; width: 100%; top: 0px; bottom: 20%; opacity: 0.25; background: linear-gradient(rgba(255, 255, 255, 0), rgb(255, 255, 255));"></div>
-                        <div class="row">
-                            <div class="col-sm-5 col-sm-offset-1"><h1 class="alison-blue-2"
-                                                                      style="margin: 30px 15px 15px;">What is
-                                Predict?</h1>
-                                <div><p style="font-size: 20px; margin-left: 15px;">Predict is a tool that helps
-                                    patients and doctors decide on whether to have conservative or radical
-                                    management for non-metastatic prostate cancer.</p>
-                                    <p style="font-size: 14px; margin-left: 15px;"></p></div>
-                                <div>
-                                    <button aria-label="go to predict tool" type="button" class="btn btn-primary btn-lg"
-                                            style="margin: 20px;"><i class="fa fa-chevron-right"></i>
-                                        <!-- react-text: 72 --> Start Predict<!-- /react-text --></button>
-                                </div>
-                            </div>
-                            <div class="col-sm-6"><img src="assets/icon-imagery.png" alt="banner imagery"
-                                                       aria-hidden="true" class="img-responsive" style="width: 90%;">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row" style="margin: 0px -30px 15px;">
-                <div class="col-sm-10 col-sm-offset-1">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="panel">
-                                <div class="panel-heading"
-                                     style="color: rgb(0, 94, 180); background-color: rgb(255, 255, 255); padding-bottom: 0px;">
-                                    <h2>What is Predict:Prostate?</h2></div>
-                                <div class="panel-body" style="padding-top: 0px; padding-bottom: 0px;"><p>Predict is a
-                                    tool that helps patients and doctors decide on whether to have conservative or
-                                    radical
-                                    management for non-metastatic prostate cancer.</p>
-                                    <p></p></div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="panel">
-                                <div class="panel-heading"
-                                     style="color: rgb(0, 94, 180); background-color: rgb(255, 255, 255); padding-bottom: 0px;">
-                                    <h2>How do I use Predict?</h2></div>
-                                <div class="panel-body" style="padding-top: 0px; padding-bottom: 0px;"><p>Enter the
-                                    details about yourself and your prostate cancer, and then select conservative
-                                    management or radical treatment to see estimates of how effective they are.</p>
-                                    <p><!-- react-text: 92 -->We recommend patients read the <!-- /react-text --><a
-                                            href="#">patient information</a><span style="font-size: 16px;"> section before using the tool. Predict is only intended for use amongst men
-     for whom both conservative and radical treatment could be appropriate options</span></p></div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="panel">
-                                <div class="panel-heading"
-                                     style="color: rgb(0, 94, 180); background-color: rgb(255, 255, 255); padding-bottom: 0px;">
-                                    <h2>What will Predict tell me?</h2></div>
-                                <div class="panel-body" style="padding-top: 0px; padding-bottom: 0px;"><p>The Predict
-                                    tool shows you how different management strategies affect the percentage of men that
-                                    survive ten and fifteen years after diagnosis.</p></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row screen-only">
-                <div>
-                    <div class="row print-only">
-                        <div class="col-xs-12"><img src="assets/print-footer.png"></div>
-                    </div>
-                    <div class="row-fluid screen-only" style="clear: both; color: white;">
-                        <div class="col footer"
-                             style="width: 100%; min-height: 200px; background-color: rgb(31, 55, 84); border-radius: 0px; padding: 30px;">
-                            <row>
-                                <div class="col-sm-3"><img src="assets/phe-neg.png" class="img-responsive"
-                                                           style="margin-top: 10px; margin-left: 10px; max-width: 120px;">
-                                </div>
-                                <div class="col-sm-4"><img src="assets/urology.png" class="img-responsive"
-                                                           style="margin-top: 10px; max-width: 175px;"></div>
-                                <div class="col-sm-4"><img src="assets/ucs-winton-transparent.png"
-                                                           class="img-responsive"
-                                                           style="margin-top: 10px; max-width: 175px;"></div>
-                            </row>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 copy-footer"><!-- react-text: 116 -->Copyright Ⓒ 2019 University of Cambridge.
-                        All Rights Reserved | <!-- /react-text --><a href="javascript:void(0)">Privacy &amp; Data
-                            Protection</a><!-- react-text: 118 --> | <!-- /react-text --><a href="javascript:void(0)">Disclaimer</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    <div data-reactroot=""><div class="container-fluid"><div class="row"><div class="col-sm-10 col-sm-offset-1 col-xs-12"><img src="assets/NHS.jpg" alt="NHS logo" class="img-responsive pull-right" style="width: 85px; margin-top: 30px; margin-bottom: 38px;"><img src="assets/prostate-angle-man_1.png" alt="Predict prostate logo" class="img-responsive" style="width: 180px; margin-top: 13px; margin-bottom: 6px;"></div><div class="col-xs-12"><div class="row screen-only"><div class="col-sm-11 col-xs-12 skip"><a tabindex="1" class="pull-right" style="cursor: pointer;">Skip to main content</a></div></div><nav class=""><nav class="navbar navbar-inverse"><div class="container"><div class="navbar-header"><button type="button" data-toggle="collapse" data-target="#navbar" class="navbar-toggle"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div><div id="navbar" class="collapse navbar-collapse"><ul class="nav navbar-nav" data-smartmenus-id="15500154580729526"><li tabindex="0" class="active" style="cursor: pointer;"><a data-toggle="collapse" data-target=".navbar-collapse.in">Home</a></li><li tabindex="0" class="dropdown" style="cursor: pointer;"><a class="dropdown-toggle has-submenu" id="sm-15500154580729526-1" aria-haspopup="true" aria-controls="sm-15500154580729526-2" aria-expanded="false"><!-- react-text: 25 -->About Predict<!-- /react-text --><span class="caret"></span></a><ul class="dropdown-menu" id="sm-15500154580729526-2" role="group" aria-hidden="true" aria-labelledby="sm-15500154580729526-1" aria-expanded="false"><li tabindex="0" style="cursor: pointer;"><a data-toggle="collapse" data-target=".navbar-collapse.in">About Predict</a></li><li tabindex="0" style="cursor: pointer;"><a data-toggle="collapse" data-target=".navbar-collapse.in">– Who is it for?</a></li><li tabindex="0" style="cursor: pointer;"><a data-toggle="collapse" data-target=".navbar-collapse.in">– How Predict works</a></li><li tabindex="0" style="cursor: pointer;"><a data-toggle="collapse" data-target=".navbar-collapse.in">– Who built Predict</a></li><li tabindex="0" style="cursor: pointer;"><a data-toggle="collapse" data-target=".navbar-collapse.in">Technical</a></li><li tabindex="0" style="cursor: pointer;"><a data-toggle="collapse" data-target=".navbar-collapse.in">– Development History</a></li><li tabindex="0" style="cursor: pointer;"><a data-toggle="collapse" data-target=".navbar-collapse.in">– Publications</a></li><li tabindex="0" style="cursor: pointer;"><a data-toggle="collapse" data-target=".navbar-collapse.in">FAQs</a></li></ul></li><li tabindex="0" style="cursor: pointer;"><a data-toggle="collapse" data-target=".navbar-collapse.in">Predict Tool</a></li><li tabindex="0" style="cursor: pointer;"><a data-toggle="collapse" data-target=".navbar-collapse.in">Contact</a></li><li tabindex="0" class="dropdown" style="cursor: pointer;"><a class="dropdown-toggle has-submenu" id="sm-15500154580729526-3" aria-haspopup="true" aria-controls="sm-15500154580729526-4" aria-expanded="false"><!-- react-text: 50 -->Legal<!-- /react-text --><span class="caret"></span></a><ul class="dropdown-menu" id="sm-15500154580729526-4" role="group" aria-hidden="true" aria-labelledby="sm-15500154580729526-3" aria-expanded="false"><li tabindex="0" style="cursor: pointer;"><a data-toggle="collapse" data-target=".navbar-collapse.in">Disclaimer</a></li><li tabindex="0" style="cursor: pointer;"><a data-toggle="collapse" data-target=".navbar-collapse.in">Algorithm</a></li><li tabindex="0" style="cursor: pointer;"><a data-toggle="collapse" data-target=".navbar-collapse.in">Privacy &amp; Data Protection</a></li></ul></li></ul></div></div></nav></nav></div></div><div id="main-content" tabindex="-1" class="row" style="margin-left: -30px; margin-right: -30px;"><div class="col-xs-12"><div style="position: relative; width: 100%; background-color: rgb(211, 231, 253);"><div style="position: absolute; width: 100%; top: 0px; bottom: 20%; opacity: 0.25; background: linear-gradient(rgba(255, 255, 255, 0), rgb(255, 255, 255));"></div><div class="row"><div class="col-sm-5 col-sm-offset-1"><h1 class="alison-blue-2" style="margin: 30px 15px 15px;">What is Predict?</h1><div><p style="font-size: 20px; margin-left: 15px;">Predict is a tool that helps patients and doctors decide on whether to have conservative or radical
+        management for non-metastatic prostate cancer.</p><p style="font-size: 14px; margin-left: 15px;"></p></div><div><button aria-label="go to predict tool" type="button" class="btn btn-primary btn-lg" style="margin: 20px;"><i class="fa fa-chevron-right"></i><!-- react-text: 72 --> Start Predict<!-- /react-text --></button></div></div><div class="col-sm-6"><img src="assets/icon-imagery.png" alt="banner imagery" aria-hidden="true" class="img-responsive" style="width: 90%;"></div></div></div></div></div><div class="row" style="margin: 0px -30px 15px;"><div class="col-sm-10 col-sm-offset-1"><div class="row"><div class="col-md-4"><div class="panel"><div class="panel-heading" style="color: rgb(0, 94, 180); background-color: rgb(255, 255, 255); padding-bottom: 0px;"><h2>What is Predict:Prostate?</h2></div><div class="panel-body" style="padding-top: 0px; padding-bottom: 0px;"><p>Predict is a tool that helps patients and doctors decide on whether to have conservative or radical
+        management for non-metastatic prostate cancer.</p><p></p></div></div></div><div class="col-md-4"><div class="panel"><div class="panel-heading" style="color: rgb(0, 94, 180); background-color: rgb(255, 255, 255); padding-bottom: 0px;"><h2>How do I use Predict?</h2></div><div class="panel-body" style="padding-top: 0px; padding-bottom: 0px;"><p>Enter the details about yourself and your prostate cancer, and then select conservative management or radical treatment to see estimates of how effective they are.</p><p><!-- react-text: 92 -->We recommend patients read the <!-- /react-text --><a href="#">patient information</a><span style="font-size: 16px;"> section before using the tool. Predict is only intended for use amongst men
+     for whom both conservative and radical treatment could be appropriate options</span></p></div></div></div><div class="col-md-4"><div class="panel"><div class="panel-heading" style="color: rgb(0, 94, 180); background-color: rgb(255, 255, 255); padding-bottom: 0px;"><h2>What will Predict tell me?</h2></div><div class="panel-body" style="padding-top: 0px; padding-bottom: 0px;"><p>The Predict tool shows you how different management strategies affect the percentage of men that survive ten and fifteen years after diagnosis.</p></div></div></div></div></div></div><div class="row screen-only"><div><div class="row print-only"><div class="col-xs-12"><img src="assets/print-footer.png" alt="footer"></div></div><div class="row-fluid screen-only" style="clear: both; color: white;"><div class="col footer" style="width: 100%; min-height: 200px; background-color: rgb(31, 55, 84); border-radius: 0px; padding: 30px;"><row><div class="col-sm-3"><img src="assets/phe-neg.png" alt="" class="img-responsive" style="margin-top: 10px; margin-left: 10px; max-width: 120px;"></div><div class="col-sm-4"><img src="assets/urology.png" alt="" class="img-responsive" alt="" style="margin-top: 10px; max-width: 175px;"></div><div class="col-sm-4"><img src="assets/ucs-winton-transparent.png" class="img-responsive" style="margin-top: 10px; max-width: 175px;"></div></row></div></div><div class="col-sm-12 copy-footer"><!-- react-text: 116 -->Copyright Ⓒ 2019 University of Cambridge. All Rights Reserved | <!-- /react-text --><a href="javascript:void(0)">Privacy &amp; Data Protection</a><!-- react-text: 118 --> | <!-- /react-text --><a href="javascript:void(0)">Disclaimer</a></div></div></div></div></div>
 </div>
 
 <div id="fallback">
@@ -368,27 +193,27 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="browser-container">
-                    <a target="_blank" href="https://www.google.com/chrome/">
-                        <img src="assets/browser-chrome.png">
+                    <a target="_blank" href="https://www.google.com/chrome/" rel="noopener">
+                        <img src="assets/browser-chrome.png" alt="chrome">
                         <div>Chrome</div>
                     </a>
                 </div>
                 <div class="browser-container">
-                    <a target="_blank" href="https://www.mozilla.org/en-GB/firefox/new/">
-                        <img src="assets/browser-firefox.png">
+                    <a target="_blank" href="https://www.mozilla.org/en-GB/firefox/new/" rel="noopener">
+                        <img src="assets/browser-firefox.png" alt="firefox">
                         <div>Chrome</div>
                     </a>
                 </div>
                 <div class="browser-container">
                     <a target="_blank"
-                       href="https://support.microsoft.com/en-gb/help/17621/internet-explorer-downloads">
-                        <img src="assets/browser-ie.png">
+                       href="https://support.microsoft.com/en-gb/help/17621/internet-explorer-downloads" rel="noopener">
+                        <img src="assets/browser-ie.png" alt="ie">
                         <div>IE (v10+)</div>
                     </a>
                 </div>
                 <div class="browser-container">
-                    <a target="_blank" href="https://www.microsoft.com/en-gb/windows/microsoft-edge">
-                        <img src="assets/browser-edge.png">
+                    <a target="_blank" href="https://www.microsoft.com/en-gb/windows/microsoft-edge" rel="noopener">
+                        <img src="assets/browser-edge.png" alt="edge">
                         <div>Edge</div>
                     </a>
                 </div>
