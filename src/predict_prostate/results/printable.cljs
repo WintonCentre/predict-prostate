@@ -57,6 +57,10 @@
       [:tr
        [:td (input-label :h-admissions)]
        [:td ({0 "No" 1 "Yes"} (rum/react (input-cursor :h-admissions)))]]
+      (when (pos? (rum/react (input-cursor :h-admissions)))
+        [:tr
+         [:td (input-label :charlson-comorbidity)]
+         [:td ({0 "No" 1 "Yes"} (rum/react (input-cursor :charlson-comorbidity)))]])
       [:tr
        [:td (input-label :brca)]
        [:td ({0 "No" 1 "Yes"} (rum/react (input-cursor :brca)))]]
@@ -76,10 +80,7 @@
       [:tr
        [:td (input-label :biopsy-cores-involved)]
        [:td (rum/react (input-cursor :biopsy-cores-involved))]]
-      (when (pos? (rum/react (input-cursor :h-admissions)))
-        [:tr
-             [:td (input-label :charlson-comorbidity)]
-             [:td ({0 "No" 1 "Yes"} (rum/react (input-cursor :charlson-comorbidity)))]])
+
       ]]]])
 
 (rum/defc treatment-note [title content]

@@ -65,7 +65,7 @@
     #_[:a#skippy.sr-only-focusable.pull-right {:tab-index 0
                                                :style     {:cursor "pointer"}
                                                :on-click  #(do (.focus (js/$ content-id)) false)} "Skip to main content"]
-    [:a.pull-right {:tab-index    1
+    [:a.pull-right {:tab-index    0
                     :style        {:cursor "pointer"}
                     :on-key-press #(if (= (.. % -nativeEvent -key) "Enter")
                                      (do (.focus (js/$ content-id)) false))

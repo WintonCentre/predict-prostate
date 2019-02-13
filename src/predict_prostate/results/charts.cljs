@@ -17,7 +17,7 @@
 
 (defn border [fill] (str "1px solid " fill))
 (defn arrow [fill] (str "2ex solid " fill))
-(def arrow-color [220 150 0])
+(def arrow-color [204 238 248] #_[220 150 0])
 (def arrow-fill (arrow (str "rgb(" (join "," arrow-color) ")")))
 
 (def z-front 20)
@@ -48,6 +48,14 @@
                           :bottom   "1.37ex" :border "1px none red"}]]]
 
     [".callout" {:position   "absolute"
+                 :transition "height 300ms, bottom 300ms" :transition-timing-function "ease-out"}
+     [".box" {:width   "7em" :height "10ex" :position "absolute" :bottom "-4.7ex"
+              :padding "0.5ex 1ex 0.3ex 0.5ex" :text-align "right" :color "#5A8FA9" :border-radius "0.5ex"}
+      [".total" {:position "absolute" :left "0.6ex" :bottom "1.3ex" :color "#5A8FA9" :font-size "1.2em"}]]
+     [".arrow" {:position   "absolute" :bottom "-1ex" :width 0 :height 0
+                :border-top "1ex solid transparent" :border-bottom "1ex solid transparent"}]]
+
+    #_[".callout" {:position   "absolute"
                  :transition "height 300ms, bottom 300ms" :transition-timing-function "ease-out"}
      [".box" {:width   "7em" :height "10ex" :position "absolute" :bottom "-4.7ex"
               :padding "0.5ex 1ex 0.3ex 0.5ex" :text-align "right" :color "white" :border-radius "0.5ex"}
