@@ -27,7 +27,7 @@
                  #_[rum "0.10.8"]
                  [rum "0.11.3"]
                  [pubsub "0.2.1"]
-                 [wc-rum-lib "0.1.6"]
+                 [wc-rum-lib "0.1.7"]
                  [cljs-css-modules "0.2.1"]
                  [cljsjs/jquery "1.9.1-0"]
                  [cljsjs/bootstrap "3.3.6-0"]
@@ -69,7 +69,7 @@
                         :compiler     {:output-to     "resources/public/js/compiled/predict_prostate.js"
                                        :main          predict-prostate.core
                                        :optimizations :advanced
-                                       :pseudo-names  true
+                                       :pseudo-names  false
                                        :closure-defines {goog.DEBUG false}
                                        :externs       ["externs/bootstrap.js"
                                                        "externs/jquery.js"]
