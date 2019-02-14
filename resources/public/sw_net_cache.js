@@ -63,17 +63,17 @@ function precache() {
 
             '/js/compiled/predict_prostate.js',
             '/js/bootstrap.min.js',
-            '/js/jquery.smartmenus.min.js',
             '/js/jquery.smartmenus.bootstrap.min.js',
+            '/js/jquery.smartmenus.min.js',
             '/js/jquery-3.3.1.min.js',
             '/js/mediatypechecker.js',
 
+            '/fonts/FontAwesome.otf',
             '/fonts/fontawesome-webfont.eot',
             '/fonts/fontawesome-webfont.svg',
             '/fonts/fontawesome-webfont.ttf',
             '/fonts/fontawesome-webfont.woff',
             '/fonts/fontawesome-webfont.woff2',
-            '/fonts/FontAwesome.otf',
 
         ]);
     });
