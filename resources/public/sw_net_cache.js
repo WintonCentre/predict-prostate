@@ -68,6 +68,13 @@ function precache() {
             '/js/jquery-3.3.1.min.js',
             '/js/mediatypechecker.js',
 
+            '/fonts/fontawesome-webfont.eot',
+            '/fonts/fontawesome-webfont.svg',
+            '/fonts/fontawesome-webfont.ttf',
+            '/fonts/fontawesome-webfont.woff',
+            '/fonts/fontawesome-webfont.woff2',
+            '/fonts/FontAwesome.otf',
+
         ]);
     });
 }
