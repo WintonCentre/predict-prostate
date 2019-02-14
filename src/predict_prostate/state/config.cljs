@@ -107,9 +107,9 @@
    (->Input-group :brca
                   "BRCA"
                   :radio-group
-                  [[0 "Negative"]
+                  [[0 "Negative or Untested"]
                    [1 "Positive"]
-                   [2 "Untested"]]
+                   #_[2 "Untested"]]
                   false false false
                   :prp
                   #{"prostate-release"}

@@ -44,7 +44,7 @@ resources/public/intro*
 .lein-git-deps/
 #project.clj#
 .idea/
-predict3.iml
+*.iml
 src/cards/#side_panel.cljs#
 wireframes/Rectangle 2.png
 wireframes/Treatments.png
