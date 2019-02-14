@@ -27,6 +27,7 @@ function precache() {
     return caches.open(CACHE).then(function (cache) {
         return cache.addAll([
             '/',
+            '/tool',
             '/index.html',
             '/manifest.json',
             '/assets/favicon.png',
@@ -51,6 +52,7 @@ function precache() {
             '/assets/touch-icon-ipad-retina.png',
             '/assets/touch-icon-iphone.png',
             '/assets/touch-icon-iphone-retina.png',
+            '/assets/bullet-plus.png',
             '/js/mediatypechecker.js',
             '/js/jquery.smartmenus.min.js',
             '/js/jquery.smartmenus.bootstrap.min.js',
@@ -88,4 +90,3 @@ function update(request) {
         });
     });
 }
-
