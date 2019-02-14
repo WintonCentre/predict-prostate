@@ -96,26 +96,26 @@
    ;
 
    ; block 1
-   [:section#home-what-is "What is Predict:Prostate?"
+   [:section#home-what-is "What is Predict Prostate?"
     [:p {:key 1} "Predict is a tool that helps patients and doctors decide on whether to have conservative or radical
-    management for non-metastatic prostate cancer."]
+    management for nonmetastatic prostate cancer."]
     [:p {:key 2} ""]
     ]
 
    ; block 2
    [:section#home-how-use "How do I use Predict?"
-    [:p {:key 2} "Enter the details about yourself and your prostate cancer, and then select conservative management or radical treatment to see estimates of how effective they are."]
+    [:p {:key 2} "Enter the details about yourself and your prostate cancer, and then select conservative management or radical treatment to see estimates of survival with each."]
     [:p {:key 3} "We recommend patients read the "
      [:a {:key 1 :href "#" :on-click #(publish route-change [:about {:page :overview :section :overview}])} "patient information"]
      [:span {:key 2 :style {:font-size "16px"}} " section before using the tool. Predict is only intended for use amongst men
-     for whom both conservative and radical treatment could be appropriate options"]]
+     for whom both conservative management and radical treatment could both be appropriate options"]]
     #_[:div {:key 2 :style {:border-left  "3px solid #005FB1"
                             :padding-left "10px"}}
        [:p "We recommend that patients use this tool with their doctor."]]]
 
    ; block 3
    [:section#home-what-tell "What will Predict tell me?"
-    [:p {:key 4} "The Predict tool shows you how different management strategies affect the percentage of men that survive ten and fifteen years after diagnosis."]]
+    [:p {:key 4} "The Predict tool shows you how different initial management strategies affect the percentage of men that survive ten and fifteen years after diagnosis."]]
 
    [:section#about-page "About"
     [:section#who (copied "Who developed the Predict programme?")
@@ -153,12 +153,18 @@
     [:section "Who is it for?"
      [:p "The tool is intended for men with non-metastatic prostate cancer who are deciding between conservative and radical management regimes."]
 
+[:p "The tool is unlikely to be reliable in men with any 'high risk' tumour characteristics (PSA>20ng/ml, Grade group 4 or 5, T stage 3 or 4) as very few men
+ with these characteristics were managed with conservative management in our development or validation data. "]
+
      [:p "Predict only asks for certain information about the cancer. The inputs it asks for are the ones that are
       most helpful in predicting survival rates. "]
+  
+  [:p "'Radical treatment' refers to either whole-gland radiotherapy or radical prostatectomy. Other 
+   treatments, including focal therapies are not considered by this model."]
 
      [:p "Nothing can ever tell an individual man what is going to happen to him – but we believe that in order to make
     decisions about treatment options it’s important that people are given as much information as is possible about the
-    potential effects of each treatment option."]
+    potential effects of each treatment option."] 
 
      [:p.emphasise "The web tool is not designed to give clinical advice and all decisions on treatment options must be
     made in consultation between the patient and a qualified doctor."]
