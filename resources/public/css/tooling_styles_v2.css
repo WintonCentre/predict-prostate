@@ -53,7 +53,7 @@ button.btn-link:focus {
 }
 
 .panel-body {
-  padding-bottom 10px;
+  padding-bottom: 10px;
 }
 
 .form-group.has-error > :nth-child(3)  {

@@ -52,12 +52,22 @@ function precache() {
             '/assets/touch-icon-iphone.png',
             '/assets/touch-icon-iphone-retina.png',
             '/assets/bullet-plus.png',
-            '/js/mediatypechecker.js',
-            '/js/jquery.smartmenus.min.js',
-            '/js/jquery.smartmenus.bootstrap.min.js',
-            '/js/compiled/predict_prostate.js',
+
+            '/css/bootstrap.min.css',
+            '/css/bootstrap-select.css',
+            '/css/font-awesome.min.css',
+            '/css/ionicons.min.css',
             '/css/jquery.smartmenus.bootstrap.css',
             '/css/tooling_styles_v2.css',
+
+
+            '/js/compiled/predict_prostate.js',
+            '/js/bootstrap.min.js',
+            '/js/jquery.smartmenus.min.js',
+            '/js/jquery.smartmenus.bootstrap.min.js',
+            '/js/jquery-3.3.1.min.js',
+            '/js/mediatypechecker.js',
+
         ]);
     });
 }
