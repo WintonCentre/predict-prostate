@@ -236,49 +236,46 @@
 </script>
 
 <!-- Hotjar Tracking Code for https://prostate.predict.wintoncentre.uk -->
-<!--<script>-->
-    <!--(function(h,o,t,j,a,r){-->
-    <!--h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};-->
-    <!--h._hjSettings={hjid:1191612,hjsv:6};-->
-    <!--a=o.getElementsByTagName('head')[0];-->
-    <!--r=o.createElement('script');r.async=1;-->
-    <!--r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;-->
-    <!--a.appendChild(r);-->
-<!--})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');-->
-<!--</script>-->
+<script>
+    (function(h,o,t,j,a,r){
+    h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+    h._hjSettings={hjid:1191612,hjsv:6};
+    a=o.getElementsByTagName('head')[0];
+    r=o.createElement('script');r.async=1;
+    r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+    a.appendChild(r);
+})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
 
 
 <!-- Service Worker -->
-<script>
+<!--<script>-->
 
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-            // navigator.serviceWorker.register('/sw_standard.js', { scope: '/' });
-            navigator.serviceWorker.register('/sw_net_cache.js', { scope: '/' });
-            // navigator.serviceWorker.register('/sw_cache_update.js', { scope: '/' });
-        });
-    }
-
-
-    // if('serviceWorker' in navigator) {
-    //     navigator.serviceWorker.register('/sw.js', { scope: '/' })
-    //         .then(function(registration) {
-    //             console.log('Service Worker Registered');
-    //             console.log(registration);
-    //         }).catch(function(error) {
-    //         // registration failed
-    //         console.log('Registration failed with ' + error);
-    //     });;
-    //
-    //     navigator.serviceWorker.ready.then(function(registration) {
-    //         console.log('Service Worker Ready');
-    //     });
-    // }
+    <!--if ('serviceWorker' in navigator) {-->
+        <!--window.addEventListener('load', function() {-->
+            <!--// navigator.serviceWorker.register('/sw_standard.js', { scope: '/' });-->
+            <!--navigator.serviceWorker.register('/sw_net_cache.js', { scope: '/' });-->
+            <!--// navigator.serviceWorker.register('/sw_cache_update.js', { scope: '/' });-->
+        <!--});-->
+    <!--}-->
 
 
-
-
-</script>
+    <!--// if('serviceWorker' in navigator) {-->
+    <!--//     navigator.serviceWorker.register('/sw.js', { scope: '/' })-->
+    <!--//         .then(function(registration) {-->
+    <!--//             console.log('Service Worker Registered');-->
+    <!--//             console.log(registration);-->
+    <!--//         }).catch(function(error) {-->
+    <!--//         // registration failed-->
+    <!--//         console.log('Registration failed with ' + error);-->
+    <!--//     });;-->
+    <!--//-->
+    <!--//     navigator.serviceWorker.ready.then(function(registration) {-->
+    <!--//         console.log('Service Worker Ready');-->
+    <!--//     });-->
+    <!--// }-->
+    <!---->
+<!--</script>-->
 
 
 </body>
