@@ -80,6 +80,7 @@
   [:button.btn.btn-info.btn-sm
    {:type         "button"
     :role         "button"
+    :aria-label   (str "info on " text)
     :tabIndex     "0"
     :data-toggle  "modal"
     ;:data-target  "#infoModal"
