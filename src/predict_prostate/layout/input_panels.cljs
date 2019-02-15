@@ -70,7 +70,6 @@
     (when (model-keys :h-admissions) (form-entry {:label "h-admissions" :key :h-admissions}))
     (when (= (rum/react (input-cursor :h-admissions)) 1)
       (when (model-keys :charlson-comorbidity) (form-entry {:label "comorb" :key :charlson-comorbidity})))
-    (when (model-keys :brca) (form-entry {:label "BRCA" :key :brca}))
 
 
 
@@ -102,6 +101,8 @@
      [:div
       (when (model-keys :biopsy-cores-taken) (form-entry {:label "Number of biopsy cores taken" :key :biopsy-cores-taken}))
       (when (model-keys :biopsy-cores-involved) (form-entry {:label "Number of biopsy cores with prostate cancer" :key :biopsy-cores-involved}))])
+
+   (when (model-keys :brca) (form-entry {:label "BRCA" :key :brca}))
 
    ])
 
