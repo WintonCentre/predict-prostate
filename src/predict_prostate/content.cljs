@@ -137,7 +137,7 @@
    [:section#overview "Overview"
     [:section "Overview"
 
-     [:ul {:style {:list-style-image "url(/assets/bullet-plus.png)"}}
+     [:ul {:style {:list-style-image "url(assets/bullet-plus.png)"}}
       [:li (page-link [:about {:page :overview :section :whoisitfor}] "Who is it for?")]
       [:li (page-link [:about {:page :overview :section :howpredictworks}] "How Predict works")]
       [:li (page-link [:about {:page :overview :section :whobuiltpredict}] "Who built Predict")]
@@ -166,10 +166,10 @@
 
    [:section#howpredictworks "How Predict works"
     [:section "How Predict works"
-     [:p "The estimates that Predict produces are based on observational data from thousands of men from England, UK."]
+     [:p "The estimates that Predict produces are based on observational data from thousands of men from Eastern England, UK."]
      [:p "Predict has been tested to make sure that the estimates it produces are as accurate as they can be given current knowledge."
-      "The maths behind the tool is based on data from thousands of men who have been diagnosed with prostate cancer in the recent past in England. These data are used to
-    help produce the best assessment possible of the potential outcomes for men who have prostate cancer now, depending
+      "The maths behind the tool is based on data from thousands of men who have been diagnosed with nonmetastatic prostate cancer in the recent past in England. These data are used to
+    help produce estimates of the potential outcomes for men who have prostate cancer now, depending
     on characteristics about them and their tumour."]
      [:p "Although Predict produces good estimates, it cannot say whether an individual patient will survive their
      cancer or not. It can only provide the average survival rate for people in the past of similar age and with similar characteristics. "]
@@ -181,8 +181,9 @@
    [:section#whobuiltpredict "Who built Predict?"
     [:section "Who built Predict?"
 
-     [:p [:span "Predict Prostate has been developed by a partnership between the " [:a {:href "https://surgery.medschl.cam.ac.uk/divisions-and-groups/academic-urology-group/" :style {:text-decoration "underline"}} "Academic Urology Group and the Department of Cancer Epidemiology at the University of Cambridge"] "
-     in collaboration with the National Cancer Registration and Analysis Service (NCRAS) at Public Health England. This work has been supported by funding from " [:a {:href "https://www.theurologyfoundation.org/" :style {:text-decoration "underline"}} "The Urology Foundation"] " and the Evelyn Trust"]]
+     [:p [:span "Predict Prostate has been developed by a partnership between the " [:a {:href "https://surgery.medschl.cam.ac.uk/divisions-and-groups/academic-urology-group/" :style {:text-decoration "underline"}} "Academic Urology Group"] " and
+          the" [:a {:href "https://ccge.medschl.cam.ac.uk/" :style {:text-decoration "underline"}} "Centre for Cancer Genetic Epidemiology"] "at the University of Cambridge"] 
+      " in collaboration with the National Cancer Registration and Analysis Service (NCRAS) at Public Health England. This work has been supported by funding from " [:a {:href "https://www.theurologyfoundation.org/" :style {:text-decoration "underline"}} "The Urology Foundation"] " and the Evelyn Trust"]]
 
 
      [:p "The website has been built by the " [:a {:href "https://wintoncentre.maths.cam.ac.uk" :style {:text-decoration "underline"}} "Winton Centre for Risk & Evidence Communication"]
@@ -193,7 +194,7 @@
    [:section#technical "Technical"
     [:section "Technical"
 
-     [:ul {:style {:list-style-image "url(/assets/bullet-plus.png)"}}
+     [:ul {:style {:list-style-image "url(assets/bullet-plus.png)"}}
       [:li (page-link [:about {:page :technical :section :history}] "Development History")]
       #_[:li (page-link [:about {:page :technical :section :preversions}] "Previous Versions")]
       [:li (page-link [:about {:page :technical :section :publications}] "Publications")]
@@ -201,10 +202,12 @@
       ;[:li (page-link [:about {:page :technical :section :faqs}] "FAQs")]
       ]
 
-     [:p "Predict is an online tool designed to help clinicians and patients decide between initial conservative and radical prostate cancer management."]
+     [:p "Predict is an online tool designed to help clinicians and patients decide between initial conservative management or radical treatment of nonmetastatic prostate cancer."]
      [:p "The model is easy to use: simply enter data for an individual patient including patient age, PSA, Clinical stage,
-     hospital admission history, histological grade group/Gleason score, proportion of biopsy cores involved, and any comorbidity. It then
-     provides a choice of displays describing expected survival for the next 10 or 15 years."]
+     histological grade group/Gleason score, proportion of biopsy cores involved, BRCA status if known, hospital admission history and comorbidity status. It then
+     provides a choice of displays describing estimated survival for the next 10 or 15 years. Treatment benefits for radical treatment (either surgery or radiotherapy) are calculated 
+     by applying the estimated proportional reduction to the mortality rate derived from our observational data. The impact on survival of biopsy core involvement has been informed by additional external data. 
+     The prognostic significance of the BRCA gene variant has been taken from a separate study - as described later."]
      [:p "Click here to " (page-link [:legal {:page :algorithm} nil] "find out more about the algorithm.")]
      ]]
 
@@ -214,23 +217,26 @@
      [:p "The original model (v1.0) was derived from cancer registry information on 7,062 men treated in East Anglia from 2000-2010.
       They were followed until 30 September 2016 so that the median length of follow-up was 9.8 years and the maximum was 16 years
       Mortality models for prostate cancer-specific and non prostate cancer mortality were constructed using Cox proportional
-     hazards, adjusted for known prognostic factors. The overall survival estimates for an individual patient are based on both of these models.
+     hazards, adjusted for known prognostic factors. The overall survival estimates for an individual patient are based on both of these models, with one adjusted for the other within a competing risks framework.
      Further information is provided from a previous abstract presented at the European Association of Urology conference 2018 "
-      [:a {:href "https://www.eusupplements.europeanurology.com/article/S1569-9056(18)31764-0/fulltext"} "European Urology Supplements March 2018."]]]
+      [:a {:href "https://www.eusupplements.europeanurology.com/article/S1569-9056(18)31764-0/fulltext"} "European Urology Supplements March 2018."]] "and within the full paper which is currently in press with" [:a {:href "https://journals.plos.org/plosmedicine/"} "PLOS Medicine."]] ]
     [:section "Model validation"
      [:p "The clinical validity of a prediction model can be defined as the accuracy of the model to
-     predict future events. The two key measures of clinical validity are calibration and discrimination."]
+     predict future events. Two key measures of clinical validity are calibration and discrimination."]
      [:p "Calibration is how well the model predicts the total number of events in a given data set. A perfectly
      calibrated model is one where the observed (or actual) number of events in a given patient cohort is the same as
      the number of events predicted by the model. Discrimination is how well the model predicts the occurrence of an
      event in individual patients. The discrimination statistic is a number between zero and one - where 1 means the model always predicts who will have
      a worse outcome. A score of 0.5 would suggest the model will be correct half the time."]
-     [:p "Predict was originally validated using a dataset of another 3000 prostate cancer patients from the East Anglian
-    data and a further 2546 men from a separate independent dataset from Hong Kong diagnosed between 1990 and 2015 and followed for 5.1 years. Discrimination was 
-    in these two datasets was 0.84 for prostate cancer survival, and 0.77 and 0.76 for overall survival."]]
-    [:section "Future version"
-     [:p "Future iterations of Predict Prostate will hopefully add more granularity to the parameter on biopsy characteristics. The model is currently undergoing tsting
-               in other international cohorts."]
+     [:p "Predict was originally validated using a dataset of another 3000 prostate cancer patients from the Eastern England
+    data and a further 2546 men from a separate independent dataset from Hong Kong diagnosed between 1990 and 2015 and followed for 5.1 years. Discrimination 
+    in these two datasets was 0.84 for prostate cancer survival, and 0.77 and 0.76 for overall survival over 15 years maximum follow-up. Further details are available via the publications below."]]
+     [:section "Model Extension: BRCA status and biopsy reparameterisation (version 1.1)"
+      [:p "The web-model was updated in March 2019 to include BRCA status and to model the impact of biopsy core involvement in a slightly different way... " ]
+    
+    [:section "Future versions"
+     [:p "Predict Prostate will be updated over time as new information and evidence becomes available. The model is currently undergoing testing
+               in other international cohorts and a patient study is underway to assess its potential impact on clinical practice."]
      ]]
 
    [:section#publications "Publications"
