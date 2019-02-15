@@ -4,9 +4,13 @@
     [clojure.string :refer [index-of starts-with?]]
     [clojure.pprint :refer [cl-format]]
     [clojure.set :refer [union]]
-    [predict-prostate.state.config :refer [event-bus]]
-    [pubsub.feeds :refer [->Topic]]
+    ;[predict-prostate.state.config :refer [event-bus]]
+    [pubsub.feeds :refer [->Topic create-feed]]
     ))
+
+
+(def event-bus (create-feed))
+
 
 (def model "prostate-release")
 (def unknown "Unknown")

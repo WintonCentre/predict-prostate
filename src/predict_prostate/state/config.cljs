@@ -1,9 +1,13 @@
 (ns predict-prostate.state.config
   (:require [rum.core :as rum]
+            [predict-prostate.state.run-time :refer [help-key-change]]
             [pubsub.feeds :refer [->Topic publish create-feed]]))
 
 
-(def event-bus (create-feed))
+(rum/defc any-of-these-diseases []
+  [:span "Any of " [:a {:style    {:color "#A94342" :text-decoration "underline"
+                                   :cursor "pointer"}
+                        :on-click #(publish help-key-change "comorb")} "these diseases?"]])
 
 ;;;
 ;; Input configuration
@@ -163,7 +167,7 @@
                   nil)
 
    (->Input-group :charlson-comorbidity
-                  "Any of the diseases mentioned in the info box?"
+                  (any-of-these-diseases)
                   :radio-group
                   [[0 "No"]
                    [1 "Yes"]]

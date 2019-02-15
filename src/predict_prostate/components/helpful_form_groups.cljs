@@ -27,7 +27,7 @@
                                           :padding   "1px 5px"}
                                          (when (= (rum/react (input-cursor key)) :disabled) {:color "#CCC"}))
                            :for   (name key)}
-     label]]
+     (if (fn? label) (label) label)]]
 
    [:div {:style {:display        "inline-block"
                   :margin-left    "10px"

@@ -654,11 +654,23 @@
     [:section#comorb "Comorbidity"
      [:p "Select yes if there is a history of any of the following conditions:"
       [:br]
-      "Myocardial infarction, Congestive heart failure, Peripheral vascular disease (including aortic aneurysm >= 6 cm),
-      Cerebrovascular disease (Stroke or TIA), Dementia, Chronic pulmonary disease, Connective tissue disease, Peptic
-      ulcer disease, Liver disease, Diabetes (excluding diet-controlled diabetes alone), Hemiplegia, Moderate or severe
-      renal disease, Cancer (EXCLUDING THIS PROSTATE CANCER and excluding any cancer diagnosed more than five years ago), Leukemia (acute or
-      chronic), Lymphoma, AIDS."]]
+      [:ul
+       [:li "Myocardial infarction"]
+       [:li "Congestive heart failure"]
+       [:li "Peripheral vascular disease (including aortic aneurysm >= 6 cm)"]
+       [:li "Cerebrovascular disease (Stroke or TIA)"]
+       [:li "Dementia"]
+       [:li "Chronic pulmonary disease"]
+       [:li "Connective tissue disease"]
+       [:li "Peptic ulcer disease"]
+       [:li "Liver disease"]
+       [:li "Diabetes (excluding diet-controlled diabetes alone)"]
+       [:li "Hemiplegia"]
+       [:li "Moderate or severe renal disease"]
+       [:li "Cancer (EXCLUDING THIS PROSTATE CANCER and excluding any cancer diagnosed more than five years ago)"]
+       [:li "Leukemia (acute or chronic)"]
+       [:li "Lymphoma"]
+       [:li "AIDS."]]]]
 
 
     [:section#surgery "Treatments already received"

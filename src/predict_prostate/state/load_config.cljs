@@ -3,12 +3,13 @@
     [rum.core :as rum]
     [pubsub.feeds :refer [->Topic publish subscribe unsubscribe]]
     [clojure.string :refer [index-of]]
-    [predict-prostate.state.config :refer [input-groups event-bus]]
+    [predict-prostate.state.config :refer [input-groups]]
     [predict-prostate.state.run-time :refer [rtdb
                                              input-cursor
                                              input-cursors
                                              input-change
                                              estimates
+                                             event-bus
                                              ]]
 
     [predict-prostate.components.button :refer [radio-button-group radio-button-group-vertical]]
