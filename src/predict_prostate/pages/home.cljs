@@ -66,24 +66,24 @@
     [::.col-sm-10.col-sm-offset-1
      [:.row
 
-      [:.col-md-4
-       (rum/with-key (block {:icon       [:img {:src         "assets/graph-icon.png"
+      [:.col-md-4 {:key 1}
+       (rum/with-key  (block {:icon       [:img {:src         "assets/graph-icon.png"
                                                 :alt         "patient icon"
                                                 :aria-hidden true
                                                 :style       {:margin-top 20 :margin-left 15}}]
                              :section-id "home-what-is"}) 1)]
-      [:.col-md-4
-       (rum/with-key (block {:icon       [:img {:src         "assets/graph-icon.png"
+      [:.col-md-4 {:key 2}
+       (rum/with-key  (block {:icon       [:img {:src         "assets/graph-icon.png"
                                                 :alt         "patient icon"
                                                 :aria-hidden true
                                                 :style       {:margin-top 20 :margin-left 15}}]
-                             :section-id "home-how-use"}) 1)]
-      [:.col-md-4
+                             :section-id "home-how-use"}) 2)]
+      [:.col-md-4 {:key 3}
        (rum/with-key (block {:icon       [:img {:src         "assets/patient-icon.png"
                                                 :alt         "graph icon"
                                                 :aria-hidden true
                                                 :style       {:margin-top 20 :margin-left 15}}]
-                             :section-id "home-what-tell"}) 2)]
+                             :section-id "home-what-tell"}) 3)]
 
       ]]]
    (scrollTo 0)
