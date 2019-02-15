@@ -2,7 +2,7 @@
   :description "FIXME: write this!"
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
-            :url "http://www.eclipse.org/legal/epl-v10.html"}
+            :url  "http://www.eclipse.org/legal/epl-v10.html"}
 
 
 
@@ -10,7 +10,7 @@
 
   :dependencies [[org.clojure/clojure "1.10.0"]
                  [org.clojure/clojurescript "1.10.516"]
-                 [org.clojure/core.async  "0.4.490"]
+                 [org.clojure/core.async "0.4.490"]
 
                  ;; cljs dependencies
                  [cljs-ajax "0.7.3"]
@@ -53,29 +53,29 @@
   :source-paths ["src"]
 
   :less {:source-paths ["resources/less/style.less"]
-         :target-path "resources/public/css/style.css"}
+         :target-path  "resources/public/css/style.css"}
 
   :autoprefix {:source-path "resources/less/postcss/"
-               :dest-path "resources/public/css"
-               :files ["test.css"
-                       "style.css"]
-               :browsers "last 2 versions, > 1%, IE 9, IE 10"
+               :dest-path   "resources/public/css"
+               :files       ["test.css"
+                             "style.css"]
+               :browsers    "last 2 versions, > 1%, IE 9, IE 10"
                }
 
   :cljsbuild {
               :builds [
                        {:id           "min"
                         :source-paths ["src"]
-                        :compiler     {:output-to     "resources/public/js/compiled/predict_prostate.js"
-                                       :main          predict-prostate.core
-                                       :optimizations :advanced
-                                       :pseudo-names  false
+                        :compiler     {:output-to       "resources/public/js/compiled/predict_prostate.js"
+                                       :main            predict-prostate.core
+                                       :optimizations   :advanced
+                                       :pseudo-names    false
                                        :closure-defines {goog.DEBUG false}
-                                       :externs       ["externs/bootstrap.js"
-                                                       "externs/jquery.js"]
-                                       :infer-externs true
-                                       :language-in   :ecmascript5
-                                       :pretty-print  false}}
+                                       :externs         ["externs/bootstrap.js"
+                                                         "externs/jquery.js"]
+                                       :infer-externs   true
+                                       :language-in     :ecmascript5
+                                       :pretty-print    false}}
 
                        {:id           "dev"
                         :source-paths ["src"]
@@ -95,6 +95,7 @@
                                        :output-to            "resources/public/js/compiled/predict_prostate.js"
                                        :output-dir           "resources/public/js/compiled/out"
                                        :source-map-timestamp true
+                                       :closure-defines      {goog.DEBUG true}
 
                                        ;; To console.log CLJS data-structures make sure you enable devtools in Chrome
                                        ;; https://github.com/binaryage/cljs-devtools
@@ -105,10 +106,10 @@
                        ]}
 
   :figwheel {;; :http-server-root "public" ;; default and assumes "resources"
-             :server-port 4449 ;; default
+             :server-port 4449                              ;; default
              ;; :server-ip "127.0.0.1"
 
-             :css-dirs ["resources/public/css"] ;; watch and update CSS
+             :css-dirs    ["resources/public/css"]          ;; watch and update CSS
 
              ;; Start an nREPL server into the running figwheel process
              ;; :nrepl-port 7888
@@ -147,14 +148,14 @@
   ;; Setting up nREPL for Figwheel and ClojureScript dev
   ;; Please see:
   ;; https://github.com/bhauman/lein-figwheel/wiki/Using-the-Figwheel-REPL-within-NRepl
-  :profiles {:dev {:dependencies [[binaryage/devtools "0.9.9"]
-                                  [figwheel-sidecar "0.5.14"]
-                                  [com.cemerick/piggieback "0.2.2"]]
+  :profiles {:dev {:dependencies  [[binaryage/devtools "0.9.9"]
+                                   [figwheel-sidecar "0.5.14"]
+                                   [com.cemerick/piggieback "0.2.2"]]
                    ;; need to add dev source path here to get user.clj loaded
-                   :source-paths ["src" "dev"]
+                   :source-paths  ["src" "dev"]
                    ;; for CIDER
                    ;; :plugins [[cider/cider-nrepl "0.12.0"]]
-                   :repl-options {:nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
+                   :repl-options  {:nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
                    ;; need to add the compliled assets to the :clean-targets
                    :clean-targets ^{:protect false} ["resources/public/js/compiled"
                                                      :target-path]}})
