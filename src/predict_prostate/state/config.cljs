@@ -163,7 +163,7 @@
                   nil)
 
    (->Input-group :charlson-comorbidity
-                  "Comorbidity"
+                  "Any of the diseases mentioned in the info box?"
                   :radio-group
                   [[0 "No"]
                    [1 "Yes"]]
