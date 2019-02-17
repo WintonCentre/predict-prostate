@@ -145,7 +145,7 @@
                   false false false
                   :prp
                   #{"prostate-release"}
-                  "")
+                  10)
 
    (->Input-group :biopsy-cores-involved
                   "Biopsy cores with prostate cancer"

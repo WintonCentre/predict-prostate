@@ -14,7 +14,7 @@
 
     [predict-prostate.components.button :refer [radio-button-group radio-button-group-vertical]]
     [predict-prostate.components.select :refer [picker]]
-    [wc-rum-lib.numeric-input :refer [numeric-input]]))
+    [predict-prostate.components.numeric-input :refer [numeric-input]]))
 
 
 (rum/defc default < rum/static [{:keys [key label type params]} & extra]

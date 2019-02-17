@@ -106,7 +106,7 @@
    [:section#home-how-use "How do I use Predict?"
     [:p {:key 2} "Enter the details about yourself and your prostate cancer, and then select conservative management or radical treatment to see estimates of survival with each."]
     [:p {:key 3} "We recommend patients read the "
-     [:a {:key 1 :href "#" :on-click #(publish route-change [:about {:page :overview :section :overview}])} "patient information"]
+     [:a {:key 1 :href "#" :on-click #(publish route-change [:about {:page :overview :section :overview}])} "About Predict"]
      [:span {:key 2 :style {:font-size "16px"}} " section before using the tool. Predict is only intended for use amongst men
      for whom both conservative management and radical treatment could both be appropriate options"]]]
    #_[:div {:key 2 :style {:border-left  "3px solid #005FB1"
