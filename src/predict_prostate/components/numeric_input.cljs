@@ -52,10 +52,11 @@
     (onChange (str val-3))))
 
 
-(defn handle-numeric-input [nmin nmax color onChange e]
+(defn handle-numeric-input [value nmin nmax color onChange e]
 
   (let [el (-> e .-target)
-        value (str-to-num (.. el -target -value))]
+        ;value (str-to-num (.. el -target -value))
+        ]
 
     (js/console.log "handle-numeric-input: value = " value)
     (js/console.log "nmin = " value)
@@ -102,7 +103,7 @@
         nmax (str-to-num (if (fn? max) (max) max))
         mutate (fn [e]
                  (js/console.log "mutating, :nmin = " nmin)
-                 (handle-numeric-input nmin nmax color onChange e))]
+                 (handle-numeric-input value nmin nmax color onChange e))]
     ; nmin and nmax can be functions, so in particular they may be calls to rum/react
 
     [:div {:id          "numeric-input"

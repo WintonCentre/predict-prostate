@@ -145,12 +145,12 @@
                   false false false
                   :prp
                   #{"prostate-release"}
-                  10)
+                  "")
 
    (->Input-group :biopsy-cores-involved
                   "Biopsy cores with prostate cancer"
                   :numeric-input
-                  {:min 0 :max 100 :step 1 :precision 0}
+                  {:min 1 :max 100 :step 1 :precision 0}
                   false false false
                   :prp
                   #{"prostate-release"}
