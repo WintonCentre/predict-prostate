@@ -55,11 +55,11 @@
 (defn handle-numeric-input [value nmin nmax color onChange e]
 
   (let [el (-> e .-target)
-        ;value (str-to-num (.. el -target -value))
+        value (str-to-num (.. el -value))
         ]
 
-    (js/console.log "handle-numeric-input: value = " value)
-    (js/console.log "nmin = " value)
+    (js/console.log "handle-numeric-input: value = " el)
+    (js/console.log "value = " value)
     (handle-inc value onChange nmin nmax 0)
     ;(onChange (str value))
     ))
@@ -89,7 +89,8 @@
                               (reset! (::timer state) nil))
           :on-mouse-out  #(do (js/clearInterval @(::timer state))
                               (reset! (::timer state) nil))
-          :on-click      #(update-value @cursor min max increment onChange %) #_#(handle-inc @cursor onChange min max increment)}
+          :on-click      #(update-value @cursor min max increment onChange %)
+          }
       (if (pos? increment) "+" "–")]]))
 
 
