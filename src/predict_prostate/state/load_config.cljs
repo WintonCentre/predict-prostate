@@ -51,6 +51,12 @@
                    :input-ref (input-cursor key)
                    :onChange #(publish (input-change key) %))))
 
+#_(defmethod make-widget :bci-numeric-input [{:keys [key params]}]
+  (numeric-input (assoc params
+                   :input-ref (input-cursor key)
+                   :max :biopsy-cores-taken
+                   :onChange #(publish (input-change key) %))))
+
 (defmethod make-widget :select [{:keys [key params]}]
   (picker {:key key :on-change #(publish (input-change key) %)} (:menu params)))
 

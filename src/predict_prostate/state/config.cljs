@@ -147,14 +147,23 @@
                   #{"prostate-release"}
                   nil)
 
+   #_(->Input-group :biopsy-cores-involved
+     "Biopsy cores with prostate cancer"
+     :numeric-input
+     {:min 1 :max 100 :step 1 :precision 0}
+     false false false
+     :prp
+     #{"prostate-release"}
+     nil)
+
    (->Input-group :biopsy-cores-involved
-                  "Biopsy cores with prostate cancer"
-                  :numeric-input
-                  {:min 1 :max 100 :step 1 :precision 0}
-                  false false false
-                  :prp
-                  #{"prostate-release"}
-                  nil)
+     "Biopsy cores with prostate cancer"
+     :numeric-input
+     {:min 1 :max :biopsy-cores-taken :step 1 :precision 0}
+     false false false
+     :prp
+     #{"prostate-release"}
+     nil)
 
    (->Input-group :h-admissions
                   "Hospital admission in last 2 years?"

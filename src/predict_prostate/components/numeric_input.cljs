@@ -1,5 +1,6 @@
 (ns predict-prostate.components.numeric-input
   (:require [rum.core :as rum]
+            [predict-prostate.state.run-time :refer [input-cursor]]
             [cljs-css-modules.macro :refer-macros [defstyle]]))
 
 (defstyle style
@@ -58,8 +59,8 @@
         value (str-to-num (.. el -value))
         ]
 
-    (js/console.log "handle-numeric-input: value = " el)
-    (js/console.log "value = " value)
+    (js/console.log "handle-numeric-input: value = " value)
+    (js/console.log "handle-numeric-input: max = " nmax)
     (handle-inc value onChange nmin nmax 0)
     ;(onChange (str value))
     ))
@@ -100,8 +101,8 @@
 
   (js/console.log "props: " props)
   (let [value (str-to-num (rum/react input-ref))
-        nmin (str-to-num (if (fn? min) (min) min))
-        nmax (str-to-num (if (fn? max) (max) max))
+        nmin (str-to-num (if (keyword? min) (rum/react (input-cursor min)) min))
+        nmax (str-to-num (if (keyword? max) (rum/react (input-cursor max)) max))
         mutate (fn [e]
                  (js/console.log "mutating, :nmin = " nmin)
                  (handle-numeric-input value nmin nmax color onChange e))]
