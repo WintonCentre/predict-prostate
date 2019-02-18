@@ -57,7 +57,7 @@
                 (Nav-item. "– Who is it for?" navigate-to [:about {:page :overview :section :whoisitfor}])
                 (Nav-item. "– How Predict works" navigate-to [:about {:page :overview :section :howpredictworks}])
                 (Nav-item. "– Who built Predict" navigate-to [:about {:page :overview :section :whobuiltpredict}])
-                (Nav-item. "Technical" navigate-to [:about {:page :technical}])
+                (Nav-item. "Technical" navigate-to [:about {:page :technical :section :technical}])
                 (Nav-item. "– Development History" navigate-to [:about {:page :technical :section :history}])
                 (Nav-item. "– Publications" navigate-to [:about {:page :technical :section :publications}])
                 (Nav-item. "FAQs" navigate-to [:about {:page :faqs}])])

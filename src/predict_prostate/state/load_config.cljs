@@ -3,17 +3,18 @@
     [rum.core :as rum]
     [pubsub.feeds :refer [->Topic publish subscribe unsubscribe]]
     [clojure.string :refer [index-of]]
-    [predict-prostate.state.config :refer [input-groups event-bus]]
+    [predict-prostate.state.config :refer [input-groups]]
     [predict-prostate.state.run-time :refer [rtdb
                                              input-cursor
                                              input-cursors
                                              input-change
                                              estimates
+                                             event-bus
                                              ]]
 
     [predict-prostate.components.button :refer [radio-button-group radio-button-group-vertical]]
     [predict-prostate.components.select :refer [picker]]
-    [wc-rum-lib.numeric-input :refer [numeric-input]]))
+    [predict-prostate.components.numeric-input :refer [numeric-input]]))
 
 
 (rum/defc default < rum/static [{:keys [key label type params]} & extra]
@@ -48,6 +49,12 @@
 (defmethod make-widget :numeric-input [{:keys [key params]}]
   (numeric-input (assoc params
                    :input-ref (input-cursor key)
+                   :onChange #(publish (input-change key) %))))
+
+#_(defmethod make-widget :bci-numeric-input [{:keys [key params]}]
+  (numeric-input (assoc params
+                   :input-ref (input-cursor key)
+                   :max :biopsy-cores-taken
                    :onChange #(publish (input-change key) %))))
 
 (defmethod make-widget :select [{:keys [key params]}]

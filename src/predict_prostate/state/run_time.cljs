@@ -4,9 +4,13 @@
     [clojure.string :refer [index-of starts-with?]]
     [clojure.pprint :refer [cl-format]]
     [clojure.set :refer [union]]
-    [predict-prostate.state.config :refer [event-bus]]
-    [pubsub.feeds :refer [->Topic]]
+    ;[predict-prostate.state.config :refer [event-bus]]
+    [pubsub.feeds :refer [->Topic create-feed]]
     ))
+
+
+(def event-bus (create-feed))
+
 
 (def model "prostate-release")
 (def unknown "Unknown")
@@ -120,6 +124,7 @@ survival, up to the projected survival of prostate-cancer-free men "
 (defonce mockup-change (make-topic :active-mockup))
 
 (defonce force-recalculation (make-topic :force-recalculation))
+
 
 ;;;
 ;; Input keys

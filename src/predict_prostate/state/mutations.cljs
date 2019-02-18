@@ -81,6 +81,18 @@
       max)
     min))
 
+;;
+;; Numeric values are always stored in state as strings, but processed as numerics
+;;
+(defn str-to-num [s] (js/parseFloat s))
+(comment
+  (str-to-num "3.5")                                        ;=> 3.5
+  (str-to-num 3.5)                                          ;=> 3.5
+  )
+
+(defn num-to-str [n] (if (js/isNaN n) nil (str n)))
+
+
 (defn mutator []
 
   (doseq [[key change] (input-changes)]
@@ -93,22 +105,30 @@
                    (cond
 
                      (= :biopsy-cores-taken key)
-                     (let [value (if (nil? value) (get-input-default input-groups key) value)
-                           bci (js/parseInt @(input-cursor :biopsy-cores-involved))
-                           bci (if (js/isNaN bci) 1 bci)]
-                       ;(println value " >=? " bci " " key)
+                     (let [value (str-to-num value)
+                           bci (str-to-num  @(input-cursor :biopsy-cores-involved))
+                           bct (str-to-num  @(input-cursor :biopsy-cores-taken))
+                           ]
+                       (println "t value = " (if (string? value) "str " "num ") value)
+                       (println "t taken = " (if (string? bct) "str " "num ") bct)
+                       (println "t involved = " (if (string? bci) "str " "num ") bci)
 
-                       (reset! (input-cursor :biopsy-cores-involved) (min bci value))
-                       (reset! (input-cursor :biopsy-cores-taken) value))
+                       (when-not (js/isNaN bci)
+                         (reset! (input-cursor :biopsy-cores-involved) (num-to-str (min bci value))))
+                       (reset! (input-cursor :biopsy-cores-taken) (num-to-str value)))
 
                      (= :biopsy-cores-involved key)
-                     (let [value (if (nil? value) (get-input-default input-groups key) value)
-                           bct (js/parseInt @(input-cursor :biopsy-cores-taken))
-                           bct (if (js/isNaN bct) 1 bct)]
-                       ;(println value " <=? " bct " " key)
-                       (when (<= value bct)
-                         (reset! (input-cursor :biopsy-cores-taken) bct)
-                         (reset! (input-cursor :biopsy-cores-involved) value)))
+                     (let [value (str-to-num value)
+                           bci (str-to-num  @(input-cursor :biopsy-cores-involved))
+                           bct (str-to-num  @(input-cursor :biopsy-cores-taken))
+                           ]
+                       (println "i value = " (if (string? value) "str " "num ") value)
+                       (println "i taken = " (if (string? bct) "str " "num ") bct)
+                       (println "i involved = " (if (string? bci) "str " "num ") bci)
+                       (when (and (not (js/isNaN bct)) (<= value bct))
+                         #_(when-not (js/isNaN bct)
+                           (reset! (input-cursor :biopsy-cores-taken) (num-to-str bct)))
+                         (reset! (input-cursor :biopsy-cores-involved) (num-to-str (min bct value)))))
 
                      (= key :hist-scale)
                      (do
