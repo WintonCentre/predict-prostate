@@ -151,8 +151,8 @@
       [:.col-xs-12 {:style {:opacity 1}}
        (header)
        [:#main-content.row {:tab-index -1
-                            :style     {:margin-left  -30
-                                        :margin-right -30}}
+                            :style     {:margin-left  0
+                                        :margin-right 0}}
         [:.col-xs-12
          [:div {:style {:position         "relative"
                         :width            "100%"

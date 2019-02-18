@@ -11,7 +11,7 @@
 (rum/defc contact < rum/static [route]
 
   (let [[_ {page :page}] route]
-    [:.container-fluid
+    [:.container-full
      (header)
      (header-banner "contact-preamble")
      [:#main-content.row {:tab-index -1}

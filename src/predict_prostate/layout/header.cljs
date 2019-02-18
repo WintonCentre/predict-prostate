@@ -16,8 +16,8 @@
 
 (rum/defc header-banner [banner-id]
   (let [[_ & preamble] (section banner-id)]
-    [:.row {:style {:margin-left  -30
-                    :margin-right -30}}
+    [:.row {:style {:margin-left  0
+                    :margin-right 0}}
      [:.col-xs-12
       [:div {:style {:position         "relative"
                      :width            "100%"

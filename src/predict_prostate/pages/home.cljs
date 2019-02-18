@@ -26,8 +26,8 @@
 (rum/defc home-header
   []
   [:#main-content.row {:tab-index -1
-                       :style     {:margin-left  -30
-                                   :margin-right -30}}
+                       :style     {:margin-left  0
+                                   :margin-right 0}}
    [:.col-xs-12
     [:div {:style {:position         "relative"
                    :width            "100%"
@@ -62,7 +62,7 @@
    (home-header)
 
 
-   [:.row {:style {:margin "0px -30px 15px"}}
+   [:.row {:style {:margin "0px 0px 15px"}}
     [::.col-sm-10.col-sm-offset-1
      [:.row
 
