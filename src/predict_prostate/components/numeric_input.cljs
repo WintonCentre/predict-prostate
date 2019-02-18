@@ -92,7 +92,7 @@
      [:button {:class-name    (str (if (pos? increment) "right" "left") " btn btn-default ")
                :aria-hidden   "true"
                :disabled      (if (pos? increment)
-                                (if (>= value (str-to-num (if (fn? max) (max) max))) "disabled" nil)
+                                (if (>= value (str-to-num (if (fn? max) (rum/react (max)) max))) "disabled" nil)
                                 (if (<= value nmin) "disabled" nil))
                :tab-index     -1
                :on-mouse-down #(do (reset! (::timer state) (start-timer %)))
@@ -112,12 +112,13 @@
   (let [[good bad] (split (rum/react input-ref) #":")
         #_#_value (str-to-num (rum/react input-ref))
         value (str-to-num good)
-        nmin (str-to-num (if (fn? min) (min) min))
-        nmax (str-to-num (if (fn? max) (max) max))
+        nmin (str-to-num (if (fn? min) (rum/react (min)) min))
+        nmax (str-to-num (if (fn? max) (rum/react (max)) max))
         mutate (fn [e]
                  ;(js/console.log "mutating, :nmin = " nmin " value = " value " bad = " bad)
-                 (handle-typed-input (str-to-num (if (fn? min) (min) min))
-                   (str-to-num (if (fn? max) (max) max))
+                 (handle-typed-input
+                   (str-to-num (if (fn? min) @(min) min))
+                   (str-to-num (if (fn? max) @(max) max))
                    onChange e))]
 
     [:div {:id          "numeric-input"

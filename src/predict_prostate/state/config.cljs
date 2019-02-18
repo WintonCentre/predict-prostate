@@ -151,7 +151,7 @@
                   "Biopsy cores with prostate cancer"
                   :numeric-input
                   #_{:min 1 :max :biopsy-cores-taken :step 1 :precision 0}
-                  {:min 1 :max (fn [] @(input-cursor :biopsy-cores-taken)) :step 1 :precision 0}
+                  {:min 1 :max (fn [] (input-cursor :biopsy-cores-taken)) :step 1 :precision 0}
                   false false false
                   :prp
                   #{"prostate-release"}
