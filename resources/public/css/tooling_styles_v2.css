@@ -437,10 +437,6 @@ ul.dropdown-menu li.active a:hover {
 /**
  * footer
  */
-.footer {
-  background-color: dark-grey;
-}
-
 .copy-footer {
     padding: 10px;
     background: #292929;
