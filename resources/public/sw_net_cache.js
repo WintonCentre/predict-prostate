@@ -27,6 +27,18 @@ function precache() {
             '/',
             '/tool',
             '/contact',
+            '/about',
+            '/legal/disclaimer',
+            '/legal/algorithm',
+            '/legal/privacy',
+            '/about/overview/about',
+            '/about/overview/whoisitfor',
+            '/about/overview/howpredictworks',
+            '/about/overview/whobuiltpredict',
+            '/about/technical',
+            '/about/technical/history',
+            '/about/technical/publications',
+            '/about/faqs',
             '/index.html',
             '/manifest.json',
             '/assets/favicon.png',
@@ -52,12 +64,29 @@ function precache() {
             '/assets/touch-icon-iphone.png',
             '/assets/touch-icon-iphone-retina.png',
             '/assets/bullet-plus.png',
-            '/js/mediatypechecker.js',
-            '/js/jquery.smartmenus.min.js',
-            '/js/jquery.smartmenus.bootstrap.min.js',
-            '/js/compiled/predict_prostate.js',
+
+            '/css/bootstrap.min.css',
+            '/css/bootstrap-select.css',
+            '/css/font-awesome.min.css',
+            '/css/ionicons.min.css',
             '/css/jquery.smartmenus.bootstrap.css',
             '/css/tooling_styles_v2.css',
+
+
+            '/js/compiled/predict_prostate.js',
+            '/js/bootstrap.min.js',
+            '/js/jquery.smartmenus.bootstrap.min.js',
+            '/js/jquery.smartmenus.min.js',
+            '/js/jquery-3.3.1.min.js',
+            '/js/mediatypechecker.js',
+
+            '/fonts/FontAwesome.otf',
+            '/fonts/fontawesome-webfont.eot',
+            '/fonts/fontawesome-webfont.svg',
+            '/fonts/fontawesome-webfont.ttf',
+            '/fonts/fontawesome-webfont.woff',
+            '/fonts/fontawesome-webfont.woff2',
+
         ]);
     });
 }
