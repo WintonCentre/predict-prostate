@@ -1,31 +1,35 @@
-
 (ns predict-prostate.models.adapters.predict
   (:require
     [predict-prostate.models.prostate-release :as mdl]
-    [clojure.string :refer [starts-with?]]
+    [clojure.string :refer [starts-with? split]]
     [cljs.reader :refer [read-string]]
     [goog.object :refer [getValueByKeys]]
     ))
 
 
-#_(comment                                                    ;prostate15
-  (defn predict-prostate
-    "Run the prostate model, mapping input factors to numeric model parameters.
-    Arity 1 defaults to 10 year prediction using the 10 year model.
-    Arity 2 allows you to say how many but uses the 15 year model if n > 10"
-    ([input-map n]
-     (-> input-map
-       (update :age read-string)
-       (update :n (constantly n))
-       (update :psa read-string)
-       (update :t-stage identity)
-       ;(update :grade-group identity)
-       ;(update :charlson-comorbidity identity)
-       (update :biopsy50 #(if (= :unknown %) 0 %))
-       (assoc :protect 0)
-       (mdl/run-prostate)))
-    ([input-map]
-     (predict-prostate input-map 10))))
+#_(comment                                                  ;prostate15
+    (defn predict-prostate
+      "Run the prostate model, mapping input factors to numeric model parameters.
+      Arity 1 defaults to 10 year prediction using the 10 year model.
+      Arity 2 allows you to say how many but uses the 15 year model if n > 10"
+      ([input-map n]
+       (-> input-map
+           (update :age read-string)
+           (update :n (constantly n))
+           (update :psa read-string)
+           (update :t-stage identity)
+           ;(update :grade-group identity)
+           ;(update :charlson-comorbidity identity)
+           (update :biopsy50 #(if (= :unknown %) 0 %))
+           (assoc :protect 0)
+           (mdl/run-prostate)))
+      ([input-map]
+       (predict-prostate input-map 10))))
+
+(defn in-range [s]
+  (let [[good bad] (split s #":")]
+    (js/parseFloat good))
+  )
 
 (defn predict-prostate
   "Run the prostate model, mapping input factors to numeric model parameters.

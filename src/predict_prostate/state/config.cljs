@@ -1,11 +1,11 @@
 (ns predict-prostate.state.config
   (:require [rum.core :as rum]
-            [predict-prostate.state.run-time :refer [help-key-change]]
+            [predict-prostate.state.run-time :refer [help-key-change input-cursor]]
             [pubsub.feeds :refer [->Topic publish create-feed]]))
 
 
 (rum/defc any-of-these-diseases []
-  [:span "Any of " [:a {:style    {:color "#A94342" :text-decoration "underline"
+  [:span "Any of " [:a {:style    {:color  "#A94342" :text-decoration "underline"
                                    :cursor "pointer"}
                         :on-click #(publish help-key-change "comorb")} "these diseases?"]])
 
@@ -45,14 +45,14 @@
                   )
 
    (->Input-group :plot-style
-     "Plot style for treatment benefit"
-     :radio-group
-     [[:area1 "Area"]
-      [:line2 "Line"]]
-     false false nil
-     :plot-style
-     #{"prostate" "prostate-release"}
-     nil)
+                  "Plot style for treatment benefit"
+                  :radio-group
+                  [[:area1 "Area"]
+                   [:line2 "Line"]]
+                  false false nil
+                  :plot-style
+                  #{"prostate" "prostate-release"}
+                  nil)
 
 
    ;; INPUTS
@@ -147,23 +147,15 @@
                   #{"prostate-release"}
                   nil)
 
-   #_(->Input-group :biopsy-cores-involved
-     "Biopsy cores with prostate cancer"
-     :numeric-input
-     {:min 1 :max 100 :step 1 :precision 0}
-     false false false
-     :prp
-     #{"prostate-release"}
-     nil)
-
    (->Input-group :biopsy-cores-involved
-     "Biopsy cores with prostate cancer"
-     :numeric-input
-     {:min 1 :max :biopsy-cores-taken :step 1 :precision 0}
-     false false false
-     :prp
-     #{"prostate-release"}
-     nil)
+                  "Biopsy cores with prostate cancer"
+                  :numeric-input
+                  #_{:min 1 :max :biopsy-cores-taken :step 1 :precision 0}
+                  {:min 1 :max (fn [] @(input-cursor :biopsy-cores-taken)) :step 1 :precision 0}
+                  false false false
+                  :prp
+                  #{"prostate-release"}
+                  nil)
 
    (->Input-group :h-admissions
                   "Hospital admission in last 2 years?"

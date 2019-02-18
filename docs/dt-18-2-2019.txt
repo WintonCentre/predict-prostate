@@ -1,0 +1,34 @@
+
+Overall issues and contact:
+-The URL is finalised as: prostate.predict.nhs.uk
+The breast cancer site will retain predict.nhs.uk but will also be on breast.predict.nhs.uk with a view to transferring URL at some point.
+-We will use 'Hotjar' (but not 'mixed panel') at least for the first few months of predict prostate to gain feedback and highlight any issues. The wording of the question should focus on web site/design rather than clinical content.
+-Analytics will hopefully be set up to assess which graphs are used most.
+-DT will contact Jem to ask whether a new email address can be established for contact, such as 'info@prostate.predict.nhs.uk' . This will likely be set to forward to VJG if acceptable. The postal address can remain unchanged as NCRAS.
+
+Minor website amendments:
+-Link to 'patient information' from home page should be to 'about' section
+-'Technical' could open the subsequent paragraphs, in the same way that 'about predict' opens the following paragraphs
+-On the print out it might be worth having page breaks between each graph and separating the summary from the side effects page.
+
+Predict Tool itself:
+-Comorbidity section:
+-Reworded to 'any of these diseases' rather than 'comorbidity' with a hyperlink to the info box.
+-Comorbidity list in info box switched to bullet points. DT to re-word this to make it clearer.
+
+-Biopsy section:
+-Change minimum cores with PCa to 1 rather than 0. DT to add wording to info box that tool is not for those with -ve biopsies.
+-Addition of 'grey text' under biopsy cores taken which reads 'any number of cores from a single target should be considered as 1 core. See examples' or similar. The 'see examples' will hyperlink to further information and examples (perhaps within FAQs or Development history under v1.1).
+-The issue of automatically getting results on clicking 'biopsy data available = yes' has been corrected by having BRCA after that point.
+
+-Results/Potential harms display:
+-Current display of predict outputs and potential harms in 2 columns next to each other is overwhelming.
+-Switch to 1 column display with Predict results centralised.
+-Insert blue box to one side saying 'scroll down for potential harms'
+-Move 'important' banner (current page footer) to one side of the results display
+-Switch colours within the potential harms display for prostatectomy. Currently it matches the colour for survival benefit which may suggest surgery offers more benefit. ?Purple or Grey were suggested.
+-Emphasised that model is intended for men deciding between conservative management and treatment. I.e. not high risk disease. This has been changed in the 'who's it for' section but it's thought this should more obvious on the tool itself. Options of 'greying out GG 4/5, T4, or adding 'grey text', or adding 'warning signs'. DT will d/w VJG and contact MP accordingly.
+
+-DT to check and update text throughout
+
+We were also going to change the description of radiotherapy in the ‘potential harms’ box to ‘radical radiotherapy’ to help people realise that it is one of the two ‘radical’ options.

@@ -34,6 +34,7 @@
             [pubsub.feeds :refer [publish subscribe]]
             [clojure.core.async :refer [timeout <!]]
             [cljs.reader :refer [read-string]]
+            [clojure.string :refer [split]]
             [bide.core :as r]
             [predict-prostate.router :refer [router use-hash-fragment]]
             [interop.jsx :refer [jq$]]
@@ -105,30 +106,28 @@
                    (cond
 
                      (= :biopsy-cores-taken key)
-                     (let [value (str-to-num value)
+                     (let [[value bad] (split value ":")
                            bci (str-to-num  @(input-cursor :biopsy-cores-involved))
-                           bct (str-to-num  @(input-cursor :biopsy-cores-taken))
-                           ]
+                           bct (str-to-num  @(input-cursor :biopsy-cores-taken))]
                        (println "t value = " (if (string? value) "str " "num ") value)
                        (println "t taken = " (if (string? bct) "str " "num ") bct)
                        (println "t involved = " (if (string? bci) "str " "num ") bci)
-
+                       (println "t bad = " bad)
                        (when-not (js/isNaN bci)
-                         (reset! (input-cursor :biopsy-cores-involved) (num-to-str (min bci value))))
-                       (reset! (input-cursor :biopsy-cores-taken) (num-to-str value)))
+                         (reset! (input-cursor :biopsy-cores-involved) (num-to-str (min bci (str-to-num value)))))
+                       (reset! (input-cursor :biopsy-cores-taken) (str value (when bad ":") bad)))
 
                      (= :biopsy-cores-involved key)
-                     (let [value (str-to-num value)
+                     (let [[value bad] (split value ":")
                            bci (str-to-num  @(input-cursor :biopsy-cores-involved))
-                           bct (str-to-num  @(input-cursor :biopsy-cores-taken))
-                           ]
+                           bct (str-to-num  @(input-cursor :biopsy-cores-taken))]
                        (println "i value = " (if (string? value) "str " "num ") value)
                        (println "i taken = " (if (string? bct) "str " "num ") bct)
                        (println "i involved = " (if (string? bci) "str " "num ") bci)
-                       (when (and (not (js/isNaN bct)) (<= value bct))
-                         #_(when-not (js/isNaN bct)
-                           (reset! (input-cursor :biopsy-cores-taken) (num-to-str bct)))
-                         (reset! (input-cursor :biopsy-cores-involved) (num-to-str (min bct value)))))
+                       (println "i bad = " bad)
+                       (when (not (js/isNaN bct))
+                         (reset! (input-cursor :biopsy-cores-involved)
+                                 (str value (if bad (str ":" bad) "")))))
 
                      (= key :hist-scale)
                      (do
