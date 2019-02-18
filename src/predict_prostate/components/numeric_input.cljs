@@ -126,7 +126,8 @@
                          :tab-index  1
                          :selectable true}
            :on-key-down #(let [key-code (.. % -nativeEvent -code)]
-                           (.preventDefault %)
+                           (when (#{"ArrowUp" "ArrowDown"} key-code)
+                             (.preventDefault %))
                            (handle-inc value onChange nmin nmax
                              (cond
                                (= "ArrowUp" key-code) 1
