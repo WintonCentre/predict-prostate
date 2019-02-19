@@ -333,7 +333,7 @@
 
 
      [:div {:style {:width   (if side-by-side "70%" "100%")
-                    :max-width 350
+                    :max-width 500
                     :display "inline-block"}}
       [:div {:style {:padding "15px 40px 0px 0px"}} (curves data)]]
      [:div {:style {:padding-top    "30px"

@@ -17,6 +17,7 @@
 
 ; internal hrefs
 (defn iref [url] (str (if (use-hash-fragment) "" "") base url))
+; was (defn iref [url] (str (if (use-hash-fragment) "#" "") base url)), but this fails on maths pdf
 
 (defn rooted [url] (str (if (use-hash-fragment) "" "") url))
 ;(def rooted identity)
@@ -56,6 +57,5 @@
 
   (r/resolve router :about {:page "history"} nil)
   ;=> "/about/history
-
 
   )
