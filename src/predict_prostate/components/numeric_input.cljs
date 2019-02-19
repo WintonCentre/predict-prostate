@@ -36,8 +36,8 @@
 
 (defn validate [value nmin nmax step]
   (let [value (str-to-num value)
-        nmin (if (fn? nmin) (nmin) nmin)
-        nmax (if (fn? nmax) (nmax) nmax)                    ;(if (keyword? nmax) @(input-cursor nmax) nmax)
+        nmin (if (fn? nmin) @(nmin) nmin)
+        nmax (if (fn? nmax) @(nmax) nmax)                   ;(if (keyword? nmax) @(input-cursor nmax) nmax)
         val-1 (if (js/isNaN value)                          ; is value blank?
                 (if (pos? step)                             ; is it an increment?
                   (dec nmin)                                ; yes - go to one less than minimum (we'll increment later)
@@ -59,7 +59,7 @@
 (defn handle-inc [value onChange nmin nmax step]
   (let [v (validate value nmin nmax step)]
     ;(js/console.log "onChange " v)
-    (onChange v)))
+    (onChange (str v))))
 
 
 (defn handle-typed-input [nmin nmax onChange e]
@@ -70,8 +70,9 @@
       (onChange (num-to-str ##NaN)))
     ))
 
-(defn update-value [value nmin nmax step onChange e]
-  (let [value (str-to-num value)]
+(defn update-value [value nmin nmax step onChange]
+  (let [value (str-to-num value)
+        value (if (> value nmax) (inc nmax) (if (< value nmin) (dec nmin) value))]
 
     ;(js/console.log "update value = " value)
     ;(js/console.log "update value nmin = " nmin)
@@ -83,11 +84,11 @@
   [state
    {:keys [cursor increment onChange min max nmin nmax]
     :as   props}]
-  (let [value (rum/react cursor)
+  (let [value (str-to-num (rum/react cursor))
         start-timer (fn [e] (js/setInterval #(handle-inc @cursor onChange nmin nmax increment) 250))]
     [:span {:class-name "incdec"}
      ;
-     ;todo: for some reason I was using a butonified :a  here. Keep an eye out for issues with :button
+     ;todo: I was using a buttonified [:a]  here. Keep an eye out for issues with change to more semantic [:button]
      ;
      [:button {:class-name    (str (if (pos? increment) "right" "left") " btn btn-default ")
                :aria-hidden   "true"
@@ -100,7 +101,7 @@
                                    (reset! (::timer state) nil))
                :on-mouse-out  #(do (js/clearInterval @(::timer state))
                                    (reset! (::timer state) nil))
-               :on-click      #(update-value @cursor nmin nmax increment onChange %)}
+               :on-click      #(update-value @cursor nmin nmax increment onChange)}
       (if (pos? increment) "+" "–")]]))
 
 
@@ -128,11 +129,12 @@
            :on-key-down #(let [key-code (.. % -nativeEvent -code)]
                            (when (#{"ArrowUp" "ArrowDown"} key-code)
                              (.preventDefault %))
-                           (handle-inc value onChange nmin nmax
-                             (cond
-                               (= "ArrowUp" key-code) 1
-                               (= "ArrowDown" key-code) -1
-                               :else 0)))}
+                           (update-value value nmin nmax
+                                         (cond
+                                           (= "ArrowUp" key-code) 1
+                                           (= "ArrowDown" key-code) -1
+                                           :else 0)
+                                         onChange))}
      [:button-group.form-control
       (inc-dec-button (assoc props :nmin nmin :nmax nmax :increment -1 :cursor input-ref))
       [:input
@@ -144,7 +146,7 @@
                     :border-top       "2px solid #ddd"
                     :border-left      "2px solid #ddd"
                     :background-color (if (js/isNaN value) "#fff" "#CCEEF8")
-                    :color            (if (nil? bad) color error-color #_(<= nmin value nmax))
+                    :color            (if (nil? bad) color error-color)
                     :padding          "0 0 4px 0"
                     :text-align       "center"
                     #_#_:font-weight "bold"}
