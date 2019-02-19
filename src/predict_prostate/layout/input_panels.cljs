@@ -104,7 +104,7 @@
       (when (model-keys :biopsy-cores-involved)
         [:span
          (form-entry {:label "Number of biopsy cores with prostate cancer" :key :biopsy-cores-involved})
-         (rum/react (input-cursor :biopsy-cores-involved))])
+         #_(rum/react (input-cursor :biopsy-cores-involved))])
       ])
 
    (when (model-keys :brca) (form-entry {:label "BRCA" :key :brca}))

@@ -181,7 +181,8 @@ survival, up to the projected survival of prostate-cancer-free men "
   "return true if the model can be calculated, else nil.
   im is the result of calling input-map"
   [input-map]
-  (every? (fn [k] (and (input-map k) (not (error-by-key? k)))) @on-screen-inputs-cursor)
+  (and (seq @on-screen-inputs-cursor)
+    (every? (fn [k] (and (input-map k) (not (error-by-key? k)))) @on-screen-inputs-cursor))
   )
 
 
