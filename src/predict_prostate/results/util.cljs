@@ -46,6 +46,8 @@
 (def radical-below "#00ddff")
 (def radical-above "#eeee88" #_"#beebff")
 
+(def radical-harms-fill "red")
+
 (def fills-by-style
   {:area1 [above-dashed
            radical-fill

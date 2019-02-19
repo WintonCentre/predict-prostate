@@ -80,21 +80,23 @@
 
 
     [:.row
-     [:.col-md-6.screen-only
+     [:.col-md-12.screen-only
       #_[:h3 "Treatment Options"]
       #_(treatments-options)
 
       (results {:printable (= :print (rum/react media-cursor))})
 
-      (sidefx-more-info)
-
       #_[:.hidden-xs.hidden-sm.clearfix
        (print-button)]
       ]
 
-     [:.col-md-6.clearfix
+     [:.col-md-12.clearfix
       #_[:h3 "Potential Harms of Treatment"]
-      (results-in-sidefx)]]
+      (results-in-sidefx)
+      (sidefx-more-info)
+
+
+      ]]
 
     ))
 
