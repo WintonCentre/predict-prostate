@@ -16,7 +16,7 @@
 (def base (if goog.DEBUG "" ""))
 
 ; internal hrefs
-(defn iref [url] (str (if (use-hash-fragment) "#" "") base url))
+(defn iref [url] (str (if (use-hash-fragment) "" "") base url))
 
 (defn rooted [url] (str (if (use-hash-fragment) "" "") url))
 ;(def rooted identity)

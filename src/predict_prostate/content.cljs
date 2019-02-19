@@ -453,7 +453,7 @@
                chances of being alive at a certain number of years following diagnosis."]
 
      [:p "Further explanation is given in the "
-      [:a {:href (iref "/predict-mathematics.pdf")} [:i.fa.fa-file-pdf-o {:aria-hidden true}] " mathematical description"] "."]
+      [:a {:href (iref "/predict_mathematics_prostate.pdf")} [:i.fa.fa-file-pdf-o {:aria-hidden true}] " mathematical description"] "."]
 
      [:.table-responsive
       [:table.table.table-bordered {:style {:max-width 600}}
