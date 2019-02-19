@@ -284,15 +284,13 @@
       [:li [:p "PREDICT: Prostate – a novel prognostic model that estimates individual survival in newly diagnosed primary non-metastatic prostate cancer
                       . by D Thurtle, D Greenberg, LS Lee, H Huang, P Pharoah, VJ Gnanapragasam. European Urology Supplements
       2018; 17(2): e1328-e1329. Published online 2018 March. doi: 10.1016/S1569-9056(18)31764-0. "
-            [:a {:href "https://www.eusupplements.europeanurology.com/article/S1569-9056(18)31764-0/fulltext"
+            [:a {:href   "https://www.eusupplements.europeanurology.com/article/S1569-9056(18)31764-0/fulltext"
                  :target "_blank"} "[Abstract online]"]
-    [:li [:p "Individual prognosis at diagnosis in non-metastatic prostate cancer: Development and external validation of the PREDICT Prostate multivariable model
+            [:li [:p "Individual prognosis at diagnosis in non-metastatic prostate cancer: Development and external validation of the PREDICT Prostate multivariable model
                       . by D Thurtle, D Greenberg, LS Lee, H Huang, PD Pharoah, VJ Gnanapragasam. PLOS Medicine
       2019.  "
-            [:a {:href "https://journals.plos.org/plosmedicine/"
-                 :target "_blank"} "[In press.]"]]]
-      ]
-     ]]
+                  [:a {:href   "https://journals.plos.org/plosmedicine/"
+                       :target "_blank"} "[In press.]"]]]]]]]]
 
    [:section#faqs "FAQs"
     [:section "FAQs"
