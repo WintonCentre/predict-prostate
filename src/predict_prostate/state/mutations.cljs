@@ -114,7 +114,7 @@
                        ;(println "t involved = " (if (string? bci) "str " "num ") bci)
                        ;(println "t bad = " bad)
                        (when-not (js/isNaN bci)
-                         (reset! (input-cursor :biopsy-cores-involved) (num-to-str (min bci (str-to-num value)))))
+                         (reset! (input-cursor :biopsy-cores-involved) (num-to-str (max 0 (min bci (str-to-num value))))))
                        (reset! (input-cursor :biopsy-cores-taken) (str value (when bad ":") bad)))
 
                      (= :biopsy-cores-involved key)
@@ -127,7 +127,9 @@
                        ;(println "i bad = " bad)
                        (when (not (js/isNaN bct))
                          (reset! (input-cursor :biopsy-cores-involved)
-                                 (str value (if bad (str ":" bad) "")))))
+                                 (str value (if (or (neg? value) bad)
+                                              (str ":" value)
+                                              "")))))
 
                      (= key :hist-scale)
                      (do

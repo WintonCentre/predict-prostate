@@ -1,7 +1,7 @@
 (ns predict-prostate.state.run-time
   (:require
     [rum.core :as rum]
-    [clojure.string :refer [index-of starts-with?]]
+    [clojure.string :refer [index-of]]
     [clojure.pprint :refer [cl-format]]
     [clojure.set :refer [union]]
     ;[predict-prostate.state.config :refer [event-bus]]
@@ -169,11 +169,19 @@ survival, up to the projected survival of prostate-cancer-free men "
   "return a cursor containing the selected year"
   (input-cursor :result-year))
 
+
+(defn error? [v]
+  (or (nil? v) (= v "") (and (string? v) (some? (index-of v ":")))))
+
+(defn error-by-key? [k]
+  (error? @(input-cursor k)))
+
+
 (defn recalculate-model?
   "return true if the model can be calculated, else nil.
   im is the result of calling input-map"
   [input-map]
-  (every? (fn [k] (input-map k)) @on-screen-inputs-cursor)
+  (every? (fn [k] (and (input-map k) (not (error-by-key? k)))) @on-screen-inputs-cursor)
   )
 
 

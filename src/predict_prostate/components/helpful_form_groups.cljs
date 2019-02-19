@@ -1,10 +1,11 @@
 (ns predict-prostate.components.helpful-form-groups
-  (:require [clojure.string :as str]
+  (:require [clojure.string :as str :refer [replace lower-case index-of]]
             [rum.core :as rum]
             [predict-prostate.components.select :refer [picker]]
-            [predict-prostate.state.run-time :refer [input-cursor input-change input-widget input-label]]
+            [predict-prostate.state.run-time :refer [input-cursor input-change input-widget input-label error? error-by-key?]]
             [predict-prostate.mixins :refer [active-monitor]]
             [predict-prostate.components.button :refer [small-help-button]]
+    ;[predict-prostate.results.util :refer [error? error-by-key?]]
             [pubsub.feeds :refer [publish]]
             ))
 
@@ -43,12 +44,12 @@
 ; todo: remove label parameters and use (input-label key) instead
 ; This allows us to use different widgets and different labels in different models
 
-(defn error? [v]
-  (or (nil? v) (= v "")))
-
 (rum/defc form-entry < rum/reactive active-monitor [{:keys [label key] :as props}]
   (helpful-input {:label   (input-label key)                ;label
                   :key     key
-                  :help-id (if label (str/replace (str/lower-case label) " " "-"))
+                  :help-id (if label (replace (lower-case label) " " "-"))
                   :error   (error? (rum/react (input-cursor key)))}
                  (input-widget key)))
+
+
+

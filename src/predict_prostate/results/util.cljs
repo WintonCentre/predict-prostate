@@ -1,7 +1,6 @@
 (ns predict-prostate.results.util
-  (:require [clojure.string :refer [index-of join]]
+  (:require [clojure.string :refer [join]]
             [goog.color :as col :refer [parse lighten rgbToHex hexToRgb rgbArrayToHex blend]]))
-
 
 ;;;
 ;; Most browsers do not print background colours without the user setting a preference to do so.

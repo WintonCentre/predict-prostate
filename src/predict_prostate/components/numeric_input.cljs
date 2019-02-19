@@ -50,9 +50,9 @@
 
         ; todo: can we disable inc/dec buttons? if necessary?
         val-3 (if (< val-2 nmin)                            ; is it too small?
-                (str (if (pos? val-2) val-2 0) ":" val-2)   ; yes
+                (str val-2 ":" val-2)   ; yes
                 (if (> val-2 nmax)                          ; no; is it too big?
-                  (str nmax ":" val-2)                      ; yes, return good and bad values, in colon separated string
+                  (str val-2 ":" val-2)                      ; yes, return good and bad values, in colon separated string
                   val-2))]                                  ; no
     (str val-3)))
 
@@ -71,8 +71,9 @@
     ))
 
 (defn update-value [value nmin nmax step onChange]
-  (let [value (str-to-num value)
-        value (if (> value nmax) (inc nmax) (if (< value nmin) (dec nmin) value))]
+  (handle-inc value onChange nmin nmax step)
+  #_(let [value (str-to-num value)
+        value (if (> value nmax) nmax (if (< value nmin) nmin value))]
 
     ;(js/console.log "update value = " value)
     ;(js/console.log "update value nmin = " nmin)
@@ -80,12 +81,21 @@
     (handle-inc value onChange nmin nmax step)
     ))
 
+(defn clear-timer [state]
+  (js/clearInterval @(::timer state))
+  (reset! (::timer state) nil))
+
+
 (rum/defcs inc-dec-button < rum/static rum/reactive (rum/local nil ::timer)
   [state
    {:keys [cursor increment onChange min max nmin nmax]
     :as   props}]
   (let [value (str-to-num (rum/react cursor))
-        start-timer (fn [e] (js/setInterval #(handle-inc @cursor onChange nmin nmax increment) 250))]
+        ;
+        ; Removing the timer as I don't have a reliable trigger to cancel it yet. Maybe we should use global state in
+        ; case of a component re initialisation?
+        ;
+        #_#_start-timer (fn [e] (js/setIntervak #(handle-inc @cursor onChange nmin nmax increment) 250))]
     [:span {:class-name "incdec"}
      ;
      ;todo: I was using a buttonified [:a]  here. Keep an eye out for issues with change to more semantic [:button]
@@ -96,12 +106,12 @@
                                 (if (>= value (str-to-num (if (fn? max) (rum/react (max)) max))) "disabled" nil)
                                 (if (<= value nmin) "disabled" nil))
                :tab-index     -1
-               :on-mouse-down #(do (reset! (::timer state) (start-timer %)))
-               :on-mouse-up   #(do (js/clearInterval @(::timer state))
-                                   (reset! (::timer state) nil))
-               :on-mouse-out  #(do (js/clearInterval @(::timer state))
-                                   (reset! (::timer state) nil))
-               :on-click      #(update-value @cursor nmin nmax increment onChange)}
+               ;:on-mouse-down #(do (reset! (::timer state) (start-timer %)))
+               ;:on-mouse-up   #(clear-timer state)
+               ;:on-mouse-out  #(clear-timer state)
+               ;:on-mouse-leave  #(clear-timer state)
+               :on-click      #(do                          ;(clear-timer state)
+                                   (update-value @cursor nmin nmax increment onChange))}
       (if (pos? increment) "+" "–")]]))
 
 
