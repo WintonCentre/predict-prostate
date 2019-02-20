@@ -16,12 +16,12 @@
             [predict-prostate.results.text :refer [results-in-text]]
             [predict-prostate.results.icons :refer [results-in-icons*]]
             [predict-prostate.results.sidefx :refer [results-in-sidefx]]
-            #_[cljs-css-modules.macro :refer-macros [defstyle]]
+    #_[cljs-css-modules.macro :refer-macros [defstyle]]
             ))
 
 #_(defstyle styles
-  ["p" {:font-size   "12px"}]
-  )
+            ["p" {:font-size "12px"}]
+            )
 
 
 
@@ -30,7 +30,7 @@
 
 
 (defn break-before [& content]
-  (reduce conj [:div {:style {:break-inside "avoid"}}] content))
+  (reduce conj [:div {:style {:break-before "always" :page-break-before "always"}}] content))
 
 (defn option-range
   [n]
@@ -53,7 +53,7 @@
        [:td (rum/react (input-cursor :psa))]]
       [:tr
        [:td (input-label :t-stage)]
-       [:td ((option-range 5)  (rum/react (input-cursor :t-stage)))]]
+       [:td ((option-range 5) (rum/react (input-cursor :t-stage)))]]
       [:tr
        [:td (input-label :h-admissions)]
        [:td ({0 "No" 1 "Yes"} (rum/react (input-cursor :h-admissions)))]]
@@ -65,23 +65,35 @@
        [:td (input-label :brca)]
        [:td ({0 "No" 1 "Yes"} (rum/react (input-cursor :brca)))]]
       [:tr
-       [:td (input-label :grade-group)]
+       [:td (input-label :grade-group)
+        (when (#{4 5} (rum/react (input-cursor :grade-group)))
+          [:div {:style {:color      "#AAA"
+                         :margin-top 0}}
+           [:i.fa.fa-exclamation-triangle {:aria-hidden "true" :style {:color "orange" :padding-right 5}}]
+           "The tool is less well tested for higher scores"])]
        [:td ((option-range 6) (rum/react (input-cursor :grade-group)))]]
       [:tr
-       [:td (input-label :gleason)]
+       [:td (input-label :gleason)
+        (when (#{4 5} (rum/react (input-cursor :grade-group)))
+          [:div {:style {:color       "#AAA"
+                         :margin-top  0}}
+           [:i.fa.fa-exclamation-triangle {:aria-hidden "true" :style {:color "orange" :padding-right 5}}]
+           "The tool is less well tested for higher scores"])]
        [:td ((into {} [[1 "3+3"]
                        [2 "3+4"]
                        [3 "4+3"]
                        [4 "8"]
-                       [5 "9 or 10"]]) (rum/react (input-cursor :gleason)))]]
+                       [5 "9 or 10"]]) (rum/react (input-cursor :gleason)))
+        ]]
       [:tr
        [:td (input-label :biopsy-cores-taken)]
        [:td (rum/react (input-cursor :biopsy-cores-taken))]]
       [:tr
        [:td (input-label :biopsy-cores-involved)]
        [:td (rum/react (input-cursor :biopsy-cores-involved))]]
+      ]]
 
-      ]]]])
+    ]])
 
 (rum/defc treatment-note [title content]
 
@@ -121,8 +133,8 @@
 
 
 (rum/defc results-in-print
-          < rum/reactive (set-default :result-year)
-          []
+  < rum/reactive (set-default :result-year)
+  []
 
   [:.row
    [:.col-sm-12
@@ -131,33 +143,38 @@
       [:h4 "Inputs"]
       (inputs-in-print))
 
-    (avoid-break
-      [:h4 "Survival curve"]
-      [:div {:style {:max-width "100%" :margin-left "0%"}}
-       (results-in-curves {:printable true})])
+    (break-before
+      (avoid-break
+        [:h4 "Survival curve"]
+        [:div {:style {:max-width "100%" :margin-left "0%"}}
+         (results-in-curves {:printable true})]))
 
-    (avoid-break
-      ;[:p {:style {:margin-top "15px"}} "Survival estimates are based on the treatment you have selected."]
-      [:h4 "Survival table - " (rum/react (year-selected)) " years after diagnosis."]
-      [:div {:style {:max-width "60%" :margin-left "0%"}}
-       (results-in-table)
-       ])
+    (break-before
+      (avoid-break
+        ;[:p {:style {:margin-top "15px"}} "Survival estimates are based on the treatment you have selected."]
+        [:h4 "Survival table - " (rum/react (year-selected)) " years after diagnosis."]
+        [:div {:style {:max-width "60%" :margin-left "0%"}}
+         (results-in-table)
+         ]))
 
-    (avoid-break
-      [:h4 "Survival chart"]
-      (results-in-charts {:printable true}))
+    (break-before
+      (avoid-break
+        [:h4 "Survival chart"]
+        (results-in-charts {:printable true})))
 
-    (avoid-break
-      [:h4 "Icon array showing " (rum/react (year-selected)) " year outcomes for 100 men"]
-      (results-in-icons* {:printable true})
-      )
+    (break-before
+      (avoid-break
+        [:h4 "Icon array showing " (rum/react (year-selected)) " year outcomes for 100 men"]
+        (results-in-icons* {:printable true})
+        ))
 
-    (avoid-break
+    (break-before
       [:h4 "In Summary"]
-      (results-in-text {:printable true})
+      (results-in-text {:printable true}))
+
+    (break-before
       [:h4 "Potential Harms of treatments"]
       (results-in-sidefx)
-
       )
 
     (footer)]])
