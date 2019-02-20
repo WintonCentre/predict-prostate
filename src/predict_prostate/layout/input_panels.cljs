@@ -3,6 +3,7 @@
             [predict-prostate.state.run-time :refer [model
                                                      input-cursor
                                                      input-change
+                                                     help-key-change
                                                      ]]
             [predict-prostate.components.button :refer [settings-button]]
 
@@ -74,7 +75,7 @@
     (when (model-keys :h-admissions) (form-entry {:label "h-admissions" :key :h-admissions}))
     (when (= (rum/react (input-cursor :h-admissions)) 1)
       (when (model-keys :charlson-comorbidity) (form-entry {:label "comorb" :key :charlson-comorbidity})))
-
+    (when (model-keys :brca) (form-entry {:label "BRCA" :key :brca}))
     ]])
 
 (rum/defc patient-related-panel < rum/static [model-keys]
@@ -85,6 +86,12 @@
 ;;;
 ;; TUMOUR RELATED
 ;;;
+(rum/defc biopsy-core-examples []
+  [:span  [:a {:style    {:color  "#888888" :text-decoration "underline"
+                                   :cursor "pointer"}
+                        :on-click #(publish help-key-change "biopsy-examples")} "See examples"]])
+
+
 
 (rum/defc tumour-related-form < rum/reactive rum/static [model-keys]
   [:form.form-horizontal {:on-key-press key-event
@@ -114,9 +121,14 @@
         [:span
          (form-entry {:label "Number of biopsy cores with prostate cancer" :key :biopsy-cores-involved})
          #_(rum/react (input-cursor :biopsy-cores-involved))])
+      [:div {:style {:color       "#AAA"
+                     :margin-left "145px"
+                     :margin-top  0}}
+       "Any number of cores from a single target should be considered as 1 core. "
+       (biopsy-core-examples)]
       ])
 
-   (when (model-keys :brca) (form-entry {:label "BRCA" :key :brca}))
+
 
    ])
 

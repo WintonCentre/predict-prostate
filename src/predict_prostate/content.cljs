@@ -262,19 +262,19 @@
      [:p "The web-model was updated in March 2019 to include BRCA status and to model the impact of biopsy core involvement differently."]
      [:p "Carriage of the BRCA1/2 mutation is associated with worse survival outcomes in prostate cancer. 
       Considering only men with nonmetastatic prostate cancer, the independent hazard ratio for BRCA1/2 carriage 
-      for 5 year cancer-specific mortality was 2.6. This work has been published in the" 
-       [:a {:href   "http://ascopubs.org/doi/full/10.1200/JCO.2012.43.1882"
+      for 5 year cancer-specific mortality was 2.6. This work has been published in the "
+       [:a {:href   "http://ascopubs.org/doi/full/10.1200/JCO.2012.43.1882 "
            :target "blank"} "Journal of Clinical Oncology, April 2013."] 
-       "The poor prognostic effect on prostate cancer specific mortality has been applied within the model for those who are known
+       " The poor prognostic effect on prostate cancer specific mortality has been applied within the model for those who are known
        to have a BRCA1/2 mutation. Note that there has been no compensatory adjustment to the predicted prognosis for those known to be negative
        for the mutation, nor for those in whom the BRCA status is unknown, as the prevalence of mutations is so low."]
   
 
      [:section "Future versions"
       [:p "Predict Prostate will be updated over time as new information and evidence becomes available. The model is currently undergoing testing
-               in other international cohorts and a" 
+               in other international cohorts and a "
                [:a {:href   "http://www.isrctn.com/ISRCTN28468474"
-           :target "blank"} "patient study"] "is underway to assess its potential impact on clinical practice."]
+           :target "blank"} "patient study"] " is underway to assess its potential impact on clinical practice."]
       ]]]
 
    [:section#publications "Publications"
@@ -720,6 +720,9 @@
        [:li "Leukemia (acute or chronic)"]
        [:li "Lymphoma"]
        [:li "AIDS."]]]]
+
+    [:section#biopsy-examples "Biopsy examples"
+     [:p {:style {:color "red"}} "Add biopsy core examples here"]]
 
 
     [:section#surgery "Treatments already received"

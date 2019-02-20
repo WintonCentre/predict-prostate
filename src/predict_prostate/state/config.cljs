@@ -9,6 +9,13 @@
                                    :cursor "pointer"}
                         :on-click #(publish help-key-change "comorb")} "these diseases?"]])
 
+
+(rum/defc biopsy-core-examples []
+  [:span "Any of " [:a {:style    {:color  "#CCCCCC" :text-decoration "underline"
+                                   :cursor "pointer"}
+                        :on-click #(publish help-key-change "biopsy-examples")} "See examples"]])
+
+
 ;;;
 ;; Input configuration
 ;; key - identifies the input widget
