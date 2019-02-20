@@ -152,12 +152,12 @@
   (let [model-keys (live-keys-by-model model)]
     [:div
      [:.row
-      [:.col-sm-12.screen-only
+      [:.col-md-11.col-md-offset-1.screen-only
        (clear-all-button {:on-click clear-inputs})]]
      [:.row
-      [:.col-sm-6.screen-only {:style {:padding-right 0}}
+      [:.col-sm-6.col-sm-offset-1.screen-only {:style {:padding-right 0}}
        (patient-related-panel model-keys)]
-      [:.col-sm-6.screen-only {:style {:padding-right 0}}
+      [:.col-sm-5.screen-only {:style {:padding-right 0}}
        (tumour-related-panel model-keys)]
 
       ]]

@@ -248,7 +248,8 @@
 
 (rum/defc sidefx-more-info
   []
-  [:div                                                     ;.col-sm-12
+
+  [:.col-sm-12 {:style {:margin-top 20}} ;.col-sm-12
    [:h3 "More Information"]
    [:p "The following websites provide excellent advice and information on treatments and their potential harms:"]
    [:h5 "About treatments:"]
@@ -278,31 +279,7 @@
 
 (rum/defc results-in-sidefx []
   [:div {:style {:margin-top "15px"}}
-
-   #_[:.row {:style {:margin-top " 20px "}}
-      [:.col-sm-12
-       [:ul {:style {:font-size 16}}
-        [:li "The following estimates assume that function is normal before treatment."]
-        [:li "These are not individualised estimates to you, and may vary depending on the treatment centre and other
-       factors. Information on outcomes in your local centre may be available from your clinician."]
-        [:li "Estimates for erectile dysfunction have been derived from a large American study. The full research can be
-       read here: "
-         [:a {:href   "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5782813/"
-              :target "_blank"}
-          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5782813/"]]
-        [:li "Estimates for incontinence and bowel dysfunction have been taken from the UK-based Prostate Testing for
-       Cancer and Treatment (ProtecT) trial. The full research can be read here: "
-         [:a {:href   "https://www.nejm.org/doi/full/10.1056/NEJMoa1606221"
-              :target "_blank"}
-          "https://www.nejm.org/doi/full/10.1056/NEJMoa1606221"]]
-        ]]
-      ]
-
-
    (sidefx-discrete true)
-
-   #_(sidefx-more-info)
-
    ]
   )
 

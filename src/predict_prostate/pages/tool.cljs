@@ -89,14 +89,13 @@
       #_[:.hidden-xs.hidden-sm.clearfix
        (print-button)]
       ]
+     [:.row
+      [:.col-md-10.col-md-offset-1
 
-     [:.col-md-12.clearfix
-      #_[:h3 "Potential Harms of Treatment"]
-      (results-in-sidefx)
-      (sidefx-more-info)
-
-
-      ]]
+       (results-in-sidefx)
+       (sidefx-more-info)
+       ]]
+     ]
 
     ))
 
@@ -107,13 +106,9 @@
       [:.col-md-10.col-md-offset-1 (print-button)]]
 
      [:.row {:style {:background-color alison-blue-1
-                     :margin-top       20
-                     ;:padding-bottom   20
-                     }}
+                     :margin-top       20}}
 
-      [:.col-md-6.col-md-offset-1
-       (all-subsections "tool-postamble")]
-      [:.col-md-4.text-center {:style {:margin-top 20 :margin-bottom 20}}
+      [:.col-md-12.text-center {:style {:margin-top 20 :margin-bottom 20}}
        #_[:img {:src "assets/faq-icon.png"}]
        [:img {:src         "assets/faq-icon.png"
               :alt         "faq icon"

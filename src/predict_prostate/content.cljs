@@ -651,6 +651,22 @@
       regime. See " [:a {:role "button" :on-click #(navigate-to [:about {:page :faqs}])} "the FAQ 'Looking for advice?'"] " for websites providing excellent advice and information on these treatments and their potential
       side effects:"]]]
 
+    ; Warning to appear in side box whenever grade group is high
+    [:section#high-grade-group-warning "Warning"
+     [:section#dummy ""
+      [:h4 {:style {:margin-top 50}}
+       [:i.fa.fa-exclamation-triangle {:style {:padding-right 10 :color "orange"}}] "Warning"]
+      [:p "You are running the tool with a high grade group or Gleason score for which it has been less well tested."]
+      ]]
+
+    [:section#scroll-down-for "Scroll down"
+     [:section#dummy ""
+      [:h4.screen-only {:style {:margin-top 50}}
+       [:i.fa.fa-arrow-down {:aria-hidden "true" :style {:padding-right 10}}]
+       "Scroll down for potential harms"
+       ]]]
+
+
     [:section#age "Age"
      [:p "The age when the cancer was diagnosed."]
 

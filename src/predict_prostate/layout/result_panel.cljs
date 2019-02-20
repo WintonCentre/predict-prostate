@@ -1,9 +1,10 @@
 (ns predict-prostate.layout.result-panel
   (:require [clojure.string :refer [capitalize]]
             [rum.core :as rum]
-            [predict-prostate.state.run-time :refer [active-results-pane active-results-change]]
+            [predict-prostate.state.run-time :refer [active-results-pane active-results-change input-cursor]]
             [predict-prostate.layout.treatments-panel :refer [treatments-options]]
             [predict-prostate.components.panels :refer [titled-panel]]
+            [predict-prostate.results.util :refer [alison-blue-1]]
             [pubsub.feeds :refer [publish]]
             [interop.jsx :refer [jsx]]
             [predict-prostate.results.table :refer [results-in-table]]
@@ -63,12 +64,20 @@
    (result-panes)]
   )
 
+(rum/defc side-panel []
+  [:.well {:style {:margin-top 20  :background-color alison-blue-1}}
+   [:p (all-subsections "tool-postamble")]
+   (when (#{4 5} @(input-cursor :grade-group))
+     (all-subsections "high-grade-group-warning"))
+   (all-subsections "scroll-down-for")
+   ])
+
 (rum/defc results < rum/reactive [{:keys [container?] :as props}]
-  [:div (when container? {:class-name "container"})
+  [:div #_(when container? {:class-name "container"})
    [:.row
-    [:.col-md-12
-     [:div
-      (result-panel)]
-]
+    [:.col-md-6.col-md-offset-1
+     (result-panel)]
+    [:.col-md-4
+     (side-panel)]
 
     ]])
