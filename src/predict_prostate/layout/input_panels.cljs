@@ -64,14 +64,16 @@
 
    [:form.form-horizontal {:on-key-press key-event
                            :on-submit    submit-event}
-    (when (model-keys :age) (form-entry {:label "Age" :key :age}))
+    (when (model-keys :age) [:div (form-entry {:label "Age" :key :age})
+                             [:div {:style {:color       "#AAA"
+                                            :margin-left "145px"
+                                            :margin-top  -5}}
+                              "Age must be between 35 and 95"]])
     (when (model-keys :psa) (form-entry {:label "PSA" :key :psa}))
     (when (model-keys :t-stage) (form-entry {:label "T stage" :key :t-stage}))
     (when (model-keys :h-admissions) (form-entry {:label "h-admissions" :key :h-admissions}))
     (when (= (rum/react (input-cursor :h-admissions)) 1)
       (when (model-keys :charlson-comorbidity) (form-entry {:label "comorb" :key :charlson-comorbidity})))
-
-
 
     ]])
 
@@ -89,9 +91,16 @@
                           :on-submit    submit-event}
 
 
-   (form-entry {:label "Histological grade group" :key :grade-group})
+   [:div (form-entry {:label "Histological grade group" :key :grade-group})
+    (when (#{4 5} (rum/react (input-cursor :grade-group)))
+      [:div {:style {:color       "#AAA"
+                     :margin-left "145px"
+                     :margin-top  0}}
+       [:i.fa.fa-exclamation-triangle {:aria-hidden "true" :style {:color "orange" :padding-right 5}}]
+       "The tool is less well tested for higher scores"])]
+   (form-entry {:label "Gleason score" :key :gleason})
 
-   (form-entry {:label "Gleason scale" :key :gleason})
+
    (when (model-keys :biopsy50)
      (form-entry {:label "Biopsy" :key :biopsy50}))
 

@@ -426,7 +426,7 @@
    [:section#contact "Contact"
     [:section "Contact"
      [:p "National Cancer Registration and Analysis Service" [:br] "East Regional Office, Victoria House, Capital Park,
-     Fulbourn, Cambridge CB21 5XB" [:br] "Email: " [:a {:href "mailto:info@predict.nhs.uk"} "info@predict.nhs.uk"]]]]
+     Fulbourn, Cambridge CB21 5XB" [:br] "Email: " [:a {:href "mailto:info@prostate.predict.nhs.uk"} "info@prostate.predict.nhs.uk"]]]]
 
    [:section#legal-preamble "Preamble"
     [:p.screen-only {:key   0
@@ -600,7 +600,7 @@
 
 
      [:p "We welcome any feedback you may have about Predict. If you have questions about its development or there are
-     features you would like to have added to the model please let us know by emailing us at info@predict.nhs.uk."]]
+     features you would like to have added to the model please let us know by emailing us at info@prostate.predict.nhs.uk."]]
 
     [:section#model-development "Model development"
      [:p "The model is derived from 7063 men diagnosed in Eastern England between 2000 and 2010.

@@ -97,7 +97,7 @@
                   #{"prostate" "prostate-release"}
                   nil)
    (->Input-group :gleason
-                  "Gleason scale"
+                  "Gleason score"
                   :radio-group
                   [[1 "3+3"]
                    [2 "3+4"]
