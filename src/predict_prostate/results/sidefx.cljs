@@ -75,7 +75,7 @@
 (def treatment-fills
   {:conservative  "#2222AA"                                 ;conservative-fill #_"#0000AA"
    :radical       "#3DAFEF"
-   :radical-harms "#880088"
+   :radical-harms "#660044"                                          ;"#448800" "#880088"
    :radiotherapy  "#CC5CA4"})
 
 (rum/defc sidefx-header
@@ -85,8 +85,8 @@
     [:h4 {:style {:margin-left 15}} "Potentially permanent harms of"]
     [:.col-sm-6
      [:div {:style {:font-size 16 :margin-bottom 10}} (blob {:key "b1" :fill (:conservative treatment-fills) :r 7}) " Conservative management"]
-     [:div {:style {:font-size 16 :margin-bottom 10}} (blob {:key "b2" :fill (:radical treatment-fills) :r 7}) " Radical prostatectomy"]
-     [:div {:style {:font-size 16}} (blob {:key "b3" :fill (:radiotherapy treatment-fills) :r 7}) " Radiotherapy"]]
+     [:div {:style {:font-size 16 :margin-bottom 10}} (blob {:key "b2" :fill (:radical-harms treatment-fills) :r 7}) " Radical prostatectomy"]
+     [:div {:style {:font-size 16}} (blob {:key "b3" :fill (:radiotherapy treatment-fills) :r 7}) " Radical Radiotherapy"]]
     [:.col-sm-6
      [:p {:style {:font-size 14}} "The following estimates assume that the function is normal before treatment.
     The estimates are not individualised to you or your local treatment centre.
