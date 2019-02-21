@@ -93,14 +93,16 @@
         render-year (fn [year data]
                       [:.row {:style {:clear "both"}}
 
-                       [:.col-sm-6 {:style {:position "relative"
+                       [:.col-sm-7 {:style {:position "relative"
                                             :display "inline-block"
                                             :clear "both"
                                             :pointer-events "none"
-                                            :height 260 :top -260}}
+                                            :height 260 :top -260
+                                            #_#_#_#_:height 260 :top -260
+                                            }}
                         (placed-icons fill-counts)]
 
-                       [:.col-sm-6.screen-only {:style {:padding-top "15px" :position "relative"}}
+                       [:.col-md-4.col-md-offset-1.screen-only {:style {:padding-top "35px" :position "relative"}}
                         ; legend
 
                         (when (pos? npc-deaths)
@@ -139,56 +141,3 @@
        ]]
      [:div {:style {:clear "both"}} " "]]))
 
-#_(comment
-  ; bc version for comparison
-
-  (rum/defc render-icons
-    [data]
-    (let [br-deaths (- 100 (:oth data) (:bis data) (:tra data) (:chemo data) (:radio data) (:horm data) (:surgery data))
-          legend-style {:font-size "16px" :margin-bottom 4}]
-      [:.row {:style {:clear "both"}}
-
-
-       [:.col-xs-6 {:style {:position       "relative"
-                            :height         230
-                            :top            -230
-                            :pointer-events "none"
-                            }} (placed-icons data)]
-
-       ; legend
-       [:.col-xs-6 {:style {:padding-top "15px"}}
-        (when (pos? (:oth data))
-          [:p {:style legend-style} (open-icon oth-deaths-fill) " " (:oth data) " death" (add-s (:oth data)) " due to other causes"])
-        (when (pos? br-deaths)
-          [:p {:style legend-style} (open-icon br-deaths-fill) " " br-deaths " breast cancer related death" (add-s br-deaths)])
-        (when (pos? (:bis data))
-          [:p {:style legend-style} (filled-icon (hex-palette :bis)) " " (:bis data) " extra survivor" (add-s (:tra data)) " due to bisphosphonates"])
-        (when (pos? (:tra data))
-          [:p {:style legend-style} (filled-icon (hex-palette :tra)) " " (:tra data) " extra survivor" (add-s (:tra data)) " due to trastuzumab"])
-        (when (pos? (:chemo data))
-          [:p {:style legend-style} (filled-icon (hex-palette :chemo)) " " (:chemo data) " extra survivor" (add-s (:chemo data)) " due to chemotherapy"])
-        (when (pos? (:horm data))
-          [:p {:style legend-style} (filled-icon (hex-palette :horm)) " " (:horm data) " extra survivor" (add-s (:horm data)) " due to hormone therapy"])
-        [:p {:style legend-style} (filled-icon (hex-palette :surgery)) " " (:surgery data) " survivors with surgery alone"]
-        ]
-
-       ]))
-
-  (rum/defc results-in-icons < rum/reactive
-    [{:keys [printable]}]
-    (let [data (into {}
-                     (map (fn [[k v]] [k (js/Math.round v)]))
-                     (additional-benefit-kvs {:annual-benefits (:annual-benefits (rum/react results-cursor))
-                                              :year            (rum/react (year-selected))
-                                              :tks             treatment-keys*}))
-          data (assoc data :br (- 100 (:oth data) (:tra data) (:chemo data) (:horm data) (:surgery data)))]
-
-      [:div
-       [:.row
-        (when-not printable
-          [:.col-sm-12 {:style {:margin-top "15px" :font-size 16}}
-           common-results-text
-           "This display shows the outcomes for 100 men based on the inputs and treatments you have selected "
-           (year-picker) " years after surgery."])
-        [:.col-sm-12 {:style {:margin-bottom "15px"}}
-         (render-icons data)]]])))
