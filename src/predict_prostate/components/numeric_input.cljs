@@ -29,7 +29,18 @@
   (str-to-num 3.5)                                          ;=> 3.5
   )
 
-(defn num-to-str [n] (if (js/isNaN n) "" (str n)))
+(def epsilon 1e-8)
+
+(defn near-integer? [n]
+  (< (js/Math.abs (- n (js/Math.round n))) epsilon))
+
+(defn num-to-str [n] (if (string? n)
+                       n
+                       (if (js/isNaN n)
+                           ""
+                           (if (near-integer? n)
+                             (str (js/Math.round n))
+                             (.toPrecision n (js/Number. 3))))))
 
 ; this can be global as there is only one input under focus at any one time
 (def timer (atom nil))
@@ -48,25 +59,24 @@
                 value)
         val-2 (+ step val-1)                                ; do the increment
 
-        ; todo: can we disable inc/dec buttons? if necessary?
         val-3 (if (< val-2 nmin)                            ; is it too small?
-                (str val-2 ":" val-2)   ; yes
+                (str (num-to-str val-2) ":" val-2)   ; yes
                 (if (> val-2 nmax)                          ; no; is it too big?
-                  (str val-2 ":" val-2)                      ; yes, return good and bad values, in colon separated string
+                  (str (num-to-str val-2) ":" val-2)                      ; yes, return good and bad values, in colon separated string
                   val-2))]                                  ; no
-    (str val-3)))
+    val-3))
 
 (defn handle-inc [value onChange nmin nmax step]
   (let [v (validate value nmin nmax step)]
-    ;(js/console.log "onChange " v)
-    (onChange (str v))))
+    (js/console.log "onChange " v)
+    (onChange (num-to-str v))))
 
 
 (defn handle-typed-input [nmin nmax onChange e]
-
   (let [value (.. (-> e .-target) -value)]
-    (if (re-matches #"\s*\d+\s*" value)
-      (onChange (str (validate (str-to-num value) nmin nmax 0)))
+    (.log js/console value)
+    (if (re-matches #"\s*\d*\.?\d*\s*" value)
+      (onChange (num-to-str (validate (str-to-num value) nmin nmax 0)))
       (onChange (num-to-str ##NaN)))
     ))
 
