@@ -333,9 +333,9 @@
      (hr)
      (faq-item "What if I don’t have all the details needed for the input section?"
                "The model requires all boxes on the 'predict tool' page to be completed. If the biopsy details are unknown, 'No' 
-               can be selected next to 'biopsy data available'.I f you select 'No' for this, the Predict tool will use the average value. 
+               can be selected next to 'biopsy data available'. If you select 'No' for this, the Predict tool will use the average value. 
                This will simply make the results less personalised.  
-               If BRCA status is unknown 'Negative or Untested' should be selected.
+               If BRCA status is unknown 'Negative or Untested' should be selected. 
                      All of the necessary details should be easily available to your prostate cancer specialist.")
      (hr)
      (faq-item "How do I know that Predict gives the right answers."
@@ -343,7 +343,7 @@
                data. The findings are based on men diagnosed in the East of England but we have also tested the model 
                on over 2,500 men diagnosed in Singapore. To the best of our knowledge the Predict tool should work equally well for most men in the UK. 
                However, Predict can never say what will happen to an individual man. Note also that Predict is likely to be less 
-               reliable in very high risk disease, as very few men with these characteristics were managed conservatively in our data. The model is 
+               reliable in higher risk disease, as very few men with these characteristics were managed conservatively in our data. The model is 
                intended for men where conservative management and radical treatment are both appropriate options.")
      (hr)
      (faq-item "If the data used is from patients decades ago won't the predictions it gives be out of date?"
@@ -352,19 +352,19 @@
                will be different.")
      (hr)
      (faq-item "What use are these kinds of statistics when as a patient I will either be cured or not?"
-               "Treatment does not work for everyone - whilst some people may get a lage survival benefit, others may get no benefit - only the harmful side effects of treatment.
+               "Treatment does not work for everyone - whilst some people may get a large survival benefit, others may get no benefit - only the harmful side effects of treatment.
                Particularly in older men or men with other long-term conditions, the overall survival benefits of prostate cancer treatment can be small.  This makes choosing whether 
                or not to have radical treatment a difficult and personal choice.  
                From statistics, based on what has happened to people with similar cancers in the past when they had treatment, Predict tries to give the 'best guess' at the sort of
                benefits treatment might give a particular patient.  This can help inform a personal decision on whether to try it or not. Any potential benefits, should also be weighed 
-               against the possible harms of the side effects.")
+               against the possible harms of treatment side effects.")
      (hr)
      (faq-item "What about MRI?"
                "Magnetic Resonance Imaging (MRI) is increasingly being used in prostate cancer care. 
-               The data used for this model was from men diagnosed between 2000 and 2010 when MRI was rarely used and MRI has also changed significantly
-               over recent years Therefore we did not have data on MRI-defined lesions or radiological stage, nor are they included in the model. 
+               The data used for this model was from men diagnosed between 2000 and 2010 when MRI was rarely used, and MRI has changed significantly
+               over recent years. Therefore we did not have data on MRI-defined lesions, PIRADS scores, or MRI-stage, nor are they included in the model. 
                However, it is yet unknown if MRI data will improve prognostic ability with MRI primarily used to guide biopsies rather than offer prognostic information. 
-               If MRI information is shown to be independently prognostically significant it could potentially be incorporated into a future version of Predict.")
+               If MRI information is shown to be independently prognostically significant it could potentially be incorporated into a future version of Predict Prostate.")
 
      (hr)
      (faq-item "What about other treatments?"
@@ -388,7 +388,7 @@
                The side effect profiles may differ between different types of surgery and radiotherapy.")
      (hr)
      (faq-item "What about side effects?"
-               "Information about potential treatment side effects, or harms, is on the 'Predict Tool page. These are not individualised to your personal details
+               "Information about potential treatment side effects, or harms, is on the 'Predict Tool' page. These are not individualised to your personal details
                      but are taken from the studies mentioned in the text. Charities such as"
                      [:a {:href "https://prostatecanceruk.org/"
                  :target "_blank"} "[Prostate Cancer UK.]"]  "and"
@@ -406,7 +406,7 @@
                  "National Cancer Registration and Analysis Service"]
                 " on over 7000 men diagnosed with prostate cancer between 2000 and 2010.
                  Using this information they were able to see how individual factors affected survival at ten years and
-                 fifteen years."])
+                 fifteen years after diagnosis."])
      (hr)
      (faq-item "Who designed the website?"
                [:span "The website has been built by the "
@@ -432,17 +432,17 @@
     [:p.screen-only {:key   0
                      :style {:margin "40px 20px 20px" :font-size "20px"}} "We recommend that patients use this tool in consultation with their
     doctor."]
-    [:p.print-only {:key 1} "Predict is a tool that helps show what impact radical treatment might have on survival rates after prostate cancer diagnosis.
-    This print out shows what characteristics of the patient and the cancer were entered, and how different treatments would be expected to affect survival
-    rates up to 15 years after diagnosis. This is based on data from similar men in the past. Treatments often have side effects as well as benefits, and it is important to
+    [:p.print-only {:key 1} "Predict is a tool that helps show what impact radical treatment might have on survival rates after prostate cancer diagnosis compared to conservative management.
+    This print out shows what characteristics of the patient and cancer were entered, and how different management would be expected to affect survival
+    rates up to 15 years after diagnosis. This is based on data from similar men in the past, but remains a 'best guess'. Treatments often have side effects as well as benefits, and it is important to
     consider these as well when making treatment choices. We recommend visiting the sites of charities such as Macmillan and Prostate Cancer UK for details about side effects."]]
 
    [:section#disclaimer "Disclaimer"
     [:section "Disclaimer"
      [:p "Predict uses an algorithm based on information from many thousands of men diagnosed in England. However, it can only provide a 'best guess' of likely outcomes based on
-   current knowledge, and it can never provide an accurate prediction for an individual. Patients should always consult their
+   previous data, and it can never provide an accurate prediction for an individual. Patients should always consult their
    own specialist, who will be able to discuss the results in a more personalised context."]
-     [:p "The theory behind the model has been presented at international conferences. Publication in a peer-reviewed journal is awaited. "]]]
+     [:p "The theory behind the model has been presented at international conferences and published in a peer-reviewed journal. "]]]
 
    [:section#algorithm "Algorithm"
     [:section "Explanation of the Predict Algorithm"
@@ -477,7 +477,10 @@
          [:td "+0.16 if " [:i "t stage"] " = 2" [:br] "+0.40 if " [:i "t stage"] " = 3" [:br] "+0.63 if " [:i "t stage"] " = 4"]]
         [:tr
          [:th "Proportion of Positive Cores (PPC)"]
-         [:td "-0.62  if " [:i "PPC"] " = <50%" [:br] "+0.58 if " [:i "PPC"] "= 50% or greater"]]
+         [:td "v1.0:" [:br]  "-0.62  if " [:i "PPC"] " = <50%" [:br] "+0.58 if " [:i "PPC"] "= 50% or greater"[:br] "v1.1:" [:br] "+1.890134*((("[:i "PPC"]"+0.1811159)/100)^.5-.649019)"]]
+     [:tr
+      [:th "BRCA"]
+      [:td "+.956 if "[:i "BRCA"] " = Positive"]]
         [:tr
          [:th "Primary treatment"]
          [:td "-0.68  if " [:i "Primary treatment"] " = radical treatment"]
@@ -493,16 +496,18 @@
        [:tbody
         [:tr
          [:th "Age at diagnosis (years)"]
-         [:td "0.12*(" [:i "age"] " - 69.87)"]]
+         [:td "0.12*(" [:i "age"] " - 69.8743)"]]
         [:tr
          [:th "Comorbidity"]
-         [:td "+ 0.64 if " [:i "Charlson comorbidity is 1 or more and a hospital admission in the prior 2 years"]]]
+         [:td "+ 0.6382 if " [:i "Charlson comorbidity is 1 or more & a hospital admission in the prior 2 years"]]]
         ]]]]
 
 
 
     [:section "Implementation of the Algorithm"
-     [:p "The model used to drive this tool is a clojurescript implementation of the 'PREDICT Prostate' model written in Stata 14. "]]]
+     [:p "The model used to drive this tool is a clojurescript implementation of the 'PREDICT Prostate' model written in Stata 14. 
+      For consistency across graphical outputs the number of 'deaths due to other causes' within the 'icons' and 'texts' displays have been set to 
+      match the number of deaths if 'deaths from prostate cancer were excluded completely' as used in the 'Charts', 'Curves' and 'Table' outputs."]]]
 
    [:section#privacy "Privacy"
     [:section "Site Privacy"
@@ -637,14 +642,14 @@
        [:section#dummy ""
         [:h3 "Important"]
         [:p "These results are estimates based on data from men with similar characteristics.
-     There are other important factors such as lifestyle, and other chronic conditions which affect outcomes. Your doctor will help you put these
+     There are other important factors which affect outcomes. Your specialist will help you put these
      results in context."]]]
 
     [:section#tool-postamble "Postamble"
      [:section#dummy ""
       [:h3 "Important"]
       [:p "These results are estimates based on data from men with similar characteristics.
-     There are other important factors such as lifestyle, and other chronic conditions which affect outcomes. Your doctor will help you put these
+     There are other important factors which affect outcomes. Your specialist will help you put these
      results in context."]
       #_[:h3 "Side effects"]
       #_[:p "The treatments listed above can have side effects which should be taken into account when choosing a treatment
@@ -656,7 +661,7 @@
      [:section#dummy ""
       [:h4 {:style {:margin-top 50}}
        [:i.fa.fa-exclamation-triangle {:style {:padding-right 10 :color "orange"}}] "Warning"]
-      [:p "You are running the tool with a high grade group or Gleason score for which it has been less well tested."]
+      [:p "You are running the tool with high risk features in which it has been less well tested."]
       ]]
 
     [:section#scroll-down-for "Scroll down"
@@ -671,34 +676,35 @@
      [:p "The age when the cancer was diagnosed."]
 
      [:p [:i "Either type in the number or use the '+' or '-' buttons to adjust it. You can also use the up and down
-     arrow keys to step by 1, or the right and left arrow keys to step by 5. Hold a key down for repeated steps."]]]
+     arrow keys to step by 1. Hold a key down for repeated steps."]]]
 
     [:section#psa "PSA"
-     [:p "PSA (prostate-specific antigen) level at the point diagnosis - i.e prior to biopsy or any treatment."]]
+     [:p "PSA (prostate-specific antigen) level at the time of diagnosis - i.e prior to biopsy or any treatment."]]
 
     [:section#size "Size"
      [:p "The approximate size of the tumour in millimetres."]]
 
     [:section#t-stage "Clinical stage"
-     [:p "The clinical tumour stage according to the TNM classification. T stage 1, 2, 3, or 4. The model does not differentiate between sub-classifications such as T2b and T2c."]]
+     [:p "The clinical tumour stage according to the TNM classification. This relates to how the prostate feels on examination. Select T-stage 1, 2, 3, or 4. 
+      The model does not differentiate between sub-classifications such as T2b and T2c."]]
 
     [:section#histological-grade-group "Histological grade group"
-     [:p "The reported grade group from the diagnostic prostate biopsies. This can be derived from the Gleason score."]]
+     [:p "The highest reported grade group from the diagnostic prostate biopsies. If this is not known, the highest reported Gleason score can be entered
+      and the corresponding grade group will be entered automatically. "]]
 
     [:section#gleason-scale "Gleason score"
-     [:p "The highest Gleason grade from the diagnostic prostate biopsies."]]
+     [:p "The highest reported Gleason grade found in any of the diagnostic prostate biopsies."]]
 
     [:section#biopsy "Biopsy"
-     [:p "The proportion of cores with any prostate cancer within them.
-      In the case of targeted biopsies, targeted cores from a region already sampled should be disregarded. 
-      Any number of targeted cores from a new region should be considered as one biopsy. As per the latest AUA guidelines."]]
+     [:p "If information on the number of biopsy cores taken, and the number with prostate cancer in them is known, select 'yes'. 
+      If this information is not known, select 'No'. The average value will be applied which will make the estimates slightly less personalised."]]
 
     [:section#h-admissions "Hospital admissions in the last 2 years"
-     [:p "This refers to any admission to hospital in the 2 years before the prostate cancer diagnosis - anything related
-     to the prostate cancer diagnosis itself should be ignored."]]
+     [:p "This refers to any inpatient admission to hospital in the 2 years before prostate cancer diagnosis. Anything anything related
+     to the prostate cancer diagnosis itself, such as for a prostate biopsy, should be ignored."]]
 
     [:section#brca "BRCA gene variant"
-     [:p "Enter positive if you have been tested positive for the BRCA gene variant."]]
+     [:p "Enter 'positive' if you have been tested positive for the BRCA gene variant. If unknown, select 'Negative or Untested.'"]]
 
     [:section#comorb "Comorbidity"
      [:p "Select yes if there is a history of any of the following conditions:"
@@ -706,23 +712,40 @@
       [:ul
        [:li "Myocardial infarction"]
        [:li "Congestive heart failure"]
-       [:li "Peripheral vascular disease (including aortic aneurysm >= 6 cm)"]
+       [:li "Peripheral vascular disease (or an aortic aneurysm >= 6 cm)"]
        [:li "Cerebrovascular disease (Stroke or TIA)"]
        [:li "Dementia"]
        [:li "Chronic pulmonary disease"]
        [:li "Connective tissue disease"]
        [:li "Peptic ulcer disease"]
        [:li "Liver disease"]
-       [:li "Diabetes (excluding diet-controlled diabetes alone)"]
+       [:li "Diabetes requiring medication or insulin. (Diet-controlled diabetes alone is not counted)"]
        [:li "Hemiplegia"]
-       [:li "Moderate or severe renal disease"]
+       [:li "Moderate or severe chronic kidney disease"]
        [:li "Cancer (EXCLUDING THIS PROSTATE CANCER and excluding any cancer diagnosed more than five years ago)"]
        [:li "Leukemia (acute or chronic)"]
        [:li "Lymphoma"]
        [:li "AIDS."]]]]
 
     [:section#biopsy-examples "Biopsy examples"
-     [:p {:style {:color "red"}} "Add biopsy core examples here"]]
+     [:p  "For 'Biopsy cores taken':"
+      [:li "If 12 systematic biopsies were taken and 4 additional biopsy cores of a single target were taken the 
+      total number of biopsy cores taken would be 13 (12+1). If 12 systematic biopsy cores were taken and 9 additional biopsy cores from 4 different 
+      targets the total number of biopsy cores taken would be 16 (12+4). Any number of cores from a single target site is considered as 1 core. Each
+      target is considered as a new core biopsy." 
+      [:br] 
+      [:li "For 'Biopsy cores with prostate cancer':"
+       [:li "The number of biopsy cores with prostate cancer should be the number of systematic biopsy cores taken with ANY prostate cancer in, AND
+        the number of different targets with any prostate cancer detected in them.  If 3 additional biopsy cores were taken from 1 target and all 3 had 
+        prostate cancer - this should be considered as 1 additional core with cancer. If 2 biopsy cores were taken from 2 separate targets and both had cancer, 
+        this should be considered as 2 additional cores with prostate cancer."
+        [:br]
+        [:li "If 12 systematic cores were taken, 6 of which had prostate cancer, and 3 target cores were taken from 1 target, 2 of which had cancer. The 
+         number of biopsy cores taken would be 13 (12+1) and the number of biopsy cores with prostate cancer would be 7 (6+1)."
+         [:br]
+         [:li "If 10 systematic cores were taken, 1 of which had prostate cancer, and 3 target cores were taken from 1 target which were all benign, and 2 target
+          cores were taken from a different target and positive for cancer the total number of biopsy cores taken would be 12 (10+2) and number of biopsy cores with prostate
+          cancer would be 2 (1+1)."]]
 
 
     [:section#surgery "Treatments already received"
