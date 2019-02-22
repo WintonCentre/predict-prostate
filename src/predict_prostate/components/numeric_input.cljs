@@ -6,7 +6,7 @@
             [cljs-css-modules.macro :refer-macros [defstyle]]))
 
 (defstyle style
-  ["#numeric-input" {:width      "130px"
+  [".numeric-input" {:width      "130px"
                      :tab-index  1
                      :selectable true}
    [".incdec"
@@ -132,7 +132,7 @@
                    (str-to-num (if (fn? max) @(max) max))
                    onChange e))]
 
-    [:div {:id          "numeric-input"
+    [:div {:class          "numeric-input"
            :style       {:width      "130px"
                          :tab-index  1
                          :selectable true}
