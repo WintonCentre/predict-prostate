@@ -713,25 +713,24 @@
      [:p "Enter 'positive' if you have been tested positive for the BRCA gene variant. If unknown, select 'Negative or Untested.'"]]
 
     [:section#comorb "Comorbidity"
-     [:p "Select yes if there is a history of any of the following conditions:"
-      [:br]
-      [:ul
-       [:li "Myocardial infarction"]
-       [:li "Congestive heart failure"]
-       [:li "Peripheral vascular disease (or an aortic aneurysm >= 6 cm)"]
-       [:li "Cerebrovascular disease (Stroke or TIA)"]
-       [:li "Dementia"]
-       [:li "Chronic pulmonary disease"]
-       [:li "Connective tissue disease"]
-       [:li "Peptic ulcer disease"]
-       [:li "Liver disease"]
-       [:li "Diabetes requiring medication or insulin. (Diet-controlled diabetes alone is not counted)"]
-       [:li "Hemiplegia"]
-       [:li "Moderate or severe chronic kidney disease"]
-       [:li "Cancer (EXCLUDING THIS PROSTATE CANCER and excluding any cancer diagnosed more than five years ago)"]
-       [:li "Leukemia (acute or chronic)"]
-       [:li "Lymphoma"]
-       [:li "AIDS."]]]]
+     [:h5 "Select yes if there is a history of any of the following conditions:"]
+     [:ul
+      [:li "Myocardial infarction"]
+      [:li "Congestive heart failure"]
+      [:li "Peripheral vascular disease (or an aortic aneurysm >= 6 cm)"]
+      [:li "Cerebrovascular disease (Stroke or TIA)"]
+      [:li "Dementia"]
+      [:li "Chronic pulmonary disease"]
+      [:li "Connective tissue disease"]
+      [:li "Peptic ulcer disease"]
+      [:li "Liver disease"]
+      [:li "Diabetes requiring medication or insulin. (Diet-controlled diabetes alone is not counted)"]
+      [:li "Hemiplegia"]
+      [:li "Moderate or severe chronic kidney disease"]
+      [:li "Cancer (EXCLUDING THIS PROSTATE CANCER and excluding any cancer diagnosed more than five years ago)"]
+      [:li "Leukemia (acute or chronic)"]
+      [:li "Lymphoma"]
+      [:li "AIDS."]]]
 
     [:section#biopsy-examples "Biopsy examples"
      [:h4 "For 'Biopsy cores taken':"]

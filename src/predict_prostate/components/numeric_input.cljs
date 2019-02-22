@@ -38,15 +38,46 @@
   (if-let [[m m1] (re-matches #"(.*\.\d)\d+" s)]
     m1 s))
 
-(defn num-to-str [n] (if (string? n)
-                       n
-                       (if (js/isNaN n)
-                         ""
-                         (if (near-integer? n)
-                           (str (js/Math.round n))
-                           (-> n
-                             (.toPrecision (js/Number. 3))
-                             (trim-trailing-zero))))))
+(defn at-precision [n precision]
+  (cond
+    (= 0 precision)
+    ; display as integer
+    (str (js/Math.round n))
+
+    (= 3 precision)
+    ; flexible display up to 3dp
+    (if (near-integer? n)
+      (str (js/Math.round n))
+      (-> n
+          (.toPrecision (js/Number. 3))
+          (trim-trailing-zero)))
+
+    (= 2 precision)
+    ; display with 2dp always
+    (.toFixed (js/Number. n) 2)
+
+    (= 1 precision)
+    ; display with 1dp always
+    (.toFixed (js/Number. n) 1)
+    )
+  )
+
+(defn num-to-str
+  ([n]
+    ; default to integer
+   (num-to-str n 0))
+  ([n precision]
+   (if (string? n)
+     n
+     (if (js/isNaN n)
+       ""
+       (if (near-integer? n)
+         (str (js/Math.round n))
+         (if precision
+           (at-precision n precision))
+         #_(-> n
+               (.toPrecision (js/Number. 3))
+               (trim-trailing-zero)))))))
 
 ; this can be global as there is only one input under focus at any one time
 (def timer (atom nil))
@@ -97,9 +128,9 @@
       (handle-inc value onChange nmin nmax step)
       ))
 
-(defn clear-timer [state]
-  (js/clearInterval @(::timer state))
-  (reset! (::timer state) nil))
+#_(defn clear-timer [state]
+    (js/clearInterval @(::timer state))
+    (reset! (::timer state) nil))
 
 
 (rum/defcs inc-dec-button < rum/static rum/reactive (rum/local nil ::timer)
@@ -133,7 +164,10 @@
 
 
 (rum/defc numeric-input < rum/static rum/reactive           ;echo-update
-  [{:keys [input-ref onChange min max error-color color] :or {error-color "red" color "black"} :as props}]
+  [{:keys [input-ref onChange min max error-color color precision] :or {error-color "red" color "black"} :as props}]
+
+  (.log js/console "key: " input-ref " precision: " precision)
+
 
   ;(js/console.log "props: " props)
   (let [[good bad] (split (rum/react input-ref) #":")
@@ -156,11 +190,11 @@
                            (when (#{"ArrowUp" "ArrowDown"} key-code)
                              (.preventDefault %))
                            (update-value value nmin nmax
-                             (cond
-                               (= "ArrowUp" key-code) 1
-                               (= "ArrowDown" key-code) -1
-                               :else 0)
-                             onChange))}
+                                         (cond
+                                           (= "ArrowUp" key-code) 1
+                                           (= "ArrowDown" key-code) -1
+                                           :else 0)
+                                         onChange))}
      [:button-group.form-control
       (inc-dec-button (assoc props :nmin nmin :nmax nmax :increment -1 :cursor input-ref))
       [:input
