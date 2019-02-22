@@ -125,7 +125,7 @@
       [:div {:style {:color       "#AAA"
                      :margin-left "145px"
                      :margin-top  0}}
-       "Any number of cores from a single target should be considered as 1 core. "
+       "Extra biopsy cores from a target site are considered as 1 core regardless of the number of biopsy cores taken. "
        (biopsy-core-examples)]
       ])
 
