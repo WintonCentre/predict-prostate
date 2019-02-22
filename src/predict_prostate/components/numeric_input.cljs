@@ -34,13 +34,19 @@
 (defn near-integer? [n]
   (< (js/Math.abs (- n (js/Math.round n))) epsilon))
 
+(defn trim-trailing-zero [s]
+  (if-let [[m m1] (re-matches #"(.*\.\d)\d+" s)]
+    m1 s))
+
 (defn num-to-str [n] (if (string? n)
                        n
                        (if (js/isNaN n)
-                           ""
-                           (if (near-integer? n)
-                             (str (js/Math.round n))
-                             (.toPrecision n (js/Number. 3))))))
+                         ""
+                         (if (near-integer? n)
+                           (str (js/Math.round n))
+                           (-> n
+                             (.toPrecision (js/Number. 3))
+                             (trim-trailing-zero))))))
 
 ; this can be global as there is only one input under focus at any one time
 (def timer (atom nil))
@@ -60,9 +66,9 @@
         val-2 (+ step val-1)                                ; do the increment
 
         val-3 (if (< val-2 nmin)                            ; is it too small?
-                (str (num-to-str val-2) ":" val-2)   ; yes
+                (str (num-to-str val-2) ":" val-2)          ; yes
                 (if (> val-2 nmax)                          ; no; is it too big?
-                  (str (num-to-str val-2) ":" val-2)                      ; yes, return good and bad values, in colon separated string
+                  (str (num-to-str val-2) ":" val-2)        ; yes, return good and bad values, in colon separated string
                   val-2))]                                  ; no
     val-3))
 
@@ -83,13 +89,13 @@
 (defn update-value [value nmin nmax step onChange]
   (handle-inc value onChange nmin nmax step)
   #_(let [value (str-to-num value)
-        value (if (> value nmax) nmax (if (< value nmin) nmin value))]
+          value (if (> value nmax) nmax (if (< value nmin) nmin value))]
 
-    ;(js/console.log "update value = " value)
-    ;(js/console.log "update value nmin = " nmin)
-    ;(js/console.log "update value nmax = " nmax)
-    (handle-inc value onChange nmin nmax step)
-    ))
+      ;(js/console.log "update value = " value)
+      ;(js/console.log "update value nmin = " nmin)
+      ;(js/console.log "update value nmax = " nmax)
+      (handle-inc value onChange nmin nmax step)
+      ))
 
 (defn clear-timer [state]
   (js/clearInterval @(::timer state))
@@ -110,18 +116,18 @@
      ;
      ;todo: I was using a buttonified [:a]  here. Keep an eye out for issues with change to more semantic [:button]
      ;
-     [:button {:class-name    (str (if (pos? increment) "right" "left") " btn btn-default ")
-               :aria-hidden   "true"
-               :disabled      (if (pos? increment)
-                                (if (>= value (str-to-num (if (fn? max) (rum/react (max)) max))) "disabled" nil)
-                                (if (<= value nmin) "disabled" nil))
-               :tab-index     -1
+     [:button {:class-name  (str (if (pos? increment) "right" "left") " btn btn-default ")
+               :aria-hidden "true"
+               :disabled    (if (pos? increment)
+                              (if (>= value (str-to-num (if (fn? max) (rum/react (max)) max))) "disabled" nil)
+                              (if (<= value nmin) "disabled" nil))
+               :tab-index   -1
                ;:on-mouse-down #(do (reset! (::timer state) (start-timer %)))
                ;:on-mouse-up   #(clear-timer state)
                ;:on-mouse-out  #(clear-timer state)
                ;:on-mouse-leave  #(clear-timer state)
-               :on-click      #(do                          ;(clear-timer state)
-                                   (update-value @cursor nmin nmax increment onChange))}
+               :on-click    #(do                            ;(clear-timer state)
+                               (update-value @cursor nmin nmax increment onChange))}
       (if (pos? increment) "+" "–")]]))
 
 
@@ -150,11 +156,11 @@
                            (when (#{"ArrowUp" "ArrowDown"} key-code)
                              (.preventDefault %))
                            (update-value value nmin nmax
-                                         (cond
-                                           (= "ArrowUp" key-code) 1
-                                           (= "ArrowDown" key-code) -1
-                                           :else 0)
-                                         onChange))}
+                             (cond
+                               (= "ArrowUp" key-code) 1
+                               (= "ArrowDown" key-code) -1
+                               :else 0)
+                             onChange))}
      [:button-group.form-control
       (inc-dec-button (assoc props :nmin nmin :nmax nmax :increment -1 :cursor input-ref))
       [:input
