@@ -110,8 +110,8 @@
      [:span {:key 2 :style {:font-size "16px"}} " section before using the tool. Predict is only intended for use amongst men
      for whom both conservative management and radical treatment could both be appropriate options"]]]
    #_[:div {:key 2 :style {:border-left  "3px solid #005FB1"
-                            :padding-left "10px"}}
-       [:p "We recommend that patients use this tool with their doctor."]]
+                           :padding-left "10px"}}
+      [:p "We recommend that patients use this tool with their doctor."]]
 
    ; block 3
    [:section#home-what-tell "What will Predict tell me?"
@@ -191,16 +191,16 @@
       [:a {:href   "https://surgery.medschl.cam.ac.uk/divisions-and-groups/academic-urology-group/"
            :style  {:text-decoration "underline"}
            :target "_blank"} "Academic Urology Group"] " and the "
-      [:a {:href "https://ccge.medschl.cam.ac.uk/"
-           :style {:text-decoration "underline"}
+      [:a {:href   "https://ccge.medschl.cam.ac.uk/"
+           :style  {:text-decoration "underline"}
            :target "_blank"} "Centre for Cancer Genetic Epidemiology"]
       " at the University of Cambridge"
       " in collaboration with the National Cancer Registration and Analysis Service (NCRAS) at Public Health England.
       This work has been supported by funding from "
-        [:a {:href "https://www.theurologyfoundation.org/"
-             :style {:text-decoration "underline"}
-             :target "_blank"} "The Urology Foundation"]
-        " and the Evelyn Trust"]
+      [:a {:href   "https://www.theurologyfoundation.org/"
+           :style  {:text-decoration "underline"}
+           :target "_blank"} "The Urology Foundation"]
+      " and the Evelyn Trust"]
 
 
      [:p "The website has been built by the "
@@ -257,25 +257,25 @@
      [:p "Predict was originally validated using a dataset of another 3,000 prostate cancer patients from the Eastern England
     data and a further 2,546 men from a separate independent dataset from Singapore diagnosed between 1990 and 2015 and followed up for a median of 5.1 years. Discrimination
     in these two datasets was 0.84 for prostate cancer survival, and 0.77 and 0.76 for overall survival over 15 years maximum follow-up. Further details are available via the publications below."]]
-    
+
     [:section "Model Extension: BRCA status and biopsy reparameterisation (version 1.1)"
      [:p "The web-model was updated in March 2019 to include BRCA status and to model the impact of biopsy core involvement differently."]
      [:p "Carriage of the BRCA1/2 mutation is associated with worse survival outcomes in prostate cancer. 
       Considering only men with nonmetastatic prostate cancer, the independent hazard ratio for BRCA1/2 carriage 
       for 5 year cancer-specific mortality was 2.6. This work has been published in the "
-       [:a {:href   "http://ascopubs.org/doi/full/10.1200/JCO.2012.43.1882 "
-           :target "blank"} "Journal of Clinical Oncology, April 2013."] 
-       " The poor prognostic effect on prostate cancer specific mortality has been applied within the model for those who are known
-       to have a BRCA1/2 mutation. Note that there has been no compensatory adjustment to the predicted prognosis for those known to be negative
-       for the mutation, nor for those in whom the BRCA status is unknown, as the prevalence of mutations is so low."]
-  
+      [:a {:href   "http://ascopubs.org/doi/full/10.1200/JCO.2012.43.1882 "
+           :target "blank"} "Journal of Clinical Oncology, April 2013."]
+      " The poor prognostic effect on prostate cancer specific mortality has been applied within the model for those who are known
+      to have a BRCA1/2 mutation. Note that there has been no compensatory adjustment to the predicted prognosis for those known to be negative
+      for the mutation, nor for those in whom the BRCA status is unknown, as the prevalence of mutations is so low."]]
 
-     [:section "Future versions"
-      [:p "Predict Prostate will be updated over time as new information and evidence becomes available. The model is currently undergoing testing
+
+    [:section "Future versions"
+     [:p "Predict Prostate will be updated over time as new information and evidence becomes available. The model is currently undergoing testing
                in other international cohorts and a "
-               [:a {:href   "http://www.isrctn.com/ISRCTN28468474"
+      [:a {:href   "http://www.isrctn.com/ISRCTN28468474"
            :target "blank"} "patient study"] " is underway to assess its potential impact on clinical practice."]
-      ]]]
+     ]]
 
    [:section#publications "Publications"
     [:section "Publications"
@@ -390,10 +390,10 @@
      (faq-item "What about side effects?"
                "Information about potential treatment side effects, or harms, is on the 'Predict Tool' page. These are not individualised to your personal details
                      but are taken from the studies mentioned in the text. Charities such as"
-                     [:a {:href "https://prostatecanceruk.org/"
-                 :target "_blank"} "[Prostate Cancer UK.]"]  "and"
-             [:a {:href "https://www.macmillan.org.uk/information-and-support/prostate-cancer/"
-                 :target "_blank"} "[Macmillan.]"] "provide useful information on the side
+               [:a {:href   "https://prostatecanceruk.org/"
+                    :target "_blank"} "[Prostate Cancer UK.]"] "and"
+               [:a {:href   "https://www.macmillan.org.uk/information-and-support/prostate-cancer/"
+                    :target "_blank"} "[Macmillan.]"] "provide useful information on the side
                effects of each treatment.")
      (hr)
      (faq-item "Who developed the Predict programme?"
@@ -477,10 +477,10 @@
          [:td "+0.16 if " [:i "t stage"] " = 2" [:br] "+0.40 if " [:i "t stage"] " = 3" [:br] "+0.63 if " [:i "t stage"] " = 4"]]
         [:tr
          [:th "Proportion of Positive Cores (PPC)"]
-         [:td "v1.0:" [:br]  "-0.62  if " [:i "PPC"] " = <50%" [:br] "+0.58 if " [:i "PPC"] "= 50% or greater"[:br] "v1.1:" [:br] "+1.890134*((("[:i "PPC"]"+0.1811159)/100)^.5-.649019)"]]
-     [:tr
-      [:th "BRCA"]
-      [:td "+.956 if "[:i "BRCA"] " = Positive"]]
+         [:td "v1.0:" [:br] "-0.62  if " [:i "PPC"] " = <50%" [:br] "+0.58 if " [:i "PPC"] "= 50% or greater" [:br] "v1.1:" [:br] "+1.890134*(((" [:i "PPC"] "+0.1811159)/100)^.5-.649019)"]]
+        [:tr
+         [:th "BRCA"]
+         [:td "+.956 if " [:i "BRCA"] " = Positive"]]
         [:tr
          [:th "Primary treatment"]
          [:td "-0.68  if " [:i "Primary treatment"] " = radical treatment"]
@@ -692,12 +692,18 @@
      [:p "The highest reported grade group from the diagnostic prostate biopsies. If this is not known, the highest reported Gleason score can be entered
       and the corresponding grade group will be entered automatically. "]]
 
-    [:section#gleason-scale "Gleason score"
+    [:section#gleason-score "Gleason score"
      [:p "The highest reported Gleason grade found in any of the diagnostic prostate biopsies."]]
 
-    [:section#biopsy "Biopsy"
+    [:section#biopsy "Biopsy data avaliable?"
      [:p "If information on the number of biopsy cores taken, and the number with prostate cancer in them is known, select 'yes'. 
       If this information is not known, select 'No'. The average value will be applied which will make the estimates slightly less personalised."]]
+
+    [:section#number-of-biopsy-cores-taken "Biopsy cores taken"
+     [:p "Add biopsy-cores-taken words"]]
+
+    [:section#number-of-biopsy-cores-with-prostate-cancer "Biopsy cores with prostate cancer"
+     [:p "Add biopsy-cores-with-prostate-cancer words"]]
 
     [:section#h-admissions "Hospital admissions in the last 2 years"
      [:p "This refers to any inpatient admission to hospital in the 2 years before prostate cancer diagnosis. Anything anything related
@@ -728,24 +734,24 @@
        [:li "AIDS."]]]]
 
     [:section#biopsy-examples "Biopsy examples"
-     [:p  "For 'Biopsy cores taken':"
-      [:li "If 12 systematic biopsies were taken and 4 additional biopsy cores of a single target were taken the 
-      total number of biopsy cores taken would be 13 (12+1). If 12 systematic biopsy cores were taken and 9 additional biopsy cores from 4 different 
+     [:h4 "For 'Biopsy cores taken':"]
+     [:div {:style {:margin-left 20 :margin-right 20}}
+      [:p "If 12 systematic biopsies were taken and 4 additional biopsy cores of a single target were taken the
+      total number of biopsy cores taken would be 13 (12+1). "]
+      [:p "If 12 systematic biopsy cores were taken and 9 additional biopsy cores from 4 different
       targets the total number of biopsy cores taken would be 16 (12+4). Any number of cores from a single target site is considered as 1 core. Each
-      target is considered as a new core biopsy." 
-      [:br] 
-      [:li "For 'Biopsy cores with prostate cancer':"
-       [:li "The number of biopsy cores with prostate cancer should be the number of systematic biopsy cores taken with ANY prostate cancer in, AND
+      target is considered as a new core biopsy."]]
+     [:h4 "For 'Biopsy cores with prostate cancer':"]
+     [:div {:style {:margin-left 20 :margin-right 20}}
+      [:p "The number of biopsy cores with prostate cancer should be the number of systematic biopsy cores taken with ANY prostate cancer in, AND
         the number of different targets with any prostate cancer detected in them.  If 3 additional biopsy cores were taken from 1 target and all 3 had 
         prostate cancer - this should be considered as 1 additional core with cancer. If 2 biopsy cores were taken from 2 separate targets and both had cancer, 
-        this should be considered as 2 additional cores with prostate cancer."
-        [:br]
-        [:li "If 12 systematic cores were taken, 6 of which had prostate cancer, and 3 target cores were taken from 1 target, 2 of which had cancer. The 
-         number of biopsy cores taken would be 13 (12+1) and the number of biopsy cores with prostate cancer would be 7 (6+1)."
-         [:br]
-         [:li "If 10 systematic cores were taken, 1 of which had prostate cancer, and 3 target cores were taken from 1 target which were all benign, and 2 target
+        this should be considered as 2 additional cores with prostate cancer."]
+      [:p "If 12 systematic cores were taken, 6 of which had prostate cancer, and 3 target cores were taken from 1 target, 2 of which had cancer. The
+         number of biopsy cores taken would be 13 (12+1) and the number of biopsy cores with prostate cancer would be 7 (6+1)."]
+      [:p "If 10 systematic cores were taken, 1 of which had prostate cancer, and 3 target cores were taken from 1 target which were all benign, and 2 target
           cores were taken from a different target and positive for cancer the total number of biopsy cores taken would be 12 (10+2) and number of biopsy cores with prostate
-          cancer would be 2 (1+1)."]]
+          cancer would be 2 (1+1)."]]]
 
 
     [:section#surgery "Treatments already received"
