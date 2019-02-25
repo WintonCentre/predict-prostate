@@ -74,7 +74,7 @@
    [:form.form-horizontal {:on-key-press key-event
                            :on-submit    submit-event}
     (when (model-keys :age) [:div (form-entry {:label "Age" :key :age})
-                             [:div {:style {:color       "#AAA"
+                             [:div {:style {:color       "#686868"
                                             :margin-left "145px"
                                             :margin-top  -5}}
                               "Age must be between 35 and 95"]])

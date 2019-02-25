@@ -290,7 +290,7 @@
                       . by D Thurtle, D Greenberg, LS Lee, H Huang, PD Pharoah, VJ Gnanapragasam. PLOS Medicine
       2019.  "
                   [:a {:href   "https://journals.plos.org/plosmedicine/"
-                       :target "_blank"} "[In press.]"]]]]]]]]
+                       :target "_blank"} "[In press.]"]]]]]]]
 
    [:section#faqs "FAQs"
     [:section "FAQs"
@@ -420,10 +420,10 @@
                "There is a great deal of information on prostate cancer on the web. One of best and most reliable
                sources is Cancer Research UK, along with those from Macmillan and Prostate Cancer UK. Their information is written by experts, is up to date and in a style
                that is easy to understand.")
-     ]]
+     ]]]
 
 
-   [:section#contact "Contact"
+  [:section#contact "Contact"
     [:section "Contact"
      [:p "National Cancer Registration and Analysis Service" [:br] "East Regional Office, Victoria House, Capital Park,
      Fulbourn, Cambridge CB21 5XB" [:br] "Email: " [:a {:href "mailto:info@prostate.predict.nhs.uk"} "info@prostate.predict.nhs.uk"]]]]
@@ -457,7 +457,7 @@
 
      [:.table-responsive
       [:table.table.table-bordered {:style {:max-width 600}}
-       [:caption "Table 1: Risk-factor coefficients for Prostate Cancer-Specific Mortality (numbers rounded for table)"]
+       [:caption {:style {:color "rgb(104, 104, 104)"}} "Table 1: Risk-factor coefficients for Prostate Cancer-Specific Mortality (numbers rounded for table)"]
        [:thead
         [:tr
          [:th "Risk Factor"]
@@ -488,7 +488,7 @@
 
      [:.table-responsive
       [:table.table.table-bordered {:style {:max-width 600}}
-       [:caption "Table 2: Risk-factor coefficients for Non Prostate Cancer Mortality (numbers rounded for table)"]
+       [:caption {:style {:color "rgb(104, 104, 104)"}} "Table 2: Risk-factor coefficients for Non Prostate Cancer Mortality (numbers rounded for table)"]
        [:thead
         [:tr
          [:th "Risk Factor"]
