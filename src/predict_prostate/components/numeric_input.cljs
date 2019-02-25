@@ -42,12 +42,12 @@
   (cond
     (= 0 precision)
     ; display as integer
-    (str (js/Math.round n))
+    (str (js/Math.ceil n))
 
     (= 3 precision)
     ; flexible display up to 3dp
     (if (near-integer? n)
-      (str (js/Math.round n))
+      (str (js/floor n))
       (-> n
           (.toPrecision (js/Number. 3))
           (trim-trailing-zero)))
@@ -68,13 +68,18 @@
    (num-to-str n 0))
   ([n precision]
    (if (string? n)
-     n
+     (do
+       ;(println n " returning unchanged string")
+       n)
      (if (js/isNaN n)
        ""
        (if (near-integer? n)
-         (str (js/Math.round n))
+         (str (js/Math.floor n))
          (if precision
-           (at-precision n precision))
+           (do
+             ;(println "num-to-str precision " n precision)
+             (at-precision n precision))
+           (at-precision n 0))
          #_(-> n
                (.toPrecision (js/Number. 3))
                (trim-trailing-zero)))))))
@@ -101,32 +106,25 @@
                 (if (> val-2 nmax)                          ; no; is it too big?
                   (str (num-to-str val-2) ":" val-2)        ; yes, return good and bad values, in colon separated string
                   val-2))]                                  ; no
+    ;(println "(validate " value nmin nmax step ") = " val-3)
     val-3))
 
-(defn handle-inc [value onChange nmin nmax step]
+(defn handle-inc [value onChange nmin nmax precision step]
   (let [v (validate value nmin nmax step)]
-    (js/console.log "onChange " v)
-    (onChange (num-to-str v))))
+    ;(js/console.log "onChange " v)
+    (onChange (num-to-str v precision))))
 
 
-(defn handle-typed-input [nmin nmax onChange e]
+(defn handle-typed-input [nmin nmax precision onChange e]
   (let [value (.. (-> e .-target) -value)]
-    (.log js/console value)
+    ;(.log js/console value)
     (if (re-matches #"\s*\d*\.?\d*\s*" value)
-      (onChange (num-to-str (validate (str-to-num value) nmin nmax 0)))
+      (onChange (num-to-str (validate (str-to-num value) nmin nmax 0) precision))
       (onChange (num-to-str ##NaN)))
     ))
 
-(defn update-value [value nmin nmax step onChange]
-  (handle-inc value onChange nmin nmax step)
-  #_(let [value (str-to-num value)
-          value (if (> value nmax) nmax (if (< value nmin) nmin value))]
-
-      ;(js/console.log "update value = " value)
-      ;(js/console.log "update value nmin = " nmin)
-      ;(js/console.log "update value nmax = " nmax)
-      (handle-inc value onChange nmin nmax step)
-      ))
+(defn update-value [value nmin nmax precision step onChange]
+  (handle-inc value onChange nmin nmax precision step))
 
 #_(defn clear-timer [state]
     (js/clearInterval @(::timer state))
@@ -135,7 +133,7 @@
 
 (rum/defcs inc-dec-button < rum/static rum/reactive (rum/local nil ::timer)
   [state
-   {:keys [cursor increment onChange min max nmin nmax]
+   {:keys [cursor increment onChange min max nmin nmax precision]
     :as   props}]
   (let [value (str-to-num (rum/react cursor))
         ;
@@ -158,7 +156,7 @@
                ;:on-mouse-out  #(clear-timer state)
                ;:on-mouse-leave  #(clear-timer state)
                :on-click    #(do                            ;(clear-timer state)
-                               (update-value @cursor nmin nmax increment onChange))}
+                               (update-value @cursor nmin nmax precision increment onChange))}
       (if (pos? increment) "+" "–")]]))
 
 
@@ -166,7 +164,7 @@
 (rum/defc numeric-input < rum/static rum/reactive           ;echo-update
   [{:keys [input-ref onChange min max error-color color precision] :or {error-color "red" color "black"} :as props}]
 
-  (.log js/console "key: " input-ref " precision: " precision)
+  ;(.log js/console "key: " input-ref " precision: " precision)
 
 
   ;(js/console.log "props: " props)
@@ -175,11 +173,13 @@
         value (str-to-num good)
         nmin (str-to-num (if (fn? min) (rum/react (min)) min))
         nmax (str-to-num (if (fn? max) (rum/react (max)) max))
+
         mutate (fn [e]
                  ;(js/console.log "mutating, :nmin = " nmin " value = " value " bad = " bad)
                  (handle-typed-input
-                   (str-to-num (if (fn? min) @(min) min))
-                   (str-to-num (if (fn? max) @(max) max))
+                   (str-to-num (if (fn? min) @(min) min))   ; include precision?
+                   (str-to-num (if (fn? max) @(max) max))   ; include precision?
+                   precision
                    onChange e))]
 
     [:div {:id          "numeric-input"
@@ -189,14 +189,14 @@
            :on-key-down #(let [key-code (.. % -nativeEvent -code)]
                            (when (#{"ArrowUp" "ArrowDown"} key-code)
                              (.preventDefault %))
-                           (update-value value nmin nmax
+                           (update-value value nmin nmax precision
                                          (cond
                                            (= "ArrowUp" key-code) 1
                                            (= "ArrowDown" key-code) -1
                                            :else 0)
                                          onChange))}
      [:button-group.form-control
-      (inc-dec-button (assoc props :nmin nmin :nmax nmax :increment -1 :cursor input-ref))
+      (inc-dec-button (assoc props :nmin nmin :nmax nmax :precision precision :increment -1 :cursor input-ref))
       [:input
        {:type      "text"
         :value     good                                     ;(num-to-str value)
@@ -211,7 +211,7 @@
                     :text-align       "center"
                     #_#_:font-weight "bold"}
         }]
-      (inc-dec-button (assoc props :nmin nmin :nmax nmax :increment 1 :cursor input-ref))
+      (inc-dec-button (assoc props :nmin nmin :nmax nmax :precision precision :increment 1 :cursor input-ref))
       ]]
 
     ))
