@@ -189,15 +189,18 @@
 
     [:p "Predict Prostate has been developed by a partnership between the "
      [:a {:href   "https://surgery.medschl.cam.ac.uk/divisions-and-groups/academic-urology-group/"
+          :rel    "noopener"
           :style  {:text-decoration "underline"}
           :target "_blank"} "Academic Urology Group"] " and the "
      [:a {:href   "https://ccge.medschl.cam.ac.uk/"
+          :rel    "noopener"
           :style  {:text-decoration "underline"}
           :target "_blank"} "Centre for Cancer Genetic Epidemiology"]
      " at the University of Cambridge"
      " in collaboration with the National Cancer Registration and Analysis Service (NCRAS) at Public Health England.
      This work has been supported by funding from "
      [:a {:href   "https://www.theurologyfoundation.org/"
+          :rel    "noopener"
           :style  {:text-decoration "underline"}
           :target "_blank"} "The Urology Foundation"]
      " and the Evelyn Trust"]
@@ -205,6 +208,7 @@
 
     [:p "The website has been built by the "
      [:a {:href   "https://wintoncentre.maths.cam.ac.uk"
+          :rel    "noopener"
           :style  {:text-decoration "underline"}
           :target "_blank"} "Winton Centre for Risk & Evidence Communication"]
      " at the University of Cambridge who are funded by a generous donation from the David and Claudia Harding Foundation and the Winton Charitable Foundation."]
@@ -241,9 +245,11 @@
      on both of these models, with one adjusted for the other within a competing risks framework.
      Further information is provided from a previous abstract presented at the European Association of Urology conference 2018 "
      [:a {:href   "https://www.eusupplements.europeanurology.com/article/S1569-9056(18)31764-0/fulltext"
+          :rel    "noopener"
           :target "blank"} "European Urology Supplements March 2018."]
      " and within the full paper which is currently in press with "
      [:a {:href   "https://journals.plos.org/plosmedicine/"
+          :rel    "noopener"
           :target "_blank"} "PLOS Medicine."]]]
 
    [:section "Model validation"
@@ -264,6 +270,7 @@
       Considering only men with nonmetastatic prostate cancer, the independent hazard ratio for BRCA1/2 carriage 
       for 5 year cancer-specific mortality was 2.6. This work has been published in the "
      [:a {:href   "http://ascopubs.org/doi/full/10.1200/JCO.2012.43.1882 "
+          :rel    "noopener"
           :target "blank"} "Journal of Clinical Oncology, April 2013."]
      " The poor prognostic effect on prostate cancer specific mortality has been applied within the model for those who are known
      to have a BRCA1/2 mutation. Note that there has been no compensatory adjustment to the predicted prognosis for those known to be negative
@@ -274,6 +281,7 @@
     [:p "Predict Prostate will be updated over time as new information and evidence becomes available. The model is currently undergoing testing
                in other international cohorts and a "
      [:a {:href   "http://www.isrctn.com/ISRCTN28468474"
+          :rel    "noopener"
           :target "blank"} "patient study"] " is underway to assess its potential impact on clinical practice."]
     ]]
 
@@ -285,11 +293,13 @@
                       . by D Thurtle, D Greenberg, LS Lee, H Huang, P Pharoah, VJ Gnanapragasam. European Urology Supplements
       2018; 17(2): e1328-e1329. Published online 2018 March. doi: 10.1016/S1569-9056(18)31764-0. "
            [:a {:href   "https://www.eusupplements.europeanurology.com/article/S1569-9056(18)31764-0/fulltext"
+                :rel    "noopener"
                 :target "_blank"} "[Abstract online]"]]]
      [:li [:p "Individual prognosis at diagnosis in non-metastatic prostate cancer: Development and external validation of the PREDICT Prostate multivariable model
                       . by D Thurtle, D Greenberg, LS Lee, H Huang, PD Pharoah, VJ Gnanapragasam. PLOS Medicine
       2019.  "
            [:a {:href   "https://journals.plos.org/plosmedicine/"
+                :rel    "noopener"
                 :target "_blank"} "[In press.]"]]]]]
 
    [:section#faqs "FAQs"
@@ -303,28 +313,42 @@
                 [:ul {:style {:font-size       "120%"
                               :list-style-type "none"}}
                  [:li {:key 1}
-                  [:a {:href "http://www.cancerresearchuk.org/about-cancer/prostate-cancer/treatment" :target "blank"} "Cancer research UK"]]
+                  [:a {:href "http://www.cancerresearchuk.org/about-cancer/prostate-cancer/treatment"
+                       :rel    "noopener"
+                       :target "blank"} "Cancer research UK"]]
                  [:li {:key 2}
-                  [:a {:href "https://www.nhs.uk/conditions/prostate-cancer/treatment/" :target "blank"} "NHS"]]]
+                  [:a {:href "https://www.nhs.uk/conditions/prostate-cancer/treatment/"
+                       :rel    "noopener"
+                       :target "blank"} "NHS"]]]
 
 
                 [:h4 "About potential harms:"]
                 [:ul {:style {:font-size       "120%"
                               :list-style-type "none"}}
                  [:li {:key 3}
-                  [:a {:href "https://www.nhs.uk/conditions/prostate-cancer/treatment/#radical-prostatectomy" :target "blank"} "Radical prostatectomy"]]
+                  [:a {:href "https://www.nhs.uk/conditions/prostate-cancer/treatment/#radical-prostatectomy"
+                       :rel    "noopener"
+                       :target "blank"} "Radical prostatectomy"]]
                  [:li {:key 4}
-                  [:a {:href "https://www.nhs.uk/conditions/prostate-cancer/treatment/#radiotherapy" :target "blank"} "Radiotherapy"]]
+                  [:a {:href "https://www.nhs.uk/conditions/prostate-cancer/treatment/#radiotherapy"
+                       :rel    "noopener"
+                       :target "blank"} "Radiotherapy"]]
                  ]
                 [:h4 "Further advice and support:"]
                 [:ul {:style {:font-size       "120%"
                               :list-style-type "none"}}
                  [:li {:key 1}
-                  [:a {:href "http://www.macmillan.org.uk/" :target "_blank"} "Macmillan"]]
+                  [:a {:href "http://www.macmillan.org.uk/"
+                       :rel    "noopener"
+                       :target "_blank"} "Macmillan"]]
                  [:li {:key 2}
-                  [:a {:href "http://prostatecanceruk.org/" :target "_blank"} "Prostate Cancer UK"]]
+                  [:a {:href "http://prostatecanceruk.org/"
+                       :rel    "noopener"
+                       :target "_blank"} "Prostate Cancer UK"]]
                  [:li {:key 3}
-                  [:a {:href "https://www.nhs.uk/pages/home.aspx" :target "_blank"} "NHS Choices"]]
+                  [:a {:href "https://www.nhs.uk/pages/home.aspx"
+                       :rel    "noopener"
+                       :target "_blank"} "NHS Choices"]]
                  ]]
 
                )
@@ -401,6 +425,7 @@
                "Information about potential treatment side effects, or harms, is on the 'Predict Tool' page. These are not individualised to your personal details
                      but are taken from the studies mentioned in the text. Charities such as"
                [:a {:href   "https://prostatecanceruk.org/"
+                    :rel    "noopener"
                     :target "_blank"} "[Prostate Cancer UK.]"] "and"
                [:a {:href   "https://www.macmillan.org.uk/information-and-support/prostate-cancer/"
                     :target "_blank"} "[Macmillan.]"] "provide useful information on the side
@@ -412,7 +437,9 @@
      (hr)
      (faq-item "How was the computer programme developed?"
                [:span "The team used information held by the National Cancer Registration and Analysis Service, part of Public Health England."
-                [:a {:href "http://www.ncin.org.uk/collecting_and_using_data/national_cancer_data_repository/" :style {:text-decoration "underline"}}
+                [:a {:href "http://www.ncin.org.uk/collecting_and_using_data/national_cancer_data_repository/"
+                     :rel    "noopener"
+                     :style {:text-decoration "underline"}}
                  "National Cancer Registration and Analysis Service"]
                 " on over 7000 men diagnosed with prostate cancer between 2000 and 2010.
                  Using this information they were able to see how individual factors affected survival at ten years and
@@ -420,10 +447,12 @@
      (hr)
      (faq-item "Who designed the website?"
                [:span "The website has been built by the "
-                [:a {:href "https://wintoncentre.maths.cam.ac.uk" :style {:text-decoration "underline"}} "Winton Centre for Risk & Evidence Communication"] "
+                [:a {:href "https://wintoncentre.maths.cam.ac.uk"
+                     :rel    "noopener"
+                     :style {:text-decoration "underline"}} "Winton Centre for Risk & Evidence Communication"] "
                  at the University of Cambridge. The site functionality and visualisation software is trademarked by the Winton Centre as
                  4U2C. However, we are happy for others to use it for similar purposes. Do contact us to discuss this at "
-                [:a {:href "mailto:wintoncentre@maths.cam.ac.uk"} "wintoncentre@maths.cam.ac.uk"] "."])
+                [:a {:href "mailto:wintoncentre@maths.cam.ac.uk" :rel "noopener"} "wintoncentre@maths.cam.ac.uk"] "."])
 
      (hr)
      (faq-item "Where can I find more information on prostate cancer?"
@@ -436,7 +465,7 @@
   [:section#contact "Contact"
    [:section "Contact"
     [:p "National Cancer Registration and Analysis Service" [:br] "East Regional Office, Victoria House, Capital Park,
-     Fulbourn, Cambridge CB21 5XB" [:br] "Email: " [:a {:href "mailto:info@prostate.predict.nhs.uk"} "info@prostate.predict.nhs.uk"]]]]
+     Fulbourn, Cambridge CB21 5XB" [:br] "Email: " [:a {:href "mailto:info@prostate.predict.nhs.uk" :rel "noopener"} "info@prostate.predict.nhs.uk"]]]]
 
   [:section#legal-preamble "Preamble"
     [:p.screen-only {:key   0
@@ -528,13 +557,13 @@
      websites. Cookies allow a website to recognise a user’s device e.g. computer, mobile phone. "]
      [:p "The law on website cookies changed on 26 May 2011 and requires that sites state which cookies are being used
      and their purpose. It also makes clear that cookies only be used with your consent. You can find out more
-     information about this law by visiting the " [:a {:href "https://ico.org.uk/for-the-public/online/cookies/"} "Information Commissioner’s Office website."]]
+     information about this law by visiting the " [:a {:href "https://ico.org.uk/for-the-public/online/cookies/" :rel "noopener"} "Information Commissioner’s Office website."]]
      [:p "In using the Predict website you are implicitly giving consent that cookies may be used, however you may
      disable cookie use, see below for details."]]
     [:section "Which cookies does the Predict website use?"
      [:p "Predict uses Google Analytics to measure website traffic. All the information collected is anonymous and is
      not used for any other purpose. For more details see the "
-      [:a {:href "http://www.google.co.uk/intl/en/policies/privacy/"} "Google privacy policy."]]
+      [:a {:href "http://www.google.co.uk/intl/en/policies/privacy/" :rel "noopener"} "Google privacy policy."]]
      [:p "The following cookies are used:"]
      [:table.table.table-bordered {:style {:max-width "600px" :margin-top "10px" :font-size "16px"}}
       [:thead
@@ -559,12 +588,12 @@
     [:section "Can I disable cookies?"
      [:p "You can opt out of cookies at any time, following the instructions in your browser. These are typically found
      under ‘Tools’ and ‘Options’ (PC) or ‘Preferences’ (Mac) though the details vary from browser to browser.
-     Also, Google offers a " [:a {:href "https://tools.google.com/dlpage/gaoptout"} "tool that you can use to opt out"]
+     Also, Google offers a " [:a {:href "https://tools.google.com/dlpage/gaoptout" :rel "noopener"} "tool that you can use to opt out"]
       " of being tracked by Google Analytics. You can add this plugin to your browser by going to Google.
       For more details about controlling cookies visit the help pages for the browser that you are using."]]
 
     [:section "Can I disable hotjar?"
-     [:p "Yes you can. Follow this link for up to date instructions: " [:a {:href "https://www.hotjar.com/legal/compliance/opt-out" :target "_blank"} "How to disable Hotjar"]]]]
+     [:p "Yes you can. Follow this link for up to date instructions: " [:a {:href "https://www.hotjar.com/legal/compliance/opt-out" :rel "noopener" :target "_blank"} "How to disable Hotjar"]]]]
 
 
    ;;;
