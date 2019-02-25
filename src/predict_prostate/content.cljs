@@ -686,7 +686,7 @@
      [:p "The age when the cancer was diagnosed."]
 
      [:p [:i "Either type in the number or use the '+' or '-' buttons to adjust it. You can also use the up and down
-     arrow keys to step by 1. Hold a key down for repeated steps."]]]
+     arrow keys to step by 1. Hold a key down for repeated steps. The model only works for ages 35-95."]]]
 
     [:section#psa "PSA"
      [:p "PSA (prostate-specific antigen) level at the time of diagnosis - i.e prior to biopsy or any treatment."]]
@@ -700,22 +700,22 @@
 
     [:section#histological-grade-group "Histological grade group"
      [:p "The highest reported grade group from the diagnostic prostate biopsies. If this is not known, the highest reported Gleason score can be entered
-      and the corresponding grade group will be entered automatically. "]]
+      and the grade group will be completed automatically. "]]
 
     [:section#gleason-score "Gleason score"
      [:p "The highest reported Gleason grade found in any of the diagnostic prostate biopsies."]]
 
     [:section#biopsy "Biopsy data avaliable?"
-     [:p "If information on the number of biopsy cores taken, and the number with prostate cancer in them is known, select 'yes'. 
-      If this information is not known, select 'No'. The average value will be applied which will make the estimates slightly less personalised."]]
+     [:p "If information on the number of biopsy cores taken, and the number that were positive is known, select 'yes'. 
+      If this information is not known, or if biopsy cores were ONLY taken from target lesions select 'no'."]]
 
     [:section#number-of-biopsy-cores-taken "Biopsy cores taken"
-     [:p "The total number of biopsy cores taken. Extra biopsies taken from a target site should be considered as 1 core, regardless of how many biopsy cores were
+     [:p "The total number of biopsy cores taken. Extra biopsies taken from each target site should be considered as 1 core, regardless of how many biopsy cores were
       taken from that target. *See examples*"]]
 
     [:section#number-of-biopsy-cores-with-prostate-cancer "Biopsy cores with prostate cancer"
      [:p "The total number of biopsy cores with any prostate cancer within them. Even cores with a lower grade should be counted here, if they have any prostate cancer within them. 
-      Biopsy cores with prostate cancer in them taken from a single target site should be considered as 1 core, regardless of how many cores with prostate cancer were taken from that target."]]
+      Biopsy cores with prostate cancer taken from a single target site should be considered as 1 core, regardless of how many positive cores were taken from that target *See examples*."]]
 
     [:section#h-admissions "Hospital admissions in the last 2 years"
      [:p "This refers to any inpatient admission to hospital in the 2 years before prostate cancer diagnosis. Anything anything related
@@ -745,24 +745,11 @@
       [:li "AIDS."]]]
 
     [:section#biopsy-examples "Biopsy examples"
-     [:h4 "For 'Biopsy cores taken':"]
+     [:h4 "Examples of how to deal with targetted biopsies:"]
      [:div {:style {:margin-left 20 :margin-right 20}}
-      [:p "If 12 systematic biopsies were taken and 4 additional biopsy cores of a single target were taken the
-      total number of biopsy cores taken would be 13 (12+1). "]
-      [:p "If 12 systematic biopsy cores were taken and 9 additional biopsy cores from 4 different
-      targets the total number of biopsy cores taken would be 16 (12+4). Any number of cores from a single target site is considered as 1 core. Each
-      target is considered as a new core biopsy."]]
-     [:h4 "For 'Biopsy cores with prostate cancer':"]
-     [:div {:style {:margin-left 20 :margin-right 20}}
-      [:p "The number of biopsy cores with prostate cancer should be the number of systematic biopsy cores taken with ANY prostate cancer in, AND
-        the number of different targets with any prostate cancer detected in them.  If 3 additional biopsy cores were taken from 1 target and all 3 had 
-        prostate cancer - this should be considered as 1 additional core with cancer. If 2 biopsy cores were taken from 2 separate targets and both had cancer, 
-        this should be considered as 2 additional cores with prostate cancer."]
-      [:p "If 12 systematic cores were taken, 6 of which had prostate cancer, and 3 target cores were taken from 1 target, 2 of which had cancer. The
-         number of biopsy cores taken would be 13 (12+1) and the number of biopsy cores with prostate cancer would be 7 (6+1)."]
-      [:p "If 10 systematic cores were taken, 1 of which had prostate cancer, and 3 target cores were taken from 1 target which were all benign, and 2 target
-          cores were taken from a different target and positive for cancer the total number of biopsy cores taken would be 12 (10+2) and number of biopsy cores with prostate
-          cancer would be 2 (1+1)."]]]
+      [:p "2 biopsy cores from 1 target, of which both were negative = 1 additional core taken and 0 additional cores with cancer "]
+      [:p "3 biopsy cores from 1 target, of which 2 were positive = 1 additional core taken and 1 additional core with cancer. "]
+      [:p "2 biopsy cores from 2 different targets of which both positive = 2 additional cores taken and 2 additional cores with cancer "]]
 
 
     [:section#surgery "Treatments already received"
