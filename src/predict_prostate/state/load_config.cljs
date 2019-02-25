@@ -47,6 +47,7 @@
 
 (defmethod make-widget :numeric-input [{:keys [key params]}]
   (numeric-input (assoc params
+                   :key (name key)
                    :input-ref (input-cursor key)
                    :onChange #(publish (input-change key) %))))
 

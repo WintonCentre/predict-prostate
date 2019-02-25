@@ -117,7 +117,7 @@
 
 
 (rum/defc numeric-input < rum/static rum/reactive           ;echo-update
-  [{:keys [input-ref onChange min max error-color color] :or {error-color "red" color "black"} :as props}]
+  [{:keys [key input-ref onChange min max error-color color] :or {error-color "red" color "black"} :as props}]
 
   ;(js/console.log "props: " props)
   (let [[good bad] (split (rum/react input-ref) #":")
@@ -153,6 +153,7 @@
       [:input
        {:type      "text"
         :value     good                                     ;(num-to-str value)
+        :id        key
         :on-click  mutate
         :on-change mutate
         :style     {:width            "58px" :height "36px" :font-size "14px"
