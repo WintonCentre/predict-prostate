@@ -145,6 +145,9 @@
                                            (= "ArrowDown" key-code) -1
                                            :else 0)
                                          onChange))}
+     #_[:div
+      "Hello.!>!>!>!"
+      ]
      [:button-group.form-control
       (inc-dec-button (assoc props :nmin nmin :nmax nmax :increment -1 :cursor input-ref))
       [:input

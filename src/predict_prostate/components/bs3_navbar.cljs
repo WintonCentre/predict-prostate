@@ -18,7 +18,9 @@
     [:.navbar-header
      [:button.navbar-toggle {:type        "button"
                              :data-toggle "collapse"
-                             :data-target (str "#" id)}
+                             :data-target (str "#" id)
+                             :aria-label  "menu"
+                             }
       (map (fn [i] [:span.icon-bar {:key i}]) (range 3))]
      (when logo [:img.navbar-brand {:src logo :alt "logo"}])]
     (collapsing-navbar {:id id} navbar-menu)]
