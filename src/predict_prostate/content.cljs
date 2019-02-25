@@ -365,7 +365,17 @@
                over recent years. Therefore we did not have data on MRI-defined lesions, PIRADS scores, or MRI-stage, nor are they included in the model. 
                However, it is yet unknown if MRI data will improve prognostic ability with MRI primarily used to guide biopsies rather than offer prognostic information. 
                If MRI information is shown to be independently prognostically significant it could potentially be incorporated into a future version of Predict Prostate.")
+           
+           (hr)
+           (faq-item "What if I only had biopsies of the suspicious area seen on my MRI?"
+                "Predict is built around data from men whow had multiple 'systematic' biopsies taken from multiple parts of their prostate. A small number of centres 
+                only take biopsies from parts of the prostate that look suspicious on MRI. In this circumstance, it should be considered that 
+                biopsy data is unavailable, as using these figures for 'biopsy cores taken' and 'biopsy cores with prostate cancer' would lead to less reliable estimates. 
+                By reporting that biopsy data is unavailable, the average values will be used, which will make the estimates slightly less personalised. ")
 
+(hr)
+(faq-item "What if I never had any prostate biopsies and my prostate cancer was diagnosed incidentally by an operation to help me urinate (such as 'trans-urethral resection of the prostate 'TURP' or 'HoLeP')?")
+                "Predict does not use data from men diagnosed and treated by an endoscopic procedure alone. The estimates are likely to be less reliable. "
      (hr)
      (faq-item "What about other treatments?"
                "This web-model focuses on radical treatment (radical prostatectomy or radiotherapy) compared to conservative 
@@ -700,10 +710,12 @@
       If this information is not known, select 'No'. The average value will be applied which will make the estimates slightly less personalised."]]
 
     [:section#number-of-biopsy-cores-taken "Biopsy cores taken"
-     [:p "Add biopsy-cores-taken words"]]
+     [:p "The total number of biopsy cores taken. Extra biopsies taken from a target site should be considered as 1 core, regardless of how many biopsy cores were
+      taken from that target. *See examples*"]]
 
     [:section#number-of-biopsy-cores-with-prostate-cancer "Biopsy cores with prostate cancer"
-     [:p "Add biopsy-cores-with-prostate-cancer words"]]
+     [:p "The total number of biopsy cores with any prostate cancer within them. Even cores with a lower grade should be counted here, if they have any prostate cancer within them. 
+      Biopsy cores with prostate cancer in them taken from a single target site should be considered as 1 core, regardless of how many cores with prostate cancer were taken from that target."]]
 
     [:section#h-admissions "Hospital admissions in the last 2 years"
      [:p "This refers to any inpatient admission to hospital in the 2 years before prostate cancer diagnosis. Anything anything related
