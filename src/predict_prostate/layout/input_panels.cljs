@@ -74,7 +74,7 @@
    [:form.form-horizontal {:on-key-press key-event
                            :on-submit    submit-event}
     (when (model-keys :age) [:div (form-entry {:label "Age" :key :age})
-                             [:div {:style {:color       "#686868"
+                             #_[:div {:style {:color       "#686868"
                                             :margin-left "145px"
                                             :margin-top  -5}}
                               "Age must be between 35 and 95"]])
@@ -95,7 +95,7 @@
 ;; TUMOUR RELATED
 ;;;
 (rum/defc biopsy-core-examples []
-  [:span  [:a {:style    {:color  "#888888" :text-decoration "underline"
+  [:span  [:a {:style    {:color  "#000" :text-decoration "underline"
                                    :cursor "pointer"}
                         :on-click #(publish help-key-change "biopsy-examples")} "See examples"]])
 
@@ -119,14 +119,15 @@
      [:div
       (when (model-keys :biopsy-cores-taken)
         (form-entry {:label "Number of biopsy cores taken" :key :biopsy-cores-taken}))
-      (when (model-keys :biopsy-cores-involved)
-        [:span
-         (form-entry {:label "Number of biopsy cores with prostate cancer" :key :biopsy-cores-involved})])
-      [:div {:style {:color       "#AAA"
+      [:div {:style {:color       "#686868"
                      :margin-left "145px"
                      :margin-top  0}}
        "Extra biopsy cores from a target site are considered as 1 core regardless of the number of biopsy cores taken. "
        (biopsy-core-examples)]
+      (when (model-keys :biopsy-cores-involved)
+        [:span
+         (form-entry {:label "Number of biopsy cores with prostate cancer" :key :biopsy-cores-involved})])
+
       ])
 
 
