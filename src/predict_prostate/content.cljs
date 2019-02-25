@@ -285,15 +285,15 @@
                       . by D Thurtle, D Greenberg, LS Lee, H Huang, P Pharoah, VJ Gnanapragasam. European Urology Supplements
       2018; 17(2): e1328-e1329. Published online 2018 March. doi: 10.1016/S1569-9056(18)31764-0. "
             [:a {:href   "https://www.eusupplements.europeanurology.com/article/S1569-9056(18)31764-0/fulltext"
-                 :target "_blank"} "[Abstract online]"]
-            [:li [:p "Individual prognosis at diagnosis in non-metastatic prostate cancer: Development and external validation of the PREDICT Prostate multivariable model
+                 :target "_blank"} "[Abstract online]"]]]
+      [:li [:p "Individual prognosis at diagnosis in non-metastatic prostate cancer: Development and external validation of the PREDICT Prostate multivariable model
                       . by D Thurtle, D Greenberg, LS Lee, H Huang, PD Pharoah, VJ Gnanapragasam. PLOS Medicine
       2019.  "
-                  [:a {:href   "https://journals.plos.org/plosmedicine/"
-                       :target "_blank"} "[In press.]"]]]]]]]
+            [:a {:href   "https://journals.plos.org/plosmedicine/"
+                 :target "_blank"} "[In press.]"]]]]]
 
    [:section#faqs "FAQs"
-    [:section "FAQs"
+    [:section ""
 
      (faq-item "Looking for advice?"
                [:.col-sm-12                                 ; {:style {:margin-top 20}}
@@ -332,45 +332,45 @@
 
      (hr)
      (faq-item "What if I don’t have all the details needed for the input section?"
-               "The model requires all boxes on the 'predict tool' page to be completed. If the biopsy details are unknown, 'No' 
-               can be selected next to 'biopsy data available'. If you select 'No' for this, the Predict tool will use the average value. 
-               This will simply make the results less personalised.  
-               If BRCA status is unknown 'Negative or Untested' should be selected. 
+               "The model requires all boxes on the 'predict tool' page to be completed. If the biopsy details are unknown, 'No'
+               can be selected next to 'biopsy data available'. If you select 'No' for this, the Predict tool will use the average value.
+               This will simply make the results less personalised.
+               If BRCA status is unknown 'Negative or Untested' should be selected.
                      All of the necessary details should be easily available to your prostate cancer specialist.")
      (hr)
      (faq-item "How do I know that Predict gives the right answers."
                "Predict estimates what would be expected to happen to men with similar characteristics based on past
-               data. The findings are based on men diagnosed in the East of England but we have also tested the model 
-               on over 2,500 men diagnosed in Singapore. To the best of our knowledge the Predict tool should work equally well for most men in the UK. 
-               However, Predict can never say what will happen to an individual man. Note also that Predict is likely to be less 
-               reliable in higher risk disease, as very few men with these characteristics were managed conservatively in our data. The model is 
+               data. The findings are based on men diagnosed in the East of England but we have also tested the model
+               on over 2,500 men diagnosed in Singapore. To the best of our knowledge the Predict tool should work equally well for most men in the UK.
+               However, Predict can never say what will happen to an individual man. Note also that Predict is likely to be less
+               reliable in higher risk disease, as very few men with these characteristics were managed conservatively in our data. The model is
                intended for men where conservative management and radical treatment are both appropriate options.")
      (hr)
      (faq-item "If the data used is from patients decades ago won't the predictions it gives be out of date?"
                "These predictions are based on patients diagnosed between 2000 and 2010, and include follow-up for up to 16 years.
-               In order to carry out long term predictions older data have to be used.  It is possible that outcomes of cancers diagnosed today, and treatments used today 
+               In order to carry out long term predictions older data have to be used.  It is possible that outcomes of cancers diagnosed today, and treatments used today
                will be different.")
      (hr)
      (faq-item "What use are these kinds of statistics when as a patient I will either be cured or not?"
                "Treatment does not work for everyone - whilst some people may get a large survival benefit, others may get no benefit - only the harmful side effects of treatment.
-               Particularly in older men or men with other long-term conditions, the overall survival benefits of prostate cancer treatment can be small.  This makes choosing whether 
-               or not to have radical treatment a difficult and personal choice.  
+               Particularly in older men or men with other long-term conditions, the overall survival benefits of prostate cancer treatment can be small.  This makes choosing whether
+               or not to have radical treatment a difficult and personal choice.
                From statistics, based on what has happened to people with similar cancers in the past when they had treatment, Predict tries to give the 'best guess' at the sort of
-               benefits treatment might give a particular patient.  This can help inform a personal decision on whether to try it or not. Any potential benefits, should also be weighed 
+               benefits treatment might give a particular patient.  This can help inform a personal decision on whether to try it or not. Any potential benefits, should also be weighed
                against the possible harms of treatment side effects.")
      (hr)
      (faq-item "What about MRI?"
-               "Magnetic Resonance Imaging (MRI) is increasingly being used in prostate cancer care. 
+               "Magnetic Resonance Imaging (MRI) is increasingly being used in prostate cancer care.
                The data used for this model was from men diagnosed between 2000 and 2010 when MRI was rarely used, and MRI has changed significantly
-               over recent years. Therefore we did not have data on MRI-defined lesions, PIRADS scores, or MRI-stage, nor are they included in the model. 
-               However, it is yet unknown if MRI data will improve prognostic ability with MRI primarily used to guide biopsies rather than offer prognostic information. 
+               over recent years. Therefore we did not have data on MRI-defined lesions, PIRADS scores, or MRI-stage, nor are they included in the model.
+               However, it is yet unknown if MRI data will improve prognostic ability with MRI primarily used to guide biopsies rather than offer prognostic information.
                If MRI information is shown to be independently prognostically significant it could potentially be incorporated into a future version of Predict Prostate.")
-           
+
            (hr)
            (faq-item "What if I only had biopsies of the suspicious area seen on my MRI?"
-                "Predict is built around data from men whow had multiple 'systematic' biopsies taken from multiple parts of their prostate. A small number of centres 
-                only take biopsies from parts of the prostate that look suspicious on MRI. In this circumstance, it should be considered that 
-                biopsy data is unavailable, as using these figures for 'biopsy cores taken' and 'biopsy cores with prostate cancer' would lead to less reliable estimates. 
+                "Predict is built around data from men whow had multiple 'systematic' biopsies taken from multiple parts of their prostate. A small number of centres
+                only take biopsies from parts of the prostate that look suspicious on MRI. In this circumstance, it should be considered that
+                biopsy data is unavailable, as using these figures for 'biopsy cores taken' and 'biopsy cores with prostate cancer' would lead to less reliable estimates.
                 By reporting that biopsy data is unavailable, the average values will be used, which will make the estimates slightly less personalised. ")
 
 (hr)
@@ -378,7 +378,7 @@
                 "Predict does not use data from men diagnosed and treated by an endoscopic procedure alone. The estimates are likely to be less reliable. "
      (hr)
      (faq-item "What about other treatments?"
-               "This web-model focuses on radical treatment (radical prostatectomy or radiotherapy) compared to conservative 
+               "This web-model focuses on radical treatment (radical prostatectomy or radiotherapy) compared to conservative
                management (including active surveillance or watchful waiting). Other types of treatment for prostate cancer are available, but are beyond the scope
                of this model. Your own prostate cancer specialist should be able to advise you how effective another treatment type is.")
 
@@ -388,13 +388,13 @@
                      treatment (either surgery or radiotherapy) could both be appropriate options.")
      #_(hr)
      #_(faq-item "What about HGPIN?"
-                 "The calculations in Predict are only for men who have been diagnosed with primary prostate cancer. 
+                 "The calculations in Predict are only for men who have been diagnosed with primary prostate cancer.
                  These are not for use by men with HGPIN (high grade prostatic intra-epithelial neoplasia).")
      (hr)
      (faq-item "Does Predict account for different types of surgery?"
-               "No. Predict does not attempt to differentiate between surgery and radiotherapy, nor between different surgical techniques. Predict was built around 
-               data from men diagnosed between 2000 and 2010. During this time period, if men were treated by surgery it may have been by open, 
-               laparoscopic ('key-hole'), or robotic prostatectomy. We are not able to account for differences in survival outcomes between these operative techniques. 
+               "No. Predict does not attempt to differentiate between surgery and radiotherapy, nor between different surgical techniques. Predict was built around
+               data from men diagnosed between 2000 and 2010. During this time period, if men were treated by surgery it may have been by open,
+               laparoscopic ('key-hole'), or robotic prostatectomy. We are not able to account for differences in survival outcomes between these operative techniques.
                The side effect profiles may differ between different types of surgery and radiotherapy.")
      (hr)
      (faq-item "What about side effects?"
