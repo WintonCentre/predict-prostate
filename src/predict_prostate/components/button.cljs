@@ -148,8 +148,9 @@
 
 (defn start-button []
   [:div
-   [:button.btn.btn-primary.btn-lg {:style    {:margin 20}
+   [:button.btn.btn-primary.btn-lg {:style      {:margin  20
+                                                 }
                                     :aria-label "go to predict tool"
-                                    :type "button"
-                                    :on-click #(publish route-change [:tool nil nil])}
+                                    :type       "button"
+                                    :on-click   #(publish route-change [:tool nil nil])}
     (simple/icon {:family :fa} "chevron-right") " Start Predict"]])

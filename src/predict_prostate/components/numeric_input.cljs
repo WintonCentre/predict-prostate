@@ -6,7 +6,7 @@
             [cljs-css-modules.macro :refer-macros [defstyle]]))
 
 (defstyle style
-  ["#numeric-input" {:width      "130px"
+  [".numeric-input" {:width      "130px"
                      :tab-index  1
                      :selectable true}
    [".incdec"
@@ -162,10 +162,9 @@
 
 
 (rum/defc numeric-input < rum/static rum/reactive           ;echo-update
-  [{:keys [input-ref onChange min max error-color color precision] :or {error-color "red" color "black"} :as props}]
+  [{:keys [key input-ref onChange min max error-color color precision] :or {error-color "red" color "black"} :as props}]
 
   ;(.log js/console "key: " input-ref " precision: " precision)
-
 
   ;(js/console.log "props: " props)
   (let [[good bad] (split (rum/react input-ref) #":")
@@ -182,7 +181,7 @@
                    precision
                    onChange e))]
 
-    [:div {:id          "numeric-input"
+    [:div {:class       "numeric-input"
            :style       {:width      "130px"
                          :tab-index  1
                          :selectable true}
@@ -200,6 +199,7 @@
       [:input
        {:type      "text"
         :value     good                                     ;(num-to-str value)
+        :id        key
         :on-click  mutate
         :on-change mutate
         :style     {:width            "58px" :height "36px" :font-size "14px"
