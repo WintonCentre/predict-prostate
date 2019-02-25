@@ -29,7 +29,55 @@
   (str-to-num 3.5)                                          ;=> 3.5
   )
 
-(defn num-to-str [n] (if (js/isNaN n) "" (str n)))
+(def epsilon 1e-8)
+
+(defn near-integer? [n]
+  (< (js/Math.abs (- n (js/Math.round n))) epsilon))
+
+(defn trim-trailing-zero [s]
+  (if-let [[m m1] (re-matches #"(.*\.\d)\d+" s)]
+    m1 s))
+
+(defn at-precision [n precision]
+  (cond
+    (= 0 precision)
+    ; display as integer
+    (str (js/Math.round n))
+
+    (= 3 precision)
+    ; flexible display up to 3dp
+    (if (near-integer? n)
+      (str (js/Math.round n))
+      (-> n
+          (.toPrecision (js/Number. 3))
+          (trim-trailing-zero)))
+
+    (= 2 precision)
+    ; display with 2dp always
+    (.toFixed (js/Number. n) 2)
+
+    (= 1 precision)
+    ; display with 1dp always
+    (.toFixed (js/Number. n) 1)
+    )
+  )
+
+(defn num-to-str
+  ([n]
+    ; default to integer
+   (num-to-str n 0))
+  ([n precision]
+   (if (string? n)
+     n
+     (if (js/isNaN n)
+       ""
+       (if (near-integer? n)
+         (str (js/Math.round n))
+         (if precision
+           (at-precision n precision))
+         #_(-> n
+               (.toPrecision (js/Number. 3))
+               (trim-trailing-zero)))))))
 
 ; this can be global as there is only one input under focus at any one time
 (def timer (atom nil))
@@ -48,42 +96,41 @@
                 value)
         val-2 (+ step val-1)                                ; do the increment
 
-        ; todo: can we disable inc/dec buttons? if necessary?
         val-3 (if (< val-2 nmin)                            ; is it too small?
-                (str val-2 ":" val-2)   ; yes
+                (str (num-to-str val-2) ":" val-2)          ; yes
                 (if (> val-2 nmax)                          ; no; is it too big?
-                  (str val-2 ":" val-2)                      ; yes, return good and bad values, in colon separated string
+                  (str (num-to-str val-2) ":" val-2)        ; yes, return good and bad values, in colon separated string
                   val-2))]                                  ; no
-    (str val-3)))
+    val-3))
 
 (defn handle-inc [value onChange nmin nmax step]
   (let [v (validate value nmin nmax step)]
-    ;(js/console.log "onChange " v)
-    (onChange (str v))))
+    (js/console.log "onChange " v)
+    (onChange (num-to-str v))))
 
 
 (defn handle-typed-input [nmin nmax onChange e]
-
   (let [value (.. (-> e .-target) -value)]
-    (if (re-matches #"\s*\d+\s*" value)
-      (onChange (str (validate (str-to-num value) nmin nmax 0)))
+    (.log js/console value)
+    (if (re-matches #"\s*\d*\.?\d*\s*" value)
+      (onChange (num-to-str (validate (str-to-num value) nmin nmax 0)))
       (onChange (num-to-str ##NaN)))
     ))
 
 (defn update-value [value nmin nmax step onChange]
   (handle-inc value onChange nmin nmax step)
   #_(let [value (str-to-num value)
-        value (if (> value nmax) nmax (if (< value nmin) nmin value))]
+          value (if (> value nmax) nmax (if (< value nmin) nmin value))]
 
-    ;(js/console.log "update value = " value)
-    ;(js/console.log "update value nmin = " nmin)
-    ;(js/console.log "update value nmax = " nmax)
-    (handle-inc value onChange nmin nmax step)
-    ))
+      ;(js/console.log "update value = " value)
+      ;(js/console.log "update value nmin = " nmin)
+      ;(js/console.log "update value nmax = " nmax)
+      (handle-inc value onChange nmin nmax step)
+      ))
 
-(defn clear-timer [state]
-  (js/clearInterval @(::timer state))
-  (reset! (::timer state) nil))
+#_(defn clear-timer [state]
+    (js/clearInterval @(::timer state))
+    (reset! (::timer state) nil))
 
 
 (rum/defcs inc-dec-button < rum/static rum/reactive (rum/local nil ::timer)
@@ -100,24 +147,26 @@
      ;
      ;todo: I was using a buttonified [:a]  here. Keep an eye out for issues with change to more semantic [:button]
      ;
-     [:button {:class-name    (str (if (pos? increment) "right" "left") " btn btn-default ")
-               :aria-hidden   "true"
-               :disabled      (if (pos? increment)
-                                (if (>= value (str-to-num (if (fn? max) (rum/react (max)) max))) "disabled" nil)
-                                (if (<= value nmin) "disabled" nil))
-               :tab-index     -1
+     [:button {:class-name  (str (if (pos? increment) "right" "left") " btn btn-default ")
+               :aria-hidden "true"
+               :disabled    (if (pos? increment)
+                              (if (>= value (str-to-num (if (fn? max) (rum/react (max)) max))) "disabled" nil)
+                              (if (<= value nmin) "disabled" nil))
+               :tab-index   -1
                ;:on-mouse-down #(do (reset! (::timer state) (start-timer %)))
                ;:on-mouse-up   #(clear-timer state)
                ;:on-mouse-out  #(clear-timer state)
                ;:on-mouse-leave  #(clear-timer state)
-               :on-click      #(do                          ;(clear-timer state)
-                                   (update-value @cursor nmin nmax increment onChange))}
+               :on-click    #(do                            ;(clear-timer state)
+                               (update-value @cursor nmin nmax increment onChange))}
       (if (pos? increment) "+" "–")]]))
 
 
 
 (rum/defc numeric-input < rum/static rum/reactive           ;echo-update
-  [{:keys [key input-ref onChange min max error-color color] :or {error-color "red" color "black"} :as props}]
+  [{:keys [key input-ref onChange min max error-color color precision] :or {error-color "red" color "black"} :as props}]
+
+  (.log js/console "key: " input-ref " precision: " precision)
 
   ;(js/console.log "props: " props)
   (let [[good bad] (split (rum/react input-ref) #":")

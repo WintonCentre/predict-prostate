@@ -325,6 +325,7 @@
 
          [:div {:class-name (:chart chart-style)
                 :style      {:width      (str (if side-by-side width 100) "%")
+                             :max-width 400
                              :font-size  (* (/ width-1 25) font-scale)
                              :display    "inline-block"
                              :margin-top "3ex"
@@ -351,7 +352,7 @@
   [:div
    (stacked-bar {:width       70
                  :title       title
-                 :h-over-w    0.65
+                 :h-over-w    0.4
                  :font-scale  1
                  :printable printable
                  :chart-style stacked-bar-chart-style})])

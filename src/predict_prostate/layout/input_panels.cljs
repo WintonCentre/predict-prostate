@@ -56,6 +56,14 @@
      (treatments-received-form model-keys))]
   )
 
+
+(rum/defc less-well-tested []
+  [:div {:style {:color       "#AAA"
+                 :margin-left "145px"
+                 :margin-top  0}}
+   [:i.fa.fa-exclamation-triangle {:aria-hidden "true" :style {:color "orange" :padding-right 5}}]
+   "The tool is less well tested for higher scores"])
+
 ;;;
 ;; PATIENT RELATED
 ;;;
@@ -72,6 +80,7 @@
                               "Age must be between 35 and 95"]])
     (when (model-keys :psa) (form-entry {:label "PSA" :key :psa}))
     (when (model-keys :t-stage) (form-entry {:label "T stage" :key :t-stage}))
+    (when (= 4 (rum/react (input-cursor :t-stage))) (less-well-tested))
     (when (model-keys :h-admissions) (form-entry {:label "h-admissions" :key :h-admissions}))
     (when (= (rum/react (input-cursor :h-admissions)) 1)
       (when (model-keys :charlson-comorbidity) (form-entry {:label "comorb" :key :charlson-comorbidity})))
@@ -79,7 +88,6 @@
     ]])
 
 (rum/defc patient-related-panel < rum/static [model-keys]
-
   (patient-related-form model-keys)
   )
 
@@ -92,19 +100,13 @@
                         :on-click #(publish help-key-change "biopsy-examples")} "See examples"]])
 
 
-
-(rum/defc tumour-related-form < rum/reactive rum/static [model-keys]
+(rum/defc tumour-related-form < rum/static rum/reactive [model-keys]
   [:form.form-horizontal {:on-key-press key-event
                           :on-submit    submit-event}
 
-
    [:div (form-entry {:label "Histological grade group" :key :grade-group})
     (when (#{4 5} (rum/react (input-cursor :grade-group)))
-      [:div {:style {:color       "#AAA"
-                     :margin-left "145px"
-                     :margin-top  0}}
-       [:i.fa.fa-exclamation-triangle {:aria-hidden "true" :style {:color "orange" :padding-right 5}}]
-       "The tool is less well tested for higher scores"])]
+      (less-well-tested))]
    (form-entry {:label "Gleason score" :key :gleason})
 
 
@@ -119,12 +121,11 @@
         (form-entry {:label "Number of biopsy cores taken" :key :biopsy-cores-taken}))
       (when (model-keys :biopsy-cores-involved)
         [:span
-         (form-entry {:label "Number of biopsy cores with prostate cancer" :key :biopsy-cores-involved})
-         #_(rum/react (input-cursor :biopsy-cores-involved))])
+         (form-entry {:label "Number of biopsy cores with prostate cancer" :key :biopsy-cores-involved})])
       [:div {:style {:color       "#AAA"
                      :margin-left "145px"
                      :margin-top  0}}
-       "Any number of cores from a single target should be considered as 1 core. "
+       "Extra biopsy cores from a target site are considered as 1 core regardless of the number of biopsy cores taken. "
        (biopsy-core-examples)]
       ])
 

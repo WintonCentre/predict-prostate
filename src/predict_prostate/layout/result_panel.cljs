@@ -66,7 +66,7 @@
 
 (rum/defc side-panel []
   [:.well {:style {:margin-top 20  :background-color alison-blue-1}}
-   [:p (all-subsections "tool-postamble")]
+   (all-subsections "tool-postamble")
    (when (#{4 5} @(input-cursor :grade-group))
      (all-subsections "high-grade-group-warning"))
    (all-subsections "scroll-down-for")
