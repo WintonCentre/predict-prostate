@@ -80,7 +80,7 @@
                   #{"prostate" "prostate-release"}
                   "")
    (->Input-group :t-stage
-                  "Clinical stage"
+                  "Clinical T stage"
                   :radio-group
                   [[1 "1"]
                    [2 "2"]
@@ -155,7 +155,7 @@
                   nil)
 
    (->Input-group :biopsy-cores-involved
-                  "Biopsy cores with prostate cancer"
+                  "Biopsy cores with any prostate cancer in"
                   :numeric-input
                   #_{:min 1 :max :biopsy-cores-taken :step 1 :precision 0}
                   {:min 1 :max (fn [] (input-cursor :biopsy-cores-taken)) :step 1 :precision 0}
