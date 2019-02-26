@@ -151,16 +151,11 @@
 
   [:section#whoisitfor "Who is it for?"
    [:section "Who is it for?"
-    [:p "The tool is intended for men with non-metastatic prostate cancer who are deciding between conservative and radical management regimes."]
-
-    [:p "The tool is likely to be less reliable in men with any 'high risk' tumour characteristics (PSA>20ng/ml, Grade group 4 or 5, T stage 3 or 4) as very few men
- with these characteristics were managed with conservative management in our development or validation data.  "]
+    [:p "The tool is intended for men with non-metastatic prostate cancer who are deciding between conservative and radical management regimes. The tool is not for use in cases where prostate cancer has spread beyond the prostate. It is also less well tested in men with 'high risk' tumour characteristics (PSA>20ng/ml OR Grade group 4 or 5 OR T stage 3 or 4) 
+     as very few men with these characteristics were managed with conservative management in our development or validation data.  "]
 
     [:p "Predict only asks for certain information about the cancer. The inputs it asks for are the ones that are
       most helpful in predicting survival rates. "]
-
-    [:p "'Radical treatment' refers to either whole-gland (radical) radiotherapy or radical prostatectomy. Other
-   treatments have not been considered by this model. "]
 
     [:p "Nothing can ever tell an individual man what is going to happen to him – but we believe that in order to make
     decisions about treatment options it’s important that people are given as much information as is possible about the
@@ -368,19 +363,19 @@
 
      (hr)
      (faq-item "What if I only had biopsies of the suspicious area seen on my MRI?"
-               "Predict is built around data from men whow had multiple 'systematic' biopsies taken from multiple parts of their prostate. A small number of centres
+               "Predict is built around data from men whow had multiple biopsies taken from multiple parts of their prostate. A small number of centres
                only take biopsies from parts of the prostate that look suspicious on MRI. In this circumstance, it should be considered that
-               biopsy data is unavailable, as using these figures for 'biopsy cores taken' and 'biopsy cores with prostate cancer' would lead to less reliable estimates.
+               biopsy data is unavailable, as using only the figures from 'targeted' biopsies would lead to much less reliable estimates.
                By reporting that biopsy data is unavailable, the average values will be used, which will make the estimates slightly less personalised. ")
 
      (hr)
-     (faq-item "What if I never had any prostate biopsies and my prostate cancer was diagnosed incidentally by an operation to help me urinate (such as 'trans-urethral resection of the prostate 'TURP' or 'HoLeP')?")
+     (faq-item "What if I never had any prostate biopsies and my prostate cancer was diagnosed incidentally by an operation to help me urinate (such as by 'trans-urethral resection of the prostate 'TURP' or 'HoLeP')?")
      "Predict does not use data from men diagnosed and treated by an endoscopic procedure alone. The estimates are likely to be less reliable. "
      (hr)
      (faq-item "What about other treatments?"
                "This web-model focuses on radical treatment (radical prostatectomy or radiotherapy) compared to conservative
-               management (including active surveillance or watchful waiting). Other types of treatment for prostate cancer are available, but are beyond the scope
-               of this model. Your own prostate cancer specialist should be able to advise you how effective another treatment type is.")
+               management (including active surveillance or watchful waiting). 'Radical treatment' refers to either whole-gland (radical) radiotherapy or radical prostatectomy. Other
+   treatments are available but have not been considered by this model. Your own prostate cancer specialist should be able to advise you how effective another treatment type is.")
 
      (hr)
      (faq-item "What about metastatic cancer?"
