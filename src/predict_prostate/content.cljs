@@ -302,8 +302,10 @@
                 :rel    "noopener"
                 :target "_blank"} "[In press.]"]]]]]
 
-   [:section#faqs "FAQs"
-    [:section ""
+   ]
+
+   [:section#faqs "FAQS"
+    [:section "FAQs"
 
      (faq-item "Looking for advice?"
                [:.col-sm-12                                 ; {:style {:margin-top 20}}
@@ -398,8 +400,8 @@
                By reporting that biopsy data is unavailable, the average values will be used, which will make the estimates slightly less personalised. ")
 
      (hr)
-     (faq-item "What if I never had any prostate biopsies and my prostate cancer was diagnosed incidentally by an operation to help me urinate (such as 'trans-urethral resection of the prostate 'TURP' or 'HoLeP')?")
-     "Predict does not use data from men diagnosed and treated by an endoscopic procedure alone. The estimates are likely to be less reliable. "
+     (faq-item "What if I never had any prostate biopsies and my prostate cancer was diagnosed incidentally by an operation to help me urinate (such as 'trans-urethral resection of the prostate 'TURP' or 'HoLeP')?"
+     "Predict does not use data from men diagnosed and treated by an endoscopic procedure alone. The estimates are likely to be less reliable. ")
      (hr)
      (faq-item "What about other treatments?"
                "This web-model focuses on radical treatment (radical prostatectomy or radiotherapy) compared to conservative
@@ -459,8 +461,7 @@
                "There is a great deal of information on prostate cancer on the web. One of best and most reliable
                sources is Cancer Research UK, along with those from Macmillan and Prostate Cancer UK. Their information is written by experts, is up to date and in a style
                that is easy to understand.")
-     ]]]
-
+     ]]
 
   [:section#contact "Contact"
    [:section "Contact"
