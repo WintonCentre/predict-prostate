@@ -1,0 +1,9 @@
+#kaocha/v1
+    {:tests [{:id            :unit-cljs
+              :type          :kaocha.type/cljs
+              :test-paths    ["test/prostate_test"]
+              :source-paths ["src"]
+              :cljs/timeout  10000                        ; 10 seconds, the default
+              ;; :cljs/repl-env cljs.repl.node/repl-env     ; node is the default
+              :cljs/repl-env cljs.repl.browser/repl-env
+              }]}

@@ -148,14 +148,17 @@
   ;; Setting up nREPL for Figwheel and ClojureScript dev
   ;; Please see:
   ;; https://github.com/bhauman/lein-figwheel/wiki/Using-the-Figwheel-REPL-within-NRepl
-  :profiles {:dev {:dependencies  [[binaryage/devtools "0.9.9"]
-                                   [figwheel-sidecar "0.5.14"]
-                                   [com.cemerick/piggieback "0.2.2"]]
-                   ;; need to add dev source path here to get user.clj loaded
-                   :source-paths  ["src" "dev"]
-                   ;; for CIDER
-                   ;; :plugins [[cider/cider-nrepl "0.12.0"]]
-                   :repl-options  {:nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
-                   ;; need to add the compliled assets to the :clean-targets
-                   :clean-targets ^{:protect false} ["resources/public/js/compiled"
-                                                     :target-path]}})
+  :profiles {:dev    {:dependencies  [[binaryage/devtools "0.9.9"]
+                                      [figwheel-sidecar "0.5.14"]
+                                      [com.cemerick/piggieback "0.2.2"]]
+                      ;; need to add dev source path here to get user.clj loaded
+                      :source-paths  ["src" "dev"]
+                      ;; for CIDER
+                      ;; :plugins [[cider/cider-nrepl "0.12.0"]]
+                      :repl-options  {:nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
+                      ;; need to add the compliled assets to the :clean-targets
+                      :clean-targets ^{:protect false} ["resources/public/js/compiled"
+                                                        :target-path]}
+             :kaocha {:dependencies [[lambdaisland/kaocha "0.0-389"]
+                                     [lambdaisland/kaocha-cljs "0.0-16"]]}}
+:aliases {"kaocha" ["with-profile" "+kaocha" "run" "-m" "kaocha.runner"]})
