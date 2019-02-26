@@ -67,7 +67,7 @@
       [:tr
        [:td (input-label :grade-group)
         (when (#{4 5} (rum/react (input-cursor :grade-group)))
-          [:div {:style {:color      "#AAA"
+          [:div {:style {:color      "#686868"
                          :margin-top 0}}
            [:i.fa.fa-exclamation-triangle {:aria-hidden "true" :style {:color "orange" :padding-right 5}}]
            "The tool is less well tested for higher scores"])]
@@ -75,7 +75,7 @@
       [:tr
        [:td (input-label :gleason)
         (when (#{4 5} (rum/react (input-cursor :grade-group)))
-          [:div {:style {:color       "#AAA"
+          [:div {:style {:color       "#686868"
                          :margin-top  0}}
            [:i.fa.fa-exclamation-triangle {:aria-hidden "true" :style {:color "orange" :padding-right 5}}]
            "The tool is less well tested for higher scores"])]

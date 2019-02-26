@@ -58,7 +58,7 @@
 
 
 (rum/defc less-well-tested []
-  [:div {:style {:color       "#AAA"
+  [:div {:style {:color       "#686868"
                  :margin-left "145px"
                  :margin-top  0}}
    [:i.fa.fa-exclamation-triangle {:aria-hidden "true" :style {:color "orange" :padding-right 5}}]
@@ -122,7 +122,7 @@
       (when (model-keys :biopsy-cores-involved)
         [:span
          (form-entry {:label "Number of biopsy cores with prostate cancer" :key :biopsy-cores-involved})])
-      [:div {:style {:color       "#AAA"
+      [:div {:style {:color       "#686868"
                      :margin-left "145px"
                      :margin-top  0}}
        "Extra biopsy cores from a target site are considered as 1 core regardless of the number of biopsy cores taken. "
