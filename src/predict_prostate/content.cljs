@@ -189,15 +189,18 @@
 
     [:p "Predict Prostate has been developed by a partnership between the "
      [:a {:href   "https://surgery.medschl.cam.ac.uk/divisions-and-groups/academic-urology-group/"
+          :rel    "noopener"
           :style  {:text-decoration "underline"}
           :target "_blank"} "Academic Urology Group"] " and the "
      [:a {:href   "https://ccge.medschl.cam.ac.uk/"
+          :rel    "noopener"
           :style  {:text-decoration "underline"}
           :target "_blank"} "Centre for Cancer Genetic Epidemiology"]
      " at the University of Cambridge"
      " in collaboration with the National Cancer Registration and Analysis Service (NCRAS) at Public Health England.
      This work has been supported by funding from "
      [:a {:href   "https://www.theurologyfoundation.org/"
+          :rel    "noopener"
           :style  {:text-decoration "underline"}
           :target "_blank"} "The Urology Foundation"]
      " and the Evelyn Trust"]
@@ -205,6 +208,7 @@
 
     [:p "The website has been built by the "
      [:a {:href   "https://wintoncentre.maths.cam.ac.uk"
+          :rel    "noopener"
           :style  {:text-decoration "underline"}
           :target "_blank"} "Winton Centre for Risk & Evidence Communication"]
      " at the University of Cambridge who are funded by a generous donation from the David and Claudia Harding Foundation and the Winton Charitable Foundation."]
@@ -231,212 +235,238 @@
     ]]
 
 
-   [:section#history "Development History"
+  [:section#history "Development History"
 
-    [:section "Development History"
-     [:p "The original model (v1.0) was derived from cancer registry information on 7,062 men treated in East Anglia from 2000-2010.
+   [:section "Development History"
+    [:p "The original model (v1.0) was derived from cancer registry information on 7,062 men treated in East Anglia from 2000-2010.
       They were followed until 30 September 2016 so that the median length of follow-up was 9.8 years and the maximum was 16 years
       Mortality models for prostate cancer-specific and non prostate cancer mortality were constructed using Cox proportional
      hazards, adjusted for known prognostic factors. The overall survival estimates for an individual patient are based
      on both of these models, with one adjusted for the other within a competing risks framework.
      Further information is provided from a previous abstract presented at the European Association of Urology conference 2018 "
-      [:a {:href   "https://www.eusupplements.europeanurology.com/article/S1569-9056(18)31764-0/fulltext"
-           :target "blank"} "European Urology Supplements March 2018."]
-      " and within the full paper which is currently in press with "
-      [:a {:href   "https://journals.plos.org/plosmedicine/"
-           :target "_blank"} "PLOS Medicine."]]]
+     [:a {:href   "https://www.eusupplements.europeanurology.com/article/S1569-9056(18)31764-0/fulltext"
+          :rel    "noopener"
+          :target "blank"} "European Urology Supplements March 2018."]
+     " and within the full paper which is currently in press with "
+     [:a {:href   "https://journals.plos.org/plosmedicine/"
+          :rel    "noopener"
+          :target "_blank"} "PLOS Medicine."]]]
 
-    [:section "Model validation"
-     [:p "The clinical validity of a prediction model can be defined as the accuracy of the model to
+   [:section "Model validation"
+    [:p "The clinical validity of a prediction model can be defined as the accuracy of the model to
      predict future events. Two key measures of clinical validity are calibration and discrimination."]
-     [:p "Calibration is how well the model predicts the total number of events in a given data set. A perfectly
+    [:p "Calibration is how well the model predicts the total number of events in a given data set. A perfectly
      calibrated model is one where the observed (or actual) number of events in a given patient cohort is the same as
      the number of events predicted by the model. Discrimination is how well the model predicts the occurrence of an
      event in individual patients. The discrimination statistic is a number between zero and one - where 1 means the model always predicts who will have
      a worse outcome. A score of 0.5 would suggest the model will be correct half the time."]
-     [:p "Predict was originally validated using a dataset of another 3,000 prostate cancer patients from the Eastern England
+    [:p "Predict was originally validated using a dataset of another 3,000 prostate cancer patients from the Eastern England
     data and a further 2,546 men from a separate independent dataset from Singapore diagnosed between 1990 and 2015 and followed up for a median of 5.1 years. Discrimination
     in these two datasets was 0.84 for prostate cancer survival, and 0.77 and 0.76 for overall survival over 15 years maximum follow-up. Further details are available via the publications below."]]
 
-    [:section "Model Extension: BRCA status and biopsy reparameterisation (version 1.1)"
-     [:p "The web-model was updated in March 2019 to include BRCA status and to model the impact of biopsy core involvement differently."]
-     [:p "Carriage of the BRCA1/2 mutation is associated with worse survival outcomes in prostate cancer.
+   [:section "Model Extension: BRCA status and biopsy reparameterisation (version 1.1)"
+    [:p "The web-model was updated in March 2019 to include BRCA status and to model the impact of biopsy core involvement differently."]
+    [:p "Carriage of the BRCA1/2 mutation is associated with worse survival outcomes in prostate cancer.
       Considering only men with nonmetastatic prostate cancer, the independent hazard ratio for BRCA1/2 carriage 
       for 5 year cancer-specific mortality was 2.6. This work has been published in the "
-      [:a {:href   "http://ascopubs.org/doi/full/10.1200/JCO.2012.43.1882 "
-           :target "blank"} "Journal of Clinical Oncology, April 2013."]
-      " The poor prognostic effect on prostate cancer specific mortality has been applied within the model for those who are known
-      to have a BRCA1/2 mutation. Note that there has been no compensatory adjustment to the predicted prognosis for those known to be negative
-      for the mutation, nor for those in whom the BRCA status is unknown, as the prevalence of mutations is so low."]]
+     [:a {:href   "http://ascopubs.org/doi/full/10.1200/JCO.2012.43.1882 "
+          :rel    "noopener"
+          :target "blank"} "Journal of Clinical Oncology, April 2013."]
+     " The poor prognostic effect on prostate cancer specific mortality has been applied within the model for those who are known
+     to have a BRCA1/2 mutation. Note that there has been no compensatory adjustment to the predicted prognosis for those known to be negative
+     for the mutation, nor for those in whom the BRCA status is unknown, as the prevalence of mutations is so low."]]
 
 
-    [:section "Future versions"
-     [:p "Predict Prostate will be updated over time as new information and evidence becomes available. The model is currently undergoing testing
+   [:section "Future versions"
+    [:p "Predict Prostate will be updated over time as new information and evidence becomes available. The model is currently undergoing testing
                in other international cohorts and a "
-      [:a {:href   "http://www.isrctn.com/ISRCTN28468474"
-           :target "blank"} "patient study"] " is underway to assess its potential impact on clinical practice."]
+     [:a {:href   "http://www.isrctn.com/ISRCTN28468474"
+          :rel    "noopener"
+          :target "blank"} "patient study"] " is underway to assess its potential impact on clinical practice."]
     ]]
 
-    [:section#publications "Publications"
-     [:section "Publications"
-      [:a {:name "publications"}]
-      [:ol
-       [:li [:p "PREDICT: Prostate – a novel prognostic model that estimates individual survival in newly diagnosed primary non-metastatic prostate cancer
+  [:section#publications "Publications"
+   [:section "Publications"
+    [:a {:name "publications"}]
+    [:ol
+     [:li [:p "PREDICT: Prostate – a novel prognostic model that estimates individual survival in newly diagnosed primary non-metastatic prostate cancer
                       . by D Thurtle, D Greenberg, LS Lee, H Huang, P Pharoah, VJ Gnanapragasam. European Urology Supplements
       2018; 17(2): e1328-e1329. Published online 2018 March. doi: 10.1016/S1569-9056(18)31764-0. "
-             [:a {:href   "https://www.eusupplements.europeanurology.com/article/S1569-9056(18)31764-0/fulltext"
-                  :target "_blank"} "[Abstract online]"]]]
-       [:li [:p "Individual prognosis at diagnosis in non-metastatic prostate cancer: Development and external validation of the PREDICT Prostate multivariable model
+           [:a {:href   "https://www.eusupplements.europeanurology.com/article/S1569-9056(18)31764-0/fulltext"
+                :rel    "noopener"
+                :target "_blank"} "[Abstract online]"]]]
+     [:li [:p "Individual prognosis at diagnosis in non-metastatic prostate cancer: Development and external validation of the PREDICT Prostate multivariable model
                       . by D Thurtle, D Greenberg, LS Lee, H Huang, PD Pharoah, VJ Gnanapragasam. PLOS Medicine
       2019.  "
-             [:a {:href   "https://journals.plos.org/plosmedicine/"
+           [:a {:href   "https://journals.plos.org/plosmedicine/"
+                :rel    "noopener"
                 :target "_blank"} "[In press.]"]]]]]
 
-    [:section#faqs "FAQs"
-    [:section ""
+   ]
 
-      (faq-item "Looking for advice?"
-                [:.col-sm-12                                ; {:style {:margin-top 20}}
-                 [:h3 "More Information"]
-                 [:p "The following websites provide excellent advice and information on treatments and their potential harms:"]
-                 [:h4 "About treatments:"]
-                 [:ul {:style {:font-size       "120%"
-                               :list-style-type "none"}}
-                  [:li {:key 1}
-                   [:a {:href "http://www.cancerresearchuk.org/about-cancer/prostate-cancer/treatment" :target "blank"} "Cancer research UK"]]
-                  [:li {:key 2}
-                   [:a {:href "https://www.nhs.uk/conditions/prostate-cancer/treatment/" :target "blank"} "NHS"]]]
+   [:section#faqs "FAQS"
+    [:section "FAQs"
 
-
-                 [:h4 "About potential harms:"]
-                 [:ul {:style {:font-size       "120%"
-                               :list-style-type "none"}}
-                  [:li {:key 3}
-                   [:a {:href "https://www.nhs.uk/conditions/prostate-cancer/treatment/#radical-prostatectomy" :target "blank"} "Radical prostatectomy"]]
-                  [:li {:key 4}
-                   [:a {:href "https://www.nhs.uk/conditions/prostate-cancer/treatment/#radiotherapy" :target "blank"} "Radiotherapy"]]
-                  ]
-                 [:h4 "Further advice and support:"]
-                 [:ul {:style {:font-size       "120%"
-                               :list-style-type "none"}}
-                  [:li {:key 1}
-                   [:a {:href "http://www.macmillan.org.uk/" :target "_blank"} "Macmillan"]]
-                  [:li {:key 2}
-                   [:a {:href "http://prostatecanceruk.org/" :target "_blank"} "Prostate Cancer UK"]]
-                  [:li {:key 3}
-                   [:a {:href "https://www.nhs.uk/pages/home.aspx" :target "_blank"} "NHS Choices"]]
-                  ]]
-
-                )
+     (faq-item "Looking for advice?"
+               [:.col-sm-12                                 ; {:style {:margin-top 20}}
+                [:h3 "More Information"]
+                [:p "The following websites provide excellent advice and information on treatments and their potential harms:"]
+                [:h4 "About treatments:"]
+                [:ul {:style {:font-size       "120%"
+                              :list-style-type "none"}}
+                 [:li {:key 1}
+                  [:a {:href "http://www.cancerresearchuk.org/about-cancer/prostate-cancer/treatment"
+                       :rel    "noopener"
+                       :target "blank"} "Cancer research UK"]]
+                 [:li {:key 2}
+                  [:a {:href "https://www.nhs.uk/conditions/prostate-cancer/treatment/"
+                       :rel    "noopener"
+                       :target "blank"} "NHS"]]]
 
 
-      (hr)
-      (faq-item "What if I don’t have all the details needed for the input section?"
-                "The model requires all boxes on the 'predict tool' page to be completed. If the biopsy details are unknown, 'No'
-                can be selected next to 'biopsy data available'. If you select 'No' for this, the Predict tool will use the average value.
-                This will simply make the results less personalised.
-                If BRCA status is unknown 'Negative or Untested' should be selected.
-                      All of the necessary details should be easily available to your prostate cancer specialist.")
-      (hr)
-      (faq-item "How do I know that Predict gives the right answers."
-                "Predict estimates what would be expected to happen to men with similar characteristics based on past
-                data. The findings are based on men diagnosed in the East of England but we have also tested the model
-                on over 2,500 men diagnosed in Singapore. To the best of our knowledge the Predict tool should work equally well for most men in the UK.
-                However, Predict can never say what will happen to an individual man. Note also that Predict is likely to be less
-                reliable in higher risk disease, as very few men with these characteristics were managed conservatively in our data. The model is
-                intended for men where conservative management and radical treatment are both appropriate options.")
-      (hr)
-      (faq-item "If the data used is from patients decades ago won't the predictions it gives be out of date?"
-                "These predictions are based on patients diagnosed between 2000 and 2010, and include follow-up for up to 16 years.
-                In order to carry out long term predictions older data have to be used.  It is possible that outcomes of cancers diagnosed today, and treatments used today
-                will be different.")
-      (hr)
-      (faq-item "What use are these kinds of statistics when as a patient I will either be cured or not?"
-                "Treatment does not work for everyone - whilst some people may get a large survival benefit, others may get no benefit - only the harmful side effects of treatment.
-                Particularly in older men or men with other long-term conditions, the overall survival benefits of prostate cancer treatment can be small.  This makes choosing whether
-                or not to have radical treatment a difficult and personal choice.
-                From statistics, based on what has happened to people with similar cancers in the past when they had treatment, Predict tries to give the 'best guess' at the sort of
-                benefits treatment might give a particular patient.  This can help inform a personal decision on whether to try it or not. Any potential benefits, should also be weighed
-                against the possible harms of treatment side effects.")
-      (hr)
-      (faq-item "What about MRI?"
-                "Magnetic Resonance Imaging (MRI) is increasingly being used in prostate cancer care.
-                The data used for this model was from men diagnosed between 2000 and 2010 when MRI was rarely used, and MRI has changed significantly
-                over recent years. Therefore we did not have data on MRI-defined lesions, PIRADS scores, or MRI-stage, nor are they included in the model.
-                However, it is yet unknown if MRI data will improve prognostic ability with MRI primarily used to guide biopsies rather than offer prognostic information.
-                If MRI information is shown to be independently prognostically significant it could potentially be incorporated into a future version of Predict Prostate.")
+                [:h4 "About potential harms:"]
+                [:ul {:style {:font-size       "120%"
+                              :list-style-type "none"}}
+                 [:li {:key 3}
+                  [:a {:href "https://www.nhs.uk/conditions/prostate-cancer/treatment/#radical-prostatectomy"
+                       :rel    "noopener"
+                       :target "blank"} "Radical prostatectomy"]]
+                 [:li {:key 4}
+                  [:a {:href "https://www.nhs.uk/conditions/prostate-cancer/treatment/#radiotherapy"
+                       :rel    "noopener"
+                       :target "blank"} "Radiotherapy"]]
+                 ]
+                [:h4 "Further advice and support:"]
+                [:ul {:style {:font-size       "120%"
+                              :list-style-type "none"}}
+                 [:li {:key 1}
+                  [:a {:href "http://www.macmillan.org.uk/"
+                       :rel    "noopener"
+                       :target "_blank"} "Macmillan"]]
+                 [:li {:key 2}
+                  [:a {:href "http://prostatecanceruk.org/"
+                       :rel    "noopener"
+                       :target "_blank"} "Prostate Cancer UK"]]
+                 [:li {:key 3}
+                  [:a {:href "https://www.nhs.uk/pages/home.aspx"
+                       :rel    "noopener"
+                       :target "_blank"} "NHS Choices"]]
+                 ]]
 
-      (hr)
-      (faq-item "What if I only had biopsies of the suspicious area seen on my MRI?"
-                "Predict is built around data from men whow had multiple 'systematic' biopsies taken from multiple parts of their prostate. A small number of centres
-                only take biopsies from parts of the prostate that look suspicious on MRI. In this circumstance, it should be considered that
-                biopsy data is unavailable, as using these figures for 'biopsy cores taken' and 'biopsy cores with prostate cancer' would lead to less reliable estimates.
-                By reporting that biopsy data is unavailable, the average values will be used, which will make the estimates slightly less personalised. ")
+               )
 
-      (hr)
-      (faq-item "What if I never had any prostate biopsies and my prostate cancer was diagnosed incidentally by an operation to help me urinate (such as 'trans-urethral resection of the prostate 'TURP' or 'HoLeP')?")
-      "Predict does not use data from men diagnosed and treated by an endoscopic procedure alone. The estimates are likely to be less reliable. "
-      (hr)
-      (faq-item "What about other treatments?"
-                "This web-model focuses on radical treatment (radical prostatectomy or radiotherapy) compared to conservative
-                management (including active surveillance or watchful waiting). Other types of treatment for prostate cancer are available, but are beyond the scope
-                of this model. Your own prostate cancer specialist should be able to advise you how effective another treatment type is.")
 
-      (hr)
-      (faq-item "What about metastatic cancer?"
-                "Predict is not relevant for men with metastatic prostate cancer. It should only be used by men where either conservative management or radical
-                      treatment (either surgery or radiotherapy) could both be appropriate options.")
-      #_(hr)
-      #_(faq-item "What about HGPIN?"
-                  "The calculations in Predict are only for men who have been diagnosed with primary prostate cancer.
-                  These are not for use by men with HGPIN (high grade prostatic intra-epithelial neoplasia).")
-      (hr)
-      (faq-item "Does Predict account for different types of surgery?"
-                "No. Predict does not attempt to differentiate between surgery and radiotherapy, nor between different surgical techniques. Predict was built around
-                data from men diagnosed between 2000 and 2010. During this time period, if men were treated by surgery it may have been by open,
-                laparoscopic ('key-hole'), or robotic prostatectomy. We are not able to account for differences in survival outcomes between these operative techniques.
-                The side effect profiles may differ between different types of surgery and radiotherapy.")
-      (hr)
-      (faq-item "What about side effects?"
-                "Information about potential treatment side effects, or harms, is on the 'Predict Tool' page. These are not individualised to your personal details
-                      but are taken from the studies mentioned in the text. Charities such as"
-                [:a {:href   "https://prostatecanceruk.org/"
-                     :target "_blank"} "[Prostate Cancer UK.]"] "and"
-                [:a {:href   "https://www.macmillan.org.uk/information-and-support/prostate-cancer/"
-                     :target "_blank"} "[Macmillan.]"] "provide useful information on the side
+     (hr)
+     (faq-item "What if I don’t have all the details needed for the input section?"
+               "The model requires all boxes on the 'predict tool' page to be completed. If the biopsy details are unknown, 'No'
+               can be selected next to 'biopsy data available'. If you select 'No' for this, the Predict tool will use the average value.
+               This will simply make the results less personalised.
+               If BRCA status is unknown 'Negative or Untested' should be selected.
+                     All of the necessary details should be easily available to your prostate cancer specialist.")
+     (hr)
+     (faq-item "How do I know that Predict gives the right answers."
+               "Predict estimates what would be expected to happen to men with similar characteristics based on past
+               data. The findings are based on men diagnosed in the East of England but we have also tested the model
+               on over 2,500 men diagnosed in Singapore. To the best of our knowledge the Predict tool should work equally well for most men in the UK.
+               However, Predict can never say what will happen to an individual man. Note also that Predict is likely to be less
+               reliable in higher risk disease, as very few men with these characteristics were managed conservatively in our data. The model is
+               intended for men where conservative management and radical treatment are both appropriate options.")
+     (hr)
+     (faq-item "If the data used is from patients decades ago won't the predictions it gives be out of date?"
+               "These predictions are based on patients diagnosed between 2000 and 2010, and include follow-up for up to 16 years.
+               In order to carry out long term predictions older data have to be used.  It is possible that outcomes of cancers diagnosed today, and treatments used today
+               will be different.")
+     (hr)
+     (faq-item "What use are these kinds of statistics when as a patient I will either be cured or not?"
+               "Treatment does not work for everyone - whilst some people may get a large survival benefit, others may get no benefit - only the harmful side effects of treatment.
+               Particularly in older men or men with other long-term conditions, the overall survival benefits of prostate cancer treatment can be small.  This makes choosing whether
+               or not to have radical treatment a difficult and personal choice.
+               From statistics, based on what has happened to people with similar cancers in the past when they had treatment, Predict tries to give the 'best guess' at the sort of
+               benefits treatment might give a particular patient.  This can help inform a personal decision on whether to try it or not. Any potential benefits, should also be weighed
+               against the possible harms of treatment side effects.")
+     (hr)
+     (faq-item "What about MRI?"
+               "Magnetic Resonance Imaging (MRI) is increasingly being used in prostate cancer care.
+               The data used for this model was from men diagnosed between 2000 and 2010 when MRI was rarely used, and MRI has changed significantly
+               over recent years. Therefore we did not have data on MRI-defined lesions, PIRADS scores, or MRI-stage, nor are they included in the model.
+               However, it is yet unknown if MRI data will improve prognostic ability with MRI primarily used to guide biopsies rather than offer prognostic information.
+               If MRI information is shown to be independently prognostically significant it could potentially be incorporated into a future version of Predict Prostate.")
+
+     (hr)
+     (faq-item "What if I only had biopsies of the suspicious area seen on my MRI?"
+               "Predict is built around data from men whow had multiple 'systematic' biopsies taken from multiple parts of their prostate. A small number of centres
+               only take biopsies from parts of the prostate that look suspicious on MRI. In this circumstance, it should be considered that
+               biopsy data is unavailable, as using these figures for 'biopsy cores taken' and 'biopsy cores with prostate cancer' would lead to less reliable estimates.
+               By reporting that biopsy data is unavailable, the average values will be used, which will make the estimates slightly less personalised. ")
+
+     (hr)
+     (faq-item "What if I never had any prostate biopsies and my prostate cancer was diagnosed incidentally by an operation to help me urinate (such as 'trans-urethral resection of the prostate 'TURP' or 'HoLeP')?"
+     "Predict does not use data from men diagnosed and treated by an endoscopic procedure alone. The estimates are likely to be less reliable. ")
+     (hr)
+     (faq-item "What about other treatments?"
+               "This web-model focuses on radical treatment (radical prostatectomy or radiotherapy) compared to conservative
+               management (including active surveillance or watchful waiting). Other types of treatment for prostate cancer are available, but are beyond the scope
+               of this model. Your own prostate cancer specialist should be able to advise you how effective another treatment type is.")
+
+     (hr)
+     (faq-item "What about metastatic cancer?"
+               "Predict is not relevant for men with metastatic prostate cancer. It should only be used by men where either conservative management or radical
+                     treatment (either surgery or radiotherapy) could both be appropriate options.")
+     #_(hr)
+     #_(faq-item "What about HGPIN?"
+                 "The calculations in Predict are only for men who have been diagnosed with primary prostate cancer.
+                 These are not for use by men with HGPIN (high grade prostatic intra-epithelial neoplasia).")
+     (hr)
+     (faq-item "Does Predict account for different types of surgery?"
+               "No. Predict does not attempt to differentiate between surgery and radiotherapy, nor between different surgical techniques. Predict was built around
+               data from men diagnosed between 2000 and 2010. During this time period, if men were treated by surgery it may have been by open,
+               laparoscopic ('key-hole'), or robotic prostatectomy. We are not able to account for differences in survival outcomes between these operative techniques.
+               The side effect profiles may differ between different types of surgery and radiotherapy.")
+     (hr)
+     (faq-item "What about side effects?"
+               "Information about potential treatment side effects, or harms, is on the 'Predict Tool' page. These are not individualised to your personal details
+                     but are taken from the studies mentioned in the text. Charities such as"
+               [:a {:href   "https://prostatecanceruk.org/"
+                    :rel    "noopener"
+                    :target "_blank"} "[Prostate Cancer UK.]"] "and"
+               [:a {:href   "https://www.macmillan.org.uk/information-and-support/prostate-cancer/"
+                    :target "_blank"} "[Macmillan.]"] "provide useful information on the side
                effects of each treatment.")
-      (hr)
-      (faq-item "Who developed the Predict programme?"
-                "Predict Prostate has been developed by a partnership between the Academic Urology Group and the Department of Cancer Epidemiology at the University of Cambridge
-       in collaboration with the National Cancer Registration and Analysis Service (NCRAS) at Public Health England")
-      (hr)
-      (faq-item "How was the computer programme developed?"
-                [:span "The team used information held by the National Cancer Registration and Analysis Service, part of Public Health England."
-                 [:a {:href "http://www.ncin.org.uk/collecting_and_using_data/national_cancer_data_repository/" :style {:text-decoration "underline"}}
-                  "National Cancer Registration and Analysis Service"]
-                 " on over 7000 men diagnosed with prostate cancer between 2000 and 2010.
-                  Using this information they were able to see how individual factors affected survival at ten years and
-                  fifteen years after diagnosis."])
-      (hr)
-      (faq-item "Who designed the website?"
-                [:span "The website has been built by the "
-                 [:a {:href "https://wintoncentre.maths.cam.ac.uk" :style {:text-decoration "underline"}} "Winton Centre for Risk & Evidence Communication"] "
+     (hr)
+     (faq-item "Who developed the Predict programme?"
+               "Predict Prostate has been developed by a partnership between the Academic Urology Group and the Department of Cancer Epidemiology at the University of Cambridge
+      in collaboration with the National Cancer Registration and Analysis Service (NCRAS) at Public Health England")
+     (hr)
+     (faq-item "How was the computer programme developed?"
+               [:span "The team used information held by the National Cancer Registration and Analysis Service, part of Public Health England."
+                [:a {:href "http://www.ncin.org.uk/collecting_and_using_data/national_cancer_data_repository/"
+                     :rel    "noopener"
+                     :style {:text-decoration "underline"}}
+                 "National Cancer Registration and Analysis Service"]
+                " on over 7000 men diagnosed with prostate cancer between 2000 and 2010.
+                 Using this information they were able to see how individual factors affected survival at ten years and
+                 fifteen years after diagnosis."])
+     (hr)
+     (faq-item "Who designed the website?"
+               [:span "The website has been built by the "
+                [:a {:href "https://wintoncentre.maths.cam.ac.uk"
+                     :rel    "noopener"
+                     :style {:text-decoration "underline"}} "Winton Centre for Risk & Evidence Communication"] "
                  at the University of Cambridge. The site functionality and visualisation software is trademarked by the Winton Centre as
                  4U2C. However, we are happy for others to use it for similar purposes. Do contact us to discuss this at "
-                 [:a {:href "mailto:wintoncentre@maths.cam.ac.uk"} "wintoncentre@maths.cam.ac.uk"] "."])
+                [:a {:href "mailto:wintoncentre@maths.cam.ac.uk" :rel "noopener"} "wintoncentre@maths.cam.ac.uk"] "."])
 
-      (hr)
-      (faq-item "Where can I find more information on prostate cancer?"
-                "There is a great deal of information on prostate cancer on the web. One of best and most reliable
-                sources is Cancer Research UK, along with those from Macmillan and Prostate Cancer UK. Their information is written by experts, is up to date and in a style
-                that is easy to understand.")
-      ]]]
+     (hr)
+     (faq-item "Where can I find more information on prostate cancer?"
+               "There is a great deal of information on prostate cancer on the web. One of best and most reliable
+               sources is Cancer Research UK, along with those from Macmillan and Prostate Cancer UK. Their information is written by experts, is up to date and in a style
+               that is easy to understand.")
+     ]]
 
-
-   [:section#contact "Contact"
+  [:section#contact "Contact"
    [:section "Contact"
     [:p "National Cancer Registration and Analysis Service" [:br] "East Regional Office, Victoria House, Capital Park,
-     Fulbourn, Cambridge CB21 5XB" [:br] "Email: " [:a {:href "mailto:info@prostate.predict.nhs.uk"} "info@prostate.predict.nhs.uk"]]]]
+     Fulbourn, Cambridge CB21 5XB" [:br] "Email: " [:a {:href "mailto:info@prostate.predict.nhs.uk" :rel "noopener"} "info@prostate.predict.nhs.uk"]]]]
 
   [:section#legal-preamble "Preamble"
     [:p.screen-only {:key   0
@@ -528,13 +558,13 @@
      websites. Cookies allow a website to recognise a user’s device e.g. computer, mobile phone. "]
      [:p "The law on website cookies changed on 26 May 2011 and requires that sites state which cookies are being used
      and their purpose. It also makes clear that cookies only be used with your consent. You can find out more
-     information about this law by visiting the " [:a {:href "https://ico.org.uk/for-the-public/online/cookies/"} "Information Commissioner’s Office website."]]
+     information about this law by visiting the " [:a {:href "https://ico.org.uk/for-the-public/online/cookies/" :rel "noopener"} "Information Commissioner’s Office website."]]
      [:p "In using the Predict website you are implicitly giving consent that cookies may be used, however you may
      disable cookie use, see below for details."]]
     [:section "Which cookies does the Predict website use?"
      [:p "Predict uses Google Analytics to measure website traffic. All the information collected is anonymous and is
      not used for any other purpose. For more details see the "
-      [:a {:href "http://www.google.co.uk/intl/en/policies/privacy/"} "Google privacy policy."]]
+      [:a {:href "http://www.google.co.uk/intl/en/policies/privacy/" :rel "noopener"} "Google privacy policy."]]
      [:p "The following cookies are used:"]
      [:table.table.table-bordered {:style {:max-width "600px" :margin-top "10px" :font-size "16px"}}
       [:thead
@@ -559,12 +589,12 @@
     [:section "Can I disable cookies?"
      [:p "You can opt out of cookies at any time, following the instructions in your browser. These are typically found
      under ‘Tools’ and ‘Options’ (PC) or ‘Preferences’ (Mac) though the details vary from browser to browser.
-     Also, Google offers a " [:a {:href "https://tools.google.com/dlpage/gaoptout"} "tool that you can use to opt out"]
+     Also, Google offers a " [:a {:href "https://tools.google.com/dlpage/gaoptout" :rel "noopener"} "tool that you can use to opt out"]
       " of being tracked by Google Analytics. You can add this plugin to your browser by going to Google.
       For more details about controlling cookies visit the help pages for the browser that you are using."]]
 
     [:section "Can I disable hotjar?"
-     [:p "Yes you can. Follow this link for up to date instructions: " [:a {:href "https://www.hotjar.com/legal/compliance/opt-out" :target "_blank"} "How to disable Hotjar"]]]]
+     [:p "Yes you can. Follow this link for up to date instructions: " [:a {:href "https://www.hotjar.com/legal/compliance/opt-out" :rel "noopener" :target "_blank"} "How to disable Hotjar"]]]]
 
 
    ;;;
