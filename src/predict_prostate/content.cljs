@@ -749,7 +749,7 @@
      [:div {:style {:margin-left 20 :margin-right 20}}
       [:p "2 biopsy cores from 1 target, of which both were negative = 1 additional core taken and 0 additional cores with cancer "]
       [:p "3 biopsy cores from 1 target, of which 2 were positive = 1 additional core taken and 1 additional core with cancer. "]
-      [:p "2 biopsy cores from 2 different targets of which both positive = 2 additional cores taken and 2 additional cores with cancer "]]
+      [:p "2 biopsy cores from 2 different targets of which both positive = 2 additional cores taken and 2 additional cores with cancer "]]]
 
 
     [:section#surgery "Treatments already received"
@@ -786,6 +786,6 @@
 
     [:section#show-ranges "Show ranges"
      [:p "The default values are the best estimate of the benefit. When you click on show ranges, a 95% prediction
-     interval is added to the table. The true value of the benefit is very unlikely be outside this range"]]]]]
+     interval is added to the table. The true value of the benefit is very unlikely be outside this range"]]]]
 
   )

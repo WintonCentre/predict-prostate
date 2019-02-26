@@ -58,7 +58,7 @@
 
 
 (rum/defc less-well-tested []
-  [:div {:style {:color       "#AAA"
+  [:div {:style {:color       "#686868"
                  :margin-left "145px"
                  :margin-top  0}}
    [:i.fa.fa-exclamation-triangle {:aria-hidden "true" :style {:color "orange" :padding-right 5}}]
