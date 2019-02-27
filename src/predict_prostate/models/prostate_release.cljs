@@ -20,10 +20,12 @@
 
     (+ (* 0.0026005 (- (pow (/ age 10) 3) 341.155151))
       (* 0.185959 (+ (ln (/ (inc psa) 100)) 1.636423432))
-      (get {2 0.1614922
+      (get {1 0
+            2 0.1614922
             3 0.39767881
             4 0.6330977} t-stage)
-      (get {2 0.2791641
+      (get {1 0
+            2 0.2791641
             3 0.5464889
             4 0.7411321
             5 1.367963} grade-group)
@@ -50,7 +52,8 @@
 (defn pi-npcm [{:keys [age charlson-comorbidity]}]
   "gen pi-npcm = 0.1229245*(age-69.8749646) + 0.6640308*(charlson_comorbidity==1)"
   (+ (* 0.1226666 (- age 69.87427439))
-     (get {1 0.6382002} charlson-comorbidity))
+     (get {0 0
+           1 0.6382002} charlson-comorbidity))
   )
 (comment
   (pi-npcm {:age 70 :charlson-comorbidity 0})
