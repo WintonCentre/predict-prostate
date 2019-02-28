@@ -87,7 +87,8 @@
 ; this can be global as there is only one input under focus at any one time
 (def timer (atom nil))
 
-(defn validate [value nmin nmax step]
+
+(defn validate-typed-input [value nmin nmax step]
   (let [value (str-to-num value)
         nmin (if (fn? nmin) @(nmin) nmin)
         nmax (if (fn? nmax) @(nmax) nmax)                   ;(if (keyword? nmax) @(input-cursor nmax) nmax)
@@ -105,21 +106,48 @@
                 (str (num-to-str val-2) ":" val-2)          ; yes
                 (if (> val-2 nmax)                          ; no; is it too big?
                   (str (num-to-str val-2) ":" val-2)        ; yes, return good and bad values, in colon separated string
-                  val-2))]                                  ; no
+                  val-2))
+        ]                                  ; no
     ;(println "(validate " value nmin nmax step ") = " val-3)
-    val-3))
+    (if (js/isNaN value)                                    ; Case when user has deleted value using backspace.
+      " :0"                                                 ; and there is no input there.
+      val-3                                                 ; Otherwise return
+      )
+    ))
+
+(defn validate-button [value nmin nmax step]
+  (let [value (str-to-num value)
+        nmin (if (fn? nmin) @(nmin) nmin)
+        nmax (if (fn? nmax) @(nmax) nmax)                   ;(if (keyword? nmax) @(input-cursor nmax) nmax)
+        val-1 (if (js/isNaN value)                          ; is value blank?
+                (if (pos? step)                             ; is it an increment?
+                  (dec nmin)                                ; yes - go to one less than minimum (we'll increment later)
+                  (if (neg? step)                           ; is it a decrement?
+                    (inc nmax)                              ; yes - got to one more than maximum (we'll decrement later)
+                    nmin                                    ; no
+                    ))
+                value)
+        val-2 (+ step val-1)                                ; do the increment
+
+        val-3 (if (< val-2 nmin)                            ; is it too small?
+                (str (num-to-str val-2) ":" val-2)          ; yes
+                (if (> val-2 nmax)                          ; no; is it too big?
+                  (str (num-to-str val-2) ":" val-2)        ; yes, return good and bad values, in colon separated string
+                  val-2))
+        ]                                  ; no
+    val-3
+    ))
 
 (defn handle-inc [value onChange nmin nmax precision step]
-  (let [v (validate value nmin nmax step)]
+  (let [v (validate-button value nmin nmax step)]
     ;(js/console.log "onChange " v)
     (onChange (num-to-str v precision))))
 
 
 (defn handle-typed-input [nmin nmax precision onChange e]
   (let [value (.. (-> e .-target) -value)]
-    ;(.log js/console value)
     (if (re-matches #"\s*\d*\.?\d*\s*" value)
-      (onChange (num-to-str (validate (str-to-num value) nmin nmax 0) precision))
+      (onChange (num-to-str (validate-typed-input (str-to-num value) nmin nmax 0) precision))
       (onChange (num-to-str ##NaN)))
     ))
 
@@ -164,7 +192,7 @@
 (rum/defc numeric-input < rum/static rum/reactive           ;echo-update
   [{:keys [key input-ref onChange min max error-color color precision] :or {error-color "red" color "black"} :as props}]
 
-  ;(.log js/console "key: " input-ref " precision: " precision)
+  ;(.log js/console "key: " key input-ref " precision: " precision)
 
   ;(js/console.log "props: " props)
   (let [[good bad] (split (rum/react input-ref) #":")
