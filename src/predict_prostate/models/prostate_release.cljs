@@ -14,7 +14,7 @@
   "gen pi-pcsm = 0.0026005*((age/10)^3-341.155151) + 0.185959*(ln((psa+1)/100)+1.636423432) + .1614922*(t_stage==2) + .39767881*(t_stage==3) + .6330977*(t_stage==4) + .2791641*(gradegroup==2) + .5464889*(gradegroup==3) + .7411321*(gradegroup==4) + 1.367963*(gradegroup==5) + -.6837094*(primaryRx==1) + .9084921*(primaryRx==3) -0.617722958*(biopsy50==1) + 0.579225231*(biopsy50==2) +(((PPC+0.1811159)/100)^.5-.649019)*1.890134 \n"
   (let [ppc (if (and biopsy-cores-involved biopsy-cores-taken (= 1 biopsy-done))
               (* 100 (/ biopsy-cores-involved biopsy-cores-taken))
-              42)]
+              41.9415)]
 
     ;(println "inputs = " inputs)
 

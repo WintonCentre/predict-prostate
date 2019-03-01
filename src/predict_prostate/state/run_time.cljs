@@ -182,7 +182,7 @@ survival, up to the projected survival of prostate-cancer-free men "
   im is the result of calling input-map"
   [input-map]
   (and (seq @on-screen-inputs-cursor)
-    (every? (fn [k] (and (input-map k) (not (error-by-key? k)))) @on-screen-inputs-cursor))
+       (every? (fn [k] (and (input-map k) (not (error-by-key? k)))) @on-screen-inputs-cursor))
   )
 
 

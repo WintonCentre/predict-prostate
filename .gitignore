@@ -60,3 +60,4 @@ resources/public/js/
 /yarn-error.log
 
 .temp_exclude_list
+*.orig
