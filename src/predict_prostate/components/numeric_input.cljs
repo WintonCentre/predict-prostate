@@ -87,7 +87,6 @@
 ; this can be global as there is only one input under focus at any one time
 (def timer (atom nil))
 
-
 (defn validate-typed-input [value nmin nmax step]
   (let [value (str-to-num value)
         nmin (if (fn? nmin) @(nmin) nmin)
