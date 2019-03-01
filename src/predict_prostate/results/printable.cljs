@@ -52,7 +52,12 @@
        [:td (input-label :psa)]
        [:td (rum/react (input-cursor :psa))]]
       [:tr
-       [:td (input-label :t-stage)]
+       [:td (input-label :t-stage)
+        (when (#{4} (rum/react (input-cursor :t-stage)))
+          [:div {:style {:color      "#686868"
+                         :margin-top 0}}
+           [:i.fa.fa-exclamation-triangle {:aria-hidden "true" :style {:color "orange" :padding-right 5}}]
+           "The tool is less well tested in higher stages"])]
        [:td ((option-range 5) (rum/react (input-cursor :t-stage)))]]
       [:tr
        [:td (input-label :h-admissions)]
