@@ -396,6 +396,7 @@
                     :rel    "noopener"
                     :target "_blank"} "[Prostate Cancer UK.]"] "and"
                [:a {:href   "https://www.macmillan.org.uk/information-and-support/prostate-cancer/"
+                    :rel    "noopener"
                     :target "_blank"} "[Macmillan.]"] "provide useful information on the side
                effects of each treatment.")
      (hr)
