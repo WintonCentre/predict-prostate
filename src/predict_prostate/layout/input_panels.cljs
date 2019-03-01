@@ -56,13 +56,12 @@
      (treatments-received-form model-keys))]
   )
 
-
-(rum/defc less-well-tested []
+(rum/defc less-well-tested [text]
   [:div {:style {:color       "#686868"
                  :margin-left "145px"
                  :margin-top  0}}
    [:i.fa.fa-exclamation-triangle {:aria-hidden "true" :style {:color "orange" :padding-right 5}}]
-   "The tool is less well tested for higher scores"])
+   text])
 
 ;;;
 ;; PATIENT RELATED
@@ -80,7 +79,7 @@
                               "Age must be between 35 and 95"]])
     (when (model-keys :psa) (form-entry {:label "PSA" :key :psa}))
     (when (model-keys :t-stage) (form-entry {:label "T stage" :key :t-stage}))
-    (when (= 4 (rum/react (input-cursor :t-stage))) (less-well-tested))
+    (when (= 4 (rum/react (input-cursor :t-stage))) (less-well-tested "The tool is less well tested in higher stages"))
     (when (model-keys :h-admissions) (form-entry {:label "h-admissions" :key :h-admissions}))
     (when (= (rum/react (input-cursor :h-admissions)) 1)
       (when (model-keys :charlson-comorbidity) (form-entry {:label "comorb" :key :charlson-comorbidity})))
@@ -106,7 +105,7 @@
 
    [:div (form-entry {:label "Histological grade group" :key :grade-group})
     (when (#{4 5} (rum/react (input-cursor :grade-group)))
-      (less-well-tested))]
+      (less-well-tested "The tool is less well tested for higher scores"))]
    (form-entry {:label "Gleason score" :key :gleason})
 
 
