@@ -366,8 +366,8 @@
                By reporting that biopsy data is unavailable, the average values will be used, which will make the estimates slightly less personalised. ")
 
      (hr)
-     (faq-item "What if I never had any prostate biopsies and my prostate cancer was diagnosed incidentally by an operation to help me urinate (such as by 'trans-urethral resection of the prostate 'TURP' or 'HoLeP')?")
-     "Predict Prostate does not use data from men diagnosed and treated by an endoscopic procedure alone. The model should not be used in this situation. "
+     (faq-item "What if I never had any prostate biopsies and my prostate cancer was diagnosed incidentally by an operation to help me urinate (such as by 'trans-urethral resection of the prostate 'TURP' or 'HoLeP')?"
+     "Predict Prostate does not use data from men diagnosed and treated by an endoscopic procedure alone. The model should not be used in this situation. ")
      (hr)
      (faq-item "What about other treatments?"
                "This web-model focuses on radical treatment (radical prostatectomy or radiotherapy) compared to conservative
