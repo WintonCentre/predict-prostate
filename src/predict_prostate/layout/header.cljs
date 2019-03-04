@@ -62,9 +62,6 @@
 (defn skip-to [content-id]
   [:.row.screen-only
    [:.col-sm-11.col-xs-12.skip
-    #_[:a#skippy.sr-only-focusable.pull-right {:tab-index 0
-                                               :style     {:cursor "pointer"}
-                                               :on-click  #(do (.focus (js/$ content-id)) false)} "Skip to main content"]
     [:a.pull-right {:tab-index    0
                     :style        {:cursor "pointer"}
                     :on-key-press #(if (= (.. % -nativeEvent -key) "Enter")
@@ -113,26 +110,32 @@
               :padding          "30px"
               }}
      [:row
-
-      [:.col-sm-3.col-sm-offset-1
-       [:img.img-responsive {:src   "/assets/phe-neg.png"
-                             :alt   "Public Health Logo"
-                             :style {:margin-top  10
-                                     :margin-left 10
-                                     ;:margin-bottom "4ex"
-                                     :max-width   "120px" #_"70%"}}]]
-      [:.col-sm-4
-       [:img.img-responsive {:src   "/assets/urology.png"
-                             :alt   "University of Cam Urology Group Logo"
-                             :style {:margin-top 10
-                                     ;:margin-bottom "3ex"
-                                     :max-width  "175px" #_"90%"}}]]
-      [:.col-sm-4
-       [:img.img-responsive {:src   "/assets/ucs-winton-transparent.png"
-                             :alt   "Winton Centre Logo"
-                             :style {:margin-top 10
-                                     ;:margin-bottom "3ex"
-                                     :max-width  "175px" #_"90%"}}]]
+      [:.col-sm-10.col-sm-offset-1
+       [:.row
+        [:.col-sm-4
+         [:img.img-responsive {:src   "/assets/phe-neg.png"
+                               :alt   "Public Health Logo"
+                               :style {:margin-top  10
+                                       :margin-left "auto"
+                                       :margin-right "auto"
+                                       :max-width   "120px" #_"70%"}}]]
+        [:.col-sm-4
+         [:img.img-responsive {:src   "/assets/urology.png"
+                               :alt   "University of Cam Urology Group Logo"
+                               :style {:margin-top 10
+                                       ;:margin-bottom "3ex"
+                                       :margin-left "auto"
+                                       :margin-right "auto"
+                                       :max-width  "175px" #_"90%"}}]]
+        [:.col-sm-4
+         [:img.img-responsive {:src   "/assets/ucs-winton-transparent.png"
+                               :alt   "Winton Centre Logo"
+                               :style {:margin-top 10
+                                       :margin-left "auto"
+                                       :margin-right "auto"
+                                       ;:margin-bottom "3ex"
+                                       :max-width  "175px"}}]]
+        ]]
       ]]]
    [:.col-sm-12.copy-footer
     (str "Copyright Ⓒ " (.getFullYear (js/Date.)) " University of Cambridge. All Rights Reserved | ")

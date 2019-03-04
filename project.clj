@@ -69,7 +69,7 @@
                         :compiler     {:output-to       "resources/public/js/compiled/predict_prostate.js"
                                        :main            predict-prostate.core
                                        :optimizations   :advanced
-                                       :pseudo-names    true
+                                       :pseudo-names    false
                                        :closure-defines {goog.DEBUG false}
                                        :externs         ["externs/bootstrap.js"
                                                          "externs/jquery.js"]
