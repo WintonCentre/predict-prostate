@@ -79,5 +79,4 @@
      (result-panel)]
     [:.col-md-4
      (side-panel)]
-
     ]])

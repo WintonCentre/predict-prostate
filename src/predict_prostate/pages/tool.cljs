@@ -64,40 +64,27 @@
 
 
 (rum/defc treatments-with-results < rum/reactive []
-  (if (nil? (rum/react results-cursor))
-    [:.row
-     [:.col-sm-10.col-sm-offset-1.col-xs-12
-      [:div {:style {:background-color alison-blue-1
-                     :padding          "10px 10px 3px 10px"
-                     :margin-bottom    20}}
-       [:div {:style {:color     alison-blue-2
-                      :font-size "20px"}}
+  (let [r (rum/react results-cursor)]
+    (if (or (not (seq r)) (nil? r))
+      [:.row
+       [:.col-sm-10.col-sm-offset-1.col-xs-12
+        [:div {:style {:background-color alison-blue-1
+                       :padding          "10px 10px 3px 10px"
+                       :margin-bottom    20}}
+         [:div {:style {:color     alison-blue-2
+                        :font-size "20px"}}
 
-        [:p {:style {:padding-bottom 0}}
-         (simple/icon {:family :fa :style {:font-size 35 :padding-right 8}} "info-circle")
+          [:p {:style {:padding-bottom 0}}
+           (simple/icon {:family :fa :style {:font-size 35 :padding-right 8}} "info-circle")
 
-         " Treatment options and results will appear here when you have filled in all the information needed above."]]]]]
-
-
-    [:.row
-     [:.col-md-12.screen-only
-      #_[:h3 "Treatment Options"]
-      #_(treatments-options)
-
-      (results {:printable (= :print (rum/react media-cursor))})
-
-      #_[:.hidden-xs.hidden-sm.clearfix
-       (print-button)]
-      ]
-     [:.row
-      [:.col-md-10.col-md-offset-1
-
-       (results-in-sidefx)
-       (sidefx-more-info)
-       ]]
-     ]
-
-    ))
+           " Treatment options and results will appear here when you have filled in all the information needed above."]]]]]
+      [:.row
+       [:.col-md-12.screen-only
+        (results {:printable (= :print (rum/react media-cursor))})]
+       [:.row
+        [:.col-md-10.col-md-offset-1
+         (results-in-sidefx)
+         (sidefx-more-info)]]])))
 
 (rum/defc results-footer < rum/reactive []
   (when (rum/react results-cursor)
