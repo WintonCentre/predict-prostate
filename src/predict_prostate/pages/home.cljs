@@ -42,7 +42,7 @@
                     }}]
      [:.row
       [:.col-sm-5.col-sm-offset-1
-       [:h1.alison-blue-2 {:style {:margin "15px" :margin-top 30}} "What is Predict Prostate?"]
+       [:h1.alison-blue-2 {:style {:margin "15px" :margin-top 30}} "Predict Prostate"]
        (let [[title [el1 _ p1] [el2 _ p2]] (section "home-what-is")]
          [:div
           [el1 {:style {:font-size 20 :margin-left 15}} p1]
