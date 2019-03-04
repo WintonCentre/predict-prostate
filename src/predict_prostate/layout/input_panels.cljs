@@ -126,12 +126,13 @@
       (when (model-keys :biopsy-cores-involved)
         [:span
          (form-entry {:label "Number of biopsy cores with prostate cancer" :key :biopsy-cores-involved})])
+      [:div {:style {:color       "#686868"
+                     :margin-left "145px"
+                     :margin-top  0}}
+       "Biopsy cores taken from a target site are considered as 1 core regardless of the number of biopsy cores taken. "
+       (biopsy-core-examples)]
 
-      ])
-
-
-
-   ])
+      ])])
 
 (rum/defc tumour-related-panel < rum/static [model-keys]
   [:div
