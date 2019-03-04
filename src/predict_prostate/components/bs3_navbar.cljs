@@ -54,18 +54,18 @@
 
 (def nav-items
   [(Nav-item. "Home" navigate-to [:home {:page :home}])
-   (assoc (Nav-item. "About Predict" navigate-to [:no-op] #_[:about {:page :overview :section :about}])
-     :submenus [(Nav-item. "About Predict" navigate-to [:about {:page :overview :section :about}])
+   (assoc (Nav-item. "About Predict Prostate" navigate-to [:no-op] #_[:about {:page :overview :section :about}])
+     :submenus [(Nav-item. "About Predict  Prostate" navigate-to [:about {:page :overview :section :about}])
                 (Nav-item. "– Who is it for?" navigate-to [:about {:page :overview :section :whoisitfor}])
-                (Nav-item. "– How Predict works" navigate-to [:about {:page :overview :section :howpredictworks}])
-                (Nav-item. "– Who built Predict" navigate-to [:about {:page :overview :section :whobuiltpredict}])
+                (Nav-item. "– How Predict Prostate works" navigate-to [:about {:page :overview :section :howpredictworks}])
+                (Nav-item. "– Who built Predict  Prostate" navigate-to [:about {:page :overview :section :whobuiltpredict}])
                 (Nav-item. "Technical" navigate-to [:about {:page :technical :section :technical}])
                 (Nav-item. "– Development History" navigate-to [:about {:page :technical :section :history}])
                 (Nav-item. "– Publications" navigate-to [:about {:page :technical :section :publications}])
                 (Nav-item. "FAQs" navigate-to [:about {:page :faqs}])])
 
 
-   (Nav-item. "Predict Tool" navigate-to [:tool])
+   (Nav-item. "Predict  Prostate Tool" navigate-to [:tool])
    (Nav-item. "Contact" navigate-to [:contact])
    (assoc (Nav-item. "Legal" navigate-to [:no-op] #_[:legal {:page :disclaimer}])
      :submenus [(Nav-item. "Disclaimer" navigate-to [:legal {:page :disclaimer}])

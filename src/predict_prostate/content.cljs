@@ -96,6 +96,12 @@
    ;
 
    ; block 1
+   [:section#home-strap-line "What is Predict Prostate for?"
+    [:p {:key 1} "an individualised prognostic model for men newly diagnosed with non-metastatic prostate cancer"]
+    [:p {:key 2} ""]
+    ]
+
+   ; block 1
    [:section#home-what-is "What is Predict Prostate for?"
     [:p {:key 1} "Predict Prostate is a tool where the outcomes from conservative management (or monitoring) are compared with radical treatment (surgery or radiotherapy)."]
     [:p {:key 2} ""]
@@ -392,11 +398,14 @@
                effects of each treatment.")
      (hr)
      (faq-item "Who developed the Predict Prostate programme?"
-               "Predict Prostate has been developed by a partnership between the Academic Urology Group and the Department of Cancer Epidemiology at the University of Cambridge
+               [:span "See " [:a {:href "#" :on-click #(publish route-change [:about {:page :overview :section :whobuiltpredict}])} "Who built Predict Prostate?"] "."]
+               #_"Predict Prostate has been developed by a partnership between the Academic Urology Group and the Department of Cancer Epidemiology at the University of Cambridge
       in collaboration with the National Cancer Registration and Analysis Service (NCRAS) at Public Health England")
+
      (hr)
      (faq-item "How was the computer programme developed?"
-               [:span "The team used information held by the National Cancer Registration and Analysis Service, part of Public Health England."
+               [:span "See " [:a {:href "#" :on-click #(publish route-change [:about {:page :overview :section :whobuiltpredict}])} "Who built Predict Prostate?"] "."]
+               #_[:span "The team used information held by the National Cancer Registration and Analysis Service, part of Public Health England."
                 [:a {:href  "http://www.ncin.org.uk/collecting_and_using_data/national_cancer_data_repository/"
                      :rel   "noopener"
                      :style {:text-decoration "underline"}}
@@ -404,6 +413,7 @@
                 " on over 7000 men diagnosed with prostate cancer between 2000 and 2010.
                  Using this information they were able to see how individual factors affected survival at ten years and
                  fifteen years after diagnosis."])
+
      (hr)
      (faq-item "Who designed the website?"
                [:span "The website has been built by the "
