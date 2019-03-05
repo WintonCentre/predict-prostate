@@ -770,7 +770,7 @@
      [:div {:style {:margin-left 20 :margin-right 20}}
       [:p "2 biopsy cores from 1 target, of which both were negative = 1 additional core taken and 0 additional cores with cancer "]
       [:p "3 biopsy cores from 1 target, of which 2 were positive = 1 additional core taken and 1 additional core with cancer. "]
-      [:p "1 biopsy core from each of 2 different targets of which both positive = 2 additional cores taken and 2 additional cores with cancer "]]]
+      [:p "2 biopsy cores, 1 taken from each of 2 different targets, both of which were positive = 2 additional cores taken and 2 additional cores with cancer "]]]
 
 
     [:section#surgery "Treatments already received"
