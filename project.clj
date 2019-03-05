@@ -72,7 +72,8 @@
                                        :pseudo-names    true
                                        :closure-defines {goog.DEBUG false}
                                        :externs         ["externs/bootstrap.js"
-                                                         "externs/jquery.js"]
+                                                         "externs/jquery.js"
+                                                         "externs/autotrack.js"]
                                        :infer-externs   true
                                        :language-in     :ecmascript5
                                        :pretty-print    false}}

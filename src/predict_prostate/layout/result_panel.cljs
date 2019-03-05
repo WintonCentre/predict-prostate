@@ -24,8 +24,12 @@
         :style    {:cursor           "pointer"
                    :border-radius    "3px"
                    :background-color "#def"}
-        :key      label}
-   [:a {:aria-controls label :role "tab"} (capitalize label)]])
+        :key      label
+        }
+   [:a {:aria-controls label :role "tab"
+        ;:data-on "click" :data-event-category "Results Tab" :data-event-action label       ; Old html-tag trigger.
+        } (capitalize label)]
+   ])
 
 (rum/defc result-tab-pane < rum/reactive [label content]
   [:div {:id    label :role "tabpanel"
@@ -33,8 +37,11 @@
          }
    (when (= (rum/react active-results-pane) label)
      (if content
-       (content)
-       [:p "No content yet"]))]
+       (do (.ga js/window "send" "event" "Results Tab" label) (content))
+       [:p "No content yet"])
+     ;(.log js/console "content called: " label)
+     )
+   ]
   )
 
 (rum/defc result-tabs < rum/static []
@@ -45,7 +52,12 @@
                                                  "curves"
                                                  "table"
                                                  "texts"
-                                                 ])])
+                                                 ])
+   #_[:a {
+        :ga-on "click" :ga-event-category "Results Tab" :ga-event-action "test"
+        :style {:background-color "green"}
+        } "Some test clickable item"]
+   ])
 
 (rum/defc result-panes < rum/static []
   [:.tab-content
