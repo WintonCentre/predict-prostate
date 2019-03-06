@@ -336,7 +336,7 @@
                In order to carry out long term predictions older data have to be used.  It is possible that outcomes of cancers diagnosed today, and treatments used today
                will be different, but it is impossible to test this.")
      (hr)
-     (faq-item "What use are these kinds of statistics when as a patient I will either be cured or not?"
+     (faq-item "What use are these estimates when as a patient I will either be cured or not?"
                "Treatment does not work the same for everyone - whilst some people may get a large survival benefit, others may get very little or no benefit.
                All patients are at risk of the harmful side effects of treatment. Particularly in older men or men with other long-term conditions, 
                the overall survival benefits of prostate cancer treatment can be small.  This makes choosing whether
@@ -346,10 +346,10 @@
      (hr)
      (faq-item "What about MRI?"
                "Magnetic Resonance Imaging (MRI) is increasingly being used in prostate cancer diagnosis. The data used for this model were from men diagnosed between 2000 and 2010 when MRI was rarely used, 
-               and we did not have data on MRI-defined lesions, image scores (e.g. PIRADS) or MRI targeted biopsies. However, it is important to note that as yet using MRI data has not been shown to directly improve survival. 
+               and we did not have data on MRI-defined lesions, imaging scores (e.g. PIRADS) or MRI targeted biopsies. However, it is important to note that as yet using MRI data has not been shown to directly improve survival. 
                Its main benefit is in reducing the number of men investigated, better staging the cancer and to guide biopsies. Hence, we expect that the current use of MRI will provide a much more accurate assessment of where a man is in terms of disease extent and histological grade at diagnosis. 
                This in turn will better inform the prognostic predictions from Predict Prostate (e.g. moving a man from Grade Group 1 to 
- Grade Group 2 or from Stage T2 to stage T3). If MRI data and age scores are shown in the 
+ Grade Group 2 or from Stage T2 to stage T3). If MRI data and imaging scores are shown in the 
                future to add independent value as a survival indicator then we will update 
                it into a future version of Predict Prostate. We are currently investigating this.")
 
@@ -378,7 +378,7 @@
                  "The calculations in Predict Prostate are only for men who have been diagnosed with primary prostate cancer.
                  These are not for use by men with HGPIN (high grade prostatic intra-epithelial neoplasia).")
      (hr)
-     (faq-item "Does Predict Prostate account for different types of surgery?"
+     (faq-item "Does Predict Prostate account for different types of surgery or radiotherapy?"
                "No. Predict Prostate does not attempt to differentiate between surgery and radiotherapy, nor between different surgical or radiotherapy techniques. 
                Please see other publications or speak to your specialist about any impact of surgical or radiotherapy approach on treatment survival benefits. ")
      (hr)
