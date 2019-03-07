@@ -97,7 +97,7 @@
 
    ; block 1
    [:section#home-strap-line "What is Predict Prostate for?"
-    [:p {:key 1} "an individualised prognostic model for men newly diagnosed with non-metastatic prostate cancer"]
+    [:p {:key 1} "An individualised prognostic model for men newly diagnosed with non-metastatic prostate cancer"]
     [:p {:key 2} ""]
     ]
 
@@ -322,7 +322,7 @@
                If BRCA status is unknown 'Negative or Untested' should be selected. Positive for either BRCA1 or BRCA2 is considered as positive for this model.
                      All of the necessary details should be easily available to your prostate cancer specialist.")
      (hr)
-     (faq-item "How do I know that Predict Prostate gives the right answers."
+     (faq-item "How do I know that Predict Prostate gives the right answers?"
                "Predict Prostate estimates what would be expected to happen to men with similar characteristics based on past data. The findings are based on men diagnosed in the East of England 
                but we have also tested the model on over 2,500 men diagnosed in Singapore. To the best of our knowledge the Predict tool should work equally well 
                for men currently diagnosed. However, Predict Prostate can never say with 100% certainty what will happen to an individual man. Note also that Predict Prostate is likely to be 
@@ -336,7 +336,7 @@
                In order to carry out long term predictions older data have to be used.  It is possible that outcomes of cancers diagnosed today, and treatments used today
                will be different, but it is impossible to test this.")
      (hr)
-     (faq-item "What use are these kinds of statistics when as a patient I will either be cured or not?"
+     (faq-item "What use are these estimates when as a patient I will either be cured or not?"
                "Treatment does not work the same for everyone - whilst some people may get a large survival benefit, others may get very little or no benefit.
                All patients are at risk of the harmful side effects of treatment. Particularly in older men or men with other long-term conditions, 
                the overall survival benefits of prostate cancer treatment can be small.  This makes choosing whether
@@ -346,10 +346,10 @@
      (hr)
      (faq-item "What about MRI?"
                "Magnetic Resonance Imaging (MRI) is increasingly being used in prostate cancer diagnosis. The data used for this model were from men diagnosed between 2000 and 2010 when MRI was rarely used, 
-               and we did not have data on MRI-defined lesions, image scores (e.g. PIRADS) or MRI targeted biopsies. However, it is important to note that as yet using MRI data has not been shown to directly improve survival. 
+               and we did not have data on MRI-defined lesions, imaging scores (e.g. PIRADS) or MRI targeted biopsies. However, it is important to note that as yet using MRI data has not been shown to directly improve survival. 
                Its main benefit is in reducing the number of men investigated, better staging the cancer and to guide biopsies. Hence, we expect that the current use of MRI will provide a much more accurate assessment of where a man is in terms of disease extent and histological grade at diagnosis. 
                This in turn will better inform the prognostic predictions from Predict Prostate (e.g. moving a man from Grade Group 1 to 
- Grade Group 2 or from Stage T2 to stage T3). If MRI data and age scores are shown in the 
+ Grade Group 2 or from Stage T2 to stage T3). If MRI data and imaging scores are shown in the 
                future to add independent value as a survival indicator then we will update 
                it into a future version of Predict Prostate. We are currently investigating this.")
 
@@ -378,7 +378,7 @@
                  "The calculations in Predict Prostate are only for men who have been diagnosed with primary prostate cancer.
                  These are not for use by men with HGPIN (high grade prostatic intra-epithelial neoplasia).")
      (hr)
-     (faq-item "Does Predict Prostate account for different types of surgery?"
+     (faq-item "Does Predict Prostate account for different types of surgery or radiotherapy?"
                "No. Predict Prostate does not attempt to differentiate between surgery and radiotherapy, nor between different surgical or radiotherapy techniques. 
                Please see other publications or speak to your specialist about any impact of surgical or radiotherapy approach on treatment survival benefits. ")
      (hr)
@@ -772,7 +772,7 @@
       [:li "AIDS."]]]
 
     [:section#biopsy-examples "Biopsy examples"
-     [:h4 "Examples of how to deal with targetted biopsies:"]
+     [:h4 "Examples of how to deal with targeted biopsies:"]
      [:div {:style {:margin-left 20 :margin-right 20}}
       [:p "2 biopsy cores from 1 target, of which both were negative = 1 additional core taken and 0 additional cores with cancer "]
       [:p "3 biopsy cores from 1 target, of which 2 were positive = 1 additional core taken and 1 additional core with cancer. "]
