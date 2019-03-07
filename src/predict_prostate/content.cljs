@@ -386,25 +386,31 @@
                "Information about potential treatment side effects, or harms, is on the 'Predict Prostate Tool' page. 
                Please note that these are not individualised to your personal details but are taken from the studies reported in the text. 
                We have used data from recent peer-reviewed publications to derive these values, and where possible, from randomised trials. 
-               You should also speak to your specialist or you can look at the UK National Prostate Cancer Audit patient reported outcomes for additional information and guidance.  
-               
-               Charities such as"
-               [:a {:href   "https://prostatecanceruk.org/"
-                    :rel    "noopener"
-                    :target "_blank"} "[Prostate Cancer UK.]"] "and"
-               [:a {:href   "https://www.macmillan.org.uk/information-and-support/prostate-cancer/"
-                    :rel    "noopener"
-                    :target "_blank"} "[Macmillan.]"] "can also provide useful information on the side
-               effects of each treatment.")
+               You should also speak to your specialist or you can look at the UK National Prostate Cancer Audit patient
+               reported outcomes for additional information and guidance. "
+               [:span "Charities such as "
+                [:a {:href   "https://prostatecanceruk.org/"
+                     :rel    "noopener"
+                     :style  {:text-decoration "underline"}
+                     :target "_blank"} "Prostate Cancer UK."] " and "
+                [:a {:href   "https://www.macmillan.org.uk/information-and-support/prostate-cancer/"
+                     :rel    "noopener"
+                     :style  {:text-decoration "underline"}
+                     :target "_blank"} "Macmillan."] " can also provide useful information on the side
+               effects of each treatment."])
      (hr)
      (faq-item "Who developed the Predict Prostate programme?"
-               [:span "See " [:a {:href "#" :on-click #(publish route-change [:about {:page :overview :section :whobuiltpredict}])} "Who built Predict Prostate?"] "."]
+               [:span "See " [:a {:href "#"
+                                  :style  {:text-decoration "underline"}
+                                  :on-click #(publish route-change [:about {:page :overview :section :whobuiltpredict}])} "Who built Predict Prostate?"] "."]
                #_"Predict Prostate has been developed by a partnership between the Academic Urology Group and the Department of Cancer Epidemiology at the University of Cambridge
       in collaboration with the National Cancer Registration and Analysis Service (NCRAS) at Public Health England")
 
      (hr)
      (faq-item "How was the computer programme developed?"
-               [:span "See " [:a {:href "#" :on-click #(publish route-change [:about {:page :overview :section :whobuiltpredict}])} "Who built Predict Prostate?"] "."]
+               [:span "See " [:a {:href "#"
+                                  :style  {:text-decoration "underline"}
+                                  :on-click #(publish route-change [:about {:page :overview :section :whobuiltpredict}])} "Who built Predict Prostate?"] "."]
                #_[:span "The team used information held by the National Cancer Registration and Analysis Service, part of Public Health England."
                 [:a {:href  "http://www.ncin.org.uk/collecting_and_using_data/national_cancer_data_repository/"
                      :rel   "noopener"
