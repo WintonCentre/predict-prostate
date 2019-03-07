@@ -97,7 +97,7 @@
 
    ; block 1
    [:section#home-strap-line "What is Predict Prostate for?"
-    [:p {:key 1} "an individualised prognostic model for men newly diagnosed with non-metastatic prostate cancer"]
+    [:p {:key 1} "An individualised prognostic model for men newly diagnosed with non-metastatic prostate cancer"]
     [:p {:key 2} ""]
     ]
 
@@ -322,7 +322,7 @@
                If BRCA status is unknown 'Negative or Untested' should be selected. Positive for either BRCA1 or BRCA2 is considered as positive for this model.
                      All of the necessary details should be easily available to your prostate cancer specialist.")
      (hr)
-     (faq-item "How do I know that Predict Prostate gives the right answers."
+     (faq-item "How do I know that Predict Prostate gives the right answers?"
                "Predict Prostate estimates what would be expected to happen to men with similar characteristics based on past data. The findings are based on men diagnosed in the East of England 
                but we have also tested the model on over 2,500 men diagnosed in Singapore. To the best of our knowledge the Predict tool should work equally well 
                for men currently diagnosed. However, Predict Prostate can never say with 100% certainty what will happen to an individual man. Note also that Predict Prostate is likely to be 
@@ -766,7 +766,7 @@
       [:li "AIDS."]]]
 
     [:section#biopsy-examples "Biopsy examples"
-     [:h4 "Examples of how to deal with targetted biopsies:"]
+     [:h4 "Examples of how to deal with targeted biopsies:"]
      [:div {:style {:margin-left 20 :margin-right 20}}
       [:p "2 biopsy cores from 1 target, of which both were negative = 1 additional core taken and 0 additional cores with cancer "]
       [:p "3 biopsy cores from 1 target, of which 2 were positive = 1 additional core taken and 1 additional core with cancer. "]
