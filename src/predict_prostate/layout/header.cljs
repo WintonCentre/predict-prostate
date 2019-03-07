@@ -52,7 +52,7 @@
    [:.col-md-3..col-md-offset-2.text-center {:style {:margin-top "20px"}}
     [:img {:src "/assets/faq-icon.png" :alt "faq-icon" :aria-hidden true}]
     [:h3 "Someone to talk to?"]
-    [:p " if you are fighting cancer, it’s often easier with support. Here, you can find further information and links."]
+    [:p " If you are fighting cancer, it’s often easier with support. Here, you can find further information and links."]
     [:button.btn.btn-danger.btn-lg
      {:on-click #(publish route-change [:about {:page "faqs"} nil])}
      "Support Links" #_"See the FAQs"]
