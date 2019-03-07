@@ -230,6 +230,8 @@
      on both of these models, with one adjusted for the other within a competing risks framework.
      Further information is provided from the full paper published in the open access journal "
      [:a {:href   "http://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1002758"
+          :style  {:text-decoration "underline"}
+          :rel    "noopener"
           :target "blank"} "PLoS Medicine, March 2019."]
      ]]
 
@@ -248,6 +250,7 @@
      is currently undergoing testing in other international cohorts. A "
      [:a {:href   "http://www.isrctn.com/ISRCTN28468474"
           :rel    "noopener"
+          :style  {:text-decoration "underline"}
           :target "blank"} "patient study"] " is also underway to assess its potential impact on clinical practice."]
     ]]
 
@@ -260,7 +263,9 @@
                       . by D Thurtle, D Greenberg, LS Lee, H Huang, PD Pharoah, VJ Gnanapragasam. PLOS Medicine
       2019.  "
            [:a {:href   "http://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1002758"
-                :target "_blank"} "[Full paper online.]"]]]]]
+                :rel    "noopener"
+                :style  {:text-decoration "underline"}
+                :target "_blank"} "Full paper online."]]]]]
 
    ]
 
@@ -276,11 +281,13 @@
                               :list-style-type "none"}}
                  [:li {:key 1}
                   [:a {:href "http://www.cancerresearchuk.org/about-cancer/prostate-cancer/treatment"
+                       :style  {:text-decoration "underline"}
                        :rel    "noopener"
                        :target "blank"} "Cancer research UK"]]
                  [:li {:key 2}
                   [:a {:href "https://www.nhs.uk/conditions/prostate-cancer/treatment/"
                        :rel    "noopener"
+                       :style  {:text-decoration "underline"}
                        :target "blank"} "NHS"]]]
 
 
@@ -290,10 +297,12 @@
                  [:li {:key 3}
                   [:a {:href "https://www.nhs.uk/conditions/prostate-cancer/treatment/#radical-prostatectomy"
                        :rel    "noopener"
+                       :style  {:text-decoration "underline"}
                        :target "blank"} "Radical prostatectomy"]]
                  [:li {:key 4}
                   [:a {:href "https://www.nhs.uk/conditions/prostate-cancer/treatment/#radiotherapy"
                        :rel    "noopener"
+                       :style  {:text-decoration "underline"}
                        :target "blank"} "Radiotherapy"]]
                  ]
                 [:h4 "Further advice and support:"]
@@ -302,14 +311,17 @@
                  [:li {:key 1}
                   [:a {:href "http://www.macmillan.org.uk/"
                        :rel    "noopener"
+                       :style  {:text-decoration "underline"}
                        :target "_blank"} "Macmillan"]]
                  [:li {:key 2}
                   [:a {:href "http://prostatecanceruk.org/"
                        :rel    "noopener"
+                       :style  {:text-decoration "underline"}
                        :target "_blank"} "Prostate Cancer UK"]]
                  [:li {:key 3}
                   [:a {:href "https://www.nhs.uk/pages/home.aspx"
                        :rel    "noopener"
+                       :style  {:text-decoration "underline"}
                        :target "_blank"} "NHS Choices"]]
                  ]]
 
@@ -401,7 +413,6 @@
      (hr)
      (faq-item "Who developed the Predict Prostate programme?"
                [:span "See " [:a {:href "#"
-                                  :style  {:text-decoration "underline"}
                                   :on-click #(publish route-change [:about {:page :overview :section :whobuiltpredict}])} "Who built Predict Prostate?"] "."]
                #_"Predict Prostate has been developed by a partnership between the Academic Urology Group and the Department of Cancer Epidemiology at the University of Cambridge
       in collaboration with the National Cancer Registration and Analysis Service (NCRAS) at Public Health England")
@@ -409,7 +420,6 @@
      (hr)
      (faq-item "How was the computer programme developed?"
                [:span "See " [:a {:href "#"
-                                  :style  {:text-decoration "underline"}
                                   :on-click #(publish route-change [:about {:page :overview :section :whobuiltpredict}])} "Who built Predict Prostate?"] "."]
                #_[:span "The team used information held by the National Cancer Registration and Analysis Service, part of Public Health England."
                 [:a {:href  "http://www.ncin.org.uk/collecting_and_using_data/national_cancer_data_repository/"
