@@ -255,26 +255,47 @@
    [:h5 "About treatments:"]
    [:ul {:style {:list-style-type "none"}}
     [:li {:key 1}
-     [:a {:href "http://www.cancerresearchuk.org/about-cancer/prostate-cancer/treatment" :target "blank"} "Cancer research UK"]]
+     [:a {:href "http://www.cancerresearchuk.org/about-cancer/prostate-cancer/treatment"
+          :style  {:text-decoration "underline"}
+          :rel "noopener"
+          :target "blank"} "Cancer research UK"]]
     [:li {:key 2}
-     [:a {:href "https://www.nhs.uk/conditions/prostate-cancer/treatment/" :target "blank"} "NHS"]]]
+     [:a {:href "https://www.nhs.uk/conditions/prostate-cancer/treatment/"
+          :rel "noopener"
+          :style  {:text-decoration "underline"}
+          :target "blank"} "NHS"]]]
 
 
    [:h5 "About potential harms:"]
    [:ul {:style {:list-style-type "none"}}
     [:li {:key 3}
-     [:a {:href "https://www.nhs.uk/conditions/prostate-cancer/treatment/#radical-prostatectomy" :target "blank"} "Radical prostatectomy"]]
+     [:a {:href "https://www.nhs.uk/conditions/prostate-cancer/treatment/#radical-prostatectomy"
+          :style  {:text-decoration "underline"}
+          :rel "noopener"
+          :target "blank"} "Radical prostatectomy"]]
     [:li {:key 4}
-     [:a {:href "https://www.nhs.uk/conditions/prostate-cancer/treatment/#radiotherapy" :target "blank"} "Radiotherapy"]]
+     [:a {:href "https://www.nhs.uk/conditions/prostate-cancer/treatment/#radiotherapy"
+          :style  {:text-decoration "underline"}
+          :rel "noopener"
+          :target "blank"} "Radiotherapy"]]
     ]
    [:h5 "Further advice and support:"]
    [:ul {:style {:list-style-type "none"}}
     [:li {:key 1}
-     [:a {:href "http://www.macmillan.org.uk/" :target "blank"} "Macmillan"]]
+     [:a {:href "http://www.macmillan.org.uk/"
+          :style  {:text-decoration "underline"}
+          :rel "noopener"
+          :target "blank"} "Macmillan"]]
     [:li {:key 2}
-     [:a {:href "http://prostatecanceruk.org/" :target "_blank"} "Prostate Cancer UK"]]
+     [:a {:href "http://prostatecanceruk.org/"
+          :style  {:text-decoration "underline"}
+          :rel "noopener"
+          :target "_blank"} "Prostate Cancer UK"]]
     [:li {:key 3}
-     [:a {:href "https://www.nhs.uk/pages/home.aspx" :target "_blank"} "NHS Choices"]]
+     [:a {:href "https://www.nhs.uk/pages/home.aspx"
+          :style  {:text-decoration "underline"}
+          :rel "noopener"
+          :target "_blank"} "NHS Choices"]]
     ]])
 
 (rum/defc results-in-sidefx []
