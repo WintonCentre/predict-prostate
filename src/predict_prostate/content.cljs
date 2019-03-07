@@ -145,7 +145,7 @@
     [:ul {:style {:list-style-image "url(/assets/bullet-plus.png)"}}
      [:li (page-link [:about {:page :overview :section :whoisitfor}] "Who is it for?")]
      [:li (page-link [:about {:page :overview :section :howpredictworks}] "How Predict works")]
-     [:li (page-link [:about {:page :overview :section :whobuiltpredict}] "Who built Predict")]
+     [:li (page-link [:about {:page :overview :section :whobuiltpredict}] "Who built Predict Prostate?")]
      ]
 
     [:section
