@@ -1,6 +1,6 @@
-(defproject predict-prostate "0.1.0-SNAPSHOT"
-  :description "FIXME: write this!"
-  :url "http://example.com/FIXME"
+(defproject predict-prostate "1.1"
+  :description "Prostate Cancer survival prediction tool"
+  :url "https://prostate.predict.nhs.uk"
   :license {:name "Eclipse Public License"
             :url  "http://www.eclipse.org/legal/epl-v10.html"}
 
@@ -27,7 +27,7 @@
                  #_[rum "0.10.8"]
                  [rum "0.11.3"]
                  [pubsub "0.2.1"]
-                 [wc-rum-lib "0.1.14"]
+                 [wc-rum-lib "0.1.16"]
                  [cljs-css-modules "0.2.1"]
                  [cljsjs/jquery "1.9.1-0"]
                  [cljsjs/bootstrap "3.3.6-0"]

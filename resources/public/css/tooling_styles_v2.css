@@ -18,7 +18,7 @@ p, ul {
 }
 
 h1,h2,h3 {
-   color: #444466; //!important;
+   color: #444466;
 }
 
 h1.alison-blue-2 {
@@ -42,7 +42,6 @@ button.btn-link:focus {
 
 .btn-info {
   color: #fff;
-  /*background-color: #257ce1;*/
   background-color: #144078;
   border: none;
 }
@@ -122,7 +121,7 @@ nav.navbar-fixed-top .container {
 
 /* hamburger background
 .navbar-inverse .navbar-toggle {
-    background-color: #444466; //#00417f;
+    background-color: #444466;
 }
 
 /* unselected menu item text
@@ -138,7 +137,6 @@ nav.navbar-fixed-top .container {
 
 
 .navbar-header {
-   //margin-top: 2rem;
    font-size: 1.5em;
 }
 
@@ -400,8 +398,6 @@ ul.dropdown-menu li.active a:hover {
   background-image: none;
   background-color: #d6eeff;
   outline: 0;
-  //-webkit-box-shadow: inset 0 3px 5px rgba(0,0,0,0.25) !important;
-  //box-shadow: inset 0 3px 5px rgba(0,0,0,0.25) !important;
 }
 
 .btn.active:focus, .btn:focus {
@@ -409,8 +405,6 @@ ul.dropdown-menu li.active a:hover {
   background-color: #cceeff;
     background-color: #ffccee;
   outline: 0;
-  //-webkit-box-shadow: inset 0 3px 5px rgba(0,0,0,0.25) !important;
-  //box-shadow: inset 0 3px 5px rgba(0,0,0,0.25) !important;
 }
 */
 
@@ -491,10 +485,8 @@ ol li {
 
   /* following are variously recommended overrides to bootstrap properties to make break-inside: avoid work
      I found float none to be sufficient however */
-  div { float: none !important;
-        //position: static !important;
-        //display: inline;
-        //box-sizing: content-box !important;
+  div {
+  float: none !important;
   }
 
   #_hj_poll_container {
