@@ -61,3 +61,5 @@ resources/public/js/
 
 .temp_exclude_list
 *.orig
+
+src/predict_prostate/components/numeric_input.cljs
