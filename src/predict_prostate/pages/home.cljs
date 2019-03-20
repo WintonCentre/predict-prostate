@@ -48,6 +48,8 @@
           [el1 {:style {:font-size 20 :margin-left 15}} p1]
           [el2 {:style {:font-size 14 :margin-left 15}} p2]])
        (start-button)
+
+        [:p {:style {:margin-left 15}} [:i "Did you mean to visit "] [:a {:href "https://breast.predict.nhs.uk"} "Predict Breast Cancer?"]]
        ]
       [:.col-sm-6
        [:img.img-responsive {:src         "assets/icon-imagery.png"
