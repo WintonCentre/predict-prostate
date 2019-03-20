@@ -167,31 +167,31 @@
     <link href="/css/jquery.smartmenus.bootstrap.css" rel="stylesheet">
 
 
-    <script>
-        window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-        ga('create', 'UA-1462795-47', 'auto');
+    <!--<script>-->
+        <!--window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;-->
+        <!--ga('create', 'UA-1462795-47', 'auto');-->
 
-        // Replace the following lines with the plugins you want to use.
-        ga('require', 'urlChangeTracker');
+        <!--// Replace the following lines with the plugins you want to use.-->
+        <!--ga('require', 'urlChangeTracker');-->
 
-        // ga('require', 'eventTracker');
-        ga('require', 'eventTracker', {
-            attributePrefix: 'data-'
-        });
+        <!--// ga('require', 'eventTracker');-->
+        <!--ga('require', 'eventTracker', {-->
+            <!--attributePrefix: 'data-'-->
+        <!--});-->
 
-        // ga('require', 'outboundLinkTracker');
-        // ga('require', 'urlChangeTracker');
-        // ...
+        <!--// ga('require', 'outboundLinkTracker');-->
+        <!--// ga('require', 'urlChangeTracker');-->
+        <!--// ...-->
 
-        ga('send', 'pageview');
-    </script>
-    <script async src="https://www.google-analytics.com/analytics.js"></script>
+        <!--ga('send', 'pageview');-->
+    <!--</script>-->
+    <!--<script async src="https://www.google-analytics.com/analytics.js"></script>-->
     <script async src="/js/autotrack.js"></script>
 
 
 
     <script src="/js/compiled/predict_prostate.js" type="text/javascript"></script>
-    <!--<link rel="manifest" href="/manifest.json" crossorigin="use-credentials">-->
+    <link rel="manifest" href="/manifest.json" crossorigin="use-credentials">
     <meta name="theme-color" content="#ffffff">
 </head>
 
@@ -261,16 +261,16 @@
 
 
 <!-- Hotjar Tracking Code for https://prostate.predict.wintoncentre.uk -->
-<script>
-    (function(h,o,t,j,a,r){
-    h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-    h._hjSettings={hjid:1191612,hjsv:6};
-    a=o.getElementsByTagName('head')[0];
-    r=o.createElement('script');r.async=1;
-    r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-    a.appendChild(r);
-})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
+<!--<script>-->
+    <!--(function(h,o,t,j,a,r){-->
+    <!--h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};-->
+    <!--h._hjSettings={hjid:1191612,hjsv:6};-->
+    <!--a=o.getElementsByTagName('head')[0];-->
+    <!--r=o.createElement('script');r.async=1;-->
+    <!--r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;-->
+    <!--a.appendChild(r);-->
+<!--})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');-->
+<!--</script>-->
 
 <!-- SmartMenus jQuery plugin -->
 <script type="text/javascript"  src="/js/jquery.smartmenus.min.js"></script>
@@ -280,17 +280,17 @@
 
 
 <!-- Service Worker -->
-<!--<script>-->
+<script>
 
-    <!--if ('serviceWorker' in navigator) {-->
-        <!--window.addEventListener('load', function() {-->
-            <!--// navigator.serviceWorker.register('/sw_standard.js', { scope: '/' });-->
-            <!--navigator.serviceWorker.register('/sw_net_cache.js', { scope: '/' });-->
-            <!--// navigator.serviceWorker.register('/sw_cache_update.js', { scope: '/' });-->
-        <!--});-->
-    <!--}-->
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            // navigator.serviceWorker.register('/sw_standard.js', { scope: '/' });
+            // navigator.serviceWorker.register('/sw_net_cache.js', { scope: '/' });
+            navigator.serviceWorker.register('/sw_cache_update.js', { scope: '/' });
+        });
+    }
 
-<!--</script>-->
+</script>
 
 
 </body>
