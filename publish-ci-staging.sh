@@ -1,7 +1,7 @@
 #!/bin/bash
 
 set -e
-echo "Publishing to Development server"
+echo "Publishing to Staging server"
 TARGET='prostate.predict.wintoncentre.uk:/var/www/prostate.predict.wintoncentre.uk/'
 LOCAL_DEV='resources/public/'
 #echo "===============Building files============="
