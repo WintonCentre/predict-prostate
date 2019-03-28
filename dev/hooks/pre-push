@@ -23,8 +23,8 @@ while read oldrev newrev refname
 do
     branch=$(git rev-parse --symbolic --abbrev-ref $refname)
 	if [ "develop" == "$branch" ]; then
-		echo "Develop. Jenkins build to jenkins."
         ./build.sh
+		echo "Develop. Jenkins build to jenkins."
 		curl -u jin:11da9bd347a5cd21b349ecab65fac5e31a https://jenkins.wintoncentre.uk/job/predict-prostate-develop/build?token=wfea4398ienvjfdev
 	elif [ "staging" == "$branch" ]; then
         ./build.sh
