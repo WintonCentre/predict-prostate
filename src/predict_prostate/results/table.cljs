@@ -23,7 +23,7 @@
 
 
 
-(defn extract-data [results radical? year]
+(defn extract-data [results year dps]
   (let [conservative-survival (- 1 (+ (nth (get-in results [:conservative :pred-PC-cum]) year)
                                       (nth (get-in results [:conservative :pred-NPC-cum]) year)))
         radical-low-survival (- 1 (+ (nth (get-in results [:radical-low :pred-PC-cum]) year)
@@ -32,18 +32,18 @@
                                       (nth (get-in results [:radical-high :pred-NPC-cum]) year)))
         radical-survival (- 1 (+ (nth (get-in results [:radical :pred-PC-cum]) year)
                                  (nth (get-in results [:radical :pred-NPC-cum]) year)))
-        data {:dotted-orange (percent (nth (get-in results [:conservative :NPC-survival]) year)) ;(percent (- 1 (nth (get-in results [(if radical? :radical :conservative) :pred-NPC-cum]) year)) 0)
-              :conservative  {:overall (percent conservative-survival)
+        data {:dotted-orange (percent (nth (get-in results [:conservative :NPC-survival]) year) dps) ;(percent (- 1 (nth (get-in results [(if radical? :radical :conservative) :pred-NPC-cum]) year)) 0)
+              :conservative  {:overall (percent conservative-survival dps)
                               :benefit "-"}
-              :radical       {:overall      (percent radical-survival)
-                              :benefit-low  (percent (- radical-low-survival conservative-survival) 1)
-                              :benefit-high (percent (- radical-high-survival conservative-survival) 1)
-                              :benefit      (percent (- radical-survival conservative-survival) 1)}}]
+              :radical       {:overall      (percent radical-survival dps)
+                              :benefit-low  (percent (- radical-low-survival conservative-survival) dps)
+                              :benefit-high (percent (- radical-high-survival conservative-survival) dps)
+                              :benefit      (percent (- radical-survival conservative-survival) dps)}}]
     data))
 
-(rum/defc tables < rum/reactive [data]
+(rum/defc tables < rum/reactive [data uncertainty?]
 
-  (let [uncertainty? (= :yes (rum/react (input-cursor :show-uncertainty)))
+  (let [
         radical? (= 1 (rum/react (input-cursor :primary-rx)))]
     [:.table-responsive {:style {:margin-top "15px"
                                  :font-size  "1.2em"}}
@@ -83,9 +83,8 @@
   []
   (let [radical? (= 1 (rum/react (input-cursor :primary-rx)))
         year (rum/react (input-cursor :result-year))
-        data (extract-data (rum/react results-cursor)
-                           radical?
-                           year)
+        uncertainty? (= :yes (rum/react (input-cursor :show-uncertainty)))
+        data (extract-data (rum/react results-cursor) year (if uncertainty? 1 0))
         text1 "This table shows the percentage of men who survive at least "
         text2 " years after diagnosis, based on the information you have provided."]
 
@@ -95,7 +94,7 @@
      [:.col-sm-12.print-only
       text1 [:span.print-only  year] text2]
      [:.col-sm-12 {:style {:margin-bottom "15px"}}
-      (tables data)
+      (tables data uncertainty?)
       (when radical?
         [:.screen-only
          (form-entry {:key :show-uncertainty :label "show-ranges"})])]]))
