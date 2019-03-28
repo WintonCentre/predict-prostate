@@ -25,7 +25,7 @@ do
     branch=$(git rev-parse --symbolic --abbrev-ref $refname)
 	if [ "develop" == "$branch" ]; then
 		echo "Develop. Jenkins not setup yet."
-		curl -u jin:11da9bd347a5cd21b349ecab65fac5e31a https://jenkins.wintoncentre.uk/job/predict-prostate-staging/build?token=wfea4398ienvjfdev
+		curl -u jin:11da9bd347a5cd21b349ecab65fac5e31a https://jenkins.wintoncentre.uk/job/predict-prostate-develop/build?token=wfea4398ienvjfdev
 	elif [ "staging" == "$branch" ]; then
 		echo "Staging. Sending build to jenkins."
 		curl -u jin:11da9bd347a5cd21b349ecab65fac5e31a https://jenkins.wintoncentre.uk/job/predict-prostate-staging/build?token=wfea4398ienvjf
