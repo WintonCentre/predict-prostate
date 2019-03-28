@@ -32,11 +32,10 @@ do
 	if [ "develop" == "$branch" ]; then
 		echo "Develop. Jenkins not setup yet."
 	if [ "staging" == "$branch" ]; then
-		echo "Staging. Jenkins not setup yet."
-
+		echo "Staging. Sending build to jenkins."
+		curl -u jin:11da9bd347a5cd21b349ecab65fac5e31a https://jenkins.wintoncentre.uk/job/predict-prostate-staging/build?token=wfea4398ienvjf
 	elif [ "master" == "$branch" ]; then
-		echo "Master. Sending Jenkins build"
-	curl -u jin:1130b8e731318bae8eb4c9e4c577c7cdbf https://jenkins.wintoncentre.uk/job/predict-prostate-staging/build?token=wfea4398ienvjf
+		echo "Master. Jenkins not setup yet"
 	fi
 
 done
