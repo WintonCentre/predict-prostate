@@ -37,10 +37,6 @@ bower_components
 ~*
 .idea/inspectionProfiles/
 tmp/
-resources/public/faq*
-resources/public/home*
-resources/public/index*
-resources/public/intro*
 .lein-git-deps/
 #project.clj#
 .idea/
@@ -53,10 +49,6 @@ wireframes/export/
 wireframes/wire2.xd
 wireframes/wire3.xd
 
-resources/public/js/
-!/resources/public/js/react-numeric-input.min.js
-!/resources/public/js/predict2-model.js
-!/resources/public/index.html
 /yarn-error.log
 
 .temp_exclude_list
