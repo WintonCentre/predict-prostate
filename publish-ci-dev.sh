@@ -9,4 +9,3 @@ rsync -avz --omit-dir-times --del --no-perms --no-owner --no-group $LOCAL_DEV $T
 echo "================================="
 echo "Uploaded to " $TARGET
 echo "================================="
-#
