@@ -1,4 +1,7 @@
 let CACHE = 'cache-and-update';
+let VERSION_CUR = 'v0.0045';
+let LATEST_CACHE_ID = CACHE + '--' + VERSION_CUR;
+console.log(VERSION_CUR);
 
 // On install, cache some resources.
 self.addEventListener('install', function(evt) {
@@ -24,7 +27,8 @@ self.addEventListener('fetch', function(evt) {
 // Open a cache and use `addAll()` with an array of assets to add all of them
 // to the cache. Return a promise resolving when all the assets are added.
 function precache() {
-    return caches.open(CACHE).then(function (cache) {
+    // return caches.open(CACHE).then(function (cache) {
+    return caches.open(LATEST_CACHE_ID).then(function (cache) {
         return cache.addAll([
             '/',
             '/tool',
@@ -60,10 +64,25 @@ function precache() {
             '/css/jquery.smartmenus.bootstrap.css',
             '/css/tooling_styles_v2.css',
 
-            // 'asdfasdf.txt',
+            // '/css/tawefawefawetylesrthrthrthrth.css',
         ]);
     });
 }
+
+// // Tutorial
+addEventListener('activate', activateEvent => {
+    activateEvent.waitUntil(
+        caches.keys().then(keyList => Promise.all(keyList.map(key => {
+            console.log("key from activate")
+            console.log(key)
+            if (key !== LATEST_CACHE_ID) {
+                return caches.delete(key);
+            }
+        })))
+        .then(() => self.skipWaiting())
+    );
+});
+
 
 // Open the cache where the assets were stored and search for the requested
 // resource. Notice that in case of no matching, the promise still resolves
