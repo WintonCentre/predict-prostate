@@ -821,8 +821,10 @@
     ;; Treatment Options and Results
     ;;
 
-    [:section#show-ranges "Show ranges"
-     [:p "The default values are the best estimate of the benefit. When you click on show ranges, a 95% prediction
-     interval is added to the table. The true value of the benefit is very unlikely be outside this range"]]]]
+    [:section#show-ranges "More detail?"
+     [:p "When you say 'Yes' to " [:b "More detail?, "] "Predict Prostate will display overall survival and
+      treatment benefits to 1 decimal place instead of rounding the percentages to the nearest whole number."]
+     [:p "The default values are the best estimate of the benefit. In the more detailed table, a 95% prediction
+     interval is added alongside the additional benefit. The true value of the benefit is very unlikely be outside this range"]]]]
 
   )

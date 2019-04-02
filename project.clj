@@ -149,8 +149,8 @@
   ;; Setting up nREPL for Figwheel and ClojureScript dev
   ;; Please see:
   ;; https://github.com/bhauman/lein-figwheel/wiki/Using-the-Figwheel-REPL-within-NRepl
-  :profiles {:dev {:dependencies  [[binaryage/devtools "0.9.9"]
-                                   [figwheel-sidecar "0.5.14"]
+  :profiles {:dev {:dependencies  [[binaryage/devtools "0.9.10"]
+                                   [figwheel-sidecar "0.5.18"]
                                    [com.cemerick/piggieback "0.2.2"]]
                    ;; need to add dev source path here to get user.clj loaded
                    :source-paths  ["src" "dev"]

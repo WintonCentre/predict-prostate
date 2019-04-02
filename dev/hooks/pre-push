@@ -22,16 +22,24 @@
 while read oldrev newrev refname
 do
     branch=$(git rev-parse --symbolic --abbrev-ref $refname)
+    BUILD_OUTPUT="resources/public/js/compiled/predict_prostate.js"
+
 	if [ "develop" == "$branch" ]; then
         ./build.sh
+        git add ${BUILD_OUTPUT}
+        git commit -m "Auto commit build output"
 		echo "Develop. Jenkins build to jenkins."
 		curl -u jin:11da9bd347a5cd21b349ecab65fac5e31a https://jenkins.wintoncentre.uk/job/predict-prostate-develop/build?token=wfea4398ienvjfdev
 	elif [ "staging" == "$branch" ]; then
         ./build.sh
+        git add ${BUILD_OUTPUT}
+        git commit -m "Auto commit build output"
 		echo "Staging. Sending build to jenkins."
 		curl -u jin:11da9bd347a5cd21b349ecab65fac5e31a https://jenkins.wintoncentre.uk/job/predict-prostate-staging/build?token=wfea4398ienvjf
 	elif [ "master" == "$branch" ]; then
         ./build.sh
+        git add ${BUILD_OUTPUT}
+        git commit -m "Auto commit build output"
 		echo "Master. Jenkins trigger disabled"
 #        curl -u jin:11da9bd347a5cd21b349ecab65fac5e31a https://jenkins.wintoncentre.uk/job/predict-prostate-master/build?token=wfea4398ienvjfmaster
 	fi
