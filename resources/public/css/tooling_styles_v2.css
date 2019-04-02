@@ -453,7 +453,8 @@ ul.dropdown-menu li.active a:hover {
 
 .build-version {
     font-size: 8px;
-    padding: 10px 0px;
+    padding-top: 12px;
+    text-align: right;
 }
 
 /**
