@@ -196,7 +196,7 @@
                   10)
 
    (->Input-group :show-uncertainty
-                  "Show ranges?"
+                  "More detail?"
                   :radio-group
                   [[:yes "Yes"]
                    [:no "No"]]
