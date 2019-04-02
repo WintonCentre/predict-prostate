@@ -1,5 +1,5 @@
 let CACHE = 'cache-and-update';
-let VERSION_CUR = 'v0.0045';
+let VERSION_CUR = 'v0.0051 - test update cache with this version update';
 let LATEST_CACHE_ID = CACHE + '--' + VERSION_CUR;
 console.log(VERSION_CUR);
 
@@ -23,6 +23,19 @@ self.addEventListener('fetch', function(evt) {
     // cache is updated.
     evt.waitUntil(update(evt.request));
 });
+
+// different fetch
+// self.addEventListener('fetch', function(event) {
+//     event.respondWith(
+//         // Try the cache
+//         caches.match(event.request).then(function(response) {
+//             return response || fetch(event.request);
+//         }).catch(function() {
+//             //Error stuff
+//         })
+//     );
+// });
+
 
 // Open a cache and use `addAll()` with an array of assets to add all of them
 // to the cache. Return a promise resolving when all the assets are added.
@@ -76,10 +89,14 @@ addEventListener('activate', activateEvent => {
             console.log("key from activate")
             console.log(key)
             if (key !== LATEST_CACHE_ID) {
+                console.log("New key. Deleting old cache")
                 return caches.delete(key);
             }
         })))
-        .then(() => self.skipWaiting())
+        .then(() => {
+            console.log(' should run: self.skipWaiting()')
+            return self.skipWaiting()
+        })
     );
 });
 
