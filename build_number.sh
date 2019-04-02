@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 echo "===============Adding build number============="
+git checkout develop
 BUILD_SEARCH="Build: v0.0-dev-#000-hash"
 GIT_DESCRIBE=$(git describe)
 
