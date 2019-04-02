@@ -22,6 +22,7 @@
 while read oldrev newrev refname
 do
     branch=$(git rev-parse --symbolic --abbrev-ref $refname)
+    echo branch
 	if [ "develop" == "$branch" ]; then
         ./build.sh
 		echo "Develop. Jenkins build to jenkins."
