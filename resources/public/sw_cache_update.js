@@ -98,15 +98,15 @@ function precache() {
 addEventListener('activate', activateEvent => {
     activateEvent.waitUntil(
         caches.keys().then(keyList => Promise.all(keyList.map(key => {
-            console.log("key from activate")
-            console.log(key)
+            // console.log("key from activate")
+            // console.log(key)
             if (key !== LATEST_CACHE_ID) {
-                console.log("New key. Deleting old cache")
+                console.log("New key found. Deleting old cache")
                 return caches.delete(key);
             }
         })))
         .then(() => {
-            console.log(' should run: self.skipWaiting()')
+            console.log('Activating now via self.skipWaiting()')
             return self.skipWaiting()
         })
     );
@@ -117,12 +117,12 @@ addEventListener('activate', activateEvent => {
 // resource. Notice that in case of no matching, the promise still resolves
 // but it does with `undefined` as value.
 function fromCache(request) {
-    console.log('fromCache - request')
+    // console.log('fromCache - request')
     // console.log(request)
 
     return caches.open(CACHE).then(function (cache) {
         return cache.match(request).then(function (matching) {
-            console.log('fromCache - matching')
+            // console.log('fromCache - matching')
             // console.log(matching)
             // return matching || Promise.reject('no-match');
             return matching || fetch(request);
