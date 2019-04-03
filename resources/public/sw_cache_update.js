@@ -1,11 +1,12 @@
 let CACHE = 'cache-and-update';
-let VERSION_CUR = 'v0.0051 - test update cache with this version update';
+let VERSION_CUR = 'v0.0065 - Add all links';
 let LATEST_CACHE_ID = CACHE + '--' + VERSION_CUR;
 console.log(VERSION_CUR);
 
 // On install, cache some resources.
 self.addEventListener('install', function(evt) {
     console.log('The service worker is being installed. ' + CACHE);
+    self.skipWaiting()
 
     // Ask the service worker to keep installing until the returning promise
     // resolves.
@@ -45,6 +46,17 @@ function precache() {
         return cache.addAll([
             '/',
             '/tool',
+            '/about/overview/about',
+            '/about/overview/whoisitfor',
+            '/about/overview/howpredictworks',
+            '/about/overview/whobuiltpredict',
+            '/about/technical/technical',
+            '/about/technical/history',
+            '/about/technical/publications',
+            '/about/faqs',
+            '/legal/disclaimer',
+            '/legal/algorithm',
+            '/legal/privacy',
             '/index.html',
             '/manifest.json',
             '/assets/favicon.png',
@@ -105,14 +117,18 @@ addEventListener('activate', activateEvent => {
 // resource. Notice that in case of no matching, the promise still resolves
 // but it does with `undefined` as value.
 function fromCache(request) {
-    console.log('request')
-    console.log(request)
+    console.log('fromCache - request')
+    // console.log(request)
 
     return caches.open(CACHE).then(function (cache) {
         return cache.match(request).then(function (matching) {
-            console.log('matching')
-            console.log(matching)
-            return matching || Promise.reject('no-match');
+            console.log('fromCache - matching')
+            // console.log(matching)
+            // return matching || Promise.reject('no-match');
+            return matching || fetch(request);
+        }).catch(function(res) {
+            console.log("Error fetching not found content in cache.")
+            console.log(res)
         });
     });
 }
