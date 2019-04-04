@@ -441,7 +441,7 @@ ul.dropdown-menu li.active a:hover {
 }
 
 .copy-footer {
-    padding: 10px 0px;
+    padding-top: 10px;
     background: #292929;
     color: #9e9e9e;
     text-align: center;
@@ -452,9 +452,11 @@ ul.dropdown-menu li.active a:hover {
 }
 
 .build-version {
-    font-size: 8px;
-    padding-top: 12px;
-    text-align: right;
+    /*font-size: 9px;*/
+    padding-top: 10px;
+    padding-bottom: 10px;
+    /*padding-right: 15px;*/
+    text-align: center;
 }
 
 /**

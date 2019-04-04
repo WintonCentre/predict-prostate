@@ -138,13 +138,13 @@
         ]]
       ]]]
    [:.row.copy-footer-container
-    [:.col-sm-10.col-sm-offset-1.copy-footer
+    [:.col-lg-9.col-md-8.col-sm-offset-1.copy-footer
      (str "Copyright Ⓒ " (.getFullYear (js/Date.)) " University of Cambridge. All Rights Reserved | ")
      [:a {:on-click #(publish route-change [:legal {:page "privacy"} nil]) :href "javascript:void(0)"} "Privacy & Data Protection"]
      " | "
      [:a {:on-click #(publish route-change [:legal {:page "disclaimer"} nil]) :href "javascript:void(0)"} "Disclaimer"]
      ]
-    [:.col-sm-1.build-version
+    [:.col-lg-2.col-md-3.build-version
      "Build: v0.0-dev-#000-hash"
      ]
     ]
