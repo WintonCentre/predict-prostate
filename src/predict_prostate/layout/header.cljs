@@ -109,7 +109,7 @@
               :border-radius    "0px"
               :padding          "30px"
               }}
-     [:row
+     [:.row
       [:.col-sm-10.col-sm-offset-1
        [:.row
         [:.col-sm-4
