@@ -679,13 +679,31 @@ height:auto;
 .draft-overlay {
     /*width: 200px;*/
     position: fixed;
-    left: 50%;
-    right: -75%;
-    margin-left: auto;
-    margin-right: auto;
+    /*left: 50%;*/
+    /*right: -75%;*/
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
     transform: rotate(-45deg);
     font-size: 200px;
     z-index: 999;
     pointer-events: none;
     opacity: 0.3;
+
+    left: 60%;
+    top: 60%;
+}
+
+@media only screen and (max-width: 1090px) {
+    .draft-overlay {
+        font-size: 150px;
+        top: 70%;
+    }
+}
+
+@media only screen and (max-width: 830px) {
+    .draft-overlay {
+        font-size: 100px;
+        left: 50%;
+        top: 80%;
+    }
 }
