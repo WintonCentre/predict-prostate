@@ -1,8 +1,12 @@
 let CACHE = 'cache-and-update';
+let VERSION_CUR = 'v0.0101 - First dev live version';
+let LATEST_CACHE_ID = CACHE + '--' + VERSION_CUR;
+console.log(VERSION_CUR);
 
 // On install, cache some resources.
 self.addEventListener('install', function(evt) {
     console.log('The service worker is being installed. ' + CACHE);
+    self.skipWaiting()
 
     // Ask the service worker to keep installing until the returning promise
     // resolves.
@@ -21,13 +25,38 @@ self.addEventListener('fetch', function(evt) {
     evt.waitUntil(update(evt.request));
 });
 
+// different fetch
+// self.addEventListener('fetch', function(event) {
+//     event.respondWith(
+//         // Try the cache
+//         caches.match(event.request).then(function(response) {
+//             return response || fetch(event.request);
+//         }).catch(function() {
+//             //Error stuff
+//         })
+//     );
+// });
+
+
 // Open a cache and use `addAll()` with an array of assets to add all of them
 // to the cache. Return a promise resolving when all the assets are added.
 function precache() {
-    return caches.open(CACHE).then(function (cache) {
+    // return caches.open(CACHE).then(function (cache) {
+    return caches.open(LATEST_CACHE_ID).then(function (cache) {
         return cache.addAll([
             '/',
             '/tool',
+            '/about/overview/about',
+            '/about/overview/whoisitfor',
+            '/about/overview/howpredictworks',
+            '/about/overview/whobuiltpredict',
+            '/about/technical/technical',
+            '/about/technical/history',
+            '/about/technical/publications',
+            '/about/faqs',
+            '/legal/disclaimer',
+            '/legal/algorithm',
+            '/legal/privacy',
             '/index.html',
             '/manifest.json',
             '/assets/favicon.png',
@@ -60,23 +89,46 @@ function precache() {
             '/css/jquery.smartmenus.bootstrap.css',
             '/css/tooling_styles_v2.css',
 
-            // 'asdfasdf.txt',
+            // '/css/tawefawefawetylesrthrthrthrth.css',
         ]);
     });
 }
+
+// // Tutorial
+addEventListener('activate', activateEvent => {
+    activateEvent.waitUntil(
+        caches.keys().then(keyList => Promise.all(keyList.map(key => {
+            // console.log("key from activate")
+            // console.log(key)
+            if (key !== LATEST_CACHE_ID) {
+                console.log("New key found. Deleting old cache")
+                return caches.delete(key);
+            }
+        })))
+        .then(() => {
+            console.log('Activating now via self.skipWaiting()')
+            return self.skipWaiting()
+        })
+    );
+});
+
 
 // Open the cache where the assets were stored and search for the requested
 // resource. Notice that in case of no matching, the promise still resolves
 // but it does with `undefined` as value.
 function fromCache(request) {
-    // console.log('request')
+    // console.log('fromCache - request')
     // console.log(request)
 
     return caches.open(CACHE).then(function (cache) {
         return cache.match(request).then(function (matching) {
-            // console.log('matching')
+            // console.log('fromCache - matching')
             // console.log(matching)
-            return matching || Promise.reject('no-match');
+            // return matching || Promise.reject('no-match');
+            return matching || fetch(request);
+        }).catch(function(res) {
+            console.log("Error fetching not found content in cache.")
+            console.log(res)
         });
     });
 }
