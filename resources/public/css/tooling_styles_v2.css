@@ -689,21 +689,32 @@ height:auto;
     pointer-events: none;
     opacity: 0.3;
 
-    left: 60%;
-    top: 60%;
+    /*left: 60%;*/
+    /*top: 60%;*/
+    /*top:0;*/
+    /*bottom: 0;*/
+    /*left: 0;*/
+    /*right: 0;*/
+
+    top: 50%;
+    left: 50%;
+    margin-top: -10px;
+    margin-left: -170px;
+    width: 100px;
+    height: 100px;
 }
 
 @media only screen and (max-width: 1090px) {
     .draft-overlay {
-        font-size: 150px;
-        top: 70%;
+        /*font-size: 150px;*/
+        /*top: 70%;*/
     }
 }
 
-@media only screen and (max-width: 830px) {
+@media only screen and (max-width: 670px) {
     .draft-overlay {
-        font-size: 100px;
-        left: 50%;
-        top: 80%;
+        font-size: 120px;
+        /*left: 50%;*/
+        /*top: 80%;*/
     }
 }
