@@ -654,3 +654,38 @@ height:auto;
         transform: rotate(360deg);
     }
 }
+
+
+/*********/
+/* EXTRA */
+/*********/
+
+/* Draft */
+/*.draft-overlay {*/
+/*    position: fixed;*/
+/*    !*width: 30%;*!*/
+/*    !*height: 30%;*!*/
+/*    !*transform: rotate(-45deg);*!*/
+/*    font-size: 200px;*/
+/*    margin: 5% auto; !* Will not center vertically and won't work in IE6/7. *!*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*}*/
+
+/*.draft-overlay:before {*/
+/*    content: "Draft";*/
+/*}*/
+
+.draft-overlay {
+    /*width: 200px;*/
+    position: fixed;
+    left: 50%;
+    right: -75%;
+    margin-left: auto;
+    margin-right: auto;
+    transform: rotate(-45deg);
+    font-size: 200px;
+    z-index: 999;
+    pointer-events: none;
+    opacity: 0.3;
+}
