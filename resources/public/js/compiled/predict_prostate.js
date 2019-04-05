@@ -1,14 +1,13 @@
-if(typeof Math.imul == "undefined" || (Math.imul(0xffffffff,5) == 0)) {
-    Math.imul = function (a, b) {
-        var ah  = (a >>> 16) & 0xffff;
-        var al = a & 0xffff;
-        var bh  = (b >>> 16) & 0xffff;
-        var bl = b & 0xffff;
-        // the shift by 0 fixes the sign on the high part
-        // the final |0 converts the unsigned value into a signed value
-        return ((al * bl) + (((ah * bl + al * bh) << 16) >>> 0)|0);
-    }
-}
+var CLOSURE_UNCOMPILED_DEFINES = {"goog.DEBUG":true};
+var CLOSURE_NO_DEPS = true;
+if(typeof goog == "undefined") document.write('<script src="js/compiled/out/goog/base.js"></script>');
+document.write('<script src="js/compiled/out/goog/deps.js"></script>');
+document.write('<script src="js/compiled/out/cljs_deps.js"></script>');
+document.write('<script>if (typeof goog == "undefined") console.warn("ClojureScript could not load :main, did you forget to specify :asset-path?");</script>');
+document.write('<script>goog.require("devtools.preload");</script>');
+document.write('<script>goog.require("figwheel.connect");</script>');
+document.write('<script>goog.require("process.env");</script>');
+document.write('<script>goog.require("predict_prostate.core");</script>');
 
 /**
  * React v15.3.1
@@ -1529,3 +1528,5 @@ UV.call(null)),X(XV.l?XV.l():XV.call(null)),X(WV.l?WV.l():WV.call(null)))},new S
 var kW=xG(function(){var a=JG(CL),b=L(a,0);L(a,1);L(a,2);var c=function(){var c=b instanceof B?b.la:null;switch(c){case "home":return GS.l?GS.l():GS.call(null);case "about":return xR.c?xR.c(a):xR.call(null,a);case "tool":return gW.l?gW.l():gW.call(null);case "contact":return sR.c?sR.c(a):sR.call(null,a);case "legal":return IS.c?IS.c(a):IS.call(null,a);case "not-found":return HS.l?HS.l():HS.call(null);default:throw Error(["No matching clause: ",q.c(c)].join(""));}}();return Vf(React.createElement,
 "div",N(c)?lG(c):null,N(c)?null:new S(null,1,5,T,[X(c)],null))},new S(null,2,5,T,[IG,new m(null,1,[rk,function(a){if(ac(window.oldBrowser))if(p(window.matchMedia("print").addEventListener))jW();else{var b=window.matchMedia("print");b.addListener(function(){return function(a){return p(Oa.call(null,a,"matches"))?hW():iW()}}(b))}else jW();return a}],null)],null),"root");var lW={};Yb();if("undefined"===typeof pL||"undefined"===typeof lW||"undefined"===typeof mW)var mW=yQ();var nW=setInterval(function(){var a=document.readyState;var b=new fi(null,new m(null,2,["loaded",null,"complete",null],null),null);a=b.c?b.c(a):b.call(null,a);p(a)&&(clearInterval(nW),a=kW.l?kW.l():kW.call(null),b=document,ReactDOM.render(a,ba("app")?b.getElementById("app"):"app"));return null},10);
 })();
+=======
+document.write("<script>figwheel.connect.start();</script>");

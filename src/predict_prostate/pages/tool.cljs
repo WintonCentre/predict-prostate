@@ -156,7 +156,7 @@
                                   :aria-hidden true
                                   :style       {:margin-left "5%" :zoom 0.7}}]]
            [:.col-sm-6
-            [:row
+            [:.row
              [:.col-xs-8 preamble]
              [:.col-xs-4
               [:div {:style {:margin "40px 0 0 0px"}} (settings-button)]]]]]
