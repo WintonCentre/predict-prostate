@@ -116,7 +116,7 @@ nav.navbar-fixed-top .container {
 /* active button background
 .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
     color: #fff;
-    background-color: #444466; //#00417f;
+    background-color: #444466;
 }
 
 /* hamburger background
@@ -302,7 +302,6 @@ ul.dropdown-menu li.active a:hover {
   background-color: #cceef8;
   border-color: #aaccff;
   border-width: 2px;
-  //font-weight: bold;
 }
 
 .btn-default.hover.focus, .btn-default:hover:focus, .open>.dropdown-toggle.btn-default {
