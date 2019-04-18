@@ -82,6 +82,7 @@ function precache() {
             '/assets/touch-icon-iphone.png',
             '/assets/touch-icon-iphone-retina.png',
             '/assets/bullet-plus.png',
+            '/assets/del-temp-smiley-scaled.jpg',
             '/js/mediatypechecker.js',
             '/js/jquery.smartmenus.min.js',
             '/js/jquery.smartmenus.bootstrap.min.js',
