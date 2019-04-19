@@ -54,7 +54,7 @@
       [:.col-sm-6
        [:img.img-responsive {
                              ;:src         "assets/icon-imagery.png"
-                             :src         "assets/del-temp-smiley-scaled.jpg"
+                             :src         "assets/icon-imagery-smiley.png"
                              :alt         "banner imagery"
                              :aria-hidden true
                              :style       {
