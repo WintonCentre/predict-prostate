@@ -1,5 +1,5 @@
 let CACHE = 'cache-and-update';
-let VERSION_CUR = 'v0.0110 - Internal Tested';
+let VERSION_CUR = 'v0.0111 - Internal Tested';
 let LATEST_CACHE_ID = CACHE + '--' + VERSION_CUR;
 console.log(VERSION_CUR);
 
@@ -138,12 +138,11 @@ function fromCache(request) {
 function update(request) {
     return caches.open(LATEST_CACHE_ID).then(function (cache) {
         return fetch(request).then(function (response) {
-            try {
-                return cache.put(request, response);
-                }
-            catch(err) {
-                console.log(err)
-            }
+            return cache.put(request, response);
+        }).catch(function(err) {
+            console.log('update fetch error. ')
+            console.log(err)
         });
     });
 }
+
