@@ -1,11 +1,11 @@
 let CACHE = 'cache-and-update';
-let VERSION_CUR = 'v0.0101 - First dev live version';
+let VERSION_CUR = 'v0.0110 - Internal Tested';
 let LATEST_CACHE_ID = CACHE + '--' + VERSION_CUR;
 console.log(VERSION_CUR);
 
 // On install, cache some resources.
 self.addEventListener('install', function(evt) {
-    console.log('The service worker is being installed. ' + CACHE);
+    console.log('The service worker is being installed. ' + LATEST_CACHE_ID);
     self.skipWaiting()
 
     // Ask the service worker to keep installing until the returning promise
@@ -120,7 +120,7 @@ function fromCache(request) {
     // console.log('fromCache - request')
     // console.log(request)
 
-    return caches.open(CACHE).then(function (cache) {
+    return caches.open(LATEST_CACHE_ID).then(function (cache) {
         return cache.match(request).then(function (matching) {
             // console.log('fromCache - matching')
             // console.log(matching)
@@ -136,7 +136,7 @@ function fromCache(request) {
 // Update consists in opening the cache, performing a network request and
 // storing the new response data.
 function update(request) {
-    return caches.open(CACHE).then(function (cache) {
+    return caches.open(LATEST_CACHE_ID).then(function (cache) {
         return fetch(request).then(function (response) {
             try {
                 return cache.put(request, response);
