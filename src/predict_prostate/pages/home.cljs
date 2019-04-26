@@ -58,8 +58,8 @@
                              :alt         "banner imagery"
                              :aria-hidden true
                              :style       {
-                                           ;:width "90%"
-                                           :width "80%"
+                                           :width "90%"
+                                           ;:width "80%"
                                            :border-radius "15px 50px 30px"
                                            :padding "15px"}}]]]]]])
 
