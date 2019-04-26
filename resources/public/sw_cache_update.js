@@ -103,12 +103,12 @@ addEventListener('activate', activateEvent => {
             // console.log("key from activate")
             // console.log(key)
             if (key !== LATEST_CACHE_ID) {
-                console.log("New key found. Deleting old cache")
+                console.debug("New key found. Deleting old cache")
                 return caches.delete(key);
             }
         })))
         .then(() => {
-            console.log('Activating now via self.skipWaiting()')
+            console.debug('Activating now via self.skipWaiting()')
             return self.skipWaiting()
         })
     );
@@ -119,18 +119,18 @@ addEventListener('activate', activateEvent => {
 // resource. Notice that in case of no matching, the promise still resolves
 // but it does with `undefined` as value.
 function fromCache(request) {
-    // console.log('fromCache - request')
-    // console.log(request)
+    // console.debug('fromCache - request')
+    // console.debug(request)
 
     return caches.open(LATEST_CACHE_ID).then(function (cache) {
         return cache.match(request).then(function (matching) {
-            // console.log('fromCache - matching')
-            // console.log(matching)
+            // console.debug('fromCache - matching')
+            // console.debug(matching)
             // return matching || Promise.reject('no-match');
             return matching || fetch(request);
         }).catch(function(res) {
-            console.log("Error fetching not found content in cache.")
-            console.log(res)
+            // console.debug("Error fetching not found content in cache.")
+            // console.debug(res)
         });
     });
 }
@@ -142,8 +142,8 @@ function update(request) {
         return fetch(request).then(function (response) {
             return cache.put(request, response);
         }).catch(function(err) {
-            console.log('update fetch error. ')
-            console.log(err)
+            // console.debug('update fetch error. ')
+            // console.debug(err)
         });
     });
 }
