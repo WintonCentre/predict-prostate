@@ -1,5 +1,5 @@
 let CACHE = 'cache-and-update';
-let VERSION_CUR = 'v0.0111 - Internal Tested';
+let VERSION_CUR = 'v0.0112 - Internal Tested';
 let LATEST_CACHE_ID = CACHE + '--' + VERSION_CUR;
 console.log(VERSION_CUR);
 
