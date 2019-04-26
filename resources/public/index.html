@@ -289,13 +289,13 @@
 <!-- Service Worker -->
 <script>
 
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-            // navigator.serviceWorker.register('/sw_standard.js', { scope: '/' });
-            // navigator.serviceWorker.register('/sw_net_cache.js', { scope: '/' });
-            navigator.serviceWorker.register('/sw_cache_update.js', { scope: '/' });
-        });
-    }
+    // if ('serviceWorker' in navigator) {
+    //     window.addEventListener('load', function() {
+    //         // navigator.serviceWorker.register('/sw_standard.js', { scope: '/' });
+    //         // navigator.serviceWorker.register('/sw_net_cache.js', { scope: '/' });
+    //         navigator.serviceWorker.register('/sw_cache_update.js', { scope: '/' });
+    //     });
+    // }
 
     // if ('serviceWorker' in navigator) {
     //     navigator.serviceWorker.register('/sw_cache_update.js', {scope: 'sw_cache_update'}).then(function(registration) {
@@ -307,6 +307,13 @@
     //         console.log('Registration failed with ' + error);
     //     });
     // };
+
+
+    navigator.serviceWorker.getRegistrations().then(function(registrations) {
+        for(let registration of registrations) {
+            console.log(registration)
+            registration.unregister()
+        } })
 
 </script>
 
