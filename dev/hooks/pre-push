@@ -25,7 +25,7 @@ do
     BUILD_OUTPUT="resources/public/js/compiled/predict_prostate.js"
 
 	if [ "develop" == "$branch" ]; then
-#        ./build.sh
+        ./build.sh
         git add ${BUILD_OUTPUT}
         git commit -m "Auto commit build output"
 		echo "Develop. Jenkins build to jenkins."
