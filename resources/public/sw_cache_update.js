@@ -1,5 +1,5 @@
 let CACHE = 'cache-and-update';
-let VERSION_CUR = 'v0.0112 - Internal Tested';
+let VERSION_CUR = 'v0.0113 - Internal Tested';
 let LATEST_CACHE_ID = CACHE + '--' + VERSION_CUR;
 console.log(VERSION_CUR);
 
@@ -82,6 +82,8 @@ function precache() {
             '/assets/touch-icon-iphone.png',
             '/assets/touch-icon-iphone-retina.png',
             '/assets/bullet-plus.png',
+            '/js/analytics.js',
+            '/js/autotrack.js',
             '/js/mediatypechecker.js',
             '/js/jquery.smartmenus.min.js',
             '/js/jquery.smartmenus.bootstrap.min.js',
