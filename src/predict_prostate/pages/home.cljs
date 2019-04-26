@@ -57,11 +57,11 @@
                              ;:src         "assets/del-temp-smiley-scaled.jpg"
                              :alt         "banner imagery"
                              :aria-hidden true
-                             :style       {
-                                           :width "90%"
-                                           ;:width "80%"
-                                           :border-radius "15px 50px 30px"
-                                           :padding "15px"}}]]]]]])
+                             ;:style       {
+                             ;              :width "90%"
+                             ;              :border-radius "15px 50px 30px"
+                             ;              :padding "15px"}
+                             }]]]]]])
 
 (rum/defc home < rum/static []
 
