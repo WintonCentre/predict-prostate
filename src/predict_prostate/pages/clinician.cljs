@@ -13,7 +13,7 @@
    [:.row
     [:.col-sm-12
      (header)
-     [:row
+     [:.row
       [:.col-sm-10.col-sm-offset-1 {:style {:min-height "calc(100vh - 200px)"}}
        (all-subsections "clinician-information")
        ]

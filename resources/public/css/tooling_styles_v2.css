@@ -441,7 +441,7 @@ ul.dropdown-menu li.active a:hover {
 }
 
 .copy-footer {
-    padding: 10px 0px;
+    padding-top: 10px;
     background: #292929;
     color: #9e9e9e;
     text-align: center;
@@ -452,9 +452,9 @@ ul.dropdown-menu li.active a:hover {
 }
 
 .build-version {
-    font-size: 8px;
-    padding-top: 12px;
-    text-align: right;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
 }
 
 /**
@@ -650,5 +650,69 @@ height:auto;
         -ms-transform: rotate(360deg);
         -o-transform: rotate(360deg);
         transform: rotate(360deg);
+    }
+}
+
+
+/*********/
+/* EXTRA */
+/*********/
+
+/* Draft */
+/*.draft-overlay {*/
+/*    position: fixed;*/
+/*    !*width: 30%;*!*/
+/*    !*height: 30%;*!*/
+/*    !*transform: rotate(-45deg);*!*/
+/*    font-size: 200px;*/
+/*    margin: 5% auto; !* Will not center vertically and won't work in IE6/7. *!*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*}*/
+
+/*.draft-overlay:before {*/
+/*    content: "Draft";*/
+/*}*/
+
+.draft-overlay {
+    /*width: 200px;*/
+    position: fixed;
+    /*left: 50%;*/
+    /*right: -75%;*/
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+    transform: rotate(-45deg);
+    font-size: 200px;
+    z-index: 999;
+    pointer-events: none;
+    opacity: 0.3;
+
+    /*left: 60%;*/
+    /*top: 60%;*/
+    /*top:0;*/
+    /*bottom: 0;*/
+    /*left: 0;*/
+    /*right: 0;*/
+
+    top: 50%;
+    left: 50%;
+    margin-top: -10px;
+    margin-left: -170px;
+    width: 100px;
+    height: 100px;
+}
+
+@media only screen and (max-width: 1090px) {
+    .draft-overlay {
+        /*font-size: 150px;*/
+        /*top: 70%;*/
+    }
+}
+
+@media only screen and (max-width: 670px) {
+    .draft-overlay {
+        font-size: 120px;
+        /*left: 50%;*/
+        /*top: 80%;*/
     }
 }
