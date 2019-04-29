@@ -611,6 +611,36 @@ height:auto;
 /*    transform: translate(-50%, -50%);*/
 /*}*/
 
+
+.loader-overlay {
+    /*width: 200px;*/
+    position: fixed;
+    /*left: 50%;*/
+    /*right: -75%;*/
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+    /*transform: rotate(-45deg);*/
+    /*font-size: 200px;*/
+    z-index: 999;
+    /*pointer-events: none;*/
+    /*opacity: 0.3;*/
+
+    /*left: 60%;*/
+    /*top: 60%;*/
+    /*top:0;*/
+    /*bottom: 0;*/
+    /*left: 0;*/
+    /*right: 0;*/
+
+    top: 50%;
+    left: 50%;
+    /*margin-top: -10px;*/
+    /*margin-left: -170px;*/
+    /*width: 100px;*/
+    /*height: 100px;*/
+}
+
+
 .loader{
     width: 100px;
     height: 100px;
