@@ -648,6 +648,7 @@ height:auto;
     position: fixed;
     top: 50%;
     left: 50%;
+    -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     z-index: 999;
@@ -683,6 +684,7 @@ height:auto;
 
 #loader-1:before{
     z-index: 100;
+    -webkit-animation: spin 1s infinite;
     animation: spin 1s infinite;
 }
 
@@ -694,14 +696,12 @@ height:auto;
     0%{
         -webkit-transform: rotate(0deg);
         -ms-transform: rotate(0deg);
-        -o-transform: rotate(0deg);
         transform: rotate(0deg);
     }
 
     100%{
         -webkit-transform: rotate(360deg);
         -ms-transform: rotate(360deg);
-        -o-transform: rotate(360deg);
         transform: rotate(360deg);
     }
 }
@@ -710,14 +710,12 @@ height:auto;
     0%{
         -webkit-transform: rotate(0deg);
         -ms-transform: rotate(0deg);
-        -o-transform: rotate(0deg);
         transform: rotate(0deg);
     }
 
     100%{
         -webkit-transform: rotate(360deg);
         -ms-transform: rotate(360deg);
-        -o-transform: rotate(360deg);
         transform: rotate(360deg);
     }
 }
