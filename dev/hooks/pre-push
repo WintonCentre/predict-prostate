@@ -37,7 +37,7 @@ do
 		echo "Staging. Sending build to jenkins."
 		curl -u jin:11da9bd347a5cd21b349ecab65fac5e31a https://jenkins.wintoncentre.uk/job/predict-prostate-staging/build?token=wfea4398ienvjf
 	elif [ "master" == "$branch" ]; then
-#        ./build.sh
+        ./build.sh
         git add ${BUILD_OUTPUT}
         git commit -m "Auto commit build output"
 		echo "Master. Jenkins trigger disabled via rsync dry run"
