@@ -9,7 +9,8 @@ LOCAL_DEV='resources/public/'
 #lein clean
 #lein cljsbuild once min
 echo "===============rsync-ing files==================="
-rsync --dry-run -avz --omit-dir-times --del --no-perms --no-owner --no-group $LOCAL_DEV $USER@$TARGET
+#rsync --dry-run -avz --omit-dir-times --del --no-perms --no-owner --no-group $LOCAL_DEV $USER@$TARGET
+rsync -avz --omit-dir-times --del --no-perms --no-owner --no-group $LOCAL_DEV $USER@$TARGET
 echo "================================="
 echo "Uploaded to " $TARGET
 echo "================================="
