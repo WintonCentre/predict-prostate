@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 set -e
 echo "Publishing to Live server"
 TARGET='prostate.predict.nhs.uk:/var/www/prostate.predict.wintoncentre.uk/'
