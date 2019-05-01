@@ -64,8 +64,11 @@
 
 
 (rum/defc treatments-with-results < rum/reactive []
-  (let [r (rum/react results-cursor)]
-    (if (or (not (seq r)) (nil? r))
+  (let [r (rum/react results-cursor)
+        mets (rum/react (input-cursor :metastasis))]
+
+    ; todo: mets
+    (if (or (not (seq r)) (nil? r) (= mets :yes))
       [:.row
        [:.col-sm-10.col-sm-offset-1.col-xs-12
         [:div {:style {:background-color alison-blue-1
@@ -173,8 +176,7 @@
        [:.row.screen-only
         [:.col-sm-12 {:style {:background-color alison-blue-4}}
          [:.row {:key 3}
-          [:.col-md-10.col-md-offset-1 {:key 2
-                                        #_#_:style {:min-height "calc(100vh - 200px)"}}
+          [:.col-md-10.col-md-offset-1 {:key 2}
            (treatments-with-results)
 
            ]]]]]

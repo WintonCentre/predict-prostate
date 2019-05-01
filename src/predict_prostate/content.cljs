@@ -711,6 +711,14 @@
       [:p "You are running the tool with high risk features in which it has been less well tested."]
       ]]
 
+    ; Warning to appear in side box whenever metastases are unknown
+    [:section#metastasis-warning "Warning"
+     [:section#dummy ""
+      [:h4 {:style {:margin-top 50}}
+       [:i.fa.fa-exclamation-triangle {:style {:padding-right 10 :color "orange"}}] "Warning"]
+      [:p "This tool is only for use in men without metastatic disease"]
+      ]]
+
     [:section#scroll-down-for "Scroll down"
      [:section#dummy ""
       [:h4.screen-only {:style {:margin-top 50}}
@@ -760,6 +768,9 @@
 
     [:section#brca "BRCA gene variant"
      [:p "Enter 'positive' if you have been tested positive for the BRCA gene variant. If unknown, select 'Negative or Untested.'"]]
+
+    [:section#metastasis "Metastases"
+     [:p "This tool is only for use in men without metastatic disease."]]
 
     [:section#comorb "Comorbidity"
      [:h5 "Select yes if there is a history of any of the following conditions:"]

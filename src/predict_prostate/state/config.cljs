@@ -115,6 +115,7 @@
                   :prp
                   #{"prostate" "prostate-release"}
                   nil)
+
    (->Input-group :brca
                   "BRCA"
                   :radio-group
@@ -125,6 +126,17 @@
                   :prp
                   #{"prostate-release"}
                   nil)
+
+   (->Input-group :metastasis
+                  "Has the cancer spread (metastasis)?"
+                  :radio-group
+                  [[:yes "Yes"]
+                   [:no "No"]]
+                  false false true
+                  :prp
+                  #{"prostate-release"}
+                  :no)
+
    (->Input-group :biopsy50
                   "Number of biopsy cores with prostate cancer"
                   :radio-group
@@ -204,6 +216,8 @@
                   :tables
                   #{"v2.1"}
                   :no)
+
+
 
    ]
   )

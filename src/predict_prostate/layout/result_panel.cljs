@@ -81,6 +81,8 @@
    (all-subsections "tool-postamble")
    (when (#{4 5} @(input-cursor :grade-group))
      (all-subsections "high-grade-group-warning"))
+   (when (not= :no @(input-cursor :metastasis))
+     (all-subsections "metastasis-warning"))
    (all-subsections "scroll-down-for")
    ])
 
