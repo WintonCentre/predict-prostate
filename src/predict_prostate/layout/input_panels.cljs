@@ -92,9 +92,12 @@
       (when (model-keys :charlson-comorbidity) (form-entry {:label "comorb" :key :charlson-comorbidity})))
     (when (model-keys :brca) (form-entry {:label "BRCA" :key :brca}))
     (when (model-keys :metastasis) (form-entry {:label "metastasis" :key :metastasis}))
-    (when (#{:yes :unknown} (rum/react (input-cursor :metastasis)))
-      (mets-warning "This tool is only for use in men without metastatic disease"))
+    (when (#{:yes} (rum/react (input-cursor :metastasis)))
+      (mets-warning "This tool is only for use in men without metastatic disease."))
+    (when (#{:unknown} (rum/react (input-cursor :metastasis)))
+      (mets-warning "This tool is only for use in men without metastatic disease. if you're unsure use the data with caution and please consult your medical professional"))
     ]])
+
 
 (rum/defc patient-related-panel < rum/static [model-keys]
   (patient-related-form model-keys)

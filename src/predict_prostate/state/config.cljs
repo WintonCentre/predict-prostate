@@ -130,8 +130,8 @@
    (->Input-group :metastasis
                   "Has the cancer spread (metastasis)?"
                   :radio-group
-                  [[:yes "Yes"]
-                   [:no "No"]]
+                  [[:no "No"]
+                   [:yes "Yes"]]
                   false false true
                   :prp
                   #{"prostate-release"}
