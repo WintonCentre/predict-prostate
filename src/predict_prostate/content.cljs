@@ -716,7 +716,7 @@
      [:section#dummy ""
       [:h4 {:style {:margin-top 50}}
        [:i.fa.fa-exclamation-triangle {:style {:padding-right 10 :color "orange"}}] "Warning"]
-      [:p "This tool is only for use in men without metastatic disease"]
+      [:p "This tool is only for use in men without metastatic disease. "]
       ]]
 
     [:section#scroll-down-for "Scroll down"
@@ -770,7 +770,7 @@
      [:p "Enter 'positive' if you have been tested positive for the BRCA gene variant. If unknown, select 'Negative or Untested.'"]]
 
     [:section#metastasis "Metastases"
-     [:p "This tool is only for use in men without metastatic disease."]]
+     [:p "This tool is only for use in men without metastatic disease. Metastasis is when the cancer is known to have spread e.g. to the bone or lymph nodes. This is typically detected on a bone scan or a CT/MRI scan."]]
 
     [:section#comorb "Comorbidity"
      [:h5 "Select yes if there is a history of any of the following conditions:"]
