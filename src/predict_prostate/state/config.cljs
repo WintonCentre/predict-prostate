@@ -135,7 +135,7 @@
                   false false true
                   :prp
                   #{"prostate-release"}
-                  :no)
+                  nil)
 
    (->Input-group :biopsy50
                   "Number of biopsy cores with prostate cancer"

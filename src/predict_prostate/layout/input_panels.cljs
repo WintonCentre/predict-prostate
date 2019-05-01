@@ -92,7 +92,7 @@
       (when (model-keys :charlson-comorbidity) (form-entry {:label "comorb" :key :charlson-comorbidity})))
     (when (model-keys :brca) (form-entry {:label "BRCA" :key :brca}))
     (when (model-keys :metastasis) (form-entry {:label "metastasis" :key :metastasis}))
-    (when (not= :no (rum/react (input-cursor :metastasis)))
+    (when (#{:yes :unknown} (rum/react (input-cursor :metastasis)))
       (mets-warning "This tool is only for use in men without metastatic disease"))
     ]])
 
