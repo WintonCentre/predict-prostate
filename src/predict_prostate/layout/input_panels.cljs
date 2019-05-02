@@ -63,6 +63,13 @@
    [:i.fa.fa-exclamation-triangle {:aria-hidden "true" :style {:color "orange" :padding-right 5}}]
    text])
 
+(rum/defc mets-warning [text]
+  [:div {:style {:color       "#686868"
+                 :margin-left "145px"
+                 :margin-top  0}}
+   [:i.fa.fa-exclamation-triangle {:aria-hidden "true" :style {:color "orange" :padding-right 5}}]
+   text]
+  )
 ;;;
 ;; PATIENT RELATED
 ;;;
@@ -84,7 +91,13 @@
     (when (= (rum/react (input-cursor :h-admissions)) 1)
       (when (model-keys :charlson-comorbidity) (form-entry {:label "comorb" :key :charlson-comorbidity})))
     (when (model-keys :brca) (form-entry {:label "BRCA" :key :brca}))
+    (when (model-keys :metastasis) (form-entry {:label "metastasis" :key :metastasis}))
+    (when (#{:yes} (rum/react (input-cursor :metastasis)))
+      (mets-warning "This tool is only for use in men without metastatic disease."))
+    (when (#{:unknown} (rum/react (input-cursor :metastasis)))
+      (mets-warning "This tool is only for use in men without metastatic disease. if you're unsure use the data with caution and please consult your medical professional"))
     ]])
+
 
 (rum/defc patient-related-panel < rum/static [model-keys]
   (patient-related-form model-keys)
@@ -176,3 +189,5 @@
 
       ]]
     ))
+
+
