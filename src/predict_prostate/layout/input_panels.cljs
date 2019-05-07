@@ -95,7 +95,7 @@
     (when (#{:yes} (rum/react (input-cursor :metastasis)))
       (mets-warning "This tool is only for use in men without metastatic disease."))
     (when (#{:unknown} (rum/react (input-cursor :metastasis)))
-      (mets-warning "This tool is only for use in men without metastatic disease. if you're unsure use the data with caution and please consult your medical professional"))
+      (mets-warning "This tool is only for use in men without metastatic disease. If you're unsure use the data with caution and please consult your medical professional"))
     ]])
 
 
