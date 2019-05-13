@@ -98,6 +98,8 @@ function precache() {
             '/css/ionicons.min.css',
             '/js/jquery-3.3.1.min.js',
             '/js/bootstrap.min.js',
+            '/fonts/fontawesome-webfont.woff2',
+            '/fonts/fontawesome-webfont.woff',
 
             // '/css/tawefawefawetylesrthrthrthrth.css',
         ]);
