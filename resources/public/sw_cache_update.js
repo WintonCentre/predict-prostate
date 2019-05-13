@@ -92,6 +92,12 @@ function precache() {
             '/js/compiled/predict_prostate.js',
             '/css/jquery.smartmenus.bootstrap.css',
             '/css/tooling_styles_v2.css',
+            '/css/font-awesome.min.css',
+            '/css/bootstrap-select.css',
+            '/css/bootstrap.min.css',
+            '/css/ionicons.min.css',
+            '/js/jquery-3.3.1.min.js',
+            '/js/bootstrap.min.js',
 
             // '/css/tawefawefawetylesrthrthrthrth.css',
         ]);
