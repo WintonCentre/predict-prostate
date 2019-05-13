@@ -100,6 +100,7 @@ function precache() {
             '/js/bootstrap.min.js',
             '/fonts/fontawesome-webfont.woff2',
             '/fonts/fontawesome-webfont.woff',
+            '/fonts/fontawesome-webfont.ttf',
 
             // '/css/tawefawefawetylesrthrthrthrth.css',
         ]);
