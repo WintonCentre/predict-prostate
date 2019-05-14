@@ -39,7 +39,8 @@
      (if content
        (do (try (.ga js/window "send" "event" "Results Tab" label)
                 (catch js/Object e
-                  (.log js/console e))
+                  #_(.log js/console e)
+                  )
                 ) (content))
        [:p "No content yet"])
      ;(.log js/console "content called: " label)
