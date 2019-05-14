@@ -56,6 +56,6 @@ wireframes/wire3.xd
 *.tar.gz
 
 src/predict_prostate/components/numeric_input.cljs
-resources/public/js/compiled/out
+resources/public/js/compiled
 robots.txt
 .RHistory
