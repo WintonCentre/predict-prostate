@@ -59,3 +59,6 @@ src/predict_prostate/components/numeric_input.cljs
 resources/public/js/compiled
 robots.txt
 .RHistory
+
+geckodriver.log
+__pycache__/
