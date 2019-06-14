@@ -38,7 +38,7 @@
    (when (= (rum/react active-results-pane) label)
      (if content
        (do (try (.ga js/window "send" "event" "Results Tab" label)
-                (catch js/Object e
+                (catch js/Error e
                   #_(.log js/console e)
                   )
                 ) (content))
