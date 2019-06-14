@@ -37,7 +37,11 @@
          }
    (when (= (rum/react active-results-pane) label)
      (if content
-       (do (.ga js/window "send" "event" "Results Tab" label) (content))
+       (do (try (.ga js/window "send" "event" "Results Tab" label)
+                (catch js/Error e
+                  #_(.log js/console e)
+                  )
+                ) (content))
        [:p "No content yet"])
      ;(.log js/console "content called: " label)
      )
