@@ -1,0 +1,48 @@
+/*************/
+/* GDPR FORM */
+/*************/
+
+.gdpr-container {
+    background-color: #292929;
+    color: rgb(158, 158, 158);
+
+    position: fixed;
+    bottom: 0;
+
+    /*min-height: 50px;*/
+    width: 100%; /*fallback*/
+    width: 100vw;
+
+    z-index: 1000;
+
+    padding: 10px;
+}
+
+.gdpr-checkbox-inline {
+    padding-left: 20px;
+    margin-bottom: 0;
+    vertical-align: middle;
+    font-weight: 400;
+    cursor: pointer
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+/* Work around for IE9 */
+.gdpr-invalid {
+    color: #BE4C54;
+    text-decoration: underline;
+}
+
+.gdpr-container a:link {
+    color: #337ab7;
+}

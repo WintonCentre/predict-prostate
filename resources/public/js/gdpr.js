@@ -25,7 +25,8 @@ function loadScript( url, callback) {
 // Contains unique settings for google analytics
 function initializeGAVars() {
     window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', "UA-1462795-22", 'auto');
+    ga('create', 'UA-1462795-47', 'auto'); // Live
+    // ga('create', 'UA-135562362-1', 'auto'); // Dev test tracking
 
     // Replace the following lines with the plugins you want to use.
     ga('require', 'urlChangeTracker');
@@ -34,6 +35,10 @@ function initializeGAVars() {
     ga('require', 'eventTracker', {
         attributePrefix: 'data-'
     });
+
+    // ga('require', 'outboundLinkTracker');
+    // ga('require', 'urlChangeTracker');
+    // ...
 
     ga('send', 'pageview');
 
@@ -46,7 +51,7 @@ function initializeGAVars() {
 function startHotJar() {
     (function(h,o,t,j,a,r){
         h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:879744,hjsv:6};
+        h._hjSettings={hjid:1191612,hjsv:6};
         a=o.getElementsByTagName('head')[0];
         r=o.createElement('script');r.async=1;
         r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
