@@ -3,6 +3,10 @@ from base import FunctionalTest
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 import time
 
 
@@ -54,7 +58,7 @@ class NewVisitorGDPRTest(FunctionalTest, unittest.TestCase):
         # John waits 2 seconds for website to load
         time.sleep(2)
 
-        # John sees sticky GDPR bar on bottom of the page. See it's dark color.
+        # John sees sticky GDPR bar on bottom of the page. See it's dark colour.
         gdpr_bar = self.browser.find_element_by_class_name('gdpr-container')
         self.assertEqual('block', gdpr_bar.value_of_css_property('display'))
         self.assertEqual('rgb(255, 165, 0)', gdpr_bar.value_of_css_property('background-color'))
@@ -143,6 +147,23 @@ class NewVisitorGDPRTest(FunctionalTest, unittest.TestCase):
     #     self.assertEqual('block', gdpr_bar.value_of_css_property('display'))
     #     time.sleep(3)
 
+    def test_user_agreed_to_tracking_sees_hotjar(self):
+        # Initial condition to have GPDR enabled
+        self.browser.get(self.live_server_url)
+        gdpr_analytics_checkbox = self.browser.find_element_by_id('analyticsCheckBox')
+        gdpr_ok_input = self.browser.find_element_by_css_selector('input.btn-sm')
+        gdpr_analytics_checkbox.click()
+        gdpr_ok_input.click()
+
+        # John can see hotjar popping up. (If this doesn't exist, it means hotjar hasn't come through and there is error)
+        print("hotjar_injected_div waiting for ... ")
+        hotjar_injected_div = WebDriverWait(self.browser, 20).until(
+            EC.presence_of_element_located((By.ID, "_hj_poll_container"))
+        )
+        print("found hotjar_injected_div")
+
+        time.sleep(5)
+
 
 class NewVisitorCanUseTools(FunctionalTest, unittest.TestCase):
 
@@ -219,7 +240,7 @@ class NewVisitorCanUseTools(FunctionalTest, unittest.TestCase):
         self.assertIn('Results', h3_tag_result.text)
         # self.assertIn('Treatment Options', h3_tag_options.text)
 
-        time.sleep(15)
+        time.sleep(3)
         # # How to distinguish between results show or not showing?
 
 
