@@ -3,8 +3,10 @@
 /*************/
 
 .gdpr-container {
-    background-color: #292929;
-    color: rgb(158, 158, 158);
+    /*background-color: #292929;*/
+    background-color: rgb(255, 165, 0);
+    /*color: rgb(158, 158, 158);*/
+    color: rgb(29, 29, 29);
 
     position: fixed;
     bottom: 0;
@@ -24,6 +26,10 @@
     vertical-align: middle;
     font-weight: 400;
     cursor: pointer
+}
+
+.gdpr-style {
+    font-size: 16px;
 }
 
 .vcenter {

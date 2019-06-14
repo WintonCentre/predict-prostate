@@ -22,12 +22,12 @@ class NewVisitorTest(FunctionalTest, unittest.TestCase):
         time.sleep(2)
 
         # John sees that "Predict Breast" is in browser title
-        self.assertIn('Predict Breast', self.browser.title)
+        self.assertIn('Predict Prostate', self.browser.title)
 
-        # John sees Alison blue H1 title
+        # John sees Dark grayish blue H1 title
         intro_title = self.browser.find_element_by_tag_name('h1')
-        self.assertIn('What is Predict?', intro_title.text)
-        self.assertEqual('rgb(0, 46, 93)', intro_title.value_of_css_property('color'))
+        self.assertIn('Predict Prostate', intro_title.text)
+        self.assertEqual('rgb(119, 119, 153)', intro_title.value_of_css_property('color'))
 
         # John sees Start Predict button
         start_predict_button = self.browser.find_element_by_css_selector('button.btn-lg')
@@ -57,11 +57,11 @@ class NewVisitorGDPRTest(FunctionalTest, unittest.TestCase):
         # John sees sticky GDPR bar on bottom of the page. See it's dark color.
         gdpr_bar = self.browser.find_element_by_class_name('gdpr-container')
         self.assertEqual('block', gdpr_bar.value_of_css_property('display'))
-        self.assertEqual('rgb(158, 158, 158)', gdpr_bar.value_of_css_property('color'))
+        self.assertEqual('rgb(255, 165, 0)', gdpr_bar.value_of_css_property('background-color'))
 
         # John sees sticky GDPR bar has ok button
         gdpr_ok_input = self.browser.find_element_by_css_selector('input.btn-sm')
-        self.assertEqual('Ok', gdpr_ok_input.get_attribute('value'))
+        self.assertEqual('I agree to Terms and Conditions', gdpr_ok_input.get_attribute('value'))
 
         # # check sticky by scroll down and seeing if it's still there?
         # self.browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
@@ -76,13 +76,13 @@ class NewVisitorGDPRTest(FunctionalTest, unittest.TestCase):
 
         # John clicks Terms and Conditions and ok. Sees GDPR bar disappear
         # gdpr_analytics_checkbox = self.browser.find_element_by_id('analyticsCheckBox')
-        gdpr_tc_checkbox = self.browser.find_element_by_id('tcCheckbox')
+        # gdpr_tc_checkbox = self.browser.find_element_by_id('tcCheckbox')
 
         gdpr_ok_input = self.browser.find_element_by_css_selector('input.btn-sm')
-        self.assertEqual('Ok', gdpr_ok_input.get_attribute('value'))
+        # self.assertEqual('I agree to Terms and Conditions', gdpr_ok_input.get_attribute('value'))
 
-        gdpr_tc_checkbox.click()
-        time.sleep(3)  # Check if it gets ticked
+        # gdpr_tc_checkbox.click()
+        # time.sleep(3)  # Check if it gets ticked
 
         # Before clicking ok, gdpr div is still visible
         gdpr_bar = self.browser.find_element_by_class_name('gdpr-container')
@@ -103,14 +103,14 @@ class NewVisitorGDPRTest(FunctionalTest, unittest.TestCase):
 
         # John clicks Analytics, Terms and Conditions and finally ok. Sees GDPR bar disappear
         gdpr_analytics_checkbox = self.browser.find_element_by_id('analyticsCheckBox')
-        gdpr_tc_checkbox = self.browser.find_element_by_id('tcCheckbox')
+        # gdpr_tc_checkbox = self.browser.find_element_by_id('tcCheckbox')
 
         gdpr_ok_input = self.browser.find_element_by_css_selector('input.btn-sm')
-        self.assertEqual('Ok', gdpr_ok_input.get_attribute('value'))
+        # self.assertEqual('Ok', gdpr_ok_input.get_attribute('value'))
 
         gdpr_analytics_checkbox.click()
         # time.sleep(0.5)
-        gdpr_tc_checkbox.click()
+        # gdpr_tc_checkbox.click()
         time.sleep(3)  # Check if it gets ticked
 
         # Before clicking ok, gdpr div is still visible
@@ -122,25 +122,26 @@ class NewVisitorGDPRTest(FunctionalTest, unittest.TestCase):
         self.assertEqual('none', gdpr_bar.value_of_css_property('display'))
         time.sleep(3)
 
-    def test_user_can_does_not_tick_check_box_and_press_ok(self):
-        # New user John goes to predict website.
-        self.browser.get(self.live_server_url)
-
-        # John waits 2 seconds for website to load
-        time.sleep(2)
-
-        # John sees Ok button for GDPR and presses it
-        gdpr_ok_input = self.browser.find_element_by_css_selector('input.btn-sm')
-        self.assertEqual('Ok', gdpr_ok_input.get_attribute('value'))
-
-        # Before clicking ok, gdpr div is still visible
-        gdpr_bar = self.browser.find_element_by_class_name('gdpr-container')
-        self.assertEqual('block', gdpr_bar.value_of_css_property('display'))
-        gdpr_ok_input.click()
-        # After clicking ok, gdpr div is still visible
-        time.sleep(3)
-        self.assertEqual('block', gdpr_bar.value_of_css_property('display'))
-        time.sleep(3)
+    # No longer relevent unless we decide later to not able to send form without explict agreeing
+    # def test_user_can_does_not_tick_check_box_and_press_ok(self):
+    #     # New user John goes to predict website.
+    #     self.browser.get(self.live_server_url)
+    #
+    #     # John waits 2 seconds for website to load
+    #     time.sleep(2)
+    #
+    #     # John sees Ok button for GDPR and presses it
+    #     gdpr_ok_input = self.browser.find_element_by_css_selector('input.btn-sm')
+    #     # self.assertEqual('Ok', gdpr_ok_input.get_attribute('value'))
+    #
+    #     # Before clicking ok, gdpr div is still visible
+    #     gdpr_bar = self.browser.find_element_by_class_name('gdpr-container')
+    #     self.assertEqual('block', gdpr_bar.value_of_css_property('display'))
+    #     gdpr_ok_input.click()
+    #     # After clicking ok, gdpr div is still visible
+    #     time.sleep(3)
+    #     self.assertEqual('block', gdpr_bar.value_of_css_property('display'))
+    #     time.sleep(3)
 
 
 class NewVisitorCanUseTools(FunctionalTest, unittest.TestCase):

@@ -83,8 +83,8 @@ function gdprBtnOnClick(e) {
     e.preventDefault();
     console.log('gdprBtnOnClick clicked!');
     var checkbox_analytics_value = document.getElementById("analyticsCheckBox").checked;
-    var checkbox_tcCheckbox_value = document.getElementById("tcCheckbox").checked;
-    console.log(checkbox_tcCheckbox_value);
+    // var checkbox_tcCheckbox_value = document.getElementById("tcCheckbox").checked;
+    // console.log(checkbox_tcCheckbox_value);
 
     // // jquery Logic for agreeing
     // if (checkbox_analytics_value == true && checkbox_tcCheckbox_value == true) {
@@ -97,15 +97,15 @@ function gdprBtnOnClick(e) {
         localStorage.setItem('user-analytics', 'true');
     }
 
-    if (checkbox_tcCheckbox_value == true) {
-        localStorage.setItem('user-tc', 'true');
-    }
+    // if (checkbox_tcCheckbox_value == true) {
+    localStorage.setItem('user-tc', 'true');
+    // }
 
-    if (checkbox_tcCheckbox_value == false) {
-        var label_tcLabel_value = document.getElementById("tcLabel");
-        label_tcLabel_value.classList.add("gdpr-invalid");
-        // console.log(label_tcLabel_value);
-    }
+    // if (checkbox_tcCheckbox_value == false) {
+    //     var label_tcLabel_value = document.getElementById("tcLabel");
+    //     label_tcLabel_value.classList.add("gdpr-invalid");
+    //     // console.log(label_tcLabel_value);
+    // }
 
     initialiseGDPRState();
     return false;
@@ -132,12 +132,4 @@ function initialiseGDPRState() {
         var gdprContainer = document.getElementsByClassName('gdpr-container')[0];
         gdprContainer.style.display = 'none';
     }
-}
-
-function insertGDPRHtml() {
-    // Line Wrap for IE9
-    // $('#gdprContainer').html("            <form onsubmit=\"gdprBtnOnClick(event)\">\n                <div class=\"row\">\n                    <div class=\"col-lg-7 col-md-7 col-sm-7 col-xs-12 vcenter\">We use google\n                        analytics and hotjar improve our website. For more information, visit our\n                        <a href=\"https://breast.predict.nhs.uk/legal/privacy\" class=\"\">Privacy Policy.</a>\n                    </div><!--\n                    --><div class=\"col-lg-3 col-md-3 col-sm-3 col-xs-6 vcenter col-centered \">\n                            <label class=\"gdpr-checkbox-inline\"><input type=\"checkbox\" style=\"margin-right: 5px;\" name=\"analytics\" value=\"analytics\" id=\"analyticsCheckBox\">Analytics</label>\n                            <label class=\"gdpr-checkbox-inline\" id=\"tcLabel\"><input type=\"checkbox\" style=\"margin-right: 5px;\" name=\"tc\" value=\"tc\" id=\"tcCheckbox\" required>Terms and Conditions</label>\n                    </div><!--\n                    --><div class=\"col-lg-2 col-md-2 col-sm-2 col-xs-6 vcenter col-centered text-right\">\n                        <a href=\"https://breast.predict.nhs.uk/legal/privacy\" class=\"btn btn-link btn-sm\" style=\"text-shadow: none\">See details</a>\n        <!--                <button class=\"btn btn-primary btn-sm\" style=\"width: 60px;\" onclick=\"gdprBtnOnClick()\">Ok</button>-->\n                        <input type=\"submit\" class=\"btn btn-primary btn-sm\" style=\"width: 60px;\" value=\"Ok\">\n                    </div><!--\n                    -->\n                </div>\n            </form>");
-
-    var gdprContainer = document.getElementById("gdprContainer");
-    gdprContainer.innerHTML = "            <form onsubmit=\"gdprBtnOnClick(event)\">\n                <div class=\"row\">\n                    <div class=\"col-lg-7 col-md-7 col-sm-7 col-xs-12 vcenter\">We use google\n                        analytics and hotjar improve our website. For more information, visit our\n                        <a href=\"https://breast.predict.nhs.uk/legal/privacy\" class=\"\">Privacy Policy.</a>\n                    </div><!--\n                    --><div class=\"col-lg-3 col-md-3 col-sm-3 col-xs-6 vcenter col-centered \">\n                            <label class=\"gdpr-checkbox-inline\"><input type=\"checkbox\" style=\"margin-right: 5px;\" name=\"analytics\" value=\"analytics\" id=\"analyticsCheckBox\">Analytics</label>\n                            <label class=\"gdpr-checkbox-inline\" id=\"tcLabel\"><input type=\"checkbox\" style=\"margin-right: 5px;\" name=\"tc\" value=\"tc\" id=\"tcCheckbox\" required>Terms and Conditions</label>\n                    </div><!--\n                    --><div class=\"col-lg-2 col-md-2 col-sm-2 col-xs-6 vcenter col-centered text-right\">\n                        <a href=\"https://breast.predict.nhs.uk/legal/privacy\" class=\"btn btn-link btn-sm\" style=\"text-shadow: none\">See details</a>\n        <!--                <button class=\"btn btn-primary btn-sm\" style=\"width: 60px;\" onclick=\"gdprBtnOnClick()\">Ok</button>-->\n                        <input type=\"submit\" class=\"btn btn-primary btn-sm\" style=\"width: 60px;\" value=\"Ok\">\n                    </div><!--\n                    -->\n                </div>\n            </form>"
 }
