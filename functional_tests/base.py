@@ -34,9 +34,9 @@ class FunctionalTest(unittest.TestCase):
         self.browser = webdriver.Firefox()
         # self.browser = webdriver.Chrome()
 
-        # self.live_server_url = 'http://localhost:5449/'
-        self.live_server_url = 'http://localhost:8101/'
-        # self.live_server_url = 'https://winton:development@breast.dev.wintoncentre.uk/'
+        self.live_server_url = 'http://localhost:4449/'
+        # self.live_server_url = 'http://localhost:8101/'
+        # self.live_server_url = 'https://prostate.dev.wintoncentre.uk/'
         # self.live_server_url = 'https://breast.predict.nhs.uk/'
 
         # self.staging_server = os.environ.get('STAGING_SERVER')
