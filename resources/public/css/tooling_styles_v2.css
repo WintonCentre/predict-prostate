@@ -797,6 +797,9 @@ height:auto;
 }
 
 @media only screen and (max-width: 670px) {
+    .modal-dialog {
+        margin-right: 25px;
+    }
     .draft-overlay {
         font-size: 120px;
         /*left: 50%;*/
