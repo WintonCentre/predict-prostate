@@ -99,7 +99,7 @@
      [:img {:src "/assets/print-footer.png"
             :alt "Footer Logo"}]]]
 
-   [:.row-fluid.screen-only {:style {:clear "both"
+   [:.row.screen-only {:style {:clear "both"
                          :color "white"}}
 
     [:.col.footer
