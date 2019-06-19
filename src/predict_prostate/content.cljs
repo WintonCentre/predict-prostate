@@ -57,6 +57,19 @@
                 :background alison-blue-3}}])
 
 
+(def ethnicity-text [:div
+                     [:p "If you have no family history or known genetic risk factors (see other sections) then how or if ethnicity
+     affect prognosis is largely unclear. Predict Prostate was built mainly in large cohorts of Caucasian men and for
+     this group the model is well-validated. We have also retested the model in a mixed cohort of men of Chinese,
+     Indian and Malay descent and shown it works equally well. We have not retested this in men of Afro-Carribbean
+     descent.  What is known is that these men have a higher incidence of cancer and of higher grade cancers. However
+     recent research has shown that when matched for grade and stage of disease ( in other words like for like cancers),
+     men of Afro-Caribbean descent have the same outcomes and prognosis as men of caucasian origin. Please see these
+     research articles: "]
+                     [:p [:cite "Dess RT, Hartman HE, Mahal BA, Soni PD, Jackson WC, Cooperberg MR, Amling CL, Aronson WJ, Kane CJ, Terris MK, Zumsteg ZS, Butler S, Osborne JR, Morgan TM, Mehra R, Salami SS, Kishan AU, Wang C, Schaeffer EM, Roach M 3rd, Pisansky TM, Shipley WU, Freedland SJ, Sandler HM, Halabi S, Feng FY, Dignam JJ, Nguyen PL, Schipper MJ, Spratt DE. Association of Black Race With Prostate Cancer-Specific and Other-Cause Mortality. JAMA Oncol. 2019 May 23. doi: 10.1001/jamaoncol.2019.0826."]]
+                     [:p [:cite "Sridhar G, Masho SW, Adera T, Ramakrishnan V, Roberts JD. Do African American men have lower survival from prostate cancer compared with White men? A meta-analysis. Am J Mens Health. 2010 Sep;4(3):189-206. doi:10.1177/1557988309353934. "]]
+                     [:p "The key need is to be sure that the disease type (how aggressive it is) is well known before using the Predict Prostate tool"]])
+
 (rum/defc progress [percent]
   [:.progress {:style {:background-color "#94d3f0"}}
    [:.progress-bar {:role          "progress-bar"
@@ -347,6 +360,9 @@
                "These predictions are based on patients diagnosed between 2000 and 2010, and include follow-up for up to 16 years.
                In order to carry out long term predictions older data have to be used.  It is possible that outcomes of cancers diagnosed today, and treatments used today
                will be different, but it is impossible to test this.")
+     (hr)
+     (faq-item "How does my ethnicity affects the predictions from this model"
+               ethnicity-text)
      (hr)
      (faq-item "What use are these estimates when as a patient I will either be cured or not?"
                "Treatment does not work the same for everyone - whilst some people may get a large survival benefit, others may get very little or no benefit.
@@ -733,18 +749,7 @@
      [:p [:i "Either type in the number or use the '+' or '-' buttons to adjust it. You can also use the up and down
      arrow keys to step by 1. Hold a key down for repeated steps. The model only works for ages 35-95."]]]
 
-    [:section#ethnicity "Ethnicity"
-     [:p "If you have no family history or known genetic risk factors (see other sections) then how or if ethnicity
-     affect prognosis is largely unclear. Predict Prostate was built mainly in large cohorts of Caucasian men and for
-     this group the model is well-validated. We have also retested the model in a mixed cohort of men of Chinese,
-     Indian and Malay descent and shown it works equally well. We have not retested this in men of Afro-Carribbean
-     descent.  What is known is that these men have a higher incidence of cancer and of higher grade cancers. However
-     recent research has shown that when matched for grade and stage of disease ( in other words like for like cancers),
-     men of Afro-Caribbean descent have the same outcomes and prognosis as men of caucasian origin. Please see these
-     research articles: "]
-     [:p [:cite "Dess RT, Hartman HE, Mahal BA, Soni PD, Jackson WC, Cooperberg MR, Amling CL, Aronson WJ, Kane CJ, Terris MK, Zumsteg ZS, Butler S, Osborne JR, Morgan TM, Mehra R, Salami SS, Kishan AU, Wang C, Schaeffer EM, Roach M 3rd, Pisansky TM, Shipley WU, Freedland SJ, Sandler HM, Halabi S, Feng FY, Dignam JJ, Nguyen PL, Schipper MJ, Spratt DE. Association of Black Race With Prostate Cancer-Specific and Other-Cause Mortality. JAMA Oncol. 2019 May 23. doi: 10.1001/jamaoncol.2019.0826."]]
-     [:p [:cite "Sridhar G, Masho SW, Adera T, Ramakrishnan V, Roberts JD. Do African American men have lower survival from prostate cancer compared with White men? A meta-analysis. Am J Mens Health. 2010 Sep;4(3):189-206. doi:10.1177/1557988309353934. "]]
-     [:p "The key need is to be sure that the disease type (how aggressive it is) is well known before using the Predict Prostate tool"]]
+    [:section#ethnicity "Ethnicity" ethnicity-text]
 
     [:section#psa "PSA"
      [:p "PSA (prostate-specific antigen) level at the time of diagnosis - i.e prior to biopsy or any treatment."]]
