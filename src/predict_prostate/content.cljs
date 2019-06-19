@@ -733,6 +733,9 @@
      [:p [:i "Either type in the number or use the '+' or '-' buttons to adjust it. You can also use the up and down
      arrow keys to step by 1. Hold a key down for repeated steps. The model only works for ages 35-95."]]]
 
+    [:section#ethnicity "Ethnicity"
+     [:p "Say something about ethnicity"]]
+
     [:section#psa "PSA"
      [:p "PSA (prostate-specific antigen) level at the time of diagnosis - i.e prior to biopsy or any treatment."]]
 
