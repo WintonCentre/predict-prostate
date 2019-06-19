@@ -6,6 +6,14 @@
             [clojure.pprint :refer [cl-format]]
             ))
 
+;; Simple text only component that only echoes text
+(rum/defc information < rum/reactive [{:keys [key values]
+                                       :as   props} group-cursor]
+  [:div
+   [:div
+    [:div values]]])
+
+
 ;; Generic toggle
 (rum/defc toggle-button < rum/static [{:keys [key value topic disabled]
                                        :or   {disabled false}} label]
@@ -20,6 +28,7 @@
               :onClick     handler
               }
      label]))
+
 
 
 (rum/defc radio-button-group < rum/reactive [{:keys [key aria-label aria-describedby values unknowable vertical]
