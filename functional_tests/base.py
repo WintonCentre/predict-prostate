@@ -36,8 +36,8 @@ class FunctionalTest(unittest.TestCase):
 
         # self.live_server_url = 'http://localhost:4449/'
         # self.live_server_url = 'http://localhost:8101/'
+        self.live_server_url = 'https://prostate.dev.wintoncentre.uk/'
         self.live_server_url = 'https://winton:development@prostate.predict.wintoncentre.uk/'
-        # self.live_server_url = 'https://prostate.dev.wintoncentre.uk/'
         # self.live_server_url = 'https://breast.predict.nhs.uk/'
 
         # self.staging_server = os.environ.get('STAGING_SERVER')
