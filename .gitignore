@@ -57,4 +57,5 @@ wireframes/wire3.xd
 
 src/predict_prostate/components/numeric_input.cljs
 resources/public/js/compiled/out
+resources/public/js/compiled/predict_prostate.js
 robots.txt
