@@ -61,6 +61,7 @@
 
     <!-- Site specific CSS -->
     <link rel="stylesheet" href="/css/tooling_styles_v2.css">
+    <link rel="stylesheet" href="/css/gdpr.css">
 
     <!--[if lte IE 9]>
         <script type="text/javascript">
@@ -160,45 +161,23 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins)
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
 
-    <script
-            src="https://code.jquery.com/jquery-3.3.1.min.js"
-            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-            crossorigin="anonymous"></script>
-    <!--<script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>-->
+<!--    <script-->
+<!--            src="https://code.jquery.com/jquery-3.3.1.min.js"-->
+<!--            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="-->
+<!--            crossorigin="anonymous"></script>-->
+    <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
 
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
-    <!--<script type="text/javascript" src="/js/bootstrap.min.js"></script>-->
+<!--    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>-->
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
 
 
     <!-- SmartMenus jQuery Bootstrap Addon CSS -->
     <link href="/css/jquery.smartmenus.bootstrap.css" rel="stylesheet">
 
 
-    <script>
-        window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-        ga('create', 'UA-1462795-47', 'auto'); // Live
-        // ga('create', 'UA-135562362-1', 'auto'); // Dev test tracking
-
-        // Replace the following lines with the plugins you want to use.
-        ga('require', 'urlChangeTracker');
-
-        // ga('require', 'eventTracker');
-        ga('require', 'eventTracker', {
-            attributePrefix: 'data-'
-        });
-
-        // ga('require', 'outboundLinkTracker');
-        // ga('require', 'urlChangeTracker');
-        // ...
-
-        ga('send', 'pageview');
-
-        // For GDPR
-        ga('set', 'anonymizeIp', true);
-    </script>
-    <script async src="https://www.google-analytics.com/analytics.js"></script>
+<!--    <script async src="https://www.google-analytics.com/analytics.js"></script>-->
 <!--    <script async src="/js/analytics.js"></script>-->
-    <script async src="/js/autotrack.js"></script>
+<!--    <script async src="/js/autotrack.js"></script>-->
 
 
 
@@ -241,7 +220,42 @@
 
 </div>
 
+<!-- Tracker and GDPR -->
+<script type="text/javascript" src="/js/gdpr.js"></script>
 
+<div class="gdpr-container container " id="gdprContainer">
+    <form onsubmit="gdprBtnOnClick(event)">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 vcenter gdpr-style">We use cookies to improve our website. For more information, visit our
+                <a href="https://prostate.predict.nhs.uk/legal/privacy" class="gdpr-style">Privacy Policy.</a>
+            </div><!--
+            --><div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 vcenter col-centered text-right ">
+                    <label class="gdpr-checkbox-inline gdpr-style"><input type="checkbox" style="margin-right: 5px;" name="analytics" value="analytics" id="analyticsCheckBox">Allow cookies</label>
+<!--                    <label class="gdpr-checkbox-inline" id="tcLabel"><input type="checkbox" style="margin-right: 5px;" name="tc" value="tc" id="tcCheckbox" required>Terms and Conditions</label>-->
+<!--                    <label class="gdpr-checkbox-inline">-->
+<!--                        <a href="https://breast.predict.nhs.uk/legal/privacy" class="btn btn-link btn-sm" style="text-shadow: none">See details</a>-->
+<!--                    </label>-->
+                    <a href="https://prostate.predict.nhs.uk/legal/disclaimer" class="btn btn-link btn-sm gdpr-style" style="text-shadow: none">See details</a>
+
+
+            <input type="submit"
+                           style="margin-left: 5px;"
+                           class="btn btn-primary btn-sm gdpr-style"
+                           value="I agree to Terms and Conditions">
+            </div>
+<!--            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6 vcenter col-centered text-right">-->
+<!--&lt;!&ndash;                <a href="https://breast.predict.nhs.uk/legal/privacy" class="btn btn-link btn-sm" style="text-shadow: none">See details</a>&ndash;&gt;-->
+<!--    &lt;!&ndash;                <button class="btn btn-primary btn-sm" style="width: 60px;" onclick="gdprBtnOnClick()">Ok</button>&ndash;&gt;-->
+<!--            </div>-->
+        </div>
+    </form>
+</div>
+
+<!--GDPR Initial State-->
+<script>
+    // insertGDPRHtml();
+    initialiseGDPRState();
+</script>
 
 <div id="fallback">
     <div class="well">
@@ -284,13 +298,13 @@
 
 <!-- Hotjar Tracking Code for https://prostate.predict.wintoncentre.uk -->
 <!--<script>-->
-    <!--(function(h,o,t,j,a,r){-->
-    <!--h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};-->
-    <!--h._hjSettings={hjid:1191612,hjsv:6};-->
-    <!--a=o.getElementsByTagName('head')[0];-->
-    <!--r=o.createElement('script');r.async=1;-->
-    <!--r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;-->
-    <!--a.appendChild(r);-->
+<!--    (function(h,o,t,j,a,r){-->
+<!--    h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};-->
+<!--    h._hjSettings={hjid:1191612,hjsv:6};-->
+<!--    a=o.getElementsByTagName('head')[0];-->
+<!--    r=o.createElement('script');r.async=1;-->
+<!--    r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;-->
+<!--    a.appendChild(r);-->
 <!--})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');-->
 <!--</script>-->
 

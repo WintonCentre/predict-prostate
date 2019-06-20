@@ -4,7 +4,7 @@ set -e
 echo "Publishing to Development server"
 TARGET='dev.wintoncentre.uk:/var/www/prostate.predict.wintoncentre.uk/'
 LOCAL_DEV='resources/public/'
-echo "===============Building files============="
+#echo "===============Building files============="
 #lein clean
 #lein cljsbuild once min
 echo "===============rsync-ing files==================="
