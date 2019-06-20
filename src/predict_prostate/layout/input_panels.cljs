@@ -84,6 +84,7 @@
                                             :margin-left "145px"
                                             :margin-top  -5}}
                               "Age must be between 35 and 95"]])
+    (form-entry {:label "Ethnicity" :key :ethnicity})
     (when (model-keys :psa) (form-entry {:label "PSA" :key :psa}))
     (when (model-keys :t-stage) (form-entry {:label "T stage" :key :t-stage}))
     (when (= 4 (rum/react (input-cursor :t-stage))) (less-well-tested "The tool is less well tested in higher stages"))

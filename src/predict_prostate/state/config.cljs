@@ -71,6 +71,14 @@
                   :prp
                   #{"prostate" "prostate-release"}
                   "")
+   (->Input-group :ethnicity
+                  "Ethnic Origin"
+                  :information
+                  "Please click on the info button"
+                  false false true
+                  :prp
+                  #{"prostate" "prostate-release"}
+                  "See FAQ")
    (->Input-group :psa
                   "PSA (ng/ml)"
                   :numeric-input
