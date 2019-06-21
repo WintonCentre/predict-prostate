@@ -58,17 +58,11 @@
 
 
 (def ethnicity-text [:div
-                     [:p "If you have no family history or known genetic risk factors (see other sections) then how or if ethnicity
-     affect prognosis is largely unclear. Predict Prostate was built mainly in large cohorts of Caucasian men and for
-     this group the model is well-validated. We have also retested the model in a mixed cohort of men of Chinese,
-     Indian and Malay descent and shown it works equally well. We have not retested this in men of Afro-Carribbean
-     descent.  What is known is that these men have a higher incidence of cancer and of higher grade cancers. However
-     recent research has shown that when matched for grade and stage of disease ( in other words like for like cancers),
-     men of Afro-Caribbean descent have the same outcomes and prognosis as men of caucasian origin. Please see these
+                     [:p "If there is no family history or known genetic risk factors (see other sections) then how or if ethnicity affects prognosis is largely unclear. Predict Prostate was built from cohorts of mainly Caucasian men and for this group the model is well-validated. The model has also been tested in a mixed cohort of men of Chinese, Indian and Malay descent and achieves equivalent performance. It has not been tested in men of Afro-Caribbean descent. However recent research has shown that when matched for grade and stage of disease (like for like cancers), men of Afro-Caribbean descent have the same outcomes and prognosis as men of Caucasian origin.If there is no family history or known genetic risk factors (see other sections) then how or if ethnicity affects prognosis is largely unclear. Predict Prostate was built from cohorts of mainly Caucasian men and for this group the model is well-validated. The model has also been tested in a mixed cohort of men of Chinese, Indian and Malay descent and achieves equivalent performance. It has not been tested in men of Afro-Caribbean descent. However recent research has shown that when matched for grade and stage of disease (like for like cancers), men of Afro-Caribbean descent have the same outcomes and prognosis as men of Caucasian origin. Please see these
      research articles: "]
-                     [:p [:cite "Dess RT, Hartman HE, Mahal BA, Soni PD, Jackson WC, Cooperberg MR, Amling CL, Aronson WJ, Kane CJ, Terris MK, Zumsteg ZS, Butler S, Osborne JR, Morgan TM, Mehra R, Salami SS, Kishan AU, Wang C, Schaeffer EM, Roach M 3rd, Pisansky TM, Shipley WU, Freedland SJ, Sandler HM, Halabi S, Feng FY, Dignam JJ, Nguyen PL, Schipper MJ, Spratt DE. Association of Black Race With Prostate Cancer-Specific and Other-Cause Mortality. JAMA Oncol. 2019 May 23. doi: 10.1001/jamaoncol.2019.0826."]]
-                     [:p [:cite "Sridhar G, Masho SW, Adera T, Ramakrishnan V, Roberts JD. Do African American men have lower survival from prostate cancer compared with White men? A meta-analysis. Am J Mens Health. 2010 Sep;4(3):189-206. doi:10.1177/1557988309353934. "]]
-                     [:p "The key need is to be sure that the disease type (how aggressive it is) is well known before using the Predict Prostate tool"]])
+                     [:p [:cite "Dess RT et al. Association of Black Race With Prostate Cancer-Specific and Other-Cause Mortality. JAMA Oncol. 2019 May 23. doi: 10.1001/jamaoncol.2019.0826."]]
+                     [:p [:cite "Sridhar G et al. Do African American men have lower survival from prostate cancer compared with White men? A meta-analysis. Am J Mens Health. 2010 Sep;4(3):189-206. doi:10.1177/1557988309353934."]]
+                     ])
 
 (rum/defc progress [percent]
   [:.progress {:style {:background-color "#94d3f0"}}
