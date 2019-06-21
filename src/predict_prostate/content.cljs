@@ -355,7 +355,7 @@
                In order to carry out long term predictions older data have to be used.  It is possible that outcomes of cancers diagnosed today, and treatments used today
                will be different, but it is impossible to test this.")
      (hr)
-     (faq-item "How does my ethnicity affects the predictions from this model"
+     (faq-item "How does my ethnicity affect the predictions from this model"
                ethnicity-text)
      (hr)
      (faq-item "What use are these estimates when as a patient I will either be cured or not?"
