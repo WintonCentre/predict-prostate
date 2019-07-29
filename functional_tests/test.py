@@ -196,8 +196,11 @@ class NewVisitorCanUseTools(FunctionalTest, unittest.TestCase):
     def test_user_add_sensible_input_and_see_results(self):
         # John add details into the page
         input_age = self.browser.find_element_by_id('age')
+        input_age.click()
         input_age.clear()
-        input_age.send_keys("45")
+        # Work around for chrome
+        input_age.send_keys("6")
+        input_age.send_keys("6")
 
         input_psa = self.browser.find_element_by_id('psa')
         input_psa.clear()
@@ -240,8 +243,8 @@ class NewVisitorCanUseTools(FunctionalTest, unittest.TestCase):
         self.assertIn('Results', h3_tag_result.text)
         # self.assertIn('Treatment Options', h3_tag_options.text)
 
-        time.sleep(3)
         # # How to distinguish between results show or not showing?
+        time.sleep(3)
 
 
 if __name__ == '__main__':

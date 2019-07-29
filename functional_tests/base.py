@@ -31,13 +31,14 @@ SCREEN_DUMP_LOCATION = os.path.join(
 class FunctionalTest(unittest.TestCase):
 
     def setUp(self):
-        self.browser = webdriver.Firefox()
-        # self.browser = webdriver.Chrome()
+        # self.browser = webdriver.Firefox()
+        self.browser = webdriver.Chrome()
 
         # self.live_server_url = 'http://localhost:5449/'
-        self.live_server_url = 'http://localhost:8101/'
-        # self.live_server_url = 'https://winton:development@breast.dev.wintoncentre.uk/'
-        # self.live_server_url = 'https://breast.predict.nhs.uk/'
+        # self.live_server_url = 'http://localhost:8101/'
+        # self.live_server_url = 'https://winton:development@prostate.dev.wintoncentre.uk'
+        self.live_server_url = 'https://prostate.dev.wintoncentre.uk'
+        # self.live_server_url = 'https://prostate.predict.nhs.uk/'
 
         # self.staging_server = os.environ.get('STAGING_SERVER')
         # if self.staging_server:
