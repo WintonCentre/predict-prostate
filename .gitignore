@@ -62,3 +62,7 @@ robots.txt
 
 geckodriver.log
 __pycache__/
+.python-version
+
+.venv
+*.pyc

@@ -11,7 +11,7 @@
                                              event-bus
                                              ]]
 
-    [predict-prostate.components.button :refer [radio-button-group radio-button-group-vertical]]
+    [predict-prostate.components.button :refer [radio-button-group radio-button-group-vertical information]]
     [predict-prostate.components.select :refer [picker]]
     [wc-rum-lib.numeric-input :refer [numeric-input]]
     ;[predict-prostate.components.numeric-input :refer [numeric-input]]
@@ -28,6 +28,26 @@
 
 (defmethod make-widget :string [{:keys [params]}]
   [:div {:style {:padding-top "10px" :font-size "16px"}} params])
+
+(comment
+  (->Input-group :ethnicity
+                 "Ethnic Origin"
+                 :information
+                 nil
+                 false false true
+                 :prp
+                 #{"prostate" "prostate-release"}
+                 "See FAQ"))
+
+(defmethod make-widget :information [{:keys [key label params unknowable]}]
+  (information
+    {:key               key
+     :aria-label        label
+     :aria-described-by "todo"
+     :values            params
+     :unknowable        unknowable}
+    (input-cursor key))
+  )
 
 (defmethod make-widget :radio-group [{:keys [key label params unknowable]}]
   (radio-button-group
@@ -96,7 +116,6 @@
 
 ; add widgets
 (swap! rtdb update :input-config #(build-input-widgets-in % input-groups))
-
 
 (defn live-keys-by-model
   "The (maximal) set of input-group keys present in a model. This is derived directly from the model

@@ -31,7 +31,6 @@ function initializeGAVars() {
     // Replace the following lines with the plugins you want to use.
     ga('require', 'urlChangeTracker');
 
-    // ga('require', 'eventTracker');
     ga('require', 'eventTracker', {
         attributePrefix: 'data-'
     });
@@ -44,8 +43,6 @@ function initializeGAVars() {
 
     // For GDPR
     ga('set', 'anonymizeIp', true);
-
-    // console.log('initializeGAVars complete')
 }
 
 function startHotJar() {
@@ -75,38 +72,15 @@ function startGA() {
 // startHotJar();
 // startGA();
 
-
-
 // GDPR Code.
 
 function gdprBtnOnClick(e) {
     e.preventDefault();
-    console.log('gdprBtnOnClick clicked!');
     var checkbox_analytics_value = document.getElementById("analyticsCheckBox").checked;
-    // var checkbox_tcCheckbox_value = document.getElementById("tcCheckbox").checked;
-    // console.log(checkbox_tcCheckbox_value);
-
-    // // jquery Logic for agreeing
-    // if (checkbox_analytics_value == true && checkbox_tcCheckbox_value == true) {
-    //     startGA();
-    //     startHotJar();
-    //     $(".gdpr-container").css("display", "none")
-    // }
-
     if (checkbox_analytics_value == true) {
         localStorage.setItem('user-analytics', 'true');
     }
-
-    // if (checkbox_tcCheckbox_value == true) {
     localStorage.setItem('user-tc', 'true');
-    // }
-
-    // if (checkbox_tcCheckbox_value == false) {
-    //     var label_tcLabel_value = document.getElementById("tcLabel");
-    //     label_tcLabel_value.classList.add("gdpr-invalid");
-    //     // console.log(label_tcLabel_value);
-    // }
-
     initialiseGDPRState();
     return false;
 }
