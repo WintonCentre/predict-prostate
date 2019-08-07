@@ -3,7 +3,9 @@ import unittest
 import time
 from datetime import datetime
 
+
 from selenium import webdriver
+from selenium.webdriver.firefox.options import Options
 from selenium.common.exceptions import WebDriverException
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
@@ -31,56 +33,65 @@ SCREEN_DUMP_LOCATION = os.path.join(
 class FunctionalTest(unittest.TestCase):
 
     # GRID
-    # def setUp(self):
-    #
-    #     # capabilities = {
-    #     #     "browserName": "opera",
-    #     #     "enableVNC": True,
-    #     #     "enableVideo": False,
-    #     #     "operaOptions": {"binary": "/usr/bin/opera"},
-    #     # }
-    #
-    #     capabilities = {
-    #         "browserName": os.getenv('BROWSER', 'chrome'),
-    #         "enableVNC": True,
-    #         "enableVideo": False
-    #     }
-    #
-    #     # capabilities = {
-    #     #     "browserName": 'safari',
-    #     #     "enableVNC": False,
-    #     #     "enableVideo": False
-    #     # }
-    #
-    #     self.browser = webdriver.Remote(
-    #         # command_executor="http://192.168.0.100:4445/wd/hub",
-    #         # command_executor="http://192.168.0.121:4445/wd/hub",
-    #         # command_executor="http://192.168.0.168:4445/wd/hub",
-    #         # command_executor="http://192.168.0.123:4444/wd/hub",
-    #         # command_executor="http://test:test-password@192.168.0.168:4444/wd/hub",
-    #         command_executor="http://test:test-password@82.8.135.18:4444/wd/hub",
-    #         desired_capabilities=capabilities)
-    #
-    #     # self.live_server_url = 'https://winton:development@prostate.dev.wintoncentre.uk'
-    #     self.live_server_url = 'https://prostate.dev.wintoncentre.uk'
-    #     # self.live_server_url = 'https://prostate.predict.nhs.uk/'
-
     def setUp(self):
-        # self.browser = webdriver.Firefox()
-        # self.browser = webdriver.Chrome()
-        self.browser = webdriver.Safari()
 
-        self.browser.maximize_window()
+        # capabilities = {
+        #     "browserName": "opera",
+        #     "enableVNC": True,
+        #     "enableVideo": False,
+        #     "operaOptions": {"binary": "/usr/bin/opera"},
+        # }
 
-        # self.live_server_url = 'http://localhost:5449/'
-        # self.live_server_url = 'http://localhost:8101/'
+        self.browserName = os.getenv('BROWSER', 'chrome')
+
+        capabilities = {
+            "browserName": self.browserName,
+            "enableVNC": True,
+            "enableVideo": False,
+            "ie.ensureCleanSession": True,  # IE needs this to clear localStorage. Nukes all IE though!
+        }
+
+        # capabilities = {
+        #     "browserName": 'safari',
+        #     "enableVNC": False,
+        #     "enableVideo": False
+        # }
+
+        self.browser = webdriver.Remote(
+            # command_executor="http://192.168.0.100:4445/wd/hub",
+            # command_executor="http://192.168.0.121:4445/wd/hub",
+            # command_executor="http://192.168.0.168:4445/wd/hub",
+            # command_executor="http://192.168.0.123:4444/wd/hub",
+            # command_executor="http://test:test-password@192.168.0.168:4444/wd/hub",
+            command_executor="http://test:test-password@82.8.135.18:4444/wd/hub",
+            desired_capabilities=capabilities)
+
         # self.live_server_url = 'https://winton:development@prostate.dev.wintoncentre.uk'
         self.live_server_url = 'https://prostate.dev.wintoncentre.uk'
         # self.live_server_url = 'https://prostate.predict.nhs.uk/'
 
-        # self.staging_server = os.environ.get('STAGING_SERVER')
-        # if self.staging_server:
-        #     self.live_server_url = 'http://' + self.staging_server
+    # def setUp(self):
+    #     browser = os.getenv('BROWSER', 'chrome')
+    #     options = Options()
+    #     # options.add_experimental_option("excludeSwitches", ['enable-automation'])
+    #     if browser == 'chrome':
+    #         self.browser = webdriver.Chrome(options=options)
+    #     if browser== 'firefox':
+    #         self.browser = webdriver.Firefox(options=options)
+    #     if browser== 'safari':
+    #         self.browser = webdriver.Safari()
+    #
+    #     self.browser.maximize_window()
+    #
+    #     # self.live_server_url = 'http://localhost:5449/'
+    #     # self.live_server_url = 'http://localhost:8101/'
+    #     # self.live_server_url = 'https://winton:development@prostate.dev.wintoncentre.uk'
+    #     self.live_server_url = 'https://prostate.dev.wintoncentre.uk'
+    #     # self.live_server_url = 'https://prostate.predict.nhs.uk/'
+    #
+    #     # self.staging_server = os.environ.get('STAGING_SERVER')
+    #     # if self.staging_server:
+    #     #     self.live_server_url = 'http://' + self.staging_server
 
     def tearDown(self):
         # if self._test_has_failed():
@@ -91,6 +102,11 @@ class FunctionalTest(unittest.TestCase):
         #         self.browser.switch_to_window(handle)
         #         self.take_screenshot()
         #         self.dump_html()
+
+        # IE shared it's session for all. Doesn't create isolated environment like Firefox or Chrome.
+        if self.browserName == 'internet explorer':
+            self.browser.execute_script('localStorage.clear();')
+
         self.browser.quit()
         super().tearDown()
 

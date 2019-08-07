@@ -69,7 +69,6 @@ def standardize_colour(color_str: str) -> str:
         return color_str
 
 
-
 if __name__ == '__main__':
     # a = is_rgb('rgb(123, 123, 123)')
     # b = is_rgb('rgba(123, 123, 123, 1)')
