@@ -66,6 +66,8 @@ class FunctionalTest(unittest.TestCase):
             command_executor="http://test:test-password@82.8.135.18:4444/wd/hub",
             desired_capabilities=capabilities)
 
+        self.browser.maximize_window()
+
         # self.live_server_url = 'https://winton:development@prostate.dev.wintoncentre.uk'
         self.live_server_url = 'https://prostate.dev.wintoncentre.uk'
         # self.live_server_url = 'https://prostate.predict.nhs.uk/'
