@@ -9,6 +9,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 
+from utils import standardize_colour
+
 
 class NewVisitorTest(FunctionalTest, unittest.TestCase):
 
@@ -31,7 +33,7 @@ class NewVisitorTest(FunctionalTest, unittest.TestCase):
         # John sees Dark grayish blue H1 title
         intro_title = self.browser.find_element_by_tag_name('h1')
         self.assertIn('Predict Prostate', intro_title.text)
-        self.assertEqual('rgb(119, 119, 153)', intro_title.value_of_css_property('color'))
+        self.assertEqual('rgba(119, 119, 153, 1)', standardize_colour(intro_title.value_of_css_property('color')))
 
         # John sees Start Predict button
         start_predict_button = self.browser.find_element_by_css_selector('button.btn-lg')
@@ -40,7 +42,8 @@ class NewVisitorTest(FunctionalTest, unittest.TestCase):
         # John sees version number on bottom right of the screen
         # (For dev only currently)
         build_number = self.browser.find_element_by_class_name('build-version')
-        self.assertEqual('Build: v0.0-dev-#000-hash', build_number.text)
+        # self.assertEqual('Build: v0.0-dev-#000-hash', build_number.text)
+        self.assertEqual('v1.03-37-g71bf6ec', build_number.text)
 
 
 class NewVisitorGDPRTest(FunctionalTest, unittest.TestCase):
@@ -61,7 +64,7 @@ class NewVisitorGDPRTest(FunctionalTest, unittest.TestCase):
         # John sees sticky GDPR bar on bottom of the page. See it's dark colour.
         gdpr_bar = self.browser.find_element_by_class_name('gdpr-container')
         self.assertEqual('block', gdpr_bar.value_of_css_property('display'))
-        self.assertEqual('rgb(255, 165, 0)', gdpr_bar.value_of_css_property('background-color'))
+        self.assertEqual('rgba(255, 165, 0, 1)', standardize_colour(gdpr_bar.value_of_css_property('background-color')))
 
         # John sees sticky GDPR bar has ok button
         gdpr_ok_input = self.browser.find_element_by_css_selector('input.btn-sm')
@@ -245,6 +248,7 @@ class NewVisitorCanUseTools(FunctionalTest, unittest.TestCase):
 
         # # How to distinguish between results show or not showing?
         time.sleep(3)
+        time.sleep(30)
 
 
 if __name__ == '__main__':

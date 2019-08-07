@@ -5,7 +5,7 @@ from datetime import datetime
 
 from selenium import webdriver
 from selenium.common.exceptions import WebDriverException
-
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 MAX_WAIT = 10
 
@@ -30,9 +30,47 @@ SCREEN_DUMP_LOCATION = os.path.join(
 
 class FunctionalTest(unittest.TestCase):
 
+    # GRID
+    # def setUp(self):
+    #
+    #     # capabilities = {
+    #     #     "browserName": "opera",
+    #     #     "enableVNC": True,
+    #     #     "enableVideo": False,
+    #     #     "operaOptions": {"binary": "/usr/bin/opera"},
+    #     # }
+    #
+    #     capabilities = {
+    #         "browserName": os.getenv('BROWSER', 'chrome'),
+    #         "enableVNC": True,
+    #         "enableVideo": False
+    #     }
+    #
+    #     # capabilities = {
+    #     #     "browserName": 'safari',
+    #     #     "enableVNC": False,
+    #     #     "enableVideo": False
+    #     # }
+    #
+    #     self.browser = webdriver.Remote(
+    #         # command_executor="http://192.168.0.100:4445/wd/hub",
+    #         # command_executor="http://192.168.0.121:4445/wd/hub",
+    #         # command_executor="http://192.168.0.168:4445/wd/hub",
+    #         # command_executor="http://192.168.0.123:4444/wd/hub",
+    #         # command_executor="http://test:test-password@192.168.0.168:4444/wd/hub",
+    #         command_executor="http://test:test-password@82.8.135.18:4444/wd/hub",
+    #         desired_capabilities=capabilities)
+    #
+    #     # self.live_server_url = 'https://winton:development@prostate.dev.wintoncentre.uk'
+    #     self.live_server_url = 'https://prostate.dev.wintoncentre.uk'
+    #     # self.live_server_url = 'https://prostate.predict.nhs.uk/'
+
     def setUp(self):
         # self.browser = webdriver.Firefox()
-        self.browser = webdriver.Chrome()
+        # self.browser = webdriver.Chrome()
+        self.browser = webdriver.Safari()
+
+        self.browser.maximize_window()
 
         # self.live_server_url = 'http://localhost:5449/'
         # self.live_server_url = 'http://localhost:8101/'
