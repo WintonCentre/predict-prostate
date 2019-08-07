@@ -112,6 +112,11 @@ class FunctionalTest(unittest.TestCase):
         self.browser.quit()
         super().tearDown()
 
+    @classmethod
+    def tearDownClass(cls):
+        print(f"Browser info: {os.getenv('BROWSER', 'chrome')}")
+        # print(cls.browserName)
+
     # def _test_has_failed(self):
     #     # slightly obscure but couldn't find a better way!
     #     return any(error for (method, error) in self._outcome.errors)

@@ -20,6 +20,10 @@ class NewVisitorTest(FunctionalTest, unittest.TestCase):
     def tearDown(self):
         super().tearDown()
 
+    @classmethod
+    def tearDownClass(cls) -> None:
+        super().tearDownClass()
+
     def test_user_can_see_correct_homepage(self):
         # New user John goes to predict website.
         self.browser.get(self.live_server_url)
@@ -53,6 +57,10 @@ class NewVisitorGDPRTest(FunctionalTest, unittest.TestCase):
 
     def tearDown(self):
         super().tearDown()
+
+    @classmethod
+    def tearDownClass(cls) -> None:
+        super().tearDownClass()
 
     def test_user_can_see_gdpr_sticky_div(self):
         # New user John goes to predict website.
@@ -189,6 +197,10 @@ class NewVisitorCanUseTools(FunctionalTest, unittest.TestCase):
     def tearDown(self):
         super().tearDown()
 
+    @classmethod
+    def tearDownClass(cls) -> None:
+        super().tearDownClass()
+
     def test_user_does_not_see_results_initially(self):
         #results
         info_disabled_text_icon = self.browser.find_element_by_class_name('fa-info-circle')
@@ -248,7 +260,6 @@ class NewVisitorCanUseTools(FunctionalTest, unittest.TestCase):
 
         # # How to distinguish between results show or not showing?
         time.sleep(3)
-        time.sleep(30)
 
 
 if __name__ == '__main__':
