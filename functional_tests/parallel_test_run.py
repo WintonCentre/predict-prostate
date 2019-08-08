@@ -8,14 +8,14 @@ safari_cmd = 'export BROWSER=safari && python test.py'
 ie_cmd = 'export BROWSER="internet explorer" && python test.py'
 # OPERA NOT WORKING ON 62 !
 
-all_tests = [chrome_cmd, firefox_cmd, opera_cmd, safari_cmd, ie_cmd]
-all_tests = [chrome_cmd, firefox_cmd, opera_cmd, safari_cmd]
+# all_tests = [chrome_cmd, firefox_cmd, opera_cmd, safari_cmd, ie_cmd]
+# all_tests = [chrome_cmd, firefox_cmd, opera_cmd, safari_cmd]
 # all_tests = [chrome_cmd, firefox_cmd, opera_cmd, ie_cmd]
 # all_tests = [chrome_cmd, firefox_cmd] * 4
 # all_tests = [chrome_cmd]
 # all_tests = [firefox_cmd]
 # all_tests = [opera_cmd]
-# all_tests = [safari_cmd]
+all_tests = [safari_cmd]
 # all_tests = [ie_cmd]
 
 processes = []
