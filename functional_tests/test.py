@@ -7,7 +7,8 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-import time
+from selenium.common.exceptions import TimeoutException
+import time, os
 
 from utils import standardize_colour
 
@@ -166,12 +167,20 @@ class NewVisitorGDPRTest(FunctionalTest, unittest.TestCase):
         gdpr_analytics_checkbox.click()
         gdpr_ok_input.click()
 
-        # John can see hotjar popping up. (If this doesn't exist, it means hotjar hasn't come through and there is error)
-        print("hotjar_injected_div waiting for ... ")
-        hotjar_injected_div = WebDriverWait(self.browser, 20).until(
-            EC.presence_of_element_located((By.ID, "_hj_poll_container"))
-        )
-        print("found hotjar_injected_div")
+        # internet explorer Hotjar disabled for now.
+        if os.getenv('BROWSER') == 'internet explorer':
+            print('Ignoring test for hotjar it appears support for IE9 is dropped')
+        if not os.getenv('BROWSER') == 'internet explorer':
+            try:
+                # John can see hotjar popping up. (If this doesn't exist, it means hotjar hasn't come through and there is error)
+                print("hotjar_injected_div waiting for ... ")
+                hotjar_injected_div = WebDriverWait(self.browser, 20).until(
+                    EC.presence_of_element_located((By.ID, "_hj_poll_container"))
+                )
+                print("found hotjar_injected_div")
+            except TimeoutException as e:
+                print(f"Waited 20 second but can not find hotjar_injected_div - {e} - {os.getenv('BROWSER')}")
+                raise TimeoutException
 
         time.sleep(5)
 

@@ -62,8 +62,8 @@ class FunctionalTest(unittest.TestCase):
             # command_executor="http://192.168.0.121:4445/wd/hub",
             # command_executor="http://192.168.0.168:4445/wd/hub",
             # command_executor="http://192.168.0.123:4444/wd/hub",
-            # command_executor="http://test:test-password@192.168.0.168:4444/wd/hub",
-            command_executor="http://test:test-password@82.8.135.18:4444/wd/hub",
+            command_executor="http://test:test-password@192.168.0.168:4444/wd/hub",
+            # command_executor="http://test:test-password@82.8.135.18:4444/wd/hub",
             desired_capabilities=capabilities)
 
         self.browser.maximize_window()
@@ -114,7 +114,7 @@ class FunctionalTest(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
-        print(f"Browser info: {os.getenv('BROWSER', 'chrome')}")
+        print(f" \n\nBrowser info: {os.getenv('BROWSER')}")
         # print(cls.browserName)
 
     # def _test_has_failed(self):
