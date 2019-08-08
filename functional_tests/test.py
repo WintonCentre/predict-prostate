@@ -48,8 +48,8 @@ class NewVisitorTest(FunctionalTest, unittest.TestCase):
         # (For dev only currently)
         build_number = self.browser.find_element_by_class_name('build-version')
         # self.assertEqual('Build: v0.0-dev-#000-hash', build_number.text)
-        self.assertEqual('v1.03-44-ge736fbe failed test ', build_number.text)
-        # self.assertNotEqual('v0.0-dev-#000-hash', build_number.text)
+        # self.assertEqual('v1.03-44-ge736fbe failed test ', build_number.text)
+        self.assertNotEqual('v0.0-dev-#000-hash', build_number.text)
 
 
 class NewVisitorGDPRTest(FunctionalTest, unittest.TestCase):
