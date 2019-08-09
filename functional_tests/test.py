@@ -8,7 +8,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
-import time, os
+import time, os, random
 
 from utils import standardize_colour
 
@@ -45,11 +45,13 @@ class NewVisitorTest(FunctionalTest, unittest.TestCase):
         self.assertIn('Start Predict', start_predict_button.text)
 
         # John sees version number on bottom right of the screen
-        # (For dev only currently)
         build_number = self.browser.find_element_by_class_name('build-version')
         # self.assertEqual('Build: v0.0-dev-#000-hash', build_number.text)
         # self.assertEqual('v1.03-44-ge736fbe failed test ', build_number.text)
         self.assertNotEqual('v0.0-dev-#000-hash', build_number.text)
+
+        # if random.randint(0, 10) < 4:
+        #     self.fail('Force fail to test')
 
 
 class NewVisitorGDPRTest(FunctionalTest, unittest.TestCase):
@@ -171,7 +173,7 @@ class NewVisitorGDPRTest(FunctionalTest, unittest.TestCase):
         # internet explorer Hotjar disabled for now.
         if os.getenv('BROWSER') == 'internet explorer':
             print('Ignoring test for hotjar it appears support for IE9 is dropped')
-        if not os.getenv('BROWSER') == 'internet explorer':
+        if not os.getenv('BROWSER') == 'hello':
             try:
                 # John can see hotjar popping up. (If this doesn't exist, it means hotjar hasn't come through and there is error)
                 print("hotjar_injected_div waiting for ... ")

@@ -27,16 +27,43 @@ all_tests = [chrome_cmd, firefox_cmd, opera_cmd, safari_cmd, ie_cmd]
 # all_tests = [firefox_cmd_short, chrome_cmd_short]
 
 processes = []
+return_codes = []
 
+# TODO. This is running synchronous. I need to somehow collect all the error and pop it at the end.
+# Other option is to look into better testing framework
+# Or some sort of jenkins plugin.
 
 for a_test_run in all_tests:
-    process = Popen(a_test_run, shell=True, stdout=PIPE)
+    process = Popen(a_test_run, shell=True)
+    # process = Popen(a_test_run, shell=True, stdout=PIPE)
     processes.append(process)
-    out, _ = process.communicate()
-    if process.returncode != 0:
-        sys.exit(1)
-    print(process.returncode)
+    # out, _ = process.communicate()
+    # if process.returncode != 0:
+    #     sys.exit(1)
+    # print(process.returncode)
     # print(out)
 
-for i in range(len(all_tests)):
-    processes[i].wait()
+# Wait for child process to terminate. Set and return returncode attribute.
+# for i in range(len(all_tests)):
+#     processes[i].wait()
+#     print(f'poll: {processes[i].poll()}')
+
+# Wait for child process to terminate. Set and return returncode attribute.
+print("Before wait")
+for process in processes:
+    process.wait()
+    return_codes.append(process.poll())
+    # print(process)
+    # print(process.__dict__)
+    # print(f'poll: {process.poll()}')
+
+print("After wait")
+print(f'return_codes: {return_codes}')
+print(f'sum: {sum(return_codes)}')
+
+return_codes_sum = sum(return_codes)
+if return_codes_sum > 0:
+    print(f'Failed tests total: {return_codes_sum}')
+    sys.exit(1)
+elif return_codes_sum == 0:
+    sys.exit(return_codes_sum)
