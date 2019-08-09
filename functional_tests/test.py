@@ -173,7 +173,7 @@ class NewVisitorGDPRTest(FunctionalTest, unittest.TestCase):
         # internet explorer Hotjar disabled for now.
         if os.getenv('BROWSER') == 'internet explorer':
             print('Ignoring test for hotjar it appears support for IE9 is dropped')
-        if not os.getenv('BROWSER') == 'hello':
+        if not os.getenv('BROWSER') == 'internet explorer':
             try:
                 # John can see hotjar popping up. (If this doesn't exist, it means hotjar hasn't come through and there is error)
                 print("hotjar_injected_div waiting for ... ")
