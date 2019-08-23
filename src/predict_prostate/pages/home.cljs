@@ -43,10 +43,19 @@
      [:.row
       [:.col-sm-5.col-sm-offset-1
        [:h1.alison-blue-2 {:style {:margin "15px" :margin-top 30}} "Predict Prostate"]
-       (let [[title [el1 _ p1] [el2 _ p2]] (section "home-strap-line")]
+       (let [[title [el1 _ p1] [el2 _ p2] [el3 _ p3]] (section "home-strap-line")]
          [:div
           [el1 {:style {:font-size 20 :margin-left 15}} p1]
-          [el2 {:style {:font-size 14 :margin-left 15}} p2]])
+          [el2 {:style {:font-size 14 :margin-left 15}} p2]
+
+
+          ])
+       [:p {:style {:font-size 14 :margin-left 15}} "This "
+        [:a {:href "#" :on-click #(publish route-change [:tool])} "decision aid"] " supports recommendations in the "
+        [:a {:href "https://www.nice.org.uk/guidance/ng131" :target "_blank"} "NICE guidance on prostate cancer"]
+        ". It also supports statements 1 and 2 in the "
+        [:a {:href "https://www.nice.org.uk/guidance/qs91/chapter/List-of-quality-statements" :target "_blank"} "NICE quality standard for prostate cancer. "]]
+
        (start-button)
 
         [:p {:style {:margin-left 15}} [:i "Did you mean to visit "] [:a {:href "https://breast.predict.nhs.uk"} "Predict Breast Cancer?"]]
