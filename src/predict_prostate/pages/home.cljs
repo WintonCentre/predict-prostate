@@ -53,11 +53,7 @@
           ])
 
        [:p {:style {:font-size 14 :margin-left 15}} [:a {:href "#" :on-click #(publish help-key-change "endorsement")} "Endorsed by the National Institute for Health and Care Excellence in the UK"]]
-       #_[:p {:style {:font-size 14 :margin-left 15}} "This "
-        [:a {:href "#" :on-click #(publish route-change [:tool])} "decision aid"] " supports recommendations in the "
-        [:a {:href "https://www.nice.org.uk/guidance/ng131" :target "_blank"} "NICE guidance on prostate cancer"]
-        ". It also supports statements 1 and 2 in the "
-        [:a {:href "https://www.nice.org.uk/guidance/qs91/chapter/List-of-quality-statements" :target "_blank"} "NICE quality standard for prostate cancer. "]]
+
 
        (start-button)
 
