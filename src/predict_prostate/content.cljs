@@ -126,6 +126,18 @@
                            :padding-left "10px"}}
       [:p "We recommend that patients use this tool with their doctor."]]
 
+   [:section#endorsement "NICE Endorsement statement"
+    [:div {:style {:font-size 16 :margin-left 15}}
+     [:p {:key 1} "This "
+      [:a {:href "#" :on-click #(publish route-change [:tool])} "decision aid"] " supports recommendations in the "
+      [:a {:href "https://www.nice.org.uk/guidance/ng131" :target "_blank"} "NICE guidance on prostate cancer"]
+      ". It also supports statements 1 and 2 in the "
+      [:a {:href "https://www.nice.org.uk/guidance/qs91/chapter/List-of-quality-statements" :target "_blank"} "NICE quality standard for prostate cancer. "]]
+     [:p {:key 2} "This tool is for comparing the outcomes of conservative management and radical treatment, in men with non-metastatic prostate cancer. "]]
+    ]
+
+
+
    ; block 3
    [:section#home-what-tell "What will Predict Prostate tell me?"
     [:p {:key 4} "The Predict Prostate tool shows you how different initial management strategies affect the percentage of men that survive ten and fifteen years after diagnosis. Non-individualised data is also shown on the potential harms of each treatment type."]]

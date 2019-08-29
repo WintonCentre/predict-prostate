@@ -3,9 +3,10 @@
             [cljs-css-modules.macro :refer-macros [defstyle]]
             [predict-prostate.layout.header :refer [header footer]]
             [predict-prostate.content-reader :refer [section all-subsections]]
-            [predict-prostate.state.run-time :refer [route-change]]
+            [predict-prostate.state.run-time :refer [route-change help-key-change]]
             [predict-prostate.results.util :refer [alison-blue-1 alison-blue-2 alison-blue-3 alison-pink]]
             [predict-prostate.components.button :refer [start-button]]
+            [predict-prostate.components.bs3-modal :refer [top-modal]]
             [interop.utils :refer [scrollTo]]
             [graphics.simple-icons :refer [icon]]
             [pubsub.feeds :refer [publish]]
@@ -50,7 +51,9 @@
 
 
           ])
-       [:p {:style {:font-size 14 :margin-left 15}} "This "
+
+       [:p {:style {:font-size 14 :margin-left 15}} [:a {:href "#" :on-click #(publish help-key-change "endorsement")} "Endorsed by the National Institute for Health and Care Excellence in the UK"]]
+       #_[:p {:style {:font-size 14 :margin-left 15}} "This "
         [:a {:href "#" :on-click #(publish route-change [:tool])} "decision aid"] " supports recommendations in the "
         [:a {:href "https://www.nice.org.uk/guidance/ng131" :target "_blank"} "NICE guidance on prostate cancer"]
         ". It also supports statements 1 and 2 in the "
@@ -105,7 +108,9 @@
       ]]]
    (scrollTo 0)
    [:.row.screen-only
-    (footer)]
+    (footer)
+    (top-modal)
+    ]
    ])
 
 (comment
