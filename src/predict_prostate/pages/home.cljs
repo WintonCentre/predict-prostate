@@ -52,7 +52,8 @@
 
           ])
 
-       [:p {:style {:font-size 14 :margin-left 15}} [:a {:href "#" :on-click #(publish help-key-change "endorsement")} "Endorsed by the National Institute for Health and Care Excellence in the UK"]]
+       [:p {:style {:font-size 14 :margin-left 15}} [:a {:href "https://www.nice.org.uk/guidance/ng131/resources/endorsed-resource-predict-prostate-6898604077" :target "_blank"} "Endorsed by the National Institute for Health and Care Excellence in the UK"]]
+       #_[:p {:style {:font-size 14 :margin-left 15}} [:a {:href "#" :on-click #(publish help-key-change "endorsement")} "Endorsed by the National Institute for Health and Care Excellence in the UK"]]
 
 
        (start-button)
