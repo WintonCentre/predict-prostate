@@ -3,9 +3,10 @@
             [cljs-css-modules.macro :refer-macros [defstyle]]
             [predict-prostate.layout.header :refer [header footer]]
             [predict-prostate.content-reader :refer [section all-subsections]]
-            [predict-prostate.state.run-time :refer [route-change]]
+            [predict-prostate.state.run-time :refer [route-change help-key-change]]
             [predict-prostate.results.util :refer [alison-blue-1 alison-blue-2 alison-blue-3 alison-pink]]
             [predict-prostate.components.button :refer [start-button]]
+            [predict-prostate.components.bs3-modal :refer [top-modal]]
             [interop.utils :refer [scrollTo]]
             [graphics.simple-icons :refer [icon]]
             [pubsub.feeds :refer [publish]]
@@ -43,10 +44,18 @@
      [:.row
       [:.col-sm-5.col-sm-offset-1
        [:h1.alison-blue-2 {:style {:margin "15px" :margin-top 30}} "Predict Prostate"]
-       (let [[title [el1 _ p1] [el2 _ p2]] (section "home-strap-line")]
+       (let [[title [el1 _ p1] [el2 _ p2] [el3 _ p3]] (section "home-strap-line")]
          [:div
           [el1 {:style {:font-size 20 :margin-left 15}} p1]
-          [el2 {:style {:font-size 14 :margin-left 15}} p2]])
+          [el2 {:style {:font-size 14 :margin-left 15}} p2]
+
+
+          ])
+
+       [:p {:style {:font-size 18 :margin-left 15}} [:a {:href "https://www.nice.org.uk/guidance/ng131/resources/endorsed-resource-predict-prostate-6898604077" :target "_blank"} "Endorsed by the National Institute for Health and Care Excellence in the UK"]]
+       #_[:p {:style {:font-size 14 :margin-left 15}} [:a {:href "#" :on-click #(publish help-key-change "endorsement")} "Endorsed by the National Institute for Health and Care Excellence in the UK"]]
+
+
        (start-button)
 
         [:p {:style {:margin-left 15}} [:i "Did you mean to visit "] [:a {:href "https://breast.predict.nhs.uk"} "Predict Breast Cancer?"]]
@@ -96,7 +105,9 @@
       ]]]
    (scrollTo 0)
    [:.row.screen-only
-    (footer)]
+    (footer)
+    (top-modal)
+    ]
    ])
 
 (comment

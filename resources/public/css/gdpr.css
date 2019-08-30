@@ -49,6 +49,6 @@
     text-decoration: underline;
 }
 
-.gdpr-container a:link {
+.gdpr-container a:link,.gdpr-container a:visited {
     color: #f8f8f8;
 }
