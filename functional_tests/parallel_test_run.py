@@ -13,9 +13,9 @@ chrome_cmd_short = 'export BROWSER=chrome && python test.py NewVisitorTest'
 firefox_cmd_short = 'export BROWSER=firefox && python test.py NewVisitorTest'
 # OPERA NOT WORKING ON 62 !
 
-all_tests = [chrome_cmd, firefox_cmd, opera_cmd, safari_cmd, ie_cmd]
+# all_tests = [chrome_cmd, firefox_cmd, opera_cmd, safari_cmd, ie_cmd]
 # all_tests = [chrome_cmd, firefox_cmd, opera_cmd, safari_cmd]
-# all_tests = [chrome_cmd, firefox_cmd, opera_cmd, ie_cmd]
+all_tests = [chrome_cmd, firefox_cmd, opera_cmd, ie_cmd]
 # all_tests = [chrome_cmd, firefox_cmd] * 4
 # all_tests = [chrome_cmd, firefox_cmd]
 # all_tests = [chrome_cmd]
