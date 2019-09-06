@@ -766,8 +766,9 @@
      [:p "The approximate size of the tumour in millimetres."]]
 
     [:section#t-stage "Clinical stage"
-     [:p "The clinical tumour stage according to the TNM classification. This relates to how the prostate feels on examination. Select T-stage 1, 2, 3, or 4. 
-      The model does not differentiate between sub-classifications such as T2b and T2c."]]
+     [:p "The clinical tumour stage according to the TNM classification. This relates to how the prostate feels on examination. Select T-stage 1, 2, 3, or 4."]
+     [:p "The model does not differentiate between sub-classifications such as T2b and T2c. It is currently untested as to how MRI based staging changes prognostic predictions. The highest known stage is recommended to be used for the Predict Prostate model (from any modality)."]
+     ]
 
     [:section#histological-grade-group "Histological grade group"
      [:p "The highest reported grade group from the diagnostic prostate biopsies. If this is not known, the highest reported Gleason score can be entered

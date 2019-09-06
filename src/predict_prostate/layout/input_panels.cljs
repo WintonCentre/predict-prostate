@@ -70,6 +70,14 @@
    [:i.fa.fa-exclamation-triangle {:aria-hidden "true" :style {:color "orange" :padding-right 5}}]
    text]
   )
+
+(rum/defc mets-danger [text]
+  [:div {:style {:color       "#f00"                        ;"#686868"
+                 :margin-left "145px"
+                 :margin-top  0}}
+   [:i.fa.fa-exclamation-triangle {:aria-hidden "true" :style {:color "red" :padding-right 5}}]
+    text]
+  )
 ;;;
 ;; PATIENT RELATED
 ;;;
@@ -147,7 +155,7 @@
 
    (when (model-keys :metastasis) (form-entry {:label "metastasis" :key :metastasis}))
    (when (#{:yes} (rum/react (input-cursor :metastasis)))
-     (mets-warning "This tool is only for use in men without metastatic disease."))
+     (mets-danger "Results will not be displayed as this tool is only for use in men without metastatic disease."))
    (when (#{:unknown} (rum/react (input-cursor :metastasis)))
      (mets-warning "This tool is only for use in men without metastatic disease. If you're unsure use the data with caution and please consult your medical professional"))
    ])
