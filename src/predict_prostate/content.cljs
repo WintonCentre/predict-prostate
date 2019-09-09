@@ -58,10 +58,20 @@
 
 
 (def ethnicity-text [:div
-                     [:p "If there is no family history or known genetic risk factors (see other sections) then how or if ethnicity affects prognosis is largely unclear. Predict Prostate was built from cohorts of mainly Caucasian men and for this group the model is well-validated. The model has also been tested in a mixed cohort of men of Chinese, Indian and Malay descent and achieves equivalent performance. It has not been tested in men of Afro-Caribbean descent. However recent research has shown that when matched for grade and stage of disease (like for like cancers), men of Afro-Caribbean descent have the same outcomes and prognosis as men of Caucasian origin. Please see these
+                     [:p "If there is no family history or known genetic risk factors (see other sections) then how or
+                     if ethnicity affects prognosis is largely unclear. Predict Prostate was built from cohorts of
+                     mainly Caucasian men and for this group the model is well-validated. The model has also been
+                     tested in a mixed cohort of men of Chinese, Indian and Malay descent and achieves equivalent
+                     performance. It has not been tested in men of Afro-Caribbean descent. However recent research
+                     has shown that when matched for grade and stage of disease (like for like cancers), men of
+                     Afro-Caribbean descent have the same outcomes and prognosis as men of Caucasian origin.
+                     Please see these
      research articles: "]
-                     [:p [:cite "Dess RT et al. Association of Black Race With Prostate Cancer-Specific and Other-Cause Mortality. JAMA Oncol. 2019 May 23. doi: 10.1001/jamaoncol.2019.0826."]]
-                     [:p [:cite "Sridhar G et al. Do African American men have lower survival from prostate cancer compared with White men? A meta-analysis. Am J Mens Health. 2010 Sep;4(3):189-206. doi:10.1177/1557988309353934."]]
+                     [:p [:cite "Dess RT et al. Association of Black Race With Prostate Cancer-Specific and
+                     Other-Cause Mortality. JAMA Oncol. 2019 May 23. doi: 10.1001/jamaoncol.2019.0826."]]
+                     [:p [:cite "Sridhar G et al. Do African American men have lower survival from prostate
+                     cancer compared with White men? A meta-analysis. Am J Mens Health. 2010 Sep;4(3):189-206.
+                     doi:10.1177/1557988309353934."]]
                      ])
 
 (rum/defc progress [percent]
@@ -111,16 +121,20 @@
 
    ; block 1
    [:section#home-what-is "What is Predict Prostate for?"
-    [:p {:key 1} "Predict Prostate is a tool where the outcomes from conservative management (or monitoring) are compared with radical treatment (surgery or radiotherapy)."]
+    [:p {:key 1} "Predict Prostate is a tool where the outcomes from conservative management (or monitoring) are
+    compared with radical treatment (surgery or radiotherapy)."]
     [:p {:key 2} ""]
     ]
 
    ; block 2
    [:section#home-how-use "How do I use Predict Prostate?"
-    [:p {:key 2} "Enter the details about yourself and your prostate cancer, and then select conservative management or radical treatment to see estimates of survival with each."]
+    [:p {:key 2} "Enter the details about yourself and your prostate cancer, and then select conservative management
+    or radical treatment to see estimates of survival with each."]
     [:p {:key 3} "We recommend patients read the "
-     [:a {:key 1 :href "#" :on-click #(publish route-change [:about {:page :overview :section :overview}])} "About Predict"]
-     [:span {:key 2 :style {:font-size "16px"}} " section before using the tool. Predict Prostate is only intended for use amongst men
+     [:a {:key 1 :href "#" :on-click #(publish route-change [:about {:page :overview :section :overview}])}
+      "About Predict"]
+     [:span {:key 2 :style {:font-size "16px"}} " section before using the tool. Predict Prostate is only intended for
+     use amongst men
      for whom both conservative management and radical treatment could both be appropriate options"]]]
    #_[:div {:key 2 :style {:border-left  "3px solid #005FB1"
                            :padding-left "10px"}}
@@ -132,27 +146,34 @@
       [:a {:href "#" :on-click #(publish route-change [:tool])} "decision aid"] " supports recommendations in the "
       [:a {:href "https://www.nice.org.uk/guidance/ng131" :target "_blank"} "NICE guidance on prostate cancer"]
       ". It also supports statements 1 and 2 in the "
-      [:a {:href "https://www.nice.org.uk/guidance/qs91/chapter/List-of-quality-statements" :target "_blank"} "NICE quality standard for prostate cancer. "]]
-     [:p {:key 2} "This tool is for comparing the outcomes of conservative management and radical treatment, in men with non-metastatic prostate cancer. "]]
+      [:a {:href "https://www.nice.org.uk/guidance/qs91/chapter/List-of-quality-statements" :target "_blank"} "NICE
+      quality standard for prostate cancer. "]]
+     [:p {:key 2} "This tool is for comparing the outcomes of conservative management and radical treatment, in men
+     with non-metastatic prostate cancer. "]]
     ]
 
 
 
    ; block 3
    [:section#home-what-tell "What will Predict Prostate tell me?"
-    [:p {:key 4} "The Predict Prostate tool shows you how different initial management strategies affect the percentage of men that survive ten and fifteen years after diagnosis. Non-individualised data is also shown on the potential harms of each treatment type."]]
+    [:p {:key 4} "The Predict Prostate tool shows you how different initial management strategies affect the percentage
+    of men that survive ten and fifteen years after diagnosis. Non-individualised data is also shown on the potential
+    harms of each treatment type."]]
 
    [:section#about-page "About"
     [:section#who (copied "Who developed the Predict Prostate programme?")
-     [:p (copied "Predict Prostate has been developed by a partnership between the Academic Urology Group and the Department of Cancer Epidemiology at the University of Cambridge
+     [:p (copied "Predict Prostate has been developed by a partnership between the Academic Urology Group and the
+     Department of Cancer Epidemiology at the University of Cambridge
       in collaboration with the National Cancer Registration and Analysis Service (NCRAS) at Public Health England")]]
 
     [:section#how (copied "How was the computer programme developed?")
-     [:p (copied "The team used information held by the Eastern region cancer registry on over 7000 men diagnosed with non-metastatic prostate cancer between 2000 and 2010.
+     [:p (copied "The team used information held by the Eastern region cancer registry on over 7000 men diagnosed with
+     non-metastatic prostate cancer between 2000 and 2010.
       Using this information they were able to explore how individual factors affected survival over ten and fifteen years")]]
 
     [:section#where (copied "Where can I find more information on Prostate Cancer?")
-     [:p (copied "There is a great deal of information on Prostate Cancer online. One of best and most reliable sources is Cancer
+     [:p (copied "There is a great deal of information on Prostate Cancer online. One of best and most reliable sources
+     is Cancer
     Research UK. The information is written by experts, is up to date and in a style that is easy to understand.")]]
     ]
 
@@ -175,11 +196,16 @@
 
    [:section#whoisitfor "Who is it for?"
     [:section "Who is it for?"
-     [:p "The tool is intended for men with non-metastatic prostate cancer who are deciding between conservative and radical management regimes. The tool is not for use in cases where prostate cancer has spread beyond the prostate.
-     The tool is also less well tested and likely to be less reliable in men with very high PSA, high grade group or high stage  
-     as very few men with these characteristics were managed with conservative management in our development or validation data.  "]
+     [:p "The tool is intended for men with non-metastatic prostate cancer who are deciding between conservative and
+     radical management regimes. The tool is not for use in cases where prostate cancer has spread beyond the prostate.
+     The tool is also less well tested and likely to be less reliable in men with very high PSA, high grade group or
+     high stage
+     as very few men with these characteristics were managed with conservative management in our development or
+     alidation data.  "]
 
-     [:p "Nothing can ever tell an individual man exactly what is going to happen to him in the future but this tool will provide a realistic estimate or ‘best guess’ about the potential survival benefits of different treatment options."]
+     [:p "Nothing can ever tell an individual man exactly what is going to happen to him in the future but this tool
+     will provide a realistic estimate or ‘best guess’ about the potential survival benefits of different treatment
+     options."]
 
      [:p.emphasise "The web tool is not designed to give clinical advice and all decisions on treatment options must be
     made in consultation between the patient and a qualified doctor."]
@@ -187,10 +213,17 @@
 
    [:section#howpredictworks "How Predict Prostate works"
     [:section "How Predict Prostate works"
-     [:p "The estimates that Predict Prostate produces are based on observational data from thousands of men previously diagnosed with non-metastatic prostate cancer from the East of England, UK. It provides the average survival rate for men in the past of similar age and with similar characteristics."]
-     [:p "These data were then used to help produce estimates of the potential outcomes for men who have prostate cancer now, depending on characteristics about them and their tumour. The model has also been tested among men diagnosed with prostate cancer in Singapore.
-     It has been checked to make sure that the estimates it produces are as accurate as they can be given current knowledge. It is important to note that the model can only give an estimate of what may happen and cannot say with certainty whether an individual patient will survive their cancer or not."]
-     [:p (page-link [:about {:page :technical :section :technical}] "The technical section") " has more detail on how Predict Prostate was developed and tested."]
+     [:p "The estimates that Predict Prostate produces are based on observational data from thousands of men previously
+     diagnosed with non-metastatic prostate cancer from the East of England, UK. It provides the average survival rate
+     for men in the past of similar age and with similar characteristics."]
+     [:p "These data were then used to help produce estimates of the potential outcomes for men who have prostate cancer
+     now, depending on characteristics about them and their tumour. The model has also been tested among men diagnosed
+     with prostate cancer in Singapore.
+     It has been checked to make sure that the estimates it produces are as accurate as they can be given current
+     nowledge. It is important to note that the model can only give an estimate of what may happen and cannot say with
+     certainty whether an individual patient will survive their cancer or not."]
+     [:p (page-link [:about {:page :technical :section :technical}] "The technical section") " has more detail on how
+     Predict Prostate was developed and tested."]
      (hr)
      ]]
 
@@ -222,7 +255,8 @@
            :rel    "noopener"
            :style  {:text-decoration "underline"}
            :target "_blank"} "Winton Centre for Risk & Evidence Communication"]
-      " at the University of Cambridge who are funded by a generous donation from the David and Claudia Harding Foundation and the Winton Charitable Foundation."]
+      " at the University of Cambridge who are funded by a generous donation from the David and Claudia Harding
+      Foundation and the Winton Charitable Foundation."]
      ]]
 
    [:section#technical "Technical"
@@ -243,12 +277,12 @@
    [:section#history "Development History"
 
     [:section "Development History"
-     [:p "The original model (v1.0) was derived from cancer registry information on 7,062 men treated in East Anglia from 2000-2010.
-      They were followed until 30 September 2016 so that the median length of follow-up was 9.8 years and the maximum was 16 years
-      Mortality models for prostate cancer-specific and non prostate cancer mortality were constructed using Cox proportional
-     hazards, adjusted for known prognostic factors. The overall survival estimates for an individual patient are based
-     on both of these models, with one adjusted for the other within a competing risks framework.
-     Further information is provided from the full paper published in the open access journal "
+     [:p "The original model (v1.0) was derived from cancer registry information on 7,062 men treated in East Anglia
+     from 2000-2010. They were followed until 30 September 2016 so that the median length of follow-up was 9.8 years and
+     the maximum was 16 years. Mortality models for prostate cancer-specific and non prostate cancer mortality were
+     constructed using Cox proportional hazards, adjusted for known prognostic factors. The overall survival estimates
+     for an individual patient are based on both of these models, with one adjusted for the other within a competing
+     risks framework. Further information is provided from the full paper published in the open access journal "
       [:a {:href   "http://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1002758"
            :style  {:text-decoration "underline"}
            :rel    "noopener"
@@ -256,18 +290,21 @@
       ]]
 
     [:section "Model validation"
-     [:p "Predict Prostate was validated using a dataset of another 3,000 prostate cancer patients from the Eastern England
-    data and a further 2,546 men from a separate independent dataset from Singapore diagnosed between 1990 and 2015 and followed up for a median of 5.1 years. Discrimination
-    in these two datasets was 0.84 for prostate cancer survival, and 0.77 and 0.76 for overall survival over 15 years maximum follow-up. Further details are available via the publication below."]]
+     [:p "Predict Prostate was validated using a dataset of another 3,000 prostate cancer patients from the Eastern
+     England data and a further 2,546 men from a separate independent dataset from Singapore diagnosed between 1990 and
+     2015 and followed up for a median of 5.1 years. Discrimination in these two datasets was 0.84 for prostate cancer
+     survival, and 0.77 and 0.76 for overall survival over 15 years maximum follow-up. Further details are available via
+     the publication below."]]
 
     [:section "Model Extension: BRCA status and biopsy reparameterisation (version 1.1)"
-     [:p "The web-model was updated in March 2019 to include BRCA status and to model the impact of biopsy core involvement continuously."]
+     [:p "The web-model was updated in March 2019 to include BRCA status and to model the impact of biopsy core
+     involvement continuously."]
      ]
 
 
     [:section "Future versions"
-     [:p "Predict Prostate will be updated over time as new information and evidence becomes available. The model has completed clinician impact studies and
-     is currently undergoing testing in other international cohorts. A "
+     [:p "Predict Prostate will be updated over time as new information and evidence becomes available. The model has
+     completed clinician impact studies and is currently undergoing testing in other international cohorts. A "
       [:a {:href   "http://www.isrctn.com/ISRCTN28468474"
            :rel    "noopener"
            :style  {:text-decoration "underline"}
@@ -279,9 +316,9 @@
      [:a {:name "publications"}]
      [:ol
 
-      [:li [:p "Individual prognosis at diagnosis in non-metastatic prostate cancer: Development and external validation of the PREDICT Prostate multivariable model
-                      . by D Thurtle, D Greenberg, LS Lee, H Huang, PD Pharoah, VJ Gnanapragasam. PLOS Medicine
-      2019.  "
+      [:li [:p "Individual prognosis at diagnosis in non-metastatic prostate cancer: Development and external validation
+      of the PREDICT Prostate multivariable model by D Thurtle, D Greenberg, LS Lee, H Huang, PD Pharoah,
+      VJ Gnanapragasam. PLOS Medicine 2019.  "
             [:a {:href   "http://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1002758"
                  :rel    "noopener"
                  :style  {:text-decoration "underline"}
@@ -766,12 +803,16 @@
      [:p "The approximate size of the tumour in millimetres."]]
 
     [:section#t-stage "Clinical stage"
-     [:p "The clinical tumour stage according to the TNM classification. This relates to how the prostate feels on examination. Select T-stage 1, 2, 3, or 4."]
-     [:p "The model does not differentiate between sub-classifications such as T2b and T2c. It is currently untested as to how MRI based staging changes prognostic predictions. The highest known stage is recommended to be used for the Predict Prostate model (from any modality)."]
+     [:p "The clinical tumour stage according to the TNM classification. This relates to how the prostate feels on
+     examination. Select T-stage 1, 2, 3, or 4."]
+     [:p "The model does not differentiate between sub-classifications such as T2b and T2c. It is currently untested as
+     to how MRI based staging changes prognostic predictions. The highest known stage is recommended to be used for the
+     Predict Prostate model (from any modality). Please see the "(page-link [:about {:page :faqs}] "FAQ section.")]
      ]
 
     [:section#histological-grade-group "Histological grade group"
-     [:p "The highest reported grade group from the diagnostic prostate biopsies. If this is not known, the highest reported Gleason score can be entered
+     [:p "The highest reported grade group from the diagnostic prostate biopsies. If this is not known, the highest
+     reported Gleason score can be entered
       and the grade group will be completed automatically. "]]
 
     [:section#gleason-score "Gleason score"
@@ -782,22 +823,28 @@
       If this information is not known, or if biopsy cores were ONLY taken from target lesions select 'no'."]]
 
     [:section#number-of-biopsy-cores-taken "Biopsy cores taken"
-     [:p "The total number of biopsy cores taken. Extra biopsies taken from each target site should be considered as 1 core, regardless of how many biopsy cores were
+     [:p "The total number of biopsy cores taken. Extra biopsies taken from each target site should be considered as 1
+     core, regardless of how many biopsy cores were
       taken from that target. *See examples*"]]
 
     [:section#number-of-biopsy-cores-with-prostate-cancer "Biopsy cores with prostate cancer"
-     [:p "The total number of positive biopsy cores. Even cores with a lower grade should be counted here, if they have any prostate cancer within them. 
-      Positive cores taken from a single target site should be considered as 1 core, regardless of how many positive cores were taken from that target *See examples*."]]
+     [:p "The total number of positive biopsy cores. Even cores with a lower grade should be counted here, if they have
+      any prostate cancer within them.
+      Positive cores taken from a single target site should be considered as 1 core, regardless of how many positive
+      cores were taken from that target *See examples*."]]
 
     [:section#h-admissions "Hospital admissions in the last 2 years"
-     [:p "This refers to any inpatient admission to hospital in the 2 years before prostate cancer diagnosis. Anything related
-     to the prostate cancer diagnosis itself or any previous prostate investigations, such as for a prostate biopsy, should be ignored."]]
+     [:p "This refers to any inpatient admission to hospital in the 2 years before prostate cancer diagnosis. Anything
+     related to the prostate cancer diagnosis itself or any previous prostate investigations, such as for a prostate
+     biopsy, should be ignored."]]
 
     [:section#brca "BRCA gene variant"
-     [:p "Enter 'positive' if you have been tested positive for the BRCA gene variant. If unknown, select 'Negative or Untested.'"]]
+     [:p "Enter 'positive' if you have been tested positive for the BRCA gene variant. If unknown, select 'Negative or
+     Untested.'"]]
 
     [:section#metastasis "Metastases"
-     [:p "This tool is only for use in men without metastatic disease. Metastasis is when the cancer is known to have spread e.g. to the bone or lymph nodes. This is typically detected on a bone scan or a CT/MRI scan."]]
+     [:p "This tool is only for use in men without metastatic disease. Metastasis is when the cancer is known to have
+     spread e.g. to the bone or lymph nodes. This is typically detected on a bone scan or a CT/MRI scan."]]
 
     [:section#comorb "Comorbidity"
      [:h5 "Select yes if there is a history of any of the following conditions:"]
@@ -822,9 +869,12 @@
     [:section#biopsy-examples "Biopsy examples"
      [:h4 "Examples of how to deal with targeted biopsies:"]
      [:div {:style {:margin-left 20 :margin-right 20}}
-      [:p "2 biopsy cores from 1 target, of which both were negative = 1 additional core taken and 0 additional cores with cancer "]
-      [:p "3 biopsy cores from 1 target, of which 2 were positive = 1 additional core taken and 1 additional core with cancer. "]
-      [:p "2 biopsy cores, 1 taken from each of 2 different targets, both of which were positive = 2 additional cores taken and 2 additional cores with cancer "]]]
+      [:p "2 biopsy cores from 1 target, of which both were negative = 1 additional core taken and 0 additional cores
+      with cancer "]
+      [:p "3 biopsy cores from 1 target, of which 2 were positive = 1 additional core taken and 1 additional core with
+      cancer. "]
+      [:p "2 biopsy cores, 1 taken from each of 2 different targets, both of which were positive = 2 additional cores
+      taken and 2 additional cores with cancer "]]]
 
 
     [:section#surgery "Treatments already received"
@@ -838,17 +888,21 @@
     ;; Treatment potential harms
 
     [:section#side-effects-cm "Conservative Management"
-     [:p "'Active Monitoring' was the term used for conservative management within the ProtecT study, where this data is from. Men were predominantly monitored by PSA."]]
+     [:p "'Active Monitoring' was the term used for conservative management within the ProtecT study, where this data is
+      from. Men were predominantly monitored by PSA."]]
 
     [:section#side-effects-am "Active Monitoring"
-     [:p "'Active Monitoring' was the term used for conservative management within the ProtecT study, where this data is from. Men were predominantly monitored by PSA."]]
+     [:p "'Active Monitoring' was the term used for conservative management within the ProtecT study, where this data is
+     from. Men were predominantly monitored by PSA."]]
 
     [:section#side-effects-rp "Radical Prostatectomy"
-     [:p "Radical prostatectomy refers to surgical removal of the whole prostate gland, with or without the nearby lymph nodes.
+     [:p "Radical prostatectomy refers to surgical removal of the whole prostate gland, with or without the nearby lymph
+     nodes.
       Within this study the majority were performed by an open operation"]]
 
     [:section#side-effects-rt "Radiotherapy"
-     [:p "Radiotherapy in the ProtecT study included combined androgen deprivation therapy for 3-6 months before and during external beam radiotherapy at a total dose of 74Gy in37 fractions."]]
+     [:p "Radiotherapy in the ProtecT study included combined androgen deprivation therapy for 3-6 months before and
+     during external beam radiotherapy at a total dose of 74Gy in37 fractions."]]
 
     [:section#nerve-sparing "Nerve-sparing"
      [:p "Nerve-sparing radical prostatectomy"]]
@@ -863,6 +917,7 @@
      [:p "When you say 'Yes' to " [:b "More detail?, "] "Predict Prostate will display overall survival and
       treatment benefits to 1 decimal place instead of rounding the percentages to the nearest whole number."]
      [:p "The default values are the best estimate of the benefit. In the more detailed table, a 95% prediction
-     interval is added alongside the additional benefit. The true value of the benefit is very unlikely be outside this range"]]]]
+     interval is added alongside the additional benefit. The true value of the benefit is very unlikely be outside
+     this range"]]]]
 
   )

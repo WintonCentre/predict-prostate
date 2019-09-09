@@ -78,7 +78,7 @@
                   false false true
                   :prp
                   #{"prostate" "prostate-release"}
-                  "See FAQ")
+                  "See FAQs")
    (->Input-group :psa
                   "PSA (ng/ml)"
                   :numeric-input
