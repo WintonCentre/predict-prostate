@@ -201,7 +201,7 @@
      The tool is also less well tested and likely to be less reliable in men with very high PSA, high grade group or
      high stage
      as very few men with these characteristics were managed with conservative management in our development or
-     alidation data.  "]
+     validation data.  "]
 
      [:p "Nothing can ever tell an individual man exactly what is going to happen to him in the future but this tool
      will provide a realistic estimate or ‘best guess’ about the potential survival benefits of different treatment
