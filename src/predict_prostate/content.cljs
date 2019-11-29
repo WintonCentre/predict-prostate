@@ -271,6 +271,8 @@
       ]
 
      [:p "Click here to " (page-link [:legal {:page :algorithm} nil] "find out more about the algorithm.")]
+     [:p "See also these papers on " [:a {:href " https://www.nature.com/articles/s41416-019-0569-4" :target "_blank"} "Clinician impact studies "]
+      "and " [:a {:href "https://www.eusupplements.europeanurology.com/article/S1569-9056(19)30161-7/pdf"} "International cohorts"]]
      ]]
 
 
