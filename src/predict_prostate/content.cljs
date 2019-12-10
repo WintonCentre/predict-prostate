@@ -324,7 +324,22 @@
             [:a {:href   "http://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1002758"
                  :rel    "noopener"
                  :style  {:text-decoration "underline"}
-                 :target "_blank"} "Full paper online."]]]]]
+                 :target "_blank"} "Full paper online."]]]
+      [:li [:p "Understanding of prognosis in non-metastatic prostate cancer: a randomised comparative study of clinician
+       estimates measured against the PREDICT prostate prognostic model by
+       David R. Thurtle, Valerie Jenkins, Paul D. Pharoah & Vincent J. Gnanapragasam. "
+            [:a {:href   "https://www.nature.com/articles/s41416-019-0569-4"
+                 :rel    "noopener"
+                 :style  {:text-decoration "underline"}
+                 :target "_blank"} "Full paper online."]]]
+      [:li [:p "External validation of the PREDICT Prostate tool for prognostication in non-metastatic prostate cancer:
+       A study in 69,206 men from prostate cancer data base Sweden by
+       Thurtle D, Bratt O, Stattin P, Pharoah P.D, Gnanapragasam V.J. "
+            [:a {:href   "https://www.eusupplements.europeanurology.com/article/S1569-9056(19)30161-7/pdf"
+                 :rel    "noopener"
+                 :style  {:text-decoration "underline"}
+                 :target "_blank"} "Read More."]]]]
+     ]
 
     ]
 
