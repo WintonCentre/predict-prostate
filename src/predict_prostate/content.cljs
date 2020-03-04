@@ -451,6 +451,21 @@
                By reporting that biopsy data is unavailable, the average values will be used, which may make the estimates slightly less personalised. ")
 
      (hr)
+     (faq-item "FAQ - What about if my biopsies show Intraductal and/or cribriform pattern"
+               "These features are considered aggressive variants of prostate cancer and are most commonly associated with high grade group disease. The presence of these variants with lower grade disease (Grade Group1 or Grade Group 2) suggest they will behave more aggressively than expected. The presence of these variants with higher Grade disease is thought to confer a poorer outcome but as yet there is no different treatment offered in addition to standard radical therapy. Predict Prostate did not have data on these variants and hence the estimates for conservative versus radical therapy should be interpreted with extreme caution. Current opinion suggest that conservative management should not be a recommended option for men whose biopsies have these histological features."
+[:br]
+               "Please see these research articles and commentaries"
+[:br]
+               [:ol
+                [:li {:style {:font-size 16}}
+                 "Kweldam CF et al. Disease-specific survival of patients with invasive cribriform and intraductal prostate cancer at diagnostic biopsy. Mod Pathol. 2016 Jun;29(6):630-6."]
+                [:li {:style {:font-size 16}}
+                 "Samaratunga H, et al. Intraductal carcinoma of the prostate is an aggressive form of invasive carcinoma and should be graded. Pathology. 2020 Feb;52(2):192-196."]
+                [:li {:style {:font-size 16}}
+                 "Epstein JI. Is There Enough Support for a New Prostate Grading System Factoring in Intraductal Carcinoma and Cribriform Cancer? Eur Urol. 2020 Feb;77(2):199-200."]]
+               )
+
+     (hr)
      (faq-item "What if I never had any prostate biopsies and my prostate cancer was diagnosed incidentally by an operation to help me urinate (such as by 'trans-urethral resection of the prostate 'TURP' or 'HoLeP')?"
                "Predict Prostate should not be used in this situation. We suggest you speak to your health care provider. ")
      (hr)
@@ -830,7 +845,13 @@
     [:section#histological-grade-group "Histological grade group"
      [:p "The highest reported grade group from the diagnostic prostate biopsies. If this is not known, the highest
      reported Gleason score can be entered
-      and the grade group will be completed automatically. "]]
+      and the grade group will be completed automatically. "]
+     [:p [:b "Intraductal and cribriform pattern"] " – These features if present are associated with more aggressive disease
+     behaviour. However, how they affect overall survival and prognosis, independent of other clinic-pathological
+     features remains unclear (see the "(page-link [:about {:page :faqs}] "FAQ section")"). Predict Prostate estimates
+     should be used with extreme caution in this context.
+     It is suggested that Grade Group 1 or Grade Group 2 disease with either of these features should be consider a
+     higher-grade category (at least Grade Group 3). Conservative management should not be a recommended option."]]
 
     [:section#gleason-score "Gleason score"
      [:p "The highest reported Gleason grade found in any of the diagnostic prostate biopsies."]]
