@@ -9,6 +9,11 @@
             )
   )
 
+;
+; place save for ttt when we copy translated content over from Breast Cancer
+;
+(def ttt second)
+
 ;;
 ;; We'll attempt to keep text content here inside a useful structure - a sort of static database.
 ;;
@@ -552,6 +557,54 @@
     This print out shows what characteristics of the patient and cancer were entered, and how different management would be expected to affect survival
     rates up to 15 years after diagnosis. This is based on data from similar men in the past, but remains a 'best guess' or estimate. Treatments often have side effects as well as benefits, and it is important to
     consider these as well when making treatment choices. We recommend visiting the sites of charities such as Macmillan and Prostate Cancer UK for details about side effects."]]
+
+   [:section#product "Predict: Prostate Cancer"
+    [:section "Predict: Prostate Cancer"                    ;"Predict: Prostate Cancer"
+     [:.row {:style {:border     "1px solid #CCC"
+                     :margin-top 20
+                     :padding    "0px 20px 20px 20px"}}
+      [:.col-sm-12
+       [:.row {:style {:margin-bottom 10}}
+        #_[:.col-sm-12
+         [:h2 "Predict: Prostate Cancer"]
+         [:hr]]]
+       [:.row {:style {:margin-bottom 10}}
+        [:.col-sm-1 [:img {:src "/assets/ref.png" :alt "REF mark" :width 50}]]
+        [:.col-sm-11 [:p "Predict: Prostate Cancer"]]]
+       [:.row {:style {:margin-bottom 10}}
+        [:.col-sm-1 [:img {:src "/assets/lot.png" :alt "LOT mark" :width 50}]]
+        [:.col-sm-11
+         [:p (ttt [:prod-label/version "Version"]) " 2.2"
+          ", " (ttt [:prod-label/release "Release"]) " 1.03"]]]
+       [:.row {:style {:margin-bottom 10}}
+        [:.col-sm-1 [:img {:src "/assets/book.png" :alt "Instructions for Use" :width 50}]]
+        [:.col-sm-11 [:p (ttt [:legal/lot-1 "Refer to "])
+                      [:a {:on-click #(navigate-to [:about {:page :overview :section :overview}])
+                           :style    {:color           "black"
+                                      :text-decoration "underline"
+                                      :cursor          "pointer"}}
+                       (ttt [:navbar/about "About Predict"])]
+                      (ttt [:legal/lot-2 " for instructions before use"])
+                      ]]]
+       [:.row {:style {:margin-bottom 10}}
+        [:.col-sm-1 [:img {:src "/assets/factory.png" :alt "Manufacturer" :width 50}]]
+        [:.col-sm-11 [:p "The Winton Centre for Risk & Evidence Communication,. Centre for Mathematical Sciences, Wilberforce Road, Cambridge. CB3 0WA"]]]]
+      [:col-sm-12
+       [:p (ttt [:prod-label/fulfils "This device fulfils the provisions of the European Commission (EC) Directive 93/42/EEC (Medical Devices Directive)."])]
+       [:p (ttt [:prod-label/conformance "This software product has been designed according to"])]
+       [:ul
+        [:li [:p [:b "ISO 13485:2016"]]
+         [:p {:style {:margin-top -10}} (ttt [:prod-label/qms "Medical devices - Quality management systems - Requirements for regulatory purposes."])]]
+        [:li [:p [:b "ISO 14971:2012"]]
+         [:p {:style {:margin-top -10}} (ttt [:prod-label/rm "Medical Devices - Application of risk management to medical devices."])]
+         [:li [:p [:b "IEC/TR 80002-1:2009"]]
+          [:p {:style {:margin-top -10}} (ttt [:prod-label/sw "Medical device software – Part 1: Guidance on the application of ISO 14971 to medical device software."])]]]
+        [:li [:p [:b "DCB0129:2018"]]
+         [:p {:style {:margin-top -10}} (ttt [:prod-label/safety "Application of clinical safety risk management to the manufacture of health IT systems."])]]
+        [:li [:p [:b "IEC 62304:2006 Amd 1:2015"]]
+         [:p {:style {:margin-top -10}} (ttt [:prod-label/slc "Medical device software – Software lifecycle processes.\n\nBS EN 62366-1:2015\n\nApplication of usability engineering to medical devices."])]]]
+       [:p (ttt [:prod-label/strict "This device has been developed under the strict quality system of The Winton Centre for Risk & Evidence Communication, and released for publication by Public Health England."])]]
+      ]]]
 
    [:section#disclaimer "Disclaimer"
     [:section "Disclaimer"
