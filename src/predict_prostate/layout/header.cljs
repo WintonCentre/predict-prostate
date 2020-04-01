@@ -144,8 +144,15 @@
      " | "
      [:a {:on-click #(publish route-change [:legal {:page "disclaimer"} nil]) :href "javascript:void(0)"} "Disclaimer"]
      ]
-    [:.col-lg-2.col-md-3.build-version
-     "Build: v0.0-dev-#000-hash"
-     ]
+    [:.col-lg-12.build-version.pull-right
+     ;"Build: v0.0-dev-#000-hash"
+     [:img {:style {:width 40 :margin-right 5 :border "none"}
+            :alt   "LOT mark"
+            :src   "/assets/lot2.png"}]
+     "v-0.0-0.00-0-hash"
+
+     [:img {:style {:width 30 :margin-left 10 :margin-right 5 :border "none"}
+            :alt   "CE mark"
+            :src   "/assets/ce2.png"}]]
     ]
    ])

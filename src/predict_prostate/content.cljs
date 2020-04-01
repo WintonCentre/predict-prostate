@@ -560,45 +560,49 @@
 
    [:section#product "Predict: Prostate Cancer"
     [:section "Predict: Prostate Cancer"                    ;"Predict: Prostate Cancer"
+
      [:.row {:style {:border     "1px solid #CCC"
                      :margin-top 20
-                     :padding    "0px 20px 20px 20px"}}
+                     :padding    "20px 20px 20px 20px"}}
       [:.col-sm-12
        [:.row {:style {:margin-bottom 10}}
-        #_[:.col-sm-12
-         [:h2 "Predict: Prostate Cancer"]
-         [:hr]]]
+        [:.col-sm-1 [:img {:src "/assets/ce.png" :alt "CE mark" :width 50}]]
+        [:.col-sm-10.col-sm-offset-1
+         [:p "The Winton Centre for Risk and Evidence Communication"]
+         ]]
        [:.row {:style {:margin-bottom 10}}
         [:.col-sm-1 [:img {:src "/assets/ref.png" :alt "REF mark" :width 50}]]
-        [:.col-sm-11 [:p "Predict: Prostate Cancer"]]]
+        [:.col-sm-10.col-sm-offset-1 [:p "Predict: Breast Cancer"]]]
        [:.row {:style {:margin-bottom 10}}
         [:.col-sm-1 [:img {:src "/assets/lot.png" :alt "LOT mark" :width 50}]]
-        [:.col-sm-11
+        [:.col-sm-10.col-sm-offset-1
          [:p (ttt [:prod-label/version "Version"]) " 2.2"
           ", " (ttt [:prod-label/release "Release"]) " 1.03"]]]
        [:.row {:style {:margin-bottom 10}}
         [:.col-sm-1 [:img {:src "/assets/book.png" :alt "Instructions for Use" :width 50}]]
-        [:.col-sm-11 [:p (ttt [:legal/lot-1 "Refer to "])
-                      [:a {:on-click #(navigate-to [:about {:page :overview :section :overview}])
-                           :style    {:color           "black"
-                                      :text-decoration "underline"
-                                      :cursor          "pointer"}}
-                       (ttt [:navbar/about "About Predict"])]
-                      (ttt [:legal/lot-2 " for instructions before use"])
-                      ]]]
+        [:.col-sm-10.col-sm-offset-1 [:p (ttt [:legal/lot-1 "Refer to "])
+                                      [:a {:on-click #(navigate-to [:about {:page :overview :section :overview}])
+                                           :style    {:color           "black"
+                                                      :text-decoration "underline"
+                                                      :cursor          "pointer"}}
+                                       (ttt [:navbar/about "About Predict"])]
+                                      (ttt [:legal/lot-2 " for instructions before use"])
+                                      ]]]
+
        [:.row {:style {:margin-bottom 10}}
         [:.col-sm-1 [:img {:src "/assets/factory.png" :alt "Manufacturer" :width 50}]]
-        [:.col-sm-11 [:p "The Winton Centre for Risk & Evidence Communication,. Centre for Mathematical Sciences, Wilberforce Road, Cambridge. CB3 0WA"]]]]
-      [:col-sm-12
+        [:.col-sm-10.col-sm-offset-1 [:p "The Winton Centre for Risk & Evidence Communication,. Centre for Mathematical Sciences, Wilberforce Road, Cambridge. CB3 0WA"]]]]
+      [:.col-sm-12
        [:p (ttt [:prod-label/fulfils "This device fulfils the provisions of the European Commission (EC) Directive 93/42/EEC (Medical Devices Directive)."])]
        [:p (ttt [:prod-label/conformance "This software product has been designed according to"])]
        [:ul
-        [:li [:p [:b "ISO 13485:2016"]]
+        [:li
+         [:p [:b "ISO 13485:2016"]]
          [:p {:style {:margin-top -10}} (ttt [:prod-label/qms "Medical devices - Quality management systems - Requirements for regulatory purposes."])]]
         [:li [:p [:b "ISO 14971:2012"]]
-         [:p {:style {:margin-top -10}} (ttt [:prod-label/rm "Medical Devices - Application of risk management to medical devices."])]
-         [:li [:p [:b "IEC/TR 80002-1:2009"]]
-          [:p {:style {:margin-top -10}} (ttt [:prod-label/sw "Medical device software – Part 1: Guidance on the application of ISO 14971 to medical device software."])]]]
+         [:p {:style {:margin-top -10}} (ttt [:prod-label/rm "Medical Devices - Application of risk management to medical devices."])]]
+        [:li [:p [:b "IEC/TR 80002-1:2009"]]
+         [:p {:style {:margin-top -10}} (ttt [:prod-label/sw "Medical device software – Part 1: Guidance on the application of ISO 14971 to medical device software."])]]
         [:li [:p [:b "DCB0129:2018"]]
          [:p {:style {:margin-top -10}} (ttt [:prod-label/safety "Application of clinical safety risk management to the manufacture of health IT systems."])]]
         [:li [:p [:b "IEC 62304:2006 Amd 1:2015"]]
@@ -746,7 +750,9 @@
       For more details about controlling cookies visit the help pages for the browser that you are using."]]
 
     [:section "Can I disable hotjar?"
-     [:p "Yes you can. Follow this link for up to date instructions: " [:a {:href "https://www.hotjar.com/legal/compliance/opt-out" :rel "noopener" :target "_blank"} "How to disable Hotjar"]]]]
+     [:p "Yes you can. Follow this link for up to date instructions: " [:a {:href "https://www.hotjar.com/legal/compliance/opt-out" :rel "noopener" :target "_blank"} "How to disable Hotjar"]]
+     [:p (ttt [:priv/dpo "The Data Protection Officer for Predict:Prostate Cancer is "])
+      [:a {:href "mailto:dpo@admin.cam.ac.uk"} "dpo@admin.cam.ac.uk"]]]]
 
 
    ;;;
