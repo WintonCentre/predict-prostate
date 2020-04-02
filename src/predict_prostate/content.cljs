@@ -591,7 +591,7 @@
 
        [:.row {:style {:margin-bottom 10}}
         [:.col-sm-1 [:img {:src "/assets/factory.png" :alt "Manufacturer" :width 50}]]
-        [:.col-sm-10.col-sm-offset-1 [:p "The Winton Centre for Risk & Evidence Communication,. Centre for Mathematical Sciences, Wilberforce Road, Cambridge. CB3 0WA"]]]]
+        [:.col-sm-10.col-sm-offset-1 [:p "The Winton Centre for Risk & Evidence Communication, Centre for Mathematical Sciences, Wilberforce Road, Cambridge. CB3 0WA"]]]]
       [:.col-sm-12
        [:p (ttt [:prod-label/fulfils "This device fulfils the provisions of the European Commission (EC) Directive 93/42/EEC (Medical Devices Directive)."])]
        [:p (ttt [:prod-label/conformance "This software product has been designed according to"])]
@@ -617,24 +617,30 @@
       has not been identified.  Please refer to the referenced papers in the model to 
       understand the populations it was derived from and tested. The model assesses the potential benefits of immediate radical treatment 
       (either by radical prostatectomy or radical radiotherapy) versus the option of initial conservative management 
-      (including active surveillance or watchful waiting). The model does not preclude the potential need 
-      for deferred radical treatment after initial conservative management if the disease characteristics change. 
-      Predict Prostate is designed as a guide to add information 
-      to standard counselling and personal discussion with a health care professional and cannot replace it. 
-      All results must be understood in the context of each patient’s specific condition. 
-      In particular, the model does not adjust for factors such as family history (apart from BRCA status), race, tumour volume or any predisposing genetic factor. 
-      NOTE: Predict Prostate is not yet approved or recommended for use by any national or expert regulatory authority. "]
+      (including active surveillance or watchful waiting). "]
+     [:p "The model does not preclude the potential need
+     for deferred radical treatment after initial conservative management if the disease characteristics change.
+     "]
+     [:p "Predict Prostate is designed as a guide to add information
+     to standard counselling and personal discussion with a health care professional and cannot replace it.
+     All results must be understood in the context of each patient’s specific condition.
+     In particular, the model does not adjust for factors such as family history (apart from BRCA status), race, tumour volume or any predisposing genetic factor.
+     "]
      [:p "TERMS OF USE: Results provided by this tool are for informational purposes only and are not intended as a substitute for professional medical advice and counselling.
    Predict Prostate is a reference guide only and cannot replace standard clinical counselling. 
    Please read the referenced papers for the study derivation and context. 
    By accessing and using this tool, you acknowledge and agree to the following terms. 
-   Except as otherwise permitted by law, this tool may be accessed and used in line with the disclaimer above or private study or non-commercial research with this notice intact. 
-   You shall not copy, reproduce, distribute, transmit, broadcast, display, sell, rent, license, or otherwise exploit this tool or any content within in whole or in part for any other purposes 
+   "]
+     [:p "Except as otherwise permitted by law, this tool may be accessed and used in line with the disclaimer above or private study or non-commercial research with this notice intact.
+   "]
+     [:p "You shall not copy, reproduce, distribute, transmit, broadcast, display, sell, rent, license, or otherwise exploit this tool or any content within in whole or in part for any other purposes
    without the prior written consent of the University of Cambridge, Academic Urology group (contact details can be found in the reference paper). 
-   The authors and University of Cambridge do not accept any liability for any errors in the model prediction or outcomes. 
+   "]
+     [:p "The authors and University of Cambridge do not accept any liability for any errors in the model prediction or outcomes.
    See also the University’s standard terms at http://www.cam.ac.uk/about-this-site/terms-and-conditions. 
    Any links from this tool or any associated text do not imply recommendations or endorsements of products or services. 
-   The trademarks of the University of Cambridge and others that appear in this tool are the property of the University of Cambridge or their respective owners. 
+   "]
+     [:p "The trademarks of the University of Cambridge and others that appear in this tool are the property of the University of Cambridge or their respective owners.
    You may not use any trademark displayed in the tool without the written permission of the University of Cambridge or the respective owner. 
    Copyright © 2019 University of Cambridge. All rights reserved."]
      ]]
