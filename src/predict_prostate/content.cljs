@@ -572,7 +572,7 @@
          ]]
        [:.row {:style {:margin-bottom 10}}
         [:.col-sm-1 [:img {:src "/assets/ref.png" :alt "REF mark" :width 50}]]
-        [:.col-sm-10.col-sm-offset-1 [:p "Predict: Breast Cancer"]]]
+        [:.col-sm-10.col-sm-offset-1 [:p "Predict: Prostate Cancer"]]]
        [:.row {:style {:margin-bottom 10}}
         [:.col-sm-1 [:img {:src "/assets/lot.png" :alt "LOT mark" :width 50}]]
         [:.col-sm-10.col-sm-offset-1
