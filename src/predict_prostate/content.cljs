@@ -576,8 +576,8 @@
        [:.row {:style {:margin-bottom 10}}
         [:.col-sm-1 [:img {:src "/assets/lot.png" :alt "LOT mark" :width 50}]]
         [:.col-sm-10.col-sm-offset-1
-         [:p (ttt [:prod-label/version "Version"]) " 2.2"
-          ", " (ttt [:prod-label/release "Release"]) " 1.03"]]]
+         [:p (ttt [:prod-label/version "Version"]) " 1.00"
+          ", " (ttt [:prod-label/release "Release"]) " 1.04"]]]
        [:.row {:style {:margin-bottom 10}}
         [:.col-sm-1 [:img {:src "/assets/book.png" :alt "Instructions for Use" :width 50}]]
         [:.col-sm-10.col-sm-offset-1 [:p (ttt [:legal/lot-1 "Refer to "])
