@@ -60,7 +60,7 @@ re-tag #"([^\s\.#]+)(?:#([^\s\.#]+))?(?:\.([^\s#]+))?")
      xs
      #_(map-indexed #(add-hiccup-key (str "k" %1) %2) xs)))
 
-  ([id] (section content id))
+  ([id] (section (content) id))
   )
 
 (defn all-subsections
@@ -110,8 +110,8 @@ re-tag #"([^\s\.#]+)(?:#([^\s\.#]+))?(?:\.([^\s#]+))?")
 
   (match-node mock-data* "about-the-patient")
 
-  content
-  (match-node content "about-the-patient")
+  (content)
+  (match-node (content) "about-the-patient")
   (match-node content "welcome")
   (match-node content "why")
   (section "welcome")
