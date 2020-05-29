@@ -8,9 +8,9 @@
 
   :min-lein-version "2.7.1"
 
-  :dependencies [[org.clojure/clojure "1.10.0"]
-                 [org.clojure/clojurescript "1.10.516"]
-                 [org.clojure/core.async "0.4.490"]
+  :dependencies [[org.clojure/clojure "1.10.1"]
+                 [org.clojure/clojurescript "1.10.516"]     ;was 516
+                 [org.clojure/core.async "0.4.490"]         ;was 0.4.490
 
                  ;; cljs dependencies
                  [cljs-ajax "0.7.3"]
@@ -25,9 +25,9 @@
 
                  ; should we upgrade Rum and use React16 ???
                  #_[rum "0.10.8"]
-                 [rum "0.11.3"]
+                 [rum "0.11.5"]                             ; bump from 0.11.3
                  [pubsub "0.2.1"]
-                 [wc-rum-lib "0.1.16"]
+                 ;[wc-rum-lib "0.1.16"]
                  [cljs-css-modules "0.2.1"]
                  [cljsjs/jquery "1.9.1-0"]
                  [cljsjs/bootstrap "3.3.6-0"]
@@ -42,7 +42,7 @@
 
                  ]
 
-  :plugins [[lein-figwheel "0.5.18"]
+  :plugins [[lein-figwheel "0.5.20"]
             [lein-less "1.7.5"]
             [lein-ancient "0.6.15"]
             [lein-cljsbuild "1.1.7" :exclusions [[org.clojure/clojure]]]
@@ -150,7 +150,7 @@
   ;; Please see:
   ;; https://github.com/bhauman/lein-figwheel/wiki/Using-the-Figwheel-REPL-within-NRepl
   :profiles {:dev {:dependencies  [[binaryage/devtools "0.9.10"]
-                                   [figwheel-sidecar "0.5.18"]
+                                   [figwheel-sidecar "0.5.20"]
                                    [com.cemerick/piggieback "0.2.2"]]
                    ;; need to add dev source path here to get user.clj loaded
                    :source-paths  ["src" "dev"]
