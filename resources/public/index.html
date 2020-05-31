@@ -316,11 +316,11 @@
 <!-- Service Worker -->
 <script>
 
-    //if ('serviceWorker' in navigator) {
-    //    window.addEventListener('load', function() {
-    //        navigator.serviceWorker.register('/sw_cache_update.js', { scope: '/' });
-    //    });
-    //}
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('/sw_cache_update.js', { scope: '/' });
+        });
+    }
 
     // if ('serviceWorker' in navigator) {
     //     navigator.serviceWorker.register('/sw_cache_update.js', {scope: 'sw_cache_update'}).then(function(registration) {
