@@ -27,7 +27,7 @@
                  #_[rum "0.10.8"]
                  [rum "0.11.3"]
                  [pubsub "0.2.1"]
-                 [wc-rum-lib "0.1.16"]
+                 ;[wc-rum-lib "0.1.16"]
                  [cljs-css-modules "0.2.1"]
                  [cljsjs/jquery "1.9.1-0"]
                  [cljsjs/bootstrap "3.3.6-0"]
