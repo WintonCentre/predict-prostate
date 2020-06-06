@@ -108,7 +108,6 @@
   (validate-input "96" 25 95 1) "97:97"
   (validate-input "-1" 25 95 1) "0:0"
   (validate-input "-2" 25 95 1) "-1:-1"
-
   )
 
 
@@ -138,7 +137,6 @@
       " :0"                                                 ; and there is no input there.
       val-3                                                 ; Otherwise return
       )
-
     ))
 
 #_(defn validate-button [value nmin nmax step]
@@ -169,6 +167,10 @@
       )))
 
 (defn validate-input [value nmin nmax step]
+  #_(js/console.log "in value " value)
+  #_(js/console.log "nmin " nmin)
+  #_(js/console.log "nmax " nmax)
+  #_(js/console.log "step " step)
   (let [value (str-to-num value)
         nmin (if (fn? nmin) @(nmin) nmin)
         nmax (if (fn? nmax) @(nmax) nmax)                   ;(if (keyword? nmax) @(input-cursor nmax) nmax)
@@ -188,6 +190,7 @@
                   (str (num-to-str val-2) ":" val-2)        ; yes, return good and bad values, in colon separated string
                   val-2))
         ]
+    #_(js/console.log "out-value " value)
     (if (js/isNaN value)                                    ; Case when user has deleted value using backspace.
       " :0"                                                 ; and there is no input there.
       val-3                                                 ; Otherwise return
@@ -195,7 +198,7 @@
 
 (defn handle-inc [value onChange nmin nmax precision step]
   (let [v (validate-input value nmin nmax step)]
-    ;(js/console.log "onChange " v)
+    ;#_(js/console.log "onChange " v)
     (onChange (num-to-str v precision))))
 
 
@@ -213,7 +216,6 @@
   (re-matches #"\s*\d*\.?\d*\s*" ".7")                        ;".7"
   (re-matches #"\s*\d*\.?\d*\s*" "7.")                        ;"7."
   (re-matches #"\s*\d*\.?\d*\s*" "a")                       nil
-
   )
 
 (defn update-value [value nmin nmax precision step onChange]
@@ -239,22 +241,20 @@
 (rum/defc numeric-input < rum/static rum/reactive           ;echo-update
   [{:keys [key input-ref onChange min max error-color color precision] :or {error-color "red" color "black"} :as props}]
 
-  ;(.log js/console "key: " key input-ref " min str?" (string? min) (fn? min) min " precision: " precision)
-
-  ;(js/console.log "props: " props)
-  (let [[good bad] (split (rum/react input-ref) #":")
+   (let [[good bad] (split (rum/react input-ref) #":")
         value (str-to-num good)
         nmin (str-to-num (if (fn? min) (rum/react (min)) min))
         nmax (str-to-num (if (fn? max) (rum/react (max)) max))
+         ;_ (js/console.log "store " (rum/react input-ref))
 
         mutate (fn [e]
-                 ;(js/console.log "boo " (.-nativeEvent e))
-                 (when (contains? #{"insertText" "deleteContentBackward"} (.. e -nativeEvent -inputType))
-                   (handle-typed-input
-                     min
-                     max
-                     precision
-                     onChange e)))]
+                 #_(js/console.log "nativeEvent " e)
+                 #_(js/console.log "inputType " (.. e -nativeEvent -inputType))
+                 (handle-typed-input
+                   min
+                   max
+                   precision
+                   onChange e))]
 
     [:div {:class       "numeric-input"
            :style       {:min-width      "100px"
