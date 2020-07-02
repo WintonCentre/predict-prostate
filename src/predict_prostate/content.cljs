@@ -348,7 +348,8 @@
         [:li [:p "External validation of the PREDICT Prostate tool for prognostication in non-metastatic prostate cancer:
        A study in 69,206 men from prostate cancer data base Sweden by
        Thurtle D, Bratt O, Stattin P, Pharoah P.D, Gnanapragasam V.J. "
-              [:a {:href   "https://www.eusupplements.europeanurology.com/article/S1569-9056(19)30161-7/pdf"
+              [:a {:href   "https://bmcmedicine.biomedcentral.com/articles/10.1186/s12916-020-01606-w"
+                   #_"https://www.eusupplements.europeanurology.com/article/S1569-9056(19)30161-7/pdf"
                    :rel    "noopener"
                    :style  {:text-decoration "underline"}
                    :target "_blank"} "Read More."]]]]

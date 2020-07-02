@@ -192,7 +192,7 @@
         ]
     #_(js/console.log "out-value " value)
     (if (js/isNaN value)                                    ; Case when user has deleted value using backspace.
-      " :0"                                                 ; and there is no input there.
+      nmin #_" :0"                                                 ; and there is no input there.
       val-3                                                 ; Otherwise return
       )))
 
