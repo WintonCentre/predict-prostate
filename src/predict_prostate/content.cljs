@@ -352,7 +352,7 @@
                    #_"https://www.eusupplements.europeanurology.com/article/S1569-9056(19)30161-7/pdf"
                    :rel    "noopener"
                    :style  {:text-decoration "underline"}
-                   :target "_blank"} "Read More."]]]]
+                   :target "_blank"} "Full paper online."]]]]
        ]
 
       ]
