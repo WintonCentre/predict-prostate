@@ -192,14 +192,14 @@
         ]
     #_(js/console.log "out-value " value)
     (if (js/isNaN value)                                    ; Case when user has deleted value using backspace.
-      nmin #_" :0"                                                 ; and there is no input there.
+      " :0"                                                 ; and there is no input there.
       val-3                                                 ; Otherwise return
       )))
 
 (defn handle-inc [value onChange nmin nmax precision step]
   (let [v (validate-input value nmin nmax step)]
-    ;#_(js/console.log "onChange " v)
-    (onChange (num-to-str v precision))))
+    (js/console.log "onChange " v)
+    (onChange (num-to-str (if (= v " :0") nmin v) precision))))
 
 
 (defn handle-typed-input [nmin nmax precision onChange e]
