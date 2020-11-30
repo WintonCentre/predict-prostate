@@ -24,8 +24,8 @@
                  [figwheel-sidecar "0.5.18"]
 
                  ; should we upgrade Rum and use React16 ???
-                 #_[rum "0.10.8"]
-                 [rum "0.11.3"]
+                 [rum "0.10.8"]
+                 #_[rum "0.11.3"]
                  [pubsub "0.2.1"]
                  ;[wc-rum-lib "0.1.16"]
                  [cljs-css-modules "0.2.1"]

@@ -198,7 +198,7 @@
 
 (defn handle-inc [value onChange nmin nmax precision step]
   (let [v (validate-input value nmin nmax step)]
-    (js/console.log "onChange " v)
+    ;(js/console.log "onChange " v)
     (onChange (num-to-str (if (= v " :0") nmin v) precision))))
 
 
