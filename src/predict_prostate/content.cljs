@@ -131,9 +131,7 @@
      ; block 1
      [:section#home-what-is "What is Predict Prostate for?"
       [:p {:key 1} "Predict Prostate is a tool where the outcomes from conservative management (or monitoring) are
-    compared with radical treatment (surgery or radiotherapy)."]
-      [:p {:key 2} ""]
-      ]
+    compared with radical treatment (surgery or radiotherapy)."]]
 
      ; block 2
      [:section#home-how-use "How do I use Predict Prostate?"
@@ -350,6 +348,11 @@
        Thurtle D, Bratt O, Stattin P, Pharoah P.D, Gnanapragasam V.J. "
               [:a {:href   "https://bmcmedicine.biomedcentral.com/articles/10.1186/s12916-020-01606-w"
                    #_"https://www.eusupplements.europeanurology.com/article/S1569-9056(19)30161-7/pdf"
+                   :rel    "noopener"
+                   :style  {:text-decoration "underline"}
+                   :target "_blank"} "Full paper online."]]]
+        [:li [:p "Application of a novel machine learning framework for predicting non-metastatic prostate cancer-specific mortality in men using the Surveillance, Epidemiology, and End Results (SEER) database by Lee, C., Light, A., Alaa, A., Thurtle, D., van der Schaar, M., & Gnanapragasam, V. J.  The Lancet Digital Health 2021, 3(3), e158-e165. "
+              [:a {:href   "https://doi.org/10.1016/S2589-7500(20)30314-9\n\n"
                    :rel    "noopener"
                    :style  {:text-decoration "underline"}
                    :target "_blank"} "Full paper online."]]]]

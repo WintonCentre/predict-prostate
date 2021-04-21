@@ -80,7 +80,7 @@
 
 
    [:.row {:style {:margin "0px -30px 15px"}}
-    [:.col-sm-10.col-sm-offset-1
+    [:.col-sm-10.col-sm-offset-1 {:key 1}
      [:.row
 
       [:.col-md-4 {:key 1}
@@ -102,7 +102,45 @@
                                                 :style       {:margin-top 20}}]
                              :section-id "home-what-tell"}) 3)]
 
-      ]]]
+      ]]
+    [:.col-sm-10.col-sm-offset-1 {:key 2}
+     [:.row
+      [:.col-md-4 {:key 1
+                   :style {:font-size 16 #_#_:margin-left 15}} "The following introductory videos are available:"]
+      [:.col-md-8 {:key 2
+                   :style {:font-size 16 #_#_:margin-left 15}}
+       [:.row {:key 2 :style {:margin-left 0}}
+        [:.col-sm-2 {:key 1 :style {:font-size 16 :margin-left 0}} "Hindi"]
+        [:.col-sm-9 {:key 2 :style {:font-size 16 :margin-left 0}}
+         [:a {:href   "https://youtu.be/iypNI4CKzjo"
+              :target "_blank"} "प्रिडिक्ट प्रॉस्टेट वेब टूल : प्रॉस्टेट कैन्सर होने पर उसके उपचार हेतु निर्णय लेने में आपका नसहायक"]]
+        [:.col-sm-2 {:key 3 :style {:font-size 16 :margin-left 0}} "Arabic"]
+        [:.col-sm-9 {:key 4 :style {:font-size 16 :margin-left 0}}
+         [:a {:href   "https://youtu.be/g-BOx69i5mM"
+              :target "_blank"} "أداة Predict Prostate على الأنترنت: تساعدك على اتخاذ القرارات بعد التشخيص بسرطان البروستاتا"]]
+
+        [:.col-sm-2 {:key 5 :style {:font-size 16 :margin-left 0}} "German"]
+        [:.col-sm-9 {:key 6 :style {:font-size 16 :margin-left 0}}
+         [:a {:href   "https://youtu.be/vjFS8k76QHY"
+              :target "_blank"} "Das Predict Prostate tool: Hilfe bei der Entscheidungsfindung nach einer
+                        diagnose von Prostatakrebs"]]
+
+        [:.col-sm-2 {:key 7 :style {:font-size 16 :margin-left 0}} "Cantonese"]
+        [:.col-sm-9 {:key 8 :style {:font-size 16 :margin-left 0}}
+         [:a {:href   "https://youtu.be/els0ckmtJxs"
+              :target "_blank"} "PREDICT預報前列線網上工具——幫助初確診前列線癌病患作出醫療決定：https://prostate.predict.nhs.uk"]]
+
+
+        [:.col-sm-2 {:key 9 :style {:font-size 16 :margin-left 0}} "Mandarin"]
+        [:.col-sm-9 {:key 10 :style {:font-size 16 :margin-left 0}}
+         [:a {:href   "https://youtu.be/O_AlEE3-uKw"
+              :target "_blank"} "PREDICT 预报前列线网上工具--帮助初确诊前列线癌病患作出医疗决定: https://prostate.predict.nhs.uk"]]
+
+        [:.col-sm-2 {:key 11 :style {:font-size 16 :margin-left 0}} "Spanish"]
+        [:.col-sm-9 {:key 12 :style {:font-size 16 :margin-left 0}}
+         [:a {:href   "https://youtu.be/O_AlEE3-uKwY"
+              :target "_blank"} "Predict prostata- le ayuda a tomar decisiones después de un nuevo diagnóstico de cáncer de próstata."]]]]]
+     ]]
    (scrollTo 0)
    [:.row.screen-only
     (footer)
