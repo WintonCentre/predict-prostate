@@ -106,7 +106,8 @@
     [:.col-sm-10.col-sm-offset-1 {:key 2}
      [:.row
       [:.col-md-4 {:key 1
-                   :style {:font-size 16 #_#_:margin-left 15}} "The following introductory videos are available:"]
+                   :style {:font-size 16}}
+       [:p {:style {:margin-left 15}} "The following introductory videos are available:"]]
       [:.col-md-8 {:key 2
                    :style {:font-size 16 #_#_:margin-left 15}}
        [:.row {:key 2 :style {:margin-left 0}}
