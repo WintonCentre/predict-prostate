@@ -37,7 +37,7 @@
                  false false true
                  :prp
                  #{"prostate" "prostate-release"}
-                 "See FAQ"))
+                 "See FAQs"))
 
 (defmethod make-widget :information [{:keys [key label params unknowable]}]
   (information

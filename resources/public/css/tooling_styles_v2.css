@@ -504,6 +504,7 @@ ol li {
   #_hj_poll_container {
     display: none;
   }
+  ._hj-widget-container {display: none;}
 }
 
 @media screen {

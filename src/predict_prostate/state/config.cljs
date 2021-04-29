@@ -78,7 +78,7 @@
                   false false true
                   :prp
                   #{"prostate" "prostate-release"}
-                  "See FAQ")
+                  "See FAQs")
    (->Input-group :psa
                   "PSA (ng/ml)"
                   :numeric-input
@@ -137,6 +137,17 @@
 
    (->Input-group :metastasis
                   "Has the cancer spread (metastasis)?"
+                  :radio-group
+                  [[:no "No"]
+                   [:yes "Yes"]]
+                  false false true
+                  :prp
+                  #{"prostate-release"}
+                  nil)
+
+
+   (->Input-group :intra-ductal
+                  "Is there an intra-ductal carcinoma component present in the biopsies?"
                   :radio-group
                   [[:no "No"]
                    [:yes "Yes"]]

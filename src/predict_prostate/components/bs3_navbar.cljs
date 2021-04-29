@@ -67,8 +67,9 @@
 
    (Nav-item. "Predict  Prostate Tool" navigate-to [:tool])
    (Nav-item. "Contact" navigate-to [:contact])
-   (assoc (Nav-item. "Legal" navigate-to [:no-op] #_[:legal {:page :disclaimer}])
-     :submenus [(Nav-item. "Disclaimer" navigate-to [:legal {:page :disclaimer}])
+   (assoc (Nav-item. "Legal" navigate-to [:no-op])
+     :submenus [(Nav-item. "Predict: Prostate Cancer" navigate-to [:legal {:page :product}])
+                (Nav-item. "Disclaimer" navigate-to [:legal {:page :disclaimer}])
                 (Nav-item. "Algorithm" navigate-to [:legal {:page :algorithm}])
                 (Nav-item. "Privacy & Data Protection" navigate-to [:legal {:page :privacy}])])])
 

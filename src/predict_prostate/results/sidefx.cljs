@@ -88,11 +88,10 @@
      [:div {:style {:font-size 16 :margin-bottom 10}} (blob {:key "b2" :fill (:radical-harms treatment-fills) :r 7}) " Radical prostatectomy"]
      [:div {:style {:font-size 16}} (blob {:key "b3" :fill (:radiotherapy treatment-fills) :r 7}) " Radical Radiotherapy"]]
     [:.col-sm-6
-     [:p {:style {:font-size 14}} "The following estimates assume that the function is normal before treatment.
-    The estimates are not individualised to you or your local treatment centre.
+     [:p {:style {:font-size 14}} "The following estimates assume that the function is normal before treatment and have been taken from large published studies.
+    The estimates are not individualised to you or your local treatment centre or are they derived from the predict calculator.
     Your local team may have data specific to your centre which you can ask about."]
-     ]]]
-  )
+     ]]])
 
 (defn chunker
   "divide n into chunks, returning number of full tens, remaining units, and empty tens after colouring p items"

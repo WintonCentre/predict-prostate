@@ -67,7 +67,7 @@
 
 
 (defn log [topic old new]
-  (println "Mutate: " topic " " old " -> " new)
+  ;(println "Mutate: " topic " " old " -> " new)
   )
 
 (defn subscribe-to [change cursor & [silent]]
@@ -114,7 +114,7 @@
                        ;(println "t involved = " (if (string? bci) "str " "num ") bci)
                        ;(println "t bad = " bad)
                        (when-not (js/isNaN bci)
-                         (reset! (input-cursor :biopsy-cores-involved) (num-to-str (max 0 (min bci (str-to-num value))))))
+                         (reset! (input-cursor :biopsy-cores-involved) (num-to-str (max 1 (min bci (str-to-num value))))))
                        (reset! (input-cursor :biopsy-cores-taken) (str value (when bad ":") bad)))
 
                      (= :biopsy-cores-involved key)

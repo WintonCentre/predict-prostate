@@ -4,6 +4,7 @@
                                                      input-cursor
                                                      input-change
                                                      help-key-change
+                                                     route-change
                                                      ]]
             [predict-prostate.components.button :refer [settings-button]]
 
@@ -70,6 +71,14 @@
    [:i.fa.fa-exclamation-triangle {:aria-hidden "true" :style {:color "orange" :padding-right 5}}]
    text]
   )
+
+(rum/defc mets-danger [text]
+  [:div {:style {:color       "#f00"                        ;"#686868"
+                 :margin-left "145px"
+                 :margin-top  0}}
+   [:i.fa.fa-exclamation-triangle {:aria-hidden "true" :style {:color "red" :padding-right 5}}]
+    text]
+  )
 ;;;
 ;; PATIENT RELATED
 ;;;
@@ -107,7 +116,21 @@
 (rum/defc biopsy-core-examples []
   [:span  [:a {:style    {:color  "#000" :text-decoration "underline"
                                    :cursor "pointer"}
-                        :on-click #(publish help-key-change "biopsy-examples")} "See examples"]])
+                        :on-click #(publish help-key-change "biopsy-examples")} "See examples"]
+   " and "
+   " and "
+   [:a {:style    {:color  "#000" :text-decoration "underline"
+                   :cursor "pointer"}
+        :on-click #(publish route-change [:about {:page :faqs}])} "FAQs"]
+   "."])
+
+(rum/defc biopsy-small-text
+  ([top-offset]
+   [:div {:style {:color       "#686868"
+                  :margin-left "145px"
+                  :margin-top  (str top-offset "px")}}
+    "Biopsy cores taken from a target site are considered as 1 core regardless of the number of biopsy cores taken. "
+    (biopsy-core-examples)]))
 
 
 (rum/defc tumour-related-form < rum/static rum/reactive [model-keys]
@@ -119,7 +142,6 @@
       (less-well-tested "The tool is less well tested for higher scores"))]
    (form-entry {:label "Gleason score" :key :gleason})
 
-
    (when (model-keys :biopsy50)
      (form-entry {:label "Biopsy" :key :biopsy50}))
 
@@ -129,25 +151,23 @@
      [:div
       (when (model-keys :biopsy-cores-taken)
         (form-entry {:label "Number of biopsy cores taken" :key :biopsy-cores-taken}))
-      [:div {:style {:color       "#686868"
-                     :margin-left "145px"
-                     :margin-top  0}}
-       "Biopsy cores taken from a target site are considered as 1 core regardless of the number of biopsy cores taken. "
-       (biopsy-core-examples)]
+      (biopsy-small-text 0)
+
       (when (model-keys :biopsy-cores-involved)
-        [:span
-         (form-entry {:label "Number of biopsy cores with prostate cancer" :key :biopsy-cores-involved})])
-      [:div {:style {:color       "#686868"
-                     :margin-left "145px"
-                     :margin-top  0}}
-       "Biopsy cores taken from a target site are considered as 1 core regardless of the number of biopsy cores taken. "
-       (biopsy-core-examples)]
+        (form-entry {:label "Number of biopsy cores with prostate cancer" :key :biopsy-cores-involved}))
+      (biopsy-small-text -12)
       ])
+
+   (when (model-keys :intra-ductal) (form-entry {:label "intraductal" :key :intra-ductal}))
+   (when (#{:yes} (rum/react (input-cursor :intra-ductal)))
+     (mets-danger "This tool is not suitable for men where the biopsies show intra-ductal features"))
+   (when (#{:unknown} (rum/react (input-cursor :intra-ductal)))
+     (mets-warning "This tool is only for use in men where the biopsies have no intra-ductal features. If you're unsure use the data with caution and please consult your medical professional"))
 
 
    (when (model-keys :metastasis) (form-entry {:label "metastasis" :key :metastasis}))
    (when (#{:yes} (rum/react (input-cursor :metastasis)))
-     (mets-warning "This tool is only for use in men without metastatic disease."))
+     (mets-danger "Results will not be displayed as this tool is only for use in men without metastatic disease."))
    (when (#{:unknown} (rum/react (input-cursor :metastasis)))
      (mets-warning "This tool is only for use in men without metastatic disease. If you're unsure use the data with caution and please consult your medical professional"))
    ])
