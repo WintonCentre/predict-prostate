@@ -468,7 +468,7 @@ Grade Group 2 or from Stage T2 to stage T3). If MRI data and imaging scores are 
          By reporting that biopsy data is unavailable, the average values will be used, which may make the estimates slightly less personalised. ")
 
        (hr)
-       (faq-item "FAQ - What about if my biopsies show Intraductal and/or cribriform pattern"
+       (faq-item "What about if my biopsies show Intraductal and/or cribriform pattern"
          "These features are considered aggressive variants of prostate cancer and are most commonly associated with high grade group disease. The presence of these variants with lower grade disease (Grade Group1 or Grade Group 2) suggest they will behave more aggressively than expected. The presence of these variants with higher Grade disease is thought to confer a poorer outcome but as yet there is no different treatment offered in addition to standard radical therapy. Predict Prostate did not have data on these variants and hence the estimates for conservative versus radical therapy should be interpreted with extreme caution. Current opinion suggest that conservative management should not be a recommended option for men whose biopsies have these histological features."
          [:br]
          "Please see these research articles and commentaries"
@@ -956,6 +956,11 @@ Grade Group 2 or from Stage T2 to stage T3). If MRI data and imaging scores are 
       [:section#brca "BRCA gene variant"
        [:p "Enter 'positive' if you have been tested positive for the BRCA gene variant. If unknown, select 'Negative or
      Untested.'"]]
+
+
+      [:section#intraductal "Intraductal and cribriform pattern"
+       [:p "These features if present are associated with more aggressive disease behaviour. Conservative management
+       should not be a recommended option. see the " (page-link [:about {:page :faqs}] "FAQ section")]]
 
       [:section#metastasis "Metastases"
        [:p "This tool is only for use in men without metastatic disease. Metastasis is when the cancer is known to have

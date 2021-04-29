@@ -145,6 +145,17 @@
                   #{"prostate-release"}
                   nil)
 
+
+   (->Input-group :intra-ductal
+                  "Is there an intra-ductal carcinoma component present in the biopsies?"
+                  :radio-group
+                  [[:no "No"]
+                   [:yes "Yes"]]
+                  false false true
+                  :prp
+                  #{"prostate-release"}
+                  nil)
+
    (->Input-group :biopsy50
                   "Number of biopsy cores with prostate cancer"
                   :radio-group
