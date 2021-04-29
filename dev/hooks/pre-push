@@ -31,17 +31,11 @@ do
 		echo "Develop. Jenkins build to jenkins."
 		curl -u jin:11da9bd347a5cd21b349ecab65fac5e31a https://jenkins.wintoncentre.uk/job/predict-prostate-develop/build?token=wfea4398ienvjfdev
 	elif [ "staging" == "$branch" ]; then
-#        ./build.sh
-#        git add ${BUILD_OUTPUT}
-#        git commit -m "Auto commit build output"
 		echo "Staging. Sending build to jenkins."
 		curl -u jin:11da9bd347a5cd21b349ecab65fac5e31a https://jenkins.wintoncentre.uk/job/predict-prostate-staging/build?token=wfea4398ienvjf
 	elif [ "master" == "$branch" ]; then
-#        ./build.sh
-#        git add ${BUILD_OUTPUT}
-#        git commit -m "Auto commit build output"
-		echo "Master. Sending build to jenkins."
-        curl -u jin:11da9bd347a5cd21b349ecab65fac5e31a https://jenkins.wintoncentre.uk/job/predict-prostate-master/build?token=wfea4398ienvjfmaster
+		echo "Master. Please go to Jenkins Web UI to manually trigger build / Publish."
+#        curl -u jin:11da9bd347a5cd21b349ecab65fac5e31a https://jenkins.wintoncentre.uk/job/predict-prostate-master/build?token=wfea4398ienvjfmaster
 	fi
 
 done

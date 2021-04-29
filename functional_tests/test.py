@@ -7,7 +7,10 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-import time
+from selenium.common.exceptions import TimeoutException
+import time, os, random
+
+from utils import standardize_colour
 
 
 class NewVisitorTest(FunctionalTest, unittest.TestCase):
@@ -17,6 +20,10 @@ class NewVisitorTest(FunctionalTest, unittest.TestCase):
 
     def tearDown(self):
         super().tearDown()
+
+    @classmethod
+    def tearDownClass(cls) -> None:
+        super().tearDownClass()
 
     def test_user_can_see_correct_homepage(self):
         # New user John goes to predict website.
@@ -31,16 +38,20 @@ class NewVisitorTest(FunctionalTest, unittest.TestCase):
         # John sees Dark grayish blue H1 title
         intro_title = self.browser.find_element_by_tag_name('h1')
         self.assertIn('Predict Prostate', intro_title.text)
-        self.assertEqual('rgb(119, 119, 153)', intro_title.value_of_css_property('color'))
+        self.assertEqual('rgba(119, 119, 153, 1)', standardize_colour(intro_title.value_of_css_property('color')))
 
         # John sees Start Predict button
         start_predict_button = self.browser.find_element_by_css_selector('button.btn-lg')
         self.assertIn('Start Predict', start_predict_button.text)
 
         # John sees version number on bottom right of the screen
-        # (For dev only currently)
         build_number = self.browser.find_element_by_class_name('build-version')
-        self.assertEqual('Build: v0.0-dev-#000-hash', build_number.text)
+        # self.assertEqual('Build: v0.0-dev-#000-hash', build_number.text)
+        # self.assertEqual('v1.03-44-ge736fbe failed test ', build_number.text)
+        self.assertNotEqual('v0.0-dev-#000-hash', build_number.text)
+
+        # if random.randint(0, 10) < 4:
+        #     self.fail('Force fail to test')
 
 
 class NewVisitorGDPRTest(FunctionalTest, unittest.TestCase):
@@ -50,6 +61,10 @@ class NewVisitorGDPRTest(FunctionalTest, unittest.TestCase):
 
     def tearDown(self):
         super().tearDown()
+
+    @classmethod
+    def tearDownClass(cls) -> None:
+        super().tearDownClass()
 
     def test_user_can_see_gdpr_sticky_div(self):
         # New user John goes to predict website.
@@ -61,7 +76,7 @@ class NewVisitorGDPRTest(FunctionalTest, unittest.TestCase):
         # John sees sticky GDPR bar on bottom of the page. See it's dark colour.
         gdpr_bar = self.browser.find_element_by_class_name('gdpr-container')
         self.assertEqual('block', gdpr_bar.value_of_css_property('display'))
-        self.assertEqual('rgb(255, 165, 0)', gdpr_bar.value_of_css_property('background-color'))
+        self.assertEqual('rgba(255, 165, 0, 1)', standardize_colour(gdpr_bar.value_of_css_property('background-color')))
 
         # John sees sticky GDPR bar has ok button
         gdpr_ok_input = self.browser.find_element_by_css_selector('input.btn-sm')
@@ -155,12 +170,20 @@ class NewVisitorGDPRTest(FunctionalTest, unittest.TestCase):
         gdpr_analytics_checkbox.click()
         gdpr_ok_input.click()
 
-        # John can see hotjar popping up. (If this doesn't exist, it means hotjar hasn't come through and there is error)
-        print("hotjar_injected_div waiting for ... ")
-        hotjar_injected_div = WebDriverWait(self.browser, 20).until(
-            EC.presence_of_element_located((By.ID, "_hj_poll_container"))
-        )
-        print("found hotjar_injected_div")
+        # internet explorer Hotjar disabled for now.
+        if os.getenv('BROWSER') == 'internet explorer':
+            print('Ignoring test for hotjar it appears support for IE9 is dropped')
+        if not os.getenv('BROWSER') == 'internet explorer':
+            try:
+                # John can see hotjar popping up. (If this doesn't exist, it means hotjar hasn't come through and there is error)
+                print("hotjar_injected_div waiting for ... ")
+                hotjar_injected_div = WebDriverWait(self.browser, 20).until(
+                    EC.presence_of_element_located((By.ID, "_hj_poll_container"))
+                )
+                print("found hotjar_injected_div")
+            except TimeoutException as e:
+                print(f"Waited 20 second but can not find hotjar_injected_div - {e} - {os.getenv('BROWSER')}")
+                raise TimeoutException
 
         time.sleep(5)
 
@@ -186,6 +209,10 @@ class NewVisitorCanUseTools(FunctionalTest, unittest.TestCase):
     def tearDown(self):
         super().tearDown()
 
+    @classmethod
+    def tearDownClass(cls) -> None:
+        super().tearDownClass()
+
     def test_user_does_not_see_results_initially(self):
         #results
         info_disabled_text_icon = self.browser.find_element_by_class_name('fa-info-circle')
@@ -196,8 +223,11 @@ class NewVisitorCanUseTools(FunctionalTest, unittest.TestCase):
     def test_user_add_sensible_input_and_see_results(self):
         # John add details into the page
         input_age = self.browser.find_element_by_id('age')
+        input_age.click()
         input_age.clear()
-        input_age.send_keys("45")
+        # Work around for chrome
+        input_age.send_keys("6")
+        input_age.send_keys("6")
 
         input_psa = self.browser.find_element_by_id('psa')
         input_psa.clear()
@@ -240,9 +270,9 @@ class NewVisitorCanUseTools(FunctionalTest, unittest.TestCase):
         self.assertIn('Results', h3_tag_result.text)
         # self.assertIn('Treatment Options', h3_tag_options.text)
 
-        time.sleep(3)
         # # How to distinguish between results show or not showing?
+        time.sleep(3)
 
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(warnings='ignore')

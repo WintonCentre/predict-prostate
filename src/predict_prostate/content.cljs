@@ -58,17 +58,11 @@
 
 
 (def ethnicity-text [:div
-                     [:p "If you have no family history or known genetic risk factors (see other sections) then how or if ethnicity
-     affect prognosis is largely unclear. Predict Prostate was built mainly in large cohorts of Caucasian men and for
-     this group the model is well-validated. We have also retested the model in a mixed cohort of men of Chinese,
-     Indian and Malay descent and shown it works equally well. We have not retested this in men of Afro-Carribbean
-     descent.  What is known is that these men have a higher incidence of cancer and of higher grade cancers. However
-     recent research has shown that when matched for grade and stage of disease ( in other words like for like cancers),
-     men of Afro-Caribbean descent have the same outcomes and prognosis as men of caucasian origin. Please see these
+                     [:p "If there is no family history or known genetic risk factors (see other sections) then how or if ethnicity affects prognosis is largely unclear. Predict Prostate was built from cohorts of mainly Caucasian men and for this group the model is well-validated. The model has also been tested in a mixed cohort of men of Chinese, Indian and Malay descent and achieves equivalent performance. It has not been tested in men of Afro-Caribbean descent. However recent research has shown that when matched for grade and stage of disease (like for like cancers), men of Afro-Caribbean descent have the same outcomes and prognosis as men of Caucasian origin. Please see these
      research articles: "]
-                     [:p [:cite "Dess RT, Hartman HE, Mahal BA, Soni PD, Jackson WC, Cooperberg MR, Amling CL, Aronson WJ, Kane CJ, Terris MK, Zumsteg ZS, Butler S, Osborne JR, Morgan TM, Mehra R, Salami SS, Kishan AU, Wang C, Schaeffer EM, Roach M 3rd, Pisansky TM, Shipley WU, Freedland SJ, Sandler HM, Halabi S, Feng FY, Dignam JJ, Nguyen PL, Schipper MJ, Spratt DE. Association of Black Race With Prostate Cancer-Specific and Other-Cause Mortality. JAMA Oncol. 2019 May 23. doi: 10.1001/jamaoncol.2019.0826."]]
-                     [:p [:cite "Sridhar G, Masho SW, Adera T, Ramakrishnan V, Roberts JD. Do African American men have lower survival from prostate cancer compared with White men? A meta-analysis. Am J Mens Health. 2010 Sep;4(3):189-206. doi:10.1177/1557988309353934. "]]
-                     [:p "The key need is to be sure that the disease type (how aggressive it is) is well known before using the Predict Prostate tool"]])
+                     [:p [:cite "Dess RT et al. Association of Black Race With Prostate Cancer-Specific and Other-Cause Mortality. JAMA Oncol. 2019 May 23. doi: 10.1001/jamaoncol.2019.0826."]]
+                     [:p [:cite "Sridhar G et al. Do African American men have lower survival from prostate cancer compared with White men? A meta-analysis. Am J Mens Health. 2010 Sep;4(3):189-206. doi:10.1177/1557988309353934."]]
+                     ])
 
 (rum/defc progress [percent]
   [:.progress {:style {:background-color "#94d3f0"}}
@@ -110,8 +104,9 @@
 
    ; block 1
    [:section#home-strap-line "What is Predict Prostate for?"
+
     [:p {:key 1} "An individualised prognostic model for men newly diagnosed with non-metastatic prostate cancer"]
-    [:p {:key 2} ""]
+    [:p {:key 3} ""]
     ]
 
    ; block 1
@@ -130,6 +125,18 @@
    #_[:div {:key 2 :style {:border-left  "3px solid #005FB1"
                            :padding-left "10px"}}
       [:p "We recommend that patients use this tool with their doctor."]]
+
+   [:section#endorsement "NICE Endorsement statement"
+    [:div {:style {:font-size 16 :margin-left 15}}
+     [:p {:key 1} "This "
+      [:a {:href "#" :on-click #(publish route-change [:tool])} "decision aid"] " supports recommendations in the "
+      [:a {:href "https://www.nice.org.uk/guidance/ng131" :target "_blank"} "NICE guidance on prostate cancer"]
+      ". It also supports statements 1 and 2 in the "
+      [:a {:href "https://www.nice.org.uk/guidance/qs91/chapter/List-of-quality-statements" :target "_blank"} "NICE quality standard for prostate cancer. "]]
+     [:p {:key 2} "This tool is for comparing the outcomes of conservative management and radical treatment, in men with non-metastatic prostate cancer. "]]
+    ]
+
+
 
    ; block 3
    [:section#home-what-tell "What will Predict Prostate tell me?"
@@ -361,7 +368,7 @@
                In order to carry out long term predictions older data have to be used.  It is possible that outcomes of cancers diagnosed today, and treatments used today
                will be different, but it is impossible to test this.")
      (hr)
-     (faq-item "How does my ethnicity affects the predictions from this model"
+     (faq-item "How does my ethnicity affect the predictions from this model"
                ethnicity-text)
      (hr)
      (faq-item "What use are these estimates when as a patient I will either be cured or not?"

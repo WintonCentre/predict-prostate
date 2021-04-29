@@ -84,7 +84,7 @@
                                             :margin-left "145px"
                                             :margin-top  -5}}
                               "Age must be between 35 and 95"]])
-    (form-entry {:label "Ethnicity" :key :ethnicity})
+
     (when (model-keys :psa) (form-entry {:label "PSA" :key :psa}))
     (when (model-keys :t-stage) (form-entry {:label "T stage" :key :t-stage}))
     (when (= 4 (rum/react (input-cursor :t-stage))) (less-well-tested "The tool is less well tested in higher stages"))
@@ -92,11 +92,8 @@
     (when (= (rum/react (input-cursor :h-admissions)) 1)
       (when (model-keys :charlson-comorbidity) (form-entry {:label "comorb" :key :charlson-comorbidity})))
     (when (model-keys :brca) (form-entry {:label "BRCA" :key :brca}))
-    (when (model-keys :metastasis) (form-entry {:label "metastasis" :key :metastasis}))
-    (when (#{:yes} (rum/react (input-cursor :metastasis)))
-      (mets-warning "This tool is only for use in men without metastatic disease."))
-    (when (#{:unknown} (rum/react (input-cursor :metastasis)))
-      (mets-warning "This tool is only for use in men without metastatic disease. If you're unsure use the data with caution and please consult your medical professional"))
+    (form-entry {:label "Ethnicity" :key :ethnicity})
+
     ]])
 
 
@@ -145,8 +142,15 @@
                      :margin-top  0}}
        "Biopsy cores taken from a target site are considered as 1 core regardless of the number of biopsy cores taken. "
        (biopsy-core-examples)]
+      ])
 
-      ])])
+
+   (when (model-keys :metastasis) (form-entry {:label "metastasis" :key :metastasis}))
+   (when (#{:yes} (rum/react (input-cursor :metastasis)))
+     (mets-warning "This tool is only for use in men without metastatic disease."))
+   (when (#{:unknown} (rum/react (input-cursor :metastasis)))
+     (mets-warning "This tool is only for use in men without metastatic disease. If you're unsure use the data with caution and please consult your medical professional"))
+   ])
 
 (rum/defc tumour-related-panel < rum/static [model-keys]
   [:div
