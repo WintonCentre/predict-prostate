@@ -160,9 +160,9 @@
 
    (when (model-keys :intra-ductal) (form-entry {:label "intraductal" :key :intra-ductal}))
    (when (#{:yes} (rum/react (input-cursor :intra-ductal)))
-     (mets-danger "This tool is not suitable for men where the biopsies show intra-ductal features"))
+     (mets-danger "This tool is not suitable for men where these features are present."))
    (when (#{:unknown} (rum/react (input-cursor :intra-ductal)))
-     (mets-warning "This tool is only for use in men where the biopsies have no intra-ductal features. If you're unsure use the data with caution and please consult your medical professional"))
+     (mets-warning "This tool does not account for intra-ductal carcinoma or invasive cribriform component. If you're unsure use the data with caution and please consult your medical professional."))
 
 
    (when (model-keys :metastasis) (form-entry {:label "metastasis" :key :metastasis}))

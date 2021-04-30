@@ -120,6 +120,11 @@
          [:a {:href   "https://youtu.be/g-BOx69i5mM"
               :target "_blank"} "أداة Predict Prostate على الأنترنت: تساعدك على اتخاذ القرارات بعد التشخيص بسرطان البروستاتا"]]
 
+        [:.col-sm-2 {:key 5 :style {:font-size 16 :margin-left 0}} "English"]
+        [:.col-sm-9 {:key 6 :style {:font-size 16 :margin-left 0}}
+         [:a {:href   "https://www.youtube.com/watch?v=-6UR6gAeYxI&t=10s"
+              :target "_blank"} "The Predict Prostate web tool: helping you make decisions after a new diagnosis of prostate cancer"]]
+
         [:.col-sm-2 {:key 5 :style {:font-size 16 :margin-left 0}} "German"]
         [:.col-sm-9 {:key 6 :style {:font-size 16 :margin-left 0}}
          [:a {:href   "https://youtu.be/vjFS8k76QHY"
@@ -139,7 +144,7 @@
 
         [:.col-sm-2 {:key 11 :style {:font-size 16 :margin-left 0}} "Spanish"]
         [:.col-sm-9 {:key 12 :style {:font-size 16 :margin-left 0}}
-         [:a {:href   "https://youtu.be/O_AlEE3-uKwY"
+         [:a {:href   "https://youtu.be/9WOzfFAPKyc"
               :target "_blank"} "Predict prostata- le ayuda a tomar decisiones después de un nuevo diagnóstico de cáncer de próstata."]]]]]
      ]]
    (scrollTo 0)

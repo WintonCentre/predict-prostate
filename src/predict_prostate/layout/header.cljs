@@ -120,7 +120,7 @@
                                        :margin-right "auto"
                                        :max-width   "120px" #_"70%"}}]]
         [:.col-sm-4
-         [:img.img-responsive {:src   "/assets/urology.png"
+         [:img.img-responsive {:src   "/assets/urology-white-text.png"
                                :alt   "University of Cam Urology Group Logo"
                                :style {:margin-top 10
                                        ;:margin-bottom "3ex"

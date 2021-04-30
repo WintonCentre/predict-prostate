@@ -147,7 +147,7 @@
 
 
    (->Input-group :intra-ductal
-                  "Is there an intra-ductal carcinoma component present in the biopsies?"
+                  "Is there an intra-ductal carcinoma or invasive cribriform component reported  in the biopsies?"
                   :radio-group
                   [[:no "No"]
                    [:yes "Yes"]]
