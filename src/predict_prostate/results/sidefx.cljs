@@ -91,6 +91,9 @@
      [:p {:style {:font-size 14}} "The following estimates assume that the function is normal before treatment and have been taken from large published studies.
     The estimates are not individualised to you or your local treatment centre or are they derived from the predict calculator.
     Your local team may have data specific to your centre which you can ask about."]
+     [:p {:style {:font-size 14 :color "#f00"}} "If you are in the UK, centre by centre provider outcomes are provided by
+     the National Prostate Cancer Audit which you may find useful : "
+      [:a {:href "https://www.npca.org.uk/provider-results/" :target "_blank"} "https://www.npca.org.uk/provider-results/"] "."]
      ]]])
 
 (defn chunker
