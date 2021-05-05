@@ -131,9 +131,7 @@
      ; block 1
      [:section#home-what-is "What is Predict Prostate for?"
       [:p {:key 1} "Predict Prostate is a tool where the outcomes from conservative management (or monitoring) are
-    compared with radical treatment (surgery or radiotherapy)."]
-      [:p {:key 2} ""]
-      ]
+    compared with radical treatment (surgery or radiotherapy)."]]
 
      ; block 2
      [:section#home-how-use "How do I use Predict Prostate?"
@@ -352,6 +350,11 @@
                    #_"https://www.eusupplements.europeanurology.com/article/S1569-9056(19)30161-7/pdf"
                    :rel    "noopener"
                    :style  {:text-decoration "underline"}
+                   :target "_blank"} "Full paper online."]]]
+        [:li [:p "Application of a novel machine learning framework for predicting non-metastatic prostate cancer-specific mortality in men using the Surveillance, Epidemiology, and End Results (SEER) database by Lee, C., Light, A., Alaa, A., Thurtle, D., van der Schaar, M., & Gnanapragasam, V. J.  The Lancet Digital Health 2021, 3(3), e158-e165. "
+              [:a {:href   "https://doi.org/10.1016/S2589-7500(20)30314-9\n\n"
+                   :rel    "noopener"
+                   :style  {:text-decoration "underline"}
                    :target "_blank"} "Full paper online."]]]]
        ]
 
@@ -465,7 +468,7 @@ Grade Group 2 or from Stage T2 to stage T3). If MRI data and imaging scores are 
          By reporting that biopsy data is unavailable, the average values will be used, which may make the estimates slightly less personalised. ")
 
        (hr)
-       (faq-item "FAQ - What about if my biopsies show Intraductal and/or cribriform pattern"
+       (faq-item "What about if my biopsies show Intraductal and/or cribriform pattern"
          "These features are considered aggressive variants of prostate cancer and are most commonly associated with high grade group disease. The presence of these variants with lower grade disease (Grade Group1 or Grade Group 2) suggest they will behave more aggressively than expected. The presence of these variants with higher Grade disease is thought to confer a poorer outcome but as yet there is no different treatment offered in addition to standard radical therapy. Predict Prostate did not have data on these variants and hence the estimates for conservative versus radical therapy should be interpreted with extreme caution. Current opinion suggest that conservative management should not be a recommended option for men whose biopsies have these histological features."
          [:br]
          "Please see these research articles and commentaries"
@@ -953,6 +956,11 @@ Grade Group 2 or from Stage T2 to stage T3). If MRI data and imaging scores are 
       [:section#brca "BRCA gene variant"
        [:p "Enter 'positive' if you have been tested positive for the BRCA gene variant. If unknown, select 'Negative or
      Untested.'"]]
+
+
+      [:section#intraductal "Intraductal and cribriform pattern"
+       [:p "These features if present are associated with more aggressive disease behaviour. Conservative management
+       should not be a recommended option. see the " (page-link [:about {:page :faqs}] "FAQ section")]]
 
       [:section#metastasis "Metastases"
        [:p "This tool is only for use in men without metastatic disease. Metastasis is when the cancer is known to have
