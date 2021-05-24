@@ -1003,6 +1003,7 @@ Grade Group 2 or from Stage T2 to stage T3). If MRI data and imaging scores are 
       [:section#regime "Treatment Regime"
        [:p "Conservative management refers to monitoring or observing the disease, without any upfront active treatment.
       In modern practice this is often referred to as 'active surveillance' which may involve more intensive monitoring. 
+      Treatment may be required later if the disease characteristics change during monitoring.
       Radical treatment here refers to radical prostatectomy (surgery) or radical radiotherapy"]]
 
       ;; Treatment potential harms
