@@ -111,7 +111,7 @@
                           [:p {:style {:font-size "14px"}} (open-icon br-deaths-fill) " " pc-deaths " prostate cancer related death" (add-s pc-deaths)])
                         (when (pos? benefit)
                           [:p {:style {:font-size "14px"}} (dead-icon (fill 1)) " " benefit " extra survivor" (add-s benefit) " due to radical treatment"])
-                        [:p {:style {:font-size "14px"}} (dead-icon (fill 2)) " " cs " survivors with conservative treatment"]
+                        [:p {:style {:font-size "14px"}} (dead-icon (fill 2)) " " cs " survivors with initial conservative management"]
                         [:div {:style {:clear "both"}}]]
 
 
@@ -124,7 +124,7 @@
                           [:p  (open-icon br-deaths-fill) " " pc-deaths " prostate cancer related death" (add-s pc-deaths)])
                         (when (pos? benefit)
                           [:p  (dead-icon (fill 1)) " " benefit " extra survivor" (add-s benefit) " due to radical treatment"])
-                        [:p  (dead-icon (fill 2)) " " cs " survivors with conservative treatment"]
+                        [:p  (dead-icon (fill 2)) " " cs " survivors with initial conservative management"]
                         [:div {:style {:clear "both"}}]]])]
 
     [:div

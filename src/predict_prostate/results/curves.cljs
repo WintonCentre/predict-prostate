@@ -296,7 +296,7 @@
                       :extra-style nil
                       :icon        (dead-icon (:radical (plot-style fills-by-style*)))})]))
 
-   (legend-item {:label "Conservative management"
+   (legend-item {:label "Initial conservative management"
                  :icon  (dead-icon (treatment-fills 0))})
 
    ])

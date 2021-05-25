@@ -56,7 +56,7 @@
         ]]
       [:tbody
        [:tr
-        [:td "Conservative treatment "]
+        [:td "Initial conservative management "]
         [:td "-"]
         [:td (get-in data [:conservative :overall])]]
        (when radical?                                       ;(pos? (:horm data))

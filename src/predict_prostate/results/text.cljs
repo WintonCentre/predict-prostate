@@ -31,7 +31,7 @@
      [:.print-only
       [:.col-sm-12.print-only {:style {:margin-top 0 :margin-bottom "0px" :display "inline-block" :font-size 12}}
        "Based on the information you have entered, "
-       [:p (emph cs) " out of " (emph 100) " men are alive at years with " (emph "conservative treatment") "."]
+       [:p (emph cs) " out of " (emph 100) " men are alive at years with " (emph "initial conservative manage,ent") "."]
 
        (when radical?
          [:p (emph rs) " out of " (emph 100) " men treated (an extra " (emph benefit) ") are alive because of " (emph "radical treatment") "."])]]
@@ -40,7 +40,7 @@
       [:.col-sm-12 {:style {:margin-top 15 :margin-bottom "0px" :display "inline-block" :font-size 16}}
        [:span "Based on the information you have entered, " (year-picker) " years after diagnosis:"]
 
-       [:p (emph cs) " out of " (emph 100) " men are alive at " years " years with " (emph "conservative treatment") "."]
+       [:p (emph cs) " out of " (emph 100) " men are alive at " years " years with " (emph "initial conservative treatment") "."]
 
        (when radical?
          [:p (emph rs) " out of " (emph 100) " men treated (an extra " (emph benefit) ") are alive because of " (emph "radical treatment") "."])]]]))
