@@ -67,3 +67,7 @@ __pycache__/
 .venv
 *.pyc
 /defunct/
+.calva
+.clj-kondo/.cache
+.lsp
+.rebel_readline_history

@@ -1,0 +1,2 @@
+{:lint-as {ajax.macros/easy-api clojure.core/def}}
+        
