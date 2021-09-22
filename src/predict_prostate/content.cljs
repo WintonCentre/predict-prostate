@@ -316,12 +316,9 @@
 
 
       [:section "Future versions"
-       [:p "Predict Prostate will be updated over time as new information and evidence becomes available. The model has
-     completed clinician impact studies and is currently undergoing testing in other international cohorts. A "
-        [:a {:href   "http://www.isrctn.com/ISRCTN28468474"
-             :rel    "noopener"
-             :style  {:text-decoration "underline"}
-             :target "blank"} "patient study"] " is also underway to assess its potential impact on clinical practice."]
+       [:p "Predict Prostate will be updated over time as new information and evidence becomes available. The model has 
+            completed clinician and patient impact studies and been validated in other international cohorts - the 
+            publications from these can be found here below"]
        ]]
 
      [:section#publications "Publications"
