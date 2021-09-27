@@ -316,12 +316,9 @@
 
 
       [:section "Future versions"
-       [:p "Predict Prostate will be updated over time as new information and evidence becomes available. The model has
-     completed clinician impact studies and is currently undergoing testing in other international cohorts. A "
-        [:a {:href   "http://www.isrctn.com/ISRCTN28468474"
-             :rel    "noopener"
-             :style  {:text-decoration "underline"}
-             :target "blank"} "patient study"] " is also underway to assess its potential impact on clinical practice."]
+       [:p "Predict Prostate will be updated over time as new information and evidence becomes available. The model has 
+            completed clinician and patient impact studies and been validated in other international cohorts - the 
+            publications from these can be found here below"]
        ]]
 
      [:section#publications "Publications"
@@ -352,7 +349,15 @@
                    :style  {:text-decoration "underline"}
                    :target "_blank"} "Full paper online."]]]
         [:li [:p "Application of a novel machine learning framework for predicting non-metastatic prostate cancer-specific mortality in men using the Surveillance, Epidemiology, and End Results (SEER) database by Lee, C., Light, A., Alaa, A., Thurtle, D., van der Schaar, M., & Gnanapragasam, V. J.  The Lancet Digital Health 2021, 3(3), e158-e165. "
-              [:a {:href   "https://doi.org/10.1016/S2589-7500(20)30314-9\n\n"
+              [:a {:href   "https://doi.org/10.1016/S2589-7500(20)30314-9"
+                   :rel    "noopener"
+                   :style  {:text-decoration "underline"}
+                   :target "_blank"} "Full paper online."]]]
+        [:li [:p "Clinical Impact of the Predict Prostate Risk Communication Tool in Men Newly Diagnosed with Nonmetastatic Prostate Cancer: A Multicentre Randomised Controlled Trial  
+                  by David Thurtle, Val Jenkins, Alex Freeman, Mike Pearson, Gabriel Recchia, Priya Tamer, Kelly Leonard, Paul Pharoah, Jonathan Aning, Sanjeev Madaan, Chee Goh, Serena Hilman, Stuart McCracken, Petre Cristian Ilie,
+                  Henry Lazarowicz, Vincent Gnanapragasam. 
+                  European Urology 2021 "
+              [:a {:href   "https://www.sciencedirect.com/science/article/pii/S0302283821019333?via%3Dihub"
                    :rel    "noopener"
                    :style  {:text-decoration "underline"}
                    :target "_blank"} "Full paper online."]]]]
