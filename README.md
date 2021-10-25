@@ -142,6 +142,12 @@ The `script/repl.clj` file is already in the distribution, so you don't need
 to make it. If you name this configuration 'figwheel' it will appear next
 to the green 'run' arrow in the intellij menu bar.
 
+## Using VsCode/Calva
+
+Click on the REPL button and choose to `Jack-in`.
+Then select `Leiningen + Legacy Figwheel` and the :dev profile.
+Evaluate/Load any file/ns in the REPL and you can start using it.
+
 ## Starting the REPL
 
 Click the 'run' arrow.
