@@ -1,1 +1,0 @@
-{"version":3,"sources":["interop/utils.cljs"],"mappings":";AAEA,AAAA,AAAMA,AAAUC;AAAhB,AACM,AAAA,AAACC,AACD,AAAA,AAAA,AAA0BD;;AAFhC","names":["interop.utils/scrollTo","offset","js/$"],"sourcesContent":["(ns interop.utils)\n\n(defn scrollTo [offset]\n  (-> (js/$ \"html, body\")\n      (.animate #js {:scrollTop offset} 250))\n  nil)\n\n"]}

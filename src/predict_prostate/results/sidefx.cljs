@@ -143,7 +143,7 @@
 
 (rum/defc sidefx-linear
   [{:keys [treatment prefix n fewer tallies?]}]
-  (let [quantity [:span (Math.round n) " in 100 "]]
+  (let [quantity [:span (Math/round n) " in 100 "]]
     [:div
      [:span prefix (if fewer [:b quantity] quantity)]
      [:span "men have this issue after 3 years."]

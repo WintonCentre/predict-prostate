@@ -9,7 +9,7 @@
             [pubsub.feeds :refer [publish]]
             ))
 
-(def round js/Math.round)
+(def round Math/round)
 
 (def br-deaths-fill "#fcc")
 (def oth-deaths-fill "#888")

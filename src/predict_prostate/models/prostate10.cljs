@@ -3,10 +3,10 @@
             [common.utils :refer [deltas]]
             ))
 
-(def exp js/Math.exp)
-(def ln js/Math.log)
-(def pow js/Math.pow)
-(def abs js/Math.abs)
+(def exp Math/exp)
+(def ln Math/log)
+(def pow Math/pow)
+(def abs Math/abs)
 
 
 ; stata L 19

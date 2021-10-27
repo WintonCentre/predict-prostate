@@ -9,7 +9,7 @@
             [pubsub.feeds :refer [publish]]))
 
 
-(def round js/Math.round)
+(def round Math/round)
 
 (defn set-default [key]
   "Set the default state of an input after it is mounted. Use this on tab switching if something has to go back to default."

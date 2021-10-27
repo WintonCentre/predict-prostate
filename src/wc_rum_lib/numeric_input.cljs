@@ -36,7 +36,7 @@
 (def epsilon 1e-8)
 
 (defn near-integer? [n]
-  (< (js/Math.abs (- n (js/Math.round n))) epsilon))
+  (< (Math/abs (- n (Math/round n))) epsilon))
 
 (defn trim-trailing-zero [s]
   (if-let [[m m1] (re-matches #"(.*\.\d)\d+" s)]
@@ -46,7 +46,7 @@
   (cond
     (= 0 precision)
     ; display as integer
-    (str (js/Math.ceil n))
+    (str (Math/ceil n))
 
     (= 3 precision)
     ; flexible display up to 3dp
@@ -78,7 +78,7 @@
      (if (js/isNaN n)
        ""
        (if (near-integer? n)
-         (str (js/Math.floor n))
+         (str (Math/floor n))
          (if precision
            (do
              ;(println "num-to-str precision " n precision)
