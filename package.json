@@ -1,0 +1,40 @@
+{
+    "name": "predict-prostate",
+    "version": "2.2-1.14-2",
+    "description": "A data driven survival tool",
+    "scripts": {
+        "config": "bb ./bb-scripts/config.clj",
+        "config-test": "look this up!",
+        "start": "shadow-cljs watch app",
+        "stop": "shadow-cljs stop",
+        "watch-all": "shadow-cljs watch app test-browser",
+        "build": "shadow-cljs release app",
+        "build-editor": "shadow-cljs release editor",
+        "build-verbose": "shadow-cljs release --verbose app",
+        "report": "shadow-cljs run shadow.cljs.build-report app report.html",
+        "debug-build": "shadow-cljs release app --debug",
+        "serve": "serve --single resources/public --listen 5000",
+        "dev-build": "shadow-cljs compile app",
+        "repl": "shadow-cljs cljs-repl app",
+        "browser-repl": "shadow-cljs browser-repl",
+        "clojure-repl": "shadow-cljs clj-repl",
+        "test": "shadow-cljs watch test",
+        "test-browser": "shadow-cljs watch test-browser",
+        "test-once": "shadow-cljs compile test",
+        "clean": "rimraf resources/public/js",
+        "nuke": "rimraf resources/public/js .shadow-cljs node_modules yarn.lock package-lock.json out report.html",
+        "shadow-cljs-server": "shadow-cljs server"
+    },
+    "dependencies": {
+        "core-js": "latest",
+        "create-react-class": "15.7.0",
+        "jquery": "^3.6.0",
+        "react": "16.2.0",
+        "react-dom": "16.2.1"
+    },
+    "devDependencies": {
+        "rimraf": "^3.0.2",
+        "serve": "^12.0.0",
+        "shadow-cljs": "2.11.26"
+    }
+}

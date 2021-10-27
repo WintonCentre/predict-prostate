@@ -1,0 +1,64 @@
+;; Shadow build ALWAYS loads the production sources.
+;; It then either loads predict3.core/main for production or predict3.core/edit-main for translation edits
+;; depending on which build is launched and connected.
+
+{:source-paths ["src"]
+
+ :dependencies
+ [;; cljs dependencies
+  #_[cljs-ajax "0.7.3"]
+  [cljs-ajax "0.8.3"]
+  ;[sablono "0.7.4"]
+  ;; need to specify this for sablono
+  ;; when not using devcards
+  ;[cljsjs/react "15.4.2-2"]
+  ;[cljsjs/react-dom "15.4.2-2"]
+  [devcards "0.2.4"]
+  ;[figwheel-sidecar "0.5.18"]
+
+  ; should we upgrade Rum and use React16 ???
+  #_[rum "0.10.8"]
+  [rum "0.11.3"]
+  [pubsub "0.2.1"]
+  ;[wc-rum-lib "0.1.16"]
+  [cljs-css-modules "0.2.1"]
+  [cljsjs/jquery "1.9.1-0"] ; FIXME : I guess that means it's not used here
+  [cljsjs/bootstrap "3.3.6-0"] ; FIXME : I guess that means it's not used here
+  ; routing
+  #_[funcool/bide "1.6.0"]
+  [funcool/bide "1.7.0"]
+  #_[binaryage/devtools "0.9.10"]
+  [binaryage/devtools "1.0.3"]
+  #_[binaryage/oops "0.6.4"]
+  [binaryage/oops "0.7.0"]]
+
+ :dev-http
+ {4000 "resources/public"}
+
+ :builds
+ {:app {:target     :browser
+        :output-dir "resources/public/js"
+        :asset-path "/js"
+        :devtools {:repl-init-ns predict-prostate.core
+                   :repl-pprint true}
+        :compiler-options {;:optimizations  :advanced
+                           :output-wrapper false
+                           ;:rewrite-polyfills true 
+                           ;output-feature-set :es5
+                           }
+        :modules {:app {:init-fn predict-prostate.shadow/main}}}
+
+  :editor {:target     :browser
+           :output-dir "resources/public/js"
+           :asset-path "/js"
+           :compiler-options {;:optimizations  :advanced
+                              :output-wrapper false
+                           ;:rewrite-polyfills true 
+                           ;output-feature-set :es5
+                              }
+           :modules {:editor {:init-fn predict-prostate.shadow/edit-main}}}
+
+  :test-browser {:target     :browser-test
+                 :test-dir   "out/browser/test"
+                 :devtools   {:http-port 4021
+                              :http-root "out/browser/test"}}}}

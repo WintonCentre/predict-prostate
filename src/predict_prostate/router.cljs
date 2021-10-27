@@ -7,7 +7,7 @@
 
 (enable-console-print!)
 
-(def old-browser (goog.object.get js/window "oldBrowser"))
+(def old-browser (js/goog.object.get js/window "oldBrowser"))
 
 (defn use-hash-fragment [] (or goog.DEBUG old-browser))
 
@@ -38,7 +38,7 @@
      ]))
 
 (defn set-location [url]
-  (goog.object/set (goog.object/get js/window "location") "href" url))
+  (js/goog.object.set (js/goog.object.get js/window "location") "href" url))
 
 (defn on-navigate
   "A function which will be called on each route change."
