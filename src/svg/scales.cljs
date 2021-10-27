@@ -9,13 +9,13 @@
   (tick-format-specifier [_])
   )
 
-(def e10 (Math.sqrt 50))
-(def e5 (Math.sqrt 10))
-(def e2 (Math.sqrt 2))
+(def e10 (Math/sqrt 50))
+(def e5 (Math/sqrt 10))
+(def e2 (Math/sqrt 2))
 
 (defn tick-step [start stop preferred-count]
-  (let [step0 (/ (Math.abs (- stop start)) (max 0 preferred-count))
-        step1 (Math.pow 10 (Math.floor (/ (Math.log step0) Math.LN10)))
+  (let [step0 (/ (Math/abs (- stop start)) (max 0 preferred-count))
+        step1 (Math/pow 10 (Math/floor (/ (Math/log step0) Math/LN10)))
         error (/ step0 step1)
         step (cond
                (>= error e10) (* 10 step1)
@@ -27,14 +27,14 @@
 (defn preferred-ticks [start stop preferred-count]
   (let [step (tick-step start stop preferred-count)]
     (range
-      (* (Math.ceil (/ start step)) step)
-      (+ (* (Math.floor (/ stop step)) step) (/ step 2))
+      (* (Math/ceil (/ start step)) step)
+      (+ (* (Math/floor (/ stop step)) step) (/ step 2))
       step)))
 
 (defn numeric-format-specifier [scale]
   "Provide a default format specifier for numeric scales"
-  (let [abs-in (map Math.abs (:in scale))
-        abs-step (Math.abs (apply tick-step (conj (:in scale) (:tick-count scale))))]
+  (let [abs-in (map Math/abs (:in scale))
+        abs-step (Math/abs (apply tick-step (conj (:in scale) (:tick-count scale))))]
     (cond
       (< abs-step 0.00001)
       "~(~3,1e~)"
@@ -81,11 +81,11 @@
         step (tick-step start stop n)]
     (if (not (or (js/isNaN step) (nil? step)))
 
-      (let [step (tick-step (* (Math.floor (/ start step)) step)
-                            (* (Math.ceil (/ stop step)) step)
+      (let [step (tick-step (* (Math/floor (/ start step)) step)
+                            (* (Math/ceil (/ stop step)) step)
                             n)]
-        [(* (Math.floor (/ start step)) step)
-         (* (Math.ceil (/ stop step)) step)])
+        [(* (Math/floor (/ start step)) step)
+         (* (Math/ceil (/ stop step)) step)])
 
       input)))
 

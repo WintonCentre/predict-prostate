@@ -6,7 +6,7 @@
             ;[predict3.state.run-time :refer [t-state-change t-state-cursor]]
             ;[translations.config :refer [live-dictionary-url predict-edit]]
             [predict-prostate.pages.root :refer [root #_edit-root]]
-            ;[pubsub.feeds :refer [publish]]
+            [pubsub.feeds :refer [publish]]
             ;[translations.tongue-base :refer [load-all-translations]]
             ;[translations.tranny-api :refer [base-url]]
             ))

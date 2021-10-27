@@ -7,7 +7,7 @@
             [interop.jsx :refer [jq$ jq$call]]
             [graphics.simple-icons :as simple]))
 
-(set! *warn-on-infer* true)
+(set! *warn-on-infer* false)
 
 
 (defn hide

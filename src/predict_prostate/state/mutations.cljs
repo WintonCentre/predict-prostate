@@ -42,6 +42,7 @@
             )
   (:require-macros [cljs.core.async.macros :refer [go]]))
 
+(set! *warn-on-infer* false)
 
 (defn clear-inputs []
   (doseq [[key topic] (input-changes)

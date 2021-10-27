@@ -1,17 +1,12 @@
 (ns predict-prostate.components.select
-  (:require [rum.core :as rum]
-            [predict-prostate.state.run-time :refer [input-cursor input-change]]
-            [pubsub.feeds :refer [publish]]
-            [clojure.pprint :refer [cl-format]]
-            [interop.jsx :refer [jq$]]
-            ))
+  (:require [rum.core :as rum]))
 
 ;;
 ;; This requires jQuery to work
 ;;
 (def picknmix {:did-mount    (fn [state]
                                (let [props (first (:rum/args state))
-                                     sp (jq$ (str "#" (name (:key props)) ".selectpicker"))
+                                     sp (js/$ (str "#" (name (:key props)) ".selectpicker"))
                                      handler (:on-change props)]
                                  (.on sp "change" #(handler (if (= "" (.val sp)) nil (.val sp))))
                                  (.selectpicker (.addClass sp "col-md-11") "setStyle")
@@ -19,7 +14,7 @@
                                state)
                :will-unmount (fn [state]
                                (let [props (first (:rum/args state))
-                                     sp (jq$ (str "#" (name (:key props)) ".selectpicker"))]
+                                     sp (js/$ (str "#" (name (:key props)) ".selectpicker"))]
                                  (.off sp "change")
                                  (.selectpicker sp "destroy"))
                                state)

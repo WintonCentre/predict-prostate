@@ -160,7 +160,7 @@
 
 (defn percent
   ([d]
-   (str (Math.round (* 100 d)) "%")
+   (str (Math/round (* 100 d)) "%")
     #_(percent d 0))
   ([d p]
    (str (one-dp (* 100 d) p) "%")))

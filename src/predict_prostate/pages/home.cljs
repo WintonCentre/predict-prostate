@@ -125,8 +125,8 @@
          [:a {:href   "https://www.youtube.com/watch?v=-6UR6gAeYxI&t=10s"
               :target "_blank"} "The Predict Prostate web tool: helping you make decisions after a new diagnosis of prostate cancer"]]
 
-        [:.col-sm-2 {:key 5 :style {:font-size 16 :margin-left 0}} "German"]
-        [:.col-sm-9 {:key 6 :style {:font-size 16 :margin-left 0}}
+        [:.col-sm-2 {:key 13 :style {:font-size 16 :margin-left 0}} "German"]
+        [:.col-sm-9 {:key 14 :style {:font-size 16 :margin-left 0}}
          [:a {:href   "https://youtu.be/vjFS8k76QHY"
               :target "_blank"} "Das Predict Prostate tool: Hilfe bei der Entscheidungsfindung nach einer
                         diagnose von Prostatakrebs"]]
