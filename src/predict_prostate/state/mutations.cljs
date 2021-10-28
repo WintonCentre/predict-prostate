@@ -26,8 +26,7 @@
                                                      hide-warning-cursor
                                                      show-uncertainty-change
                                                      show-uncertainty-cursor
-                                                     force-recalculation
-                                                     ]]
+                                                     force-recalculation]]
             [predict-prostate.state.config :refer [input-groups get-input-default]]
             [predict-prostate.state.localStorage :refer [get-settings! put-settings!]]
             [predict-prostate.models.runner :refer [recalculate-model]]
@@ -37,12 +36,9 @@
             [clojure.string :refer [split]]
             [bide.core :as r]
             [predict-prostate.router :refer [router use-hash-fragment]]
-            [interop.jsx :refer [jq$]]
-    #_[predict-prostate.results.util :refer [clip]]
-            )
+            
+            #_[predict-prostate.results.util :refer [clip]])
   (:require-macros [cljs.core.async.macros :refer [go]]))
-
-(set! *warn-on-infer* false)
 
 (defn clear-inputs []
   (doseq [[key topic] (input-changes)
@@ -192,15 +188,15 @@
              (fn [_ help-key]
                (reset! help-key-cursor help-key)
                (if help-key
-                 (.modal (jq$ "#topModal") "show")
-                 (.modal (jq$ "#topModal") "hide"))))
+                 (.modal (js/$ "#topModal") "show")
+                 (.modal (js/$ "#topModal") "hide"))))
 
   (subscribe settings-change
              (fn [_ help-key]
                (reset! settings-cursor help-key)
                (if help-key
-                 (.modal (jq$ "#settingsModal") "show")
-                 (.modal (jq$ "#settingsModal") "hide"))))
+                 (.modal (js/$ "#settingsModal") "show")
+                 (.modal (js/$ "#settingsModal") "hide"))))
 
 
   (subscribe print-change

@@ -8,9 +8,9 @@ predict_prostate.core.main = (function predict_prostate$core$main(){
 return rum.core.mount((predict_prostate.pages.root.root.cljs$core$IFn$_invoke$arity$0 ? predict_prostate.pages.root.root.cljs$core$IFn$_invoke$arity$0() : predict_prostate.pages.root.root.call(null)),goog.dom.getElement("app"));
 });
 predict_prostate.core.loaded_id = setInterval((function (){
-if(cljs.core.truth_((function (){var G__34585 = document.readyState;
-var fexpr__34584 = new cljs.core.PersistentHashSet(null, new cljs.core.PersistentArrayMap(null, 2, ["loaded",null,"complete",null], null), null);
-return (fexpr__34584.cljs$core$IFn$_invoke$arity$1 ? fexpr__34584.cljs$core$IFn$_invoke$arity$1(G__34585) : fexpr__34584.call(null,G__34585));
+if(cljs.core.truth_((function (){var G__34515 = document.readyState;
+var fexpr__34514 = new cljs.core.PersistentHashSet(null, new cljs.core.PersistentArrayMap(null, 2, ["loaded",null,"complete",null], null), null);
+return (fexpr__34514.cljs$core$IFn$_invoke$arity$1 ? fexpr__34514.cljs$core$IFn$_invoke$arity$1(G__34515) : fexpr__34514.call(null,G__34515));
 })())){
 clearInterval(predict_prostate.core.loaded_id);
 

@@ -4,15 +4,12 @@
             [predict-prostate.state.run-time :refer [help-key-cursor help-key-change settings-change input-widget settings-cursor print-cursor results-cursor]]
             [predict-prostate.results.printable :refer [results-in-print]]
             [pubsub.feeds :refer [publish]]
-            [interop.jsx :refer [jq$ jq$call]]
+            ;[interop.jsx :refer [jq$ jq$call]]
             [graphics.simple-icons :as simple]))
 
-(set! *warn-on-infer* false)
-
-
-(defn hide
-  [element-id]
-  (jq$call element-id "modal" "hide"))
+;; (defn hide
+;;   [element-id]
+;;   (jq$call element-id "modal" "hide"))
 
 
 (rum/defc top-modal < rum/reactive
@@ -50,14 +47,14 @@
 (rum/defc cancel-or-print []
   [:div.pull-right
    [:button.btn.btn-default {:type "button"
-                             :on-click #(do (jq$call "#printModal" "modal" "hide"))
+                             :on-click #(do
+                                          (.modal (js/$ "#printModal") "hide"))
                              }
     "Cancel"]
    " "
    [:button.btn.btn-primary {:type     "button"
-                             :on-click #(do (jq$call "#printModal" "modal" "hide")
-                                            (js/print)
-                                            )
+                             :on-click #(do (.modal (js/$ "printModal") "hide")
+                                            (js/print))
                              }
 
     (simple/icon {:family :fa} "print") " Print"]]
