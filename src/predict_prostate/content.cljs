@@ -107,7 +107,7 @@
 
 (defn content
   "Text for the site"
-  []
+  [ttt]
   (let [version-string "v-0.0-0.00-0-hash"
         [_ major minor _ _] (split version-string #"-")]
     [

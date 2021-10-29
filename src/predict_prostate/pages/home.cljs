@@ -5,7 +5,7 @@
             [predict-prostate.content-reader :refer [section all-subsections]]
             [predict-prostate.state.run-time :refer [route-change help-key-change]]
             [predict-prostate.results.util :refer [alison-blue-1 alison-blue-2 alison-blue-3 alison-pink]]
-            [predict-prostate.components.button :refer [start-button]]
+            [predict-prostate.components.button :refer [start-button-group]]
             [predict-prostate.components.bs3-modal :refer [top-modal]]
             [interop.utils :refer [scrollTo]]
             [graphics.simple-icons :refer [icon]]
@@ -13,9 +13,9 @@
             ))
 
 
-(rum/defc block [{:keys [section-id extras]}]
+(rum/defc block [ttt {:keys [section-id extras]}]
 
-  (let [[title & content] (section section-id)]
+  (let [[title & content] (section ttt section-id)]
     [:.panel                                                ;.panel-default
      [:.panel-heading {:key 1 :style {:color "#005EB4" :background-color "#ffffff" :padding-bottom 0}}
       [:h2 title]]
@@ -25,7 +25,7 @@
     ))
 
 (rum/defc home-header
-  []
+  [ttt supported-languages]
   [:#main-content.row {:tab-index -1
                        :style     {:margin-left  -30
                                    :margin-right -30}}
@@ -56,7 +56,7 @@
        #_[:p {:style {:font-size 14 :margin-left 15}} [:a {:href "#" :on-click #(publish help-key-change "endorsement")} "Endorsed by the National Institute for Health and Care Excellence in the UK"]]
 
 
-       (start-button)
+       (start-button-group ttt supported-languages)
 
         [:p {:style {:margin-left 15}} [:i "Did you mean to visit "] [:a {:href "https://breast.predict.nhs.uk"} "Predict Breast Cancer?"]]
        ]
@@ -72,11 +72,13 @@
                              ;              :padding "15px"}
                              }]]]]]])
 
-(rum/defc home < rum/static []
+(rum/defc home < rum/static rum/reactive [ttt]
+  (let [t-state (rum/react t-state-cursor)
+        supported-languages (:languages t-state)]
 
   [:.container-fluid
-   (header)
-   (home-header)
+   (header ttt)
+   (home-header ttt supported-languages)
 
 
    [:.row {:style {:margin "0px -30px 15px"}}
@@ -84,25 +86,23 @@
      [:.row
 
       [:.col-md-4 {:key 1}
-       (rum/with-key  (block {:icon       [:img {:src         "assets/graph-icon.png"
-                                                :alt         "patient icon"
-                                                :aria-hidden true
-                                                :style       {:margin-top 20}}]
-                             :section-id "home-what-is"}) 1)]
+       (rum/with-key  (block ttt {:icon       [:img {:src         "assets/graph-icon.png"
+                                                     :alt         "patient icon"
+                                                     :aria-hidden true
+                                                     :style       {:margin-top 20}}]
+                                  :section-id "home-what-is"}) 1)]
       [:.col-md-4 {:key 2}
-       (rum/with-key  (block {:icon       [:img {:src         "assets/graph-icon.png"
-                                                :alt         "patient icon"
-                                                :aria-hidden true
-                                                :style       {:margin-top 20}}]
-                             :section-id "home-how-use"}) 2)]
+       (rum/with-key  (block ttt {:icon       [:img {:src         "assets/graph-icon.png"
+                                                     :alt         "patient icon"
+                                                     :aria-hidden true
+                                                     :style       {:margin-top 20}}]
+                                  :section-id "home-how-use"}) 2)]
       [:.col-md-4 {:key 3}
-       (rum/with-key (block {:icon       [:img {:src         "assets/patient-icon.png"
-                                                :alt         "graph icon"
-                                                :aria-hidden true
-                                                :style       {:margin-top 20}}]
-                             :section-id "home-what-tell"}) 3)]
-
-      ]]
+       (rum/with-key (block ttt {:icon       [:img {:src         "assets/patient-icon.png"
+                                                    :alt         "graph icon"
+                                                    :aria-hidden true
+                                                    :style       {:margin-top 20}}]
+                                 :section-id "home-what-tell"}) 3)]]]
     [:.col-sm-10.col-sm-offset-1 {:key 2}
      [:.row
       [:.col-md-4 {:key 1
@@ -145,14 +145,11 @@
         [:.col-sm-2 {:key 11 :style {:font-size 16 :margin-left 0}} "Spanish"]
         [:.col-sm-9 {:key 12 :style {:font-size 16 :margin-left 0}}
          [:a {:href   "https://youtu.be/9WOzfFAPKyc"
-              :target "_blank"} "Predict prostata- le ayuda a tomar decisiones después de un nuevo diagnóstico de cáncer de próstata."]]]]]
-     ]]
+              :target "_blank"} "Predict prostata- le ayuda a tomar decisiones después de un nuevo diagnóstico de cáncer de próstata."]]]]]]]
    (scrollTo 0)
    [:.row.screen-only
     (footer)
-    (top-modal)
-    ]
-   ])
+    (top-modal)]]))
 
 (comment
   {:style {:border "1px solid grey" :padding "10px" :height "370px"}}

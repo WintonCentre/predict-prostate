@@ -2,11 +2,10 @@
 ;; It then either loads predict3.core/main for production or predict3.core/edit-main for translation edits
 ;; depending on which build is launched and connected.
 
-{:source-paths ["src"]
+{:source-paths ["src" "src_tt_prod/cljs"]
 
  :dependencies
  [;; cljs dependencies
-  #_[cljs-ajax "0.7.3"]
   [cljs-ajax "0.8.3"]
   ;[sablono "0.7.4"]
   ;; need to specify this for sablono
@@ -16,20 +15,17 @@
   [devcards "0.2.4"]
   ;[figwheel-sidecar "0.5.18"]
 
-  ; should we upgrade Rum and use React16 ???
-  #_[rum "0.10.8"]
   [rum "0.11.3"]
+  [tongue "0.2.7"]
   [pubsub "0.2.1"]
   ;[wc-rum-lib "0.1.16"]
   [cljs-css-modules "0.2.1"]
   [cljsjs/jquery "1.9.1-0"] ; FIXME : I guess that means it's not used here
   [cljsjs/bootstrap "3.3.6-0"] ; FIXME : I guess that means it's not used here
   ; routing
-  #_[funcool/bide "1.6.0"]
   [funcool/bide "1.7.0"]
-  #_[binaryage/devtools "0.9.10"]
+  
   [binaryage/devtools "1.0.3"]
-  #_[binaryage/oops "0.6.4"]
   [binaryage/oops "0.7.0"]]
 
  :dev-http

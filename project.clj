@@ -13,7 +13,7 @@
                  [org.clojure/core.async "0.4.490"]
 
                  ;; cljs dependencies
-                 [cljs-ajax "0.7.3"]
+                 [cljs-ajax "0.8.3"]
                  [cljs-css-modules "0.2.1"]
                  ;[sablono "0.7.4"]
                  ;; need to specify this for sablono
@@ -24,8 +24,8 @@
                  [figwheel-sidecar "0.5.18"]
 
                  ; should we upgrade Rum and use React16 ???
-                 [rum "0.10.8"]
-                 #_[rum "0.11.3"]
+                 [rum "0.11.3"]
+                 [tongue "0.2.7"]
                  [pubsub "0.2.1"]
                  ;[wc-rum-lib "0.1.16"]
                  [cljs-css-modules "0.2.1"]
@@ -34,13 +34,10 @@
 
 
                  ; routing
-                 [funcool/bide "1.6.0"]
+                 [funcool/bide "1.7.0"]
 
-                 [binaryage/devtools "0.9.10"]
-                 #_[binaryage/oops "0.5.8"]
-                 [binaryage/oops "0.6.4"]
-
-                 ]
+                 [binaryage/devtools "1.0.3"]
+                 [binaryage/oops "0.7.0"]]
 
   :plugins [[lein-figwheel "0.5.18"]
             [lein-less "1.7.5"]

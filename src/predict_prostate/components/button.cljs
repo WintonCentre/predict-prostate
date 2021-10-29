@@ -7,15 +7,14 @@
             ))
 
 ;; Simple text only component that only echoes text
-(rum/defc information < rum/reactive [{:keys [key values]
-                                       :as   props} group-cursor]
+(rum/defc information < rum/reactive [{:keys [values ttt ttt-key]} _]
   [:div
    [:div
-    [:div values]]])
+    [:div (ttt [ttt-key values])]]])
 
 
 ;; Generic toggle
-(rum/defc toggle-button < rum/static [{:keys [key value topic disabled]
+(rum/defc toggle-button < rum/static [{:keys [ttt key value topic disabled]
                                        :or   {disabled false}} label]
   (let [handler #(when (not= key value) (publish topic key))]
 
@@ -31,8 +30,7 @@
 
 
 
-(rum/defc radio-button-group < rum/reactive [{:keys [key aria-label aria-describedby values unknowable vertical]
-                                              :as   props} group-cursor]
+(rum/defc radio-button-group < rum/reactive [{:keys [ttt key aria-label aria-describedby values unknowable vertical]} group-cursor]
   (let [group-value (rum/react group-cursor)]
     ;; extra divs are necessary for correct error state outlining
     ;;
@@ -44,16 +42,16 @@
 
        (map (fn [[val label]]
               (rum/with-key
-                (toggle-button {:key val :value group-value :topic (input-change key) :disabled (= group-value :disabled)} label)
+                (toggle-button {:ttt ttt :key val :value group-value :topic (input-change key) :disabled (= group-value :disabled)} label)
                 label))
             values)
 
        (when unknowable
-         (toggle-button {:key :unknown :value group-value :topic (input-change key) :disabled (= group-value :disabled)}
+         (toggle-button {:ttt ttt :key :unknown :value group-value :topic (input-change key) :disabled (= group-value :disabled)}
                         unknown))
        ]]]))
 
-(rum/defc horiz-radio-button-group < rum/reactive [{:keys [key aria-label aria-describedby values unknowable] :as props} group-cursor]
+(rum/defc horiz-radio-button-group < rum/reactive [{:keys [ttt key aria-label aria-describedby values unknowable]} group-cursor]
   (let [group-value (rum/react group-cursor)]
     [:div {:role       "group" :aria-label aria-label :aria-describedby aria-describedby
            :style      {:display "inline-block"}
@@ -61,16 +59,17 @@
 
      (map (fn [[val label]]
             (rum/with-key
-              (toggle-button {:key val :value group-value :topic (input-change key)} label)
+              (toggle-button {:ttt ttt :key val :value group-value :topic (input-change key)} label)
               label))
           values)
 
      (when unknowable
-       (toggle-button {:key :unknown :value group-value :topic (input-change key)} unknown))
+       (toggle-button {:ttt ttt :key :unknown :value group-value :topic (input-change key)} unknown))
      ]))
 
-(rum/defc year-picker []
-  (horiz-radio-button-group {:key    :result-year
+(rum/defc year-picker < rum/reactive [ttt]
+  (horiz-radio-button-group {:ttt ttt
+                             :key    :result-year
                              :values [[10 "10"]
                                       [15 "15"]
                                       ]}
@@ -121,7 +120,7 @@
    (simple/icon {:family :fa} "warning") " Potential harms"])
 
 
-(rum/defc settings-button < rum/static []
+(rum/defc settings-button < rum/static [ttt]
   (let [settings "settings"]
     [:button.btn.btn-default
      {:type         "button"
@@ -135,10 +134,10 @@
       :on-key-down  #(when (= "Enter" (.. % -nativeEvent -code))
                        (publish settings-change settings))
       }
-     (simple/icon {:family :fa} "cog") " Settings"]))
+     (simple/icon {:family :fa} "cog") " " (ttt [:tools/settings "Settings"])]))
 
 
-(rum/defc print-button < rum/static []
+(rum/defc print-button < rum/static [ttt]
   [:button.btn.btn-danger.btn-lg.screen-only.pull-right
    {:type         "button"
     :role         "button"
@@ -153,13 +152,41 @@
     :on-key-down  #(when (= "Enter" (.. % -nativeEvent -code))
                      (publish print-change "print"))
     }
-   (simple/icon {:family :fa} "print") " Print"])
+   (simple/icon {:family :fa} "print") " " (ttt [:home/print-button "Print"])])
 
-(defn start-button []
+;; Doesn't seem to be used in predict breast either
+;; (defn change-language
+;;   [ttt supported-languages]
+;;   [:div [:button.btn.btn-warning.btn-lg.dropdown-toggle
+;;          {:type "button"
+;;           :data-toggle "dropdown"
+;;           :aria-haspopup "true"
+;;           :aria-expanded "false"}
+;;          (ttt [:navbar/change-language "Change Language"]) " " [:span.caret]]
+;;    (into [:ul.dropdown-menu.lang]
+;;          (mapv
+;;           (fn [lang] (menu-item (ttt [lang]) lang))
+;;           supported-languages))])
+
+(defn start-button [ttt]
   [:div
    [:button.btn.btn-primary.btn-lg {:style      {:margin  20
                                                  }
                                     :aria-label "go to predict tool"
                                     :type       "button"
                                     :on-click   #(publish route-change [:tool nil nil])}
-    (simple/icon {:family :fa} "chevron-right") " Start Predict"]])
+    (simple/icon {:family :fa} "chevron-right") " " (ttt [:home/start-button "Start Predict"])]])
+
+(defn start-button-group [ttt supported-languages]
+  [:.btn-group {:style {:width 375 :margin-left 15 :margin-bottom 15 :margin-top 15}}
+   (start-button ttt)
+   [:button.btn.btn-default.btn-lg.dropdown-toggle
+    {:type "button"
+     :data-toggle "dropdown"
+     :aria-haspopup "true"
+     :aria-expanded "false"}
+    (ttt [:navbar/change-language "Change Language"]) " " [:span.caret]]
+   (into [:ul.dropdown-menu.lang]
+         (mapv
+          (fn [lang] (menu-item (ttt [lang]) lang))
+          supported-languages))])

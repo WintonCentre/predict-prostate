@@ -1,15 +1,16 @@
 (ns predict-prostate.pages.root
   (:require                                                 ;[org.martinklepsch.derivatives :refer [rum-derivatives]]
-    [rum.core :as rum]
-    [predict-prostate.state.run-time :refer [rtdb route media-change media-cursor]]
-    [predict-prostate.pages.home :refer [home]]
-    [predict-prostate.pages.about :refer [about]]
-    [predict-prostate.pages.legal :refer [legal]]
-    [predict-prostate.pages.contact :refer [contact]]
-    [predict-prostate.pages.tool :refer [tool]]
-    [predict-prostate.pages.not-found :refer [not-found]]
-    [pubsub.feeds :refer [->Topic publish subscribe unsubscribe]]
-    ))
+   [rum.core :as rum]
+   [predict-prostate.state.run-time :refer [rtdb route media-change media-cursor]]
+   [predict-prostate.pages.home :refer [home]]
+   [predict-prostate.pages.about :refer [about]]
+   [predict-prostate.pages.legal :refer [legal]]
+   [predict-prostate.pages.contact :refer [contact]]
+   [predict-prostate.pages.tool :refer [tool]]
+   [predict-prostate.pages.not-found :refer [not-found]]
+   [pubsub.feeds :refer [->Topic publish subscribe unsubscribe]]
+   [translations.root :refer [ttt ttt-edit]]
+   ))
 
 (defn before-print []
   (publish media-change :print)
@@ -38,20 +39,30 @@
 
 (rum/defc root < rum/reactive media-watch                   ;(rum-derivatives drv-spec)
                  "Root of site. All components are within this tree"
-  []
-  (let [[page params query :as rt] (rum/react route)]
+  [ttt*]
+  (let [[page _ _ :as rt] (rum/react route)
+        lang (:lang (rum/react t-state-cursor))]
     [:div
      (case page
-       :home (home)
-       :about (about rt)
-       :tool (tool)
-       :contact (contact rt)
-       :legal (legal rt)
+       :home (home ttt*) #_(home)
+       :about (about ttt* rt lang) #_(about rt)
+       :tool (v2 ttt*) #_(tool)
+       :contact (contact ttt* rt) #_(contact rt)
+       :legal (legal ttt* rt) #_(legal rt)
 
-       :not-found (not-found)
+       :not-found (not-found) ;; commented out in predict3...
        ;[:div "404"]
        )]))
 
+(rum/defc root                                              ;< rum/reactive media-watch
+  "Root of site. All components are within this tree"
+  []
+  (root* ttt))
+
+(rum/defc edit-root                                         ;< rum/reactive media-watch
+  "Root of the translation editor site. All components are within this tree"
+  []
+  (root* ttt-edit))
 
 
 

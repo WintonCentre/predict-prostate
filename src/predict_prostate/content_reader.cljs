@@ -19,19 +19,19 @@ re-tag #"([^\s\.#]+)(?:#([^\s\.#]+))?(?:\.([^\s#]+))?")
   )
 
 
-(defn match-node [node id]
+(defn match-node [ttt node id]
   (let [[x & xs] node]
     (cond
       (nil? x) nil
-      (keyword x) (if (match-id x id) {:x x :xs xs} (match-node xs id))
-      (vector? x) (if-let [rv (match-node x id)] rv (match-node xs id))
-      (seq xs) (match-node xs id)
-      :else nil #_(throw (js/Error. (str "match-node " {:x x :xs xs})))
+      (keyword x) (if (match-id x id) {:x x :xs xs} (match-node ttt xs id))
+      (vector? x) (if-let [rv (match-node ttt x id)] rv (match-node ttt xs id))
+      (seq xs) (match-node ttt xs id)
+      :else nil
       )
     ))
 
 
-(defn add-hiccup-key [key [tag & args :as hiccup]]
+(defn add-hiccup-key [key [tag & args]]
   (let [[m & rest-args] args
         [mk rest-args*] (if (map? m) [(assoc m :key key) rest-args] [{:key key} args])]
     ; (prn "check: " tag mk m rest-args*)
@@ -55,20 +55,18 @@ re-tag #"([^\s\.#]+)(?:#([^\s\.#]+))?(?:\.([^\s#]+))?")
   )
 
 (defn section
-  ([node id]
-   (let [{:keys [x xs]} (match-node node id)]
-     xs
-     #_(map-indexed #(add-hiccup-key (str "k" %1) %2) xs)))
+  ([ttt node id]
+   (let [{:keys [_ xs]} (match-node ttt node id)]
+     xs))
 
-  ([id] (section (content) id))
-  )
+  ([ttt id] (section ttt (content ttt) id)))
 
 (defn all-subsections
   "loop through subsections adding keys."
-  [id]
-  (let [node (section id)]
+  [ttt id]
+  (let [node (section ttt id)]
     (for [k (range (count (rest node)))
-          :let [[sec title & content] (nth (rest node) k)]]
+          :let [[_ title & content] (nth (rest node) k)]]
       [:section {:key k}
        [:h2 {:style {:color alison-blue-3}} title]
        (map-indexed #(add-hiccup-key (str "k" %1) %2)
@@ -81,14 +79,15 @@ re-tag #"([^\s\.#]+)(?:#([^\s\.#]+))?(?:\.([^\s#]+))?")
 
   (re-find re-tag ":section#adjuvant-treatments.input-box")
 
+  (defn ttt [[_ s]] s)
 
-  (def mock-data [:div#top
+  (defn mock-data [ttt] 
+    [:div#top
                   [:section#1.ignore
-                   [:section#this-one.found [:p "this"]]
-                   [:section#next-one.found [:p "next"
-                                             [:p#foo "foo"]]]
-                   [:section#last-one.found [:p "last"]]
-                   ]])
+                   [:section#this-one.found [:p (ttt [:mock/n1 "this"])]]
+                   [:section#next-one.found [:p (ttt [:mock/n2 "next"])
+                                             [:p#foo (ttt [:mock/n3 "foo"])]]]
+                   [:section#last-one.found [:p (ttt [:mock/n4 "last"])]]]])
 
   (def mock-data* [:section#about-the-patient.input-box "About the patient"
 
@@ -103,21 +102,21 @@ re-tag #"([^\s\.#]+)(?:#([^\s\.#]+))?(?:\.([^\s#]+))?")
 
   (match-id :div#top "top")
 
-  (match-node mock-data "top")
-  (match-node mock-data "1")
-  (match-node mock-data "next-one")
-  (match-node mock-data "foo")
+  (match-node ttt mock-data "top")
+  (match-node ttt mock-data "1")
+  (match-node ttt mock-data "next-one")
+  (match-node ttt mock-data "foo")
 
-  (match-node mock-data* "about-the-patient")
+  (match-node ttt mock-data* "about-the-patient")
 
   (content)
-  (match-node (content) "about-the-patient")
-  (match-node content "welcome")
-  (match-node content "why")
-  (section "welcome")
+  (match-node ttt (content) "about-the-patient")
+  (match-node ttt content "welcome")
+  (match-node ttt content "why")
+  (section ttt "welcome")
 
-  (def clin-info (section content "clinician-information"))
-  (section clin-info "oncotype")
+  (def clin-info (section ttt content "clinician-information"))
+  (section ttt clin-info "oncotype")
 
   #_(match-id ":section#adjuvant-treatments.input-box" "adjuvant-treatments")
   #_(match-id ":section#treatments.input-box" "adjuvant-treatments")

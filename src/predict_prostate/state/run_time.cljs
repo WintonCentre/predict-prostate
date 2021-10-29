@@ -1,12 +1,10 @@
 (ns predict-prostate.state.run-time
   (:require
-    [rum.core :as rum]
-    [clojure.string :refer [index-of]]
-    [clojure.pprint :refer [cl-format]]
-    [clojure.set :refer [union]]
-    ;[predict-prostate.state.config :refer [event-bus]]
-    [pubsub.feeds :refer [->Topic create-feed]]
-    ))
+   [rum.core :as rum]
+   [clojure.string :refer [index-of]]
+   [clojure.set :refer [union]]
+   [predict-prostate.state.config :refer [initial-t-state]]
+   [pubsub.feeds :refer [->Topic create-feed]]))
 
 
 (def event-bus (create-feed))
@@ -25,9 +23,7 @@
 "When plotting adjuvant treatments, we start from a baseline of surgery only, adding treatments and hopefully improving
 survival, up to the projected survival of prostate-cancer-free men "
 (defonce rtdb
-         (atom {
-
-                ;; Plot style
+         (atom {;; Plot style
                 :plot-style              nil
 
                 :recalculate-error-state 0
@@ -63,7 +59,26 @@ survival, up to the projected survival of prostate-cancer-free men "
                 :hide-warning            false
                 :test                    "test"
                 :media                   :screen
+
+                ;; translations state
+                :t-state                  initial-t-state
                 }))
+
+; The complete translations state (t-state) gets loaded from a URL of commands (usually dictionary.txt) at startup
+(defonce edit-cursor (rum/cursor-in rtdb [:edit]))
+(defonce edit-change (make-topic :edit-change))             ; change to the edit status of a field
+(defonce new-text-cursor (rum/cursor-in rtdb [:edit :new-text]))
+(defonce new-text-change (make-topic :new-text-change))
+
+(defonce text-change (make-topic :text-change))             ; change to the new-text in an edited field (use args [key new-text])
+(defonce add-language-modal (make-topic :add-language-modal))
+(defonce add-language (make-topic :add-language))
+(defonce t-state-cursor (rum/cursor-in rtdb [:t-state]))
+(defonce t-state-change (make-topic :t-state-change))
+
+(defonce ttt-cursor (rum/cursor-in rtdb [:t-state :translator]))
+(defonce language-change (make-topic :language-change))
+
 
 (defonce estimates (atom nil))
 

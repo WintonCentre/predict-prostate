@@ -1,21 +1,16 @@
 (ns predict-prostate.layout.header
   (:require [rum.core :as rum]
-            [bide.core :as r]
-            [predict-prostate.router :refer [router]]
             [predict-prostate.state.run-time :refer [input-cursor route-change]]
             [predict-prostate.components.bs3-navbar :refer [hamburger-navbar]]
             [predict-prostate.components.button :refer [radio-button-group start-button]]
             [predict-prostate.content-reader :refer [section]]
             [predict-prostate.results.util :refer [alison-blue-1 alison-blue-2 alison-blue-3 alison-pink]]
-            [pubsub.feeds :refer [publish]]
-
-            )
-  )
+            [pubsub.feeds :refer [publish]]))
 
 (def NHS-blue "#005FB4")
 
-(rum/defc header-banner [banner-id]
-  (let [[_ & preamble] (section banner-id)]
+(rum/defc header-banner [ttt banner-id]
+  (let [[_ & preamble] (section ttt banner-id)]
     [:.row {:style {:margin-left  -30
                     :margin-right -30}}
      [:.col-xs-12
@@ -37,7 +32,7 @@
                         :width            "100%"}}]]]]]]))
 
 
-(rum/defc footer-banner []
+(rum/defc footer-banner [ttt]
   [:.row.screen-only {:style {:background-color alison-blue-1
                               :padding-top      20
                               :padding-bottom   20
@@ -47,7 +42,7 @@
     [:img {:src "/assets/tool-icon.png" :alt "tool-icon" :aria-hidden true}]
     [:h3 "Want to use Predict Prostate?"]
     [:p "This tool helps to understand how treatments for prostate cancer may improve survival rates after diagnosis."]
-    (start-button)]
+    (start-button ttt)]
 
    [:.col-md-3..col-md-offset-2.text-center {:style {:margin-top "20px"}}
     [:img {:src "/assets/faq-icon.png" :alt "faq-icon" :aria-hidden true}]
@@ -70,7 +65,7 @@
 
 
 
-(rum/defc header []
+(rum/defc header [ttt]
 
   ;(banner)
   [:.row
@@ -88,7 +83,7 @@
                                   }}]]
    [:.col-xs-12
     (skip-to "#main-content")
-    (hamburger-navbar)
+    (hamburger-navbar ttt)
     ]])
 
 

@@ -1,8 +1,7 @@
 (ns predict-prostate.components.bs3-navbar
   (:require [rum.core :as rum]
-            [predict-prostate.router :refer [router set-location]]
-            [bide.core :as r]
-            [predict-prostate.state.run-time :refer [route route-change]]
+            [predict-prostate.state.run-time :refer [route route-change language-change 
+                                                     t-state-cursor]]
             [interop.utils :refer [scrollTo]]
             [pubsub.feeds :refer [publish]]))
 
@@ -53,25 +52,34 @@
 
 
 (def nav-items
-  [(Nav-item. "Home" navigate-to [:home {:page :home}])
-   (assoc (Nav-item. "About Predict Prostate" navigate-to [:no-op] #_[:about {:page :overview :section :about}])
-     :submenus [(Nav-item. "About Predict  Prostate" navigate-to [:about {:page :overview :section :about}])
-                (Nav-item. "– Who is it for?" navigate-to [:about {:page :overview :section :whoisitfor}])
-                (Nav-item. "– How Predict Prostate works" navigate-to [:about {:page :overview :section :howpredictworks}])
-                (Nav-item. "– Who built Predict  Prostate" navigate-to [:about {:page :overview :section :whobuiltpredict}])
-                (Nav-item. "Technical" navigate-to [:about {:page :technical :section :technical}])
-                (Nav-item. "– Development History" navigate-to [:about {:page :technical :section :history}])
-                (Nav-item. "– Publications" navigate-to [:about {:page :technical :section :publications}])
-                (Nav-item. "FAQs" navigate-to [:about {:page :faqs}])])
+  [ttt _ supported-languages]
+
+  [(Nav-item. (ttt [:navbar/home "Home"]) navigate-to [:home {:page :home}])
+   
+   (assoc (Nav-item. (ttt [:navbar/about "About Predict Prostate"]) navigate-to [:no-op] #_[:about {:page :overview :section :about}])
+     :submenus [(Nav-item. (ttt [:navbar/overview "Overview"]) navigate-to [:about {:page :overview :section :about}])
+                (Nav-item. (ttt [:navbar/wiif "– Who is it for?"]) navigate-to [:about {:page :overview :section :whoisitfor}])
+                (Nav-item. (ttt [:navbar/hppw "– How Predict Prostate works"]) navigate-to [:about {:page :overview :section :howpredictworks}])
+                (Nav-item. (ttt [:navbar/wbpp "– Who built Predict Prostate"]) navigate-to [:about {:page :overview :section :whobuiltpredict}])
+                (Nav-item. (ttt [:navbar/tech "Technical"]) navigate-to [:about {:page :technical :section :technical}])
+                (Nav-item. (ttt [:navbar/dh "– Development History"]) navigate-to [:about {:page :technical :section :history}])
+                (Nav-item. (ttt [:navbar/pubs "– Publications"]) navigate-to [:about {:page :technical :section :publications}])
+                (Nav-item. (ttt [:navbar/faqs "FAQs"]) navigate-to [:about {:page :faqs}])])
 
 
-   (Nav-item. "Predict  Prostate Tool" navigate-to [:tool])
-   (Nav-item. "Contact" navigate-to [:contact])
-   (assoc (Nav-item. "Legal" navigate-to [:no-op])
-     :submenus [(Nav-item. "Predict: Prostate Cancer" navigate-to [:legal {:page :product}])
-                (Nav-item. "Disclaimer" navigate-to [:legal {:page :disclaimer}])
-                (Nav-item. "Algorithm" navigate-to [:legal {:page :algorithm}])
-                (Nav-item. "Privacy & Data Protection" navigate-to [:legal {:page :privacy}])])])
+   (Nav-item. (ttt [:navbar/tool "Predict Prostate Tool"]) navigate-to [:tool])
+   (Nav-item. (ttt [:navbar/contact "Contact"]) navigate-to [:contact])
+   (assoc (Nav-item. (ttt [:navbar/legal "Legal"]) navigate-to [:no-op])
+     :submenus [(Nav-item. (ttt [:navbar/legal-name "Predict: Prostate Cancer"]) navigate-to [:legal {:page :product}])
+                (Nav-item. (ttt [:navbar/disclaimer "Disclaimer"]) navigate-to [:legal {:page :disclaimer}])
+                (Nav-item. (ttt [:navbar/alg "Algorithm"]) navigate-to [:legal {:page :algorithm}])
+                (Nav-item. (ttt [:navbar/privacy "Privacy & Data Protection"]) navigate-to [:legal {:page :privacy}])
+                ])
+   (assoc (Nav-item. (ttt [:navbar/change-language "Change Language"] " ")   navigate-to [:no-op])
+          :submenus (mapv (fn [lang]
+                            (Nav-item. (ttt lang) #(publish language-change lang) nil))
+                          supported-languages))
+   ])
 
 (def smartmenus {:did-mount (fn [state]
                               (js/jQuery.SmartMenus.Bootstrap.init)
@@ -113,9 +121,13 @@
                      (js/removeEventListener "scroll" sh)
                      (dissoc state ::scroll-handler ::y-off)))})
 
-(rum/defc hamburger-navbar < sticky-mixin smartmenus []
-  [:nav
-   (simple-navbar [nav-items])])
+(rum/defc hamburger-navbar < sticky-mixin smartmenus rum/reactive 
+  [ttt]
+  (let [t-state (rum/react t-state-cursor)                  ;reacts to ttt-cursor anyway
+        lang (name (if (:lang t-state) (:lang t-state) :en))
+        supported-languages (:languages t-state)]
+    [:nav
+     (simple-navbar [(nav-items ttt lang supported-languages)])]))
 
 
 (comment
