@@ -53,10 +53,6 @@
                              (println "*scroller* args" (:rum/args state))
                              (let [[_ [_ {page :page scroll-section :section}]] (:rum/args state)
                                    scroll-section (keyword scroll-section)]
-                               (.log js/console "goo " scroll-section)
-                               (.log js/console "scroll-section " (name scroll-section))
-                               (.log js/console "offsets " (::offsets state))
-                               (.log js/console "offset: " (get @(::offsets state) (name scroll-section)))
                                (scrollTo (if scroll-section (get @(::offsets state) (name scroll-section)) 0))
                                )
                              state)})
