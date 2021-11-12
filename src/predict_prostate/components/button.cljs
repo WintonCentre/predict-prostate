@@ -181,16 +181,13 @@
 ;;           supported-languages))])
 
 (defn start-button [ttt]
-  [:div
-   [:button.btn.btn-primary.btn-lg {:style      {:margin  20
-                                                 }
-                                    :aria-label "go to predict tool"
-                                    :type       "button"
-                                    :on-click   #(publish route-change [:tool nil nil])}
-    (simple/icon {:family :fa} "chevron-right") " " (ttt [:home/start-button "Start Predict"])]])
+  [:button.btn.btn-primary.btn-lg {:aria-label "go to predict tool"
+                                   :type       "button"
+                                   :on-click   #(publish route-change [:tool nil nil])}
+   (simple/icon {:family :fa} "chevron-right") " " (ttt [:home/start-button "Start Predict"])])
 
 (defn start-button-group [ttt supported-languages]
-  [:.btn-group {:style {:width 375 :margin-left 15 :margin-bottom 15 :margin-top 15}}
+  [:.btn-group {:style {:width 975 :margin-left 15 :margin-bottom 15 :margin-top 15}}
    (start-button ttt)
    [:button.btn.btn-default.btn-lg.dropdown-toggle
     {:type "button"

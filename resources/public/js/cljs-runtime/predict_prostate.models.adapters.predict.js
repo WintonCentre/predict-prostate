@@ -1,8 +1,8 @@
 goog.provide('predict_prostate.models.adapters.predict');
 predict_prostate.models.adapters.predict.in_range = (function predict_prostate$models$adapters$predict$in_range(s){
-var vec__42956 = clojure.string.split.cljs$core$IFn$_invoke$arity$2(s,/:/);
-var good = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__42956,(0),null);
-var bad = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__42956,(1),null);
+var vec__32031 = clojure.string.split.cljs$core$IFn$_invoke$arity$2(s,/:/);
+var good = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__32031,(0),null);
+var bad = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__32031,(1),null);
 return parseFloat(good);
 });
 /**
@@ -11,8 +11,8 @@ return parseFloat(good);
  *   Arity 2 allows you to say how many but uses the 15 year model if n > 10
  */
 predict_prostate.models.adapters.predict.predict_prostate = (function predict_prostate$models$adapters$predict$predict_prostate(var_args){
-var G__42961 = arguments.length;
-switch (G__42961) {
+var G__32038 = arguments.length;
+switch (G__32038) {
 case 2:
 return predict_prostate.models.adapters.predict.predict_prostate.cljs$core$IFn$_invoke$arity$2((arguments[(0)]),(arguments[(1)]));
 

@@ -43,21 +43,21 @@ return cljs.core.apply.cljs$core$IFn$_invoke$arity$2(predict_prostate.results.ut
 predict_prostate.results.util.min_label_percent = (3);
 predict_prostate.results.util.treatment_fills = (function predict_prostate$results$util$treatment_fills(index){
 
-var G__44162 = ((cljs.core.count(predict_prostate.results.util.fills) - (1)) - index);
-return (predict_prostate.results.util.fill.cljs$core$IFn$_invoke$arity$1 ? predict_prostate.results.util.fill.cljs$core$IFn$_invoke$arity$1(G__44162) : predict_prostate.results.util.fill.call(null,G__44162));
+var G__32730 = ((cljs.core.count(predict_prostate.results.util.fills) - (1)) - index);
+return (predict_prostate.results.util.fill.cljs$core$IFn$_invoke$arity$1 ? predict_prostate.results.util.fill.cljs$core$IFn$_invoke$arity$1(G__32730) : predict_prostate.results.util.fill.call(null,G__32730));
 });
 predict_prostate.results.util.treatment_fills_STAR_ = (function predict_prostate$results$util$treatment_fills_STAR_(plot_style,index){
 
 var f = (plot_style.cljs$core$IFn$_invoke$arity$1 ? plot_style.cljs$core$IFn$_invoke$arity$1(predict_prostate.results.util.fills_by_style) : plot_style.call(null,predict_prostate.results.util.fills_by_style));
-var G__44163 = ((cljs.core.count(f) - (1)) - index);
-return (f.cljs$core$IFn$_invoke$arity$1 ? f.cljs$core$IFn$_invoke$arity$1(G__44163) : f.call(null,G__44163));
+var G__32734 = ((cljs.core.count(f) - (1)) - index);
+return (f.cljs$core$IFn$_invoke$arity$1 ? f.cljs$core$IFn$_invoke$arity$1(G__32734) : f.call(null,G__32734));
 });
-predict_prostate.results.util.clip = (function predict_prostate$results$util$clip(p__44164){
-var map__44165 = p__44164;
-var map__44165__$1 = (((((!((map__44165 == null))))?(((((map__44165.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__44165.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__44165):map__44165);
-var value = cljs.core.get.cljs$core$IFn$_invoke$arity$3(map__44165__$1,new cljs.core.Keyword(null,"value","value",305978217),(0));
-var min = cljs.core.get.cljs$core$IFn$_invoke$arity$3(map__44165__$1,new cljs.core.Keyword(null,"min","min",444991522),(0));
-var max = cljs.core.get.cljs$core$IFn$_invoke$arity$3(map__44165__$1,new cljs.core.Keyword(null,"max","max",61366548),(10));
+predict_prostate.results.util.clip = (function predict_prostate$results$util$clip(p__32738){
+var map__32739 = p__32738;
+var map__32739__$1 = (((((!((map__32739 == null))))?(((((map__32739.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__32739.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__32739):map__32739);
+var value = cljs.core.get.cljs$core$IFn$_invoke$arity$3(map__32739__$1,new cljs.core.Keyword(null,"value","value",305978217),(0));
+var min = cljs.core.get.cljs$core$IFn$_invoke$arity$3(map__32739__$1,new cljs.core.Keyword(null,"min","min",444991522),(0));
+var max = cljs.core.get.cljs$core$IFn$_invoke$arity$3(map__32739__$1,new cljs.core.Keyword(null,"max","max",61366548),(10));
 
 if((value > max)){
 return max;
@@ -71,14 +71,14 @@ return value;
 });
 predict_prostate.results.util.toPrecision = (function predict_prostate$results$util$toPrecision(var_args){
 var args__4742__auto__ = [];
-var len__4736__auto___44181 = arguments.length;
-var i__4737__auto___44182 = (0);
+var len__4736__auto___32971 = arguments.length;
+var i__4737__auto___32972 = (0);
 while(true){
-if((i__4737__auto___44182 < len__4736__auto___44181)){
-args__4742__auto__.push((arguments[i__4737__auto___44182]));
+if((i__4737__auto___32972 < len__4736__auto___32971)){
+args__4742__auto__.push((arguments[i__4737__auto___32972]));
 
-var G__44183 = (i__4737__auto___44182 + (1));
-i__4737__auto___44182 = G__44183;
+var G__32973 = (i__4737__auto___32972 + (1));
+i__4737__auto___32972 = G__32973;
 continue;
 } else {
 }
@@ -89,32 +89,32 @@ var argseq__4743__auto__ = ((((1) < args__4742__auto__.length))?(new cljs.core.I
 return predict_prostate.results.util.toPrecision.cljs$core$IFn$_invoke$arity$variadic((arguments[(0)]),argseq__4743__auto__);
 });
 
-(predict_prostate.results.util.toPrecision.cljs$core$IFn$_invoke$arity$variadic = (function (f,p__44169){
-var vec__44170 = p__44169;
-var high = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__44170,(0),null);
+(predict_prostate.results.util.toPrecision.cljs$core$IFn$_invoke$arity$variadic = (function (f,p__32794){
+var vec__32814 = p__32794;
+var high = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__32814,(0),null);
 return parseFloat((new Number(f)).toPrecision((((f >= (10)))?(2):(cljs.core.truth_(high)?(2):(1)))));
 }));
 
 (predict_prostate.results.util.toPrecision.cljs$lang$maxFixedArity = (1));
 
 /** @this {Function} */
-(predict_prostate.results.util.toPrecision.cljs$lang$applyTo = (function (seq44167){
-var G__44168 = cljs.core.first(seq44167);
-var seq44167__$1 = cljs.core.next(seq44167);
+(predict_prostate.results.util.toPrecision.cljs$lang$applyTo = (function (seq32743){
+var G__32753 = cljs.core.first(seq32743);
+var seq32743__$1 = cljs.core.next(seq32743);
 var self__4723__auto__ = this;
-return self__4723__auto__.cljs$core$IFn$_invoke$arity$variadic(G__44168,seq44167__$1);
+return self__4723__auto__.cljs$core$IFn$_invoke$arity$variadic(G__32753,seq32743__$1);
 }));
 
 predict_prostate.results.util.avoid_decimals = (function predict_prostate$results$util$avoid_decimals(var_args){
 var args__4742__auto__ = [];
-var len__4736__auto___44184 = arguments.length;
-var i__4737__auto___44185 = (0);
+var len__4736__auto___32974 = arguments.length;
+var i__4737__auto___32975 = (0);
 while(true){
-if((i__4737__auto___44185 < len__4736__auto___44184)){
-args__4742__auto__.push((arguments[i__4737__auto___44185]));
+if((i__4737__auto___32975 < len__4736__auto___32974)){
+args__4742__auto__.push((arguments[i__4737__auto___32975]));
 
-var G__44186 = (i__4737__auto___44185 + (1));
-i__4737__auto___44185 = G__44186;
+var G__32976 = (i__4737__auto___32975 + (1));
+i__4737__auto___32975 = G__32976;
 continue;
 } else {
 }
@@ -125,9 +125,9 @@ var argseq__4743__auto__ = ((((1) < args__4742__auto__.length))?(new cljs.core.I
 return predict_prostate.results.util.avoid_decimals.cljs$core$IFn$_invoke$arity$variadic((arguments[(0)]),argseq__4743__auto__);
 });
 
-(predict_prostate.results.util.avoid_decimals.cljs$core$IFn$_invoke$arity$variadic = (function (d,p__44175){
-var vec__44176 = p__44175;
-var high = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__44176,(0),null);
+(predict_prostate.results.util.avoid_decimals.cljs$core$IFn$_invoke$arity$variadic = (function (d,p__32837){
+var vec__32838 = p__32837;
+var high = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__32838,(0),null);
 
 var p = (((d < (10)))?(cljs.core.truth_(high)?(1):(0)):(0));
 return (new Number(d)).toFixed(p);
@@ -136,11 +136,11 @@ return (new Number(d)).toFixed(p);
 (predict_prostate.results.util.avoid_decimals.cljs$lang$maxFixedArity = (1));
 
 /** @this {Function} */
-(predict_prostate.results.util.avoid_decimals.cljs$lang$applyTo = (function (seq44173){
-var G__44174 = cljs.core.first(seq44173);
-var seq44173__$1 = cljs.core.next(seq44173);
+(predict_prostate.results.util.avoid_decimals.cljs$lang$applyTo = (function (seq32826){
+var G__32827 = cljs.core.first(seq32826);
+var seq32826__$1 = cljs.core.next(seq32826);
 var self__4723__auto__ = this;
-return self__4723__auto__.cljs$core$IFn$_invoke$arity$variadic(G__44174,seq44173__$1);
+return self__4723__auto__.cljs$core$IFn$_invoke$arity$variadic(G__32827,seq32826__$1);
 }));
 
 predict_prostate.results.util.one_dp = (function predict_prostate$results$util$one_dp(d,p){
@@ -154,8 +154,8 @@ predict_prostate.results.util.to_percent = (function predict_prostate$results$ut
 return ((100) * f);
 });
 predict_prostate.results.util.percent = (function predict_prostate$results$util$percent(var_args){
-var G__44180 = arguments.length;
-switch (G__44180) {
+var G__32883 = arguments.length;
+switch (G__32883) {
 case 1:
 return predict_prostate.results.util.percent.cljs$core$IFn$_invoke$arity$1((arguments[(0)]));
 
