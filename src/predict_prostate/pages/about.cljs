@@ -32,7 +32,7 @@
 
 (defn save-offsets [state]
   (println "*save-offsets* args" (:rum/args state))
-  (let [[_ k offsets] (:rum/args state)
+  (let [[k _ offsets] (:rum/args state)
         comp (:rum/react-component state)
         dom-node (js/ReactDOM.findDOMNode comp)]
     (swap! offsets assoc k (.-offsetTop dom-node))
