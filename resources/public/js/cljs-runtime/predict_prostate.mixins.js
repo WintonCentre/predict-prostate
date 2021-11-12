@@ -7,8 +7,8 @@ goog.provide('predict_prostate.mixins');
  *   else it is treated as an initial value.
  */
 predict_prostate.mixins.arg_local = (function predict_prostate$mixins$arg_local(var_args){
-var G__46826 = arguments.length;
-switch (G__46826) {
+var G__47192 = arguments.length;
+switch (G__47192) {
 case 1:
 return predict_prostate.mixins.arg_local.cljs$core$IFn$_invoke$arity$1((arguments[(0)]));
 
@@ -28,12 +28,12 @@ return predict_prostate.mixins.arg_local.cljs$core$IFn$_invoke$arity$2(initial,n
 }));
 
 (predict_prostate.mixins.arg_local.cljs$core$IFn$_invoke$arity$2 = (function (initial,key){
-return new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"init","init",-1875481434),(function (p__46838){
-var map__46839 = p__46838;
-var map__46839__$1 = (((((!((map__46839 == null))))?(((((map__46839.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__46839.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__46839):map__46839);
-var state = map__46839__$1;
-var args = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__46839__$1,new cljs.core.Keyword(null,"args","args",1315556576));
-var args__$1 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__46839__$1,new cljs.core.Keyword("rum","args","rum/args",1315791754));
+return new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"init","init",-1875481434),(function (p__47206){
+var map__47207 = p__47206;
+var map__47207__$1 = (((((!((map__47207 == null))))?(((((map__47207.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__47207.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__47207):map__47207);
+var state = map__47207__$1;
+var args = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__47207__$1,new cljs.core.Keyword(null,"args","args",1315556576));
+var args__$1 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__47207__$1,new cljs.core.Keyword("rum","args","rum/args",1315791754));
 return cljs.core.assoc.cljs$core$IFn$_invoke$arity$3(state,key,cljs.core.atom.cljs$core$IFn$_invoke$arity$1(((cljs.core.fn_QMARK_(initial))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(initial,args__$1):initial)));
 })], null);
 }));
@@ -69,21 +69,21 @@ return state;
  *   any one time. This is so we know when to switch on treatments.
  */
 predict_prostate.mixins.active_monitor = new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"did-mount","did-mount",918232960),(function (state){
-var vec__46844_46865 = new cljs.core.Keyword("rum","args","rum/args",1315791754).cljs$core$IFn$_invoke$arity$1(state);
-var map__46847_46866 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__46844_46865,(0),null);
-var map__46847_46867__$1 = (((((!((map__46847_46866 == null))))?(((((map__46847_46866.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__46847_46866.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__46847_46866):map__46847_46866);
-var key_46868 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__46847_46867__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
-cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$3(predict_prostate.state.run_time.on_screen_inputs_cursor,cljs.core.conj,key_46868);
+var vec__47220_47284 = new cljs.core.Keyword("rum","args","rum/args",1315791754).cljs$core$IFn$_invoke$arity$1(state);
+var map__47223_47285 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__47220_47284,(0),null);
+var map__47223_47286__$1 = (((((!((map__47223_47285 == null))))?(((((map__47223_47285.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__47223_47285.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__47223_47285):map__47223_47285);
+var key_47287 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__47223_47286__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
+cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$3(predict_prostate.state.run_time.on_screen_inputs_cursor,cljs.core.conj,key_47287);
 
 predict_prostate.state.run_time.force_recalculation.pubsub$feeds$TopicFeed$publish$arity$2(null,null);
 
 return state;
 }),new cljs.core.Keyword(null,"will-unmount","will-unmount",-808051550),(function (state){
-var vec__46849_46869 = new cljs.core.Keyword("rum","args","rum/args",1315791754).cljs$core$IFn$_invoke$arity$1(state);
-var map__46852_46870 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__46849_46869,(0),null);
-var map__46852_46871__$1 = (((((!((map__46852_46870 == null))))?(((((map__46852_46870.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__46852_46870.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__46852_46870):map__46852_46870);
-var key_46872 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__46852_46871__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
-cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$3(predict_prostate.state.run_time.on_screen_inputs_cursor,cljs.core.disj,key_46872);
+var vec__47227_47290 = new cljs.core.Keyword("rum","args","rum/args",1315791754).cljs$core$IFn$_invoke$arity$1(state);
+var map__47230_47291 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__47227_47290,(0),null);
+var map__47230_47292__$1 = (((((!((map__47230_47291 == null))))?(((((map__47230_47291.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__47230_47291.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__47230_47291):map__47230_47291);
+var key_47293 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__47230_47292__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
+cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$3(predict_prostate.state.run_time.on_screen_inputs_cursor,cljs.core.disj,key_47293);
 
 predict_prostate.state.run_time.force_recalculation.pubsub$feeds$TopicFeed$publish$arity$2(null,null);
 
@@ -95,21 +95,21 @@ return state;
  *   and treatments with this suffix stripped off.
  */
 predict_prostate.mixins.treatment_monitor = new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"did-mount","did-mount",918232960),(function (state){
-var vec__46854_46873 = new cljs.core.Keyword("rum","args","rum/args",1315791754).cljs$core$IFn$_invoke$arity$1(state);
-var map__46857_46874 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__46854_46873,(0),null);
-var map__46857_46875__$1 = (((((!((map__46857_46874 == null))))?(((((map__46857_46874.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__46857_46874.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__46857_46874):map__46857_46874);
-var key_46876 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__46857_46875__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
-var __46877 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__46854_46873,(1),null);
-cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$3(predict_prostate.state.run_time.on_screen_treatments_cursor,cljs.core.conj,key_46876);
+var vec__47239_47298 = new cljs.core.Keyword("rum","args","rum/args",1315791754).cljs$core$IFn$_invoke$arity$1(state);
+var map__47242_47299 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__47239_47298,(0),null);
+var map__47242_47300__$1 = (((((!((map__47242_47299 == null))))?(((((map__47242_47299.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__47242_47299.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__47242_47299):map__47242_47299);
+var key_47301 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__47242_47300__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
+var __47302 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__47239_47298,(1),null);
+cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$3(predict_prostate.state.run_time.on_screen_treatments_cursor,cljs.core.conj,key_47301);
 
 return state;
 }),new cljs.core.Keyword(null,"will-unmount","will-unmount",-808051550),(function (state){
-var vec__46859_46878 = new cljs.core.Keyword("rum","args","rum/args",1315791754).cljs$core$IFn$_invoke$arity$1(state);
-var map__46862_46879 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__46859_46878,(0),null);
-var map__46862_46880__$1 = (((((!((map__46862_46879 == null))))?(((((map__46862_46879.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__46862_46879.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__46862_46879):map__46862_46879);
-var key_46881 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__46862_46880__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
-var __46882 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__46859_46878,(1),null);
-cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$3(predict_prostate.state.run_time.on_screen_treatments_cursor,cljs.core.disj,cljs.core.PersistentHashSet.createAsIfByAssoc([key_46881]));
+var vec__47249_47307 = new cljs.core.Keyword("rum","args","rum/args",1315791754).cljs$core$IFn$_invoke$arity$1(state);
+var map__47252_47308 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__47249_47307,(0),null);
+var map__47252_47309__$1 = (((((!((map__47252_47308 == null))))?(((((map__47252_47308.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__47252_47308.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__47252_47308):map__47252_47308);
+var key_47310 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__47252_47309__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
+var __47311 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__47249_47307,(1),null);
+cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$3(predict_prostate.state.run_time.on_screen_treatments_cursor,cljs.core.disj,cljs.core.PersistentHashSet.createAsIfByAssoc([key_47310]));
 
 return state;
 })], null);

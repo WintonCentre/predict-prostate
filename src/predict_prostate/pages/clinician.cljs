@@ -8,14 +8,14 @@
             ))
 
 
-(rum/defc clinician < rum/static []
+(rum/defc clinician < rum/static [ttt]
   [:.container {:style {:height "100%"}}
    [:.row
     [:.col-sm-12
-     (header)
+     (header ttt)
      [:.row
       [:.col-sm-10.col-sm-offset-1 {:style {:min-height "calc(100vh - 200px)"}}
-       (all-subsections "clinician-information")
+       (all-subsections ttt "clinician-information")
        ]
       ]
      (footer)]]

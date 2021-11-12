@@ -83,16 +83,16 @@
 ;; PATIENT RELATED
 ;;;
 
-(rum/defc patient-related-form < rum/reactive [model-keys]
+(rum/defc patient-related-form < rum/reactive [ttt model-keys]
   [:div
 
    [:form.form-horizontal {:on-key-press key-event
                            :on-submit    submit-event}
     (when (model-keys :age) [:div (form-entry {:label "Age" :key :age})
                              #_[:div {:style {:color       "#686868"
-                                            :margin-left "145px"
-                                            :margin-top  -5}}
-                              "Age must be between 35 and 95"]])
+                                              :margin-left "145px"
+                                              :margin-top  -5}}
+                                "Age must be between 35 and 95"]])
 
     (when (model-keys :psa) (form-entry {:label "PSA" :key :psa}))
     (when (model-keys :t-stage) (form-entry {:label "T stage" :key :t-stage}))
@@ -101,13 +101,11 @@
     (when (= (rum/react (input-cursor :h-admissions)) 1)
       (when (model-keys :charlson-comorbidity) (form-entry {:label "comorb" :key :charlson-comorbidity})))
     (when (model-keys :brca) (form-entry {:label "BRCA" :key :brca}))
-    (form-entry {:label "Ethnicity" :key :ethnicity})
-
-    ]])
+    (form-entry {:label "Ethnicity" :key :ethnicity})]])
 
 
-(rum/defc patient-related-panel < rum/static [model-keys]
-  (patient-related-form model-keys)
+(rum/defc patient-related-panel < rum/static [ttt model-keys]
+  (patient-related-form ttt model-keys)
   )
 
 ;;;
@@ -133,7 +131,7 @@
     (biopsy-core-examples)]))
 
 
-(rum/defc tumour-related-form < rum/static rum/reactive [model-keys]
+(rum/defc tumour-related-form < rum/static rum/reactive [ttt model-keys]
   [:form.form-horizontal {:on-key-press key-event
                           :on-submit    submit-event}
 
@@ -172,13 +170,13 @@
      (mets-warning "This tool is only for use in men without metastatic disease. If you're unsure use the data with caution and please consult your medical professional"))
    ])
 
-(rum/defc tumour-related-panel < rum/static [model-keys]
+(rum/defc tumour-related-panel < rum/static [ttt model-keys]
   [:div
    (titled-panel
      {:key   "about-the-tumour-physical"
       :title "Tumour: physical characteristics"
       :help  nil}
-     (tumour-related-form model-keys)
+     (tumour-related-form ttt model-keys)
      )]
   )
 
@@ -200,17 +198,17 @@
      (hormone-form model-keys))]
   )
 
-(rum/defc inputs-row < rum/reactive tt-mixin []
+(rum/defc inputs-row < rum/reactive tt-mixin [ttt]
   (let [model-keys (live-keys-by-model model)]
     [:div
      [:.row
       [:.col-md-11.col-md-offset-1.screen-only
-       (clear-all-button {:on-click clear-inputs})]]
+       (clear-all-button {:ttt ttt :on-click clear-inputs})]]
      [:.row
       [:.col-sm-6.col-sm-offset-1.screen-only {:style {:padding-right 0}}
-       (patient-related-panel model-keys)]
+       (patient-related-panel ttt model-keys)]
       [:.col-sm-5.screen-only {:style {:padding-right 0}}
-       (tumour-related-panel model-keys)]
+       (tumour-related-panel ttt model-keys)]
 
       ]]
     ))

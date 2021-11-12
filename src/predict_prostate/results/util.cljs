@@ -165,13 +165,13 @@
   ([d p]
    (str (one-dp (* 100 d) p) "%")))
 
-(comment
-  (to-percent 0.0032 false)                                 ;=> 0.3
-  (to-percent 0.0032 true)                                  ;=> 0.32
-  (to-percent 0.0032)                                       ;=> 0.3
-  (to-percent 0.2345 true)
-  (to-percent 0.002345)
-  )
+;; (comment
+;;   (to-percent 0.0032 false)                                 ;=> 0.3
+;;   (to-percent 0.0032 true)                                  ;=> 0.32
+;;   (to-percent 0.0032)                                       ;=> 0.3
+;;   (to-percent 0.2345 true)
+;;   (to-percent 0.002345)
+;;   )
 
 ;;;
 ;; Alison styling

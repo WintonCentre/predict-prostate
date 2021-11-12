@@ -20,9 +20,10 @@
   ;=> {:a (1 2 3 4 5 6 7 8 9 10), :b (6 7 8 9 10 11 12 13 14 15)}
   )
 
-(defn cell-update [f]
-  "update a cell at position k index with old value to a new value
+(defn cell-update 
+  "Update a cell at position k index with old value to a new value
   given by (f k index old)"
+  [f]
   (fn [[k vs]]
     (let [g (partial f k)]                                  ;(fn [index old] (f k index old))
       [k (map-indexed g vs)])))
@@ -49,10 +50,10 @@
     [k (map (fn [[a b]] (- b a)) (partition 2 1 (cons initial vs)))]))
 
 (comment
-  (into {} (map (diff-cells 0)) '([:a [0 1 2 3]] [:b [1 6 5 4]] [:c [3 3 3 4]] [:d [0 -1 -2]]))
+  (into {} (map (cell-diffs 0)) '([:a [0 1 2 3]] [:b [1 6 5 4]] [:c [3 3 3 4]] [:d [0 -1 -2]]))
   ;=> {:a (0 1 1 1), :b (1 5 -1 -1), :c (3 0 0 1), :d (0 -1 -1)}
 
-  (into {} (map (diff-cells 1)) '([:a [0 1 2 3]] [:b [1 6 5 4]] [:c [3 3 3 4]] [:d [0 -1 -2]]))
+  (into {} (map (cell-diffs 1)) '([:a [0 1 2 3]] [:b [1 6 5 4]] [:c [3 3 3 4]] [:d [0 -1 -2]]))
   ;=> {:a (-1 1 1 1), :b (0 5 -1 -1), :c (2 0 0 1), :d (-1 -1 -1)}
   )
 

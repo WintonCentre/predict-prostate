@@ -3,7 +3,8 @@
    [rum.core :as rum]
    [clojure.string :refer [index-of]]
    [clojure.set :refer [union]]
-   [predict-prostate.state.config :refer [initial-t-state]]
+   ;[predict-prostate.state.config :refer [initial-t-state]]
+   [translations.config :refer [initial-t-state]]
    [pubsub.feeds :refer [->Topic create-feed]]))
 
 
@@ -233,6 +234,6 @@ survival, up to the projected survival of prostate-cancer-free men "
 
 
   @results-cursor
-  ([5 {:bcSpecSur 0.9769091120924175, :cumOverallSurOL 0.9692325692973538, :cumOverallSurHormo 0.007321510374584478, :cumOverallSurChemo 0, :cumOverallSurCandH 0.007321510374584478, :cumOverallSurCHT 0.012019282569459833}] [10 {:bcSpecSur 0.9407891636797882, :cumOverallSurOL 0.9192541233440501, :cumOverallSurHormo 0.018478310249836996, :cumOverallSurChemo 0, :cumOverallSurCandH 0.018478310249836996, :cumOverallSurCHT 0.030465967535812846}] [20 {:bcSpecSur 0.8760500103304053, :cumOverallSurOL 0.8104345849686604, :cumOverallSurHormo 0.037282221638997734, :cumOverallSurChemo 0, :cumOverallSurCandH 0.037282221638997734, :cumOverallSurCHT 0.0620689089391925}])
+  ;; ([5 {:bcSpecSur 0.9769091120924175, :cumOverallSurOL 0.9692325692973538, :cumOverallSurHormo 0.007321510374584478, :cumOverallSurChemo 0, :cumOverallSurCandH 0.007321510374584478, :cumOverallSurCHT 0.012019282569459833}] [10 {:bcSpecSur 0.9407891636797882, :cumOverallSurOL 0.9192541233440501, :cumOverallSurHormo 0.018478310249836996, :cumOverallSurChemo 0, :cumOverallSurCandH 0.018478310249836996, :cumOverallSurCHT 0.030465967535812846}] [20 {:bcSpecSur 0.8760500103304053, :cumOverallSurOL 0.8104345849686604, :cumOverallSurHormo 0.037282221638997734, :cumOverallSurChemo 0, :cumOverallSurCandH 0.037282221638997734, :cumOverallSurCHT 0.0620689089391925}])
 
   )

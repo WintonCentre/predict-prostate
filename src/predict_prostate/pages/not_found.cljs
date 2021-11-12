@@ -6,19 +6,19 @@
             [predict-prostate.content-reader :refer [all-subsections]]))
 
 
-(rum/defc not-found < rum/static []
+(rum/defc not-found < rum/static [ttt]
 
   [:.container
    [:.row
     [:.col-sm-12
-     (header)
+     (header ttt)
 
      [:.row
 
       [:.col-sm-4 {:style {:padding-left  "25px"
                            :padding-right "25px"}}
 
-       (all-subsections "not-found")
+       (all-subsections ttt "not-found")
 
        ]
 

@@ -78,7 +78,7 @@
 
 
 (rum/defc results-in-icons* < rum/reactive
-  [{:keys [printable]}]
+  [{:keys [printable ttt]}]
 
   (let [radical? (= 1 (rum/react (input-cursor :primary-rx)))
         data (extract-data (rum/react results-cursor) radical?)
@@ -132,7 +132,7 @@
       [:.row {:style {:position "relative"}}
        [:.col-xs-12.screen-only
         {:style {:margin-top "15px" :font-size 16}} "This display shows the outcomes for 100 men. These results are based on the inputs and treatments you selected "
-        [:span.screen-only (year-picker)]
+        [:span.screen-only (year-picker ttt)]
         [:span.print-only {:style {:font-size 12}} years]
         " years after diagnosis"
         ]

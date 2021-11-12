@@ -2,9 +2,10 @@
   (:require [rum.core :as rum]
             [predict-prostate.state.run-time :refer [help-key-change input-cursor]]
             [pubsub.feeds :refer [->Topic publish create-feed]]
-            [tongue.core :as tongue]
-            [translations.tongue-base :refer [wrap-translator]]
-            [translations.config :refer [initial-supported-langs]]))
+            ;[tongue.core :as tongue]
+            ;[translations.tongue-base :refer [wrap-translator]]
+            ;[translations.config :refer [initial-supported-langs]]
+            ))
 
 
 (rum/defc any-of-these-diseases []
@@ -24,22 +25,6 @@
 ;; It does not have to be very complete as calls to the translator function should include the English default
 ;;;
 (def rtl-languages #{:ar :az :dv :he :ku :fa :ur})          ; switch into right to left for these languages
-
-(def initial-lang :en)
-
-(def initial-translations {:en {:missing         "**MISSING**"
-                                ; SVG texts MUST be present in the initial dictionary
-                                :curves/x-axis   "Years after surgery"
-                                :curves/y-axis   "Percentage of women surviving"
-                                :what-is-predict "What is Predict?"}})
-
-; The inital translations state only has to provide something until the online dictionary is accessed. Also, all translator calls should have an english default
-; built in.
-(def initial-t-state {:languages    initial-supported-langs ; list of currently supported languages (initialise by reading "languages.edn")
-                      :lang         initial-lang ; the currently active language
-                      :translations initial-translations
-                      :translator   (wrap-translator initial-lang (tongue/build-translate initial-translations)) ; the current translator function (a wrapped tongue translator)
-                      })
 
 
 
@@ -102,6 +87,7 @@
                   "Ethnic Origin"
                   :information
                   "Please click on the info button"
+                  ;[:eth-info "Please click on the info button"]
                   false false true
                   :prp
                   #{"prostate" "prostate-release"}

@@ -8,15 +8,15 @@
             [interop.utils :refer [scrollTo]]
             ))
 
-(rum/defc legal < rum/static [route]
+(rum/defc legal < rum/static [ttt route]
   (let [[_ {page :page}] route]
     [:.container-fluid
-     (header)
-     (header-banner "legal-preamble")
+     (header ttt)
+     (header-banner ttt "legal-preamble")
      [:#main-content.row {:tab-index -1}
       [:.col-sm-10.col-sm-offset-1.col-lg-8.col-lg-offset-2 {:style {:min-height "calc(100vh - 700px)"}}
-       (when page (all-subsections (name page)))]]
+       (when page (all-subsections ttt (name page)))]]
      (scrollTo 0)
-     (footer-banner)
+     (footer-banner ttt)
      [:.row.screen-only (footer)]]
     ))

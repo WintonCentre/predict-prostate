@@ -15,9 +15,9 @@
 (rum/defc top-modal < rum/reactive
                       "Note that we are assuming the _single_ modal dialog is mounted on #topModal since we
                       are using jQuery to locate it."
-  []
+  [ttt]
   (let [help-key (rum/react help-key-cursor)
-        help (section help-key)
+        help (section ttt help-key)
         [help-header & help-content] (if (seq help)
                                        help
                                        ["help header" [:p {:style {:color "red"}} "add content for " help-key]])
@@ -64,7 +64,7 @@
 (rum/defc print-modal < rum/reactive
                         "Note that we are assuming the _single_ modal dialog is mounted on #topModal since we
                         are using jQuery to locate it."
-  []
+  [ttt]
   [:div
    [:#printModal.modal.fade {:role        "dialog"
                              :tab-index   -1
@@ -74,9 +74,9 @@
       [:.modal-header (cancel-or-print)]
       [:.modal-body (when (and (rum/react print-cursor) (rum/react results-cursor))
                       [:div
-                       (rum/with-key (results-in-print) 2)])]
+                       (rum/with-key (results-in-print ttt) 2)])]
       [:.modal-footer (cancel-or-print)]]]]
-   [:.print-only {::style {:margin "0 20px"}} (when (and (rum/react print-cursor) (rum/react results-cursor)) (results-in-print))]])
+   [:.print-only {::style {:margin "0 20px"}} (when (and (rum/react print-cursor) (rum/react results-cursor)) (results-in-print ttt))]])
 
 
 

@@ -51,7 +51,7 @@
           } text]]))
 
 
-(def nav-items
+(defn nav-items
   [ttt _ supported-languages]
 
   [(Nav-item. (ttt [:navbar/home "Home"]) navigate-to [:home {:page :home}])

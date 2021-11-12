@@ -1,16 +1,23 @@
 (ns predict-prostate.components.button
   (:require [rum.core :as rum]
-            [predict-prostate.state.run-time :refer [unknown input-cursor input-change help-key-change settings-change print-change route-change]]
+            [predict-prostate.state.run-time :refer [unknown input-cursor input-change help-key-change settings-change print-change route-change language-change]]
             [graphics.simple-icons :as simple]
             [pubsub.feeds :refer [publish]]
             [clojure.pprint :refer [cl-format]]
             ))
 
 ;; Simple text only component that only echoes text
-(rum/defc information < rum/reactive [{:keys [values ttt ttt-key]} _]
+(rum/defc information < rum/reactive [{:keys [key values]
+                                       :as   props} group-cursor]
   [:div
    [:div
-    [:div (ttt [ttt-key values])]]])
+    [:div values]]])
+
+
+;; (rum/defc information < rum/reactive [{:keys [values ttt ttt-key]} _]
+;;   [:div
+;;    [:div
+;;     [:div (ttt [ttt-key values])]]])
 
 
 ;; Generic toggle
@@ -153,6 +160,11 @@
                      (publish print-change "print"))
     }
    (simple/icon {:family :fa} "print") " " (ttt [:home/print-button "Print"])])
+
+(defn menu-item [item lang]
+  [:li
+   [:a {:href "#"
+        :on-click #(publish language-change lang)} item]])
 
 ;; Doesn't seem to be used in predict breast either
 ;; (defn change-language

@@ -5,7 +5,7 @@ goog.provide('bide.core');
  */
 bide.core.IRouter = function(){};
 
-var bide$core$IRouter$_navigate$dyn_43391 = (function (_,loc,params,query){
+var bide$core$IRouter$_navigate$dyn_44187 = (function (_,loc,params,query){
 var x__4428__auto__ = (((_ == null))?null:_);
 var m__4429__auto__ = (bide.core._navigate[goog.typeOf(x__4428__auto__)]);
 if((!((m__4429__auto__ == null)))){
@@ -23,11 +23,11 @@ bide.core._navigate = (function bide$core$_navigate(_,loc,params,query){
 if((((!((_ == null)))) && ((!((_.bide$core$IRouter$_navigate$arity$4 == null)))))){
 return _.bide$core$IRouter$_navigate$arity$4(_,loc,params,query);
 } else {
-return bide$core$IRouter$_navigate$dyn_43391(_,loc,params,query);
+return bide$core$IRouter$_navigate$dyn_44187(_,loc,params,query);
 }
 });
 
-var bide$core$IRouter$_replace$dyn_43392 = (function (_,loc,params,query){
+var bide$core$IRouter$_replace$dyn_44189 = (function (_,loc,params,query){
 var x__4428__auto__ = (((_ == null))?null:_);
 var m__4429__auto__ = (bide.core._replace[goog.typeOf(x__4428__auto__)]);
 if((!((m__4429__auto__ == null)))){
@@ -45,7 +45,7 @@ bide.core._replace = (function bide$core$_replace(_,loc,params,query){
 if((((!((_ == null)))) && ((!((_.bide$core$IRouter$_replace$arity$4 == null)))))){
 return _.bide$core$IRouter$_replace$arity$4(_,loc,params,query);
 } else {
-return bide$core$IRouter$_replace$dyn_43392(_,loc,params,query);
+return bide$core$IRouter$_replace$dyn_44189(_,loc,params,query);
 }
 });
 
@@ -56,7 +56,7 @@ return bide$core$IRouter$_replace$dyn_43392(_,loc,params,query);
  */
 bide.core.IPathRepr = function(){};
 
-var bide$core$IPathRepr$_repr$dyn_43409 = (function (_){
+var bide$core$IPathRepr$_repr$dyn_44190 = (function (_){
 var x__4428__auto__ = (((_ == null))?null:_);
 var m__4429__auto__ = (bide.core._repr[goog.typeOf(x__4428__auto__)]);
 if((!((m__4429__auto__ == null)))){
@@ -77,7 +77,7 @@ bide.core._repr = (function bide$core$_repr(_){
 if((((!((_ == null)))) && ((!((_.bide$core$IPathRepr$_repr$arity$1 == null)))))){
 return _.bide$core$IPathRepr$_repr$arity$1(_);
 } else {
-return bide$core$IPathRepr$_repr$dyn_43409(_);
+return bide$core$IPathRepr$_repr$dyn_44190(_);
 }
 });
 
@@ -166,10 +166,10 @@ return bide.impl.router.insert(router,path,name);
  *   if the no match is found.
  */
 bide.core.match = (function bide$core$match(router,path){
-var vec__43329 = cljs.core.vec(bide.impl.router.match(router,path));
-var name = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__43329,(0),null);
-var params = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__43329,(1),null);
-var query = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__43329,(2),null);
+var vec__44116 = cljs.core.vec(bide.impl.router.match(router,path));
+var name = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__44116,(0),null);
+var params = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__44116,(1),null);
+var query = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__44116,(2),null);
 if(cljs.core.truth_(name)){
 return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [name,bide.core.js__GT_props(params),bide.core.js__GT_props(query)], null);
 } else {
@@ -185,10 +185,10 @@ if(cljs.core.vector_QMARK_(routes)){
 throw (new Error("Assert failed: (vector? routes)"));
 }
 
-return cljs.core.reduce.cljs$core$IFn$_invoke$arity$3((function (router,p__43335){
-var vec__43336 = p__43335;
-var path = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__43336,(0),null);
-var name = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__43336,(1),null);
+return cljs.core.reduce.cljs$core$IFn$_invoke$arity$3((function (router,p__44119){
+var vec__44120 = p__44119;
+var path = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__44120,(0),null);
+var name = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__44120,(1),null);
 return bide.impl.router.insert(router,path,name);
 }),bide.impl.router.empty(),routes);
 });
@@ -196,8 +196,8 @@ return bide.impl.router.insert(router,path,name);
  * Perform a url resolve operation.
  */
 bide.core.resolve = (function bide$core$resolve(var_args){
-var G__43343 = arguments.length;
-switch (G__43343) {
+var G__44127 = arguments.length;
+switch (G__44127) {
 case 2:
 return bide.core.resolve.cljs$core$IFn$_invoke$arity$2((arguments[(0)]),(arguments[(1)]));
 
@@ -260,20 +260,20 @@ return (new bide.impl.TokenTransformer());
  *   `:html5history` when you need to do some customizations to history instance
  *   used to manage history events.
  */
-bide.core.start_BANG_ = (function bide$core$start_BANG_(router,p__43354){
-var map__43355 = p__43354;
-var map__43355__$1 = (((((!((map__43355 == null))))?(((((map__43355.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__43355.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__43355):map__43355);
-var opts = map__43355__$1;
-var on_navigate = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__43355__$1,new cljs.core.Keyword(null,"on-navigate","on-navigate",-297227908));
-var default$ = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__43355__$1,new cljs.core.Keyword(null,"default","default",-1987822328));
-var html5_QMARK_ = cljs.core.get.cljs$core$IFn$_invoke$arity$3(map__43355__$1,new cljs.core.Keyword(null,"html5?","html5?",-1008298421),false);
-var html5history = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__43355__$1,new cljs.core.Keyword(null,"html5history","html5history",-1921478143));
+bide.core.start_BANG_ = (function bide$core$start_BANG_(router,p__44148){
+var map__44149 = p__44148;
+var map__44149__$1 = (((((!((map__44149 == null))))?(((((map__44149.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__44149.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__44149):map__44149);
+var opts = map__44149__$1;
+var on_navigate = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__44149__$1,new cljs.core.Keyword(null,"on-navigate","on-navigate",-297227908));
+var default$ = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__44149__$1,new cljs.core.Keyword(null,"default","default",-1987822328));
+var html5_QMARK_ = cljs.core.get.cljs$core$IFn$_invoke$arity$3(map__44149__$1,new cljs.core.Keyword(null,"html5?","html5?",-1008298421),false);
+var html5history = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__44149__$1,new cljs.core.Keyword(null,"html5history","html5history",-1921478143));
 var default$__$1 = ((cljs.core.vector_QMARK_(default$))?default$:new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [default$,null], null));
 var _on_navigate = (function bide$core$start_BANG__$__on_navigate(event){
-var vec__43365 = _match(event.token);
-var name = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__43365,(0),null);
-var params = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__43365,(1),null);
-var query = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__43365,(2),null);
+var vec__44167 = _match(event.token);
+var name = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__44167,(0),null);
+var params = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__44167,(1),null);
+var query = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__44167,(2),null);
 return (on_navigate.cljs$core$IFn$_invoke$arity$3 ? on_navigate.cljs$core$IFn$_invoke$arity$3(name,params,query) : on_navigate.call(null,name,params,query));
 });
 var _match = (function bide$core$start_BANG__$__match(token){
@@ -299,37 +299,37 @@ return token;
 }
 });
 var html5history__$1 = ((cljs.core.fn_QMARK_(html5history))?(html5history.cljs$core$IFn$_invoke$arity$0 ? html5history.cljs$core$IFn$_invoke$arity$0() : html5history.call(null)):(new goog.history.Html5History(null,bide.core.token_transformer())));
-var history = (cljs.core.truth_(html5_QMARK_)?(function (){var G__43372 = html5history__$1;
-G__43372.setPathPrefix("");
+var history = (cljs.core.truth_(html5_QMARK_)?(function (){var G__44174 = html5history__$1;
+G__44174.setPathPrefix("");
 
-G__43372.setUseFragment(false);
+G__44174.setUseFragment(false);
 
-G__43372.setEnabled(true);
+G__44174.setEnabled(true);
 
-return G__43372;
-})():(function (){var G__43373 = html5history__$1;
-G__43373.setUseFragment(true);
+return G__44174;
+})():(function (){var G__44175 = html5history__$1;
+G__44175.setUseFragment(true);
 
-G__43373.setEnabled(true);
+G__44175.setEnabled(true);
 
-return G__43373;
+return G__44175;
 })());
 var initial_token = _initial_token(history);
 var initial_loc = _match(initial_token);
 var lkey = goog.events.listen(history,goog.history.EventType.NAVIGATE,_on_navigate);
 history.replaceToken(initial_token);
 
-var x43374 = router;
-(x43374.close = (function (){
+var x44176 = router;
+(x44176.close = (function (){
 var _ = this;
 goog.events.unlistenByKey(lkey);
 
 return history.setEnabled(false);
 }));
 
-(x43374.bide$core$IRouter$ = cljs.core.PROTOCOL_SENTINEL);
+(x44176.bide$core$IRouter$ = cljs.core.PROTOCOL_SENTINEL);
 
-(x43374.bide$core$IRouter$_navigate$arity$4 = (function (_,id,params,query){
+(x44176.bide$core$IRouter$_navigate$arity$4 = (function (_,id,params,query){
 var ___$1 = this;
 var temp__5735__auto__ = bide.core.resolve.cljs$core$IFn$_invoke$arity$4(router,id,params,query);
 if(cljs.core.truth_(temp__5735__auto__)){
@@ -340,7 +340,7 @@ return null;
 }
 }));
 
-(x43374.bide$core$IRouter$_replace$arity$4 = (function (_,id,params,query){
+(x44176.bide$core$IRouter$_replace$arity$4 = (function (_,id,params,query){
 var ___$1 = this;
 var temp__5735__auto__ = bide.core.resolve.cljs$core$IFn$_invoke$arity$4(router,id,params,query);
 if(cljs.core.truth_(temp__5735__auto__)){
@@ -351,14 +351,14 @@ return null;
 }
 }));
 
-return x43374;
+return x44176;
 });
 /**
  * Trigger a navigate event to a specific location.
  */
 bide.core.navigate_BANG_ = (function bide$core$navigate_BANG_(var_args){
-var G__43379 = arguments.length;
-switch (G__43379) {
+var G__44183 = arguments.length;
+switch (G__44183) {
 case 2:
 return bide.core.navigate_BANG_.cljs$core$IFn$_invoke$arity$2((arguments[(0)]),(arguments[(1)]));
 
@@ -400,8 +400,8 @@ return bide.core._navigate(router,id,params,query);
  * Trigger a replace event to a specific location.
  */
 bide.core.replace_BANG_ = (function bide$core$replace_BANG_(var_args){
-var G__43389 = arguments.length;
-switch (G__43389) {
+var G__44186 = arguments.length;
+switch (G__44186) {
 case 2:
 return bide.core.replace_BANG_.cljs$core$IFn$_invoke$arity$2((arguments[(0)]),(arguments[(1)]));
 

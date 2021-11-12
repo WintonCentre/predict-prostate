@@ -78,21 +78,21 @@
    (result-panes)]
   )
 
-(rum/defc side-panel []
+(rum/defc side-panel [ttt]
   [:.well {:style {:margin-top 20  :background-color alison-blue-1}}
-   (all-subsections "tool-postamble")
+   (all-subsections ttt "tool-postamble")
    (when (#{4 5} @(input-cursor :grade-group))
-     (all-subsections "high-grade-group-warning"))
+     (all-subsections ttt "high-grade-group-warning"))
    (when (not= :no @(input-cursor :metastasis))
-     (all-subsections "metastasis-warning"))
-   (all-subsections "scroll-down-for")
+     (all-subsections ttt "metastasis-warning"))
+   (all-subsections ttt "scroll-down-for")
    ])
 
-(rum/defc results < rum/reactive [{:keys [container?] :as props}]
+(rum/defc results < rum/reactive [{:keys [ttt container?] :as props}]
   [:div #_(when container? {:class-name "container"})
    [:.row
     [:.col-md-6.col-md-offset-1
      (result-panel)]
     [:.col-md-4
-     (side-panel)]
+     (side-panel ttt)]
     ]])

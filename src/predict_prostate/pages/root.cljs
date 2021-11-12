@@ -1,7 +1,7 @@
 (ns predict-prostate.pages.root
   (:require                                                 ;[org.martinklepsch.derivatives :refer [rum-derivatives]]
    [rum.core :as rum]
-   [predict-prostate.state.run-time :refer [rtdb route media-change media-cursor]]
+   [predict-prostate.state.run-time :refer [rtdb route media-change media-cursor t-state-cursor]]
    [predict-prostate.pages.home :refer [home]]
    [predict-prostate.pages.about :refer [about]]
    [predict-prostate.pages.legal :refer [legal]]
@@ -37,7 +37,7 @@
                                  )
                                state)})
 
-(rum/defc root < rum/reactive media-watch                   ;(rum-derivatives drv-spec)
+(rum/defc root* < rum/reactive media-watch                   ;(rum-derivatives drv-spec)
                  "Root of site. All components are within this tree"
   [ttt*]
   (let [[page _ _ :as rt] (rum/react route)
@@ -45,12 +45,12 @@
     [:div
      (case page
        :home (home ttt*) #_(home)
-       :about (about ttt* rt lang) #_(about rt)
-       :tool (v2 ttt*) #_(tool)
+       :about (about ttt* rt) #_(about rt)
+       :tool (tool ttt*)
        :contact (contact ttt* rt) #_(contact rt)
        :legal (legal ttt* rt) #_(legal rt)
 
-       :not-found (not-found) ;; commented out in predict3...
+       :not-found (not-found ttt) ;; commented out in predict3...
        ;[:div "404"]
        )]))
 

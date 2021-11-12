@@ -23,7 +23,7 @@
     [:span {:style {:font-size "16px" :font-weight "bold"}} n]
     n))
 
-(rum/defc texts < rum/static [years data radical? printable]
+(rum/defc texts < rum/static [years data radical? printable ttt]
   (let [cs (round (nth (:conservative-survival data) years))
         rs (round (nth (:radical-survival data) years))
         benefit (- rs cs)]
@@ -38,7 +38,7 @@
 
      [:.screen-only
       [:.col-sm-12 {:style {:margin-top 15 :margin-bottom "0px" :display "inline-block" :font-size 16}}
-       [:span "Based on the information you have entered, " (year-picker) " years after diagnosis:"]
+       [:span "Based on the information you have entered, " (year-picker ttt) " years after diagnosis:"]
 
        [:p (emph cs) " out of " (emph 100) " men are alive at " years " years with " (emph "initial conservative treatment") "."]
 
@@ -69,7 +69,7 @@
     ))
 
 (rum/defc results-in-text < rum/reactive #_(set-default :result-year)
-  [{:keys [printable]}]
+  [{:keys [printable ttt]}]
   (let [year (rum/react (input-cursor :result-year))
         radical? (= 1 (rum/react (input-cursor :primary-rx)))
         data (extract-data (rum/react results-cursor) radical?)
@@ -78,6 +78,6 @@
         ]
 
     [:div
-     (texts year data radical? printable)
+     (texts year data radical? printable ttt)
      [:p.print-only {:style {:font-size 12}} text1 (emph (round (nth (:dotted-orange data) year))) text2]
      [:p.screen-only {:style {:font-size 16}} text1 (emph (round (nth (:dotted-orange data) year))) text2]]))

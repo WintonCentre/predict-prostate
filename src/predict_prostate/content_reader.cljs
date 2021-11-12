@@ -7,8 +7,9 @@
        :private true}
 re-tag #"([^\s\.#]+)(?:#([^\s\.#]+))?(?:\.([^\s#]+))?")
 
-(defn match-id [tag id]
+(defn match-id 
   "return true if tag contains a hash tag-id matching id."
+  [tag id]
   (let [[_ _ tag-id _] (re-find re-tag (str tag))]
     (= id tag-id)))
 (comment
@@ -59,7 +60,8 @@ re-tag #"([^\s\.#]+)(?:#([^\s\.#]+))?(?:\.([^\s#]+))?")
    (let [{:keys [_ xs]} (match-node ttt node id)]
      xs))
 
-  ([ttt id] (section ttt (content ttt) id)))
+  ([ttt id] 
+   (section ttt (content #_ttt) id)))
 
 (defn all-subsections
   "loop through subsections adding keys."
@@ -109,8 +111,8 @@ re-tag #"([^\s\.#]+)(?:#([^\s\.#]+))?(?:\.([^\s#]+))?")
 
   (match-node ttt mock-data* "about-the-patient")
 
-  (content)
-  (match-node ttt (content) "about-the-patient")
+  (content #_ttt)
+  (match-node ttt (content #_ttt) "about-the-patient")
   (match-node ttt content "welcome")
   (match-node ttt content "why")
   (section ttt "welcome")

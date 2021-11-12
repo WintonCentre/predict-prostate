@@ -11,7 +11,51 @@ return pubsub.feeds.__GT_Topic(topic_key,predict_prostate.state.run_time.event_b
 });
 if((typeof predict_prostate !== 'undefined') && (typeof predict_prostate.state !== 'undefined') && (typeof predict_prostate.state.run_time !== 'undefined') && (typeof predict_prostate.state.run_time.rtdb !== 'undefined')){
 } else {
-predict_prostate.state.run_time.rtdb = cljs.core.atom.cljs$core$IFn$_invoke$arity$1(cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"on-screen-treatments","on-screen-treatments",-1224669659),new cljs.core.Keyword(null,"help-visible","help-visible",-41851928),new cljs.core.Keyword(null,"incomplete","incomplete",-998567478),new cljs.core.Keyword(null,"active-mockup","active-mockup",-1957953013),new cljs.core.Keyword(null,"help-content","help-content",-1146352148),new cljs.core.Keyword(null,"route","route",329891309),new cljs.core.Keyword(null,"plot-style","plot-style",-113762355),new cljs.core.Keyword(null,"settings-visible","settings-visible",-1241594802),new cljs.core.Keyword(null,"help-key","help-key",-330891567),new cljs.core.Keyword(null,"on-screen-inputs","on-screen-inputs",-1260802924),new cljs.core.Keyword(null,"help-header","help-header",-1874522216),new cljs.core.Keyword(null,"show-uncertainty","show-uncertainty",-166217605),new cljs.core.Keyword(null,"hide-warning","hide-warning",1423504796),new cljs.core.Keyword(null,"media","media",-1066138403),new cljs.core.Keyword(null,"test","test",577538877),new cljs.core.Keyword(null,"recalculate-error-state","recalculate-error-state",-1513288226),new cljs.core.Keyword(null,"active-results-pane","active-results-pane",1428827423),new cljs.core.Keyword(null,"results","results",-1134170113)],[cljs.core.PersistentHashSet.EMPTY,false,true,"Mockup 1","Help content",new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"home","home",-74557309),null,null], null),null,false,null,cljs.core.PersistentHashSet.EMPTY,"Help header",new cljs.core.Keyword(null,"no","no",-390373634),false,new cljs.core.Keyword(null,"screen","screen",1990059748),"test",(0),"charts",cljs.core.PersistentVector.EMPTY]));
+predict_prostate.state.run_time.rtdb = cljs.core.atom.cljs$core$IFn$_invoke$arity$1(cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"t-state","t-state",-949929279),new cljs.core.Keyword(null,"on-screen-treatments","on-screen-treatments",-1224669659),new cljs.core.Keyword(null,"help-visible","help-visible",-41851928),new cljs.core.Keyword(null,"incomplete","incomplete",-998567478),new cljs.core.Keyword(null,"active-mockup","active-mockup",-1957953013),new cljs.core.Keyword(null,"help-content","help-content",-1146352148),new cljs.core.Keyword(null,"route","route",329891309),new cljs.core.Keyword(null,"plot-style","plot-style",-113762355),new cljs.core.Keyword(null,"settings-visible","settings-visible",-1241594802),new cljs.core.Keyword(null,"help-key","help-key",-330891567),new cljs.core.Keyword(null,"on-screen-inputs","on-screen-inputs",-1260802924),new cljs.core.Keyword(null,"help-header","help-header",-1874522216),new cljs.core.Keyword(null,"show-uncertainty","show-uncertainty",-166217605),new cljs.core.Keyword(null,"hide-warning","hide-warning",1423504796),new cljs.core.Keyword(null,"media","media",-1066138403),new cljs.core.Keyword(null,"test","test",577538877),new cljs.core.Keyword(null,"recalculate-error-state","recalculate-error-state",-1513288226),new cljs.core.Keyword(null,"active-results-pane","active-results-pane",1428827423),new cljs.core.Keyword(null,"results","results",-1134170113)],[translations.config.initial_t_state,cljs.core.PersistentHashSet.EMPTY,false,true,"Mockup 1","Help content",new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"home","home",-74557309),null,null], null),null,false,null,cljs.core.PersistentHashSet.EMPTY,"Help header",new cljs.core.Keyword(null,"no","no",-390373634),false,new cljs.core.Keyword(null,"screen","screen",1990059748),"test",(0),"charts",cljs.core.PersistentVector.EMPTY]));
+}
+if((typeof predict_prostate !== 'undefined') && (typeof predict_prostate.state !== 'undefined') && (typeof predict_prostate.state.run_time !== 'undefined') && (typeof predict_prostate.state.run_time.edit_cursor !== 'undefined')){
+} else {
+predict_prostate.state.run_time.edit_cursor = rum.core.cursor_in(predict_prostate.state.run_time.rtdb,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"edit","edit",-1641834166)], null));
+}
+if((typeof predict_prostate !== 'undefined') && (typeof predict_prostate.state !== 'undefined') && (typeof predict_prostate.state.run_time !== 'undefined') && (typeof predict_prostate.state.run_time.edit_change !== 'undefined')){
+} else {
+predict_prostate.state.run_time.edit_change = predict_prostate.state.run_time.make_topic(new cljs.core.Keyword(null,"edit-change","edit-change",-1693718136));
+}
+if((typeof predict_prostate !== 'undefined') && (typeof predict_prostate.state !== 'undefined') && (typeof predict_prostate.state.run_time !== 'undefined') && (typeof predict_prostate.state.run_time.new_text_cursor !== 'undefined')){
+} else {
+predict_prostate.state.run_time.new_text_cursor = rum.core.cursor_in(predict_prostate.state.run_time.rtdb,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"edit","edit",-1641834166),new cljs.core.Keyword(null,"new-text","new-text",962412088)], null));
+}
+if((typeof predict_prostate !== 'undefined') && (typeof predict_prostate.state !== 'undefined') && (typeof predict_prostate.state.run_time !== 'undefined') && (typeof predict_prostate.state.run_time.new_text_change !== 'undefined')){
+} else {
+predict_prostate.state.run_time.new_text_change = predict_prostate.state.run_time.make_topic(new cljs.core.Keyword(null,"new-text-change","new-text-change",549693685));
+}
+if((typeof predict_prostate !== 'undefined') && (typeof predict_prostate.state !== 'undefined') && (typeof predict_prostate.state.run_time !== 'undefined') && (typeof predict_prostate.state.run_time.text_change !== 'undefined')){
+} else {
+predict_prostate.state.run_time.text_change = predict_prostate.state.run_time.make_topic(new cljs.core.Keyword(null,"text-change","text-change",-368710709));
+}
+if((typeof predict_prostate !== 'undefined') && (typeof predict_prostate.state !== 'undefined') && (typeof predict_prostate.state.run_time !== 'undefined') && (typeof predict_prostate.state.run_time.add_language_modal !== 'undefined')){
+} else {
+predict_prostate.state.run_time.add_language_modal = predict_prostate.state.run_time.make_topic(new cljs.core.Keyword(null,"add-language-modal","add-language-modal",1467045725));
+}
+if((typeof predict_prostate !== 'undefined') && (typeof predict_prostate.state !== 'undefined') && (typeof predict_prostate.state.run_time !== 'undefined') && (typeof predict_prostate.state.run_time.add_language !== 'undefined')){
+} else {
+predict_prostate.state.run_time.add_language = predict_prostate.state.run_time.make_topic(new cljs.core.Keyword(null,"add-language","add-language",817419765));
+}
+if((typeof predict_prostate !== 'undefined') && (typeof predict_prostate.state !== 'undefined') && (typeof predict_prostate.state.run_time !== 'undefined') && (typeof predict_prostate.state.run_time.t_state_cursor !== 'undefined')){
+} else {
+predict_prostate.state.run_time.t_state_cursor = rum.core.cursor_in(predict_prostate.state.run_time.rtdb,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"t-state","t-state",-949929279)], null));
+}
+if((typeof predict_prostate !== 'undefined') && (typeof predict_prostate.state !== 'undefined') && (typeof predict_prostate.state.run_time !== 'undefined') && (typeof predict_prostate.state.run_time.t_state_change !== 'undefined')){
+} else {
+predict_prostate.state.run_time.t_state_change = predict_prostate.state.run_time.make_topic(new cljs.core.Keyword(null,"t-state-change","t-state-change",1837362165));
+}
+if((typeof predict_prostate !== 'undefined') && (typeof predict_prostate.state !== 'undefined') && (typeof predict_prostate.state.run_time !== 'undefined') && (typeof predict_prostate.state.run_time.ttt_cursor !== 'undefined')){
+} else {
+predict_prostate.state.run_time.ttt_cursor = rum.core.cursor_in(predict_prostate.state.run_time.rtdb,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"t-state","t-state",-949929279),new cljs.core.Keyword(null,"translator","translator",-1752203115)], null));
+}
+if((typeof predict_prostate !== 'undefined') && (typeof predict_prostate.state !== 'undefined') && (typeof predict_prostate.state.run_time !== 'undefined') && (typeof predict_prostate.state.run_time.language_change !== 'undefined')){
+} else {
+predict_prostate.state.run_time.language_change = predict_prostate.state.run_time.make_topic(new cljs.core.Keyword(null,"language-change","language-change",1891938328));
 }
 if((typeof predict_prostate !== 'undefined') && (typeof predict_prostate.state !== 'undefined') && (typeof predict_prostate.state.run_time !== 'undefined') && (typeof predict_prostate.state.run_time.estimates !== 'undefined')){
 } else {
@@ -163,17 +207,17 @@ return cljs.core.get_in.cljs$core$IFn$_invoke$arity$2(cljs.core.deref(predict_pr
  *   Keys are unqualified (i.e. they don't refer to the selected treatment option).
  */
 predict_prostate.state.run_time.input_map = (function predict_prostate$state$run_time$input_map(){
-return cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentArrayMap.EMPTY,cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p__43451){
-var vec__43452 = p__43451;
-var k = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__43452,(0),null);
-var v = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__43452,(1),null);
+return cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentArrayMap.EMPTY,cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p__45489){
+var vec__45490 = p__45489;
+var k = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__45490,(0),null);
+var v = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__45490,(1),null);
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [k,cljs.core.deref(v)], null);
-}),cljs.core.filter.cljs$core$IFn$_invoke$arity$2((function (p__43455){
-var vec__43456 = p__43455;
-var k = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__43456,(0),null);
-var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__43456,(1),null);
-var fexpr__43459 = clojure.set.union.cljs$core$IFn$_invoke$arity$2(cljs.core.deref(predict_prostate.state.run_time.on_screen_inputs_cursor),cljs.core.deref(predict_prostate.state.run_time.on_screen_treatments_cursor));
-return (fexpr__43459.cljs$core$IFn$_invoke$arity$1 ? fexpr__43459.cljs$core$IFn$_invoke$arity$1(k) : fexpr__43459.call(null,k));
+}),cljs.core.filter.cljs$core$IFn$_invoke$arity$2((function (p__45493){
+var vec__45494 = p__45493;
+var k = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__45494,(0),null);
+var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__45494,(1),null);
+var fexpr__45497 = clojure.set.union.cljs$core$IFn$_invoke$arity$2(cljs.core.deref(predict_prostate.state.run_time.on_screen_inputs_cursor),cljs.core.deref(predict_prostate.state.run_time.on_screen_treatments_cursor));
+return (fexpr__45497.cljs$core$IFn$_invoke$arity$1 ? fexpr__45497.cljs$core$IFn$_invoke$arity$1(k) : fexpr__45497.call(null,k));
 }),predict_prostate.state.run_time.input_cursors())));
 });
 predict_prostate.state.run_time.year_selected = (function predict_prostate$state$run_time$year_selected(){

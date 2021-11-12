@@ -1,8 +1,7 @@
 (ns translations.root
   (:require [rum.core :as rum]
-            (predict-prostate.state.run-time :refer [t-state-cursor ttt-cursor edit-change])
-            (pubsub.feeds :refer [publish])))
-
+            [predict-prostate.state.run-time :refer [t-state-cursor ttt-cursor edit-change]]
+            [pubsub.feeds :refer [publish]]))
 
 (defn _ttt
   [ttt arg]

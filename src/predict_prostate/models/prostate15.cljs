@@ -84,7 +84,7 @@
                         (* 1.653947 (ln time))
                         (* 1.89e-12 (pow time 3)))))))))
 (comment
-  (pcsm-at-t (days 10)))
+  (pcsm-at-t (days 10) Math/PI))
 
 (defn f [{:keys [n a b c]
           :or   {c 3 n 10}

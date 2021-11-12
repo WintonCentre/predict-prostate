@@ -29,22 +29,25 @@
 (defmethod make-widget :string [{:keys [params]}]
   [:div {:style {:padding-top "10px" :font-size "16px"}} params])
 
-(comment
-  (->Input-group :ethnicity
-                 "Ethnic Origin"
-                 :information
-                 nil
-                 false false true
-                 :prp
-                 #{"prostate" "prostate-release"}
-                 "See FAQs"))
+;; (comment
+;;   (->Input-group :ethnicity
+;;                  "Ethnic Origin"
+;;                  :information
+;;                  nil
+;;                  false false true
+;;                  :prp
+;;                  #{"prostate" "prostate-release"}
+;;                  "See FAQs"))
 
-(defmethod make-widget :information [{:keys [key label params unknowable]}]
+(defmethod make-widget :information [{:keys [key label params unknowable ttt]}]
   (information
     {:key               key
      :aria-label        label
      :aria-described-by "todo"
      :values            params
+     ;:values            (second params)
+     :ttt               ttt
+     ;:ttt-key           (first params)
      :unknowable        unknowable}
     (input-cursor key))
   )

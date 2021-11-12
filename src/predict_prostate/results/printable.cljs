@@ -36,14 +36,14 @@
   [n]
   (into {} (map (juxt identity str) (range 1 n))))
 
-(rum/defc inputs-in-print < rum/reactive []
+(rum/defc inputs-in-print < rum/reactive [ttt]
   [:.row
    [:.col-sm-8.col-sm-offset-2
     [:table.table.table-bordered.table-responsive {:style {:font-size "16px"}}
      [:thead
       [:tr
-       [:th "Input"]
-       [:th "Value"]]]
+       [:th (ttt [:print/input "Input"])]
+       [:th (ttt [:print/value "Value"])]]]
      [:tbody
       [:tr
        [:td (input-label :age)]
@@ -108,7 +108,7 @@
      content)]
   )
 
-(rum/defc treatments-in-print < rum/reactive []
+(rum/defc treatments-in-print < rum/reactive [ttt]
   (let [horm (rum/react (input-cursor :horm))
         horm-label (input-label :horm)
         chemo-label (input-label :chemo)
@@ -129,24 +129,24 @@
          (when tra [:li tra-label])
          (when bis [:li bis-label])]
         [:.row.print-smaller
-         (when horm (treatment-note horm-label (when horm [:div (rest (section "hormone-therapy"))])))
-         (when chemo (treatment-note chemo-label (when chemo [:div (rest (section "chemotherapy"))])))
-         (when tra (treatment-note tra-label (when tra [:div (rest (section "trastuzumab"))])))
-         (when bis (treatment-note bis-label (when bis [:div (rest (section "bisphosphonates"))])))
+         (when horm (treatment-note horm-label (when horm [:div (rest (section ttt "hormone-therapy"))])))
+         (when chemo (treatment-note chemo-label (when chemo [:div (rest (section ttt "chemotherapy"))])))
+         (when tra (treatment-note tra-label (when tra [:div (rest (section ttt "trastuzumab"))])))
+         (when bis (treatment-note bis-label (when bis [:div (rest (section ttt "bisphosphonates"))])))
          ]]])))
 
 
 
 (rum/defc results-in-print
   < rum/reactive (set-default :result-year)
-  []
+  [ttt]
 
   [:.row
    [:.col-sm-12
 
     (avoid-break
-      [:h4 "Inputs"]
-      (inputs-in-print))
+      [:h4 (ttt [:print/inputs "Inputs"])]
+      (inputs-in-print ttt))
 
     (break-before
       (avoid-break
@@ -159,7 +159,7 @@
         ;[:p {:style {:margin-top "15px"}} "Survival estimates are based on the treatment you have selected."]
         [:h4 "Survival table - " (rum/react (year-selected)) " years after diagnosis."]
         [:div {:style {:max-width "60%" :margin-left "0%"}}
-         (results-in-table)
+         (results-in-table ttt)
          ]))
 
     (break-before

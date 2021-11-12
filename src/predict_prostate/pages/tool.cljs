@@ -130,13 +130,13 @@
      ]))
 
 
-(rum/defc tool < rum/reactive []
-  (let [[_ & preamble] (section "tool-preamble")
+(rum/defc tool < rum/reactive [ttt]
+  (let [[_ & preamble] (section ttt "tool-preamble")
         modal-active (or (rum/react settings-cursor) (rum/react help-key-cursor))]
     [:.container-fluid
      [:div {:class-name (str "row" (when modal-active " modal-active"))}
       [:.col-xs-12 {:style {:opacity 1}}
-       (header)
+       (header ttt)
        [:#main-content.row {:tab-index -1
                             :style     {:margin-left  -30
                                         :margin-right -30}}
@@ -162,7 +162,7 @@
             [:.row
              [:.col-xs-8 preamble]
              [:.col-xs-4
-              [:div {:style {:margin "40px 0 0 0px"}} (settings-button)]]]]]
+              [:div {:style {:margin "40px 0 0 0px"}} (settings-button ttt)]]]]]
           [:.row.print-only
            [:.col-sm-10.col-sm-offset-1
             preamble]]
@@ -172,7 +172,7 @@
         [:.col-md-10.col-md-offset-1
          [:.row {:key 2}
           [:.col-xs-12 {:style {:margin-bottom 20}}
-           (inputs-row)]]]]
+           (inputs-row ttt)]]]]
        [:.row.screen-only
         [:.col-sm-12 {:style {:background-color alison-blue-4}}
          [:.row {:key 3}
@@ -184,9 +184,9 @@
       [:.screen-only
        (results-footer)
        (footer)]]
-     (top-modal)
+     (top-modal ttt)
      (settings-modal)
-     (print-modal)
+     (print-modal ttt)
      ]
 
     ))

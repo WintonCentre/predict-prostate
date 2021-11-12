@@ -1,8 +1,8 @@
 goog.provide('devtools.core');
 devtools.core.is_feature_available_QMARK_ = (function devtools$core$is_feature_available_QMARK_(feature){
-var G__33001 = feature;
-var G__33001__$1 = (((G__33001 instanceof cljs.core.Keyword))?G__33001.fqn:null);
-switch (G__33001__$1) {
+var G__32927 = feature;
+var G__32927__$1 = (((G__32927 instanceof cljs.core.Keyword))?G__32927.fqn:null);
+switch (G__32927__$1) {
 case "formatters":
 return devtools.formatters.available_QMARK_.call(null);
 
@@ -16,13 +16,13 @@ return devtools.async.available_QMARK_.call(null);
 
 break;
 default:
-throw (new Error(["No matching clause: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(G__33001__$1)].join('')));
+throw (new Error(["No matching clause: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(G__32927__$1)].join('')));
 
 }
 });
 devtools.core.available_QMARK_ = (function devtools$core$available_QMARK_(var_args){
-var G__33003 = arguments.length;
-switch (G__33003) {
+var G__32948 = arguments.length;
+switch (G__32948) {
 case 0:
 return devtools.core.available_QMARK_.cljs$core$IFn$_invoke$arity$0();
 
@@ -53,9 +53,9 @@ return cljs.core.every_QMARK_(devtools.core.is_feature_available_QMARK_,features
 (devtools.core.available_QMARK_.cljs$lang$maxFixedArity = 1);
 
 devtools.core.is_feature_installed_QMARK_ = (function devtools$core$is_feature_installed_QMARK_(feature){
-var G__33007 = feature;
-var G__33007__$1 = (((G__33007 instanceof cljs.core.Keyword))?G__33007.fqn:null);
-switch (G__33007__$1) {
+var G__32966 = feature;
+var G__32966__$1 = (((G__32966 instanceof cljs.core.Keyword))?G__32966.fqn:null);
+switch (G__32966__$1) {
 case "formatters":
 return devtools.formatters.installed_QMARK_();
 
@@ -69,13 +69,13 @@ return devtools.async.installed_QMARK_();
 
 break;
 default:
-throw (new Error(["No matching clause: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(G__33007__$1)].join('')));
+throw (new Error(["No matching clause: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(G__32966__$1)].join('')));
 
 }
 });
 devtools.core.installed_QMARK_ = (function devtools$core$installed_QMARK_(var_args){
-var G__33009 = arguments.length;
-switch (G__33009) {
+var G__32981 = arguments.length;
+switch (G__32981) {
 case 0:
 return devtools.core.installed_QMARK_.cljs$core$IFn$_invoke$arity$0();
 
@@ -106,8 +106,8 @@ return cljs.core.every_QMARK_(devtools.core.is_feature_installed_QMARK_,features
 (devtools.core.installed_QMARK_.cljs$lang$maxFixedArity = 1);
 
 devtools.core.install_BANG_ = (function devtools$core$install_BANG_(var_args){
-var G__33011 = arguments.length;
-switch (G__33011) {
+var G__32990 = arguments.length;
+switch (G__32990) {
 case 0:
 return devtools.core.install_BANG_.cljs$core$IFn$_invoke$arity$0();
 
