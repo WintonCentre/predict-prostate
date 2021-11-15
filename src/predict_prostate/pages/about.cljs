@@ -10,21 +10,6 @@
             [interop.utils :refer [scrollTo]]
             ))
 
-
-#_(rum/defc about < rum/static []
-  [:.container
-   [:.row
-    [:.col-sm-12
-     (header)
-     [:.row
-      [:.col-sm-10.col-sm-offset-1 {:style {:min-height "calc(100vh - 200px)"}}
-       (all-subsections "about-page")
-       ]
-      ]
-     (footer)]]
-   ])
-
-
 (def page-components {:about ["about"]
                       :overview  ["overview" "whatpredictdoes" "whoisitfor" "howpredictworks" "whobuiltpredict"]
                       :technical ["technical" "history" "preversions" "publications"]

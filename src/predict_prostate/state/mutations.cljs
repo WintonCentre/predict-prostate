@@ -26,8 +26,20 @@
                                                      hide-warning-cursor
                                                      show-uncertainty-change
                                                      show-uncertainty-cursor
-                                                     force-recalculation]]
-            [predict-prostate.state.config :refer [input-groups get-input-default]]
+                                                     force-recalculation
+                                                     language-change
+                                                     t-state-change
+                                                     edit-change
+                                                     new-text-change
+                                                     text-change
+                                                     add-language-modal
+                                                     add-language
+                                                     t-state-cursor
+                                                     new-text-cursor
+                                                     edit-cursor
+                                                     ttt-cursor
+                                                     ]]
+            [predict-prostate.state.config :refer [input-groups get-input-default rtl-languages]]
             [predict-prostate.state.localStorage :refer [get-settings! put-settings!]]
             [predict-prostate.models.runner :refer [recalculate-model]]
             [pubsub.feeds :refer [publish subscribe]]
@@ -35,10 +47,31 @@
             [cljs.reader :refer [read-string]]
             [clojure.string :refer [split]]
             [bide.core :as r]
+            [translations.tongue-base :refer [load-translations* handle-dictionary process-dict-op]]
+            [translations.tranny-api :refer [upload-translation]]
             [predict-prostate.router :refer [router use-hash-fragment]]
             
             #_[predict-prostate.results.util :refer [clip]])
   (:require-macros [cljs.core.async.macros :refer [go]]))
+
+(def paq (.-_paq js/window))
+
+(defn matomo-track
+  "Send an event to matemo. "
+  ([category action tracked-name]
+   (.push paq #js ["trackEvent"
+                   (name category)
+                   (name action)
+                   (name tracked-name)]))
+  ([category action tracked-name value]
+   (.push paq #js ["trackEvent"
+                   (name category)
+                   (name action)
+                   (name tracked-name)
+                   value])))
+
+(def reload-lang (partial matomo-track "Language" "RELOAD-LANG"))
+(def switch-lang (partial matomo-track "Language" "SWITCH-LANG"))
 
 (defn clear-inputs []
   (doseq [[key topic] (input-changes)
@@ -211,6 +244,61 @@
                (r/navigate! router page param1 param2)
                (when (= page :home) (set! (.-href js/location) (if (use-hash-fragment) "/#" "/")))
                ))
+  
+  (subscribe language-change
+             (fn [_ lang]
+               (let [old-lang (:lang @t-state-cursor)]
+                 (swap! t-state-cursor process-dict-op [:switch lang])
+                 (when (not= old-lang lang)
+                   ;(println "TRACK* language-change to " lang)
+                   (switch-lang (name lang))
+                   (put-settings! {:lang lang})
+                   (.attr (js/$ "html") "dir" (if (rtl-languages lang) "rtl" "ltr"))))))
+
+(subscribe t-state-change
+           (fn [_ url]
+             (let [new-lang (:lang (get-settings! {:lang :en}))]
+                 ;(println "TRACK language reload into " new-lang)
+               (reload-lang (name new-lang)))
+             (load-translations* url (partial handle-dictionary t-state-cursor))))
+
+(subscribe edit-change
+           (fn [_ arg]
+             (let [text (@ttt-cursor arg)]
+               (swap! edit-cursor assoc
+                      :edit-arg arg
+                      :edit-key (if (and (vector? arg) (> (count arg) 0)) (first arg) arg)
+                      :text (if (and (vector? arg) (> (count arg) 1))
+                              (second arg)
+                              text))
+               (.modal (js/$ "#editorModal") "show")
+                 ;(println "edit-change: state=" @edit-cursor)
+               )))
+
+(subscribe new-text-change
+    ; update the :edit text (We don't need edit-key because that is a property of the editor panel at this point
+           (fn [_ [_ new-text]]
+             (reset! new-text-cursor new-text)))
+
+(subscribe text-change
+    ; the text-change event saves the [edit-key new-text] with an upsert in the active language dictionary and also
+    ; POSTS the upsert to the data base
+           (fn [_ [edit-key new-text]]
+             (let [lang (:lang @t-state-cursor)]
+               #_(println "text-change: lang " lang "key" edit-key "text" new-text " is blank? " (= "" new-text))
+               (swap! t-state-cursor process-dict-op [:upsert (:lang @t-state-cursor) {edit-key new-text}])
+               (reset! new-text-cursor nil)
+               (upload-translation edit-key (name lang) new-text))))
+
+(subscribe add-language-modal
+           (fn [_]
+               ;(println "add-language-modal")
+             (.modal (js/$ "#newLanguageModal") "show")))
+
+(subscribe add-language
+           (fn [_ [new-lang]]
+             (when (= 2 (count new-lang))
+               (swap! t-state-cursor update :languages conj (keyword new-lang)))))
 
   ;; Now clear all values to nil/default
   (clear-inputs))

@@ -124,7 +124,7 @@
      ; block 1
      [:section#home-strap-line "What is Predict Prostate for?"
 
-      [:p {:key 1} "An individualised prognostic model for men newly diagnosed with non-metastatic prostate cancer"]
+      [:p {:key 1} (ttt [:home/prognostic-model "An individualised prognostic model for men newly diagnosed with non-metastatic prostate cancer"])]
       [:p {:key 3} ""]
       ]
 

@@ -5,7 +5,7 @@
             [predict-prostate.content-reader :refer [section all-subsections]]
             [predict-prostate.state.run-time :refer [route-change help-key-change t-state-cursor]]
             [predict-prostate.results.util :refer [alison-blue-1 alison-blue-2 alison-blue-3 alison-pink]]
-            [predict-prostate.components.button :refer [start-button start-button-group]]
+            [predict-prostate.components.button :refer [start-button-group]]
             [predict-prostate.components.bs3-modal :refer [top-modal]]
             [interop.utils :refer [scrollTo]]
             [graphics.simple-icons :refer [icon]]
@@ -52,8 +52,7 @@
        [:p {:style {:font-size 18 :margin-left 15}} [:a {:href "https://www.nice.org.uk/guidance/ng131/resources/endorsed-resource-predict-prostate-6898604077" :target "_blank"} "Endorsed by the National Institute for Health and Care Excellence in the UK"]]
        #_[:p {:style {:font-size 14 :margin-left 15}} [:a {:href "#" :on-click #(publish help-key-change "endorsement")} "Endorsed by the National Institute for Health and Care Excellence in the UK"]]
 
-       #_(start-button ttt)
-       (start-button-group ttt supported-languages)
+      (start-button-group ttt supported-languages)
 
        [:p {:style {:margin-left 15}} [:i "Did you mean to visit "] [:a {:href "https://breast.predict.nhs.uk"} "Predict Breast Cancer?"]]]
       [:.col-sm-6
