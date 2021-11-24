@@ -1,0 +1,128 @@
+;
+; A list of commands to be executed on read.
+; [:upsert lang dict] will update or insert words into a language dictionary
+; [:switch lang] will set the active language in the browser
+;
+; Only two-character language codes are currently supported (3 with the keyword colon)
+;
+[[:upsert :en {:en                   "English"
+               :de                   "German"
+               :es                   "Spanish"
+               :it                   "italian"
+               :fr                   "French"
+               :ja                   "Japanese"
+               :nl                   "Dutch"
+               :ar                   "Arabic"
+               :pt                   "Portuguese"
+               :sc                   "Chinese (simplified)"
+               :tc                   "Chinese (traditional)"
+               :curves/grey-1        "Already"
+               :curves/grey-2        "survived"
+               :curves/grey-3        "5 years"
+               }]
+
+ [:upsert :es {:en                   "Inglés"
+               :de                   "Alemán"
+               :es                   "Español"
+               :fr                   "Francesa"
+               :it                   "Italiana"
+               :ja                   "Japonesa"
+               :nl                   "Holandesa"
+               :pt                   "Portuguesa"
+               :sc                   "Chino simplificado"
+               :tc                   "Chino tradicional"
+               }]
+
+ [:upsert :fr {:en                   "Anglais"
+               :de                   "Allemand"
+               :es                   "Espagnol"
+               :fr                   "Français"
+               :it                   "Italien"
+               :ja                   "Japonais"
+               :nl                   "Néerlandais"
+               :pt                   "Portugais"
+               :sc                   "Chinois simplifié"
+               :tc                   "Chinois traditionnel"
+               }]
+
+ [:upsert :it {:en                   "Inglese"
+               :de                   "Tedesca"
+               :es                   "Spagnola"
+               :fr                   "Francese"
+               :it                   "Italiano"
+               :ja                   "Giapponese"
+               :nl                   "Olandese"
+               :pt                   "Portoghese"
+               :sc                   "Cinese semplificato"
+               :tc                   "Cinese tradizionale"
+               }]
+
+ [:upsert :ja  {:en                   "英語"
+               :de                   "ドイツ人"
+               :es                   "スペイン語"
+               :fr                   "フランス語"
+               :it                   "イタリアe"
+               :ja                   "日本語"
+               :nl                   "オランダ"
+               :pt                   "ポルトガル語"
+               :sc                   "簡体字中国語 シンプル"
+               :tc                   "繁体字中国語 伝統的な"
+               }]
+
+[:upsert :nl  {:en                   "Engels"
+               :de                   "Duitse"
+               :es                   "Spaanse"
+               :fr                   "Franse"
+               :it                   "Italiaanse"
+               :ja                   "Japans"
+               :nl                   "Nederlandse"
+               :pt                   "Portugees"
+               :sc                   "Vereenvoudigd Chinees"
+               :tc                   "Traditioneel Chinees"
+               :home/what-is-predict "Wat is Predict?"
+               }]
+
+[:upsert :pt  {:en                   "Engels"
+               :de                   "Duitse"
+               :es                   "Spaanse"
+               :fr                   "Franse"
+               :it                   "Italiaanse"
+               :ja                   "Japonesa"
+               :nl                   "Nederlandse"
+               :pt                   "Português"
+               :sc                   "Chinês simplificado"
+               :tc                   "Chinês tradicional"
+               }]
+
+
+ [:upsert :sc {:en                   "英语"
+               :de                   "德语"
+               :es                   "西班牙文"
+               :it                   "义大利文"
+               :fr                   "法文"
+               :ja                   "日本"
+               :nl                   "荷兰语"
+               :ar                   "阿拉伯"
+               :pt                   "葡萄牙语"
+               :sc                   "简体字"
+               :tc                   "繁体字"
+               :home/start-button    " 开始预测"
+    }]
+
+ [:upsert :tc {:en                   "英語"
+               :de                   "德語"
+               :es                   "西班牙文"
+               :it                   "義大利文"
+               :fr                   "法文"
+               :ja                   "日本"
+               :nl                   "荷蘭語"
+               :ar                   "阿拉伯"
+               :pt                   "葡萄牙語"
+               :sc                   "簡體字"
+               :tc                   "繁體字"
+               :home/start-button    " 開始預測"
+               }]
+
+
+ [:switch :en]
+ ]

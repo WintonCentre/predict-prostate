@@ -1,0 +1,72 @@
+;
+; A list of commands to be executed on read.
+; [:upsert lang dict] will update or insert words into a language dictionary
+; [:switch lang] will set the active language in the browser
+;
+; Only two-character language codes are currently supported (3 with the keyword colon)
+;
+[[:upsert :en {:en                   "English"
+               :es                   "Spanish"
+               :fr                   "French"
+               :nl                   "Dutch"
+               :pt                   "Portuguese"
+               :sc                   "Chinese (simplified)"
+               :tc                   "Chinese (traditional)"   
+               }]
+
+ [:upsert :es {:en                   "Inglés"
+               :es                   "Español"
+               :fr                   "Francesa"
+               :nl                   "Holandesa"
+               :pt                   "Portuguesa"
+               :sc                   "Chino simplificado"
+               :tc                   "Chino tradicional"
+               }]
+
+ [:upsert :fr {:en                   "Anglais"
+               :es                   "Espagnol"
+               :fr                   "Français"
+               :nl                   "Néerlandais"
+               :pt                   "Portugais"
+               :sc                   "Chinois simplifié"
+               :tc                   "Chinois traditionnel"
+               }]
+
+ [:upsert :nl  {:en                   "Engels"
+                :es                   "Spaanse"
+                :fr                   "Franse"
+                :nl                   "Nederlandse"
+                :pt                   "Portugees"
+                :sc                   "Vereenvoudigd Chinees"
+                :tc                   "Traditioneel Chinees"
+                }]
+                
+ [:upsert :pt  {:en                   "Engels"
+                :es                   "Spaanse"
+                :fr                   "Franse"
+                :nl                   "Nederlandse"
+                :pt                   "Português"
+                :sc                   "Chinês simplificado"
+                :tc                   "Chinês tradicional"
+                }]
+
+ [:upsert :sc {:en                   "英语"
+               :es                   "西班牙文"
+               :fr                   "法文"
+               :nl                   "荷兰语"
+               :pt                   "葡萄牙语"
+               :sc                   "简体字"
+               :tc                   "繁体字"
+               :home/start-button    " 开始预测" 
+               }]
+
+ [:upsert :tc {:en                   "英語"
+               :es                   "西班牙文"
+               :fr                   "法文"
+               :nl                   "荷蘭語"
+               :pt                   "葡萄牙語"
+               :sc                   "簡體字"
+               :tc                   "繁體字"
+                :home/start-button    " 開始預測" 
+               }]
+ [:switch :en]]

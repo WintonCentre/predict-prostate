@@ -1,19 +1,19 @@
 goog.provide('translations.tranny_api');
-translations.tranny_api.server_url = "https://api.spa.breast.wintoncentre.uk/";
+translations.tranny_api.server_url = "http://localhost:1337/";
 translations.tranny_api.base_url = [translations.tranny_api.server_url,"api/"].join('');
 translations.tranny_api.get_handler = (function translations$tranny_api$get_handler(response){
 var clj_rsp = cljs.core.js__GT_clj.cljs$core$IFn$_invoke$arity$variadic(response,cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.Keyword(null,"keywordize-keys","keywordize-keys",1310784252),true], 0));
 var hit_count = cljs.core.count(clj_rsp);
-var result = (function (){var pred__35784 = cljs.core._EQ_;
-var expr__35785 = hit_count;
-if(cljs.core.truth_((pred__35784.cljs$core$IFn$_invoke$arity$2 ? pred__35784.cljs$core$IFn$_invoke$arity$2((0),expr__35785) : pred__35784.call(null,(0),expr__35785)))){
+var result = (function (){var pred__39287 = cljs.core._EQ_;
+var expr__39288 = hit_count;
+if(cljs.core.truth_((pred__39287.cljs$core$IFn$_invoke$arity$2 ? pred__39287.cljs$core$IFn$_invoke$arity$2((0),expr__39288) : pred__39287.call(null,(0),expr__39288)))){
 return cljs.core.println.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2(["No results"], 0));
 } else {
-if(cljs.core.truth_((pred__35784.cljs$core$IFn$_invoke$arity$2 ? pred__35784.cljs$core$IFn$_invoke$arity$2((1),expr__35785) : pred__35784.call(null,(1),expr__35785)))){
+if(cljs.core.truth_((pred__39287.cljs$core$IFn$_invoke$arity$2 ? pred__39287.cljs$core$IFn$_invoke$arity$2((1),expr__39288) : pred__39287.call(null,(1),expr__39288)))){
 return cljs.core.get.cljs$core$IFn$_invoke$arity$2(cljs.core.first(clj_rsp),"text");
 } else {
-return cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p1__35783_SHARP_){
-return cljs.core.get.cljs$core$IFn$_invoke$arity$2(p1__35783_SHARP_,"text");
+return cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p1__39285_SHARP_){
+return cljs.core.get.cljs$core$IFn$_invoke$arity$2(p1__39285_SHARP_,"text");
 }),clj_rsp);
 }
 }
@@ -24,12 +24,12 @@ translations.tranny_api.ta = cljs.core.atom.cljs$core$IFn$_invoke$arity$1(null);
 translations.tranny_api.post_handler = (function translations$tranny_api$post_handler(response){
 return cljs.core.println.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2(["successful response",response], 0));
 });
-translations.tranny_api.error_handler = (function translations$tranny_api$error_handler(p__35787){
-var map__35788 = p__35787;
-var map__35788__$1 = (((((!((map__35788 == null))))?(((((map__35788.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__35788.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__35788):map__35788);
-var status = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__35788__$1,new cljs.core.Keyword(null,"status","status",-1997798413));
-var status_text = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__35788__$1,new cljs.core.Keyword(null,"status-text","status-text",-1834235478));
-var response = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__35788__$1,new cljs.core.Keyword(null,"response","response",-1068424192));
+translations.tranny_api.error_handler = (function translations$tranny_api$error_handler(p__39293){
+var map__39294 = p__39293;
+var map__39294__$1 = (((((!((map__39294 == null))))?(((((map__39294.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__39294.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__39294):map__39294);
+var status = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__39294__$1,new cljs.core.Keyword(null,"status","status",-1997798413));
+var status_text = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__39294__$1,new cljs.core.Keyword(null,"status-text","status-text",-1834235478));
+var response = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__39294__$1,new cljs.core.Keyword(null,"response","response",-1068424192));
 console.log(["something bad happened: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(status)," ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(status_text)].join(''));
 
 if(cljs.core.truth_(response)){
@@ -42,8 +42,8 @@ return null;
  * lookup key in tranny server. 3-arity variant for testing.
  */
 translations.tranny_api.lookup_key = (function translations$tranny_api$lookup_key(var_args){
-var G__35791 = arguments.length;
-switch (G__35791) {
+var G__39301 = arguments.length;
+switch (G__39301) {
 case 1:
 return translations.tranny_api.lookup_key.cljs$core$IFn$_invoke$arity$1((arguments[(0)]));
 
@@ -62,11 +62,11 @@ throw (new Error(["Invalid arity: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(
 return translations.tranny_api.lookup_key.cljs$core$IFn$_invoke$arity$2([translations.tranny_api.base_url,"key/",cljs.core.str.cljs$core$IFn$_invoke$arity$1(key)].join(''),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"handler","handler",-195596612),translations.tranny_api.get_handler,new cljs.core.Keyword(null,"error-handler","error-handler",-484945776),translations.tranny_api.error_handler], null));
 }));
 
-(translations.tranny_api.lookup_key.cljs$core$IFn$_invoke$arity$2 = (function (url,p__35799){
-var map__35801 = p__35799;
-var map__35801__$1 = (((((!((map__35801 == null))))?(((((map__35801.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__35801.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__35801):map__35801);
-var handler = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__35801__$1,new cljs.core.Keyword(null,"handler","handler",-195596612));
-var error_handler = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__35801__$1,new cljs.core.Keyword(null,"error-handler","error-handler",-484945776));
+(translations.tranny_api.lookup_key.cljs$core$IFn$_invoke$arity$2 = (function (url,p__39306){
+var map__39307 = p__39306;
+var map__39307__$1 = (((((!((map__39307 == null))))?(((((map__39307.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__39307.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__39307):map__39307);
+var handler = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__39307__$1,new cljs.core.Keyword(null,"handler","handler",-195596612));
+var error_handler = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__39307__$1,new cljs.core.Keyword(null,"error-handler","error-handler",-484945776));
 return ajax.core.GET.cljs$core$IFn$_invoke$arity$variadic(url,cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"handler","handler",-195596612),handler,new cljs.core.Keyword(null,"error-handler","error-handler",-484945776),error_handler,new cljs.core.Keyword(null,"mode","mode",654403691),"no-cors"], null)], 0));
 }));
 
@@ -92,8 +92,8 @@ return [(cljs.core.truth_(ns_key)?[ns_key,"/"].join(''):null),cljs.core.name(key
  * Update a key for a language with new text
  */
 translations.tranny_api.upload_translation = (function translations$tranny_api$upload_translation(var_args){
-var G__35818 = arguments.length;
-switch (G__35818) {
+var G__39310 = arguments.length;
+switch (G__39310) {
 case 3:
 return translations.tranny_api.upload_translation.cljs$core$IFn$_invoke$arity$3((arguments[(0)]),(arguments[(1)]),(arguments[(2)]));
 
@@ -129,8 +129,8 @@ return [translations.tranny_api.base_url,cljs.core.str.cljs$core$IFn$_invoke$ari
  * Update a key for a language with new text
  */
 translations.tranny_api.delete_translation = (function translations$tranny_api$delete_translation(var_args){
-var G__35820 = arguments.length;
-switch (G__35820) {
+var G__39315 = arguments.length;
+switch (G__39315) {
 case 2:
 return translations.tranny_api.delete_translation.cljs$core$IFn$_invoke$arity$2((arguments[(0)]),(arguments[(1)]));
 
@@ -163,10 +163,10 @@ return ajax.core.POST.cljs$core$IFn$_invoke$arity$variadic(url,cljs.core.prim_se
  *   to help identify the page where the translation appears.
  */
 translations.tranny_api.json_kvs__GT_m = (function translations$tranny_api$json_kvs__GT_m(kvs){
-return cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentArrayMap.EMPTY,cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p__35821){
-var vec__35822 = p__35821;
-var s = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__35822,(0),null);
-var v = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__35822,(1),null);
+return cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentArrayMap.EMPTY,cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p__39321){
+var vec__39322 = p__39321;
+var s = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__39322,(0),null);
+var v = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__39322,(1),null);
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.keyword.cljs$core$IFn$_invoke$arity$1(clojure.string.replace(s,/#/,"/")),v], null);
 }),kvs));
 });
@@ -177,27 +177,27 @@ return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMP
  */
 translations.tranny_api.parse_downloaded_op = (function translations$tranny_api$parse_downloaded_op(download){
 if(cljs.core.vector_QMARK_(download)){
-var vec__35825 = download;
-var op = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__35825,(0),null);
-var lang = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__35825,(1),null);
-var translations__$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__35825,(2),null);
-var d = vec__35825;
+var vec__39334 = download;
+var op = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__39334,(0),null);
+var lang = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__39334,(1),null);
+var translations__$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__39334,(2),null);
+var d = vec__39334;
 if(cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2((2),cljs.core.count(lang))){
-var pred__35830 = cljs.core._EQ_;
-var expr__35831 = op;
-if(cljs.core.truth_((pred__35830.cljs$core$IFn$_invoke$arity$2 ? pred__35830.cljs$core$IFn$_invoke$arity$2("upsert",expr__35831) : pred__35830.call(null,"upsert",expr__35831)))){
+var pred__39339 = cljs.core._EQ_;
+var expr__39340 = op;
+if(cljs.core.truth_((pred__39339.cljs$core$IFn$_invoke$arity$2 ? pred__39339.cljs$core$IFn$_invoke$arity$2("upsert",expr__39340) : pred__39339.call(null,"upsert",expr__39340)))){
 return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"upsert","upsert",1416724984),cljs.core.keyword.cljs$core$IFn$_invoke$arity$1(lang),translations.tranny_api.json_kvs__GT_m(translations__$1)], null);
 } else {
-if(cljs.core.truth_((pred__35830.cljs$core$IFn$_invoke$arity$2 ? pred__35830.cljs$core$IFn$_invoke$arity$2("switch",expr__35831) : pred__35830.call(null,"switch",expr__35831)))){
+if(cljs.core.truth_((pred__39339.cljs$core$IFn$_invoke$arity$2 ? pred__39339.cljs$core$IFn$_invoke$arity$2("switch",expr__39340) : pred__39339.call(null,"switch",expr__39340)))){
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"switch","switch",71881310),cljs.core.keyword.cljs$core$IFn$_invoke$arity$1(lang)], null);
 } else {
-if(cljs.core.truth_((pred__35830.cljs$core$IFn$_invoke$arity$2 ? pred__35830.cljs$core$IFn$_invoke$arity$2("error",expr__35831) : pred__35830.call(null,"error",expr__35831)))){
-var vec__35835 = d;
-var seq__35836 = cljs.core.seq(vec__35835);
-var first__35837 = cljs.core.first(seq__35836);
-var seq__35836__$1 = cljs.core.next(seq__35836);
-var _ = first__35837;
-var msgs = seq__35836__$1;
+if(cljs.core.truth_((pred__39339.cljs$core$IFn$_invoke$arity$2 ? pred__39339.cljs$core$IFn$_invoke$arity$2("error",expr__39340) : pred__39339.call(null,"error",expr__39340)))){
+var vec__39343 = d;
+var seq__39344 = cljs.core.seq(vec__39343);
+var first__39345 = cljs.core.first(seq__39344);
+var seq__39344__$1 = cljs.core.next(seq__39344);
+var _ = first__39345;
+var msgs = seq__39344__$1;
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"error","error",-978969032),msgs], null);
 } else {
 return null;
@@ -226,8 +226,8 @@ return cljs.core.assoc.cljs$core$IFn$_invoke$arity$3(cljs.core.dissoc.cljs$core$
  *   Intended for a single language. NOT IN USE YET.
  */
 translations.tranny_api.download_lang_translations = (function translations$tranny_api$download_lang_translations(var_args){
-var G__35841 = arguments.length;
-switch (G__35841) {
+var G__39350 = arguments.length;
+switch (G__39350) {
 case 4:
 return translations.tranny_api.download_lang_translations.cljs$core$IFn$_invoke$arity$4((arguments[(0)]),(arguments[(1)]),(arguments[(2)]),(arguments[(3)]));
 
@@ -243,75 +243,75 @@ throw (new Error(["Invalid arity: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(
 });
 
 (translations.tranny_api.download_lang_translations.cljs$core$IFn$_invoke$arity$4 = (function (ok_chan,err_chan,lang,url){
-ajax.core.POST.cljs$core$IFn$_invoke$arity$variadic(url,cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"handler","handler",-195596612),(function (p1__35838_SHARP_){
-return cljs.core.async.put_BANG_.cljs$core$IFn$_invoke$arity$2(ok_chan,p1__35838_SHARP_);
-}),new cljs.core.Keyword(null,"error-handler","error-handler",-484945776),(function (p1__35839_SHARP_){
-return cljs.core.async.put_BANG_.cljs$core$IFn$_invoke$arity$2(err_chan,p1__35839_SHARP_);
+ajax.core.POST.cljs$core$IFn$_invoke$arity$variadic(url,cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"handler","handler",-195596612),(function (p1__39347_SHARP_){
+return cljs.core.async.put_BANG_.cljs$core$IFn$_invoke$arity$2(ok_chan,p1__39347_SHARP_);
+}),new cljs.core.Keyword(null,"error-handler","error-handler",-484945776),(function (p1__39348_SHARP_){
+return cljs.core.async.put_BANG_.cljs$core$IFn$_invoke$arity$2(err_chan,p1__39348_SHARP_);
 }),new cljs.core.Keyword(null,"params","params",710516235),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"lang","lang",-1819677104),lang], null),new cljs.core.Keyword(null,"format","format",-1306924766),new cljs.core.Keyword(null,"json","json",1279968570)], null)], 0));
 
-var c__29668__auto__ = cljs.core.async.chan.cljs$core$IFn$_invoke$arity$1((1));
+var c__29432__auto__ = cljs.core.async.chan.cljs$core$IFn$_invoke$arity$1((1));
 cljs.core.async.impl.dispatch.run((function (){
-var f__29669__auto__ = (function (){var switch__29583__auto__ = (function (state_35865){
-var state_val_35866 = (state_35865[(1)]);
-if((state_val_35866 === (1))){
-var inst_35846 = cljs.core.PersistentVector.EMPTY_NODE;
-var inst_35848 = [ok_chan,err_chan];
-var inst_35849 = (new cljs.core.PersistentVector(null,2,(5),inst_35846,inst_35848,null));
-var state_35865__$1 = state_35865;
-return cljs.core.async.ioc_alts_BANG_(state_35865__$1,(2),inst_35849);
+var f__29433__auto__ = (function (){var switch__29362__auto__ = (function (state_39393){
+var state_val_39394 = (state_39393[(1)]);
+if((state_val_39394 === (1))){
+var inst_39374 = cljs.core.PersistentVector.EMPTY_NODE;
+var inst_39375 = [ok_chan,err_chan];
+var inst_39376 = (new cljs.core.PersistentVector(null,2,(5),inst_39374,inst_39375,null));
+var state_39393__$1 = state_39393;
+return cljs.core.async.ioc_alts_BANG_(state_39393__$1,(2),inst_39376);
 } else {
-if((state_val_35866 === (2))){
-var inst_35851 = (state_35865[(2)]);
-var inst_35852 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(inst_35851,(0),null);
-var inst_35853 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(inst_35851,(1),null);
-var inst_35854 = cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(inst_35853,ok_chan);
-var state_35865__$1 = (function (){var statearr_35867 = state_35865;
-(statearr_35867[(7)] = inst_35852);
+if((state_val_39394 === (2))){
+var inst_39378 = (state_39393[(2)]);
+var inst_39379 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(inst_39378,(0),null);
+var inst_39381 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(inst_39378,(1),null);
+var inst_39383 = cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(inst_39381,ok_chan);
+var state_39393__$1 = (function (){var statearr_39395 = state_39393;
+(statearr_39395[(7)] = inst_39379);
 
-return statearr_35867;
+return statearr_39395;
 })();
-if(inst_35854){
-var statearr_35868_35966 = state_35865__$1;
-(statearr_35868_35966[(1)] = (3));
+if(inst_39383){
+var statearr_39396_39510 = state_39393__$1;
+(statearr_39396_39510[(1)] = (3));
 
 } else {
-var statearr_35869_35967 = state_35865__$1;
-(statearr_35869_35967[(1)] = (4));
+var statearr_39397_39511 = state_39393__$1;
+(statearr_39397_39511[(1)] = (4));
 
 }
 
 return new cljs.core.Keyword(null,"recur","recur",-437573268);
 } else {
-if((state_val_35866 === (3))){
-var inst_35852 = (state_35865[(7)]);
-var inst_35856 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(inst_35852,"body");
-var inst_35857 = translations.tranny_api.parse_downloaded_op(inst_35856);
-var state_35865__$1 = state_35865;
-var statearr_35870_35968 = state_35865__$1;
-(statearr_35870_35968[(2)] = inst_35857);
+if((state_val_39394 === (3))){
+var inst_39379 = (state_39393[(7)]);
+var inst_39385 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(inst_39379,"body");
+var inst_39386 = translations.tranny_api.parse_downloaded_op(inst_39385);
+var state_39393__$1 = state_39393;
+var statearr_39398_39513 = state_39393__$1;
+(statearr_39398_39513[(2)] = inst_39386);
 
-(statearr_35870_35968[(1)] = (5));
-
-
-return new cljs.core.Keyword(null,"recur","recur",-437573268);
-} else {
-if((state_val_35866 === (4))){
-var inst_35852 = (state_35865[(7)]);
-var inst_35859 = clojure.walk.keywordize_keys(inst_35852);
-var inst_35860 = translations.tranny_api.parse_error(inst_35859);
-var state_35865__$1 = state_35865;
-var statearr_35871_35969 = state_35865__$1;
-(statearr_35871_35969[(2)] = inst_35860);
-
-(statearr_35871_35969[(1)] = (5));
+(statearr_39398_39513[(1)] = (5));
 
 
 return new cljs.core.Keyword(null,"recur","recur",-437573268);
 } else {
-if((state_val_35866 === (5))){
-var inst_35862 = (state_35865[(2)]);
-var state_35865__$1 = state_35865;
-return cljs.core.async.impl.ioc_helpers.return_chan(state_35865__$1,inst_35862);
+if((state_val_39394 === (4))){
+var inst_39379 = (state_39393[(7)]);
+var inst_39388 = clojure.walk.keywordize_keys(inst_39379);
+var inst_39389 = translations.tranny_api.parse_error(inst_39388);
+var state_39393__$1 = state_39393;
+var statearr_39399_39515 = state_39393__$1;
+(statearr_39399_39515[(2)] = inst_39389);
+
+(statearr_39399_39515[(1)] = (5));
+
+
+return new cljs.core.Keyword(null,"recur","recur",-437573268);
+} else {
+if((state_val_39394 === (5))){
+var inst_39391 = (state_39393[(2)]);
+var state_39393__$1 = state_39393;
+return cljs.core.async.impl.ioc_helpers.return_chan(state_39393__$1,inst_39391);
 } else {
 return null;
 }
@@ -321,74 +321,74 @@ return null;
 }
 });
 return (function() {
-var translations$tranny_api$state_machine__29584__auto__ = null;
-var translations$tranny_api$state_machine__29584__auto____0 = (function (){
-var statearr_35874 = [null,null,null,null,null,null,null,null];
-(statearr_35874[(0)] = translations$tranny_api$state_machine__29584__auto__);
+var translations$tranny_api$state_machine__29363__auto__ = null;
+var translations$tranny_api$state_machine__29363__auto____0 = (function (){
+var statearr_39402 = [null,null,null,null,null,null,null,null];
+(statearr_39402[(0)] = translations$tranny_api$state_machine__29363__auto__);
 
-(statearr_35874[(1)] = (1));
+(statearr_39402[(1)] = (1));
 
-return statearr_35874;
+return statearr_39402;
 });
-var translations$tranny_api$state_machine__29584__auto____1 = (function (state_35865){
+var translations$tranny_api$state_machine__29363__auto____1 = (function (state_39393){
 while(true){
-var ret_value__29585__auto__ = (function (){try{while(true){
-var result__29586__auto__ = switch__29583__auto__(state_35865);
-if(cljs.core.keyword_identical_QMARK_(result__29586__auto__,new cljs.core.Keyword(null,"recur","recur",-437573268))){
+var ret_value__29364__auto__ = (function (){try{while(true){
+var result__29365__auto__ = switch__29362__auto__(state_39393);
+if(cljs.core.keyword_identical_QMARK_(result__29365__auto__,new cljs.core.Keyword(null,"recur","recur",-437573268))){
 continue;
 } else {
-return result__29586__auto__;
+return result__29365__auto__;
 }
 break;
 }
-}catch (e35875){var ex__29587__auto__ = e35875;
-var statearr_35876_35970 = state_35865;
-(statearr_35876_35970[(2)] = ex__29587__auto__);
+}catch (e39404){var ex__29366__auto__ = e39404;
+var statearr_39405_39524 = state_39393;
+(statearr_39405_39524[(2)] = ex__29366__auto__);
 
 
-if(cljs.core.seq((state_35865[(4)]))){
-var statearr_35877_35971 = state_35865;
-(statearr_35877_35971[(1)] = cljs.core.first((state_35865[(4)])));
+if(cljs.core.seq((state_39393[(4)]))){
+var statearr_39406_39525 = state_39393;
+(statearr_39406_39525[(1)] = cljs.core.first((state_39393[(4)])));
 
 } else {
-throw ex__29587__auto__;
+throw ex__29366__auto__;
 }
 
 return new cljs.core.Keyword(null,"recur","recur",-437573268);
 }})();
-if(cljs.core.keyword_identical_QMARK_(ret_value__29585__auto__,new cljs.core.Keyword(null,"recur","recur",-437573268))){
-var G__35972 = state_35865;
-state_35865 = G__35972;
+if(cljs.core.keyword_identical_QMARK_(ret_value__29364__auto__,new cljs.core.Keyword(null,"recur","recur",-437573268))){
+var G__39529 = state_39393;
+state_39393 = G__39529;
 continue;
 } else {
-return ret_value__29585__auto__;
+return ret_value__29364__auto__;
 }
 break;
 }
 });
-translations$tranny_api$state_machine__29584__auto__ = function(state_35865){
+translations$tranny_api$state_machine__29363__auto__ = function(state_39393){
 switch(arguments.length){
 case 0:
-return translations$tranny_api$state_machine__29584__auto____0.call(this);
+return translations$tranny_api$state_machine__29363__auto____0.call(this);
 case 1:
-return translations$tranny_api$state_machine__29584__auto____1.call(this,state_35865);
+return translations$tranny_api$state_machine__29363__auto____1.call(this,state_39393);
 }
 throw(new Error('Invalid arity: ' + arguments.length));
 };
-translations$tranny_api$state_machine__29584__auto__.cljs$core$IFn$_invoke$arity$0 = translations$tranny_api$state_machine__29584__auto____0;
-translations$tranny_api$state_machine__29584__auto__.cljs$core$IFn$_invoke$arity$1 = translations$tranny_api$state_machine__29584__auto____1;
-return translations$tranny_api$state_machine__29584__auto__;
+translations$tranny_api$state_machine__29363__auto__.cljs$core$IFn$_invoke$arity$0 = translations$tranny_api$state_machine__29363__auto____0;
+translations$tranny_api$state_machine__29363__auto__.cljs$core$IFn$_invoke$arity$1 = translations$tranny_api$state_machine__29363__auto____1;
+return translations$tranny_api$state_machine__29363__auto__;
 })()
 })();
-var state__29670__auto__ = (function (){var statearr_35878 = f__29669__auto__();
-(statearr_35878[(6)] = c__29668__auto__);
+var state__29434__auto__ = (function (){var statearr_39413 = f__29433__auto__();
+(statearr_39413[(6)] = c__29432__auto__);
 
-return statearr_35878;
+return statearr_39413;
 })();
-return cljs.core.async.impl.ioc_helpers.run_state_machine_wrapped(state__29670__auto__);
+return cljs.core.async.impl.ioc_helpers.run_state_machine_wrapped(state__29434__auto__);
 }));
 
-return c__29668__auto__;
+return c__29432__auto__;
 }));
 
 (translations.tranny_api.download_lang_translations.cljs$core$IFn$_invoke$arity$3 = (function (ok_chan,err_chan,lang){
@@ -403,8 +403,8 @@ return translations.tranny_api.download_lang_translations.cljs$core$IFn$_invoke$
  *   The go block waits for a response on either chan, and returns a chan containing the parsed response.
  */
 translations.tranny_api.download_all_translations = (function translations$tranny_api$download_all_translations(var_args){
-var G__35882 = arguments.length;
-switch (G__35882) {
+var G__39420 = arguments.length;
+switch (G__39420) {
 case 3:
 return translations.tranny_api.download_all_translations.cljs$core$IFn$_invoke$arity$3((arguments[(0)]),(arguments[(1)]),(arguments[(2)]));
 
@@ -420,108 +420,108 @@ throw (new Error(["Invalid arity: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(
 });
 
 (translations.tranny_api.download_all_translations.cljs$core$IFn$_invoke$arity$3 = (function (ok_chan,err_chan,url){
-ajax.core.POST.cljs$core$IFn$_invoke$arity$variadic(url,cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"handler","handler",-195596612),(function (p1__35879_SHARP_){
-return cljs.core.async.put_BANG_.cljs$core$IFn$_invoke$arity$2(ok_chan,p1__35879_SHARP_);
-}),new cljs.core.Keyword(null,"error-handler","error-handler",-484945776),(function (p1__35880_SHARP_){
-return cljs.core.async.put_BANG_.cljs$core$IFn$_invoke$arity$2(err_chan,p1__35880_SHARP_);
+ajax.core.POST.cljs$core$IFn$_invoke$arity$variadic(url,cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"handler","handler",-195596612),(function (p1__39415_SHARP_){
+return cljs.core.async.put_BANG_.cljs$core$IFn$_invoke$arity$2(ok_chan,p1__39415_SHARP_);
+}),new cljs.core.Keyword(null,"error-handler","error-handler",-484945776),(function (p1__39416_SHARP_){
+return cljs.core.async.put_BANG_.cljs$core$IFn$_invoke$arity$2(err_chan,p1__39416_SHARP_);
 }),new cljs.core.Keyword(null,"format","format",-1306924766),new cljs.core.Keyword(null,"json","json",1279968570)], null)], 0));
 
-var c__29668__auto__ = cljs.core.async.chan.cljs$core$IFn$_invoke$arity$1((1));
+var c__29432__auto__ = cljs.core.async.chan.cljs$core$IFn$_invoke$arity$1((1));
 cljs.core.async.impl.dispatch.run((function (){
-var f__29669__auto__ = (function (){var switch__29583__auto__ = (function (state_35907){
-var state_val_35908 = (state_35907[(1)]);
-if((state_val_35908 === (1))){
-var inst_35886 = cljs.core.PersistentVector.EMPTY_NODE;
-var inst_35887 = [ok_chan,err_chan];
-var inst_35888 = (new cljs.core.PersistentVector(null,2,(5),inst_35886,inst_35887,null));
-var state_35907__$1 = state_35907;
-return cljs.core.async.ioc_alts_BANG_(state_35907__$1,(2),inst_35888);
+var f__29433__auto__ = (function (){var switch__29362__auto__ = (function (state_39473){
+var state_val_39474 = (state_39473[(1)]);
+if((state_val_39474 === (1))){
+var inst_39430 = cljs.core.PersistentVector.EMPTY_NODE;
+var inst_39431 = [ok_chan,err_chan];
+var inst_39432 = (new cljs.core.PersistentVector(null,2,(5),inst_39430,inst_39431,null));
+var state_39473__$1 = state_39473;
+return cljs.core.async.ioc_alts_BANG_(state_39473__$1,(2),inst_39432);
 } else {
-if((state_val_35908 === (2))){
-var inst_35890 = (state_35907[(2)]);
-var inst_35891 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(inst_35890,(0),null);
-var inst_35892 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(inst_35890,(1),null);
-var inst_35893 = cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(inst_35892,ok_chan);
-var state_35907__$1 = (function (){var statearr_35909 = state_35907;
-(statearr_35909[(7)] = inst_35891);
+if((state_val_39474 === (2))){
+var inst_39438 = (state_39473[(2)]);
+var inst_39442 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(inst_39438,(0),null);
+var inst_39444 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(inst_39438,(1),null);
+var inst_39446 = cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(inst_39444,ok_chan);
+var state_39473__$1 = (function (){var statearr_39481 = state_39473;
+(statearr_39481[(7)] = inst_39442);
 
-return statearr_35909;
+return statearr_39481;
 })();
-if(inst_35893){
-var statearr_35910_35974 = state_35907__$1;
-(statearr_35910_35974[(1)] = (3));
+if(inst_39446){
+var statearr_39482_39545 = state_39473__$1;
+(statearr_39482_39545[(1)] = (3));
 
 } else {
-var statearr_35911_35975 = state_35907__$1;
-(statearr_35911_35975[(1)] = (4));
+var statearr_39483_39546 = state_39473__$1;
+(statearr_39483_39546[(1)] = (4));
 
 }
 
 return new cljs.core.Keyword(null,"recur","recur",-437573268);
 } else {
-if((state_val_35908 === (3))){
-var inst_35891 = (state_35907[(7)]);
-var inst_35895 = cljs.core.vector_QMARK_(inst_35891);
-var state_35907__$1 = state_35907;
-if(inst_35895){
-var statearr_35914_35976 = state_35907__$1;
-(statearr_35914_35976[(1)] = (6));
+if((state_val_39474 === (3))){
+var inst_39442 = (state_39473[(7)]);
+var inst_39454 = cljs.core.vector_QMARK_(inst_39442);
+var state_39473__$1 = state_39473;
+if(inst_39454){
+var statearr_39486_39547 = state_39473__$1;
+(statearr_39486_39547[(1)] = (6));
 
 } else {
-var statearr_35915_35977 = state_35907__$1;
-(statearr_35915_35977[(1)] = (7));
+var statearr_39487_39548 = state_39473__$1;
+(statearr_39487_39548[(1)] = (7));
 
 }
 
 return new cljs.core.Keyword(null,"recur","recur",-437573268);
 } else {
-if((state_val_35908 === (4))){
-var inst_35891 = (state_35907[(7)]);
-var inst_35902 = clojure.walk.keywordize_keys(inst_35891);
-var inst_35903 = translations.tranny_api.parse_error(inst_35902);
-var state_35907__$1 = state_35907;
-var statearr_35917_35978 = state_35907__$1;
-(statearr_35917_35978[(2)] = inst_35903);
+if((state_val_39474 === (4))){
+var inst_39442 = (state_39473[(7)]);
+var inst_39466 = clojure.walk.keywordize_keys(inst_39442);
+var inst_39467 = translations.tranny_api.parse_error(inst_39466);
+var state_39473__$1 = state_39473;
+var statearr_39489_39553 = state_39473__$1;
+(statearr_39489_39553[(2)] = inst_39467);
 
-(statearr_35917_35978[(1)] = (5));
-
-
-return new cljs.core.Keyword(null,"recur","recur",-437573268);
-} else {
-if((state_val_35908 === (5))){
-var inst_35905 = (state_35907[(2)]);
-var state_35907__$1 = state_35907;
-return cljs.core.async.impl.ioc_helpers.return_chan(state_35907__$1,inst_35905);
-} else {
-if((state_val_35908 === (6))){
-var inst_35891 = (state_35907[(7)]);
-var inst_35897 = cljs.core.mapv.cljs$core$IFn$_invoke$arity$2(translations.tranny_api.parse_downloaded_op,inst_35891);
-var state_35907__$1 = state_35907;
-var statearr_35920_35979 = state_35907__$1;
-(statearr_35920_35979[(2)] = inst_35897);
-
-(statearr_35920_35979[(1)] = (8));
+(statearr_39489_39553[(1)] = (5));
 
 
 return new cljs.core.Keyword(null,"recur","recur",-437573268);
 } else {
-if((state_val_35908 === (7))){
-var state_35907__$1 = state_35907;
-var statearr_35923_35980 = state_35907__$1;
-(statearr_35923_35980[(2)] = null);
+if((state_val_39474 === (5))){
+var inst_39469 = (state_39473[(2)]);
+var state_39473__$1 = state_39473;
+return cljs.core.async.impl.ioc_helpers.return_chan(state_39473__$1,inst_39469);
+} else {
+if((state_val_39474 === (6))){
+var inst_39442 = (state_39473[(7)]);
+var inst_39460 = cljs.core.mapv.cljs$core$IFn$_invoke$arity$2(translations.tranny_api.parse_downloaded_op,inst_39442);
+var state_39473__$1 = state_39473;
+var statearr_39492_39556 = state_39473__$1;
+(statearr_39492_39556[(2)] = inst_39460);
 
-(statearr_35923_35980[(1)] = (8));
+(statearr_39492_39556[(1)] = (8));
 
 
 return new cljs.core.Keyword(null,"recur","recur",-437573268);
 } else {
-if((state_val_35908 === (8))){
-var inst_35900 = (state_35907[(2)]);
-var state_35907__$1 = state_35907;
-var statearr_35924_35981 = state_35907__$1;
-(statearr_35924_35981[(2)] = inst_35900);
+if((state_val_39474 === (7))){
+var state_39473__$1 = state_39473;
+var statearr_39495_39557 = state_39473__$1;
+(statearr_39495_39557[(2)] = null);
 
-(statearr_35924_35981[(1)] = (5));
+(statearr_39495_39557[(1)] = (8));
+
+
+return new cljs.core.Keyword(null,"recur","recur",-437573268);
+} else {
+if((state_val_39474 === (8))){
+var inst_39464 = (state_39473[(2)]);
+var state_39473__$1 = state_39473;
+var statearr_39496_39558 = state_39473__$1;
+(statearr_39496_39558[(2)] = inst_39464);
+
+(statearr_39496_39558[(1)] = (5));
 
 
 return new cljs.core.Keyword(null,"recur","recur",-437573268);
@@ -537,74 +537,74 @@ return null;
 }
 });
 return (function() {
-var translations$tranny_api$state_machine__29584__auto__ = null;
-var translations$tranny_api$state_machine__29584__auto____0 = (function (){
-var statearr_35925 = [null,null,null,null,null,null,null,null];
-(statearr_35925[(0)] = translations$tranny_api$state_machine__29584__auto__);
+var translations$tranny_api$state_machine__29363__auto__ = null;
+var translations$tranny_api$state_machine__29363__auto____0 = (function (){
+var statearr_39498 = [null,null,null,null,null,null,null,null];
+(statearr_39498[(0)] = translations$tranny_api$state_machine__29363__auto__);
 
-(statearr_35925[(1)] = (1));
+(statearr_39498[(1)] = (1));
 
-return statearr_35925;
+return statearr_39498;
 });
-var translations$tranny_api$state_machine__29584__auto____1 = (function (state_35907){
+var translations$tranny_api$state_machine__29363__auto____1 = (function (state_39473){
 while(true){
-var ret_value__29585__auto__ = (function (){try{while(true){
-var result__29586__auto__ = switch__29583__auto__(state_35907);
-if(cljs.core.keyword_identical_QMARK_(result__29586__auto__,new cljs.core.Keyword(null,"recur","recur",-437573268))){
+var ret_value__29364__auto__ = (function (){try{while(true){
+var result__29365__auto__ = switch__29362__auto__(state_39473);
+if(cljs.core.keyword_identical_QMARK_(result__29365__auto__,new cljs.core.Keyword(null,"recur","recur",-437573268))){
 continue;
 } else {
-return result__29586__auto__;
+return result__29365__auto__;
 }
 break;
 }
-}catch (e35926){var ex__29587__auto__ = e35926;
-var statearr_35927_35982 = state_35907;
-(statearr_35927_35982[(2)] = ex__29587__auto__);
+}catch (e39499){var ex__29366__auto__ = e39499;
+var statearr_39500_39561 = state_39473;
+(statearr_39500_39561[(2)] = ex__29366__auto__);
 
 
-if(cljs.core.seq((state_35907[(4)]))){
-var statearr_35928_35983 = state_35907;
-(statearr_35928_35983[(1)] = cljs.core.first((state_35907[(4)])));
+if(cljs.core.seq((state_39473[(4)]))){
+var statearr_39501_39562 = state_39473;
+(statearr_39501_39562[(1)] = cljs.core.first((state_39473[(4)])));
 
 } else {
-throw ex__29587__auto__;
+throw ex__29366__auto__;
 }
 
 return new cljs.core.Keyword(null,"recur","recur",-437573268);
 }})();
-if(cljs.core.keyword_identical_QMARK_(ret_value__29585__auto__,new cljs.core.Keyword(null,"recur","recur",-437573268))){
-var G__35984 = state_35907;
-state_35907 = G__35984;
+if(cljs.core.keyword_identical_QMARK_(ret_value__29364__auto__,new cljs.core.Keyword(null,"recur","recur",-437573268))){
+var G__39563 = state_39473;
+state_39473 = G__39563;
 continue;
 } else {
-return ret_value__29585__auto__;
+return ret_value__29364__auto__;
 }
 break;
 }
 });
-translations$tranny_api$state_machine__29584__auto__ = function(state_35907){
+translations$tranny_api$state_machine__29363__auto__ = function(state_39473){
 switch(arguments.length){
 case 0:
-return translations$tranny_api$state_machine__29584__auto____0.call(this);
+return translations$tranny_api$state_machine__29363__auto____0.call(this);
 case 1:
-return translations$tranny_api$state_machine__29584__auto____1.call(this,state_35907);
+return translations$tranny_api$state_machine__29363__auto____1.call(this,state_39473);
 }
 throw(new Error('Invalid arity: ' + arguments.length));
 };
-translations$tranny_api$state_machine__29584__auto__.cljs$core$IFn$_invoke$arity$0 = translations$tranny_api$state_machine__29584__auto____0;
-translations$tranny_api$state_machine__29584__auto__.cljs$core$IFn$_invoke$arity$1 = translations$tranny_api$state_machine__29584__auto____1;
-return translations$tranny_api$state_machine__29584__auto__;
+translations$tranny_api$state_machine__29363__auto__.cljs$core$IFn$_invoke$arity$0 = translations$tranny_api$state_machine__29363__auto____0;
+translations$tranny_api$state_machine__29363__auto__.cljs$core$IFn$_invoke$arity$1 = translations$tranny_api$state_machine__29363__auto____1;
+return translations$tranny_api$state_machine__29363__auto__;
 })()
 })();
-var state__29670__auto__ = (function (){var statearr_35931 = f__29669__auto__();
-(statearr_35931[(6)] = c__29668__auto__);
+var state__29434__auto__ = (function (){var statearr_39502 = f__29433__auto__();
+(statearr_39502[(6)] = c__29432__auto__);
 
-return statearr_35931;
+return statearr_39502;
 })();
-return cljs.core.async.impl.ioc_helpers.run_state_machine_wrapped(state__29670__auto__);
+return cljs.core.async.impl.ioc_helpers.run_state_machine_wrapped(state__29434__auto__);
 }));
 
-return c__29668__auto__;
+return c__29432__auto__;
 }));
 
 (translations.tranny_api.download_all_translations.cljs$core$IFn$_invoke$arity$2 = (function (ok_chan,err_chan){

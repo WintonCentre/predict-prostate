@@ -1,9 +1,9 @@
 goog.provide('predict_prostate.layout.navbar');
-predict_prostate.layout.navbar.clear_all_button = rum.core.build_defc((function (p__42157){
-var map__42158 = p__42157;
-var map__42158__$1 = (((((!((map__42158 == null))))?(((((map__42158.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__42158.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__42158):map__42158);
-var props = map__42158__$1;
-var on_click = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__42158__$1,new cljs.core.Keyword(null,"on-click","on-click",1632826543));
+predict_prostate.layout.navbar.clear_all_button = rum.core.build_defc((function (p__34270){
+var map__34271 = p__34270;
+var map__34271__$1 = (((((!((map__34271 == null))))?(((((map__34271.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__34271.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__34271):map__34271);
+var props = map__34271__$1;
+var on_click = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__34271__$1,new cljs.core.Keyword(null,"on-click","on-click",1632826543));
 return React.createElement("button",({"onClick": on_click, "className": "btn navbar-btn btn-danger btn-lg"})," Reset");
 }),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [rum.core.static$], null),"clear-all-button");
 predict_prostate.layout.navbar.navbar = rum.core.build_defc((function (){
