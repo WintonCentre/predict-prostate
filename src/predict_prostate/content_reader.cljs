@@ -61,7 +61,7 @@ re-tag #"([^\s\.#]+)(?:#([^\s\.#]+))?(?:\.([^\s#]+))?")
      xs))
 
   ([ttt id] 
-   (section ttt (content #_ttt) id)))
+   (section ttt (content ttt) id)))
 
 (defn all-subsections
   "loop through subsections adding keys."
@@ -111,8 +111,8 @@ re-tag #"([^\s\.#]+)(?:#([^\s\.#]+))?(?:\.([^\s#]+))?")
 
   (match-node ttt mock-data* "about-the-patient")
 
-  (content #_ttt)
-  (match-node ttt (content #_ttt) "about-the-patient")
+  (content ttt)
+  (match-node ttt (content ttt) "about-the-patient")
   (match-node ttt content "welcome")
   (match-node ttt content "why")
   (section ttt "welcome")

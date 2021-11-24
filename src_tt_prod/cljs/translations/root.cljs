@@ -37,7 +37,7 @@
                          :color            "#fff"
                          :border           "1px dashed #e48"}
               :on-click #(do
-                           ;(println "ttt-edit 1 text = " text "arg = " arg)
+                           (println "ttt-edit 1 text = " text "arg = " arg)
                            (publish edit-change arg)
                            (.stopPropagation %))} text]
 

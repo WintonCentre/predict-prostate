@@ -6,6 +6,7 @@
             [graphics.simple-icons :refer [icon]]
             [interop.utils :refer [scrollTo]]
             [pubsub.feeds :refer [publish]]
+            [predict-prostate.components.bs3-modal :refer [editor-modal]]
             ))
 
 (rum/defc contact < rum/static [ttt _]
@@ -16,5 +17,6 @@
     [:.col-sm-10.col-sm-offset-1.col-lg-8.col-lg-offset-2 {:style {:min-height "calc(100vh - 700px)"}}
      (all-subsections ttt "contact")]]
    (scrollTo 0)
+   (editor-modal)
    (footer-banner ttt)
    [:.row.screen-only (footer)]])

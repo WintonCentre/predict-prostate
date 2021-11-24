@@ -6,7 +6,7 @@
             [predict-prostate.state.run-time :refer [route-change help-key-change t-state-cursor]]
             [predict-prostate.results.util :refer [alison-blue-1 alison-blue-2 alison-blue-3 alison-pink]]
             [predict-prostate.components.button :refer [start-button-group]]
-            [predict-prostate.components.bs3-modal :refer [top-modal]]
+            [predict-prostate.components.bs3-modal :refer [top-modal editor-modal]]
             [interop.utils :refer [scrollTo]]
             [graphics.simple-icons :refer [icon]]
             [pubsub.feeds :refer [publish]]
@@ -142,6 +142,7 @@
           [:.col-sm-9 {:key 12 :style {:font-size 16 :margin-left 0}}
            [:a {:href   "https://youtu.be/9WOzfFAPKyc"
                 :target "_blank"} "Predict prostata- le ayuda a tomar decisiones después de un nuevo diagnóstico de cáncer de próstata."]]]]]]]
+     (editor-modal)
      (scrollTo 0)
      [:.row.screen-only
       (footer)

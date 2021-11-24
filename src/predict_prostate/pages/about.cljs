@@ -8,6 +8,7 @@
             [graphics.simple-icons :refer [icon]]
             [pubsub.feeds :refer [publish]]
             [interop.utils :refer [scrollTo]]
+            [predict-prostate.components.bs3-modal :refer [editor-modal]]
             ))
 
 (def page-components {:about ["about"]
@@ -63,7 +64,7 @@
                      (map-indexed #(rum/with-key (sectionc %2 ttt (::offsets state)) %1) (page-components page))
                      (all-subsections ttt (name page)))]        ; this is needed for FAQs
            sec))]]
-
+     (editor-modal)
      (footer-banner ttt)
 
      #_(if scroll-section

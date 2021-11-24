@@ -6,8 +6,8 @@
   (:require-macros [cljs.core.async :refer [go]]))
 
 ; For remote editing
-;(def server-url "http://localhost:1337/")
-(def server-url "https://api.spa.breast.wintoncentre.uk/")                     ;breast -> prostate? or same server?
+(def server-url "http://localhost:1337/")
+;(def server-url "https://api.spa.breast.wintoncentre.uk/")                     ;breast -> prostate? or same server?
 
 ; For local testing
 (def base-url (str server-url "api/"))

@@ -107,7 +107,7 @@
 
 (defn content
   "Text for the site"
-  [#_ttt]
+  [ttt]
   (let [version-string "v-0.0-0.00-0-hash"
         [_ major minor _ _] (split version-string #"-")]
     [
@@ -130,11 +130,11 @@
 
      ; block 1
      [:section#home-what-is "What is Predict Prostate for?"
-      [:p {:key 1} "Predict Prostate is a tool where the outcomes from conservative management (or monitoring) are
-    compared with radical treatment (surgery or radiotherapy)."]]
+      [:p {:key 1} (ttt [:home/online-tool "Predict Prostate is a tool where the outcomes from conservative management (or monitoring) are
+    compared with radical treatment (surgery or radiotherapy)."])]]
 
      ; block 2
-     [:section#home-how-use "How do I use Predict Prostate?"
+     [:section#home-how-use (ttt [:home/wdido-title "How do I use Predict Prostate?"])
       [:p {:key 2} "Enter the details about yourself and your prostate cancer, and then select conservative management
     or radical treatment to see estimates of survival with each."]
       [:p {:key 3} "We recommend patients read the "

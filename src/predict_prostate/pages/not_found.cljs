@@ -3,7 +3,8 @@
             [bide.core :as r]
             [predict-prostate.router :refer [router]]
             [predict-prostate.layout.header :refer [header footer]]
-            [predict-prostate.content-reader :refer [all-subsections]]))
+            [predict-prostate.content-reader :refer [all-subsections]]
+            [predict-prostate.components.bs3-modal :refer [editor-modal]]))
 
 
 (rum/defc not-found < rum/static [ttt]
@@ -26,4 +27,5 @@
        [:img.img-responsive {:src   "assets/404.jpg"
                              :style {:margin-top "3ex"}
                              :alt   "Not found"}]]]
+     (editor-modal)
      (footer)]]])
