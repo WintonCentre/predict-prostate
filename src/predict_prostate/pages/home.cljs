@@ -49,12 +49,12 @@
           [el1 {:style {:font-size 20 :margin-left 15}} p1]
           [el2 {:style {:font-size 14 :margin-left 15}} p2]])
 
-       [:p {:style {:font-size 18 :margin-left 15}} [:a {:href "https://www.nice.org.uk/guidance/ng131/resources/endorsed-resource-predict-prostate-6898604077" :target "_blank"} "Endorsed by the National Institute for Health and Care Excellence in the UK"]]
+       [:p {:style {:font-size 18 :margin-left 15}} [:a {:href "https://www.nice.org.uk/guidance/ng131/resources/endorsed-resource-predict-prostate-6898604077" :target "_blank"} (ttt [:home/endorsement "Endorsed by the National Institute for Health and Care Excellence in the UK"])]]
        #_[:p {:style {:font-size 14 :margin-left 15}} [:a {:href "#" :on-click #(publish help-key-change "endorsement")} "Endorsed by the National Institute for Health and Care Excellence in the UK"]]
 
       (start-button-group ttt supported-languages)
 
-       [:p {:style {:margin-left 15}} [:i "Did you mean to visit "] [:a {:href "https://breast.predict.nhs.uk"} "Predict Breast Cancer?"]]]
+       [:p {:style {:margin-left 15}} [:i (ttt [:home/dymtv "Did you mean to visit"]) " "] [:a {:href "https://breast.predict.nhs.uk"} "Predict Breast Cancer"] (ttt [:home/qmark "?"])]]
       [:.col-sm-6
        [:img.img-responsive {
                              :src         "assets/icon-imagery.png"
@@ -103,42 +103,42 @@
        [:.row
         [:.col-md-4 {:key 1
                      :style {:font-size 16}}
-         [:p {:style {:margin-left 15}} "The following introductory videos are available:"]]
+         [:p {:style {:margin-left 15}} (ttt [:home/tfivaa "The following introductory videos are available:"])]]
         [:.col-md-8 {:key 2
                      :style {:font-size 16 #_#_:margin-left 15}}
          [:.row {:key 2 :style {:margin-left 0}}
-          [:.col-sm-2 {:key 1 :style {:font-size 16 :margin-left 0}} "Hindi"]
+          [:.col-sm-2 {:key 1 :style {:font-size 16 :margin-left 0}} (ttt [:hi "Hindi"])]
           [:.col-sm-9 {:key 2 :style {:font-size 16 :margin-left 0}}
            [:a {:href   "https://youtu.be/iypNI4CKzjo"
                 :target "_blank"} "प्रिडिक्ट प्रॉस्टेट वेब टूल : प्रॉस्टेट कैन्सर होने पर उसके उपचार हेतु निर्णय लेने में आपका नसहायक"]]
-          [:.col-sm-2 {:key 3 :style {:font-size 16 :margin-left 0}} "Arabic"]
+          [:.col-sm-2 {:key 3 :style {:font-size 16 :margin-left 0}} (ttt [:ar "Arabic"])]
           [:.col-sm-9 {:key 4 :style {:font-size 16 :margin-left 0}}
            [:a {:href   "https://youtu.be/g-BOx69i5mM"
                 :target "_blank"} "أداة Predict Prostate على الأنترنت: تساعدك على اتخاذ القرارات بعد التشخيص بسرطان البروستاتا"]]
 
-          [:.col-sm-2 {:key 5 :style {:font-size 16 :margin-left 0}} "English"]
+          [:.col-sm-2 {:key 5 :style {:font-size 16 :margin-left 0}} (ttt [:en "English"])]
           [:.col-sm-9 {:key 6 :style {:font-size 16 :margin-left 0}}
            [:a {:href   "https://www.youtube.com/watch?v=-6UR6gAeYxI&t=10s"
                 :target "_blank"} "The Predict Prostate web tool: helping you make decisions after a new diagnosis of prostate cancer"]]
 
-          [:.col-sm-2 {:key 13 :style {:font-size 16 :margin-left 0}} "German"]
+          [:.col-sm-2 {:key 13 :style {:font-size 16 :margin-left 0}} (ttt [:de "German"])]
           [:.col-sm-9 {:key 14 :style {:font-size 16 :margin-left 0}}
            [:a {:href   "https://youtu.be/vjFS8k76QHY"
                 :target "_blank"} "Das Predict Prostate tool: Hilfe bei der Entscheidungsfindung nach einer
                         diagnose von Prostatakrebs"]]
 
-          [:.col-sm-2 {:key 7 :style {:font-size 16 :margin-left 0}} "Cantonese"]
+          [:.col-sm-2 {:key 7 :style {:font-size 16 :margin-left 0}} (ttt [:zh-yue "Cantonese"])]
           [:.col-sm-9 {:key 8 :style {:font-size 16 :margin-left 0}}
            [:a {:href   "https://youtu.be/els0ckmtJxs"
                 :target "_blank"} "PREDICT預報前列線網上工具——幫助初確診前列線癌病患作出醫療決定：https://prostate.predict.nhs.uk"]]
 
 
-          [:.col-sm-2 {:key 9 :style {:font-size 16 :margin-left 0}} "Mandarin"]
+          [:.col-sm-2 {:key 9 :style {:font-size 16 :margin-left 0}} (ttt [:zh-cmn "Mandarin"])]
           [:.col-sm-9 {:key 10 :style {:font-size 16 :margin-left 0}}
            [:a {:href   "https://youtu.be/O_AlEE3-uKw"
                 :target "_blank"} "PREDICT 预报前列线网上工具--帮助初确诊前列线癌病患作出医疗决定: https://prostate.predict.nhs.uk"]]
 
-          [:.col-sm-2 {:key 11 :style {:font-size 16 :margin-left 0}} "Spanish"]
+          [:.col-sm-2 {:key 11 :style {:font-size 16 :margin-left 0}} (ttt [:es "Spanish"])]
           [:.col-sm-9 {:key 12 :style {:font-size 16 :margin-left 0}}
            [:a {:href   "https://youtu.be/9WOzfFAPKyc"
                 :target "_blank"} "Predict prostata- le ayuda a tomar decisiones después de un nuevo diagnóstico de cáncer de próstata."]]]]]]]

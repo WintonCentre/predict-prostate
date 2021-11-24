@@ -129,20 +129,20 @@
       ]
 
      ; block 1
-     [:section#home-what-is "What is Predict Prostate for?"
-      [:p {:key 1} (ttt [:home/online-tool "Predict Prostate is a tool where the outcomes from conservative management (or monitoring) are
+     [:section#home-what-is (ttt [:home/wippf-title "What is Predict Prostate for?"])
+      [:p {:key 1} (ttt [:home/wippf-text "Predict Prostate is a tool where the outcomes from conservative management (or monitoring) are
     compared with radical treatment (surgery or radiotherapy)."])]]
 
      ; block 2
-     [:section#home-how-use (ttt [:home/wdido-title "How do I use Predict Prostate?"])
-      [:p {:key 2} "Enter the details about yourself and your prostate cancer, and then select conservative management
-    or radical treatment to see estimates of survival with each."]
-      [:p {:key 3} "We recommend patients read the "
+     [:section#home-how-use (ttt [:home/hdiupp-title "How do I use Predict Prostate?"])
+      [:p {:key 2} (ttt [:home/hdiupp-text1 "Enter the details about yourself and your prostate cancer, and then select conservative management
+    or radical treatment to see estimates of survival with each."])]
+      [:p {:key 3} (ttt [:home/hdiupp-text2 "We recommend patients read the"]) " "
        [:a {:key 1 :href "#" :on-click #(publish route-change [:about {:page :overview :section :overview}])}
-        "About Predict"]
-       [:span {:key 2 :style {:font-size "16px"}} " section before using the tool. Predict Prostate is only intended for
+        (ttt [:home/hdiupp-text3 "About Predict"])]
+       [:span {:key 2 :style {:font-size "16px"}} " " (ttt [:home/hdiupp-text4 "section before using the tool. Predict Prostate is only intended for
      use amongst men
-     for whom both conservative management and radical treatment could both be appropriate options"]]]
+     for whom both conservative management and radical treatment could both be appropriate options."])]]]
      #_[:div {:key 2 :style {:border-left  "3px solid #005FB1"
                              :padding-left "10px"}}
         [:p "We recommend that patients use this tool with their doctor."]]
@@ -162,12 +162,12 @@
 
 
      ; block 3
-     [:section#home-what-tell "What will Predict Prostate tell me?"
-      [:p {:key 4} "The Predict Prostate tool shows you how different initial management strategies affect the percentage
+     [:section#home-what-tell (ttt [:home/wwpptm-title "What will Predict Prostate tell me?"])
+      [:p {:key 4} (ttt [:home/wwpptm-text1 "The Predict Prostate tool shows you how different initial management strategies affect the percentage
     of men that survive ten and fifteen years after diagnosis. Non-individualised data is also shown on the potential
-    harms of each treatment type. "
-       [:a {:href "https://www.youtube.com/watch?v=-6UR6gAeYxI&t=10s" :target "_blank"} "This short video"]
-       " may help explain how Predict Prostate works"]]
+    harms of each treatment type."]) " "
+       [:a {:href "https://www.youtube.com/watch?v=-6UR6gAeYxI&t=10s" :target "_blank"} (ttt [:home/wwpptm-video "This short video"])] " "
+       (ttt [:home/wwpptm-text2 "may help explain how Predict Prostate works."])]]
 
      [:section#about-page "About"
       [:section#who (copied "Who developed the Predict Prostate programme?")
@@ -190,12 +190,12 @@
      ;; about page texts
      ;;
      [:section#overview "Overview"
-      [:section "Overview"
+      [:section (ttt [:about/overview "Overview"])
 
        [:ul {:style {:list-style-image "url(/assets/bullet-plus.png)"}}
-        [:li (page-link [:about {:page :overview :section :whoisitfor}] "Who is it for?")]
-        [:li (page-link [:about {:page :overview :section :howpredictworks}] "How Predict Prostate works")]
-        [:li (page-link [:about {:page :overview :section :whobuiltpredict}] "Who built Predict Prostate?")]
+        [:li (page-link [:about {:page :overview :section :whoisitfor}] (ttt [:about/wiif-title "Who is it for?"]))]
+        [:li (page-link [:about {:page :overview :section :howpredictworks}] (ttt [:about/hppw-title "How Predict Prostate works"]))]
+        [:li (page-link [:about {:page :overview :section :whobuiltpredict}] (ttt [:about/wbpp-title "Who built Predict Prostate?"]))]
         ]
 
        [:section
@@ -204,61 +204,61 @@
        ]]
 
      [:section#whoisitfor "Who is it for?"
-      [:section "Who is it for?"
-       [:p "The tool is intended for men with non-metastatic prostate cancer who are deciding between conservative and
+      [:section (ttt [:about/wiif-title "Who is it for?"])
+       [:p (ttt [:about/wiif-text1 "The tool is intended for men with non-metastatic prostate cancer who are deciding between conservative and
      radical management regimes. The tool is not for use in cases where prostate cancer has spread beyond the prostate.
      The tool is also less well tested and likely to be less reliable in men with very high PSA, high grade group or
      high stage
      as very few men with these characteristics were managed with conservative management in our development or
-     validation data.  "]
+     validation data.  "])]
 
-       [:p "Nothing can ever tell an individual man exactly what is going to happen to him in the future but this tool
+       [:p (ttt [:about/wiif-text2 "Nothing can ever tell an individual man exactly what is going to happen to him in the future but this tool
      will provide a realistic estimate or ‘best guess’ about the potential survival benefits of different treatment
-     options."]
+     options."])]
 
-       [:p.emphasise "The web tool is not designed to give clinical advice and all decisions on treatment options must be
-    made in consultation between the patient and a qualified doctor."]
+       [:p.emphasise (ttt [:about/wiif-text3 "The web tool is not designed to give clinical advice and all decisions on treatment options must be
+    made in consultation between the patient and a qualified doctor."])]
        (hr)]]
 
      [:section#howpredictworks "How Predict Prostate works"
-      [:section "How Predict Prostate works"
-       [:p [:a {:href "https://www.youtube.com/watch?v=-6UR6gAeYxI&t=10s" :target "_blank"} "This short video"]
-        " may help explain how Predict Prostate works."]
-       [:p "The estimates that Predict Prostate produces are based on observational data from thousands of men previously
+      [:section (ttt [:about/hppw-title "How Predict Prostate works"])
+       [:p [:a {:href "https://www.youtube.com/watch?v=-6UR6gAeYxI&t=10s" :target "_blank"} (ttt [:about/hppw-text1 "This short video"])]
+        " " (ttt [:about/hppw-text2 "may help explain how Predict Prostate works."])]
+       [:p (ttt [:about/hppw-text3 "The estimates that Predict Prostate produces are based on observational data from thousands of men previously
      diagnosed with non-metastatic prostate cancer from the East of England, UK. It provides the average survival rate
-     for men in the past of similar age and with similar characteristics."]
-       [:p "These data were then used to help produce estimates of the potential outcomes for men who have prostate cancer
+     for men in the past of similar age and with similar characteristics."])]
+       [:p (ttt [:about/hppw-text4 "These data were then used to help produce estimates of the potential outcomes for men who have prostate cancer
      now, depending on characteristics about them and their tumour. The model has also been tested among men diagnosed
      with prostate cancer in Singapore.
      It has been checked to make sure that the estimates it produces are as accurate as they can be given current
      nowledge. It is important to note that the model can only give an estimate of what may happen and cannot say with
-     certainty whether an individual patient will survive their cancer or not."]
-       [:p (page-link [:about {:page :technical :section :technical}] "The technical section") " has more detail on how
-     Predict Prostate was developed and tested. "]
+     certainty whether an individual patient will survive their cancer or not."])]
+       [:p (page-link [:about {:page :technical :section :technical}] (ttt [:about/hppw-text5 "The technical section"])) " " (ttt [:about/hppw-text6 "has more detail on how
+     Predict Prostate was developed and tested. "])]
        (hr)
        ]]
 
 
      [:section#whobuiltpredict "Who built Predict Prostate?"
-      [:section "Who built Predict Prostate?"
+      [:section (ttt [:about/wbpp-title "Who built Predict Prostate?"])
 
-       [:p "Predict Prostate has been developed by a partnership between the "
+       [:p (ttt [:about/wbpp-text1 "Predict Prostate has been developed by a partnership between the"]) " "
         [:a {:href   "https://surgery.medschl.cam.ac.uk/divisions-and-groups/academic-urology-group/"
              :rel    "noopener"
              :style  {:text-decoration "underline"}
-             :target "_blank"} "Academic Urology Group"] " and the "
+             :target "_blank"} (ttt [:about/wbpp-text2 "Academic Urology Group"])] " " (ttt [:about/wbpp-text3 "and the"]) " "
         [:a {:href   "https://ccge.medschl.cam.ac.uk/"
              :rel    "noopener"
              :style  {:text-decoration "underline"}
-             :target "_blank"} "Centre for Cancer Genetic Epidemiology"]
-        " at the University of Cambridge"
-        " in collaboration with the National Cancer Registration and Analysis Service (NCRAS) at Public Health England.
-        This work has been supported by funding from "
+             :target "_blank"} (ttt [:about/wbpp-text4 "Centre for Cancer Genetic Epidemiology"])]
+        " " (ttt [:about/wbpp-text5 "at the University of Cambridge"])
+        " " (ttt [:about/wbpp-text6 "in collaboration with the National Cancer Registration and Analysis Service (NCRAS) at Public Health England.
+        This work has been supported by funding from"]) " "
         [:a {:href   "https://www.theurologyfoundation.org/"
              :rel    "noopener"
              :style  {:text-decoration "underline"}
-             :target "_blank"} "The Urology Foundation"]
-        " and the Evelyn Trust"]
+             :target "_blank"} (ttt [:about/wbpp-text7 "The Urology Foundation"])]
+        " " (ttt [:about/wbpp-text8 "and the Evelyn Trust."])]
 
 
        [:p "The website has been built by the "
@@ -267,8 +267,7 @@
              :style  {:text-decoration "underline"}
              :target "_blank"} "Winton Centre for Risk & Evidence Communication"]
         " at the University of Cambridge who are funded by a generous donation from the David and Claudia Harding
-        Foundation and the Winton Charitable Foundation."]
-       ]]
+        Foundation and the Winton Charitable Foundation."]]]
 
      [:section#technical "Technical"
       [:section "Technical"
