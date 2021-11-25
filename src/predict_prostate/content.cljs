@@ -629,151 +629,151 @@ Grade Group 2 or from Stage T2 to stage T3). If MRI data and imaging scores are 
      [:section#disclaimer "Disclaimer"
       [:section (ttt [:disc/title "Disclaimer"])
        [:p (ttt [:disc/text1 "You MUST read the information below before using the tool"])]
-       [:p "IMPORTANT NOTICE: Predict Prostate is a prognostic tool for patients diagnosed with non-metastatic prostate cancer who have not yet begun treatment and in whom metastatic disease
+       [:p (ttt [:disc/text2 "IMPORTANT NOTICE: Predict Prostate is a prognostic tool for patients diagnosed with non-metastatic prostate cancer who have not yet begun treatment and in whom metastatic disease
       has not been identified.  Please refer to the referenced papers in the model to 
       understand the populations it was derived from and tested. The model assesses the potential benefits of immediate radical treatment 
       (either by radical prostatectomy or radical radiotherapy) versus the option of initial conservative management 
-      (including active surveillance or watchful waiting). "]
-       [:p "The model does not preclude the potential need
+      (including active surveillance or watchful waiting). "])]
+       [:p (ttt [:disc/text3 "The model does not preclude the potential need
      for deferred radical treatment after initial conservative management if the disease characteristics change.
-     "]
-       [:p "Predict Prostate is designed as a guide to add information
+     "])]
+       [:p (ttt [:disc/text4 "Predict Prostate is designed as a guide to add information
      to standard counselling and personal discussion with a health care professional and cannot replace it.
      All results must be understood in the context of each patient’s specific condition.
      In particular, the model does not adjust for factors such as family history (apart from BRCA status), race, tumour volume or any predisposing genetic factor.
-     "]
-       [:p "TERMS OF USE: Results provided by this tool are for informational purposes only and are not intended as a substitute for professional medical advice and counselling.
+     "])]
+       [:p (ttt [:disc/text5 "TERMS OF USE: Results provided by this tool are for informational purposes only and are not intended as a substitute for professional medical advice and counselling.
    Predict Prostate is a reference guide only and cannot replace standard clinical counselling. 
    Please read the referenced papers for the study derivation and context. 
    By accessing and using this tool, you acknowledge and agree to the following terms. 
-   "]
-       [:p "Except as otherwise permitted by law, this tool may be accessed and used in line with the disclaimer above or private study or non-commercial research with this notice intact.
-   "]
-       [:p "You shall not copy, reproduce, distribute, transmit, broadcast, display, sell, rent, license, or otherwise exploit this tool or any content within in whole or in part for any other purposes
+   "])]
+       [:p (ttt [:disc/text6 "Except as otherwise permitted by law, this tool may be accessed and used in line with the disclaimer above or private study or non-commercial research with this notice intact.
+   "])]
+       [:p (ttt [:disc/text7 "You shall not copy, reproduce, distribute, transmit, broadcast, display, sell, rent, license, or otherwise exploit this tool or any content within in whole or in part for any other purposes
    without the prior written consent of the University of Cambridge, Academic Urology group (contact details can be found in the reference paper). 
-   "]
-       [:p "The authors and University of Cambridge do not accept any liability for any errors in the model prediction or outcomes.
+   "])]
+       [:p (ttt [:disc/text8 "The authors and University of Cambridge do not accept any liability for any errors in the model prediction or outcomes.
    See also the University’s standard terms at http://www.cam.ac.uk/about-this-site/terms-and-conditions. 
    Any links from this tool or any associated text do not imply recommendations or endorsements of products or services. 
-   "]
-       [:p "The trademarks of the University of Cambridge and others that appear in this tool are the property of the University of Cambridge or their respective owners.
+   "])]
+       [:p (ttt [:disc/text9 "The trademarks of the University of Cambridge and others that appear in this tool are the property of the University of Cambridge or their respective owners.
    You may not use any trademark displayed in the tool without the written permission of the University of Cambridge or the respective owner. 
-   Copyright © 2019 University of Cambridge. All rights reserved."]
+   Copyright © 2019 University of Cambridge. All rights reserved."])]
        ]]
 
      [:section#algorithm "Algorithm"
-      [:section "Explanation of the Predict Prostate Algorithm"
+      [:section (ttt [:alg/expl-title "Explanation of the Predict Prostate Algorithm"])
 
 
-       [:p "The model is based on precise mathematical formulae for the cumulative hazard functions of dying from prostate cancer, and
+       [:p (ttt [:alg/expl-text1 "The model is based on precise mathematical formulae for the cumulative hazard functions of dying from prostate cancer, and
                dying from other causes. These two process cannot both occur - so the two models are adjusted for these 'competing risks' to provide overall 
-               chances of being alive at a certain number of years following diagnosis."]
+               chances of being alive at a certain number of years following diagnosis."])]
 
-       [:p "Further explanation is given in the "
-        [:a {:href (iref "/predict_mathematics_prostate.pdf")} [:i.fa.fa-file-pdf-o {:aria-hidden true}] " mathematical description"] "."]
+       [:p (ttt [:alg/expl-text2 "Further explanation is given in the"]) " "
+        [:a {:href (iref "/predict_mathematics_prostate.pdf")} [:i.fa.fa-file-pdf-o {:aria-hidden true}] " " (ttt [:alg/expl-text3 "mathematical description"])] "."]
 
        [:.table-responsive
         [:table.table.table-bordered {:style {:max-width 600}}
-         [:caption {:style {:color "rgb(104, 104, 104)"}} "Table 1: Risk-factor coefficients for Prostate Cancer-Specific Mortality (numbers rounded for table)"]
+         [:caption {:style {:color "rgb(104, 104, 104)"}} (ttt [:alg/table1-legend "Table 1: Risk-factor coefficients for Prostate Cancer-Specific Mortality (numbers rounded for table)"])]
          [:thead
           [:tr
-           [:th "Risk Factor"]
-           [:th "Logarithm of multiplier of baseline hazard"]]]
+           [:th (ttt [:alg/table1-col1 "Risk Factor"])]
+           [:th (ttt [:alg/table1-col2 "Logarithm of multiplier of baseline hazard"])]]]
          [:tbody
           [:tr
-           [:th "Age at diagnosis (years)"]
-           [:td "0.003*((" [:i "age"] "/10)" [:sup "3"] " -341.16) "]]
+           [:th (ttt [:alg/table1-r1c1 "Age at diagnosis (years)"])]
+           [:td "0.003*((" [:i (ttt [:alg/table1-r1c2 "age"])] "/10)" [:sup "3"] " -341.16) "]]
           [:tr
-           [:th "PSA at diagnosis (ng/ml)"]
-           [:td "+ 0.186*(ln (" [:i "PSA"] "+1/100)) +1.636"]]
+           [:th (ttt [:alg/table1-r2c1 "PSA at diagnosis (ng/ml)"])]
+           [:td "+ 0.186*(ln (" [:i (ttt [:alg/table1-r2c2 "PSA"])] "+1/100)) +1.636"]]
           [:tr
-           [:th "Grade group"]
-           [:td "+ 0.28 if " [:i "grade group"] " = 2" [:br] "+0.55 if " [:i "grade group"] " = 3" [:br] "+0.74 if " [:i "grade group"] " = 4 " [:br] "+1.37 if " [:i "grade group"] " = 5"]]
+           [:th (ttt [:alg/table1-r3c1 "Grade group"])]
+           [:td "+ 0.28 " (ttt [:alg/table1-r3c2-1 "if"]) " " [:i (ttt [:alg/table1-r3c2-2 "grade group"])] " = 2" [:br] "+0.55 " (ttt [:alg/table1-r3c2-3 "if"]) " " [:i (ttt [:alg/table1-r3c2-4 "grade group"])] " = 3" [:br] "+0.74 " (ttt [:alg/table1-r3c2-5 "if"]) " " [:i (ttt [:alg/table1-r3c2-6 "grade group"])] " = 4 " [:br] "+1.37 " (ttt [:alg/table1-r3c2-7 "if"]) " " [:i (ttt [:alg/table1-r3c2-8 "grade group"])] " = 5"]]
           [:tr
-           [:th "T stage"]
-           [:td "+0.16 if " [:i "t stage"] " = 2" [:br] "+0.40 if " [:i "t stage"] " = 3" [:br] "+0.63 if " [:i "t stage"] " = 4"]]
+           [:th (ttt [:alg/table1-r4c1 "T stage"])]
+           [:td "+0.16 " (ttt [:alg/table1-r4c2-1 "if"]) " " [:i (ttt [:alg/table1-r4c2-2 "t stage"])] " = 2" [:br] "+0.40 " (ttt [:alg/table1-r4c2-3 "if"]) " " [:i (ttt [:alg/table1-r4c2-4 "t stage"])] " = 3" [:br] "+0.63 " (ttt [:alg/table1-r4c2-5 "if"]) " " [:i (ttt [:alg/table1-r4c2-6 "t stage"])] " = 4"]]
           [:tr
-           [:th "Proportion of Positive Cores (PPC)"]
-           [:td "v1.0:" [:br] "-0.62  if " [:i "PPC"] " = <50%" [:br] "+0.58 if " [:i "PPC"] "= 50% or greater" [:br] "v1.1:" [:br] "+1.890134*(((" [:i "PPC"] "+0.1811159)/100)^.5-.649019)"]]
+           [:th (ttt [:alg/table1-r5c1 "Proportion of Positive Cores (PPC)"])]
+           [:td "v1.0:" [:br] "-0.62 " (ttt [:alg/table1-r5c2-1 "if"]) " " [:i (ttt [:alg/table1-r5c2-2 "PPC"])] " = <50%" [:br] "+0.58 " (ttt [:alg/table1-r5c2-3 "if"]) " " [:i (ttt [:alg/table1-r5c2-4 "PPC"])] (ttt [:alg/table1-r5c2-5 "= 50% or greater"]) [:br] "v1.1:" [:br] "+1.890134*(((" [:i (ttt [:alg/table1-r5c2-6 "PPC"])] "+0.1811159)/100)^.5-.649019)"]]
           [:tr
-           [:th "BRCA"]
-           [:td "+.956 if " [:i "BRCA"] " = Positive"]]
+           [:th (ttt [:alg/table1-r6c1 "BRCA"])]
+           [:td "+.956 " (ttt [:alg/table1-r6c2-1 "if"]) " " [:i (ttt [:alg/table1-r6c2-2 "BRCA"])] " " (ttt [:alg/table1-r6c2-3 "= Positive"])]]
           [:tr
-           [:th "Primary treatment"]
-           [:td "-0.68  if " [:i "Primary treatment"] " = radical treatment"]
+           [:th (ttt [:alg/table1-r7c1 "Primary treatment"])]
+           [:td "-0.68 " (ttt [:alg/table1-r7c2-1 "if"]) " " [:i (ttt [:alg/table1-r7c2-2 "Prc1imary treatment"])] " " (ttt [:alg/table1-r7c2-3 "= radical treatment"])]
            ]]]]
 
        [:.table-responsive
         [:table.table.table-bordered {:style {:max-width 600}}
-         [:caption {:style {:color "rgb(104, 104, 104)"}} "Table 2: Risk-factor coefficients for Non Prostate Cancer Mortality (numbers rounded for table)"]
+         [:caption {:style {:color "rgb(104, 104, 104)"}} (ttt [:alg/table2-legend "Table 2: Risk-factor coefficients for Non Prostate Cancer Mortality (numbers rounded for table)"])]
          [:thead
           [:tr
-           [:th "Risk Factor"]
-           [:th "Logarithm of multiplier of baseline hazard"]]]
+           [:th (ttt [:alg/table2-col1 "Risk Factor"])]
+           [:th (ttt [:alg/table2-col2 "Logarithm of multiplier of baseline hazard"])]]]
          [:tbody
           [:tr
-           [:th "Age at diagnosis (years)"]
-           [:td "0.12*(" [:i "age"] " - 69.8743)"]]
+           [:th (ttt [:alg/table2-r1c1 "Age at diagnosis (years)"])]
+           [:td "0.12*(" [:i (ttt [:alg/table2-r1c2 "age"])] " - 69.8743)"]]
           [:tr
-           [:th "Comorbidity"]
-           [:td "+ 0.6382 if " [:i "Charlson comorbidity is 1 or more & a hospital admission in the prior 2 years"]]]
+           [:th (ttt [:alg/table2-r2c1 "Comorbidity"])]
+           [:td "+ 0.6382 " (ttt [:alg/table2-r2c2-1 "if"]) " " [:i (ttt [:alg/table2-r2c2-2 "Charlson comorbidity is 1 or more & a hospital admission in the prior 2 years"])]]]
           ]]]]
 
 
 
-      [:section "Implementation of the Algorithm"
-       [:p "The model used to drive this tool is a clojurescript implementation of the 'PREDICT Prostate' model written in Stata 14.
+      [:section (ttt [:alg/impl-title "Implementation of the Algorithm"])
+       [:p (ttt [:alg/impl-text1 "The model used to drive this tool is a clojurescript implementation of the 'PREDICT Prostate' model written in Stata 14.
       For consistency across graphical outputs the number of 'deaths due to other causes' within the 'icons' and 'texts' displays have been set to 
       match the number of deaths if 'deaths from prostate cancer were excluded completely' as used in the 'Charts', 'Curves' and 'Table' outputs. This may slightly reduce
-      the predicted number of prostate cancer deaths in the 'icons' and 'texts' displays when compared to the published model."]]]
+      the predicted number of prostate cancer deaths in the 'icons' and 'texts' displays when compared to the published model."])]]]
 
      [:section#privacy "Privacy"
-      [:section "Site Privacy"
-       [:p "Information entered into the Predict tool never leaves your local machine. The information entered in
-     'Settings' is limited to tool configuration settings and is stored on your local machine."]]
-      [:section "Cookie Policy"
-       [:p "A cookie is a small amount of data sent your computer that your web browser stores when you visit some
-     websites. Cookies allow a website to recognise a user’s device e.g. computer, mobile phone. "]
-       [:p "The law on website cookies changed on 26 May 2011 and requires that sites state which cookies are being used
+      [:section (ttt [:priv/site-title "Site Privacy"])
+       [:p (ttt [:priv/site-text1 "Information entered into the Predict tool never leaves your local machine. The information entered in
+     'Settings' is limited to tool configuration settings and is stored on your local machine."])]]
+      [:section (ttt [:priv/cp-title "Cookie Policy"])
+       [:p (ttt [:priv/cp-text1 "A cookie is a small amount of data sent your computer that your web browser stores when you visit some
+     websites. Cookies allow a website to recognise a user’s device e.g. computer, mobile phone. "])]
+       [:p (ttt [:priv/cp-text2 "The law on website cookies changed on 26 May 2011 and requires that sites state which cookies are being used
      and their purpose. It also makes clear that cookies only be used with your consent. You can find out more
-     information about this law by visiting the " [:a {:href "https://ico.org.uk/for-the-public/online/cookies/" :rel "noopener"} "Information Commissioner’s Office website."]]
-       [:p "In using the Predict website you are implicitly giving consent that cookies may be used, however you may
-     disable cookie use, see below for details."]]
-      [:section "Which cookies does the Predict website use?"
-       [:p "Predict uses Google Analytics to measure website traffic. All the information collected is anonymous and is
-     not used for any other purpose. For more details see the "
-        [:a {:href "http://www.google.co.uk/intl/en/policies/privacy/" :rel "noopener"} "Google privacy policy."]]
-       [:p "The following cookies are used:"]
+     information about this law by visiting the"]) " " [:a {:href "https://ico.org.uk/for-the-public/online/cookies/" :rel "noopener"} (ttt [:priv/cp-text3 "Information Commissioner’s Office website."])]]
+       [:p (ttt [:priv/cp-text4 "In using the Predict website you are implicitly giving consent that cookies may be used, however you may
+     disable cookie use, see below for details."])]]
+      [:section (ttt [:priv/wc-title "Which cookies does the Predict website use?"])
+       [:p (ttt [:priv/wc-text1 "Predict uses Google Analytics to measure website traffic. All the information collected is anonymous and is
+     not used for any other purpose. For more details see the"]) " "
+        [:a {:href "http://www.google.co.uk/intl/en/policies/privacy/" :rel "noopener"} (ttt [:priv/wc-text2 "Google privacy policy."])]]
+       [:p (ttt [:priv/wc-text3 "The following cookies are used:"])]
        [:table.table.table-bordered {:style {:max-width "600px" :margin-top "10px" :font-size "16px"}}
         [:thead
          [:tr {:style {:background-color "#005EB4"
                        :color            "white"}}
-          [:th "Name"] [:th "Details"] [:th "Expires"]]]
+          [:th (ttt [:priv/wc-table-col1 "Name"])] [:th (ttt [:priv/wc-table-col2 "Details"])] [:th (ttt [:priv/wc-table-col3 "Expires"])]]]
         [:tbody
          [:tr
-          [:td "_utma"] [:td "stores each user’s number of visits, time of visit etc."] [:td "two years"]]
+          [:td "_utma"] [:td (ttt [:priv/wc-table-r1c2 "stores each user’s number of visits, time of visit etc."])] [:td (ttt [:priv/wc-table-r1c3 "two years"])]]
          [:tr
-          [:td "_utmb"] [:td "checks approximately how long a user stays on the site"] [:td "30 minutes"]]
+          [:td "_utmb"] [:td (ttt [:priv/wc-table-r2c2 "checks approximately how long a user stays on the site"])] [:td (ttt [:priv/wc-table-r2c3 "30 minutes"])]]
          [:tr
-          [:td "_utmc"] [:td "stores each user’s number of visits"] [:td "End of browsing session"]]
+          [:td "_utmc"] [:td (ttt [:priv/wc-table-r3c2 "stores each user’s number of visits"])] [:td (ttt [:priv/wc-table-r3c3 "End of browsing session"])]]
          [:tr
-          [:td "_utmz"] [:td "stores where a visitor came from"] [:td "two years"]]
+          [:td "_utmz"] [:td (ttt [:priv/wc-table-r4c2 "stores where a visitor came from"])] [:td (ttt [:priv/wc-table-r4c3 "two years"])]]
          [:tr
-          [:td "_hjDonePolls"] [:td "Hotjar cookie. This cookie is set once a visitor completes a poll using the Feedback Poll widget. It is used to ensure that the same poll does not re-appear if it has already been filled in."] [:td "one year"]]
+          [:td "_hjDonePolls"] [:td (ttt [:priv/wc-table-r5c2 "Hotjar cookie. This cookie is set once a visitor completes a poll using the Feedback Poll widget. It is used to ensure that the same poll does not re-appear if it has already been filled in."])] [:td (ttt [:priv/wc-table-r5c3 "one year"])]]
          [:tr
-          [:td "_hjMinimizedPolls"] [:td "Hotjar cookie. This cookie is set once a visitor minimizes a Feedback Poll widget. It is used to ensure that the widget stays minimizes when the visitor navigates through the site."] [:td "one year"]]
+          [:td "_hjMinimizedPolls"] [:td (ttt [:priv/wc-table-r6c2 "Hotjar cookie. This cookie is set once a visitor minimizes a Feedback Poll widget. It is used to ensure that the widget stays minimizes when the visitor navigates through the site."])] [:td (ttt [:priv/wc-table-r6c3 "one year"])]]
          ]]
        ]
-      [:section "Can I disable cookies?"
-       [:p "You can opt out of cookies at any time, following the instructions in your browser. These are typically found
+      [:section (ttt [:priv/dc-title "Can I disable cookies?"])
+       [:p (ttt [:priv/dc-text1 "You can opt out of cookies at any time, following the instructions in your browser. These are typically found
      under ‘Tools’ and ‘Options’ (PC) or ‘Preferences’ (Mac) though the details vary from browser to browser.
-     Also, Google offers a " [:a {:href "https://tools.google.com/dlpage/gaoptout" :rel "noopener"} "tool that you can use to opt out"]
-        " of being tracked by Google Analytics. You can add this plugin to your browser by going to Google.
-        For more details about controlling cookies visit the help pages for the browser that you are using."]]
+     Also, Google offers a"]) " " [:a {:href "https://tools.google.com/dlpage/gaoptout" :rel "noopener"} (ttt [:priv/dc-text2 "tool that you can use to opt out"])]
+        " " (ttt [:priv/dc-text3 "of being tracked by Google Analytics. You can add this plugin to your browser by going to Google.
+        For more details about controlling cookies visit the help pages for the browser that you are using."])]]
 
-      [:section "Can I disable hotjar?"
-       [:p "Yes you can. Follow this link for up to date instructions: " [:a {:href "https://www.hotjar.com/legal/compliance/opt-out" :rel "noopener" :target "_blank"} "How to disable Hotjar"]]
-       [:p (ttt [:priv/dpo "The Data Protection Officer for Predict:Prostate Cancer is "])
+      [:section (ttt [:priv/dh-title "Can I disable hotjar?"])
+       [:p (ttt [:priv/dh-text1 "Yes you can. Follow this link for up to date instructions:"]) " " [:a {:href "https://www.hotjar.com/legal/compliance/opt-out" :rel "noopener" :target "_blank"} (ttt [:priv/dh-text2 "How to disable Hotjar"])]]
+       [:p (ttt [:priv/dpo "The Data Protection Officer for Predict:Prostate Cancer is"]) " "
         [:a {:href "mailto:dpo@admin.cam.ac.uk"} "dpo@admin.cam.ac.uk"]]]]
 
 
