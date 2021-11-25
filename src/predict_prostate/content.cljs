@@ -852,8 +852,8 @@ Grade Group 2 or from Stage T2 to stage T3). If MRI data and imaging scores are 
       [:section#tool-preamble "Preamble"
        [:div {:key 0 :style {:padding-left 10}}
         [:p.emphasise {:style {:margin-top "10px"}}
-         [:strong "We recommend that patients use this tool in consultation with their doctor."
-          [:br] "This tool is only for use in men without metastatic disease where conservative management and radical treatment are both options being considered."]]]]
+         [:strong (ttt [:tool/use-reco-1 "We recommend that patients use this tool in consultation with their doctor."])
+          [:br] (ttt [:tool/use-reco-2 "This tool is only for use in men without metastatic disease where conservative management and radical treatment are both options being considered."])]]]]
 
       [:section#tool-preamble-2 "Preamble 2"
        [[:p.emphasise {:key 1 :style {:border "none"}} "Complete the section below, then select from the treatment options to
@@ -901,148 +901,148 @@ Grade Group 2 or from Stage T2 to stage T3). If MRI data and imaging scores are 
          ]]]
 
 
-      [:section#age "Age"
-       [:p "The age when the cancer was diagnosed."]
+      [:section#age (ttt [:tool/age-title "Age"])
+       [:p (ttt [:tool/age-text1 "The age when the cancer was diagnosed."])]
 
-       [:p [:i "Either type in the number or use the '+' or '-' buttons to adjust it. You can also use the up and down
-     arrow keys to step by 1. Hold a key down for repeated steps. The model only works for ages 35-95."]]]
+       [:p [:i (ttt [:tool/age-text2 "Either type in the number or use the '+' or '-' buttons to adjust it. You can also use the up and down
+     arrow keys to step by 1. Hold a key down for repeated steps. The model only works for ages 35-95."])]]]
 
-      [:section#ethnicity "Ethnicity" (ethnicity-text ttt)]
+      [:section#ethnicity (ttt [:tool/eth-title "Ethnicity"]) (ethnicity-text ttt)]
 
-      [:section#psa "PSA"
-       [:p "PSA (prostate-specific antigen) level at the time of diagnosis - i.e prior to biopsy or any treatment."]]
+      [:section#psa (ttt [:tool/psa-title "PSA"])
+       [:p (ttt [:tool/psa-text1 "PSA (prostate-specific antigen) level at the time of diagnosis - i.e prior to biopsy or any treatment."])]]
 
-      [:section#size "Size"
-       [:p "The approximate size of the tumour in millimetres."]]
+      [:section#size (ttt [:tool/size-title "Size"])
+       [:p (ttt [:tool/size-text1 "The approximate size of the tumour in millimetres."])]]
 
-      [:section#t-stage "Clinical stage"
-       [:p "The clinical tumour stage according to the TNM classification. This relates to how the prostate feels on
-     examination. Select T-stage 1, 2, 3, or 4."]
-       [:p "The model does not differentiate between sub-classifications such as T2b and T2c. It is currently untested as
+      [:section#t-stage (ttt [:tool/stage-title "Clinical stage"])
+       [:p (ttt [:tool/stage-text1 "The clinical tumour stage according to the TNM classification. This relates to how the prostate feels on
+     examination. Select T-stage 1, 2, 3, or 4."])]
+       [:p (ttt [:tool/stage-text2 "The model does not differentiate between sub-classifications such as T2b and T2c. It is currently untested as
      to how MRI based staging changes prognostic predictions. The highest known stage is recommended to be used for the
-     Predict Prostate model (from any modality). Please see the " (page-link [:about {:page :faqs}] "FAQ section.")]
+     Predict Prostate model (from any modality). Please see the"]) " " (page-link [:about {:page :faqs}] (ttt [:tool/stage-text3 "FAQ section."]))]
        ]
 
-      [:section#histological-grade-group "Histological grade group"
-       [:p "The highest reported grade group from the diagnostic prostate biopsies. If this is not known, the highest
+      [:section#histological-grade-group (ttt [:tool/histo-title "Histological grade group"])
+       [:p (ttt [:tool/histo-text1 "The highest reported grade group from the diagnostic prostate biopsies. If this is not known, the highest
      reported Gleason score can be entered
-      and the grade group will be completed automatically. "]
-       [:p [:b "Intraductal and cribriform pattern"] " – These features if present are associated with more aggressive disease
+      and the grade group will be completed automatically. "])]
+       [:p [:b (ttt [:tool/histo-text2 "Intraductal and cribriform pattern"])] " - " (ttt [:tool/histo-text3 "These features if present are associated with more aggressive disease
      behaviour. However, how they affect overall survival and prognosis, independent of other clinic-pathological
-     features remains unclear (see the " (page-link [:about {:page :faqs}] "FAQ section") "). Predict Prostate estimates
+     features remains unclear (see the"]) " " (page-link [:about {:page :faqs}] (ttt [:tool/histo-text4 "FAQ section"])) "). " (ttt [:tool/histo-text5 "Predict Prostate estimates
      should be used with extreme caution in this context.
      It is suggested that Grade Group 1 or Grade Group 2 disease with either of these features should be consider a
-     higher-grade category (at least Grade Group 3). Conservative management should not be a recommended option."]]
+     higher-grade category (at least Grade Group 3). Conservative management should not be a recommended option."])]]
 
-      [:section#gleason-score "Gleason score"
-       [:p "The highest reported Gleason grade found in any of the diagnostic prostate biopsies."]]
+      [:section#gleason-score (ttt [:tool/gleason-title "Gleason score"])
+       [:p (ttt [:tool/gleason-text1 "The highest reported Gleason grade found in any of the diagnostic prostate biopsies."])]]
 
-      [:section#biopsy "Biopsy data avaliable?"
-       [:p "If information on the number of biopsy cores taken, and the number that were positive is known, select 'yes'.
-      If this information is not known, or if biopsy cores were ONLY taken from target lesions select 'no'."]]
+      [:section#biopsy (ttt [:tool/biopsy-title "Biopsy data available?"])
+       [:p (ttt [:tool/biopsy-text1 "If information on the number of biopsy cores taken, and the number that were positive is known, select 'yes'.
+      If this information is not known, or if biopsy cores were ONLY taken from target lesions select 'no'."])]]
 
-      [:section#number-of-biopsy-cores-taken "Biopsy cores taken"
-       [:p "The total number of biopsy cores taken. Extra biopsies taken from each target site should be considered as 1
+      [:section#number-of-biopsy-cores-taken (ttt [:tool/nbcores-title "Biopsy cores taken"])
+       [:p (ttt [:tool/nbcores-text1 "The total number of biopsy cores taken. Extra biopsies taken from each target site should be considered as 1
      core, regardless of how many biopsy cores were
-      taken from that target. *See examples*"]]
+      taken from that target. *See examples*"])]]
 
-      [:section#number-of-biopsy-cores-with-prostate-cancer "Biopsy cores with prostate cancer"
-       [:p "The total number of positive biopsy cores. Even cores with a lower grade should be counted here, if they have
+      [:section#number-of-biopsy-cores-with-prostate-cancer (ttt [:tool/nbcanc-title "Biopsy cores with prostate cancer"])
+       [:p (ttt [:tool/nbcanc-text1 "The total number of positive biopsy cores. Even cores with a lower grade should be counted here, if they have
       any prostate cancer within them.
       Positive cores taken from a single target site should be considered as 1 core, regardless of how many positive
-      cores were taken from that target *See examples*."]]
+      cores were taken from that target *See examples*."])]]
 
-      [:section#h-admissions "Hospital admissions in the last 2 years"
-       [:p "This refers to any inpatient admission to hospital in the 2 years before prostate cancer diagnosis. Anything
+      [:section#h-admissions (ttt [:tool/hosp-title "Hospital admissions in the last 2 years"])
+       [:p (ttt [:tool/hosp-text1 "This refers to any inpatient admission to hospital in the 2 years before prostate cancer diagnosis. Anything
      related to the prostate cancer diagnosis itself or any previous prostate investigations, such as for a prostate
-     biopsy, should be ignored."]]
+     biopsy, should be ignored."])]]
 
-      [:section#brca "BRCA gene variant"
-       [:p "Enter 'positive' if you have been tested positive for the BRCA gene variant. If unknown, select 'Negative or
-     Untested.'"]]
+      [:section#brca (ttt [:tool/brca-title "BRCA gene variant"])
+       [:p (ttt [:tool/brca-text1 "Enter 'positive' if you have been tested positive for the BRCA gene variant. If unknown, select 'Negative or
+     Untested.'"])]]
 
 
-      [:section#intraductal "Intraductal and cribriform pattern"
-       [:p "These features if present are associated with more aggressive disease behaviour. Conservative management
-       should not be a recommended option. see the " (page-link [:about {:page :faqs}] "FAQ section")]]
+      [:section#intraductal (ttt [:tool/intra-title "Intraductal and cribriform pattern"])
+       [:p (ttt [:tool/intra-text1 "These features if present are associated with more aggressive disease behaviour. Conservative management
+       should not be a recommended option. see the"]) " " (page-link [:about {:page :faqs}] (ttt [:tool/intra-text2 "FAQ section"]))]]
 
-      [:section#metastasis "Metastases"
-       [:p "This tool is only for use in men without metastatic disease. Metastasis is when the cancer is known to have
-     spread e.g. to the bone or lymph nodes. This is typically detected on a bone scan or a CT/MRI scan."]]
+      [:section#metastasis (ttt [:tool/meta-title "Metastases"])
+       [:p (ttt [:tool/meta-text1 "This tool is only for use in men without metastatic disease. Metastasis is when the cancer is known to have
+     spread e.g. to the bone or lymph nodes. This is typically detected on a bone scan or a CT/MRI scan."])]]
 
-      [:section#comorb "Comorbidity"
-       [:h5 "Select yes if there is a history of any of the following conditions:"]
+      [:section#comorb (ttt [:tool/comorb-title "Comorbidity"])
+       [:h5 (ttt [:tool/comorb-text1 "Select yes if there is a history of any of the following conditions:"])]
        [:ul
-        [:li "Myocardial infarction"]
-        [:li "Congestive heart failure"]
-        [:li "Peripheral vascular disease (or an aortic aneurysm >= 6 cm)"]
-        [:li "Cerebrovascular disease (Stroke or TIA)"]
-        [:li "Dementia"]
-        [:li "Chronic pulmonary disease"]
-        [:li "Connective tissue disease"]
-        [:li "Peptic ulcer disease"]
-        [:li "Liver disease"]
-        [:li "Diabetes requiring medication or insulin. (Diet-controlled diabetes alone is not counted)"]
-        [:li "Hemiplegia"]
-        [:li "Moderate or severe chronic kidney disease"]
-        [:li "Cancer (EXCLUDING THIS PROSTATE CANCER and excluding any cancer diagnosed more than five years ago)"]
-        [:li "Leukemia (acute or chronic)"]
-        [:li "Lymphoma"]
-        [:li "AIDS."]]]
+        [:li (ttt [:tool/comorb-dis1 "Myocardial infarction"])]
+        [:li (ttt [:tool/comorb-dis2 "Congestive heart failure"])]
+        [:li (ttt [:tool/comorb-dis3 "Peripheral vascular disease (or an aortic aneurysm >= 6 cm)"])]
+        [:li (ttt [:tool/comorb-dis4 "Cerebrovascular disease (Stroke or TIA)"])]
+        [:li (ttt [:tool/comorb-dis5 "Dementia"])]
+        [:li (ttt [:tool/comorb-dis6 "Chronic pulmonary disease"])]
+        [:li (ttt [:tool/comorb-dis7 "Connective tissue disease"])]
+        [:li (ttt [:tool/comorb-dis8 "Peptic ulcer disease"])]
+        [:li (ttt [:tool/comorb-dis9 "Liver disease"])]
+        [:li (ttt [:tool/comorb-dis10 "Diabetes requiring medication or insulin. (Diet-controlled diabetes alone is not counted)"])]
+        [:li (ttt [:tool/comorb-dis11 "Hemiplegia"])]
+        [:li (ttt [:tool/comorb-dis12 "Moderate or severe chronic kidney disease"])]
+        [:li (ttt [:tool/comorb-dis13 "Cancer (EXCLUDING THIS PROSTATE CANCER and excluding any cancer diagnosed more than five years ago)"])]
+        [:li (ttt [:tool/comorb-dis14 "Leukemia (acute or chronic)"])]
+        [:li (ttt [:tool/comorb-dis15 "Lymphoma"])]
+        [:li (ttt [:tool/comorb-dis16 "AIDS."])]]]
 
-      [:section#biopsy-examples "Biopsy examples"
-       [:h4 "Examples of how to deal with targeted biopsies:"]
+      [:section#biopsy-examples (ttt [:tool/bio-ex-title "Biopsy examples"])
+       [:h4 (ttt [:tool/bio-ex-text1 "Examples of how to deal with targeted biopsies:"])]
        [:div {:style {:margin-left 20 :margin-right 20}}
-        [:p "2 biopsy cores from 1 target, of which both were negative = 1 additional core taken and 0 additional cores
-      with cancer "]
-        [:p "3 biopsy cores from 1 target, of which 2 were positive = 1 additional core taken and 1 additional core with
-      cancer. "]
-        [:p "2 biopsy cores, 1 taken from each of 2 different targets, both of which were positive = 2 additional cores
-      taken and 2 additional cores with cancer "]]]
+        [:p (ttt [:tool/bio-ex-text2 "2 biopsy cores from 1 target, of which both were negative = 1 additional core taken and 0 additional cores
+      with cancer "])]
+        [:p (ttt [:tool/bio-ex-text3 "3 biopsy cores from 1 target, of which 2 were positive = 1 additional core taken and 1 additional core with
+      cancer. "])]
+        [:p (ttt [:tool/bio-ex-text4 "2 biopsy cores, 1 taken from each of 2 different targets, both of which were positive = 2 additional cores
+      taken and 2 additional cores with cancer "])]]]
 
 
-      [:section#surgery "Treatments already received"
-       [:p "This tool is useful in helping to decide on additional therapies after any surgery has taken place"]]
+      [:section#surgery (ttt [:tool/trec-title "Treatments already received"])
+       [:p (ttt [:tool/trec-text1 "This tool is useful in helping to decide on additional therapies after any surgery has taken place"])]]
 
-      [:section#regime "Treatment Regime"
-       [:p "Conservative management refers to monitoring or observing the disease, without any upfront active treatment.
+      [:section#regime (ttt [:tool/treg-title "Treatment Regime"])
+       [:p (ttt [:tool/treg-text1 "Conservative management refers to monitoring or observing the disease, without any upfront active treatment.
       In modern practice this is often referred to as 'active surveillance' which may involve more intensive monitoring. 
       Treatment may be required later if the disease characteristics change during monitoring.
-      Radical treatment here refers to radical prostatectomy (surgery) or radical radiotherapy"]]
+      Radical treatment here refers to radical prostatectomy (surgery) or radical radiotherapy"])]]
 
       ;; Treatment potential harms
 
-      [:section#side-effects-cm "Conservative Management"
-       [:p "'Active Monitoring' was the term used for conservative management within the ProtecT study, where this data is
-      from. Men were predominantly monitored by PSA."]]
+      [:section#side-effects-cm (ttt [:tool/cmngt-title "Conservative Management"])
+       [:p (ttt [:tool/cmngt-text1 "'Active Monitoring' was the term used for conservative management within the ProtecT study, where this data is
+      from. Men were predominantly monitored by PSA."])]]
 
-      [:section#side-effects-am "Active Monitoring"
-       [:p "'Active Monitoring' was the term used for conservative management within the ProtecT study, where this data is
-     from. Men were predominantly monitored by PSA."]]
+      [:section#side-effects-am (ttt [:tool/actmon-title "Active Monitoring"])
+       [:p (ttt [:tool/actmon-text1 "'Active Monitoring' was the term used for conservative management within the ProtecT study, where this data is
+     from. Men were predominantly monitored by PSA."])]]
 
-      [:section#side-effects-rp "Radical Prostatectomy"
-       [:p "Radical prostatectomy refers to surgical removal of the whole prostate gland, with or without the nearby lymph
+      [:section#side-effects-rp (ttt [:tool/radpro-title "Radical Prostatectomy"])
+       [:p (ttt [:tool/radpro-text1 "Radical prostatectomy refers to surgical removal of the whole prostate gland, with or without the nearby lymph
      nodes.
-      Within this study the majority were performed by an open operation"]]
+      Within this study the majority were performed by an open operation"])]]
 
-      [:section#side-effects-rt "Radiotherapy"
-       [:p "Radiotherapy in the ProtecT study included combined androgen deprivation therapy for 3-6 months before and
-     during external beam radiotherapy at a total dose of 74Gy in37 fractions."]]
+      [:section#side-effects-rt (ttt [:tool/radio-title "Radiotherapy"])
+       [:p (ttt [:tool/radio-text1 "Radiotherapy in the ProtecT study included combined androgen deprivation therapy for 3-6 months before and
+     during external beam radiotherapy at a total dose of 74Gy in37 fractions."])]]
 
-      [:section#nerve-sparing "Nerve-sparing"
-       [:p "Nerve-sparing radical prostatectomy"]]
+      [:section#nerve-sparing (ttt [:tool/nerspa-title "Nerve-sparing"])
+       [:p (ttt [:tool/nerspa-text1 "Nerve-sparing radical prostatectomy"])]]
 
-      [:section#non-nerve-sparing "Non-nerve-sparing"
-       [:p "Non-nerve-sparing radical prostatectomy"]]
+      [:section#non-nerve-sparing (ttt [:tool/nonnerspa-title "Non-nerve-sparing"])
+       [:p (ttt [:tool/nonnerspa-text1 "Non-nerve-sparing radical prostatectomy"])]]
       ;;
       ;; Treatment Options and Results
       ;;
 
-      [:section#show-ranges "More detail?"
-       [:p "When you say 'Yes' to " [:b "More detail?, "] "Predict Prostate will display overall survival and
-      treatment benefits to 1 decimal place instead of rounding the percentages to the nearest whole number."]
-       [:p "The default values are the best estimate of the benefit. In the more detailed table, a 95% prediction
+      [:section#show-ranges (ttt [:tool/mored-title "More detail?"])
+       [:p (ttt [:tool/mored-text1 "When you say 'Yes' to"]) " " [:b (ttt [:tool/mored-text2 "More detail?"])] ", " (ttt [:tool/mored-text3 "Predict Prostate will display overall survival and
+      treatment benefits to 1 decimal place instead of rounding the percentages to the nearest whole number."])]
+       [:p (ttt [:tool/mored-text4 "The default values are the best estimate of the benefit. In the more detailed table, a 95% prediction
      interval is added alongside the additional benefit. The true value of the benefit is very unlikely be outside
-     this range"]]]])
+     this range"])]]]])
 
   )

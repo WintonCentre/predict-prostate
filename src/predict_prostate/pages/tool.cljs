@@ -1,7 +1,7 @@
 (ns predict-prostate.pages.tool
   (:require [rum.core :as rum]
             [cljs-css-modules.macro :refer-macros [defstyle]]
-            [predict-prostate.components.bs3-modal :refer [top-modal settings-modal print-modal]]
+            [predict-prostate.components.bs3-modal :refer [top-modal settings-modal print-modal editor-modal]]
             [bide.core :as r]
             [graphics.simple-icons :as simple]
             [predict-prostate.router :refer [router]]
@@ -187,6 +187,7 @@
      (top-modal ttt)
      (settings-modal)
      (print-modal ttt)
+     (editor-modal)
      ]
 
     ))

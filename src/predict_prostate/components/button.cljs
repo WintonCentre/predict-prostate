@@ -141,7 +141,7 @@
       :on-key-down  #(when (= "Enter" (.. % -nativeEvent -code))
                        (publish settings-change settings))
       }
-     (simple/icon {:family :fa} "cog") " " (ttt [:tools/settings "Settings"])]))
+     (simple/icon {:family :fa} "cog") " " (ttt [:tool/settings "Settings"])]))
 
 
 (rum/defc print-button < rum/static [ttt]
