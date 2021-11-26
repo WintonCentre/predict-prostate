@@ -150,27 +150,27 @@
 
     (break-before
       (avoid-break
-        [:h4 "Survival curve"]
+        [:h4 (ttt [:print/surv-curve "Survival curve"])]
         [:div {:style {:max-width "100%" :margin-left "0%"}}
          (results-in-curves {:printable true})]))
 
     (break-before
       (avoid-break
         ;[:p {:style {:margin-top "15px"}} "Survival estimates are based on the treatment you have selected."]
-        [:h4 "Survival table - " (rum/react (year-selected)) " years after diagnosis."]
+        [:h4 (ttt [:print/surv-table-1 "Survival table"]) " - " (rum/react (year-selected)) " " (ttt [:print/surv-table-2 "years after diagnosis."])]
         [:div {:style {:max-width "60%" :margin-left "0%"}}
          (results-in-table ttt)
          ]))
 
     (break-before
       (avoid-break
-        [:h4 "Survival chart"]
+        [:h4 (ttt [:print/surv-chart "Survival chart"])]
         (results-in-charts {:printable true})))
 
     (break-before
       (avoid-break
-        [:h4 "Icon array showing " (rum/react (year-selected)) " year outcomes for 100 men"]
-        (results-in-icons* {:printable true})
+        [:h4 (ttt [:print/icarray-1 "Icon array showing"]) " " (rum/react (year-selected)) " " (ttt [:print/icarray-2 "year outcomes for 100 men"])]
+        (results-in-icons* {:ttt ttt :printable true})
         ))
 
     (break-before

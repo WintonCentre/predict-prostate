@@ -567,12 +567,12 @@ Grade Group 2 or from Stage T2 to stage T3). If MRI data and imaging scores are 
 
      [:section#legal-preamble "Preamble"
       [:p.screen-only {:key   0
-                       :style {:margin "40px 20px 20px" :font-size "20px"}} "We recommend that patients use this tool in consultation with their
-    doctor."]
-      [:p.print-only {:key 1} "Predict Prostate is a tool that helps show what impact radical treatment might have on survival rates after prostate cancer diagnosis compared to conservative management (monitoring).
+                       :style {:margin "40px 20px 20px" :font-size "20px"}} (ttt [:pream/reco-title "We recommend that patients use this tool in consultation with their
+    doctor."])]
+      [:p.print-only {:key 1} (ttt [:pream/reco-text1 "Predict Prostate is a tool that helps show what impact radical treatment might have on survival rates after prostate cancer diagnosis compared to conservative management (monitoring).
     This print out shows what characteristics of the patient and cancer were entered, and how different management would be expected to affect survival
     rates up to 15 years after diagnosis. This is based on data from similar men in the past, but remains a 'best guess' or estimate. Treatments often have side effects as well as benefits, and it is important to
-    consider these as well when making treatment choices. We recommend visiting the sites of charities such as Macmillan and Prostate Cancer UK for details about side effects."]]
+    consider these as well when making treatment choices. We recommend visiting the sites of charities such as Macmillan and Prostate Cancer UK for details about side effects."])]]
 
      [:section#product "Predict: Prostate Cancer"
       [:section "Predict: Prostate Cancer"                  ;"Predict: Prostate Cancer"

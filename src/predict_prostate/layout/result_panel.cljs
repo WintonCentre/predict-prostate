@@ -10,7 +10,7 @@
             [predict-prostate.results.table :refer [results-in-table]]
             [predict-prostate.results.curves :refer [results-in-curves]]
             [predict-prostate.results.charts :refer [results-in-charts]]
-            [predict-prostate.results.icons :refer [ results-in-icons*]]
+            [predict-prostate.results.icons :refer [results-in-icons*]]
             [predict-prostate.results.text :refer [results-in-text]]
             [predict-prostate.results.sidefx :refer [results-in-sidefx]]
             [predict-prostate.content-reader :refer [all-subsections]]
@@ -61,21 +61,21 @@
         } "Some test clickable item"]
    ])
 
-(rum/defc result-panes < rum/static []
+(rum/defc result-panes < rum/static [ttt]
   [:.tab-content
    (result-tab-pane "charts" #(results-in-charts {:title "Overall Survival"}))
-   (result-tab-pane "icons" results-in-icons*)
+   (result-tab-pane "icons" #(results-in-icons* {:ttt ttt}))
    (result-tab-pane "curves"  #(results-in-curves {}))
    (result-tab-pane "table" results-in-table)
    (result-tab-pane "texts" results-in-text)
    ])
 
-(rum/defc result-panel < rum/reactive []
+(rum/defc result-panel < rum/reactive [ttt]
   [:div#results
    [:h3 {:style {:margin-top 20}} "Results"]
    (result-tabs)
    (treatments-options)
-   (result-panes)]
+   (result-panes ttt)]
   )
 
 (rum/defc side-panel [ttt]
@@ -92,7 +92,7 @@
   [:div #_(when container? {:class-name "container"})
    [:.row
     [:.col-md-6.col-md-offset-1
-     (result-panel)]
+     (result-panel ttt)]
     [:.col-md-4
      (side-panel ttt)]
     ]])

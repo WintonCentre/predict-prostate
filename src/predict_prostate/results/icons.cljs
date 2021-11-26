@@ -52,6 +52,9 @@
 (defn add-s [n]
   (if (= n 1) "" "s"))
 
+(defn plural [n s p]
+  (if (= n 1) s p))
+
 (defn extract-data
   "Different models use different treatment widgets, so we need to use these to react to the correct
   treatments and lookup the appropriate result-data."
@@ -106,12 +109,12 @@
                         ; legend
 
                         (when (pos? npc-deaths)
-                          [:p {:style {:font-size "14px"}} (open-icon oth-deaths-fill) " " npc-deaths " death" (add-s npc-deaths) " due to other causes"])
+                          [:p {:style {:font-size "14px"}} (open-icon oth-deaths-fill) " " npc-deaths " " (plural npc-deaths (ttt [:icons/leg-1s "death due to other causes"]) (ttt [:icons/leg-1p "deaths due to other causes"]))])
                         (when (pos? pc-deaths)
-                          [:p {:style {:font-size "14px"}} (open-icon br-deaths-fill) " " pc-deaths " prostate cancer related death" (add-s pc-deaths)])
+                          [:p {:style {:font-size "14px"}} (open-icon br-deaths-fill) " " pc-deaths " " (plural pc-deaths (ttt [:icons/leg-2s "prostate cancer related death"]) (ttt [:icons/leg-2p "prostate cancer related deaths"]))])
                         (when (pos? benefit)
-                          [:p {:style {:font-size "14px"}} (dead-icon (fill 1)) " " benefit " extra survivor" (add-s benefit) " due to radical treatment"])
-                        [:p {:style {:font-size "14px"}} (dead-icon (fill 2)) " " cs " survivors with initial conservative management"]
+                          [:p {:style {:font-size "14px"}} (dead-icon (fill 1)) " " benefit " " (plural benefit (ttt [:icons/leg-3s "extra survivor due to radical treatment"]) (ttt [:icons/leg-3p "extra survivors due to radical treatment"]))])
+                        [:p {:style {:font-size "14px"}} (dead-icon (fill 2)) " " cs " " (plural cs (ttt [:icons/leg-4s "survivor with initial conservative management"]) (ttt [:icons/leg-4p "survivors with initial conservative management"]))]
                         [:div {:style {:clear "both"}}]]
 
 
@@ -119,22 +122,22 @@
                         ; legend
                         [:div {:style {:display "inline-block"}}]
                         (when (pos? npc-deaths)
-                          [:p  (open-icon oth-deaths-fill) " " npc-deaths " death" (add-s npc-deaths) " due to other causes"])
+                          [:p  (open-icon oth-deaths-fill) " " npc-deaths " " (plural npc-deaths (ttt [:icons/leg-1s "death due to other causes"]) (ttt [:icons/leg-1p "deaths due to other causes"]))])
                         (when (pos? pc-deaths)
-                          [:p  (open-icon br-deaths-fill) " " pc-deaths " prostate cancer related death" (add-s pc-deaths)])
+                          [:p  (open-icon br-deaths-fill) " " pc-deaths " " (plural pc-deaths (ttt [:icons/leg-2s "prostate cancer related death"]) (ttt [:icons/leg-2p "prostate cancer related deaths"]))])
                         (when (pos? benefit)
-                          [:p  (dead-icon (fill 1)) " " benefit " extra survivor" (add-s benefit) " due to radical treatment"])
-                        [:p  (dead-icon (fill 2)) " " cs " survivors with initial conservative management"]
+                          [:p  (dead-icon (fill 1)) " " benefit " " (plural benefit (ttt [:icons/leg-3s "extra survivor due to radical treatment"]) (ttt [:icons/leg-3p "extra survivors due to radical treatment"]))])
+                        [:p  (dead-icon (fill 2)) " " cs " " (plural cs (ttt [:icons/leg-4s "survivor with initial conservative management"]) (ttt [:icons/leg-4p "survivors with initial conservative management"]))]
                         [:div {:style {:clear "both"}}]]])]
 
     [:div
      [:div
       [:.row {:style {:position "relative"}}
        [:.col-xs-12.screen-only
-        {:style {:margin-top "15px" :font-size 16}} "This display shows the outcomes for 100 men. These results are based on the inputs and treatments you selected "
+        {:style {:margin-top "15px" :font-size 16}} (ttt [:icons/out-text1 "This display shows the outcomes for 100 men. These results are based on the inputs and treatments you selected"]) " "
         [:span.screen-only (year-picker ttt)]
         [:span.print-only {:style {:font-size 12}} years]
-        " years after diagnosis"
+        " " (ttt [:icons/out-text2 "years after diagnosis"])
         ]
        [:.col-xs-12
         (render-year years data)]
