@@ -249,55 +249,55 @@
   )
 
 (rum/defc sidefx-more-info
-  []
+  [ttt]
 
   [:.col-sm-12 {:style {:margin-top 20}} ;.col-sm-12
-   [:h3 "More Information"]
-   [:p "The following websites provide excellent advice and information on treatments and their potential harms:"]
-   [:h5 "About treatments:"]
+   [:h3 (ttt [:sidefx/mi-title "More Information"])]
+   [:p (ttt [:sidefx/mi-text1 "The following websites provide excellent advice and information on treatments and their potential harms:"])]
+   [:h5 (ttt [:sidefx/mi-text2 "About treatments:"])]
    [:ul {:style {:list-style-type "none"}}
     [:li {:key 1}
      [:a {:href "http://www.cancerresearchuk.org/about-cancer/prostate-cancer/treatment"
           :style  {:text-decoration "underline"}
           :rel "noopener"
-          :target "blank"} "Cancer research UK"]]
+          :target "blank"} (ttt [:sidefx/mi-text3 "Cancer research UK"])]]
     [:li {:key 2}
      [:a {:href "https://www.nhs.uk/conditions/prostate-cancer/treatment/"
           :rel "noopener"
           :style  {:text-decoration "underline"}
-          :target "blank"} "NHS"]]]
+          :target "blank"} (ttt [:sidefx/mi-text4 "NHS"])]]]
 
 
-   [:h5 "About potential harms:"]
+   [:h5 (ttt [:sidefx/mi-text5 "About potential harms:"])]
    [:ul {:style {:list-style-type "none"}}
     [:li {:key 3}
      [:a {:href "https://www.nhs.uk/conditions/prostate-cancer/treatment/#radical-prostatectomy"
           :style  {:text-decoration "underline"}
           :rel "noopener"
-          :target "blank"} "Radical prostatectomy"]]
+          :target "blank"} (ttt [:sidefx/mi-text6 "Radical prostatectomy"])]]
     [:li {:key 4}
      [:a {:href "https://www.nhs.uk/conditions/prostate-cancer/treatment/#radiotherapy"
           :style  {:text-decoration "underline"}
           :rel "noopener"
-          :target "blank"} "Radiotherapy"]]
+          :target "blank"} (ttt [:sidefx/mi-text7 "Radiotherapy"])]]
     ]
-   [:h5 "Further advice and support:"]
+   [:h5 (ttt [:sidefx/mi-text8 "Further advice and support:"])]
    [:ul {:style {:list-style-type "none"}}
     [:li {:key 1}
      [:a {:href "http://www.macmillan.org.uk/"
           :style  {:text-decoration "underline"}
           :rel "noopener"
-          :target "blank"} "Macmillan"]]
+          :target "blank"} (ttt [:sidefx/mi-text9 "Macmillan"])]]
     [:li {:key 2}
      [:a {:href "http://prostatecanceruk.org/"
           :style  {:text-decoration "underline"}
           :rel "noopener"
-          :target "_blank"} "Prostate Cancer UK"]]
+          :target "_blank"} (ttt [:sidefx/mi-text10 "Prostate Cancer UK"])]]
     [:li {:key 3}
      [:a {:href "https://www.nhs.uk/pages/home.aspx"
           :style  {:text-decoration "underline"}
           :rel "noopener"
-          :target "_blank"} "NHS Choices"]]
+          :target "_blank"} (ttt [:sidefx/mi-text11 "NHS Choices"])]]
     ]])
 
 (rum/defc results-in-sidefx []

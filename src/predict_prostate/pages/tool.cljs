@@ -63,7 +63,7 @@
 
 
 
-(rum/defc treatments-with-results < rum/reactive []
+(rum/defc treatments-with-results < rum/reactive [ttt]
   (let [r (rum/react results-cursor)
         mets (rum/react (input-cursor :metastasis))]
 
@@ -83,11 +83,11 @@
            " Treatment options and results will appear here when you have filled in all the information needed above."]]]]]
       [:.row
        [:.col-md-12.screen-only
-        (results {:printable (= :print (rum/react media-cursor))})]
+        (results {:ttt ttt :printable (= :print (rum/react media-cursor))})]
        [:.row
         [:.col-md-10.col-md-offset-1
          (results-in-sidefx)
-         (sidefx-more-info)]]])))
+         (sidefx-more-info ttt)]]])))
 
 (rum/defc results-footer < rum/reactive []
   (when (rum/react results-cursor)
@@ -177,7 +177,7 @@
         [:.col-sm-12 {:style {:background-color alison-blue-4}}
          [:.row {:key 3}
           [:.col-md-10.col-md-offset-1 {:key 2}
-           (treatments-with-results)
+           (treatments-with-results ttt)
 
            ]]]]]
 

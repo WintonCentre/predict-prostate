@@ -868,10 +868,10 @@ Grade Group 2 or from Stage T2 to stage T3). If MRI data and imaging scores are 
 
       [:section#tool-postamble "Postamble"
        [:section#dummy ""
-        [:h3 "Important"]
-        [:p "These results are estimates based on data from men with similar characteristics.
+        [:h3 (ttt [:res/imp-title "Important"])]
+        [:p (ttt [:res/imp-text1 "These results are estimates based on data from men with similar characteristics.
      There are other important factors which affect outcomes. Your specialist will help you put these
-     results in context."]
+     results in context."])]
         #_[:h3 "Side effects"]
         #_[:p "The treatments listed above can have side effects which should be taken into account when choosing a treatment
       regime. See " [:a {:role "button" :on-click #(navigate-to [:about {:page :faqs}])} "the FAQ 'Looking for advice?'"] " for websites providing excellent advice and information on these treatments and their potential
@@ -881,23 +881,22 @@ Grade Group 2 or from Stage T2 to stage T3). If MRI data and imaging scores are 
       [:section#high-grade-group-warning "Warning"
        [:section#dummy ""
         [:h4 {:style {:margin-top 50}}
-         [:i.fa.fa-exclamation-triangle {:style {:padding-right 10 :color "orange"}}] "Warning"]
-        [:p "You are running the tool with high risk features in which it has been less well tested."]
-        ]]
+         [:i.fa.fa-exclamation-triangle {:style {:padding-right 10 :color "orange"}}] (ttt [:res/warhr-title "Warning"])]
+        [:p (ttt [:res/warhr-text1 "You are running the tool with high risk features in which it has been less well tested."])]]]
 
       ; Warning to appear in side box whenever metastases are unknown
       [:section#metastasis-warning "Warning"
        [:section#dummy ""
         [:h4 {:style {:margin-top 50}}
-         [:i.fa.fa-exclamation-triangle {:style {:padding-right 10 :color "orange"}}] "Warning"]
-        [:p "This tool is only for use in men without metastatic disease. "]
+         [:i.fa.fa-exclamation-triangle {:style {:padding-right 10 :color "orange"}}] (ttt [:res/warmeta-title "Warning"])]
+        [:p (ttt [:res/warmeta-text1 "This tool is only for use in men without metastatic disease. "])]
         ]]
 
-      [:section#scroll-down-for "Scroll down"
+      [:section#scroll-down-for (ttt [:res/scr-title "Scroll down"])
        [:section#dummy ""
         [:h4.screen-only {:style {:margin-top 50}}
          [:i.fa.fa-arrow-down {:aria-hidden "true" :style {:padding-right 10}}]
-         "Scroll down for potential harms"
+         (ttt [:res/scr-text1 "Scroll down for potential harms"])
          ]]]
 
 
