@@ -63,9 +63,9 @@
 
 (rum/defc result-panes < rum/static [ttt]
   [:.tab-content
-   (result-tab-pane "charts" #(results-in-charts {:title "Overall Survival"}))
+   (result-tab-pane "charts" #(results-in-charts {:title (ttt [:chart/title "Overall Survival"]) :ttt ttt}))
    (result-tab-pane "icons" #(results-in-icons* {:ttt ttt}))
-   (result-tab-pane "curves"  #(results-in-curves {}))
+   (result-tab-pane "curves"  #(results-in-curves {:ttt ttt}))
    (result-tab-pane "table" results-in-table)
    (result-tab-pane "texts" results-in-text)
    ])

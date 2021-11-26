@@ -64,8 +64,7 @@
      :conservative-survival conservative-survival
      :radical-survival      radical-survival
      :radical-benefit       (map #(- %1 %2) radical-survival conservative-survival)
-     :dotted-orange         (map #(* 100 (- 1 %)) (get-in results [(if radical? :radical :conservative) :NPC-survival #_:pred-NPC-cum]))
-     }
+     :dotted-orange         (map #(* 100 (- 1 %)) (get-in results [(if radical? :radical :conservative) :NPC-survival #_:pred-NPC-cum]))}
     ))
 
 (rum/defc results-in-text < rum/reactive #_(set-default :result-year)

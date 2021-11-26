@@ -301,7 +301,7 @@
 
 (rum/defcs stacked-bar < rum/reactive sizing-mixin
   [state
-   {:keys [width h-over-w font-scale chart-style title printable]
+   {:keys [width h-over-w font-scale chart-style title printable ttt]
     :or   {width      100
            h-over-w   1
            font-scale 1}
@@ -321,7 +321,7 @@
             benefit (str " Additional benefit of radical treatment is " bene5 "% at 5 years and " bene10 "% at 10 years")]
         [:div
          [:p {:style {:margin-top "15px"}}
-          "This graph shows the percentage of men surviving at 10 and 15 years. These results are based on the inputs and treatments you selected"]
+          (ttt [:sb/perc-text1 "This graph shows the percentage of men surviving at 10 and 15 years. These results are based on the inputs and treatments you selected"])]
 
          [:div {:class-name (:chart chart-style)
                 :style      {:width      (str (if side-by-side width 100) "%")
@@ -348,12 +348,13 @@
 
 (rum/defc results-in-charts
   "Content of the Charts tab, showing treatment options"
-  [{:keys [title printable] :as m}]
+  [{:keys [title printable ttt] :as m}]
   [:div
    (stacked-bar {:width       70
                  :title       title
                  :h-over-w    0.4
                  :font-scale  1
                  :printable printable
-                 :chart-style stacked-bar-chart-style})])
+                 :chart-style stacked-bar-chart-style
+                 :ttt ttt})])
 

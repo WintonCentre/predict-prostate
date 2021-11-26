@@ -318,7 +318,7 @@
      ]))
 
 
-(rum/defcs results-in-curves < rum/static rum/reactive sizing-mixin [state {:keys [printable]}]
+(rum/defcs results-in-curves < rum/static rum/reactive sizing-mixin [state {:keys [printable ttt]}]
   (let [width (rum/react (:width state))
         side-by-side (or printable (> width 600))
         radical? (= 1 (rum/react (input-cursor :primary-rx)))
@@ -329,7 +329,7 @@
     [:div {:style {:position "relative"}}
 
      [:p {:style {:margin-top "15px"}}
-      "This graph shows the percentage of men surviving up to " N " years. These results are based on the inputs and treatment you selected"]
+      (ttt [:curves/text1 "This graph shows the percentage of men surviving up to"]) " " N " " (ttt [:curves/text2 "years. These results are based on the inputs and treatment you selected"])]
 
 
      [:div {:style {:width   (if side-by-side "70%" "100%")
