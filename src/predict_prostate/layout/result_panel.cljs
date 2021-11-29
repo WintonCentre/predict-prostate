@@ -65,9 +65,9 @@
   [:.tab-content
    (result-tab-pane "charts" #(results-in-charts {:title (ttt [:chart/title "Overall Survival"]) :ttt ttt}))
    (result-tab-pane "icons" #(results-in-icons* {:ttt ttt}))
-   (result-tab-pane "curves"  #(results-in-curves {:ttt ttt}))
+   (result-tab-pane "curves" #(results-in-curves {:ttt ttt}))
    (result-tab-pane "table" #(results-in-table ttt))
-   (result-tab-pane "texts" results-in-text)
+   (result-tab-pane "texts" #(results-in-text {:ttt ttt}))
    ])
 
 (rum/defc result-panel < rum/reactive [ttt]

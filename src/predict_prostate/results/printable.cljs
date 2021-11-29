@@ -152,7 +152,7 @@
       (avoid-break
         [:h4 (ttt [:print/surv-curve "Survival curve"])]
         [:div {:style {:max-width "100%" :margin-left "0%"}}
-         (results-in-curves {:printable true})]))
+         (results-in-curves {:printable true :ttt ttt})]))
 
     (break-before
       (avoid-break
@@ -165,7 +165,7 @@
     (break-before
       (avoid-break
         [:h4 (ttt [:print/surv-chart "Survival chart"])]
-        (results-in-charts {:printable true})))
+        (results-in-charts {:printable true :ttt ttt})))
 
     (break-before
       (avoid-break
@@ -175,7 +175,7 @@
 
     (break-before
       [:h4 "In Summary"]
-      (results-in-text {:printable true}))
+      (results-in-text {:printable true :ttt ttt}))
 
     (break-before
       [:h4 "Potential Harms of treatments"]
