@@ -41,7 +41,7 @@
                               :benefit      (percent (- radical-survival conservative-survival) dps)}}]
     data))
 
-(rum/defc tables < rum/reactive [data uncertainty?]
+(rum/defc tables < rum/reactive [data uncertainty? ttt]
 
   (let [
         radical? (= 1 (rum/react (input-cursor :primary-rx)))]
@@ -50,18 +50,18 @@
      [:table.table.table-hover {:style {:padding 0 :margin 0 :font-size "16px"}}
       [:thead
        [:tr
-        [:th "Treatment"]
-        [:th "Additional Benefit"]
-        [:th "Overall Survival %"]
+        [:th (ttt [:table/col1 "Treatment"])]
+        [:th (ttt [:table/col2 "Additional Benefit"])]
+        [:th (ttt [:table/col3 "Overall Survival %"])]
         ]]
       [:tbody
        [:tr
-        [:td "Initial conservative management "]
+        [:td (ttt [:table/c1r1 "Initial conservative management"])] " "
         [:td "-"]
         [:td (get-in data [:conservative :overall])]]
        (when radical?                                       ;(pos? (:horm data))
          [:tr
-          [:td "Radical treatment"]
+          [:td (ttt [:table/c1r2 "Radical treatment"])]
           [:td (get-in data [:radical :benefit])            ;(benefit% data :horm uncertainty?)
            (if uncertainty?
              (str " (" (get-in data [:radical :benefit-high]) "–" (get-in data [:radical :benefit-low]) ")"))]
@@ -69,11 +69,11 @@
           ])
        [:tr
         [:td {:col-span 3}
-         "If deaths from prostate cancer were excluded "
+         (ttt [:table/idppe-1 "If deaths from prostate cancer were excluded"]) " "
          (get data :dotted-orange)                          ; (Math.round (- 100 (:oth data)))
-         " would survive "
+         " " (ttt [:table/idppe-2 "would survive"]) " "
          (rum/react (input-cursor :result-year))
-         " years."]
+         " " (ttt [:table/idppe-3 "years."])]
         ]
 
        ]]]))
@@ -85,16 +85,16 @@
         year (rum/react (input-cursor :result-year))
         uncertainty? (= :yes (rum/react (input-cursor :show-uncertainty)))
         data (extract-data (rum/react results-cursor) year (if uncertainty? 1 0))
-        text1 "This table shows the percentage of men who survive at least" #_(ttt [:table/text1 "This table shows the percentage of men who survive at least"])
-        text2 "years after diagnosis, based on the information you have provided." #_(ttt [:table/text2 "years after diagnosis, based on the information you have provided."])]
+        text1 (ttt [:table/text1 "This table shows the percentage of men who survive at least"])
+        text2 (ttt [:table/text2 "years after diagnosis, based on the information you have provided."])]
 
     [:.row {:style {:margin-top 15}}
      [:.col-sm-12.screen-only {:style {:font-size 16}}
       text1 " " [:span.screen-only (year-picker ttt)] " " text2]
      [:.col-sm-12.print-only
-      text1 " " [:span.print-only  year] " " text2]
+      text1 " " [:span.print-only year] " " text2]
      [:.col-sm-12 {:style {:margin-bottom "15px"}}
-      (tables data uncertainty?)
+      (tables data uncertainty? ttt)
       (when radical?
         [:.screen-only
          (form-entry {:key :show-uncertainty :label "show-ranges"})])]]))
