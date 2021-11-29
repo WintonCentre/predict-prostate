@@ -56,7 +56,7 @@
         ]]
       [:tbody
        [:tr
-        [:td (ttt [:table/c1r1 "Initial conservative management"])] " "
+        [:td (ttt [:table/c1r1 "Initial conservative management"])]
         [:td "-"]
         [:td (get-in data [:conservative :overall])]]
        (when radical?                                       ;(pos? (:horm data))

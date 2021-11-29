@@ -46,15 +46,14 @@
    ]
   )
 
-(rum/defc result-tabs < rum/static []
+(rum/defc result-tabs < rum/static [ttt]
   [:ul.nav.nav-pills {:role  "tablist"
                       :style {:font-size "16px"}}
    (map #(rum/with-key (result-tab-button %) %) ["charts"
                                                  "icons"
                                                  "curves"
                                                  "table"
-                                                 "texts"
-                                                 ])
+                                                 "texts"])
    #_[:a {
         :ga-on "click" :ga-event-category "Results Tab" :ga-event-action "test"
         :style {:background-color "green"}
@@ -73,7 +72,7 @@
 (rum/defc result-panel < rum/reactive [ttt]
   [:div#results
    [:h3 {:style {:margin-top 20}} "Results"]
-   (result-tabs)
+   (result-tabs ttt)
    (treatments-options)
    (result-panes ttt)]
   )

@@ -174,11 +174,11 @@
         ))
 
     (break-before
-      [:h4 "In Summary"]
+      [:h4 (ttt [:print/sum-title "In Summary"])]
       (results-in-text {:printable true :ttt ttt}))
 
     (break-before
-      [:h4 "Potential Harms of treatments"]
+      [:h4 (ttt [:print/potharm-title "Potential Harms of treatments"])]
       (results-in-sidefx)
       )
 
