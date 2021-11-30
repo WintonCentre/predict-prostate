@@ -179,7 +179,7 @@
 
     (break-before
       [:h4 (ttt [:print/potharm-title "Potential Harms of treatments"])]
-      (results-in-sidefx)
+      (results-in-sidefx ttt)
       )
 
     (footer)]])

@@ -86,7 +86,7 @@
         (results {:ttt ttt :printable (= :print (rum/react media-cursor))})]
        [:.row
         [:.col-md-10.col-md-offset-1
-         (results-in-sidefx)
+         (results-in-sidefx ttt)
          (sidefx-more-info ttt)]]])))
 
 (rum/defc results-footer < rum/reactive []

@@ -86,7 +86,7 @@
 
 (rum/defc result-panel < rum/reactive [ttt]
   [:div#results
-   [:h3 {:style {:margin-top 20}} "Results"]
+   [:h3 {:style {:margin-top 20}} (ttt [:results/title "Results"])]
    (result-tabs ttt)
    (treatments-options)
    (result-panes ttt)]

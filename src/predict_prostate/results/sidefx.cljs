@@ -79,20 +79,20 @@
    :radiotherapy  "#CC5CA4"})
 
 (rum/defc sidefx-header
-  []
+  [ttt]
   [:.col-xs-12 {:style {:margin-bottom 15}}
    [:.row {:style {:background-color alison-blue-1 #_"#D9EDF7" :border-radius 3}}
-    [:h4 {:style {:margin-left 15}} "Potentially permanent harms of"]
+    [:h4 {:style {:margin-left 15}} (ttt [:sidefx/ppho-title "Potentially permanent harms of"])]
     [:.col-sm-6
      [:div {:style {:font-size 16 :margin-bottom 10}} (blob {:key "b1" :fill (:conservative treatment-fills) :r 7}) " Conservative management"]
      [:div {:style {:font-size 16 :margin-bottom 10}} (blob {:key "b2" :fill (:radical-harms treatment-fills) :r 7}) " Radical prostatectomy"]
      [:div {:style {:font-size 16}} (blob {:key "b3" :fill (:radiotherapy treatment-fills) :r 7}) " Radical Radiotherapy"]]
     [:.col-sm-6
-     [:p {:style {:font-size 14}} "The following estimates assume that the function is normal before treatment and have been taken from large published studies.
+     [:p {:style {:font-size 14}} (ttt [:sidefx/ppho-text1 "The following estimates assume that the function is normal before treatment and have been taken from large published studies.
     The estimates are not individualised to you or your local treatment centre or are they derived from the predict calculator.
-    Your local team may have data specific to your centre which you can ask about."]
-     [:p {:style {:font-size 14 :color "#f00"}} "If you are in the UK, centre by centre provider outcomes are provided by
-     the National Prostate Cancer Audit which you may find useful : "
+    Your local team may have data specific to your centre which you can ask about."])]
+     [:p {:style {:font-size 14 :color "#f00"}} (ttt [:sidefx/ppho-text2 "If you are in the UK, centre by centre provider outcomes are provided by
+     the National Prostate Cancer Audit which you may find useful"]) ": "
       [:a {:href "https://www.npca.org.uk/provider-results/" :target "_blank"} "https://www.npca.org.uk/provider-results/"] "."]
      ]]])
 
@@ -165,36 +165,36 @@
                    (map-indexed #(rum/with-key %2 %1) content)))
   )
 
-(rum/defc erectile-source []
+(rum/defc erectile-source [ttt]
   [:span
-   "Estimates for erectile dysfunction have been derived from a large American study. The full research can be
-        read here: "
+   (ttt [:sidefx/eresrc-text1 "Estimates for erectile dysfunction have been derived from a large American study. The full research can be
+        read here"]) ": "
    [:a {:href   "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5782813/"
         :target "_blank"}
     "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5782813/"]])
 
-(rum/defc incontinence-source []
+(rum/defc incontinence-source [ttt]
   [:span
-   "Estimates for incontinence dysfunction have been taken from the UK-based Prostate Testing for
-       Cancer and Treatment (ProtecT) trial. The full research can be read here: "
+   (ttt [:sidefx/incsrc-text1 "Estimates for incontinence dysfunction have been taken from the UK-based Prostate Testing for
+       Cancer and Treatment (ProtecT) trial. The full research can be read here"]) ": "
    [:a {:href   "https://www.nejm.org/doi/full/10.1056/NEJMoa1606221"
         :target "_blank"}
     "https://www.nejm.org/doi/full/10.1056/NEJMoa1606221"]])
 
-(rum/defc bowel-source []
+(rum/defc bowel-source [ttt]
   [:span {:font-size 12}
-   "Estimates for bowel dysfunction have been taken from the UK-based Prostate Testing for
-       Cancer and Treatment (ProtecT) trial. The full research can be read here: "
+   (ttt [:sidefx/bowsrc-text1 "Estimates for bowel dysfunction have been taken from the UK-based Prostate Testing for
+       Cancer and Treatment (ProtecT) trial. The full research can be read here"]) ": "
    [:a {:href   "https://www.nejm.org/doi/full/10.1056/NEJMoa1606221"
         :target "_blank"}
     "https://www.nejm.org/doi/full/10.1056/NEJMoa1606221"]])
 
 (rum/defc sidefx-discrete
-  [tallies?]
+  [tallies? ttt]
   [:div {:style {:border "1px solid #CCCCCC" :border-radius 3 :font-size 16}}
-   (sidefx-header)
+   (sidefx-header ttt)
    (sidefx-content {:title  "Erectile dysfunction" :sub-title "Defined as: 'Erections insufficient for intercourse' "
-                    :source erectile-source}
+                    :source #(erectile-source ttt)}
 
                    (sidefx-linear {:treatment :conservative
                                    :prefix    [:span "With " [:b {:style {:color (:conservative treatment-fills)}} "conservative management"] ", about "]
@@ -214,7 +214,7 @@
                                    :tallies?  tallies?}))
 
    (sidefx-content {:title  "Incontinence" :sub-title "Defined as: 'Wore one or more pads in the last 4 weeks' "
-                    :source incontinence-source}
+                    :source #(incontinence-source ttt)}
                    (sidefx-linear {:treatment :conservative
                                    :fewer     true
                                    :prefix    (fewer-helper [:span "With " [:b {:style {:color (:conservative treatment-fills)}} "conservative management"] ", "])
@@ -230,7 +230,7 @@
                                    :tallies?  tallies?}))
 
    (sidefx-content {:title  "Bowel issues" :sub-title "Defined as: 'Bloody stools about half the time or more frequently' "
-                    :source bowel-source}
+                    :source #(bowel-source ttt)}
                    (sidefx-linear {:treatment :conservative
                                    :prefix    (fewer-helper [:span "With " [:b {:style {:color (:conservative treatment-fills)}} "conservative management"] ", "])
                                    :fewer     true
@@ -300,9 +300,9 @@
           :target "_blank"} (ttt [:sidefx/mi-text11 "NHS Choices"])]]
     ]])
 
-(rum/defc results-in-sidefx []
+(rum/defc results-in-sidefx [ttt]
   [:div {:style {:margin-top "15px"}}
-   (sidefx-discrete true)
+   (sidefx-discrete true ttt)
    ]
   )
 

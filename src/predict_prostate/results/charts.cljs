@@ -321,7 +321,7 @@
             benefit (str " Additional benefit of radical treatment is " bene5 "% at 5 years and " bene10 "% at 10 years")]
         [:div
          [:p {:style {:margin-top "15px"}}
-          (ttt [:sb/perc-text1 "This graph shows the percentage of men surviving at 10 and 15 years. These results are based on the inputs and treatments you selected"])]
+          (ttt [:chart/perc-text1 "This graph shows the percentage of men surviving at 10 and 15 years. These results are based on the inputs and treatments you selected"])]
 
          [:div {:class-name (:chart chart-style)
                 :style      {:width      (str (if side-by-side width 100) "%")
