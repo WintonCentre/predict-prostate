@@ -16,19 +16,34 @@
             [predict-prostate.content-reader :refer [all-subsections]]
             ))
 
+(defn tab-label-key
+  "Lookup/edit key for a tab given a label or a key for that label
+  ; (tab-label-key :curve)
+  ; => [:tab-label/curve \"Curve\"]
+  "
+  [label-key]
+  (let [label (name label-key)]
+    [(keyword (str "tab-label/" label)) (capitalize label)]))
 
-(rum/defc result-tab-button < rum/reactive [label]
+(defn safe-check
+  "Check whether kn1 and kn2 share same names (2-arity) or some other property f (3-arity)."
+  ([kn1 kn2]
+   (safe-check kn1 kn2 name))
+  ([kn1 kn2 f]
+   (= (f kn1) (f kn2))))
+
+(rum/defc result-tab-button < rum/reactive [ttt label-key]
   [:li {:role     "presentation"
-        :class    (if (= (rum/react active-results-pane) label) "active" nil)
-        :on-click #(publish active-results-change label)
+        :class    (if (safe-check (rum/react active-results-pane) label-key) "active" nil)
+        :on-click #(publish active-results-change (name label-key))
         :style    {:cursor           "pointer"
                    :border-radius    "3px"
                    :background-color "#def"}
-        :key      label
+        :key      (name label-key)
         }
-   [:a {:aria-controls label :role "tab"
+   [:a {:aria-controls (name label-key) :role "tab"
         ;:data-on "click" :data-event-category "Results Tab" :data-event-action label       ; Old html-tag trigger.
-        } (capitalize label)]
+        } (ttt (tab-label-key label-key))]
    ])
 
 (rum/defc result-tab-pane < rum/reactive [label content]
@@ -49,11 +64,11 @@
 (rum/defc result-tabs < rum/static [ttt]
   [:ul.nav.nav-pills {:role  "tablist"
                       :style {:font-size "16px"}}
-   (map #(rum/with-key (result-tab-button %) %) ["charts"
-                                                 "icons"
-                                                 "curves"
-                                                 "table"
-                                                 "texts"])
+   (map #(rum/with-key (result-tab-button ttt %) (name %)) [:charts
+                                                            :icons
+                                                            :curves
+                                                            :table 
+                                                            :texts])
    #_[:a {
         :ga-on "click" :ga-event-category "Results Tab" :ga-event-action "test"
         :style {:background-color "green"}

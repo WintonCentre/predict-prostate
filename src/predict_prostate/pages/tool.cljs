@@ -80,7 +80,7 @@
           [:p {:style {:padding-bottom 0}}
            (simple/icon {:family :fa :style {:font-size 35 :padding-right 8}} "info-circle")
 
-           " Treatment options and results will appear here when you have filled in all the information needed above."]]]]]
+           " " (ttt [:twr/toarwa "Treatment options and results will appear here when you have filled in all the information needed above."])]]]]]
       [:.row
        [:.col-md-12.screen-only
         (results {:ttt ttt :printable (= :print (rum/react media-cursor))})]

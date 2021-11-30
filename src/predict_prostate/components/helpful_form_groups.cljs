@@ -44,7 +44,7 @@
 ; todo: remove label parameters and use (input-label key) instead
 ; This allows us to use different widgets and different labels in different models
 
-(rum/defc form-entry < rum/reactive active-monitor [{:keys [label key] :as props}]
+(rum/defc form-entry < rum/reactive active-monitor [{:keys [label key]}]
   (helpful-input {:label   (input-label key)                ;label
                   :key     key
                   :help-id (if label (replace (lower-case label) " " "-"))
