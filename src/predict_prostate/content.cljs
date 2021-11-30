@@ -563,7 +563,7 @@ Grade Group 2 or from Stage T2 to stage T3). If MRI data and imaging scores are 
      [:section#contact "Contact"
       [:section (ttt [:contact/title "Contact"])
        [:p "National Cancer Registration and Analysis Service" [:br] "East Regional Office, Victoria House, Capital Park,
-     Fulbourn, Cambridge CB21 5XB" [:br] (ttt [:contact/email "Email:"]) " " [:a {:href "mailto:prostate@predict.nhs.uk"} "prostate@predict.nhs.uk"]]]]
+     Fulbourn, Cambridge CB21 5XB" [:br] (ttt [:contact/email "Email"]) ": " [:a {:href "mailto:prostate@predict.nhs.uk"} "prostate@predict.nhs.uk"]]]]
 
      [:section#legal-preamble "Preamble"
       [:p.screen-only {:key   0
@@ -743,7 +743,7 @@ Grade Group 2 or from Stage T2 to stage T3). If MRI data and imaging scores are 
        [:p (ttt [:priv/wc-text1 "Predict uses Google Analytics to measure website traffic. All the information collected is anonymous and is
      not used for any other purpose. For more details see the"]) " "
         [:a {:href "http://www.google.co.uk/intl/en/policies/privacy/" :rel "noopener"} (ttt [:priv/wc-text2 "Google privacy policy."])]]
-       [:p (ttt [:priv/wc-text3 "The following cookies are used:"])]
+       [:p (ttt [:priv/wc-text3 "The following cookies are used"]) ":"]
        [:table.table.table-bordered {:style {:max-width "600px" :margin-top "10px" :font-size "16px"}}
         [:thead
          [:tr {:style {:background-color "#005EB4"
@@ -772,7 +772,7 @@ Grade Group 2 or from Stage T2 to stage T3). If MRI data and imaging scores are 
         For more details about controlling cookies visit the help pages for the browser that you are using."])]]
 
       [:section (ttt [:priv/dh-title "Can I disable hotjar?"])
-       [:p (ttt [:priv/dh-text1 "Yes you can. Follow this link for up to date instructions:"]) " " [:a {:href "https://www.hotjar.com/legal/compliance/opt-out" :rel "noopener" :target "_blank"} (ttt [:priv/dh-text2 "How to disable Hotjar"])]]
+       [:p (ttt [:priv/dh-text1 "Yes you can. Follow this link for up to date instructions"]) ": " [:a {:href "https://www.hotjar.com/legal/compliance/opt-out" :rel "noopener" :target "_blank"} (ttt [:priv/dh-text2 "How to disable Hotjar"])]]
        [:p (ttt [:priv/dpo "The Data Protection Officer for Predict:Prostate Cancer is"]) " "
         [:a {:href "mailto:dpo@admin.cam.ac.uk"} "dpo@admin.cam.ac.uk"]]]]
 

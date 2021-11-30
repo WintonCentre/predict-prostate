@@ -86,13 +86,13 @@
         uncertainty? (= :yes (rum/react (input-cursor :show-uncertainty)))
         data (extract-data (rum/react results-cursor) year (if uncertainty? 1 0))
         text1 (ttt [:table/text1 "This table shows the percentage of men who survive at least"])
-        text2 (ttt [:table/text2 "years after diagnosis, based on the information you have provided."])]
+        text2 (ttt [:table/text2 "years after diagnosis, based on the information you have provided"])]
 
     [:.row {:style {:margin-top 15}}
      [:.col-sm-12.screen-only {:style {:font-size 16}}
-      text1 " " [:span.screen-only (year-picker ttt)] " " text2]
+      text1 " " [:span.screen-only (year-picker ttt)] " " text2 "."]
      [:.col-sm-12.print-only
-      text1 " " [:span.print-only year] " " text2]
+      text1 " " [:span.print-only year] " " text2 "."]
      [:.col-sm-12 {:style {:margin-bottom "15px"}}
       (tables data uncertainty? ttt)
       (when radical?

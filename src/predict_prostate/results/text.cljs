@@ -74,10 +74,10 @@
         radical? (= 1 (rum/react (input-cursor :primary-rx)))
         data (extract-data (rum/react results-cursor) radical?)
         text1 (ttt [:text/text18 "Of the men who would not survive,"])
-        text2 (ttt [:text/text19 "would die due to causes not related to prostate cancer."])
+        text2 (ttt [:text/text19 "would die due to causes not related to prostate cancer"])
         ]
 
     [:div
      (texts year data radical? printable ttt)
-     [:p.print-only {:style {:font-size 12}} text1 " " (emph (round (nth (:dotted-orange data) year))) " " text2]
-     [:p.screen-only {:style {:font-size 16}} text1 " " (emph (round (nth (:dotted-orange data) year))) " " text2]]))
+     [:p.print-only {:style {:font-size 12}} text1 " " (emph (round (nth (:dotted-orange data) year))) " " text2 "."]
+     [:p.screen-only {:style {:font-size 16}} text1 " " (emph (round (nth (:dotted-orange data) year))) " " text2 "."]]))

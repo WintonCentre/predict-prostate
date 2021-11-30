@@ -89,7 +89,7 @@
          (results-in-sidefx ttt)
          (sidefx-more-info ttt)]]])))
 
-(rum/defc results-footer < rum/reactive []
+(rum/defc results-footer < rum/reactive [ttt]
   (when (rum/react results-cursor)
     [:.col-xs-12
      #_[:.row
@@ -104,10 +104,10 @@
               :alt         "faq icon"
               :aria-hidden true}]
        ;(simple/icon {:family :fa :style {:font-size 80 :color alison-blue-2}} "commenting-o")
-       [:h3 "Looking for advice?"]
+       [:h3 (ttt [:faqs/q1 "Looking for advice?"])]
        [:button.btn.btn-primary.btn-lg
         {:on-click #(publish route-change [:about {:page "faqs"} nil])}
-        "See the FAQs"]
+        (ttt [:rf/stf "See the FAQs"])]
        ]]
 
      [:button.btn.screen-only {:type        "button"
@@ -182,7 +182,7 @@
            ]]]]]
 
       [:.screen-only
-       (results-footer)
+       (results-footer ttt)
        (footer)]]
      (top-modal ttt)
      (settings-modal)

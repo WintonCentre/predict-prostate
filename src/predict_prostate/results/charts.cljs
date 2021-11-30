@@ -223,7 +223,7 @@
 
 (rum/defc inner-stacked-bar < rum/static rum/reactive
                               "This currently supports a left and a right stacked bar with callouts left and right and top"
-  [{:keys [conservative-survival radical-benefit dotted-orange style title subtitle-under radical plot-style]}]
+  [{:keys [conservative-survival radical-benefit dotted-orange style title subtitle-under radical plot-style ttt]}]
 
   [:div
 
@@ -262,7 +262,7 @@
                   :width       "18%"
                   :total       (reduce + (mapv :value data))
                   :callout     (partial callout {:percent (reduce + (mapv :value plot-data))
-                                                 :text    (str "survive at least " year " years")})
+                                                 :text    (str "survive at least" " " year " " "years")})
                   :radical     radical
                   :plot-style  plot-style})
             year))
@@ -270,7 +270,7 @@
         ))
 
     [:div {:key 3 :style {:position "absolute" :bottom "-5.5ex" :width "100%" :text-align "center" :font-size "16px"}}
-     subtitle-under]
+     (ttt [:chart/subunder subtitle-under])]
     ]])
 
 (defn extract-data
@@ -333,7 +333,7 @@
 
           [:.chart-wrapper {:style {:position    "relative"
                                     :padding-top (* width-1 h-over-w)}}
-           (rum/with-key (inner-stacked-bar chart-props) 1)
+           (rum/with-key (inner-stacked-bar (assoc chart-props :ttt ttt)) 1)
            ]
 
           ]

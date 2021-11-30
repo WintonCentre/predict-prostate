@@ -40,17 +40,17 @@
                               :margin-bottom    0}}
    [:.col-md-3.col-md-offset-2.text-center
     [:img {:src "/assets/tool-icon.png" :alt "tool-icon" :aria-hidden true}]
-    [:h3 "Want to use Predict Prostate?"]
-    [:p "This tool helps to understand how treatments for prostate cancer may improve survival rates after diagnosis."]
+    [:h3 (ttt [:fb/wtupp-title "Want to use Predict Prostate?"])]
+    [:p (ttt [:fb/wtupp-text1 "This tool helps to understand how treatments for prostate cancer may improve survival rates after diagnosis."])]
     (start-button ttt)]
 
    [:.col-md-3..col-md-offset-2.text-center {:style {:margin-top "20px"}}
     [:img {:src "/assets/faq-icon.png" :alt "faq-icon" :aria-hidden true}]
-    [:h3 "Someone to talk to?"]
-    [:p " If you are fighting cancer, it’s often easier with support. Here, you can find further information and links."]
+    [:h3 (ttt [:fb/sttt-title "Someone to talk to?"])]
+    [:p (ttt [:fb/sttt-text1 "If you are fighting cancer, it’s often easier with support. Here, you can find further information and links."])]
     [:button.btn.btn-danger.btn-lg
      {:on-click #(publish route-change [:about {:page "faqs"} nil])}
-     "Support Links" #_"See the FAQs"]
+     (ttt [:fb/sl "Support Links"]) #_"See the FAQs"]
     ]])
 
 

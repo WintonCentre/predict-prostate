@@ -107,7 +107,7 @@
     ))
 
 
-(rum/defc curves-container [{:keys [outer margin inner padding width height x y]} plot-style data radical?]
+(rum/defc curves-container [{:keys [outer margin inner padding width height x y]} plot-style data radical? ttt]
   (let [inner (if (nil? inner) {:width  (- (:width outer) (:left margin) (:right margin))
                                 :height (- (:height outer) (:top margin) (:bottom margin))}
                                inner)
@@ -205,16 +205,16 @@
        ]]]))
 
 (rum/defc curves < rum/reactive rum/static (rum/local [] ::data)
-  [data]
+  [data ttt]
   (let [margin {:top 10 :right 10 :bottom 0 :left 0}
         padding {:top 20 :right 0 :bottom 60 :left 80}
         outer {:width 400 :height 400}]
     [:div (curves-container
-            (space outer margin padding [0 N] 3 [0 100] 5)
-            (rum/react (input-cursor :plot-style))
-            data
-            (pos? (rum/react (input-cursor :primary-rx)))
-            )]))
+           (space outer margin padding [0 N] 3 [0 100] 5)
+           (rum/react (input-cursor :plot-style))
+           data
+           (pos? (rum/react (input-cursor :primary-rx)))
+           ttt)]))
 
 (defn benefit [data tk]
   (tk (nth data 10)))
@@ -335,7 +335,7 @@
      [:div {:style {:width   (if side-by-side "70%" "100%")
                     :max-width 350
                     :display "inline-block"}}
-      [:div {:style {:padding "15px 40px 0px 0px"}} (curves data)]]
+      [:div {:style {:padding "15px 40px 0px 0px"}} (curves data ttt)]]
      [:div {:style {:padding-top    "30px"
                     :vertical-align "top"
                     :width          (if side-by-side "30%" "100%")
