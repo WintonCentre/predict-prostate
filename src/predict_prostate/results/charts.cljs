@@ -343,7 +343,7 @@
                         :padding-top    (if side-by-side "40px" "20px")
                         :width          (str (- 100 (if side-by-side width 0)) "%")
                         :display        "inline-block"}}
-          (legend2 plot-style radical?)]]))))
+          (legend2 plot-style radical? ttt)]]))))
 
 
 (rum/defc results-in-charts

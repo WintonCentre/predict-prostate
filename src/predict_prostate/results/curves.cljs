@@ -268,9 +268,9 @@
 
    ])
 
-(rum/defc legend2 < rum/reactive [plot-style radical?]
+(rum/defc legend2 < rum/reactive [plot-style radical? ttt]
   [:div {:width "100%"}
-   (legend-item {:label       "Survival excluding deaths from prostate cancer"
+   (legend-item {:label       (ttt [:lgd2/sedfpc "Survival excluding deaths from prostate cancer"])
                  :extra-style {:border-top (str "5px dashed " dashed-stroke)
                                :margin-top 9}
                  :icon        nil})
@@ -278,25 +278,25 @@
    (when radical?
      (condp = plot-style
        :area1
-       (legend-item {:label       "Estimated survival with radical treatment"
+       (legend-item {:label    (ttt [:lgd2/eswrt "Estimated survival with radical treatment"])
                      :extra-style nil
                      :icon        (dead-icon (treatment-fills 1))})
 
        :line2
        [:div
 
-        (legend-item {:label       "Potential range of treatment benefit above estimate"
+        (legend-item {:label       (ttt [:lgd2/protbae "Potential range of treatment benefit above estimate"])
                       :extra-style nil
                       :icon        (dead-icon (:radical-above (plot-style fills-by-style*)))})
-        (legend-item {:label       "Estimated survival with radical treatment"
+        (legend-item {:label       (ttt [:lgd2/eswrt "Estimated survival with radical treatment"])
                       :extra-style {:border-top (str "3px solid " (treatment-fills 0))
                                     :margin-top 9}
                       :icon        nil})
-        (legend-item {:label       "Potential range of treatment benefit below estimate"
+        (legend-item {:label       (ttt [:lgd2/protbbe "Potential range of treatment benefit below estimate"])
                       :extra-style nil
                       :icon        (dead-icon (:radical (plot-style fills-by-style*)))})]))
 
-   (legend-item {:label "Initial conservative management"
+   (legend-item {:label (ttt [:lgd2/icm "Initial conservative management"])
                  :icon  (dead-icon (treatment-fills 0))})
 
    ])
@@ -340,5 +340,5 @@
                     :vertical-align "top"
                     :width          (if side-by-side "30%" "100%")
                     :display        "inline-block"}}
-      (legend2 plot-style radical?)
+      (legend2 plot-style radical? ttt)
       ]]))
