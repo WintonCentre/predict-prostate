@@ -118,24 +118,24 @@
         [:button.btn.btn-default {:type     "button"
                                   :on-click #(publish help-key-change nil) ;#(hide "#topModal")
                                   }
-         "Close"]]]]]))
+         (ttt [:close "Close"])]]]]]))
 
 
 
-(rum/defc cancel-or-print []
+(rum/defc cancel-or-print [ttt]
   [:div.pull-right
    [:button.btn.btn-default {:type "button"
                              :on-click #(do
                                           (.modal (js/$ "#printModal") "hide"))
                              }
-    "Cancel"]
+    (ttt [:cancel "Cancel"])]
    " "
    [:button.btn.btn-primary {:type     "button"
                              :on-click #(do (.modal (js/$ "printModal") "hide")
                                             (js/print))
                              }
 
-    (simple/icon {:family :fa} "print") " Print"]]
+    (simple/icon {:family :fa} "print") " " (ttt [:print "Print"])]]
   )
 
 
@@ -149,11 +149,11 @@
                              :aria-hidden "true"}
     [:.modal-dialog.screen-only
      [:.modal-content
-      [:.modal-header (cancel-or-print)]
+      [:.modal-header (cancel-or-print ttt)]
       [:.modal-body (when (and (rum/react print-cursor) (rum/react results-cursor))
                       [:div
                        (rum/with-key (results-in-print ttt) 2)])]
-      [:.modal-footer (cancel-or-print)]]]]
+      [:.modal-footer (cancel-or-print ttt)]]]]
    [:.print-only {::style {:margin "0 20px"}} (when (and (rum/react print-cursor) (rum/react results-cursor)) (results-in-print ttt))]])
 
 
@@ -161,7 +161,7 @@
 (rum/defc settings-modal < rum/reactive
                            "Note that we are assuming the _single_ modal dialog is mounted on #topModal since we
                            are using jQuery to locate it."
-  []
+  [ttt]
   [:#settingsModal.modal.fade {:role        "dialog"
                                ;:tabIndex -1
                                :aria-hidden "true"}
@@ -172,14 +172,14 @@
                       :on-click                #(publish settings-change nil) ;(hide "#settingsModal")
                       :aria-hidden             true
                       :dangerouslySetInnerHTML {:__html "&times;"}}]
-      [:h4.modal-title "Settings"]]
+      [:h4.modal-title (ttt [:tool/settings "Settings"])]]
      [:.modal-body
 
-      [:p "Choose a plot style for treatment benefit"]
+      [:p (ttt [:settings/caps "Choose a plot style for treatment benefit"])]
       (input-widget :plot-style)
 
       [:.modal-footer
        [:button.btn.btn-default {:type     "button"
                                  :on-click #(publish settings-change nil) ; #(hide "#settingsModal")
                                  }
-        "Close"]]]]]])
+        (ttt [:close "Close"])]]]]]])

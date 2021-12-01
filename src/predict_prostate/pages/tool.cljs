@@ -125,7 +125,7 @@
                                              :padding                   "15px 5px 15px 5px"
                                              :border-top-left-radius    10
                                              :border-bottom-left-radius 10
-                                             }} (simple/icon {:family :fa} "print") " Print"]
+                                             }} (simple/icon {:family :fa} "print") " " (ttt [:print "Print"])]
 
      ]))
 
@@ -185,7 +185,7 @@
        (results-footer ttt)
        (footer)]]
      (top-modal ttt)
-     (settings-modal)
+     (settings-modal ttt)
      (print-modal ttt)
      (editor-modal)
      ]

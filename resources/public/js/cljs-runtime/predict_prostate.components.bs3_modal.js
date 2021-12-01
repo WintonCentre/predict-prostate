@@ -12,20 +12,20 @@ var edit_key = new cljs.core.Keyword(null,"edit-key","edit-key",-1833788727).clj
 var old_text = new cljs.core.Keyword(null,"text","text",-1790561697).cljs$core$IFn$_invoke$arity$1(edit_m);
 var new_text = new cljs.core.Keyword(null,"new-text","new-text",962412088).cljs$core$IFn$_invoke$arity$1(edit_m);
 var submit = (function (){
-var temp__5733__auto___33936 = predict_prostate.components.bs3_modal.some_text_QMARK_(new_text);
-if(cljs.core.truth_(temp__5733__auto___33936)){
-var new_text_STAR__33937 = temp__5733__auto___33936;
-predict_prostate.state.run_time.text_change.pubsub$feeds$TopicFeed$publish$arity$2(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [edit_key,new_text_STAR__33937], null));
+var temp__5733__auto___54134 = predict_prostate.components.bs3_modal.some_text_QMARK_(new_text);
+if(cljs.core.truth_(temp__5733__auto___54134)){
+var new_text_STAR__54136 = temp__5733__auto___54134;
+predict_prostate.state.run_time.text_change.pubsub$feeds$TopicFeed$publish$arity$2(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [edit_key,new_text_STAR__54136], null));
 } else {
 }
 
 return $("#editorModal").modal("hide");
 });
-return React.createElement("div",({"id": "editorModal", "role": "dialog", "tabIndex": (-1), "aria-hidden": "true", "className": "modal fade"}),React.createElement("div",({"className": "modal-dialog"}),React.createElement("div",({"className": "modal-content"}),React.createElement("div",({"className": "modal-header"}),React.createElement("button",({"type": "button ", "onClick": submit, "aria-hidden": true, "dangerouslySetInnerHTML": ({"__html": "&times;"}), "className": "close"})),(function (){var attrs33858 = cljs.core.str.cljs$core$IFn$_invoke$arity$1(edit_key);
-return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(React.createElement,"h4",((cljs.core.map_QMARK_(attrs33858))?sablono.interpreter.attributes(sablono.normalize.merge_with_class.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"class","class",-2030961996),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["modal-title"], null)], null),attrs33858], 0))):({"className": "modal-title"})),((cljs.core.map_QMARK_(attrs33858))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret(attrs33858)], null)));
-})()),React.createElement("div",({"className": "modal-body"}),React.createElement("h5",null,"English text"),sablono.interpreter.interpret(old_text),React.createElement("hr",null),React.createElement("h5",null,"Last translation"),sablono.interpreter.interpret((function (){var G__33871 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [edit_key], null);
-var fexpr__33870 = rum.core.react(predict_prostate.state.run_time.ttt_cursor);
-return (fexpr__33870.cljs$core$IFn$_invoke$arity$1 ? fexpr__33870.cljs$core$IFn$_invoke$arity$1(G__33871) : fexpr__33870.call(null,G__33871));
+return React.createElement("div",({"id": "editorModal", "role": "dialog", "tabIndex": (-1), "aria-hidden": "true", "className": "modal fade"}),React.createElement("div",({"className": "modal-dialog"}),React.createElement("div",({"className": "modal-content"}),React.createElement("div",({"className": "modal-header"}),React.createElement("button",({"type": "button ", "onClick": submit, "aria-hidden": true, "dangerouslySetInnerHTML": ({"__html": "&times;"}), "className": "close"})),(function (){var attrs54059 = cljs.core.str.cljs$core$IFn$_invoke$arity$1(edit_key);
+return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(React.createElement,"h4",((cljs.core.map_QMARK_(attrs54059))?sablono.interpreter.attributes(sablono.normalize.merge_with_class.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"class","class",-2030961996),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["modal-title"], null)], null),attrs54059], 0))):({"className": "modal-title"})),((cljs.core.map_QMARK_(attrs54059))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret(attrs54059)], null)));
+})()),React.createElement("div",({"className": "modal-body"}),React.createElement("h5",null,"English text"),sablono.interpreter.interpret(old_text),React.createElement("hr",null),React.createElement("h5",null,"Last translation"),sablono.interpreter.interpret((function (){var G__54082 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [edit_key], null);
+var fexpr__54081 = rum.core.react(predict_prostate.state.run_time.ttt_cursor);
+return (fexpr__54081.cljs$core$IFn$_invoke$arity$1 ? fexpr__54081.cljs$core$IFn$_invoke$arity$1(G__54082) : fexpr__54081.call(null,G__54082));
 })()),React.createElement("hr",null),React.createElement("h5",null,"New translation"),sablono.interpreter.create_element("textarea",({"style": ({"width": "100%", "height": "100%"}), "value": (((new_text == null))?(((old_text == null))?"":old_text):new_text), "onChange": (function (e){
 return predict_prostate.state.run_time.new_text_change.pubsub$feeds$TopicFeed$publish$arity$2(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [edit_key,e.currentTarget.value], null));
 })}))),React.createElement("div",({"className": "modal-footer"}),React.createElement("button",({"type": "button", "onClick": submit, "className": "btn btn-default"}),"Close")))));
@@ -55,52 +55,58 @@ return $("#newLanguageModal").modal("hide");
 predict_prostate.components.bs3_modal.top_modal = rum.core.build_defc((function (ttt){
 var help_key = rum.core.react(predict_prostate.state.run_time.help_key_cursor);
 var help = predict_prostate.content_reader.section.cljs$core$IFn$_invoke$arity$2(ttt,help_key);
-var vec__33899 = ((cljs.core.seq(help))?help:new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["help header",new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"p","p",151049309),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"style","style",-496642736),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"color","color",1011675173),"red"], null)], null),"add content for ",help_key], null)], null));
-var seq__33900 = cljs.core.seq(vec__33899);
-var first__33901 = cljs.core.first(seq__33900);
-var seq__33900__$1 = cljs.core.next(seq__33900);
-var help_header = first__33901;
-var help_content = seq__33900__$1;
+var vec__54097 = ((cljs.core.seq(help))?help:new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["help header",new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"p","p",151049309),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"style","style",-496642736),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"color","color",1011675173),"red"], null)], null),"add content for ",help_key], null)], null));
+var seq__54098 = cljs.core.seq(vec__54097);
+var first__54099 = cljs.core.first(seq__54098);
+var seq__54098__$1 = cljs.core.next(seq__54098);
+var help_header = first__54099;
+var help_content = seq__54098__$1;
 var help_text = cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentVector.EMPTY,cljs.core.cons(new cljs.core.Keyword(null,"div","div",1057191632),help_content));
 return React.createElement("div",({"id": "topModal", "role": "dialog", "aria-hidden": "true", "className": "modal fade"}),React.createElement("div",({"className": "modal-dialog"}),React.createElement("div",({"className": "modal-content"}),React.createElement("div",({"className": "modal-header"}),React.createElement("button",({"type": "button ", "onClick": (function (){
 return predict_prostate.state.run_time.help_key_change.pubsub$feeds$TopicFeed$publish$arity$2(null,null);
-}), "aria-hidden": true, "dangerouslySetInnerHTML": ({"__html": "&times;"}), "className": "close"})),(function (){var attrs33908 = help_header;
-return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(React.createElement,"h4",((cljs.core.map_QMARK_(attrs33908))?sablono.interpreter.attributes(sablono.normalize.merge_with_class.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"class","class",-2030961996),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["modal-title"], null)], null),attrs33908], 0))):({"className": "modal-title"})),((cljs.core.map_QMARK_(attrs33908))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret(attrs33908)], null)));
-})()),(function (){var attrs33906 = help_text;
-return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(React.createElement,"div",((cljs.core.map_QMARK_(attrs33906))?sablono.interpreter.attributes(sablono.normalize.merge_with_class.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"class","class",-2030961996),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["modal-body"], null)], null),attrs33906], 0))):({"className": "modal-body"})),((cljs.core.map_QMARK_(attrs33906))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret(attrs33906)], null)));
+}), "aria-hidden": true, "dangerouslySetInnerHTML": ({"__html": "&times;"}), "className": "close"})),(function (){var attrs54105 = help_header;
+return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(React.createElement,"h4",((cljs.core.map_QMARK_(attrs54105))?sablono.interpreter.attributes(sablono.normalize.merge_with_class.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"class","class",-2030961996),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["modal-title"], null)], null),attrs54105], 0))):({"className": "modal-title"})),((cljs.core.map_QMARK_(attrs54105))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret(attrs54105)], null)));
+})()),(function (){var attrs54103 = help_text;
+return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(React.createElement,"div",((cljs.core.map_QMARK_(attrs54103))?sablono.interpreter.attributes(sablono.normalize.merge_with_class.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"class","class",-2030961996),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["modal-body"], null)], null),attrs54103], 0))):({"className": "modal-body"})),((cljs.core.map_QMARK_(attrs54103))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret(attrs54103)], null)));
 })(),React.createElement("div",({"className": "modal-footer"}),React.createElement("button",({"type": "button", "onClick": (function (){
 return predict_prostate.state.run_time.help_key_change.pubsub$feeds$TopicFeed$publish$arity$2(null,null);
-}), "className": "btn btn-default"}),"Close")))));
+}), "className": "btn btn-default"}),sablono.interpreter.interpret((function (){var G__54107 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"close","close",1835149582),"Close"], null);
+return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__54107) : ttt.call(null,G__54107));
+})()))))));
 }),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [rum.core.reactive], null),"top-modal");
-predict_prostate.components.bs3_modal.cancel_or_print = rum.core.build_defc((function (){
+predict_prostate.components.bs3_modal.cancel_or_print = rum.core.build_defc((function (ttt){
 return React.createElement("div",({"className": "pull-right"}),React.createElement("button",({"type": "button", "onClick": (function (){
 return $("#printModal").modal("hide");
-}), "className": "btn btn-default"}),"Cancel")," ",React.createElement("button",({"type": "button", "onClick": (function (){
+}), "className": "btn btn-default"}),sablono.interpreter.interpret((function (){var G__54110 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"cancel","cancel",-1964088360),"Cancel"], null);
+return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__54110) : ttt.call(null,G__54110));
+})()))," ",React.createElement("button",({"type": "button", "onClick": (function (){
 $("printModal").modal("hide");
 
 return print();
-}), "className": "btn btn-primary"}),sablono.interpreter.interpret((function (){var G__33911 = new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"family","family",-1313145692),new cljs.core.Keyword(null,"fa","fa",484981183)], null);
-var G__33912 = "print";
-return (graphics.simple_icons.icon.cljs$core$IFn$_invoke$arity$2 ? graphics.simple_icons.icon.cljs$core$IFn$_invoke$arity$2(G__33911,G__33912) : graphics.simple_icons.icon.call(null,G__33911,G__33912));
-})())," Print"));
+}), "className": "btn btn-primary"}),sablono.interpreter.interpret((function (){var G__54111 = new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"family","family",-1313145692),new cljs.core.Keyword(null,"fa","fa",484981183)], null);
+var G__54113 = "print";
+return (graphics.simple_icons.icon.cljs$core$IFn$_invoke$arity$2 ? graphics.simple_icons.icon.cljs$core$IFn$_invoke$arity$2(G__54111,G__54113) : graphics.simple_icons.icon.call(null,G__54111,G__54113));
+})())," ",sablono.interpreter.interpret((function (){var G__54116 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"print","print",1299562414),"Print"], null);
+return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__54116) : ttt.call(null,G__54116));
+})())));
 }),null,"cancel-or-print");
 /**
  * Note that we are assuming the _single_ modal dialog is mounted on #topModal since we
  *                      are using jQuery to locate it.
  */
 predict_prostate.components.bs3_modal.print_modal = rum.core.build_defc((function (ttt){
-return React.createElement("div",null,React.createElement("div",({"id": "printModal", "role": "dialog", "tabIndex": (-1), "aria-hidden": "true", "className": "modal fade"}),React.createElement("div",({"className": "modal-dialog screen-only"}),React.createElement("div",({"className": "modal-content"}),(function (){var attrs33913 = (predict_prostate.components.bs3_modal.cancel_or_print.cljs$core$IFn$_invoke$arity$0 ? predict_prostate.components.bs3_modal.cancel_or_print.cljs$core$IFn$_invoke$arity$0() : predict_prostate.components.bs3_modal.cancel_or_print.call(null));
-return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(React.createElement,"div",((cljs.core.map_QMARK_(attrs33913))?sablono.interpreter.attributes(sablono.normalize.merge_with_class.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"class","class",-2030961996),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["modal-header"], null)], null),attrs33913], 0))):({"className": "modal-header"})),((cljs.core.map_QMARK_(attrs33913))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret(attrs33913)], null)));
-})(),(function (){var attrs33914 = (cljs.core.truth_((function (){var and__4115__auto__ = rum.core.react(predict_prostate.state.run_time.print_cursor);
+return React.createElement("div",null,React.createElement("div",({"id": "printModal", "role": "dialog", "tabIndex": (-1), "aria-hidden": "true", "className": "modal fade"}),React.createElement("div",({"className": "modal-dialog screen-only"}),React.createElement("div",({"className": "modal-content"}),(function (){var attrs54118 = (predict_prostate.components.bs3_modal.cancel_or_print.cljs$core$IFn$_invoke$arity$1 ? predict_prostate.components.bs3_modal.cancel_or_print.cljs$core$IFn$_invoke$arity$1(ttt) : predict_prostate.components.bs3_modal.cancel_or_print.call(null,ttt));
+return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(React.createElement,"div",((cljs.core.map_QMARK_(attrs54118))?sablono.interpreter.attributes(sablono.normalize.merge_with_class.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"class","class",-2030961996),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["modal-header"], null)], null),attrs54118], 0))):({"className": "modal-header"})),((cljs.core.map_QMARK_(attrs54118))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret(attrs54118)], null)));
+})(),(function (){var attrs54120 = (cljs.core.truth_((function (){var and__4115__auto__ = rum.core.react(predict_prostate.state.run_time.print_cursor);
 if(cljs.core.truth_(and__4115__auto__)){
 return rum.core.react(predict_prostate.state.run_time.results_cursor);
 } else {
 return and__4115__auto__;
 }
 })())?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),rum.core.with_key((predict_prostate.results.printable.results_in_print.cljs$core$IFn$_invoke$arity$1 ? predict_prostate.results.printable.results_in_print.cljs$core$IFn$_invoke$arity$1(ttt) : predict_prostate.results.printable.results_in_print.call(null,ttt)),(2))], null):null);
-return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(React.createElement,"div",((cljs.core.map_QMARK_(attrs33914))?sablono.interpreter.attributes(sablono.normalize.merge_with_class.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"class","class",-2030961996),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["modal-body"], null)], null),attrs33914], 0))):({"className": "modal-body"})),((cljs.core.map_QMARK_(attrs33914))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret(attrs33914)], null)));
-})(),(function (){var attrs33915 = (predict_prostate.components.bs3_modal.cancel_or_print.cljs$core$IFn$_invoke$arity$0 ? predict_prostate.components.bs3_modal.cancel_or_print.cljs$core$IFn$_invoke$arity$0() : predict_prostate.components.bs3_modal.cancel_or_print.call(null));
-return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(React.createElement,"div",((cljs.core.map_QMARK_(attrs33915))?sablono.interpreter.attributes(sablono.normalize.merge_with_class.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"class","class",-2030961996),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["modal-footer"], null)], null),attrs33915], 0))):({"className": "modal-footer"})),((cljs.core.map_QMARK_(attrs33915))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret(attrs33915)], null)));
+return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(React.createElement,"div",((cljs.core.map_QMARK_(attrs54120))?sablono.interpreter.attributes(sablono.normalize.merge_with_class.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"class","class",-2030961996),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["modal-body"], null)], null),attrs54120], 0))):({"className": "modal-body"})),((cljs.core.map_QMARK_(attrs54120))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret(attrs54120)], null)));
+})(),(function (){var attrs54121 = (predict_prostate.components.bs3_modal.cancel_or_print.cljs$core$IFn$_invoke$arity$1 ? predict_prostate.components.bs3_modal.cancel_or_print.cljs$core$IFn$_invoke$arity$1(ttt) : predict_prostate.components.bs3_modal.cancel_or_print.call(null,ttt));
+return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(React.createElement,"div",((cljs.core.map_QMARK_(attrs54121))?sablono.interpreter.attributes(sablono.normalize.merge_with_class.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"class","class",-2030961996),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["modal-footer"], null)], null),attrs54121], 0))):({"className": "modal-footer"})),((cljs.core.map_QMARK_(attrs54121))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret(attrs54121)], null)));
 })()))),React.createElement("div",({"style": ({"margin": "0 20px"}), "className": "print-only"}),sablono.interpreter.interpret((cljs.core.truth_((function (){var and__4115__auto__ = rum.core.react(predict_prostate.state.run_time.print_cursor);
 if(cljs.core.truth_(and__4115__auto__)){
 return rum.core.react(predict_prostate.state.run_time.results_cursor);
@@ -113,12 +119,22 @@ return and__4115__auto__;
  * Note that we are assuming the _single_ modal dialog is mounted on #topModal since we
  *                         are using jQuery to locate it.
  */
-predict_prostate.components.bs3_modal.settings_modal = rum.core.build_defc((function (){
+predict_prostate.components.bs3_modal.settings_modal = rum.core.build_defc((function (ttt){
 return React.createElement("div",({"id": "settingsModal", "role": "dialog", "aria-hidden": "true", "className": "modal fade"}),React.createElement("div",({"className": "modal-dialog"}),React.createElement("div",({"className": "modal-content"}),React.createElement("div",({"className": "modal-header"}),React.createElement("button",({"type": "button ", "onClick": (function (){
 return predict_prostate.state.run_time.settings_change.pubsub$feeds$TopicFeed$publish$arity$2(null,null);
-}), "aria-hidden": true, "dangerouslySetInnerHTML": ({"__html": "&times;"}), "className": "close"})),React.createElement("h4",({"className": "modal-title"}),"Settings")),React.createElement("div",({"className": "modal-body"}),React.createElement("p",null,"Choose a plot style for treatment benefit"),sablono.interpreter.interpret(predict_prostate.state.run_time.input_widget(new cljs.core.Keyword(null,"plot-style","plot-style",-113762355))),React.createElement("div",({"className": "modal-footer"}),React.createElement("button",({"type": "button", "onClick": (function (){
+}), "aria-hidden": true, "dangerouslySetInnerHTML": ({"__html": "&times;"}), "className": "close"})),(function (){var attrs54123 = (function (){var G__54125 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("tool","settings","tool/settings",1559915107),"Settings"], null);
+return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__54125) : ttt.call(null,G__54125));
+})();
+return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(React.createElement,"h4",((cljs.core.map_QMARK_(attrs54123))?sablono.interpreter.attributes(sablono.normalize.merge_with_class.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"class","class",-2030961996),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["modal-title"], null)], null),attrs54123], 0))):({"className": "modal-title"})),((cljs.core.map_QMARK_(attrs54123))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret(attrs54123)], null)));
+})()),React.createElement("div",({"className": "modal-body"}),(function (){var attrs54127 = (function (){var G__54129 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("settings","caps","settings/caps",-1433746733),"Choose a plot style for treatment benefit"], null);
+return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__54129) : ttt.call(null,G__54129));
+})();
+return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(React.createElement,"p",((cljs.core.map_QMARK_(attrs54127))?sablono.interpreter.attributes(attrs54127):null),((cljs.core.map_QMARK_(attrs54127))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret(attrs54127)], null)));
+})(),sablono.interpreter.interpret(predict_prostate.state.run_time.input_widget(new cljs.core.Keyword(null,"plot-style","plot-style",-113762355))),React.createElement("div",({"className": "modal-footer"}),React.createElement("button",({"type": "button", "onClick": (function (){
 return predict_prostate.state.run_time.settings_change.pubsub$feeds$TopicFeed$publish$arity$2(null,null);
-}), "className": "btn btn-default"}),"Close"))))));
+}), "className": "btn btn-default"}),sablono.interpreter.interpret((function (){var G__54131 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"close","close",1835149582),"Close"], null);
+return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__54131) : ttt.call(null,G__54131));
+})())))))));
 }),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [rum.core.reactive], null),"settings-modal");
 
 //# sourceMappingURL=predict_prostate.components.bs3_modal.js.map

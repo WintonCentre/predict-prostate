@@ -15,9 +15,9 @@ if(cljs.core.not(window.oldBrowser)){
 if(cljs.core.truth_(window.matchMedia("print").addEventListener)){
 predict_prostate.pages.root.before_after_print();
 } else {
-var mql_231743 = window.matchMedia("print");
-mql_231743.addListener((function (p1__231731_SHARP_){
-if(cljs.core.truth_(goog.object.get(p1__231731_SHARP_,"matches"))){
+var mql_56731 = window.matchMedia("print");
+mql_56731.addListener((function (p1__56723_SHARP_){
+if(cljs.core.truth_(goog.object.get(p1__56723_SHARP_,"matches"))){
 return predict_prostate.pages.root.before_print();
 } else {
 return predict_prostate.pages.root.after_print();
@@ -34,15 +34,15 @@ return state;
  * Root of site. All components are within this tree
  */
 predict_prostate.pages.root.root_STAR_ = rum.core.build_defc((function (ttt_STAR_){
-var vec__231735 = rum.core.react(predict_prostate.state.run_time.route);
-var page = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__231735,(0),null);
-var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__231735,(1),null);
-var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__231735,(2),null);
-var rt = vec__231735;
+var vec__56727 = rum.core.react(predict_prostate.state.run_time.route);
+var page = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__56727,(0),null);
+var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__56727,(1),null);
+var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__56727,(2),null);
+var rt = vec__56727;
 var lang = new cljs.core.Keyword(null,"lang","lang",-1819677104).cljs$core$IFn$_invoke$arity$1(rum.core.react(predict_prostate.state.run_time.t_state_cursor));
-var attrs231733 = (function (){var G__231742 = page;
-var G__231742__$1 = (((G__231742 instanceof cljs.core.Keyword))?G__231742.fqn:null);
-switch (G__231742__$1) {
+var attrs56725 = (function (){var G__56730 = page;
+var G__56730__$1 = (((G__56730 instanceof cljs.core.Keyword))?G__56730.fqn:null);
+switch (G__56730__$1) {
 case "home":
 return (predict_prostate.pages.home.home.cljs$core$IFn$_invoke$arity$1 ? predict_prostate.pages.home.home.cljs$core$IFn$_invoke$arity$1(ttt_STAR_) : predict_prostate.pages.home.home.call(null,ttt_STAR_));
 
@@ -68,11 +68,11 @@ return (predict_prostate.pages.not_found.not_found.cljs$core$IFn$_invoke$arity$1
 
 break;
 default:
-throw (new Error(["No matching clause: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(G__231742__$1)].join('')));
+throw (new Error(["No matching clause: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(G__56730__$1)].join('')));
 
 }
 })();
-return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(React.createElement,"div",((cljs.core.map_QMARK_(attrs231733))?sablono.interpreter.attributes(attrs231733):null),((cljs.core.map_QMARK_(attrs231733))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret(attrs231733)], null)));
+return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(React.createElement,"div",((cljs.core.map_QMARK_(attrs56725))?sablono.interpreter.attributes(attrs56725):null),((cljs.core.map_QMARK_(attrs56725))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret(attrs56725)], null)));
 }),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [rum.core.reactive,predict_prostate.pages.root.media_watch], null),"root*");
 /**
  * Root of site. All components are within this tree
