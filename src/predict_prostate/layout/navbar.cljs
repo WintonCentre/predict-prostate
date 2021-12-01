@@ -4,8 +4,8 @@
             [predict-prostate.state.mutations :refer [clear-inputs]]))
 
 
-(rum/defc clear-all-button < rum/static [{:keys [on-click] :as props}]
-  [:button.btn.navbar-btn.btn-danger.btn-lg {:on-click on-click} " Reset"])
+(rum/defc clear-all-button < rum/static [{:keys [ttt on-click] :as props}]
+  [:button.btn.navbar-btn.btn-danger.btn-lg {:on-click on-click} " " (ttt [:tool/reset-btn "Reset"])])
 
 (rum/defc navbar < rum/reactive []
   [:nav.navbar.navbar-default
