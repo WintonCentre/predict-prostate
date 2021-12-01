@@ -2,7 +2,7 @@
   (:require [clojure.string :as str]
             [rum.core :as rum]
             [predict-prostate.results.util :refer [fill treatment-fills dashed-stroke fills-by-style*]]
-            [predict-prostate.state.run-time :refer [N results-cursor input-cursor on-screen-treatments-cursor]]
+            [predict-prostate.state.run-time :refer [N results-cursor input-cursor on-screen-treatments-cursor ttt-cursor]]
             [predict-prostate.components.primitives :refer [dead-icon]]
             [predict-prostate.mixins :refer [sizing-mixin]]
             [pubsub.feeds :refer [publish]]
@@ -12,6 +12,7 @@
             [svg.scales :refer [->Identity nice-linear i->o o->i in out ticks tick-format-specifier]]
             [svg.mixins :refer [patch-svg-attrs]]
             [goog.object :as gobj :refer [getValueByKeys]]
+            [translations.config :refer [translation-profile]]
             ))
 
 
@@ -107,7 +108,7 @@
     ))
 
 
-(rum/defc curves-container [{:keys [outer margin inner padding width height x y]} plot-style data radical? ttt]
+(rum/defc curves-container [{:keys [outer margin inner padding width height x y x-title y-title]} plot-style data radical? ttt]
   (let [inner (if (nil? inner) {:width  (- (:width outer) (:left margin) (:right margin))
                                 :height (- (:height outer) (:top margin) (:bottom margin))}
                                inner)
@@ -168,14 +169,14 @@
                  :class-name (:annotation styles)
                  :x          (X 1)
                  :y          (Y 0)}
-          "Percentage of men surviving"]]
+          y-title #_"Percentage of men surviving"]]
 
         [:g {:key "x-title" :transform (str "translate(0 50)")}
          [:text {:key        "note"
                  :class-name (:annotation styles)
                  :x          (X 2.5)
                  :y          (Y 0)}
-          "Years after diagnosis"]]
+          x-title #_"Years after diagnosis"]]
 
         (rum/with-key (plot {:X X :Y Y} plot-style (as-point-series data) radical?) "plot")
 
@@ -208,13 +209,31 @@
   [data ttt]
   (let [margin {:top 10 :right 10 :bottom 0 :left 0}
         padding {:top 20 :right 0 :bottom 60 :left 80}
-        outer {:width 400 :height 400}]
-    [:div (curves-container
-           (space outer margin padding [0 N] 3 [0 100] 5)
-           (rum/react (input-cursor :plot-style))
-           data
-           (pos? (rum/react (input-cursor :primary-rx)))
-           ttt)]))
+        outer {:width 400 :height 400}
+        y-title [:curves/y-axis "Percentage of men surviving"]
+        x-title [:curves/x-axis "Years after diagnosis"]
+        ttt* (rum/react ttt-cursor)]
+    [:div
+
+     (when (= translation-profile :edit)
+       [:div {:style {:font-size 16}}
+        (ttt y-title)])
+
+     (curves-container
+      (assoc (space outer margin padding [0 N] 3 [0 100] 5)
+             :y-title (ttt* y-title)
+             :x-title (ttt* x-title))
+      (rum/react (input-cursor :plot-style))
+      data
+      (pos? (rum/react (input-cursor :primary-rx)))
+      ttt)
+     
+     (when (= translation-profile :edit)
+       [:div
+        [:div {:style {:width "100%" :text-align "center" :font-size 16}}
+         (ttt x-title)]])
+     
+     ]))
 
 (defn benefit [data tk]
   (tk (nth data 10)))

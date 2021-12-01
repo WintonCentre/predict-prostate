@@ -2,7 +2,7 @@
 (:require [translations.tongue-base :refer [wrap-translator]]
           [tongue.core :as tongue]))
 
-(def translation-profile :prod)
+(def translation-profile :edit #_:prod)
 
 ; config file for the live dictionary
 (def live-dictionary-url "/live_dictionary.txt")
@@ -15,9 +15,10 @@
 
 (def initial-translations {:en {:missing         "**MISSING**"
                                 ; SVG texts MUST be present in the initial dictionary
-                                :curves/x-axis   "Years after surgery"
-                                :curves/y-axis   "Percentage of women surviving"
-                                :what-is-predict "What is Predict?"}})
+                                :curves/x-axis   "Years after diagnosis"
+                                :curves/y-axis   "Percentage of men surviving"
+                                ;:what-is-predict "What is Predict?"
+                                }})
 
 ; The initial translations state only has to provide something until the online dictionary is accessed. Also, all translator calls should have an english default
 ; built in.
