@@ -262,7 +262,8 @@
                   :width       "18%"
                   :total       (reduce + (mapv :value data))
                   :callout     (partial callout {:percent (reduce + (mapv :value plot-data))
-                                                 :text    (str "survive at least" " " year " " "years")})
+                                                 :text    [:span (ttt [:charts/callout-1 "survive at least"]) " "
+                                                           year " " (ttt [:charts/callout-2 "years"])]})
                   :radical     radical
                   :plot-style  plot-style})
             year))

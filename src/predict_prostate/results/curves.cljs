@@ -169,14 +169,14 @@
                  :class-name (:annotation styles)
                  :x          (X 1)
                  :y          (Y 0)}
-          y-title #_"Percentage of men surviving"]]
+          y-title]]
 
         [:g {:key "x-title" :transform (str "translate(0 50)")}
          [:text {:key        "note"
                  :class-name (:annotation styles)
                  :x          (X 2.5)
                  :y          (Y 0)}
-          x-title #_"Years after diagnosis"]]
+          x-title]]
 
         (rum/with-key (plot {:X X :Y Y} plot-style (as-point-series data) radical?) "plot")
 
