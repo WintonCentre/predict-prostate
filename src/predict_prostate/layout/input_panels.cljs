@@ -96,7 +96,7 @@
 
     (when (model-keys :psa) (form-entry {:ttt ttt :label "PSA" :key :psa}))
     (when (model-keys :t-stage) (form-entry {:ttt ttt :label "T stage" :key :t-stage}))
-    (when (= 4 (rum/react (input-cursor :t-stage))) (less-well-tested "The tool is less well tested in higher stages"))
+    (when (= 4 (rum/react (input-cursor :t-stage))) (less-well-tested (ttt [:patient/lwtstages "The tool is less well tested in higher stages"])))
     (when (model-keys :h-admissions) (form-entry {:ttt ttt :label "h-admissions" :key :h-admissions}))
     (when (= (rum/react (input-cursor :h-admissions)) 1)
       (when (model-keys :charlson-comorbidity) (form-entry {:ttt ttt :label "comorb" :key :charlson-comorbidity})))

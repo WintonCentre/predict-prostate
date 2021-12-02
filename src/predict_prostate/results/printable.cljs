@@ -16,6 +16,7 @@
             [predict-prostate.results.text :refer [results-in-text]]
             [predict-prostate.results.icons :refer [results-in-icons*]]
             [predict-prostate.results.sidefx :refer [results-in-sidefx]]
+            [predict-prostate.components.util :refer [widget-ttt]]
     #_[cljs-css-modules.macro :refer-macros [defstyle]]
             ))
 
@@ -28,6 +29,9 @@
 (defn avoid-break [& content]
   (reduce conj [:div {:style {:break-inside "avoid"}}] content))
 
+(defn ttt-input-label
+  [ttt key]
+  (widget-ttt ttt "help" key (input-label key)))
 
 (defn break-before [& content]
   (reduce conj [:div {:style {:break-before "always" :page-break-before "always"}}] content))
@@ -46,44 +50,44 @@
        [:th (ttt [:print/value "Value"])]]]
      [:tbody
       [:tr
-       [:td (input-label :age)]
+       [:td (ttt-input-label ttt :age)]
        [:td (rum/react (input-cursor :age))]]
       [:tr
-       [:td (input-label :psa)]
+       [:td (ttt-input-label ttt :psa)]
        [:td (rum/react (input-cursor :psa))]]
       [:tr
-       [:td (input-label :t-stage)
+       [:td (ttt-input-label ttt :t-stage)
         (when (#{4} (rum/react (input-cursor :t-stage)))
           [:div {:style {:color      "#686868"
                          :margin-top 0}}
            [:i.fa.fa-exclamation-triangle {:aria-hidden "true" :style {:color "orange" :padding-right 5}}]
-           "The tool is less well tested in higher stages"])]
+           (ttt [:patient/lwtstages "The tool is less well tested in higher stages"])])]
        [:td ((option-range 5) (rum/react (input-cursor :t-stage)))]]
       [:tr
-       [:td (input-label :h-admissions)]
+       [:td (ttt-input-label ttt :h-admissions)]
        [:td ({0 "No" 1 "Yes"} (rum/react (input-cursor :h-admissions)))]]
       (when (pos? (rum/react (input-cursor :h-admissions)))
         [:tr
-         [:td (input-label :charlson-comorbidity)]
+         [:td (ttt-input-label ttt :charlson-comorbidity)]
          [:td ({0 "No" 1 "Yes"} (rum/react (input-cursor :charlson-comorbidity)))]])
       [:tr
-       [:td (input-label :brca)]
+       [:td (ttt-input-label ttt :brca)]
        [:td ({0 "No" 1 "Yes"} (rum/react (input-cursor :brca)))]]
       [:tr
-       [:td (input-label :grade-group)
+       [:td (ttt-input-label ttt :grade-group)
         (when (#{4 5} (rum/react (input-cursor :grade-group)))
           [:div {:style {:color      "#686868"
                          :margin-top 0}}
            [:i.fa.fa-exclamation-triangle {:aria-hidden "true" :style {:color "orange" :padding-right 5}}]
-           "The tool is less well tested for higher scores"])]
+           (ttt [:tumour/lwt "The tool is less well tested for higher scores"])])]
        [:td ((option-range 6) (rum/react (input-cursor :grade-group)))]]
       [:tr
-       [:td (input-label :gleason)
+       [:td (ttt-input-label ttt :gleason)
         (when (#{4 5} (rum/react (input-cursor :grade-group)))
           [:div {:style {:color       "#686868"
                          :margin-top  0}}
            [:i.fa.fa-exclamation-triangle {:aria-hidden "true" :style {:color "orange" :padding-right 5}}]
-           "The tool is less well tested for higher scores"])]
+           (ttt [:tumour/lwt "The tool is less well tested for higher scores"])])]
        [:td ((into {} [[1 "3+3"]
                        [2 "3+4"]
                        [3 "4+3"]
@@ -91,10 +95,10 @@
                        [5 "9 or 10"]]) (rum/react (input-cursor :gleason)))
         ]]
       [:tr
-       [:td (input-label :biopsy-cores-taken)]
+       [:td (ttt-input-label ttt :biopsy-cores-taken)]
        [:td (rum/react (input-cursor :biopsy-cores-taken))]]
       [:tr
-       [:td (input-label :biopsy-cores-involved)]
+       [:td (ttt-input-label ttt :biopsy-cores-involved)]
        [:td (rum/react (input-cursor :biopsy-cores-involved))]]
       ]]
 
