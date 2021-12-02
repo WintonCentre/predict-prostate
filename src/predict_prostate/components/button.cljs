@@ -32,6 +32,8 @@
 ;; Generic toggle
 (rum/defc toggle-button < rum/static [{:keys [ttt key value topic disabled]
                                        :or   {disabled false}} label]
+          (when (nil? ttt) (println "toggle-button (nil ttt) " (:topic topic) key))
+
   (let [handler #(when (not= key value) (publish topic key))]
 
     [:button {:class-name  (str "btn btn-default btn-sm custom" (if (= key value) " active" ""))
@@ -42,10 +44,10 @@
                               (handler))
               :onClick     handler
               }
-     #_(if (= :result-year (:topic topic))
+     (if (= :result-year (:topic topic))
        [:b label]
        (ttt (button-label topic key label)))
-     label]))
+     #_label]))
 
 
 

@@ -4,6 +4,7 @@
             [predict-prostate.state.run-time :refer [help-key-cursor help-key-change settings-change input-widget settings-cursor print-cursor results-cursor edit-cursor text-change ttt-cursor new-text-change add-language]]
             [predict-prostate.results.printable :refer [results-in-print]]
             [pubsub.feeds :refer [publish]]
+            [predict-prostate.state.load-config :refer [render-widget]]
             ;[interop.jsx :refer [jq$ jq$call]]
             [graphics.simple-icons :as simple]))
 
@@ -176,7 +177,7 @@
      [:.modal-body
 
       [:p (ttt [:settings/caps "Choose a plot style for treatment benefit"])]
-      (input-widget :plot-style)
+      (render-widget ttt :plot-style) 
 
       [:.modal-footer
        [:button.btn.btn-default {:type     "button"
