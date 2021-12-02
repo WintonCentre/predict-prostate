@@ -31,6 +31,8 @@
 (defmethod make-widget :string [{:keys [params]}]
   [:div {:style {:padding-top "10px" :font-size "16px"}} params])
 
+(defn rbg-label [label] (str label " radio button group"))
+
 ;; (comment
 ;;   (->Input-group :ethnicity
 ;;                  "Ethnic Origin"
@@ -46,10 +48,10 @@
     {:key               key
      :aria-label        label
      :aria-described-by "todo"
-     :values            params
-     ;:values            (second params)
+     ;:values            params
+     :values            (second params)
      :ttt               ttt
-     ;:ttt-key           (first params)
+     :ttt-key           (first params)
      :unknowable        unknowable}
     (input-cursor key))
   )
@@ -64,9 +66,10 @@
      :unknowable        unknowable}
     (input-cursor key)))
 
-(defmethod make-widget :radio-group-vertical [{:keys [key label params unknowable]}]
+(defmethod make-widget :radio-group-vertical [{:keys [ttt key label params unknowable]}]
   (radio-button-group-vertical
-    {:key               key
+    {:ttt               ttt
+     :key               key
      :aria-label        label
      :aria-described-by "todo"
      :values            params

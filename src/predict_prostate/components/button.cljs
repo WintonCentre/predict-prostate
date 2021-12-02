@@ -7,11 +7,20 @@
             ))
 
 ;; Simple text only component that only echoes text
-(rum/defc information < rum/reactive [{:keys [key values]
+#_(rum/defc information < rum/reactive [{:keys [key values]
                                        :as   props} group-cursor]
   [:div
    [:div
     [:div values]]])
+(rum/defc information < rum/reactive [{:keys [values ttt ttt-key]} _]
+  [:div
+   [:div
+    [:div (ttt [ttt-key values])]]])
+
+(defn button-label
+  [t k label]
+  [(keyword (str "button/" (name (:topic t)) "-" (if (keyword? k) (name k) (if (number? k) (str "n" k) k))))
+   label])
 
 
 ;; (rum/defc information < rum/reactive [{:keys [values ttt ttt-key]} _]
@@ -33,6 +42,9 @@
                               (handler))
               :onClick     handler
               }
+     #_(if (= :result-year (:topic topic))
+       [:b label]
+       (ttt (button-label topic key label)))
      label]))
 
 
@@ -75,7 +87,7 @@
      ]))
 
 (rum/defc year-picker < rum/reactive [ttt]
-  (horiz-radio-button-group {:ttt ttt
+  (horiz-radio-button-group {:ttt    ttt
                              :key    :result-year
                              :values [[10 "10"]
                                       [15 "15"]

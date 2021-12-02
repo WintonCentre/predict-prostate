@@ -54,8 +54,8 @@
    (->Input-group :primary-rx
                   "Treatment Regime"
                   :radio-group
-                  [[0 "Conservative"]
-                   [1 "Radical"]
+                  [[#_0 :cons "Conservative"]
+                   [#_1 :rad "Radical"]
                    ]
                   false false nil
                   :primary-rx
@@ -86,8 +86,8 @@
    (->Input-group :ethnicity
                   "Ethnic Origin"
                   :information
-                  "Please click on the info button"
-                  ;[:eth-info "Please click on the info button"]
+                  ;"Please click on the info button"
+                  [:eth-info "Please click on the info button"]
                   false false true
                   :prp
                   #{"prostate" "prostate-release"}
@@ -103,10 +103,10 @@
    (->Input-group :t-stage
                   "Clinical T stage"
                   :radio-group
-                  [[1 "1"]
-                   [2 "2"]
-                   [3 "3"]
-                   [4 "4"]]
+                  [[#_1 :one "1"]
+                   [#_2 :two "2"]
+                   [#_3 :three "3"]
+                   [#_4 :four "4"]]
                   false false false
                   :prp
                   #{"prostate" "prostate-release"}
@@ -115,11 +115,11 @@
    (->Input-group :grade-group
                   "Histological grade group"
                   :radio-group
-                  [[1 "1"]
-                   [2 "2"]
-                   [3 "3"]
-                   [4 "4"]
-                   [5 "5"]]
+                  [[#_1 :grade1 "1"]
+                   [#_2 :grade2 "2"]
+                   [#_3 :grade3 "3"]
+                   [#_4 :grade4 "4"]
+                   [#_5 :grade5 "5"]]
                   false false false
                   :prp
                   #{"prostate" "prostate-release"}
@@ -127,11 +127,11 @@
    (->Input-group :gleason
                   "Gleason score"
                   :radio-group
-                  [[1 "3+3"]
-                   [2 "3+4"]
-                   [3 "4+3"]
-                   [4 "8"]
-                   [5 "9 or 10"]]
+                  [[#_1 :threeplusthree "3+3"]
+                   [#_2 :threeplusfour "3+4"]
+                   [#_3 :fourplusthree "4+3"]
+                   [#_4 :eight "8"]
+                   [#_5 :nineorten "9 or 10"]]
                   false false false
                   :prp
                   #{"prostate" "prostate-release"}
@@ -172,8 +172,8 @@
    (->Input-group :biopsy50
                   "Number of biopsy cores with prostate cancer"
                   :radio-group
-                  [[1 "fewer than half"]
-                   [2 "half or more"]]
+                  [[#_1 :fth "fewer than half"]
+                   [#_2 :hom "half or more"]]
                   false false true
                   :prp
                   #{"prostate"}
@@ -182,8 +182,8 @@
    (->Input-group :biopsy-done
                   "Biopsy data available?"
                   :radio-group
-                  [[0 "No"]
-                   [1 "Yes"]]
+                  [[#_0 :no "No"]
+                   [#_1 :yes "Yes"]]
                   false false false
                   :prp
                   #{"prostate-release"}
@@ -211,8 +211,8 @@
    (->Input-group :h-admissions
                   "Hospital admission in last 2 years?"
                   :radio-group
-                  [[0 "No"]
-                   [1 "Yes"]]
+                  [[#_0 :no "No"]
+                   [#_1 :yes "Yes"]]
                   false false false
                   :prp
                   #{"prostate" "prostate-release"}
@@ -221,8 +221,8 @@
    (->Input-group :charlson-comorbidity
                   (any-of-these-diseases)
                   :radio-group
-                  [[0 "No"]
-                   [1 "Yes"]]
+                  [[#_0 :no "No"]
+                   [#_1 :yes "Yes"]]
                   false false false
                   :prp
                   #{"prostate" "prostate-release"}
@@ -232,8 +232,8 @@
    (->Input-group :result-year
                   "Years after diagnosis"
                   :radio-group
-                  [[10 "10 years"]
-                   [15 "15 years"]]
+                  [[#_10 :teny "10 years"]
+                   [#_15 :fifty "15 years"]]
                   false false false
                   :tables
                   #{"v2.1"}
