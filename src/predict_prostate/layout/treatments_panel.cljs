@@ -8,7 +8,7 @@
             [predict-prostate.state.run-time :refer [model results-cursor input-widget input-cursor input-label]]
             [predict-prostate.components.panels :refer [titled-panel]]
             [predict-prostate.components.button :refer [small-help-button treatment-help-button]]
-            [predict-prostate.state.load-config :refer [live-keys-by-model]]
+            [predict-prostate.state.load-config :refer [live-keys-by-model render-widget]]
             [predict-prostate.content-reader :refer [all-subsections]]
             [pubsub.feeds :refer [publish]]
             ))
@@ -70,7 +70,7 @@
   )
 
 (rum/defc treatment-input < rum/reactive rum/static treatment-monitor
-  [{:keys [label help-id key]} children]
+  [{:keys [ttt label help-id key]} children]
   (let [tk key]
     [:div {:key   key :data-key key
            :class (str "form-group ")
@@ -93,7 +93,7 @@
                                            (when (= :disabled (rum/react (input-cursor key)))
                                              {:color "#CCC"}))
                              :for   (name key)}
-       label]]
+       (ttt [(keyword (str "treatment/" (name key))) label]) #_label]]
      [:div {:style {:display        "inline-block"
                     :margin-left    "10px"
                     :text-align     "left"
@@ -128,15 +128,16 @@
 
 (rum/defc labelled-treatment < rum/reactive
                                "Creates a labelled treatment input widget for the given treatment option and key"
-  [label key]
-  (treatment-input {:label   (input-label key)              ; (if-let [lab (input-label key-n)] lab label)
+  [ttt label key]
+  (treatment-input {:ttt ttt
+                    :label   (input-label key)              ; (if-let [lab (input-label key-n)] lab label)
                     :help-id label
                     :key     key}
-                   (input-widget key)))
+                   (render-widget ttt key) #_(input-widget key)))
 
 
 (rum/defcs treatments-form < rum/reactive sizing-mixin
-  [state {:keys [width font-scale h-over-w option]
+  [state {:keys [ttt width font-scale h-over-w option]
           :or   {width      "100%"
                  h-over-w   1
                  font-scale 1}}]
@@ -145,15 +146,15 @@
     [:form.form-horizontal {:style {:width     width
                                     :font-size (* (/ width-1 25) font-scale)}}
      [:div
-      (labelled-treatment "Regime" :primary-rx)
+      (labelled-treatment ttt "Regime" :primary-rx)
       ]]))
 
 
 
 (rum/defc treatments-options < rum/reactive
-  []
+  [ttt]
   (when (rum/react results-cursor)
-    (treatments-form {:h-over-w 1.5}))
+    (treatments-form {:ttt ttt :h-over-w 1.5}))
   )
 
 

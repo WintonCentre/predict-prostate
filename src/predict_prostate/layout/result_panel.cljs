@@ -88,7 +88,7 @@
   [:div#results
    [:h3 {:style {:margin-top 20}} (ttt [:results/title "Results"])]
    (result-tabs ttt)
-   (treatments-options)
+   (treatments-options ttt)
    (result-panes ttt)]
   )
 
