@@ -97,7 +97,7 @@
       (tables data uncertainty? ttt)
       (when radical?
         [:.screen-only
-         (form-entry {:key :show-uncertainty :label "show-ranges"})])]]))
+         (form-entry {:ttt ttt :key :show-uncertainty :label "show-ranges"})])]]))
 
 
 ;; (comment
