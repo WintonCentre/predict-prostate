@@ -17,6 +17,8 @@
     ;[predict-prostate.components.numeric-input :refer [numeric-input]]
     ))
 
+; Make a map of all the widget group options
+(def widget-options (into {} (map (fn [g] [(:key g) g]) input-groups)))
 
 (rum/defc default < rum/static [{:keys [key label type params]} & extra]
   [:div (pr-str "Unknown widget " key label type params extra)])
@@ -52,9 +54,10 @@
     (input-cursor key))
   )
 
-(defmethod make-widget :radio-group [{:keys [key label params unknowable]}]
+(defmethod make-widget :radio-group [{:keys [ttt key label params unknowable]}]
   (radio-button-group
-    {:key               key
+    {:ttt               ttt
+     :key               key
      :aria-label        label
      :aria-described-by "todo"
      :values            params
@@ -97,6 +100,16 @@
                   (assoc-in [:label key] label)
                   )))
           old-wiring groups))
+
+(defn render-widget
+  "We're now rendering widgets at use rather than at initialisation."
+  [ttt key]
+  (let [options (widget-options key)
+        {:keys [widget-type widget-params]} options]
+    (make-widget (assoc options
+                        :type widget-type
+                        :params widget-params
+                        :ttt ttt))))
 
 (defn add-input-group
   "Adds the db refs on key :cursor, and mutation refs on key :change to the set of known inputs."

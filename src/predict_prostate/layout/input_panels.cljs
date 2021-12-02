@@ -88,20 +88,20 @@
 
    [:form.form-horizontal {:on-key-press key-event
                            :on-submit    submit-event}
-    (when (model-keys :age) [:div (form-entry {:label "Age" :key :age})
+    (when (model-keys :age) [:div (form-entry {:ttt ttt :label "Age" :key :age})
                              #_[:div {:style {:color       "#686868"
                                               :margin-left "145px"
                                               :margin-top  -5}}
                                 "Age must be between 35 and 95"]])
 
-    (when (model-keys :psa) (form-entry {:label "PSA" :key :psa}))
-    (when (model-keys :t-stage) (form-entry {:label "T stage" :key :t-stage}))
+    (when (model-keys :psa) (form-entry {:ttt ttt :label "PSA" :key :psa}))
+    (when (model-keys :t-stage) (form-entry {:ttt ttt :label "T stage" :key :t-stage}))
     (when (= 4 (rum/react (input-cursor :t-stage))) (less-well-tested "The tool is less well tested in higher stages"))
-    (when (model-keys :h-admissions) (form-entry {:label "h-admissions" :key :h-admissions}))
+    (when (model-keys :h-admissions) (form-entry {:ttt ttt :label "h-admissions" :key :h-admissions}))
     (when (= (rum/react (input-cursor :h-admissions)) 1)
-      (when (model-keys :charlson-comorbidity) (form-entry {:label "comorb" :key :charlson-comorbidity})))
-    (when (model-keys :brca) (form-entry {:label "BRCA" :key :brca}))
-    (form-entry {:label "Ethnicity" :key :ethnicity})]])
+      (when (model-keys :charlson-comorbidity) (form-entry {:ttt ttt :label "comorb" :key :charlson-comorbidity})))
+    (when (model-keys :brca) (form-entry {:ttt ttt :label "BRCA" :key :brca}))
+    (form-entry {:ttt ttt :label "Ethnicity" :key :ethnicity})]])
 
 
 (rum/defc patient-related-panel < rum/static [ttt model-keys]
@@ -111,63 +111,62 @@
 ;;;
 ;; TUMOUR RELATED
 ;;;
-(rum/defc biopsy-core-examples []
+(rum/defc biopsy-core-examples [ttt]
   [:span  [:a {:style    {:color  "#000" :text-decoration "underline"
                                    :cursor "pointer"}
-                        :on-click #(publish help-key-change "biopsy-examples")} "See examples"]
-   " and "
-   " and "
+                        :on-click #(publish help-key-change "biopsy-examples")} (ttt [:bio/examples "See examples"])]
+   " " (ttt [:bio/and "and"]) " "
    [:a {:style    {:color  "#000" :text-decoration "underline"
                    :cursor "pointer"}
-        :on-click #(publish route-change [:about {:page :faqs}])} "FAQs"]
+        :on-click #(publish route-change [:about {:page :faqs}])} (ttt [:bio/faqs "FAQs"])]
    "."])
 
 (rum/defc biopsy-small-text
-  ([top-offset]
+  ([ttt top-offset]
    [:div {:style {:color       "#686868"
                   :margin-left "145px"
                   :margin-top  (str top-offset "px")}}
-    "Biopsy cores taken from a target site are considered as 1 core regardless of the number of biopsy cores taken. "
-    (biopsy-core-examples)]))
+    (ttt [:bio/cores "Biopsy cores taken from a target site are considered as 1 core regardless of the number of biopsy cores taken. "])
+    (biopsy-core-examples ttt)]))
 
 
 (rum/defc tumour-related-form < rum/static rum/reactive [ttt model-keys]
   [:form.form-horizontal {:on-key-press key-event
                           :on-submit    submit-event}
 
-   [:div (form-entry {:label "Histological grade group" :key :grade-group})
+   [:div (form-entry {:ttt ttt :label "Histological grade group" :key :grade-group})
     (when (#{4 5} (rum/react (input-cursor :grade-group)))
-      (less-well-tested "The tool is less well tested for higher scores"))]
-   (form-entry {:label "Gleason score" :key :gleason})
+      (less-well-tested (ttt [:tumour/lwt "The tool is less well tested for higher scores"])))]
+   (form-entry {:ttt ttt :label "Gleason score" :key :gleason})
 
    (when (model-keys :biopsy50)
-     (form-entry {:label "Biopsy" :key :biopsy50}))
+     (form-entry {:ttt ttt :label "Biopsy" :key :biopsy50}))
 
-   (when (model-keys :biopsy-done) (form-entry {:label "Biopsy" :key :biopsy-done}))
+   (when (model-keys :biopsy-done) (form-entry {:ttt ttt :label "Biopsy" :key :biopsy-done}))
 
    (when (= (rum/react (input-cursor :biopsy-done)) 1)
      [:div
       (when (model-keys :biopsy-cores-taken)
-        (form-entry {:label "Number of biopsy cores taken" :key :biopsy-cores-taken}))
-      (biopsy-small-text 0)
+        (form-entry {:ttt ttt :label "Number of biopsy cores taken" :key :biopsy-cores-taken}))
+      (biopsy-small-text ttt 0)
 
       (when (model-keys :biopsy-cores-involved)
-        (form-entry {:label "Number of biopsy cores with prostate cancer" :key :biopsy-cores-involved}))
-      (biopsy-small-text -12)
+        (form-entry {:ttt ttt :label "Number of biopsy cores with prostate cancer" :key :biopsy-cores-involved}))
+      (biopsy-small-text ttt -12)
       ])
 
-   (when (model-keys :intra-ductal) (form-entry {:label "intraductal" :key :intra-ductal}))
+   (when (model-keys :intra-ductal) (form-entry {:ttt ttt :label "intraductal" :key :intra-ductal}))
    (when (#{:yes} (rum/react (input-cursor :intra-ductal)))
-     (mets-danger "This tool is not suitable for men where these features are present."))
+     (mets-danger (ttt [:tumour/notsuit "This tool is not suitable for men where these features are present."])))
    (when (#{:unknown} (rum/react (input-cursor :intra-ductal)))
-     (mets-warning "This tool does not account for intra-ductal carcinoma or invasive cribriform component. If you're unsure use the data with caution and please consult your medical professional."))
+     (mets-warning (ttt [:tumour/notacc "This tool does not account for intra-ductal carcinoma or invasive cribriform component. If you're unsure use the data with caution and please consult your medical professional."])))
 
 
-   (when (model-keys :metastasis) (form-entry {:label "metastasis" :key :metastasis}))
+   (when (model-keys :metastasis) (form-entry {:ttt ttt :label "metastasis" :key :metastasis}))
    (when (#{:yes} (rum/react (input-cursor :metastasis)))
-     (mets-danger "Results will not be displayed as this tool is only for use in men without metastatic disease."))
+     (mets-danger (ttt [:tumour/notdisplayed "Results will not be displayed as this tool is only for use in men without metastatic disease."])))
    (when (#{:unknown} (rum/react (input-cursor :metastasis)))
-     (mets-warning "This tool is only for use in men without metastatic disease. If you're unsure use the data with caution and please consult your medical professional"))
+     (mets-warning (ttt [:tumour/onlywithout "This tool is only for use in men without metastatic disease. If you're unsure use the data with caution and please consult your medical professional"])))
    ])
 
 (rum/defc tumour-related-panel < rum/static [ttt model-keys]

@@ -140,8 +140,8 @@
    (->Input-group :brca
                   "BRCA"
                   :radio-group
-                  [[0 "Negative or Untested"]
-                   [1 "Positive"]
+                  [[:nou "Negative or Untested"]
+                   [:pos "Positive"]
                    #_[2 "Untested"]]
                   false false false
                   :prp
