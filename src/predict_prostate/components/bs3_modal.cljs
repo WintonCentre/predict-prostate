@@ -1,23 +1,18 @@
 (ns predict-prostate.components.bs3-modal
   (:require [rum.core :as rum]
             [predict-prostate.content-reader :refer [section]]
-            [predict-prostate.state.run-time :refer [help-key-cursor help-key-change settings-change input-widget settings-cursor print-cursor results-cursor edit-cursor text-change ttt-cursor new-text-change add-language]]
+            [predict-prostate.state.run-time :refer [help-key-cursor help-key-change settings-change print-cursor results-cursor edit-cursor text-change ttt-cursor new-text-change add-language]]
             [predict-prostate.results.printable :refer [results-in-print]]
             [pubsub.feeds :refer [publish]]
             [predict-prostate.state.load-config :refer [render-widget]]
-            ;[interop.jsx :refer [jq$ jq$call]]
             [graphics.simple-icons :as simple]))
-
-;; (defn hide
-;;   [element-id]
-;;   (jq$call element-id "modal" "hide"))
 
 (defn some-text?
   [text]
-  (when (and (some? text) true #_(not= "" (str/trim text)))
+  (when (and (some? text) true)
     text))
 
-(rum/defc editor-modal < rum/reactive                       ;(rum/local "no text yet" ::text-buffer)
+(rum/defc editor-modal < rum/reactive                       
   []
   (let [edit-m (rum/react edit-cursor)
         edit-key (:edit-key edit-m)
@@ -56,6 +51,7 @@
                                   :on-click submit}
          "Close"]]]]]))
 
+;Not used here but used in Breast - couldn't see it in live editor of Breast
 (rum/defcs new-language-modal < rum/reactive (rum/local "" ::new-lang)
   [state]
   (let [new-lang-ref (::new-lang state)

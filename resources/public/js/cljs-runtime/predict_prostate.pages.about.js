@@ -3,10 +3,10 @@ predict_prostate.pages.about.page_components = new cljs.core.PersistentArrayMap(
 predict_prostate.pages.about.save_offsets = (function predict_prostate$pages$about$save_offsets(state){
 cljs.core.println.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2(["*save-offsets* args",new cljs.core.Keyword("rum","args","rum/args",1315791754).cljs$core$IFn$_invoke$arity$1(state)], 0));
 
-var vec__117788 = new cljs.core.Keyword("rum","args","rum/args",1315791754).cljs$core$IFn$_invoke$arity$1(state);
-var k = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__117788,(0),null);
-var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__117788,(1),null);
-var offsets = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__117788,(2),null);
+var vec__141755 = new cljs.core.Keyword("rum","args","rum/args",1315791754).cljs$core$IFn$_invoke$arity$1(state);
+var k = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__141755,(0),null);
+var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__141755,(1),null);
+var offsets = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__141755,(2),null);
 var comp = new cljs.core.Keyword("rum","react-component","rum/react-component",-1879897248).cljs$core$IFn$_invoke$arity$1(state);
 var dom_node = ReactDOM.findDOMNode(comp);
 cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$4(offsets,cljs.core.assoc,k,dom_node.offsetTop);
@@ -24,16 +24,16 @@ return React.createElement("div",({"id": cljs.core.name(k)}),sablono.interpreter
 predict_prostate.pages.about.scroller = new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"did-update","did-update",-2143702256),(function (state){
 cljs.core.println.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2(["*scroller* args",new cljs.core.Keyword("rum","args","rum/args",1315791754).cljs$core$IFn$_invoke$arity$1(state)], 0));
 
-var vec__117811_117884 = new cljs.core.Keyword("rum","args","rum/args",1315791754).cljs$core$IFn$_invoke$arity$1(state);
-var __117885 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__117811_117884,(0),null);
-var vec__117814_117886 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__117811_117884,(1),null);
-var __117887__$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__117814_117886,(0),null);
-var map__117817_117888 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__117814_117886,(1),null);
-var map__117817_117889__$1 = (((((!((map__117817_117888 == null))))?(((((map__117817_117888.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__117817_117888.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__117817_117888):map__117817_117888);
-var page_117890 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__117817_117889__$1,new cljs.core.Keyword(null,"page","page",849072397));
-var scroll_section_117891 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__117817_117889__$1,new cljs.core.Keyword(null,"section","section",-300141526));
-var scroll_section_117892__$1 = cljs.core.keyword.cljs$core$IFn$_invoke$arity$1(scroll_section_117891);
-interop.utils.scrollTo((cljs.core.truth_(scroll_section_117892__$1)?cljs.core.get.cljs$core$IFn$_invoke$arity$2(cljs.core.deref(new cljs.core.Keyword("predict-prostate.pages.about","offsets","predict-prostate.pages.about/offsets",228292490).cljs$core$IFn$_invoke$arity$1(state)),cljs.core.name(scroll_section_117892__$1)):(0)));
+var vec__141793_141860 = new cljs.core.Keyword("rum","args","rum/args",1315791754).cljs$core$IFn$_invoke$arity$1(state);
+var __141861 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__141793_141860,(0),null);
+var vec__141796_141862 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__141793_141860,(1),null);
+var __141863__$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__141796_141862,(0),null);
+var map__141799_141864 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__141796_141862,(1),null);
+var map__141799_141865__$1 = (((((!((map__141799_141864 == null))))?(((((map__141799_141864.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__141799_141864.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__141799_141864):map__141799_141864);
+var page_141866 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__141799_141865__$1,new cljs.core.Keyword(null,"page","page",849072397));
+var scroll_section_141867 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__141799_141865__$1,new cljs.core.Keyword(null,"section","section",-300141526));
+var scroll_section_141868__$1 = cljs.core.keyword.cljs$core$IFn$_invoke$arity$1(scroll_section_141867);
+interop.utils.scrollTo((cljs.core.truth_(scroll_section_141868__$1)?cljs.core.get.cljs$core$IFn$_invoke$arity$2(cljs.core.deref(new cljs.core.Keyword("predict-prostate.pages.about","offsets","predict-prostate.pages.about/offsets",228292490).cljs$core$IFn$_invoke$arity$1(state)),cljs.core.name(scroll_section_141868__$1)):(0)));
 
 return state;
 })], null);
@@ -41,41 +41,41 @@ return state;
  * Renders a (text) page given the bide parsed route containing a page, and optionally a section.
  */
 predict_prostate.pages.about.about = rum.core.build_defcs((function (state,ttt,route){
-var vec__117847 = route;
-var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__117847,(0),null);
-var map__117850 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__117847,(1),null);
-var map__117850__$1 = (((((!((map__117850 == null))))?(((((map__117850.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__117850.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__117850):map__117850);
-var page = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__117850__$1,new cljs.core.Keyword(null,"page","page",849072397));
-var scroll_section = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__117850__$1,new cljs.core.Keyword(null,"section","section",-300141526));
+var vec__141811 = route;
+var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__141811,(0),null);
+var map__141814 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__141811,(1),null);
+var map__141814__$1 = (((((!((map__141814 == null))))?(((((map__141814.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__141814.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__141814):map__141814);
+var page = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__141814__$1,new cljs.core.Keyword(null,"page","page",849072397));
+var scroll_section = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__141814__$1,new cljs.core.Keyword(null,"section","section",-300141526));
 var page__$1 = cljs.core.keyword.cljs$core$IFn$_invoke$arity$1(page);
 var scroll_section__$1 = cljs.core.keyword.cljs$core$IFn$_invoke$arity$1(scroll_section);
-var vec__117851 = predict_prostate.content_reader.section.cljs$core$IFn$_invoke$arity$2(ttt,"tool-preamble");
-var seq__117852 = cljs.core.seq(vec__117851);
-var first__117853 = cljs.core.first(seq__117852);
-var seq__117852__$1 = cljs.core.next(seq__117852);
-var ___$1 = first__117853;
-var preamble = seq__117852__$1;
-var attrs117839 = (predict_prostate.layout.header.header.cljs$core$IFn$_invoke$arity$1 ? predict_prostate.layout.header.header.cljs$core$IFn$_invoke$arity$1(ttt) : predict_prostate.layout.header.header.call(null,ttt));
-return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(React.createElement,"div",((cljs.core.map_QMARK_(attrs117839))?sablono.interpreter.attributes(sablono.normalize.merge_with_class.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"class","class",-2030961996),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["container-fluid"], null)], null),attrs117839], 0))):({"className": "container-fluid"})),((cljs.core.map_QMARK_(attrs117839))?new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret((predict_prostate.layout.header.header_banner.cljs$core$IFn$_invoke$arity$2 ? predict_prostate.layout.header.header_banner.cljs$core$IFn$_invoke$arity$2(ttt,"about-preamble") : predict_prostate.layout.header.header_banner.call(null,ttt,"about-preamble"))),React.createElement("div",({"id": "main-content", "tabIndex": (-1), "className": "row"}),React.createElement("div",({"style": ({"minHeight": "calc(100vh - 700px)"}), "className": "col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2"}),sablono.interpreter.interpret((cljs.core.truth_(page__$1)?(function (){var sec = (cljs.core.truth_(scroll_section__$1)?cljs.core.map_indexed.cljs$core$IFn$_invoke$arity$2((function (p1__117822_SHARP_,p2__117821_SHARP_){
-return rum.core.with_key((function (){var G__117857 = p2__117821_SHARP_;
-var G__117858 = ttt;
-var G__117859 = new cljs.core.Keyword("predict-prostate.pages.about","offsets","predict-prostate.pages.about/offsets",228292490).cljs$core$IFn$_invoke$arity$1(state);
-return (predict_prostate.pages.about.sectionc.cljs$core$IFn$_invoke$arity$3 ? predict_prostate.pages.about.sectionc.cljs$core$IFn$_invoke$arity$3(G__117857,G__117858,G__117859) : predict_prostate.pages.about.sectionc.call(null,G__117857,G__117858,G__117859));
-})(),p1__117822_SHARP_);
+var vec__141815 = predict_prostate.content_reader.section.cljs$core$IFn$_invoke$arity$2(ttt,"tool-preamble");
+var seq__141816 = cljs.core.seq(vec__141815);
+var first__141817 = cljs.core.first(seq__141816);
+var seq__141816__$1 = cljs.core.next(seq__141816);
+var ___$1 = first__141817;
+var preamble = seq__141816__$1;
+var attrs141807 = (predict_prostate.layout.header.header.cljs$core$IFn$_invoke$arity$1 ? predict_prostate.layout.header.header.cljs$core$IFn$_invoke$arity$1(ttt) : predict_prostate.layout.header.header.call(null,ttt));
+return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(React.createElement,"div",((cljs.core.map_QMARK_(attrs141807))?sablono.interpreter.attributes(sablono.normalize.merge_with_class.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"class","class",-2030961996),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["container-fluid"], null)], null),attrs141807], 0))):({"className": "container-fluid"})),((cljs.core.map_QMARK_(attrs141807))?new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret((predict_prostate.layout.header.header_banner.cljs$core$IFn$_invoke$arity$2 ? predict_prostate.layout.header.header_banner.cljs$core$IFn$_invoke$arity$2(ttt,"about-preamble") : predict_prostate.layout.header.header_banner.call(null,ttt,"about-preamble"))),React.createElement("div",({"id": "main-content", "tabIndex": (-1), "className": "row"}),React.createElement("div",({"style": ({"minHeight": "calc(100vh - 700px)"}), "className": "col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2"}),sablono.interpreter.interpret((cljs.core.truth_(page__$1)?(function (){var sec = (cljs.core.truth_(scroll_section__$1)?cljs.core.map_indexed.cljs$core$IFn$_invoke$arity$2((function (p1__141806_SHARP_,p2__141805_SHARP_){
+return rum.core.with_key((function (){var G__141822 = p2__141805_SHARP_;
+var G__141823 = ttt;
+var G__141824 = new cljs.core.Keyword("predict-prostate.pages.about","offsets","predict-prostate.pages.about/offsets",228292490).cljs$core$IFn$_invoke$arity$1(state);
+return (predict_prostate.pages.about.sectionc.cljs$core$IFn$_invoke$arity$3 ? predict_prostate.pages.about.sectionc.cljs$core$IFn$_invoke$arity$3(G__141822,G__141823,G__141824) : predict_prostate.pages.about.sectionc.call(null,G__141822,G__141823,G__141824));
+})(),p1__141806_SHARP_);
 }),(predict_prostate.pages.about.page_components.cljs$core$IFn$_invoke$arity$1 ? predict_prostate.pages.about.page_components.cljs$core$IFn$_invoke$arity$1(page__$1) : predict_prostate.pages.about.page_components.call(null,page__$1))):predict_prostate.content_reader.all_subsections(ttt,cljs.core.name(page__$1)));
 return sec;
-})():null)))),sablono.interpreter.interpret((predict_prostate.components.bs3_modal.editor_modal.cljs$core$IFn$_invoke$arity$0 ? predict_prostate.components.bs3_modal.editor_modal.cljs$core$IFn$_invoke$arity$0() : predict_prostate.components.bs3_modal.editor_modal.call(null))),sablono.interpreter.interpret((predict_prostate.layout.header.footer_banner.cljs$core$IFn$_invoke$arity$1 ? predict_prostate.layout.header.footer_banner.cljs$core$IFn$_invoke$arity$1(ttt) : predict_prostate.layout.header.footer_banner.call(null,ttt))),(function (){var attrs117841 = (predict_prostate.layout.header.footer.cljs$core$IFn$_invoke$arity$0 ? predict_prostate.layout.header.footer.cljs$core$IFn$_invoke$arity$0() : predict_prostate.layout.header.footer.call(null));
-return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(React.createElement,"div",((cljs.core.map_QMARK_(attrs117841))?sablono.interpreter.attributes(sablono.normalize.merge_with_class.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"class","class",-2030961996),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["row","screen-only"], null)], null),attrs117841], 0))):({"className": "row screen-only"})),((cljs.core.map_QMARK_(attrs117841))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret(attrs117841)], null)));
-})()], null):new cljs.core.PersistentVector(null, 6, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret(attrs117839),sablono.interpreter.interpret((predict_prostate.layout.header.header_banner.cljs$core$IFn$_invoke$arity$2 ? predict_prostate.layout.header.header_banner.cljs$core$IFn$_invoke$arity$2(ttt,"about-preamble") : predict_prostate.layout.header.header_banner.call(null,ttt,"about-preamble"))),React.createElement("div",({"id": "main-content", "tabIndex": (-1), "className": "row"}),React.createElement("div",({"style": ({"minHeight": "calc(100vh - 700px)"}), "className": "col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2"}),sablono.interpreter.interpret((cljs.core.truth_(page__$1)?(function (){var sec = (cljs.core.truth_(scroll_section__$1)?cljs.core.map_indexed.cljs$core$IFn$_invoke$arity$2((function (p1__117822_SHARP_,p2__117821_SHARP_){
-return rum.core.with_key((function (){var G__117869 = p2__117821_SHARP_;
-var G__117870 = ttt;
-var G__117871 = new cljs.core.Keyword("predict-prostate.pages.about","offsets","predict-prostate.pages.about/offsets",228292490).cljs$core$IFn$_invoke$arity$1(state);
-return (predict_prostate.pages.about.sectionc.cljs$core$IFn$_invoke$arity$3 ? predict_prostate.pages.about.sectionc.cljs$core$IFn$_invoke$arity$3(G__117869,G__117870,G__117871) : predict_prostate.pages.about.sectionc.call(null,G__117869,G__117870,G__117871));
-})(),p1__117822_SHARP_);
+})():null)))),sablono.interpreter.interpret((predict_prostate.components.bs3_modal.editor_modal.cljs$core$IFn$_invoke$arity$0 ? predict_prostate.components.bs3_modal.editor_modal.cljs$core$IFn$_invoke$arity$0() : predict_prostate.components.bs3_modal.editor_modal.call(null))),sablono.interpreter.interpret((predict_prostate.layout.header.footer_banner.cljs$core$IFn$_invoke$arity$1 ? predict_prostate.layout.header.footer_banner.cljs$core$IFn$_invoke$arity$1(ttt) : predict_prostate.layout.header.footer_banner.call(null,ttt))),(function (){var attrs141808 = (predict_prostate.layout.header.footer.cljs$core$IFn$_invoke$arity$0 ? predict_prostate.layout.header.footer.cljs$core$IFn$_invoke$arity$0() : predict_prostate.layout.header.footer.call(null));
+return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(React.createElement,"div",((cljs.core.map_QMARK_(attrs141808))?sablono.interpreter.attributes(sablono.normalize.merge_with_class.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"class","class",-2030961996),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["row","screen-only"], null)], null),attrs141808], 0))):({"className": "row screen-only"})),((cljs.core.map_QMARK_(attrs141808))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret(attrs141808)], null)));
+})()], null):new cljs.core.PersistentVector(null, 6, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret(attrs141807),sablono.interpreter.interpret((predict_prostate.layout.header.header_banner.cljs$core$IFn$_invoke$arity$2 ? predict_prostate.layout.header.header_banner.cljs$core$IFn$_invoke$arity$2(ttt,"about-preamble") : predict_prostate.layout.header.header_banner.call(null,ttt,"about-preamble"))),React.createElement("div",({"id": "main-content", "tabIndex": (-1), "className": "row"}),React.createElement("div",({"style": ({"minHeight": "calc(100vh - 700px)"}), "className": "col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2"}),sablono.interpreter.interpret((cljs.core.truth_(page__$1)?(function (){var sec = (cljs.core.truth_(scroll_section__$1)?cljs.core.map_indexed.cljs$core$IFn$_invoke$arity$2((function (p1__141806_SHARP_,p2__141805_SHARP_){
+return rum.core.with_key((function (){var G__141840 = p2__141805_SHARP_;
+var G__141841 = ttt;
+var G__141842 = new cljs.core.Keyword("predict-prostate.pages.about","offsets","predict-prostate.pages.about/offsets",228292490).cljs$core$IFn$_invoke$arity$1(state);
+return (predict_prostate.pages.about.sectionc.cljs$core$IFn$_invoke$arity$3 ? predict_prostate.pages.about.sectionc.cljs$core$IFn$_invoke$arity$3(G__141840,G__141841,G__141842) : predict_prostate.pages.about.sectionc.call(null,G__141840,G__141841,G__141842));
+})(),p1__141806_SHARP_);
 }),(predict_prostate.pages.about.page_components.cljs$core$IFn$_invoke$arity$1 ? predict_prostate.pages.about.page_components.cljs$core$IFn$_invoke$arity$1(page__$1) : predict_prostate.pages.about.page_components.call(null,page__$1))):predict_prostate.content_reader.all_subsections(ttt,cljs.core.name(page__$1)));
 return sec;
-})():null)))),sablono.interpreter.interpret((predict_prostate.components.bs3_modal.editor_modal.cljs$core$IFn$_invoke$arity$0 ? predict_prostate.components.bs3_modal.editor_modal.cljs$core$IFn$_invoke$arity$0() : predict_prostate.components.bs3_modal.editor_modal.call(null))),sablono.interpreter.interpret((predict_prostate.layout.header.footer_banner.cljs$core$IFn$_invoke$arity$1 ? predict_prostate.layout.header.footer_banner.cljs$core$IFn$_invoke$arity$1(ttt) : predict_prostate.layout.header.footer_banner.call(null,ttt))),(function (){var attrs117843 = (predict_prostate.layout.header.footer.cljs$core$IFn$_invoke$arity$0 ? predict_prostate.layout.header.footer.cljs$core$IFn$_invoke$arity$0() : predict_prostate.layout.header.footer.call(null));
-return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(React.createElement,"div",((cljs.core.map_QMARK_(attrs117843))?sablono.interpreter.attributes(sablono.normalize.merge_with_class.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"class","class",-2030961996),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["row","screen-only"], null)], null),attrs117843], 0))):({"className": "row screen-only"})),((cljs.core.map_QMARK_(attrs117843))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret(attrs117843)], null)));
+})():null)))),sablono.interpreter.interpret((predict_prostate.components.bs3_modal.editor_modal.cljs$core$IFn$_invoke$arity$0 ? predict_prostate.components.bs3_modal.editor_modal.cljs$core$IFn$_invoke$arity$0() : predict_prostate.components.bs3_modal.editor_modal.call(null))),sablono.interpreter.interpret((predict_prostate.layout.header.footer_banner.cljs$core$IFn$_invoke$arity$1 ? predict_prostate.layout.header.footer_banner.cljs$core$IFn$_invoke$arity$1(ttt) : predict_prostate.layout.header.footer_banner.call(null,ttt))),(function (){var attrs141809 = (predict_prostate.layout.header.footer.cljs$core$IFn$_invoke$arity$0 ? predict_prostate.layout.header.footer.cljs$core$IFn$_invoke$arity$0() : predict_prostate.layout.header.footer.call(null));
+return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(React.createElement,"div",((cljs.core.map_QMARK_(attrs141809))?sablono.interpreter.attributes(sablono.normalize.merge_with_class.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"class","class",-2030961996),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["row","screen-only"], null)], null),attrs141809], 0))):({"className": "row screen-only"})),((cljs.core.map_QMARK_(attrs141809))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret(attrs141809)], null)));
 })()], null)));
 }),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [rum.core.local.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentArrayMap.EMPTY,new cljs.core.Keyword("predict-prostate.pages.about","offsets","predict-prostate.pages.about/offsets",228292490)),rum.core.static$,predict_prostate.pages.about.scroller], null),"about");
 
