@@ -53,7 +53,7 @@
   (if (= n 1) "" "s"))
 
 (defn plural [n s p]
-  (if (= n 1) s p))
+  (if (<= n 1) s p))
 
 (defn extract-data
   "Different models use different treatment widgets, so we need to use these to react to the correct

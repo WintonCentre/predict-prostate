@@ -60,7 +60,7 @@
   (radio-button-group
     {:ttt               ttt
      :key               key
-     :aria-label        label
+     :aria-label        (rbg-label label)
      :aria-described-by "todo"
      :values            params
      :unknowable        unknowable}
@@ -69,8 +69,8 @@
 (defmethod make-widget :radio-group-vertical [{:keys [ttt key label params unknowable]}]
   (radio-button-group-vertical
     {:ttt               ttt
-     :key               key
-     :aria-label        label
+     :key               (name key)
+     :aria-label        (rbg-label label)
      :aria-described-by "todo"
      :values            params
      :unknowable        unknowable}
