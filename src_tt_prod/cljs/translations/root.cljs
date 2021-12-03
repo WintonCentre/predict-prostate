@@ -42,10 +42,11 @@
                            (.stopPropagation %))} text]
 
       [:span {:style    {:background-color "#e482"
-                         :display          "inline-block"
+                         ;:display          "inline-block" ;this disrupts the alignment of text in the home page
                          :min-width        "1ex"
                          :min-height       "10px"
-                         :border           (if (= text "") "1px solid red" "1px solid #ccc")}
+                         :border           (if (= text "") "1px solid red" "1px solid #ccc")
+                         }
               :on-click #(do
                            (publish edit-change arg)
                            (.stopPropagation %))} text])))
