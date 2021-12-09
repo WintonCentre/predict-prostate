@@ -41,10 +41,10 @@
                 :tc                   "Traditioneel Chinees"
                 }]
                 
- [:upsert :pt  {:en                   "Engels"
-                :es                   "Spaanse"
-                :fr                   "Franse"
-                :nl                   "Nederlandse"
+ [:upsert :pt  {:en                   "Inglês"
+                :es                   "Espanhol"
+                :fr                   "Francês"
+                :nl                   "Holandês"
                 :pt                   "Português"
                 :sc                   "Chinês simplificado"
                 :tc                   "Chinês tradicional"
