@@ -32,19 +32,19 @@
      [:.print-only
       [:.col-sm-12.print-only {:style {:margin-top 0 :margin-bottom "0px" :display "inline-block" :font-size 12}}
        (ttt [:text/text1 "Based on the information you have entered,"]) " "
-       [:p (emph cs) " " (ttt [:text/text2 "out of"]) " " (emph 100) " " (ttt [:text/text3 "men are alive at years with"]) " " (ttt [:text/text4 (emph "initial conservative manage,ent")]) "."]
+       [:p (emph cs) " " (ttt [:text/text2 "out of"]) " " (emph 100) " " (ttt [:text/text3 "men are alive at years with"]) " " (ttt [:text/text4 (emph "initial conservative management.")])]
 
        (when radical?
-         [:p (emph rs) " " (ttt [:text/text5 "out of"]) " " (emph 100) " " (ttt [:text/text6 "men treated (an extra"]) " " (emph benefit) ") " (ttt [:text/text7 "are alive because of"]) " " (ttt [:text/text8 (emph "radical treatment")]) "."])]]
+         [:p (emph rs) " " (ttt [:text/text5 "out of"]) " " (emph 100) " " (ttt [:text/text6 "men treated (an extra"]) " " (emph benefit) ") " (ttt [:text/text7 "are alive because of"]) " " (ttt [:text/text8 (emph "radical treatment.")])])]]
      
      [:.screen-only
       [:.col-sm-12 {:style {:margin-top 15 :margin-bottom "0px" :display "inline-block" :font-size 16}}
        [:span (ttt [:text/text1 "Based on the information you have entered,"]) " " (year-picker ttt) " " (ttt [:text/text9 "years after diagnosis:"])]
 
-       [:p (emph cs) " " (ttt [:text/text10 "out of"]) " " (emph 100) " " (ttt [:text/text11 "men are alive at"]) " " years " " (ttt [:text/text12 "years with"]) " " (ttt [:text/text13 (emph "initial conservative treatment")]) "."]
+       [:p (emph cs) " " (ttt [:text/text10 "out of"]) " " (emph 100) " " (ttt [:text/text11 "men are alive at"]) " " years " " (ttt [:text/text12 "years with"]) " " (ttt [:text/text13 (emph "initial conservative treatment.")])]
 
        (when radical?
-         [:p (emph rs) " " (ttt [:text/text14 "out of"]) " " (emph 100) " " (ttt [:text/text15 "men treated (an extra"]) " " (emph benefit) ") " (ttt [:text/text16 "are alive because of"]) " " (ttt [:text/text17 (emph "radical treatment")]) "."])]]]))
+         [:p (emph rs) " " (ttt [:text/text14 "out of"]) " " (emph 100) " " (ttt [:text/text15 "men treated (an extra"]) " " (emph benefit) ") " (ttt [:text/text16 "are alive because of"]) " " (ttt [:text/text17 (emph "radical treatment.")])])]]]))
 
 
 (defn extract-data
@@ -74,10 +74,10 @@
         radical? (= 1 (rum/react (input-cursor :primary-rx)))
         data (extract-data (rum/react results-cursor) radical?)
         text1 (ttt [:text/text18 "Of the men who would not survive,"])
-        text2 (ttt [:text/text19 "would die due to causes not related to prostate cancer"])
+        text2 (ttt [:text/text19 "would die due to causes not related to prostate cancer."])
         ]
 
     [:div
      (texts year data radical? printable ttt)
-     [:p.print-only {:style {:font-size 12}} text1 " " (emph (round (nth (:dotted-orange data) year))) " " text2 "."]
-     [:p.screen-only {:style {:font-size 16}} text1 " " (emph (round (nth (:dotted-orange data) year))) " " text2 "."]]))
+     [:p.print-only {:style {:font-size 12}} text1 " " (emph (round (nth (:dotted-orange data) year))) " " text2]
+     [:p.screen-only {:style {:font-size 16}} text1 " " (emph (round (nth (:dotted-orange data) year))) " " text2]]))

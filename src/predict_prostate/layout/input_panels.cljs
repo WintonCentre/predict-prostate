@@ -113,13 +113,12 @@
 ;;;
 (rum/defc biopsy-core-examples [ttt]
   [:span  [:a {:style    {:color  "#000" :text-decoration "underline"
-                                   :cursor "pointer"}
-                        :on-click #(publish help-key-change "biopsy-examples")} (ttt [:bio/examples "See examples"])]
+                          :cursor "pointer"}
+               :on-click #(publish help-key-change "biopsy-examples")} (ttt [:bio/examples "See examples"])]
    " " (ttt [:bio/and "and"]) " "
    [:a {:style    {:color  "#000" :text-decoration "underline"
                    :cursor "pointer"}
-        :on-click #(publish route-change [:about {:page :faqs}])} (ttt [:bio/faqs "FAQs"])]
-   "."])
+        :on-click #(publish route-change [:about {:page :faqs}])} (ttt [:bio/faqs "FAQs."])]])
 
 (rum/defc biopsy-small-text
   ([ttt top-offset]
