@@ -1,7 +1,7 @@
 # predict-prostate
 
 A decision tool to help patients and clinicians decide on whether to go
-for conservative or radical treatments for prostate cancer
+for conservative or radical treatments for prostate cancer.
 
 ## Status
 
@@ -50,8 +50,7 @@ lein --version
 ```
 If not, install it from https://leiningen.org/
 
-For production we use the `min` build id which runs the code through the advanced
-optimisation pass of Google's closure compiler.
+For production we use the `min` build id which runs the code through the advanced optimisation pass of Google's closure compiler.
 
 To create the production build, download the repository or clone it using git and use the following leiningen command:
 
