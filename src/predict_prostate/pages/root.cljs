@@ -50,7 +50,7 @@
        :contact (contact ttt* rt) #_(contact rt)
        :legal (legal ttt* rt) #_(legal rt)
 
-       :not-found (not-found ttt) ;; commented out in predict3...
+       :not-found (not-found ttt*) ;; commented out in predict3...
        ;[:div "404"]
        )]))
 

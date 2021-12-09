@@ -112,8 +112,8 @@
         [_ major minor _ _] (split version-string #"-")]
     [
      [:section#not-found "Oops!"
-      [:section#oops "Oops!"
-       [:p "We're sorry, but that page doesn't exist on this site."]]]
+      [:section#oops (ttt [:notfound/oops "Oops!"])
+       [:p (ttt [:notfound/sorry "We're sorry, but that page doesn't exist on this site."])]]]
 
      [:section#strap-line "Clear data on prostate cancer treatment outcomes"]
 
