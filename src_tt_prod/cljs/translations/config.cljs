@@ -2,7 +2,7 @@
 (:require [translations.tongue-base :refer [wrap-translator]]
           [tongue.core :as tongue]))
 
-(def translation-profile :edit #_:prod)
+(def translation-profile :prod)
 
 ; config file for the live dictionary
 (def live-dictionary-url "/live_dictionary.txt")

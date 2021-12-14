@@ -1,5 +1,5 @@
 goog.provide('translations.config');
-translations.config.translation_profile = new cljs.core.Keyword(null,"edit","edit",-1641834166);
+translations.config.translation_profile = new cljs.core.Keyword(null,"prod","prod",1846120297);
 translations.config.live_dictionary_url = "/live_dictionary.txt";
 translations.config.initial_supported_langs = new cljs.core.PersistentHashSet(null, new cljs.core.PersistentArrayMap(null, 7, [new cljs.core.Keyword(null,"fr","fr",1577713888),null,new cljs.core.Keyword(null,"es","es",1831673219),null,new cljs.core.Keyword(null,"pt","pt",556460867),null,new cljs.core.Keyword(null,"tc","tc",1771278567),null,new cljs.core.Keyword(null,"en","en",88457073),null,new cljs.core.Keyword(null,"nl","nl",90952593),null,new cljs.core.Keyword(null,"sc","sc",1148023032),null], null), null);
 translations.config.predict_edit = false;
