@@ -62,7 +62,7 @@
   :cljsbuild {
               :builds [
                        {:id           "min"
-                        :source-paths ["src"]
+                        :source-paths ["src" "src_tt_prod/cljs"]
                         :compiler     {:output-to       "resources/public/js/compiled/predict_prostate.js"
                                        :main            predict-prostate.core
                                        :optimizations   :advanced
@@ -71,6 +71,24 @@
                                        :externs         ["externs/bootstrap.js"
                                                          "externs/jquery.js"
                                                          "externs/autotrack.js"]
+                                       :infer-externs   true
+                                       :language-in     :ecmascript5
+                                       :pretty-print    false}}
+                       
+                       {:id           "min-edit"
+                        :source-paths ["src" "src_tt_edit/cljs"]
+                        ;:test-paths   ["test_tt_edit/cljs"]
+                        :compiler     {:output-to       "resources/public/js/compiled/predict_prostate.js"
+                                       :main            predict-prostate.core
+                                       :optimizations   :advanced
+                                       :closure-defines {goog.DEBUG false}
+                                       :pseudo-names true
+                                       ;:parallel-build  true
+                                       :externs         ["externs/bootstrap.js"
+                                                         "externs/jquery.js"
+                                                         "externs/mediatypechecker.js"
+                                                         "externs/autotrack.js"]
+                                       ;:pseudo-names    false
                                        :infer-externs   true
                                        :language-in     :ecmascript5
                                        :pretty-print    false}}

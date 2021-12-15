@@ -362,13 +362,6 @@
     <!--    <script async src="/js/analytics.js"></script>-->
     <!--    <script async src="/js/autotrack.js"></script>-->
 
-
-    <!-- for lein-figwheel -->
-    <script src="/js/compiled/predict_prostate.js" type="text/javascript"></script>
-
-    <!-- for shadow-cljs -->
-    <!-- <script src="/js/app.js" type="text/javascript"></script> -->
-
     <link rel="manifest" href="/manifest.json" crossorigin="use-credentials">
     <meta name="theme-color" content="#ffffff">
 
@@ -579,7 +572,7 @@
                 </div>
                 <!--
             -->
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 vcenter col-centered text-right screen-only">
+                <div class="col-lg-auto col-md-auto col-sm-auto col-xs-auto vcenter col-centered text-right screen-only">
                     <label class="gdpr-checkbox-inline gdpr-style"><input type="checkbox"  style="margin-right: 5px;" name="analytics" value="analytics" id="analyticsCheckBox">Allow cookies</label>
                     <!--                    <label class="gdpr-checkbox-inline" id="tcLabel"><input type="checkbox" style="margin-right: 5px;" name="tc" value="tc" id="tcCheckbox" required>Terms and Conditions</label>-->
                     <!--                    <label class="gdpr-checkbox-inline">-->
@@ -687,6 +680,13 @@
         //         registration.unregister()
         //     } })
     </script>
+
+    <!-- for lein-figwheel -->
+    <script src="/js/compiled/predict_prostate.js" type="text/javascript"></script>
+
+    <!-- for shadow-cljs -->
+    <!-- <script src="/js/app.js" type="text/javascript"></script> -->
+
 
 </body>
 
