@@ -83,6 +83,7 @@
                }]
 
 [:upsert :pt  {:en                   "Inglês"
+               :de                   "Alemão"
                :es                   "Espanhol"
                :fr                   "Francês"
                :it                   "Italiano"
@@ -122,6 +123,18 @@
                :home/start-button    " 開始預測"
                }]
 
+[:upsert :de   {:en                   "Englisch"
+                :de                   "Deutsch"
+                :es                   "Spanisch"
+                :it                   "Italienisch"
+                :fr                   "Französisch"
+                :ja                   "Japanisch"
+                :nl                   "Niederländisch"
+                :ar                   "Araber"
+                :pt                   "Portugiesisch"
+                :sc                   "Vereinfachtes Chinesisch"
+                :tc                   "Traditionelles Chinesisch"
+                }]
 
  [:switch :en]
  ]

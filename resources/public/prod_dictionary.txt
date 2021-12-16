@@ -6,6 +6,7 @@
 ; Only two-character language codes are currently supported (3 with the keyword colon)
 ;
 [[:upsert :en {:en                   "English"
+               :de                   "German"
                :es                   "Spanish"
                :fr                   "French"
                :nl                   "Dutch"
@@ -15,6 +16,7 @@
                }]
 
  [:upsert :es {:en                   "Inglés"
+               :de                   "Alemán"
                :es                   "Español"
                :fr                   "Francesa"
                :nl                   "Holandesa"
@@ -24,6 +26,7 @@
                }]
 
  [:upsert :fr {:en                   "Anglais"
+               :de                   "Allemand"
                :es                   "Espagnol"
                :fr                   "Français"
                :nl                   "Néerlandais"
@@ -33,6 +36,7 @@
                }]
 
  [:upsert :nl  {:en                   "Engels"
+                :de                   "Duitse"
                 :es                   "Spaanse"
                 :fr                   "Franse"
                 :nl                   "Nederlandse"
@@ -42,6 +46,7 @@
                 }]
                 
  [:upsert :pt  {:en                   "Inglês"
+                :de                   "Alemão"
                 :es                   "Espanhol"
                 :fr                   "Francês"
                 :nl                   "Holandês"
@@ -51,6 +56,7 @@
                 }]
 
  [:upsert :sc {:en                   "英语"
+               :de                   "德语"
                :es                   "西班牙文"
                :fr                   "法文"
                :nl                   "荷兰语"
@@ -61,12 +67,24 @@
                }]
 
  [:upsert :tc {:en                   "英語"
+               :de                   "德語"
                :es                   "西班牙文"
                :fr                   "法文"
                :nl                   "荷蘭語"
                :pt                   "葡萄牙語"
                :sc                   "簡體字"
                :tc                   "繁體字"
-                :home/start-button    " 開始預測" 
+               :home/start-button    " 開始預測" 
                }]
+
+[:upsert :de   {:en                   "Englisch"
+                :de                   "Deutsch"
+                :es                   "Spanisch"
+                :fr                   "Französisch"
+                :nl                   "Niederländisch"
+                :pt                   "Portugiesisch"
+                :sc                   "Vereinfachtes Chinesisch"
+                :tc                   "Traditionelles Chinesisch"
+                }]
+
  [:switch :en]]
