@@ -55,4 +55,8 @@ menu items translated into all the old languages too.
 ### On git branches
 The translation editor uses the same git branch, `shadow`, which Jenkins uses to create `https://translation.prostate.wintoncentre.uk/`. 
 
-Similarly, there are branches for the live site `master`, the staging site `staging` and the development site `develop`. Changes usually propagate from `develop` through `staging` into `master`. The `shadow` branch should also point to `master`. In (rare) stable periods all these branches should be at the same hash.
+Similarly, there are branches for the live site `master`, the staging site `staging` and the development site `develop`. Changes usually propagate from `develop` through `staging` into `master`. 
+
+When the translations are to be put live, all the above mentioned branches should be made equal to the `shadow` branch. Then the development lifecycle should use these three branches again.
+
+In (rare) stable periods all these branches should be at the same hash.
