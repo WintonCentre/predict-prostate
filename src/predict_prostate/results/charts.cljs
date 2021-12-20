@@ -1,23 +1,17 @@
 (ns predict-prostate.results.charts
   (:require [rum.core :as rum]
             [predict-prostate.mixins :refer [sizing-mixin]]
-            [predict-prostate.results.util :refer [to-percent avoid-decimals min-label-percent
-                                                   fill data-fill fill-data-url hex-data-url fills-by-style*
-                                                   dashed-stroke treatment-fills treatment-fills*]]
-            [predict-prostate.state.run-time :refer [model input-cursor input-widget input-label
-                                                     results-cursor on-screen-treatments-cursor
-                                                     ]]
-            [predict-prostate.components.primitives :refer [dead-icon]]
+            [predict-prostate.results.util :refer [avoid-decimals min-label-percent
+                                                   fill fill-data-url hex-data-url fills-by-style*
+                                                   treatment-fills]]
+            [predict-prostate.state.run-time :refer [input-cursor results-cursor]]
             [predict-prostate.results.curves :refer [legend2]]
-            [pubsub.feeds :refer [publish]]
             [clojure.string :refer [join]]
-            [cljs-css-modules.macro :refer-macros [defstyle]]
-            [cljs.pprint :refer [pp]]
-            ))
+            [cljs-css-modules.macro :refer-macros [defstyle]]))
 
 (defn border [fill] (str "1px solid " fill))
 (defn arrow [fill] (str "2ex solid " fill))
-(def arrow-color [204 238 248] #_[220 150 0])
+(def arrow-color [204 238 248])
 (def arrow-fill (arrow (str "rgb(" (join "," arrow-color) ")")))
 
 (def z-front 20)

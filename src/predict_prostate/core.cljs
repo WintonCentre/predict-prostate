@@ -8,10 +8,7 @@
             [predict-prostate.pages.root :refer [root edit-root]]
             [pubsub.feeds :refer [publish]]
             [translations.tongue-base :refer [load-all-translations]]
-            [translations.tranny-api :refer [base-url]])
-
-  (:require-macros [devcards.core :as dc :refer [defcard deftest]]
-                   ))
+            [translations.tranny-api :refer [base-url]]))
 
 (enable-console-print!)
 
