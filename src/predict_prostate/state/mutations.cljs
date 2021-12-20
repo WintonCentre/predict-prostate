@@ -1,10 +1,7 @@
 (ns predict-prostate.state.mutations
   (:require [predict-prostate.state.run-time :refer [N      ; the number of years in the model
-                                                     model
                                                      input-cursor
-                                                     input-change
                                                      input-changes
-                                                     input-default
                                                      active-results-pane
                                                      active-results-change
                                                      mockup-cursor
@@ -37,22 +34,16 @@
                                                      t-state-cursor
                                                      new-text-cursor
                                                      edit-cursor
-                                                     ttt-cursor
-                                                     ]]
+                                                     ttt-cursor]]
             [predict-prostate.state.config :refer [input-groups get-input-default rtl-languages]]
             [predict-prostate.state.localStorage :refer [get-settings! put-settings!]]
             [predict-prostate.models.runner :refer [recalculate-model]]
             [pubsub.feeds :refer [publish subscribe]]
-            [clojure.core.async :refer [timeout <!]]
-            [cljs.reader :refer [read-string]]
             [clojure.string :refer [split]]
             [bide.core :as r]
             [translations.tongue-base :refer [load-translations* handle-dictionary process-dict-op]]
             [translations.tranny-api :refer [upload-translation]]
-            [predict-prostate.router :refer [router use-hash-fragment]]
-            
-            #_[predict-prostate.results.util :refer [clip]])
-  (:require-macros [cljs.core.async.macros :refer [go]]))
+            [predict-prostate.router :refer [router use-hash-fragment]]))
 
 (def paq (.-_paq js/window))
 
