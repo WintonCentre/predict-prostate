@@ -4,8 +4,10 @@
    [clojure.string :refer [index-of]]
    [clojure.set :refer [union]]
    ;[predict-prostate.state.config :refer [initial-t-state]]
-   [translations.config :refer [initial-t-state]]
-   [pubsub.feeds :refer [->Topic create-feed]]))
+   [translations.config :refer [initial-t-state initial-lang initial-translations]]
+   [pubsub.feeds :refer [->Topic create-feed]]
+   [translations.tongue-base :refer [wrap-translator]]
+   [tongue.core :as tongue]))
 
 
 (def event-bus (create-feed))
@@ -62,7 +64,7 @@ survival, up to the projected survival of prostate-cancer-free men "
                 :media                   :screen
 
                 ;; translations state
-                :t-state                  initial-t-state
+                :t-state                  (assoc initial-t-state :translator (wrap-translator initial-lang (tongue/build-translate initial-translations)))
                 }))
 
 ; The complete translations state (t-state) gets loaded from a URL of commands (usually dictionary.txt) at startup

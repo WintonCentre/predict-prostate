@@ -25,5 +25,5 @@
 (def initial-t-state {:languages    initial-supported-langs ; list of currently supported languages (initialise by reading "languages.edn")
                       :lang         initial-lang ; the currently active language
                       :translations initial-translations
-                      :translator   (wrap-translator initial-lang (tongue/build-translate initial-translations)) ; the current translator function (a wrapped tongue translator)
+                      ;:translator   (wrap-translator initial-lang (tongue/build-translate initial-translations)) ; the current translator function (a wrapped tongue translator)
                       })
