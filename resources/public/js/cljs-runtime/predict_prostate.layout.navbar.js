@@ -1,12 +1,12 @@
 goog.provide('predict_prostate.layout.navbar');
-predict_prostate.layout.navbar.clear_all_button = rum.core.build_defc((function (p__38251){
-var map__38252 = p__38251;
-var map__38252__$1 = (((((!((map__38252 == null))))?(((((map__38252.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__38252.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__38252):map__38252);
-var props = map__38252__$1;
-var ttt = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__38252__$1,new cljs.core.Keyword(null,"ttt","ttt",1858561240));
-var on_click = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__38252__$1,new cljs.core.Keyword(null,"on-click","on-click",1632826543));
-return React.createElement("button",({"onClick": on_click, "className": "btn navbar-btn btn-danger btn-lg"})," ",sablono.interpreter.interpret((function (){var G__38254 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("tool","reset-btn","tool/reset-btn",-2075589013),"Reset"], null);
-return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__38254) : ttt.call(null,G__38254));
+predict_prostate.layout.navbar.clear_all_button = rum.core.build_defc((function (p__41507){
+var map__41508 = p__41507;
+var map__41508__$1 = (((((!((map__41508 == null))))?(((((map__41508.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__41508.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__41508):map__41508);
+var props = map__41508__$1;
+var ttt = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__41508__$1,new cljs.core.Keyword(null,"ttt","ttt",1858561240));
+var on_click = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__41508__$1,new cljs.core.Keyword(null,"on-click","on-click",1632826543));
+return React.createElement("button",({"onClick": on_click, "className": "btn navbar-btn btn-danger btn-lg"})," ",sablono.interpreter.interpret((function (){var G__41510 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("tool","reset-btn","tool/reset-btn",-2075589013),"Reset"], null);
+return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__41510) : ttt.call(null,G__41510));
 })()));
 }),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [rum.core.static$], null),"clear-all-button");
 predict_prostate.layout.navbar.navbar = rum.core.build_defc((function (){

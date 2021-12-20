@@ -1,6 +1,7 @@
 ;; Shadow build ALWAYS loads the production sources.
 ;; It then either loads predict3.core/main for production or predict3.core/edit-main for translation edits
 ;; depending on which build is launched and connected.
+;; You should modify the src_tt_prod/cljs config to force editor mode
 
 {:source-paths ["src" "src_tt_prod/cljs"]
 

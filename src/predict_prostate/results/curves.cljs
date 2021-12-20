@@ -2,18 +2,14 @@
   (:require [clojure.string :as str]
             [rum.core :as rum]
             [predict-prostate.results.util :refer [fill treatment-fills dashed-stroke fills-by-style*]]
-            [predict-prostate.state.run-time :refer [N results-cursor input-cursor on-screen-treatments-cursor ttt-cursor]]
+            [predict-prostate.state.run-time :refer [N results-cursor input-cursor ttt-cursor]]
             [predict-prostate.components.primitives :refer [dead-icon]]
             [predict-prostate.mixins :refer [sizing-mixin]]
-            [pubsub.feeds :refer [publish]]
             [svg.space :refer [space]]
             [cljs-css-modules.macro :refer-macros [defstyle]]
-            [svg.axis :refer [axisBottom axisTop axisLeft axisRight]]
-            [svg.scales :refer [->Identity nice-linear i->o o->i in out ticks tick-format-specifier]]
-            [svg.mixins :refer [patch-svg-attrs]]
-            [goog.object :as gobj :refer [getValueByKeys]]
-            [translations.config :refer [translation-profile]]
-            ))
+            [svg.axis :refer [axisBottom axisLeft]]
+            [svg.scales :refer [->Identity i->o out ticks tick-format-specifier]]
+            [translations.config :refer [translation-profile]]))
 
 
 (enable-console-print!)
@@ -108,7 +104,7 @@
     ))
 
 
-(rum/defc curves-container [{:keys [outer margin inner padding width height x y x-title y-title]} plot-style data radical? ttt]
+(rum/defc curves-container [{:keys [outer margin inner padding width height x y x-title y-title]} plot-style data radical?]
   (let [inner (if (nil? inner) {:width  (- (:width outer) (:left margin) (:right margin))
                                 :height (- (:height outer) (:top margin) (:bottom margin))}
                                inner)
@@ -225,8 +221,7 @@
              :x-title (ttt* x-title))
       (rum/react (input-cursor :plot-style))
       data
-      (pos? (rum/react (input-cursor :primary-rx)))
-      ttt)
+      (pos? (rum/react (input-cursor :primary-rx))))
      
      (when (= translation-profile :edit)
        [:div

@@ -207,17 +207,17 @@ return cljs.core.get_in.cljs$core$IFn$_invoke$arity$2(cljs.core.deref(predict_pr
  *   Keys are unqualified (i.e. they don't refer to the selected treatment option).
  */
 predict_prostate.state.run_time.input_map = (function predict_prostate$state$run_time$input_map(){
-return cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentArrayMap.EMPTY,cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p__38820){
-var vec__38821 = p__38820;
-var k = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__38821,(0),null);
-var v = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__38821,(1),null);
+return cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentArrayMap.EMPTY,cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p__40106){
+var vec__40107 = p__40106;
+var k = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__40107,(0),null);
+var v = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__40107,(1),null);
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [k,cljs.core.deref(v)], null);
-}),cljs.core.filter.cljs$core$IFn$_invoke$arity$2((function (p__38824){
-var vec__38825 = p__38824;
-var k = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__38825,(0),null);
-var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__38825,(1),null);
-var fexpr__38828 = clojure.set.union.cljs$core$IFn$_invoke$arity$2(cljs.core.deref(predict_prostate.state.run_time.on_screen_inputs_cursor),cljs.core.deref(predict_prostate.state.run_time.on_screen_treatments_cursor));
-return (fexpr__38828.cljs$core$IFn$_invoke$arity$1 ? fexpr__38828.cljs$core$IFn$_invoke$arity$1(k) : fexpr__38828.call(null,k));
+}),cljs.core.filter.cljs$core$IFn$_invoke$arity$2((function (p__40110){
+var vec__40111 = p__40110;
+var k = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__40111,(0),null);
+var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__40111,(1),null);
+var fexpr__40114 = clojure.set.union.cljs$core$IFn$_invoke$arity$2(cljs.core.deref(predict_prostate.state.run_time.on_screen_inputs_cursor),cljs.core.deref(predict_prostate.state.run_time.on_screen_treatments_cursor));
+return (fexpr__40114.cljs$core$IFn$_invoke$arity$1 ? fexpr__40114.cljs$core$IFn$_invoke$arity$1(k) : fexpr__40114.call(null,k));
 }),predict_prostate.state.run_time.input_cursors())));
 });
 predict_prostate.state.run_time.year_selected = (function predict_prostate$state$run_time$year_selected(){
