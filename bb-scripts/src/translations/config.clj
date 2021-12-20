@@ -1,0 +1,1 @@
+../../../src_tt_prod/cljs/translations/config.cljs
