@@ -42,6 +42,7 @@ lein --version
 If not, install it from https://leiningen.org/
 
 For production we use the `min-` build ids which runs the code through the advanced optimisation pass of Google's closure compiler. Use `min`build for a production app, and `min-edit`for a production editor.
+> Make sure you comment out the Service Worker in index.html for the editor, as it causes an issue when requesting the API from a Safari browser.
 
 To create the production build, download the repository or clone it using git and use the following leiningen command:
 
