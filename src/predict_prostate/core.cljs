@@ -22,8 +22,21 @@
 (def err-chan (chan 0))
 (def static-chan (chan 0))
 
+(defn ^:export init []
+  ;; init is called ONCE when the page loads
+  ;; this is called in the index.html and must be exported
+  ;; so it is available even in :advanced release builds
+
+  ;; service worker
+  (try
+    (-> (. js/navigator.serviceWorker (register "/sw_cache_update.js"))
+        (.then (fn [] (js/console.log "service worker registered"))))
+
+    (catch js/Object err (js/console.error "Failed to register service worker" err))))
+
 (defn main []
   ;;main is the entry point for both production mode and edition mode
+  (init)
   (if predict-edit
     (do
       (rum/mount (edit-root) (gdom/getElement "app"))

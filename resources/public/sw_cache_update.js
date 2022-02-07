@@ -17,14 +17,26 @@ self.addEventListener('install', function(evt) {
 
 // On fetch, use cache but update the entry with the latest contents
 // from the server.
-self.addEventListener('fetch', function(evt) {
-    // console.debug('The service worker is serving the asset.');
-    // You can use `respondWith()` to answer immediately, without waiting for the
-    // network response to reach the service worker...
-    evt.respondWith(fromCache(evt.request));
-    // ...and `waitUntil()` to prevent the worker from being killed until the
-    // cache is updated.
-    evt.waitUntil(update(evt.request));
+// self.addEventListener('fetch', function(evt) {
+//     // console.debug('The service worker is serving the asset.');
+//     // You can use `respondWith()` to answer immediately, without waiting for the
+//     // network response to reach the service worker...
+//     evt.respondWith(fromCache(evt.request));
+//     // ...and `waitUntil()` to prevent the worker from being killed until the
+//     // cache is updated.
+//     evt.waitUntil(update(evt.request));
+// });
+
+self.addEventListener('fetch', event => {
+    // Prevent the default, and handle the request ourselves.
+    event.respondWith(async function() {
+        // Try to get the response from a cache.
+        const cachedResponse = await caches.match(event.request);
+        // Return it if we found one.
+        if (cachedResponse) return cachedResponse;
+        // If we didn't find a match in the cache, use the network.
+        return fetch(event.request);
+    }());
 });
 
 // different fetch
@@ -44,21 +56,21 @@ self.addEventListener('fetch', function(evt) {
 // to the cache. Return a promise resolving when all the assets are added.
 function precache() {
     // return caches.open(CACHE).then(function (cache) {
-    return caches.open(LATEST_CACHE_ID).then(function (cache) {
+    return caches.open(LATEST_CACHE_ID).then(function(cache) {
         return cache.addAll([
             '/',
-            '/tool',
-            '/about/overview/about',
-            '/about/overview/whoisitfor',
-            '/about/overview/howpredictworks',
-            '/about/overview/whobuiltpredict',
-            '/about/technical/technical',
-            '/about/technical/history',
-            '/about/technical/publications',
-            '/about/faqs',
-            '/legal/disclaimer',
-            '/legal/algorithm',
-            '/legal/privacy',
+            // '/tool',
+            // '/about/overview/about',
+            // '/about/overview/whoisitfor',
+            // '/about/overview/howpredictworks',
+            // '/about/overview/whobuiltpredict',
+            // '/about/technical/technical',
+            // '/about/technical/history',
+            // '/about/technical/publications',
+            // '/about/faqs',
+            // '/legal/disclaimer',
+            // '/legal/algorithm',
+            // '/legal/privacy',
             '/index.html',
             '/manifest.json',
             '/assets/favicon.png',
@@ -133,8 +145,8 @@ function fromCache(request) {
     // console.debug('fromCache - request')
     // console.debug(request)
 
-    return caches.open(LATEST_CACHE_ID).then(function (cache) {
-        return cache.match(request).then(function (matching) {
+    return caches.open(LATEST_CACHE_ID).then(function(cache) {
+        return cache.match(request).then(function(matching) {
             // console.debug('fromCache - matching')
             // console.debug(matching)
             // return matching || Promise.reject('no-match');
@@ -149,8 +161,8 @@ function fromCache(request) {
 // Update consists in opening the cache, performing a network request and
 // storing the new response data.
 function update(request) {
-    return caches.open(LATEST_CACHE_ID).then(function (cache) {
-        return fetch(request).then(function (response) {
+    return caches.open(LATEST_CACHE_ID).then(function(cache) {
+        return fetch(request).then(function(response) {
             return cache.put(request, response);
         }).catch(function(err) {
             // console.debug('update fetch error. ')
@@ -158,4 +170,3 @@ function update(request) {
         });
     });
 }
-
