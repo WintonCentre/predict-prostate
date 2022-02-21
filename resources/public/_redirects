@@ -1,0 +1,11 @@
+/assets/*       /assets/:splat
+/css/*          /css/:splat
+/js/*           /js/:splat
+/*.*            /:splat
+# /intro          /index.html     200!
+# /data           /index.html     200!
+# /faqs           /index.html     200!
+# /*              /:splat
+# /*/*            /index.html     200!
+# /cljs-out/*       /cljs-out/:splat
+/*                /index.html     200

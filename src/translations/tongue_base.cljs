@@ -197,9 +197,9 @@
    We can use transit here since we are not dependent on coast middleware which only supports json."
   [static-chan ok-chan err-chan dictionary-endpoint ref]
   ;{:pre (set? (:languages @ref))}                           ; ref must contain a :languages set
-
+  
   (get-dictionary
-   "dictionary.txt"
+   "/dictionary.txt"
    {:on-error #(put! err-chan %)
     :handler  #(put! static-chan %)})
 

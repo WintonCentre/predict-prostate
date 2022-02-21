@@ -60,6 +60,7 @@ function precache() {
         return cache.addAll([
             '/',
             '/tool',
+            '/dictionary.txt',
             '/about/overview/about',
             '/about/overview/whoisitfor',
             '/about/overview/howpredictworks',
