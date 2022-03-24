@@ -3,14 +3,14 @@ goog.provide('garden.compression');
  * Return a function which when given a string will return a map
  *   containing the chunk of text matched by re, it's size, and tag.
  */
-garden.compression.token_fn = (function garden$compression$token_fn(p__44228){
-var vec__44229 = p__44228;
-var tag = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__44229,(0),null);
-var re = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__44229,(1),null);
+garden.compression.token_fn = (function garden$compression$token_fn(p__44520){
+var vec__44521 = p__44520;
+var tag = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__44521,(0),null);
+var re = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__44521,(1),null);
 return (function (s){
-var temp__5735__auto__ = cljs.core.re_find(re,s);
-if(cljs.core.truth_(temp__5735__auto__)){
-var chunk = temp__5735__auto__;
+var temp__5753__auto__ = cljs.core.re_find(re,s);
+if(cljs.core.truth_(temp__5753__auto__)){
+var chunk = temp__5753__auto__;
 return new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"tag","tag",-1290361223),tag,new cljs.core.Keyword(null,"chunk","chunk",-1191159620),chunk,new cljs.core.Keyword(null,"size","size",1098693007),cljs.core.count(chunk)], null);
 } else {
 return null;
@@ -24,30 +24,30 @@ return null;
  *   and last pairs have the highest and lowest precedence respectively.
  */
 garden.compression.tokenizer = (function garden$compression$tokenizer(var_args){
-var args__4742__auto__ = [];
-var len__4736__auto___44252 = arguments.length;
-var i__4737__auto___44253 = (0);
+var args__4824__auto__ = [];
+var len__4818__auto___44548 = arguments.length;
+var i__4819__auto___44549 = (0);
 while(true){
-if((i__4737__auto___44253 < len__4736__auto___44252)){
-args__4742__auto__.push((arguments[i__4737__auto___44253]));
+if((i__4819__auto___44549 < len__4818__auto___44548)){
+args__4824__auto__.push((arguments[i__4819__auto___44549]));
 
-var G__44256 = (i__4737__auto___44253 + (1));
-i__4737__auto___44253 = G__44256;
+var G__44550 = (i__4819__auto___44549 + (1));
+i__4819__auto___44549 = G__44550;
 continue;
 } else {
 }
 break;
 }
 
-var argseq__4743__auto__ = ((((0) < args__4742__auto__.length))?(new cljs.core.IndexedSeq(args__4742__auto__.slice((0)),(0),null)):null);
-return garden.compression.tokenizer.cljs$core$IFn$_invoke$arity$variadic(argseq__4743__auto__);
+var argseq__4825__auto__ = ((((0) < args__4824__auto__.length))?(new cljs.core.IndexedSeq(args__4824__auto__.slice((0)),(0),null)):null);
+return garden.compression.tokenizer.cljs$core$IFn$_invoke$arity$variadic(argseq__4825__auto__);
 });
 
 (garden.compression.tokenizer.cljs$core$IFn$_invoke$arity$variadic = (function (tags_PLUS_regexes){
 var fs = cljs.core.map.cljs$core$IFn$_invoke$arity$2(garden.compression.token_fn,tags_PLUS_regexes);
 return (function (s){
-return cljs.core.some((function (p1__44232_SHARP_){
-return (p1__44232_SHARP_.cljs$core$IFn$_invoke$arity$1 ? p1__44232_SHARP_.cljs$core$IFn$_invoke$arity$1(s) : p1__44232_SHARP_.call(null,s));
+return cljs.core.some((function (p1__44525_SHARP_){
+return (p1__44525_SHARP_.cljs$core$IFn$_invoke$arity$1 ? p1__44525_SHARP_.cljs$core$IFn$_invoke$arity$1(s) : p1__44525_SHARP_.call(null,s));
 }),fs);
 });
 }));
@@ -55,9 +55,9 @@ return (p1__44232_SHARP_.cljs$core$IFn$_invoke$arity$1 ? p1__44232_SHARP_.cljs$c
 (garden.compression.tokenizer.cljs$lang$maxFixedArity = (0));
 
 /** @this {Function} */
-(garden.compression.tokenizer.cljs$lang$applyTo = (function (seq44233){
-var self__4724__auto__ = this;
-return self__4724__auto__.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq(seq44233));
+(garden.compression.tokenizer.cljs$lang$applyTo = (function (seq44526){
+var self__4806__auto__ = this;
+return self__4806__auto__.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq(seq44526));
 }));
 
 /**
@@ -71,17 +71,17 @@ garden.compression.compress_stylesheet = (function garden$compression$compress_s
 var s1 = stylesheet;
 var s2 = "";
 while(true){
-var temp__5733__auto__ = garden.compression.stylesheet_tokenizer(s1);
-if(cljs.core.truth_(temp__5733__auto__)){
-var map__44240 = temp__5733__auto__;
-var map__44240__$1 = (((((!((map__44240 == null))))?(((((map__44240.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__44240.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__44240):map__44240);
-var tag = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__44240__$1,new cljs.core.Keyword(null,"tag","tag",-1290361223));
-var chunk = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__44240__$1,new cljs.core.Keyword(null,"chunk","chunk",-1191159620));
-var size = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__44240__$1,new cljs.core.Keyword(null,"size","size",1098693007));
-var G__44278 = cljs.core.subs.cljs$core$IFn$_invoke$arity$2(s1,size);
-var G__44279 = [s2,cljs.core.str.cljs$core$IFn$_invoke$arity$1((function (){var G__44251 = tag;
-var G__44251__$1 = (((G__44251 instanceof cljs.core.Keyword))?G__44251.fqn:null);
-switch (G__44251__$1) {
+var temp__5751__auto__ = garden.compression.stylesheet_tokenizer(s1);
+if(cljs.core.truth_(temp__5751__auto__)){
+var map__44534 = temp__5751__auto__;
+var map__44534__$1 = cljs.core.__destructure_map(map__44534);
+var tag = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__44534__$1,new cljs.core.Keyword(null,"tag","tag",-1290361223));
+var chunk = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__44534__$1,new cljs.core.Keyword(null,"chunk","chunk",-1191159620));
+var size = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__44534__$1,new cljs.core.Keyword(null,"size","size",1098693007));
+var G__44556 = cljs.core.subs.cljs$core$IFn$_invoke$arity$2(s1,size);
+var G__44557 = [s2,cljs.core.str.cljs$core$IFn$_invoke$arity$1((function (){var G__44541 = tag;
+var G__44541__$1 = (((G__44541 instanceof cljs.core.Keyword))?G__44541.fqn:null);
+switch (G__44541__$1) {
 case "string":
 return chunk;
 
@@ -127,8 +127,8 @@ return chunk;
 
 }
 })())].join('');
-s1 = G__44278;
-s2 = G__44279;
+s1 = G__44556;
+s2 = G__44557;
 continue;
 } else {
 return s2;

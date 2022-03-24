@@ -51,7 +51,10 @@ To create the production build, download the repository or clone it using git an
 git clone https://gitlab.com/gmp26/predict-prostate.git
 
 cd predict-prostate
+# For a production app
 lein do clean, cljsbuild once min
+# For a production editor
+lein do clean, cljsbuild with-profile rum-react-patch cljsbuild once min-edit
 ```
 >These instructions assume a MacOSX or Unix/Linux development system is to hand.
 >If running Windows, you should be able to load up a unix virtual box first and run things in that.

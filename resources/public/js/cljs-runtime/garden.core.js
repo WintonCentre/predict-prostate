@@ -4,23 +4,23 @@ goog.provide('garden.core');
  *   CSS. The first argument may be a list of flags for the compiler.
  */
 garden.core.css = (function garden$core$css(var_args){
-var args__4742__auto__ = [];
-var len__4736__auto___48175 = arguments.length;
-var i__4737__auto___48176 = (0);
+var args__4824__auto__ = [];
+var len__4818__auto___46699 = arguments.length;
+var i__4819__auto___46703 = (0);
 while(true){
-if((i__4737__auto___48176 < len__4736__auto___48175)){
-args__4742__auto__.push((arguments[i__4737__auto___48176]));
+if((i__4819__auto___46703 < len__4818__auto___46699)){
+args__4824__auto__.push((arguments[i__4819__auto___46703]));
 
-var G__48177 = (i__4737__auto___48176 + (1));
-i__4737__auto___48176 = G__48177;
+var G__46704 = (i__4819__auto___46703 + (1));
+i__4819__auto___46703 = G__46704;
 continue;
 } else {
 }
 break;
 }
 
-var argseq__4743__auto__ = ((((0) < args__4742__auto__.length))?(new cljs.core.IndexedSeq(args__4742__auto__.slice((0)),(0),null)):null);
-return garden.core.css.cljs$core$IFn$_invoke$arity$variadic(argseq__4743__auto__);
+var argseq__4825__auto__ = ((((0) < args__4824__auto__.length))?(new cljs.core.IndexedSeq(args__4824__auto__.slice((0)),(0),null)):null);
+return garden.core.css.cljs$core$IFn$_invoke$arity$variadic(argseq__4825__auto__);
 });
 
 (garden.core.css.cljs$core$IFn$_invoke$arity$variadic = (function (rules){
@@ -30,9 +30,9 @@ return cljs.core.apply.cljs$core$IFn$_invoke$arity$2(garden.compiler.compile_css
 (garden.core.css.cljs$lang$maxFixedArity = (0));
 
 /** @this {Function} */
-(garden.core.css.cljs$lang$applyTo = (function (seq48173){
-var self__4724__auto__ = this;
-return self__4724__auto__.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq(seq48173));
+(garden.core.css.cljs$lang$applyTo = (function (seq46693){
+var self__4806__auto__ = this;
+return self__4806__auto__.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq(seq46693));
 }));
 
 /**
@@ -40,23 +40,23 @@ return self__4724__auto__.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq(seq
  *   the HTML `style` attribute.
  */
 garden.core.style = (function garden$core$style(var_args){
-var args__4742__auto__ = [];
-var len__4736__auto___48178 = arguments.length;
-var i__4737__auto___48179 = (0);
+var args__4824__auto__ = [];
+var len__4818__auto___46705 = arguments.length;
+var i__4819__auto___46706 = (0);
 while(true){
-if((i__4737__auto___48179 < len__4736__auto___48178)){
-args__4742__auto__.push((arguments[i__4737__auto___48179]));
+if((i__4819__auto___46706 < len__4818__auto___46705)){
+args__4824__auto__.push((arguments[i__4819__auto___46706]));
 
-var G__48180 = (i__4737__auto___48179 + (1));
-i__4737__auto___48179 = G__48180;
+var G__46707 = (i__4819__auto___46706 + (1));
+i__4819__auto___46706 = G__46707;
 continue;
 } else {
 }
 break;
 }
 
-var argseq__4743__auto__ = ((((0) < args__4742__auto__.length))?(new cljs.core.IndexedSeq(args__4742__auto__.slice((0)),(0),null)):null);
-return garden.core.style.cljs$core$IFn$_invoke$arity$variadic(argseq__4743__auto__);
+var argseq__4825__auto__ = ((((0) < args__4824__auto__.length))?(new cljs.core.IndexedSeq(args__4824__auto__.slice((0)),(0),null)):null);
+return garden.core.style.cljs$core$IFn$_invoke$arity$variadic(argseq__4825__auto__);
 });
 
 (garden.core.style.cljs$core$IFn$_invoke$arity$variadic = (function (maps){
@@ -66,9 +66,9 @@ return garden.compiler.compile_style(maps);
 (garden.core.style.cljs$lang$maxFixedArity = (0));
 
 /** @this {Function} */
-(garden.core.style.cljs$lang$applyTo = (function (seq48174){
-var self__4724__auto__ = this;
-return self__4724__auto__.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq(seq48174));
+(garden.core.style.cljs$lang$applyTo = (function (seq46695){
+var self__4806__auto__ = this;
+return self__4806__auto__.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq(seq46695));
 }));
 
 

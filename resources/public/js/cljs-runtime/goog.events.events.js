@@ -2,14 +2,18 @@ goog.provide("goog.events");
 goog.provide("goog.events.CaptureSimulationMode");
 goog.provide("goog.events.Key");
 goog.provide("goog.events.ListenableType");
-goog.forwardDeclare("goog.debug.ErrorHandler");
-goog.forwardDeclare("goog.events.EventWrapper");
 goog.require("goog.asserts");
 goog.require("goog.debug.entryPointRegistry");
 goog.require("goog.events.BrowserEvent");
 goog.require("goog.events.BrowserFeature");
 goog.require("goog.events.Listenable");
 goog.require("goog.events.ListenerMap");
+goog.requireType("goog.debug.ErrorHandler");
+goog.requireType("goog.events.EventId");
+goog.requireType("goog.events.EventLike");
+goog.requireType("goog.events.EventWrapper");
+goog.requireType("goog.events.ListenableKey");
+goog.requireType("goog.events.Listener");
 goog.events.Key;
 goog.events.ListenableType;
 goog.events.LISTENER_MAP_PROP_ = "closure_lm_" + (Math.random() * 1e6 | 0);
@@ -22,7 +26,7 @@ goog.events.listen = function(src, type, listener, opt_options, opt_handler) {
   if (opt_options && opt_options.once) {
     return goog.events.listenOnce(src, type, listener, opt_options, opt_handler);
   }
-  if (goog.isArray(type)) {
+  if (Array.isArray(type)) {
     for (var i = 0; i < type.length; i++) {
       goog.events.listen(src, type[i], listener, opt_options, opt_handler);
     }
@@ -99,7 +103,7 @@ goog.events.getProxy = function() {
   return f;
 };
 goog.events.listenOnce = function(src, type, listener, opt_options, opt_handler) {
-  if (goog.isArray(type)) {
+  if (Array.isArray(type)) {
     for (var i = 0; i < type.length; i++) {
       goog.events.listenOnce(src, type[i], listener, opt_options, opt_handler);
     }
@@ -117,7 +121,7 @@ goog.events.listenWithWrapper = function(src, wrapper, listener, opt_capt, opt_h
   wrapper.listen(src, listener, opt_capt, opt_handler);
 };
 goog.events.unlisten = function(src, type, listener, opt_options, opt_handler) {
-  if (goog.isArray(type)) {
+  if (Array.isArray(type)) {
     for (var i = 0; i < type.length; i++) {
       goog.events.unlisten(src, type[i], listener, opt_options, opt_handler);
     }
@@ -315,12 +319,12 @@ goog.events.handleBrowserEvent_ = function(listener, opt_evt) {
           ancestors.push(parent);
         }
         var type = listener.type;
-        for (var i = ancestors.length - 1; !evt.propagationStopped_ && i >= 0; i--) {
+        for (var i = ancestors.length - 1; !evt.hasPropagationStopped() && i >= 0; i--) {
           evt.currentTarget = ancestors[i];
           var result = goog.events.fireListeners_(ancestors[i], type, true, evt);
           retval = retval && result;
         }
-        for (var i = 0; !evt.propagationStopped_ && i < ancestors.length; i++) {
+        for (var i = 0; !evt.hasPropagationStopped() && i < ancestors.length; i++) {
           evt.currentTarget = ancestors[i];
           var result = goog.events.fireListeners_(ancestors[i], type, false, evt);
           retval = retval && result;
@@ -361,7 +365,7 @@ goog.events.getListenerMap_ = function(src) {
 goog.events.LISTENER_WRAPPER_PROP_ = "__closure_events_fn_" + (Math.random() * 1e9 >>> 0);
 goog.events.wrapListener = function(listener) {
   goog.asserts.assert(listener, "Listener can not be null.");
-  if (goog.isFunction(listener)) {
+  if (typeof listener === "function") {
     return listener;
   }
   goog.asserts.assert(listener.handleEvent, "An object listener must have handleEvent method.");

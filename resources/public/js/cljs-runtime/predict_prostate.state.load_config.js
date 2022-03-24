@@ -3,124 +3,124 @@ predict_prostate.state.load_config.widget_options = cljs.core.into.cljs$core$IFn
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"key","key",-1516042587).cljs$core$IFn$_invoke$arity$1(g),g], null);
 }),predict_prostate.state.config.input_groups));
 predict_prostate.state.load_config.default$ = rum.core.build_defc((function() { 
-var G__40552__delegate = function (p__40400,extra){
-var map__40401 = p__40400;
-var map__40401__$1 = (((((!((map__40401 == null))))?(((((map__40401.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__40401.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__40401):map__40401);
-var key = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__40401__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
-var label = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__40401__$1,new cljs.core.Keyword(null,"label","label",1718410804));
-var type = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__40401__$1,new cljs.core.Keyword(null,"type","type",1174270348));
-var params = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__40401__$1,new cljs.core.Keyword(null,"params","params",710516235));
-var attrs40399 = cljs.core.pr_str.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2(["Unknown widget ",key,label,type,params,extra], 0));
-return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(React.createElement,"div",((cljs.core.map_QMARK_(attrs40399))?sablono.interpreter.attributes(attrs40399):null),((cljs.core.map_QMARK_(attrs40399))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret(attrs40399)], null)));
+var G__47124__delegate = function (p__47081,extra){
+var map__47082 = p__47081;
+var map__47082__$1 = cljs.core.__destructure_map(map__47082);
+var key = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__47082__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
+var label = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__47082__$1,new cljs.core.Keyword(null,"label","label",1718410804));
+var type = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__47082__$1,new cljs.core.Keyword(null,"type","type",1174270348));
+var params = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__47082__$1,new cljs.core.Keyword(null,"params","params",710516235));
+var attrs47080 = cljs.core.pr_str.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2(["Unknown widget ",key,label,type,params,extra], 0));
+return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(React.createElement,"div",((cljs.core.map_QMARK_(attrs47080))?sablono.interpreter.attributes(attrs47080):null),((cljs.core.map_QMARK_(attrs47080))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret(attrs47080)], null)));
 };
-var G__40552 = function (p__40400,var_args){
+var G__47124 = function (p__47081,var_args){
 var extra = null;
 if (arguments.length > 1) {
-var G__40553__i = 0, G__40553__a = new Array(arguments.length -  1);
-while (G__40553__i < G__40553__a.length) {G__40553__a[G__40553__i] = arguments[G__40553__i + 1]; ++G__40553__i;}
-  extra = new cljs.core.IndexedSeq(G__40553__a,0,null);
+var G__47125__i = 0, G__47125__a = new Array(arguments.length -  1);
+while (G__47125__i < G__47125__a.length) {G__47125__a[G__47125__i] = arguments[G__47125__i + 1]; ++G__47125__i;}
+  extra = new cljs.core.IndexedSeq(G__47125__a,0,null);
 } 
-return G__40552__delegate.call(this,p__40400,extra);};
-G__40552.cljs$lang$maxFixedArity = 1;
-G__40552.cljs$lang$applyTo = (function (arglist__40554){
-var p__40400 = cljs.core.first(arglist__40554);
-var extra = cljs.core.rest(arglist__40554);
-return G__40552__delegate(p__40400,extra);
+return G__47124__delegate.call(this,p__47081,extra);};
+G__47124.cljs$lang$maxFixedArity = 1;
+G__47124.cljs$lang$applyTo = (function (arglist__47126){
+var p__47081 = cljs.core.first(arglist__47126);
+var extra = cljs.core.rest(arglist__47126);
+return G__47124__delegate(p__47081,extra);
 });
-G__40552.cljs$core$IFn$_invoke$arity$variadic = G__40552__delegate;
-return G__40552;
+G__47124.cljs$core$IFn$_invoke$arity$variadic = G__47124__delegate;
+return G__47124;
 })()
 ,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [rum.core.static$], null),"default");
 if((typeof predict_prostate !== 'undefined') && (typeof predict_prostate.state !== 'undefined') && (typeof predict_prostate.state.load_config !== 'undefined') && (typeof predict_prostate.state.load_config.make_widget !== 'undefined')){
 } else {
-predict_prostate.state.load_config.make_widget = (function (){var method_table__4619__auto__ = cljs.core.atom.cljs$core$IFn$_invoke$arity$1(cljs.core.PersistentArrayMap.EMPTY);
-var prefer_table__4620__auto__ = cljs.core.atom.cljs$core$IFn$_invoke$arity$1(cljs.core.PersistentArrayMap.EMPTY);
-var method_cache__4621__auto__ = cljs.core.atom.cljs$core$IFn$_invoke$arity$1(cljs.core.PersistentArrayMap.EMPTY);
-var cached_hierarchy__4622__auto__ = cljs.core.atom.cljs$core$IFn$_invoke$arity$1(cljs.core.PersistentArrayMap.EMPTY);
-var hierarchy__4623__auto__ = cljs.core.get.cljs$core$IFn$_invoke$arity$3(cljs.core.PersistentArrayMap.EMPTY,new cljs.core.Keyword(null,"hierarchy","hierarchy",-1053470341),(function (){var fexpr__40439 = cljs.core.get_global_hierarchy;
-return (fexpr__40439.cljs$core$IFn$_invoke$arity$0 ? fexpr__40439.cljs$core$IFn$_invoke$arity$0() : fexpr__40439.call(null));
+predict_prostate.state.load_config.make_widget = (function (){var method_table__4701__auto__ = cljs.core.atom.cljs$core$IFn$_invoke$arity$1(cljs.core.PersistentArrayMap.EMPTY);
+var prefer_table__4702__auto__ = cljs.core.atom.cljs$core$IFn$_invoke$arity$1(cljs.core.PersistentArrayMap.EMPTY);
+var method_cache__4703__auto__ = cljs.core.atom.cljs$core$IFn$_invoke$arity$1(cljs.core.PersistentArrayMap.EMPTY);
+var cached_hierarchy__4704__auto__ = cljs.core.atom.cljs$core$IFn$_invoke$arity$1(cljs.core.PersistentArrayMap.EMPTY);
+var hierarchy__4705__auto__ = cljs.core.get.cljs$core$IFn$_invoke$arity$3(cljs.core.PersistentArrayMap.EMPTY,new cljs.core.Keyword(null,"hierarchy","hierarchy",-1053470341),(function (){var fexpr__47083 = cljs.core.get_global_hierarchy;
+return (fexpr__47083.cljs$core$IFn$_invoke$arity$0 ? fexpr__47083.cljs$core$IFn$_invoke$arity$0() : fexpr__47083.call(null));
 })());
-return (new cljs.core.MultiFn(cljs.core.symbol.cljs$core$IFn$_invoke$arity$2("predict-prostate.state.load-config","make-widget"),new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"default","default",-1987822328),hierarchy__4623__auto__,method_table__4619__auto__,prefer_table__4620__auto__,method_cache__4621__auto__,cached_hierarchy__4622__auto__));
+return (new cljs.core.MultiFn(cljs.core.symbol.cljs$core$IFn$_invoke$arity$2("predict-prostate.state.load-config","make-widget"),new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"default","default",-1987822328),hierarchy__4705__auto__,method_table__4701__auto__,prefer_table__4702__auto__,method_cache__4703__auto__,cached_hierarchy__4704__auto__));
 })();
 }
 predict_prostate.state.load_config.make_widget.cljs$core$IMultiFn$_add_method$arity$3(null,new cljs.core.Keyword(null,"default","default",-1987822328),(function (params){
 return (predict_prostate.state.load_config.default$.cljs$core$IFn$_invoke$arity$1 ? predict_prostate.state.load_config.default$.cljs$core$IFn$_invoke$arity$1(params) : predict_prostate.state.load_config.default$.call(null,params));
 }));
-predict_prostate.state.load_config.make_widget.cljs$core$IMultiFn$_add_method$arity$3(null,new cljs.core.Keyword(null,"string","string",-1989541586),(function (p__40444){
-var map__40445 = p__40444;
-var map__40445__$1 = (((((!((map__40445 == null))))?(((((map__40445.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__40445.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__40445):map__40445);
-var params = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__40445__$1,new cljs.core.Keyword(null,"params","params",710516235));
+predict_prostate.state.load_config.make_widget.cljs$core$IMultiFn$_add_method$arity$3(null,new cljs.core.Keyword(null,"string","string",-1989541586),(function (p__47085){
+var map__47086 = p__47085;
+var map__47086__$1 = cljs.core.__destructure_map(map__47086);
+var params = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__47086__$1,new cljs.core.Keyword(null,"params","params",710516235));
 return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"style","style",-496642736),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"padding-top","padding-top",1929675955),"10px",new cljs.core.Keyword(null,"font-size","font-size",-1847940346),"16px"], null)], null),params], null);
 }));
 predict_prostate.state.load_config.rbg_label = (function predict_prostate$state$load_config$rbg_label(label){
 return [cljs.core.str.cljs$core$IFn$_invoke$arity$1(label)," radio button group"].join('');
 });
-predict_prostate.state.load_config.make_widget.cljs$core$IMultiFn$_add_method$arity$3(null,new cljs.core.Keyword(null,"information","information",12262679),(function (p__40454){
-var map__40457 = p__40454;
-var map__40457__$1 = (((((!((map__40457 == null))))?(((((map__40457.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__40457.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__40457):map__40457);
-var key = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__40457__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
-var label = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__40457__$1,new cljs.core.Keyword(null,"label","label",1718410804));
-var params = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__40457__$1,new cljs.core.Keyword(null,"params","params",710516235));
-var unknowable = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__40457__$1,new cljs.core.Keyword(null,"unknowable","unknowable",1635948924));
-var ttt = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__40457__$1,new cljs.core.Keyword(null,"ttt","ttt",1858561240));
-var G__40462 = new cljs.core.PersistentArrayMap(null, 7, [new cljs.core.Keyword(null,"key","key",-1516042587),key,new cljs.core.Keyword(null,"aria-label","aria-label",455891514),label,new cljs.core.Keyword(null,"aria-described-by","aria-described-by",591270710),"todo",new cljs.core.Keyword(null,"values","values",372645556),cljs.core.second(params),new cljs.core.Keyword(null,"ttt","ttt",1858561240),ttt,new cljs.core.Keyword(null,"ttt-key","ttt-key",-171752593),cljs.core.first(params),new cljs.core.Keyword(null,"unknowable","unknowable",1635948924),unknowable], null);
-var G__40463 = predict_prostate.state.run_time.input_cursor(key);
-return (predict_prostate.components.button.information.cljs$core$IFn$_invoke$arity$2 ? predict_prostate.components.button.information.cljs$core$IFn$_invoke$arity$2(G__40462,G__40463) : predict_prostate.components.button.information.call(null,G__40462,G__40463));
+predict_prostate.state.load_config.make_widget.cljs$core$IMultiFn$_add_method$arity$3(null,new cljs.core.Keyword(null,"information","information",12262679),(function (p__47090){
+var map__47091 = p__47090;
+var map__47091__$1 = cljs.core.__destructure_map(map__47091);
+var key = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__47091__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
+var label = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__47091__$1,new cljs.core.Keyword(null,"label","label",1718410804));
+var params = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__47091__$1,new cljs.core.Keyword(null,"params","params",710516235));
+var unknowable = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__47091__$1,new cljs.core.Keyword(null,"unknowable","unknowable",1635948924));
+var ttt = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__47091__$1,new cljs.core.Keyword(null,"ttt","ttt",1858561240));
+var G__47092 = new cljs.core.PersistentArrayMap(null, 7, [new cljs.core.Keyword(null,"key","key",-1516042587),key,new cljs.core.Keyword(null,"aria-label","aria-label",455891514),label,new cljs.core.Keyword(null,"aria-described-by","aria-described-by",591270710),"todo",new cljs.core.Keyword(null,"values","values",372645556),cljs.core.second(params),new cljs.core.Keyword(null,"ttt","ttt",1858561240),ttt,new cljs.core.Keyword(null,"ttt-key","ttt-key",-171752593),cljs.core.first(params),new cljs.core.Keyword(null,"unknowable","unknowable",1635948924),unknowable], null);
+var G__47093 = predict_prostate.state.run_time.input_cursor(key);
+return (predict_prostate.components.button.information.cljs$core$IFn$_invoke$arity$2 ? predict_prostate.components.button.information.cljs$core$IFn$_invoke$arity$2(G__47092,G__47093) : predict_prostate.components.button.information.call(null,G__47092,G__47093));
 }));
-predict_prostate.state.load_config.make_widget.cljs$core$IMultiFn$_add_method$arity$3(null,new cljs.core.Keyword(null,"radio-group","radio-group",1791520002),(function (p__40464){
-var map__40466 = p__40464;
-var map__40466__$1 = (((((!((map__40466 == null))))?(((((map__40466.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__40466.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__40466):map__40466);
-var ttt = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__40466__$1,new cljs.core.Keyword(null,"ttt","ttt",1858561240));
-var key = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__40466__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
-var label = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__40466__$1,new cljs.core.Keyword(null,"label","label",1718410804));
-var params = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__40466__$1,new cljs.core.Keyword(null,"params","params",710516235));
-var unknowable = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__40466__$1,new cljs.core.Keyword(null,"unknowable","unknowable",1635948924));
-var G__40479 = new cljs.core.PersistentArrayMap(null, 6, [new cljs.core.Keyword(null,"ttt","ttt",1858561240),ttt,new cljs.core.Keyword(null,"key","key",-1516042587),key,new cljs.core.Keyword(null,"aria-label","aria-label",455891514),predict_prostate.state.load_config.rbg_label(label),new cljs.core.Keyword(null,"aria-described-by","aria-described-by",591270710),"todo",new cljs.core.Keyword(null,"values","values",372645556),params,new cljs.core.Keyword(null,"unknowable","unknowable",1635948924),unknowable], null);
-var G__40480 = predict_prostate.state.run_time.input_cursor(key);
-return (predict_prostate.components.button.radio_button_group.cljs$core$IFn$_invoke$arity$2 ? predict_prostate.components.button.radio_button_group.cljs$core$IFn$_invoke$arity$2(G__40479,G__40480) : predict_prostate.components.button.radio_button_group.call(null,G__40479,G__40480));
+predict_prostate.state.load_config.make_widget.cljs$core$IMultiFn$_add_method$arity$3(null,new cljs.core.Keyword(null,"radio-group","radio-group",1791520002),(function (p__47094){
+var map__47095 = p__47094;
+var map__47095__$1 = cljs.core.__destructure_map(map__47095);
+var ttt = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__47095__$1,new cljs.core.Keyword(null,"ttt","ttt",1858561240));
+var key = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__47095__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
+var label = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__47095__$1,new cljs.core.Keyword(null,"label","label",1718410804));
+var params = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__47095__$1,new cljs.core.Keyword(null,"params","params",710516235));
+var unknowable = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__47095__$1,new cljs.core.Keyword(null,"unknowable","unknowable",1635948924));
+var G__47096 = new cljs.core.PersistentArrayMap(null, 6, [new cljs.core.Keyword(null,"ttt","ttt",1858561240),ttt,new cljs.core.Keyword(null,"key","key",-1516042587),key,new cljs.core.Keyword(null,"aria-label","aria-label",455891514),predict_prostate.state.load_config.rbg_label(label),new cljs.core.Keyword(null,"aria-described-by","aria-described-by",591270710),"todo",new cljs.core.Keyword(null,"values","values",372645556),params,new cljs.core.Keyword(null,"unknowable","unknowable",1635948924),unknowable], null);
+var G__47097 = predict_prostate.state.run_time.input_cursor(key);
+return (predict_prostate.components.button.radio_button_group.cljs$core$IFn$_invoke$arity$2 ? predict_prostate.components.button.radio_button_group.cljs$core$IFn$_invoke$arity$2(G__47096,G__47097) : predict_prostate.components.button.radio_button_group.call(null,G__47096,G__47097));
 }));
-predict_prostate.state.load_config.make_widget.cljs$core$IMultiFn$_add_method$arity$3(null,new cljs.core.Keyword(null,"radio-group-vertical","radio-group-vertical",30488436),(function (p__40497){
-var map__40499 = p__40497;
-var map__40499__$1 = (((((!((map__40499 == null))))?(((((map__40499.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__40499.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__40499):map__40499);
-var ttt = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__40499__$1,new cljs.core.Keyword(null,"ttt","ttt",1858561240));
-var key = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__40499__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
-var label = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__40499__$1,new cljs.core.Keyword(null,"label","label",1718410804));
-var params = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__40499__$1,new cljs.core.Keyword(null,"params","params",710516235));
-var unknowable = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__40499__$1,new cljs.core.Keyword(null,"unknowable","unknowable",1635948924));
-var G__40517 = new cljs.core.PersistentArrayMap(null, 6, [new cljs.core.Keyword(null,"ttt","ttt",1858561240),ttt,new cljs.core.Keyword(null,"key","key",-1516042587),cljs.core.name(key),new cljs.core.Keyword(null,"aria-label","aria-label",455891514),predict_prostate.state.load_config.rbg_label(label),new cljs.core.Keyword(null,"aria-described-by","aria-described-by",591270710),"todo",new cljs.core.Keyword(null,"values","values",372645556),params,new cljs.core.Keyword(null,"unknowable","unknowable",1635948924),unknowable], null);
-var G__40519 = predict_prostate.state.run_time.input_cursor(key);
-return (predict_prostate.components.button.radio_button_group_vertical.cljs$core$IFn$_invoke$arity$2 ? predict_prostate.components.button.radio_button_group_vertical.cljs$core$IFn$_invoke$arity$2(G__40517,G__40519) : predict_prostate.components.button.radio_button_group_vertical.call(null,G__40517,G__40519));
+predict_prostate.state.load_config.make_widget.cljs$core$IMultiFn$_add_method$arity$3(null,new cljs.core.Keyword(null,"radio-group-vertical","radio-group-vertical",30488436),(function (p__47098){
+var map__47099 = p__47098;
+var map__47099__$1 = cljs.core.__destructure_map(map__47099);
+var ttt = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__47099__$1,new cljs.core.Keyword(null,"ttt","ttt",1858561240));
+var key = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__47099__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
+var label = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__47099__$1,new cljs.core.Keyword(null,"label","label",1718410804));
+var params = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__47099__$1,new cljs.core.Keyword(null,"params","params",710516235));
+var unknowable = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__47099__$1,new cljs.core.Keyword(null,"unknowable","unknowable",1635948924));
+var G__47100 = new cljs.core.PersistentArrayMap(null, 6, [new cljs.core.Keyword(null,"ttt","ttt",1858561240),ttt,new cljs.core.Keyword(null,"key","key",-1516042587),cljs.core.name(key),new cljs.core.Keyword(null,"aria-label","aria-label",455891514),predict_prostate.state.load_config.rbg_label(label),new cljs.core.Keyword(null,"aria-described-by","aria-described-by",591270710),"todo",new cljs.core.Keyword(null,"values","values",372645556),params,new cljs.core.Keyword(null,"unknowable","unknowable",1635948924),unknowable], null);
+var G__47101 = predict_prostate.state.run_time.input_cursor(key);
+return (predict_prostate.components.button.radio_button_group_vertical.cljs$core$IFn$_invoke$arity$2 ? predict_prostate.components.button.radio_button_group_vertical.cljs$core$IFn$_invoke$arity$2(G__47100,G__47101) : predict_prostate.components.button.radio_button_group_vertical.call(null,G__47100,G__47101));
 }));
-predict_prostate.state.load_config.make_widget.cljs$core$IMultiFn$_add_method$arity$3(null,new cljs.core.Keyword(null,"numeric-input","numeric-input",1592356787),(function (p__40525){
-var map__40526 = p__40525;
-var map__40526__$1 = (((((!((map__40526 == null))))?(((((map__40526.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__40526.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__40526):map__40526);
-var key = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__40526__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
-var params = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__40526__$1,new cljs.core.Keyword(null,"params","params",710516235));
-var G__40533 = cljs.core.assoc.cljs$core$IFn$_invoke$arity$variadic(params,new cljs.core.Keyword(null,"key","key",-1516042587),cljs.core.name(key),cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.Keyword(null,"input-ref","input-ref",575432746),predict_prostate.state.run_time.input_cursor(key),new cljs.core.Keyword(null,"onChange","onChange",-312891301),(function (p1__40522_SHARP_){
-return pubsub.feeds.publish(predict_prostate.state.run_time.input_change(key),p1__40522_SHARP_);
+predict_prostate.state.load_config.make_widget.cljs$core$IMultiFn$_add_method$arity$3(null,new cljs.core.Keyword(null,"numeric-input","numeric-input",1592356787),(function (p__47104){
+var map__47105 = p__47104;
+var map__47105__$1 = cljs.core.__destructure_map(map__47105);
+var key = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__47105__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
+var params = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__47105__$1,new cljs.core.Keyword(null,"params","params",710516235));
+var G__47106 = cljs.core.assoc.cljs$core$IFn$_invoke$arity$variadic(params,new cljs.core.Keyword(null,"key","key",-1516042587),cljs.core.name(key),cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.Keyword(null,"input-ref","input-ref",575432746),predict_prostate.state.run_time.input_cursor(key),new cljs.core.Keyword(null,"onChange","onChange",-312891301),(function (p1__47103_SHARP_){
+return pubsub.feeds.publish(predict_prostate.state.run_time.input_change(key),p1__47103_SHARP_);
 })], 0));
-return (wc_rum_lib.numeric_input.numeric_input.cljs$core$IFn$_invoke$arity$1 ? wc_rum_lib.numeric_input.numeric_input.cljs$core$IFn$_invoke$arity$1(G__40533) : wc_rum_lib.numeric_input.numeric_input.call(null,G__40533));
+return (wc_rum_lib.numeric_input.numeric_input.cljs$core$IFn$_invoke$arity$1 ? wc_rum_lib.numeric_input.numeric_input.cljs$core$IFn$_invoke$arity$1(G__47106) : wc_rum_lib.numeric_input.numeric_input.call(null,G__47106));
 }));
-predict_prostate.state.load_config.make_widget.cljs$core$IMultiFn$_add_method$arity$3(null,new cljs.core.Keyword(null,"select","select",1147833503),(function (p__40536){
-var map__40537 = p__40536;
-var map__40537__$1 = (((((!((map__40537 == null))))?(((((map__40537.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__40537.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__40537):map__40537);
-var key = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__40537__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
-var params = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__40537__$1,new cljs.core.Keyword(null,"params","params",710516235));
-var G__40539 = new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"key","key",-1516042587),key,new cljs.core.Keyword(null,"on-change","on-change",-732046149),(function (p1__40535_SHARP_){
-return pubsub.feeds.publish(predict_prostate.state.run_time.input_change(key),p1__40535_SHARP_);
+predict_prostate.state.load_config.make_widget.cljs$core$IMultiFn$_add_method$arity$3(null,new cljs.core.Keyword(null,"select","select",1147833503),(function (p__47109){
+var map__47110 = p__47109;
+var map__47110__$1 = cljs.core.__destructure_map(map__47110);
+var key = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__47110__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
+var params = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__47110__$1,new cljs.core.Keyword(null,"params","params",710516235));
+var G__47111 = new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"key","key",-1516042587),key,new cljs.core.Keyword(null,"on-change","on-change",-732046149),(function (p1__47108_SHARP_){
+return pubsub.feeds.publish(predict_prostate.state.run_time.input_change(key),p1__47108_SHARP_);
 })], null);
-var G__40540 = new cljs.core.Keyword(null,"menu","menu",352255198).cljs$core$IFn$_invoke$arity$1(params);
-return (predict_prostate.components.select.picker.cljs$core$IFn$_invoke$arity$2 ? predict_prostate.components.select.picker.cljs$core$IFn$_invoke$arity$2(G__40539,G__40540) : predict_prostate.components.select.picker.call(null,G__40539,G__40540));
+var G__47112 = new cljs.core.Keyword(null,"menu","menu",352255198).cljs$core$IFn$_invoke$arity$1(params);
+return (predict_prostate.components.select.picker.cljs$core$IFn$_invoke$arity$2 ? predict_prostate.components.select.picker.cljs$core$IFn$_invoke$arity$2(G__47111,G__47112) : predict_prostate.components.select.picker.call(null,G__47111,G__47112));
 }));
 predict_prostate.state.load_config.build_input_widgets_in = (function predict_prostate$state$load_config$build_input_widgets_in(old_wiring,groups){
 return cljs.core.reduce.cljs$core$IFn$_invoke$arity$3((function (m,g){
-var map__40543 = g;
-var map__40543__$1 = (((((!((map__40543 == null))))?(((((map__40543.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__40543.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__40543):map__40543);
-var key = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__40543__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
-var label = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__40543__$1,new cljs.core.Keyword(null,"label","label",1718410804));
-var widget_type = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__40543__$1,new cljs.core.Keyword(null,"widget-type","widget-type",1836256899));
-var widget_params = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__40543__$1,new cljs.core.Keyword(null,"widget-params","widget-params",1462627490));
-var unknowable = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__40543__$1,new cljs.core.Keyword(null,"unknowable","unknowable",1635948924));
+var map__47113 = g;
+var map__47113__$1 = cljs.core.__destructure_map(map__47113);
+var key = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__47113__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
+var label = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__47113__$1,new cljs.core.Keyword(null,"label","label",1718410804));
+var widget_type = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__47113__$1,new cljs.core.Keyword(null,"widget-type","widget-type",1836256899));
+var widget_params = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__47113__$1,new cljs.core.Keyword(null,"widget-params","widget-params",1462627490));
+var unknowable = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__47113__$1,new cljs.core.Keyword(null,"unknowable","unknowable",1635948924));
 return cljs.core.assoc_in(cljs.core.assoc_in(m,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"widget","widget",-853968943),key], null),predict_prostate.state.load_config.make_widget.cljs$core$IFn$_invoke$arity$1(new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null,"key","key",-1516042587),key,new cljs.core.Keyword(null,"label","label",1718410804),label,new cljs.core.Keyword(null,"type","type",1174270348),widget_type,new cljs.core.Keyword(null,"params","params",710516235),widget_params,new cljs.core.Keyword(null,"unknowable","unknowable",1635948924),unknowable], null))),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"label","label",1718410804),key], null),label);
 }),old_wiring,groups);
 });
@@ -129,10 +129,10 @@ return cljs.core.assoc_in(cljs.core.assoc_in(m,new cljs.core.PersistentVector(nu
  */
 predict_prostate.state.load_config.render_widget = (function predict_prostate$state$load_config$render_widget(ttt,key){
 var options = (predict_prostate.state.load_config.widget_options.cljs$core$IFn$_invoke$arity$1 ? predict_prostate.state.load_config.widget_options.cljs$core$IFn$_invoke$arity$1(key) : predict_prostate.state.load_config.widget_options.call(null,key));
-var map__40545 = options;
-var map__40545__$1 = (((((!((map__40545 == null))))?(((((map__40545.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__40545.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__40545):map__40545);
-var widget_type = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__40545__$1,new cljs.core.Keyword(null,"widget-type","widget-type",1836256899));
-var widget_params = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__40545__$1,new cljs.core.Keyword(null,"widget-params","widget-params",1462627490));
+var map__47114 = options;
+var map__47114__$1 = cljs.core.__destructure_map(map__47114);
+var widget_type = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__47114__$1,new cljs.core.Keyword(null,"widget-type","widget-type",1836256899));
+var widget_params = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__47114__$1,new cljs.core.Keyword(null,"widget-params","widget-params",1462627490));
 return predict_prostate.state.load_config.make_widget.cljs$core$IFn$_invoke$arity$1(cljs.core.assoc.cljs$core$IFn$_invoke$arity$variadic(options,new cljs.core.Keyword(null,"type","type",1174270348),widget_type,cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.Keyword(null,"params","params",710516235),widget_params,new cljs.core.Keyword(null,"ttt","ttt",1858561240),ttt], 0)));
 });
 /**
@@ -140,11 +140,11 @@ return predict_prostate.state.load_config.make_widget.cljs$core$IFn$_invoke$arit
  */
 predict_prostate.state.load_config.add_input_group = (function predict_prostate$state$load_config$add_input_group(ref,old_wiring,groups){
 return cljs.core.reduce.cljs$core$IFn$_invoke$arity$3((function (m,g){
-var map__40547 = g;
-var map__40547__$1 = (((((!((map__40547 == null))))?(((((map__40547.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__40547.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__40547):map__40547);
-var key = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__40547__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
-var read_only = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__40547__$1,new cljs.core.Keyword(null,"read-only","read-only",-191706886));
-var write_only = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__40547__$1,new cljs.core.Keyword(null,"write-only","write-only",292146609));
+var map__47118 = g;
+var map__47118__$1 = cljs.core.__destructure_map(map__47118);
+var key = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__47118__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
+var read_only = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__47118__$1,new cljs.core.Keyword(null,"read-only","read-only",-191706886));
+var write_only = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__47118__$1,new cljs.core.Keyword(null,"write-only","write-only",292146609));
 return cljs.core.assoc_in(cljs.core.assoc_in(m,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"cursor","cursor",1011937484),key], null),(cljs.core.truth_(write_only)?null:rum.core.cursor_in(ref,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"widgets","widgets",-159098978),key], null)))),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"change","change",-1163046502),key], null),(cljs.core.truth_(read_only)?null:pubsub.feeds.__GT_Topic(key,predict_prostate.state.run_time.event_bus)));
 }),old_wiring,groups);
 });
@@ -152,17 +152,17 @@ if((typeof predict_prostate !== 'undefined') && (typeof predict_prostate.state !
 } else {
 predict_prostate.state.load_config.once_only_guard = cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$4(predict_prostate.state.run_time.rtdb,cljs.core.assoc,new cljs.core.Keyword(null,"input-config","input-config",-1105526956),predict_prostate.state.load_config.add_input_group(predict_prostate.state.run_time.rtdb,cljs.core.PersistentArrayMap.EMPTY,predict_prostate.state.config.input_groups));
 }
-cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$4(predict_prostate.state.run_time.rtdb,cljs.core.update,new cljs.core.Keyword(null,"input-config","input-config",-1105526956),(function (p1__40549_SHARP_){
-return predict_prostate.state.load_config.build_input_widgets_in(p1__40549_SHARP_,predict_prostate.state.config.input_groups);
+cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$4(predict_prostate.state.run_time.rtdb,cljs.core.update,new cljs.core.Keyword(null,"input-config","input-config",-1105526956),(function (p1__47120_SHARP_){
+return predict_prostate.state.load_config.build_input_widgets_in(p1__47120_SHARP_,predict_prostate.state.config.input_groups);
 }));
 /**
  * The (maximal) set of input-group keys present in a model. This is derived directly from the model
  *   field in the input configuration.
  */
 predict_prostate.state.load_config.live_keys_by_model = (function predict_prostate$state$load_config$live_keys_by_model(model){
-return cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentHashSet.EMPTY,cljs.core.map.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"key","key",-1516042587),cljs.core.filter.cljs$core$IFn$_invoke$arity$2((function (p1__40550_SHARP_){
-var fexpr__40551 = new cljs.core.Keyword(null,"models","models",-1985455662).cljs$core$IFn$_invoke$arity$1(p1__40550_SHARP_);
-return (fexpr__40551.cljs$core$IFn$_invoke$arity$1 ? fexpr__40551.cljs$core$IFn$_invoke$arity$1(model) : fexpr__40551.call(null,model));
+return cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentHashSet.EMPTY,cljs.core.map.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"key","key",-1516042587),cljs.core.filter.cljs$core$IFn$_invoke$arity$2((function (p1__47121_SHARP_){
+var fexpr__47123 = new cljs.core.Keyword(null,"models","models",-1985455662).cljs$core$IFn$_invoke$arity$1(p1__47121_SHARP_);
+return (fexpr__47123.cljs$core$IFn$_invoke$arity$1 ? fexpr__47123.cljs$core$IFn$_invoke$arity$1(model) : fexpr__47123.call(null,model));
 }),predict_prostate.state.config.input_groups)));
 });
 

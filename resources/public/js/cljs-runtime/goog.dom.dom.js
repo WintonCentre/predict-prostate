@@ -13,6 +13,7 @@ goog.require("goog.math.Coordinate");
 goog.require("goog.math.Size");
 goog.require("goog.object");
 goog.require("goog.string");
+goog.require("goog.string.Const");
 goog.require("goog.string.Unicode");
 goog.require("goog.userAgent");
 goog.dom.ASSUME_QUIRKS_MODE = goog.define("goog.dom.ASSUME_QUIRKS_MODE", false);
@@ -254,7 +255,7 @@ goog.dom.createDom_ = function(doc, args) {
     if (typeof attributes === "string") {
       element.className = attributes;
     } else {
-      if (goog.isArray(attributes)) {
+      if (Array.isArray(attributes)) {
         element.className = attributes.join(" ");
       } else {
         goog.dom.setProperties(element, attributes);
@@ -423,6 +424,14 @@ goog.dom.replaceNode = function(newNode, oldNode) {
   var parent = oldNode.parentNode;
   if (parent) {
     parent.replaceChild(newNode, oldNode);
+  }
+};
+goog.dom.copyContents = function(target, source) {
+  goog.asserts.assert(target != null && source != null, "goog.dom.copyContents expects non-null arguments");
+  var childNodes = source.cloneNode(true).childNodes;
+  goog.dom.removeChildren(target);
+  while (childNodes.length) {
+    target.appendChild(childNodes[0]);
   }
 };
 goog.dom.flattenElement = function(element) {
@@ -790,7 +799,7 @@ goog.dom.nativelySupportsFocus_ = function(element) {
 };
 goog.dom.hasNonZeroBoundingRect_ = function(element) {
   var rect;
-  if (!goog.isFunction(element["getBoundingClientRect"]) || goog.userAgent.IE && element.parentElement == null) {
+  if (typeof element["getBoundingClientRect"] !== "function" || goog.userAgent.IE && element.parentElement == null) {
     rect = {"height":element.offsetHeight, "width":element.offsetWidth};
   } else {
     rect = element.getBoundingClientRect();
@@ -889,7 +898,7 @@ goog.dom.isNodeList = function(val) {
     if (goog.isObject(val)) {
       return typeof val.item == "function" || typeof val.item == "string";
     } else {
-      if (goog.isFunction(val)) {
+      if (typeof val === "function") {
         return typeof val.item == "function";
       }
     }
@@ -1039,6 +1048,7 @@ goog.dom.DomHelper.prototype.insertSiblingAfter = goog.dom.insertSiblingAfter;
 goog.dom.DomHelper.prototype.insertChildAt = goog.dom.insertChildAt;
 goog.dom.DomHelper.prototype.removeNode = goog.dom.removeNode;
 goog.dom.DomHelper.prototype.replaceNode = goog.dom.replaceNode;
+goog.dom.DomHelper.prototype.copyContents = goog.dom.copyContents;
 goog.dom.DomHelper.prototype.flattenElement = goog.dom.flattenElement;
 goog.dom.DomHelper.prototype.getChildren = goog.dom.getChildren;
 goog.dom.DomHelper.prototype.getFirstElementChild = goog.dom.getFirstElementChild;

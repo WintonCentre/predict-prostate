@@ -53,9 +53,9 @@ return (1);
 }
 });
 tongue.inst.format_token = (function tongue$inst$format_token(strings,token,c){
-var G__31439 = token;
-var G__31439__$1 = (((G__31439 instanceof cljs.core.Keyword))?G__31439.fqn:null);
-switch (G__31439__$1) {
+var G__42470 = token;
+var G__42470__$1 = (((G__42470 instanceof cljs.core.Keyword))?G__42470.fqn:null);
+switch (G__42470__$1) {
 case "hour24-padded":
 return tongue.inst.pad2(tongue.inst.hour24(c));
 
@@ -174,10 +174,10 @@ return (new Date(cljs.core.inst_ms(inst)));
 });
 tongue.inst.formatter = (function tongue$inst$formatter(template,strings){
 
-var tokens = cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p__31471){
-var vec__31472 = p__31471;
-var string = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__31472,(0),null);
-var code = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__31472,(1),null);
+var tokens = cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p__42483){
+var vec__42485 = p__42483;
+var string = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__42485,(0),null);
+var code = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__42485,(1),null);
 if(cljs.core.truth_(code)){
 return cljs.core.keyword.cljs$core$IFn$_invoke$arity$1(code);
 } else {

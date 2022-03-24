@@ -5,6 +5,7 @@ goog.require("goog.events");
 goog.require("goog.events.EventTarget");
 goog.require("goog.events.EventType");
 goog.require("goog.history.Event");
+goog.requireType("goog.events.BrowserEvent");
 goog.history.Html5History = function(opt_win, opt_transformer) {
   goog.events.EventTarget.call(this);
   goog.asserts.assert(goog.history.Html5History.isSupported(opt_win), "HTML5 history is not supported.");

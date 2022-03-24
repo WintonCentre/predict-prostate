@@ -157,7 +157,7 @@ goog.scope(function() {
         try {
           result = routes[i].format(params);
           break;
-        } catch (e$6) {
+        } catch (e) {
         }
       }
     }

@@ -418,10 +418,10 @@ goog.scope(function() {
     if (x == null) {
       return "null";
     }
-    if (goog.isArray(x)) {
+    if (goog.typeOf(x) === "array") {
       return "[" + x.toString() + "]";
     } else {
-      if (goog.isString(x)) {
+      if (goog.typeOf(x) === "string") {
         return '"' + x + '"';
       } else {
         return x.toString();

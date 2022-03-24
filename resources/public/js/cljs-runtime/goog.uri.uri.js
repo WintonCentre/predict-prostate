@@ -40,7 +40,7 @@ goog.Uri = function(opt_uri, opt_ignoreCase) {
       this.setFragment(m[goog.uri.utils.ComponentIndex.FRAGMENT] || "", true);
     } else {
       this.ignoreCase_ = !!opt_ignoreCase;
-      this.queryData_ = new goog.Uri.QueryData(null, null, this.ignoreCase_);
+      this.queryData_ = new goog.Uri.QueryData(null, this.ignoreCase_);
     }
   }
 };
@@ -214,7 +214,7 @@ goog.Uri.prototype.setQueryData = function(queryData, opt_decode) {
     if (!opt_decode) {
       queryData = goog.Uri.encodeSpecialChars_(queryData, goog.Uri.reDisallowedInQuery_);
     }
-    this.queryData_ = new goog.Uri.QueryData(queryData, null, this.ignoreCase_);
+    this.queryData_ = new goog.Uri.QueryData(queryData, this.ignoreCase_);
   }
   return this;
 };
@@ -240,7 +240,7 @@ goog.Uri.prototype.setParameterValue = function(key, value) {
 };
 goog.Uri.prototype.setParameterValues = function(key, values) {
   this.enforceReadOnly();
-  if (!goog.isArray(values)) {
+  if (!Array.isArray(values)) {
     values = [String(values)];
   }
   this.queryData_.setValues(key, values);
@@ -388,7 +388,7 @@ goog.Uri.haveSameDomain = function(uri1String, uri2String) {
   var pieces2 = goog.uri.utils.split(uri2String);
   return pieces1[goog.uri.utils.ComponentIndex.DOMAIN] == pieces2[goog.uri.utils.ComponentIndex.DOMAIN] && pieces1[goog.uri.utils.ComponentIndex.PORT] == pieces2[goog.uri.utils.ComponentIndex.PORT];
 };
-goog.Uri.QueryData = function(opt_query, opt_uri, opt_ignoreCase) {
+goog.Uri.QueryData = function(opt_query, opt_ignoreCase) {
   this.keyMap_ = null;
   this.count_ = null;
   this.encodedQuery_ = opt_query || null;
@@ -406,17 +406,17 @@ goog.Uri.QueryData.prototype.ensureKeyMapInitialized_ = function() {
     }
   }
 };
-goog.Uri.QueryData.createFromMap = function(map, opt_uri, opt_ignoreCase) {
+goog.Uri.QueryData.createFromMap = function(map, opt_ignoreCase) {
   var keys = goog.structs.getKeys(map);
   if (typeof keys == "undefined") {
     throw new Error("Keys are undefined");
   }
-  var queryData = new goog.Uri.QueryData(null, null, opt_ignoreCase);
+  var queryData = new goog.Uri.QueryData(null, opt_ignoreCase);
   var values = goog.structs.getValues(map);
   for (var i = 0; i < keys.length; i++) {
     var key = keys[i];
     var value = values[i];
-    if (!goog.isArray(value)) {
+    if (!Array.isArray(value)) {
       queryData.add(key, value);
     } else {
       queryData.setValues(key, value);
@@ -424,11 +424,11 @@ goog.Uri.QueryData.createFromMap = function(map, opt_uri, opt_ignoreCase) {
   }
   return queryData;
 };
-goog.Uri.QueryData.createFromKeysValues = function(keys, values, opt_uri, opt_ignoreCase) {
+goog.Uri.QueryData.createFromKeysValues = function(keys, values, opt_ignoreCase) {
   if (keys.length != values.length) {
     throw new Error("Mismatched lengths for keys/values");
   }
-  var queryData = new goog.Uri.QueryData(null, null, opt_ignoreCase);
+  var queryData = new goog.Uri.QueryData(null, opt_ignoreCase);
   for (var i = 0; i < keys.length; i++) {
     queryData.add(keys[i], values[i]);
   }

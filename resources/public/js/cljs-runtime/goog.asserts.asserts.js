@@ -72,7 +72,7 @@ goog.asserts.assertString = function(value, opt_message, var_args) {
   return value;
 };
 goog.asserts.assertFunction = function(value, opt_message, var_args) {
-  if (goog.asserts.ENABLE_ASSERTS && !goog.isFunction(value)) {
+  if (goog.asserts.ENABLE_ASSERTS && typeof value !== "function") {
     goog.asserts.doAssertFailure_("Expected function but got %s: %s.", [goog.typeOf(value), value], opt_message, Array.prototype.slice.call(arguments, 2));
   }
   return value;
@@ -84,7 +84,7 @@ goog.asserts.assertObject = function(value, opt_message, var_args) {
   return value;
 };
 goog.asserts.assertArray = function(value, opt_message, var_args) {
-  if (goog.asserts.ENABLE_ASSERTS && !goog.isArray(value)) {
+  if (goog.asserts.ENABLE_ASSERTS && !Array.isArray(value)) {
     goog.asserts.doAssertFailure_("Expected array but got %s: %s.", [goog.typeOf(value), value], opt_message, Array.prototype.slice.call(arguments, 2));
   }
   return value;

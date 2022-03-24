@@ -1,5 +1,5 @@
 goog.provide("goog.promise.Resolver");
-goog.forwardDeclare("goog.Promise");
+goog.requireType("goog.Promise");
 goog.promise.Resolver = function() {
 };
 goog.promise.Resolver.prototype.promise;

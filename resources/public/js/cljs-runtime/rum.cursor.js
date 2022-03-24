@@ -64,27 +64,27 @@ return newv;
 (rum.cursor.Cursor.prototype.cljs$core$ISwap$_swap_BANG_$arity$2 = (function (this$,f){
 var self__ = this;
 var this$__$1 = this;
-return this$__$1.cljs$core$IReset$_reset_BANG_$arity$2(null,(function (){var G__40370 = this$__$1.cljs$core$IDeref$_deref$arity$1(null);
-return (f.cljs$core$IFn$_invoke$arity$1 ? f.cljs$core$IFn$_invoke$arity$1(G__40370) : f.call(null,G__40370));
+return this$__$1.cljs$core$IReset$_reset_BANG_$arity$2(null,(function (){var G__42248 = this$__$1.cljs$core$IDeref$_deref$arity$1(null);
+return (f.cljs$core$IFn$_invoke$arity$1 ? f.cljs$core$IFn$_invoke$arity$1(G__42248) : f.call(null,G__42248));
 })());
 }));
 
 (rum.cursor.Cursor.prototype.cljs$core$ISwap$_swap_BANG_$arity$3 = (function (this$,f,a){
 var self__ = this;
 var this$__$1 = this;
-return this$__$1.cljs$core$IReset$_reset_BANG_$arity$2(null,(function (){var G__40375 = this$__$1.cljs$core$IDeref$_deref$arity$1(null);
-var G__40376 = a;
-return (f.cljs$core$IFn$_invoke$arity$2 ? f.cljs$core$IFn$_invoke$arity$2(G__40375,G__40376) : f.call(null,G__40375,G__40376));
+return this$__$1.cljs$core$IReset$_reset_BANG_$arity$2(null,(function (){var G__42251 = this$__$1.cljs$core$IDeref$_deref$arity$1(null);
+var G__42252 = a;
+return (f.cljs$core$IFn$_invoke$arity$2 ? f.cljs$core$IFn$_invoke$arity$2(G__42251,G__42252) : f.call(null,G__42251,G__42252));
 })());
 }));
 
 (rum.cursor.Cursor.prototype.cljs$core$ISwap$_swap_BANG_$arity$4 = (function (this$,f,a,b){
 var self__ = this;
 var this$__$1 = this;
-return this$__$1.cljs$core$IReset$_reset_BANG_$arity$2(null,(function (){var G__40378 = this$__$1.cljs$core$IDeref$_deref$arity$1(null);
-var G__40379 = a;
-var G__40380 = b;
-return (f.cljs$core$IFn$_invoke$arity$3 ? f.cljs$core$IFn$_invoke$arity$3(G__40378,G__40379,G__40380) : f.call(null,G__40378,G__40379,G__40380));
+return this$__$1.cljs$core$IReset$_reset_BANG_$arity$2(null,(function (){var G__42254 = this$__$1.cljs$core$IDeref$_deref$arity$1(null);
+var G__42255 = a;
+var G__42256 = b;
+return (f.cljs$core$IFn$_invoke$arity$3 ? f.cljs$core$IFn$_invoke$arity$3(G__42254,G__42255,G__42256) : f.call(null,G__42254,G__42255,G__42256));
 })());
 }));
 
@@ -132,8 +132,8 @@ return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMP
 
 (rum.cursor.Cursor.cljs$lang$ctorStr = "rum.cursor/Cursor");
 
-(rum.cursor.Cursor.cljs$lang$ctorPrWriter = (function (this__4369__auto__,writer__4370__auto__,opt__4371__auto__){
-return cljs.core._write(writer__4370__auto__,"rum.cursor/Cursor");
+(rum.cursor.Cursor.cljs$lang$ctorPrWriter = (function (this__4450__auto__,writer__4451__auto__,opt__4452__auto__){
+return cljs.core._write(writer__4451__auto__,"rum.cursor/Cursor");
 }));
 
 /**

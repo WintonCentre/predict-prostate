@@ -20,8 +20,8 @@
                  ;; when not using devcards
                  ;[cljsjs/react "15.4.2-2"]
                  ;[cljsjs/react-dom "15.4.2-2"]
-                 [devcards "0.2.7"]
-                 [figwheel-sidecar "0.5.20"]
+                 ;[devcards "0.2.7"]
+                 ;[figwheel-sidecar "0.5.20"]
 
                  ; should we upgrade Rum and use React16 ???
                  [rum "0.12.8"]
@@ -38,7 +38,7 @@
                  [binaryage/devtools "1.0.4"]
                  [binaryage/oops "0.7.1"]]
 
-  :plugins [[lein-figwheel "0.5.18"]
+  :plugins [;[lein-figwheel "0.5.18"]
             [lein-less "1.7.5"]
             [lein-ancient "0.6.15"]
             [lein-cljsbuild "1.1.7" :exclusions [[org.clojure/clojure]]]
@@ -173,4 +173,7 @@
                    :repl-options  {:nrepl-middleware [cider.piggieback/wrap-cljs-repl]}
                    ;; need to add the compliled assets to the :clean-targets
                    :clean-targets ^{:protect false} ["resources/public/js/compiled"
-                                                     :target-path]}})
+                                                     :target-path]}
+             :rum-react-patch {:dependencies [[rum "0.11.3" :exclusions [[cljsjs/react] [cljsjs/react-dom]]]
+                                              [cljsjs/react "17.0.2-0"]
+                                              [cljsjs/react-dom "17.0.2-0"]]}})

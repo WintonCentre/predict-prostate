@@ -21,7 +21,7 @@ goog.net.XhrManager = function(opt_maxRetries, opt_headers, opt_minCount, opt_ma
 };
 goog.inherits(goog.net.XhrManager, goog.events.EventTarget);
 goog.net.XhrManager.ERROR_ID_IN_USE_ = "[goog.net.XhrManager] ID in use";
-goog.net.XhrManager.XHR_EVENT_TYPES_ = [goog.net.EventType.READY, goog.net.EventType.COMPLETE, goog.net.EventType.SUCCESS, goog.net.EventType.ERROR, goog.net.EventType.ABORT, goog.net.EventType.TIMEOUT];
+goog.net.XhrManager.XHR_EVENT_TYPES_ = [goog.net.EventType.READY, goog.net.EventType.COMPLETE, goog.net.EventType.SUCCESS, goog.net.EventType.ERROR, goog.net.EventType.ABORT, goog.net.EventType.TIMEOUT, ];
 goog.net.XhrManager.prototype.setTimeoutInterval = function(ms) {
   this.timeoutInterval_ = Math.max(0, ms);
 };
@@ -32,20 +32,20 @@ goog.net.XhrManager.prototype.getOutstandingRequestIds = function() {
   return this.requests_.getKeys();
 };
 goog.net.XhrManager.prototype.send = function(id, url, opt_method, opt_content, opt_headers, opt_priority, opt_callback, opt_maxRetries, opt_responseType, opt_withCredentials) {
-  var requests = this.requests_;
+  const requests = this.requests_;
   if (requests.get(id)) {
     throw new Error(goog.net.XhrManager.ERROR_ID_IN_USE_);
   }
-  var request = new goog.net.XhrManager.Request(url, goog.bind(this.handleEvent_, this, id), opt_method, opt_content, opt_headers, opt_callback, opt_maxRetries !== undefined ? opt_maxRetries : this.maxRetries_, opt_responseType, opt_withCredentials !== undefined ? opt_withCredentials : this.withCredentials_);
+  const request = new goog.net.XhrManager.Request(url, goog.bind(this.handleEvent_, this, id), opt_method, opt_content, opt_headers, opt_callback, opt_maxRetries !== undefined ? opt_maxRetries : this.maxRetries_, opt_responseType, opt_withCredentials !== undefined ? opt_withCredentials : this.withCredentials_);
   this.requests_.set(id, request);
-  var callback = goog.bind(this.handleAvailableXhr_, this, id);
+  const callback = goog.bind(this.handleAvailableXhr_, this, id);
   this.xhrPool_.getObject(callback, opt_priority);
   return request;
 };
 goog.net.XhrManager.prototype.abort = function(id, opt_force) {
-  var request = this.requests_.get(id);
+  const request = this.requests_.get(id);
   if (request) {
-    var xhrIo = request.xhrIo;
+    const xhrIo = request.xhrIo;
     request.setAborted(true);
     if (opt_force) {
       if (xhrIo) {
@@ -62,7 +62,7 @@ goog.net.XhrManager.prototype.abort = function(id, opt_force) {
   }
 };
 goog.net.XhrManager.prototype.handleAvailableXhr_ = function(id, xhrIo) {
-  var request = this.requests_.get(id);
+  const request = this.requests_.get(id);
   if (request && !request.xhrIo) {
     this.addXhrListener_(xhrIo, request.getXhrEventCallback());
     xhrIo.setTimeoutInterval(this.timeoutInterval_);
@@ -79,7 +79,7 @@ goog.net.XhrManager.prototype.handleAvailableXhr_ = function(id, xhrIo) {
   }
 };
 goog.net.XhrManager.prototype.handleEvent_ = function(id, e) {
-  var xhrIo = e.target;
+  const xhrIo = e.target;
   switch(e.type) {
     case goog.net.EventType.READY:
       this.retry_(id, xhrIo);
@@ -100,7 +100,7 @@ goog.net.XhrManager.prototype.handleEvent_ = function(id, e) {
   return null;
 };
 goog.net.XhrManager.prototype.retry_ = function(id, xhrIo) {
-  var request = this.requests_.get(id);
+  const request = this.requests_.get(id);
   if (request && !request.getCompleted() && !request.hasReachedMaxRetries()) {
     request.increaseAttemptCount();
     xhrIo.send(request.getUrl(), request.getMethod(), request.getContent(), request.getHeaders());
@@ -113,7 +113,7 @@ goog.net.XhrManager.prototype.retry_ = function(id, xhrIo) {
   }
 };
 goog.net.XhrManager.prototype.handleComplete_ = function(id, xhrIo, e) {
-  var request = this.requests_.get(id);
+  const request = this.requests_.get(id);
   if (xhrIo.getLastErrorCode() == goog.net.ErrorCode.ABORT || xhrIo.isSuccess() || request.hasReachedMaxRetries()) {
     this.dispatchEvent(new goog.net.XhrManager.Event(goog.net.EventType.COMPLETE, this, id, xhrIo));
     if (request) {
@@ -132,17 +132,17 @@ goog.net.XhrManager.prototype.handleSuccess_ = function(id, xhrIo) {
   this.dispatchEvent(new goog.net.XhrManager.Event(goog.net.EventType.SUCCESS, this, id, xhrIo));
 };
 goog.net.XhrManager.prototype.handleError_ = function(id, xhrIo) {
-  var request = this.requests_.get(id);
+  const request = this.requests_.get(id);
   if (request.hasReachedMaxRetries()) {
     this.dispatchEvent(new goog.net.XhrManager.Event(goog.net.EventType.ERROR, this, id, xhrIo));
   }
 };
 goog.net.XhrManager.prototype.removeXhrListener_ = function(xhrIo, func, opt_types) {
-  var types = opt_types || goog.net.XhrManager.XHR_EVENT_TYPES_;
+  const types = opt_types || goog.net.XhrManager.XHR_EVENT_TYPES_;
   this.eventHandler_.unlisten(xhrIo, types, func);
 };
 goog.net.XhrManager.prototype.addXhrListener_ = function(xhrIo, func, opt_types) {
-  var types = opt_types || goog.net.XhrManager.XHR_EVENT_TYPES_;
+  const types = opt_types || goog.net.XhrManager.XHR_EVENT_TYPES_;
   this.eventHandler_.listen(xhrIo, types, func);
 };
 goog.net.XhrManager.prototype.disposeInternal = function() {

@@ -8,6 +8,7 @@ goog.require("goog.labs.userAgent.platform");
 goog.require("goog.string");
 goog.require("goog.string.Const");
 goog.require("goog.userAgent");
+goog.requireType("goog.string.TypedString");
 goog.window.DEFAULT_POPUP_HEIGHT = 500;
 goog.window.DEFAULT_POPUP_WIDTH = 690;
 goog.window.DEFAULT_POPUP_TARGET = "google_popup";
@@ -59,7 +60,7 @@ goog.window.open = function(linkRef, opt_options, opt_parentWin) {
     newWin = goog.window.createFakeWindow_();
   } else {
     if (opt_options["noreferrer"]) {
-      newWin = parentWin.open("", target, optionString);
+      newWin = goog.dom.safe.openInWindow("", parentWin, target, optionString);
       var sanitizedLinkRef = goog.html.SafeUrl.unwrap(safeLinkRef);
       if (newWin) {
         if (goog.userAgent.EDGE_OR_IE) {
@@ -70,13 +71,13 @@ goog.window.open = function(linkRef, opt_options, opt_parentWin) {
         newWin.opener = null;
         var safeHtml = goog.html.uncheckedconversions.safeHtmlFromStringKnownToSatisfyTypeContract(goog.string.Const.from("b/12014412, meta tag with sanitized URL"), '\x3cmeta name\x3d"referrer" content\x3d"no-referrer"\x3e' + '\x3cmeta http-equiv\x3d"refresh" content\x3d"0; url\x3d' + goog.string.htmlEscape(sanitizedLinkRef) + '"\x3e');
         var newDoc = newWin.document;
-        if (newDoc) {
+        if (newDoc && newDoc.write) {
           goog.dom.safe.documentWrite(newDoc, safeHtml);
           newDoc.close();
         }
       }
     } else {
-      newWin = parentWin.open(goog.html.SafeUrl.unwrap(safeLinkRef), target, optionString);
+      newWin = goog.dom.safe.openInWindow(safeLinkRef, parentWin, target, optionString);
       if (newWin && opt_options["noopener"]) {
         newWin.opener = null;
       }

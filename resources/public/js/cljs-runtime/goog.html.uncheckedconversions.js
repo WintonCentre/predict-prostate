@@ -8,6 +8,7 @@ goog.require("goog.html.SafeUrl");
 goog.require("goog.html.TrustedResourceUrl");
 goog.require("goog.string.Const");
 goog.require("goog.string.internal");
+goog.requireType("goog.i18n.bidi.Dir");
 goog.html.uncheckedconversions.safeHtmlFromStringKnownToSatisfyTypeContract = function(justification, html, opt_dir) {
   goog.asserts.assertString(goog.string.Const.unwrap(justification), "must provide justification");
   goog.asserts.assert(!goog.string.internal.isEmptyOrWhitespace(goog.string.Const.unwrap(justification)), "must provide non-empty justification");

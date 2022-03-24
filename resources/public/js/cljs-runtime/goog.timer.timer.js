@@ -1,6 +1,7 @@
 goog.provide("goog.Timer");
 goog.require("goog.Promise");
 goog.require("goog.events.EventTarget");
+goog.requireType("goog.Thenable");
 goog.Timer = function(opt_interval, opt_timerObject) {
   goog.events.EventTarget.call(this);
   this.interval_ = opt_interval || 1;
@@ -71,7 +72,7 @@ goog.Timer.prototype.disposeInternal = function() {
 };
 goog.Timer.TICK = "tick";
 goog.Timer.callOnce = function(listener, opt_delay, opt_handler) {
-  if (goog.isFunction(listener)) {
+  if (typeof listener === "function") {
     if (opt_handler) {
       listener = goog.bind(listener, opt_handler);
     }

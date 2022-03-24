@@ -12,7 +12,7 @@ goog.require("goog.style");
 goog.require("goog.userAgent");
 goog.style.transition.Css3Property;
 goog.style.transition.set = function(element, properties) {
-  if (!goog.isArray(properties)) {
+  if (!Array.isArray(properties)) {
     properties = [properties];
   }
   goog.asserts.assert(properties.length > 0, "At least one Css3Property should be specified.");

@@ -9,14 +9,15 @@ goog.events.Event = function(type, opt_target) {
   this.currentTarget = this.target;
   this.propagationStopped_ = false;
   this.defaultPrevented = false;
-  this.returnValue_ = true;
+};
+goog.events.Event.prototype.hasPropagationStopped = function() {
+  return this.propagationStopped_;
 };
 goog.events.Event.prototype.stopPropagation = function() {
   this.propagationStopped_ = true;
 };
 goog.events.Event.prototype.preventDefault = function() {
   this.defaultPrevented = true;
-  this.returnValue_ = false;
 };
 goog.events.Event.stopPropagation = function(e) {
   e.stopPropagation();

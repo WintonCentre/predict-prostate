@@ -6,23 +6,24 @@ oops.helpers.get_constructor = (function oops$helpers$get_constructor(o){
 return (o["constructor"]);
 });
 oops.helpers.cljs_type_QMARK_ = (function oops$helpers$cljs_type_QMARK_(f){
-var and__4115__auto__ = goog.isObject(f);
-if(cljs.core.truth_(and__4115__auto__)){
-if((!(oops.helpers.is_prototype_QMARK_(f)))){
+var and__4210__auto__ = goog.isObject(f);
+if(cljs.core.truth_(and__4210__auto__)){
+var and__4210__auto____$1 = (!(oops.helpers.is_prototype_QMARK_(f)));
+if(and__4210__auto____$1){
 return (f["cljs$lang$type"]);
 } else {
-return false;
+return and__4210__auto____$1;
 }
 } else {
-return and__4115__auto__;
+return and__4210__auto__;
 }
 });
 oops.helpers.cljs_instance_QMARK_ = (function oops$helpers$cljs_instance_QMARK_(value){
-var and__4115__auto__ = goog.isObject(value);
-if(cljs.core.truth_(and__4115__auto__)){
+var and__4210__auto__ = goog.isObject(value);
+if(cljs.core.truth_(and__4210__auto__)){
 return oops.helpers.cljs_type_QMARK_(oops.helpers.get_constructor(value));
 } else {
-return and__4115__auto__;
+return and__4210__auto__;
 }
 });
 oops.helpers.to_native_array = (function oops$helpers$to_native_array(coll){
@@ -36,8 +37,8 @@ if((!((items == null)))){
 var item = cljs.core._first(items);
 arr.push(item);
 
-var G__49881 = cljs.core.next(items);
-items = G__49881;
+var G__48493 = cljs.core.next(items);
+items = G__48493;
 continue;
 } else {
 return arr;
@@ -51,10 +52,10 @@ oops.helpers.repurpose_error = (function oops$helpers$repurpose_error(error,msg,
 
 (error.message = msg);
 
-var x49872 = error;
-(x49872.cljs$core$IPrintWithWriter$ = cljs.core.PROTOCOL_SENTINEL);
+var x48462 = error;
+(x48462.cljs$core$IPrintWithWriter$ = cljs.core.PROTOCOL_SENTINEL);
 
-(x49872.cljs$core$IPrintWithWriter$_pr_writer$arity$3 = (function (_obj,writer,opts){
+(x48462.cljs$core$IPrintWithWriter$_pr_writer$arity$3 = (function (_obj,writer,opts){
 var _obj__$1 = this;
 cljs.core._write(writer,msg);
 
@@ -67,19 +68,19 @@ return null;
 }
 }));
 
-return x49872;
+return x48462;
 });
 oops.helpers.get_property_descriptor = (function oops$helpers$get_property_descriptor(obj,property){
 var o = obj;
 while(true){
 if((!((o == null)))){
-var temp__5737__auto__ = Object.getOwnPropertyDescriptor(o,property);
-if((temp__5737__auto__ == null)){
-var G__49882 = Object.getPrototypeOf(o);
-o = G__49882;
+var temp__5755__auto__ = Object.getOwnPropertyDescriptor(o,property);
+if((temp__5755__auto__ == null)){
+var G__48495 = Object.getPrototypeOf(o);
+o = G__48495;
 continue;
 } else {
-var descriptor = temp__5737__auto__;
+var descriptor = temp__5755__auto__;
 return descriptor;
 }
 } else {
@@ -110,21 +111,21 @@ oops.helpers.is_object_frozen_QMARK_ = (function oops$helpers$is_object_frozen_Q
 return Object.isFrozen(obj);
 });
 oops.helpers.wrap_data_in_enveloper_if_possible = (function oops$helpers$wrap_data_in_enveloper_if_possible(wrap_QMARK_,data){
-var or__4126__auto__ = (cljs.core.truth_(wrap_QMARK_)?(function (){var temp__5739__auto__ = (goog.global["devtools"]);
-if((temp__5739__auto__ == null)){
+var or__4212__auto__ = (cljs.core.truth_(wrap_QMARK_)?(function (){var temp__5757__auto__ = (goog.global["devtools"]);
+if((temp__5757__auto__ == null)){
 return null;
 } else {
-var devtools__$1 = temp__5739__auto__;
-var temp__5739__auto____$1 = (devtools__$1["toolbox"]);
-if((temp__5739__auto____$1 == null)){
+var devtools__$1 = temp__5757__auto__;
+var temp__5757__auto____$1 = (devtools__$1["toolbox"]);
+if((temp__5757__auto____$1 == null)){
 return null;
 } else {
-var toolbox = temp__5739__auto____$1;
-var temp__5739__auto____$2 = (toolbox["envelope"]);
-if((temp__5739__auto____$2 == null)){
+var toolbox = temp__5757__auto____$1;
+var temp__5757__auto____$2 = (toolbox["envelope"]);
+if((temp__5757__auto____$2 == null)){
 return null;
 } else {
-var envelope = temp__5739__auto____$2;
+var envelope = temp__5757__auto____$2;
 if(cljs.core.fn_QMARK_(envelope)){
 return (envelope.cljs$core$IFn$_invoke$arity$2 ? envelope.cljs$core$IFn$_invoke$arity$2(data,"details") : envelope.call(null,data,"details"));
 } else {
@@ -134,8 +135,8 @@ return null;
 }
 }
 })():null);
-if(cljs.core.truth_(or__4126__auto__)){
-return or__4126__auto__;
+if(cljs.core.truth_(or__4212__auto__)){
+return or__4212__auto__;
 } else {
 return data;
 }

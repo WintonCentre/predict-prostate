@@ -11,7 +11,7 @@ goog.string.StringBuffer.prototype.set = function(s) {
 goog.string.StringBuffer.prototype.append = function(a1, opt_a2, var_args) {
   this.buffer_ += String(a1);
   if (opt_a2 != null) {
-    for (var i = 1; i < arguments.length; i++) {
+    for (let i = 1; i < arguments.length; i++) {
       this.buffer_ += arguments[i];
     }
   }

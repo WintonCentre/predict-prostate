@@ -3,13 +3,9 @@ goog.provide("goog.async.throwException");
 goog.require("goog.debug.entryPointRegistry");
 goog.require("goog.dom");
 goog.require("goog.dom.TagName");
-goog.require("goog.dom.safe");
 goog.require("goog.functions");
-goog.require("goog.html.SafeHtml");
-goog.require("goog.html.TrustedResourceUrl");
 goog.require("goog.labs.userAgent.browser");
 goog.require("goog.labs.userAgent.engine");
-goog.require("goog.string.Const");
 goog.async.throwException = function(exception) {
   goog.global.setTimeout(function() {
     throw exception;
@@ -21,7 +17,7 @@ goog.async.nextTick = function(callback, opt_context, opt_useSetImmediate) {
     cb = goog.bind(callback, opt_context);
   }
   cb = goog.async.nextTick.wrapCallback_(cb);
-  if (goog.isFunction(goog.global.setImmediate) && (opt_useSetImmediate || goog.async.nextTick.useSetImmediate_())) {
+  if (typeof goog.global.setImmediate === "function" && (opt_useSetImmediate || goog.async.nextTick.useSetImmediate_())) {
     goog.global.setImmediate(cb);
     return;
   }
@@ -46,12 +42,10 @@ goog.async.nextTick.getSetImmediateEmulator_ = function() {
     Channel = function() {
       var iframe = goog.dom.createElement(goog.dom.TagName.IFRAME);
       iframe.style.display = "none";
-      goog.dom.safe.setIframeSrc(iframe, goog.html.TrustedResourceUrl.fromConstant(goog.string.Const.EMPTY));
       document.documentElement.appendChild(iframe);
       var win = iframe.contentWindow;
       var doc = win.document;
       doc.open();
-      goog.dom.safe.documentWrite(doc, goog.html.SafeHtml.EMPTY);
       doc.close();
       var message = "callImmediate" + Math.random();
       var origin = win.location.protocol == "file:" ? "*" : win.location.protocol + "//" + win.location.host;
@@ -84,19 +78,6 @@ goog.async.nextTick.getSetImmediateEmulator_ = function() {
       tail.next = {cb:cb};
       tail = tail.next;
       channel["port2"].postMessage(0);
-    };
-  }
-  if (typeof document !== "undefined" && "onreadystatechange" in goog.dom.createElement(goog.dom.TagName.SCRIPT)) {
-    return function(cb) {
-      var script = goog.dom.createElement(goog.dom.TagName.SCRIPT);
-      script.onreadystatechange = function() {
-        script.onreadystatechange = null;
-        script.parentNode.removeChild(script);
-        script = null;
-        cb();
-        cb = null;
-      };
-      document.documentElement.appendChild(script);
     };
   }
   return function(cb) {

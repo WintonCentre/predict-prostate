@@ -3,7 +3,6 @@ goog.provide("goog.uri.utils.ComponentIndex");
 goog.provide("goog.uri.utils.QueryArray");
 goog.provide("goog.uri.utils.QueryValue");
 goog.provide("goog.uri.utils.StandardQueryParam");
-goog.require("goog.array");
 goog.require("goog.asserts");
 goog.require("goog.string");
 goog.uri.utils.CharCode_ = {AMPERSAND:38, EQUAL:61, HASH:35, QUESTION:63};
@@ -33,10 +32,18 @@ goog.uri.utils.buildFromEncodedParts = function(opt_scheme, opt_userInfo, opt_do
   }
   return out;
 };
-goog.uri.utils.splitRe_ = new RegExp("^" + "(?:" + "([^:/?#.]+)" + ":)?" + "(?://" + "(?:([^/?#]*)@)?" + "([^/#?]*?)" + "(?::([0-9]+))?" + "(?\x3d[/#?]|$)" + ")?" + "([^?#]+)?" + "(?:\\?([^#]*))?" + "(?:#([\\s\\S]*))?" + "$");
+goog.uri.utils.splitRe_ = new RegExp("^" + "(?:" + "([^:/?#.]+)" + ":)?" + "(?://" + "(?:([^\\\\/?#]*)@)?" + "([^\\\\/?#]*?)" + "(?::([0-9]+))?" + "(?\x3d[\\\\/?#]|$)" + ")?" + "([^?#]+)?" + "(?:\\?([^#]*))?" + "(?:#([\\s\\S]*))?" + "$");
 goog.uri.utils.ComponentIndex = {SCHEME:1, USER_INFO:2, DOMAIN:3, PORT:4, PATH:5, QUERY_DATA:6, FRAGMENT:7};
+goog.uri.utils.urlPackageSupportLoggingHandler_ = null;
+goog.uri.utils.setUrlPackageSupportLoggingHandler = function(handler) {
+  goog.uri.utils.urlPackageSupportLoggingHandler_ = handler;
+};
 goog.uri.utils.split = function(uri) {
-  return uri.match(goog.uri.utils.splitRe_);
+  var result = uri.match(goog.uri.utils.splitRe_);
+  if (goog.uri.utils.urlPackageSupportLoggingHandler_ && ["http", "https", "ws", "wss", "ftp"].indexOf(result[goog.uri.utils.ComponentIndex.SCHEME]) >= 0) {
+    goog.uri.utils.urlPackageSupportLoggingHandler_(uri);
+  }
+  return result;
 };
 goog.uri.utils.decodeIfPossible_ = function(uri, opt_preserveReserved) {
   if (!uri) {
@@ -170,7 +177,7 @@ goog.uri.utils.appendQueryDataToUri_ = function(uri, queryData) {
 };
 goog.uri.utils.appendKeyValuePairs_ = function(key, value, pairs) {
   goog.asserts.assertString(key);
-  if (goog.isArray(value)) {
+  if (Array.isArray(value)) {
     goog.asserts.assertArray(value);
     for (var j = 0; j < value.length; j++) {
       goog.uri.utils.appendKeyValuePairs_(key, String(value[j]), pairs);
@@ -278,7 +285,7 @@ goog.uri.utils.setParamsFromMap = function(uri, params) {
   var queryData = parts[1];
   var buffer = [];
   if (queryData) {
-    goog.array.forEach(queryData.split("\x26"), function(pair) {
+    queryData.split("\x26").forEach(function(pair) {
       var indexOfEquals = pair.indexOf("\x3d");
       var name = indexOfEquals >= 0 ? pair.substr(0, indexOfEquals) : pair;
       if (!params.hasOwnProperty(name)) {
@@ -297,7 +304,7 @@ goog.uri.utils.appendPath = function(baseUri, path) {
   if (goog.string.startsWith(path, "/")) {
     path = path.substr(1);
   }
-  return goog.string.buildString(baseUri, "/", path);
+  return "" + baseUri + "/" + path;
 };
 goog.uri.utils.setPath = function(uri, path) {
   if (!goog.string.startsWith(path, "/")) {

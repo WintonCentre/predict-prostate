@@ -199,7 +199,7 @@ goog.Promise.prototype.then = function(opt_onFulfilled, opt_onRejected, opt_cont
   if (goog.Promise.LONG_STACK_TRACES) {
     this.addStackTrace_(new Error("then"));
   }
-  return this.addChildPromise_(goog.isFunction(opt_onFulfilled) ? opt_onFulfilled : null, goog.isFunction(opt_onRejected) ? opt_onRejected : null, opt_context);
+  return this.addChildPromise_(typeof opt_onFulfilled === "function" ? opt_onFulfilled : null, typeof opt_onRejected === "function" ? opt_onRejected : null, opt_context);
 };
 goog.Thenable.addImplementation(goog.Promise);
 goog.Promise.prototype.thenVoid = function(opt_onFulfilled, opt_onRejected, opt_context) {
@@ -357,10 +357,11 @@ goog.Promise.maybeThen_ = function(value, onFulfilled, onRejected, context) {
       return true;
     } else {
       if (goog.isObject(value)) {
+        const thenable = value;
         try {
-          var then = value["then"];
-          if (goog.isFunction(then)) {
-            goog.Promise.tryThen_(value, then, onFulfilled, onRejected, context);
+          var then = thenable.then;
+          if (typeof then === "function") {
+            goog.Promise.tryThen_(thenable, then, onFulfilled, onRejected, context);
             return true;
           }
         } catch (e) {
@@ -527,6 +528,7 @@ goog.Promise.setUnhandledRejectionHandler = function(handler) {
 };
 goog.Promise.CancellationError = function(opt_message) {
   goog.Promise.CancellationError.base(this, "constructor", opt_message);
+  this.reportErrorToServer = false;
 };
 goog.inherits(goog.Promise.CancellationError, goog.debug.Error);
 goog.Promise.CancellationError.prototype.name = "cancel";

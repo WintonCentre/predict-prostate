@@ -40,13 +40,16 @@ goog.dom.safe.unsafeSetInnerHtmlDoNotUseOrElse = function(elem, html) {
   elem.innerHTML = goog.html.SafeHtml.unwrapTrustedHTML(html);
 };
 goog.dom.safe.setInnerHtml = function(elem, html) {
-  if (goog.asserts.ENABLE_ASSERTS) {
+  if (goog.asserts.ENABLE_ASSERTS && elem.tagName) {
     var tagName = elem.tagName.toUpperCase();
     if (goog.dom.safe.SET_INNER_HTML_DISALLOWED_TAGS_[tagName]) {
       throw new Error("goog.dom.safe.setInnerHtml cannot be used to set content of " + elem.tagName + ".");
     }
   }
   goog.dom.safe.unsafeSetInnerHtmlDoNotUseOrElse(elem, html);
+};
+goog.dom.safe.setInnerHtmlFromConstant = function(element, constHtml) {
+  goog.dom.safe.setInnerHtml(element, goog.html.uncheckedconversions.safeHtmlFromStringKnownToSatisfyTypeContract(goog.string.Const.from("Constant HTML to be immediatelly used."), goog.string.Const.unwrap(constHtml)));
 };
 goog.dom.safe.setOuterHtml = function(elem, html) {
   elem.outerHTML = goog.html.SafeHtml.unwrapTrustedHTML(html);
@@ -168,15 +171,16 @@ goog.dom.safe.setObjectData = function(object, url) {
 goog.dom.safe.setScriptSrc = function(script, url) {
   goog.dom.asserts.assertIsHTMLScriptElement(script);
   script.src = goog.html.TrustedResourceUrl.unwrapTrustedScriptURL(url);
-  var nonce = goog.getScriptNonce();
-  if (nonce) {
-    script.setAttribute("nonce", nonce);
-  }
+  goog.dom.safe.setNonceForScriptElement_(script);
 };
 goog.dom.safe.setScriptContent = function(script, content) {
   goog.dom.asserts.assertIsHTMLScriptElement(script);
-  script.text = goog.html.SafeScript.unwrapTrustedScript(content);
-  var nonce = goog.getScriptNonce();
+  script.textContent = goog.html.SafeScript.unwrapTrustedScript(content);
+  goog.dom.safe.setNonceForScriptElement_(script);
+};
+goog.dom.safe.setNonceForScriptElement_ = function(script) {
+  var win = script.ownerDocument && script.ownerDocument.defaultView;
+  var nonce = goog.getScriptNonce(win);
   if (nonce) {
     script.setAttribute("nonce", nonce);
   }
@@ -202,7 +206,6 @@ goog.dom.safe.assignLocation = function(loc, url) {
   loc.assign(goog.html.SafeUrl.unwrap(safeUrl));
 };
 goog.dom.safe.replaceLocation = function(loc, url) {
-  goog.dom.asserts.assertIsLocation(loc);
   var safeUrl;
   if (url instanceof goog.html.SafeUrl) {
     safeUrl = url;
@@ -219,7 +222,12 @@ goog.dom.safe.openInWindow = function(url, opt_openerWin, opt_name, opt_specs, o
     safeUrl = goog.html.SafeUrl.sanitizeAssertUnchanged(url);
   }
   var win = opt_openerWin || goog.global;
-  return win.open(goog.html.SafeUrl.unwrap(safeUrl), opt_name ? goog.string.Const.unwrap(opt_name) : "", opt_specs, opt_replace);
+  var name = opt_name instanceof goog.string.Const ? goog.string.Const.unwrap(opt_name) : opt_name || "";
+  if (opt_specs !== undefined || opt_replace !== undefined) {
+    return win.open(goog.html.SafeUrl.unwrap(safeUrl), name, opt_specs, opt_replace);
+  } else {
+    return win.open(goog.html.SafeUrl.unwrap(safeUrl), name);
+  }
 };
 goog.dom.safe.parseFromStringHtml = function(parser, html) {
   return goog.dom.safe.parseFromString(parser, html, "text/html");
@@ -238,6 +246,9 @@ goog.dom.safe.createImageFromBlob = function(blob) {
   };
   goog.dom.safe.setImageSrc(image, goog.html.uncheckedconversions.safeUrlFromStringKnownToSatisfyTypeContract(goog.string.Const.from("Image blob URL."), objectUrl));
   return image;
+};
+goog.dom.safe.createContextualFragment = function(range, html) {
+  return range.createContextualFragment(goog.html.SafeHtml.unwrapTrustedHTML(html));
 };
 
 //# sourceMappingURL=goog.dom.safe.js.map

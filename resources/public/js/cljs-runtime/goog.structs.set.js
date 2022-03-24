@@ -2,6 +2,7 @@ goog.provide("goog.structs.Set");
 goog.require("goog.structs");
 goog.require("goog.structs.Collection");
 goog.require("goog.structs.Map");
+goog.requireType("goog.iter.Iterator");
 goog.structs.Set = function(opt_values) {
   this.map_ = new goog.structs.Map;
   if (opt_values) {

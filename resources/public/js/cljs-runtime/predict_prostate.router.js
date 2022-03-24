@@ -2,9 +2,9 @@ goog.provide('predict_prostate.router');
 cljs.core.enable_console_print_BANG_();
 predict_prostate.router.old_browser = goog.object.get(window,"oldBrowser");
 predict_prostate.router.use_hash_fragment = (function predict_prostate$router$use_hash_fragment(){
-var or__4126__auto__ = goog.DEBUG;
-if(cljs.core.truth_(or__4126__auto__)){
-return or__4126__auto__;
+var or__4212__auto__ = goog.DEBUG;
+if(cljs.core.truth_(or__4212__auto__)){
+return or__4212__auto__;
 } else {
 return predict_prostate.router.old_browser;
 }

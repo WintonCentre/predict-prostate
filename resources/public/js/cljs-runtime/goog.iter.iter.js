@@ -58,9 +58,9 @@ goog.iter.forEach = function(iterable, f, opt_obj) {
       while (true) {
         f.call(opt_obj, iterable.next(), undefined, iterable);
       }
-    } catch (ex$2) {
-      if (ex$2 !== goog.iter.StopIteration) {
-        throw ex$2;
+    } catch (ex) {
+      if (ex !== goog.iter.StopIteration) {
+        throw ex;
       }
     }
   }

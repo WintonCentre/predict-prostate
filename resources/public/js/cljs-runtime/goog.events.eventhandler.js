@@ -1,8 +1,11 @@
 goog.provide("goog.events.EventHandler");
-goog.forwardDeclare("goog.events.EventWrapper");
 goog.require("goog.Disposable");
 goog.require("goog.events");
 goog.require("goog.object");
+goog.requireType("goog.events.Event");
+goog.requireType("goog.events.EventId");
+goog.requireType("goog.events.EventTarget");
+goog.requireType("goog.events.EventWrapper");
 goog.events.EventHandler = function(opt_scope) {
   goog.Disposable.call(this);
   this.handler_ = opt_scope;
@@ -20,7 +23,7 @@ goog.events.EventHandler.prototype.listenWithScope = function(src, type, fn, opt
 };
 goog.events.EventHandler.prototype.listen_ = function(src, type, opt_fn, opt_options, opt_scope) {
   var self = this;
-  if (!goog.isArray(type)) {
+  if (!Array.isArray(type)) {
     if (type) {
       goog.events.EventHandler.typeArray_[0] = type.toString();
     }
@@ -46,7 +49,7 @@ goog.events.EventHandler.prototype.listenOnceWithScope = function(src, type, fn,
 };
 goog.events.EventHandler.prototype.listenOnce_ = function(src, type, opt_fn, opt_options, opt_scope) {
   var self = this;
-  if (goog.isArray(type)) {
+  if (Array.isArray(type)) {
     for (var i = 0; i < type.length; i++) {
       self.listenOnce_(src, type[i], opt_fn, opt_options, opt_scope);
     }
@@ -84,7 +87,7 @@ goog.events.EventHandler.prototype.getListenerCount = function() {
 };
 goog.events.EventHandler.prototype.unlisten = function(src, type, opt_fn, opt_options, opt_scope) {
   var self = this;
-  if (goog.isArray(type)) {
+  if (Array.isArray(type)) {
     for (var i = 0; i < type.length; i++) {
       self.unlisten(src, type[i], opt_fn, opt_options, opt_scope);
     }

@@ -1,5 +1,4 @@
 goog.provide("goog.style");
-goog.forwardDeclare("goog.events.Event");
 goog.require("goog.array");
 goog.require("goog.asserts");
 goog.require("goog.dom");
@@ -15,6 +14,7 @@ goog.require("goog.object");
 goog.require("goog.reflect");
 goog.require("goog.string");
 goog.require("goog.userAgent");
+goog.requireType("goog.events.Event");
 goog.style.setStyle = function(element, style, opt_value) {
   if (typeof style === "string") {
     goog.style.setStyle_(element, opt_value, style);
@@ -142,18 +142,11 @@ goog.style.getViewportPageOffset = function(doc) {
   return new goog.math.Coordinate(scrollLeft, scrollTop);
 };
 goog.style.getBoundingClientRect_ = function(el) {
-  var rect;
   try {
-    rect = el.getBoundingClientRect();
+    return el.getBoundingClientRect();
   } catch (e) {
     return {"left":0, "top":0, "right":0, "bottom":0};
   }
-  if (goog.userAgent.IE && el.ownerDocument.body) {
-    var doc = el.ownerDocument;
-    rect.left -= doc.documentElement.clientLeft + doc.body.clientLeft;
-    rect.top -= doc.documentElement.clientTop + doc.body.clientTop;
-  }
-  return rect;
 };
 goog.style.getOffsetParent = function(element) {
   if (goog.userAgent.IE && !goog.userAgent.isDocumentModeOrHigher(8)) {
@@ -469,6 +462,10 @@ goog.style.installSafeStyleSheet = function(safeStyleSheet, opt_node) {
       body.parentNode.insertBefore(head, body);
     }
     var el = dh.createDom(goog.dom.TagName.STYLE);
+    var nonce = goog.getScriptNonce();
+    if (nonce) {
+      el.setAttribute("nonce", nonce);
+    }
     goog.style.setSafeStyleSheet(el, safeStyleSheet);
     dh.appendChild(head, el);
     return el;
@@ -483,7 +480,11 @@ goog.style.setSafeStyleSheet = function(element, safeStyleSheet) {
   if (goog.userAgent.IE && element.cssText !== undefined) {
     element.cssText = stylesString;
   } else {
-    element.innerHTML = stylesString;
+    if (goog.global.trustedTypes) {
+      goog.dom.setTextContent(element, stylesString);
+    } else {
+      element.innerHTML = stylesString;
+    }
   }
 };
 goog.style.setPreWrap = function(el) {

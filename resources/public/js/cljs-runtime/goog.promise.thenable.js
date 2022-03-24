@@ -1,5 +1,5 @@
 goog.provide("goog.Thenable");
-goog.forwardDeclare("goog.Promise");
+goog.requireType("goog.Promise");
 goog.Thenable = function() {
 };
 goog.Thenable.prototype.then = function(opt_onFulfilled, opt_onRejected, opt_context) {

@@ -7,8 +7,8 @@ goog.provide('predict_prostate.mixins');
  *   else it is treated as an initial value.
  */
 predict_prostate.mixins.arg_local = (function predict_prostate$mixins$arg_local(var_args){
-var G__40249 = arguments.length;
-switch (G__40249) {
+var G__46792 = arguments.length;
+switch (G__46792) {
 case 1:
 return predict_prostate.mixins.arg_local.cljs$core$IFn$_invoke$arity$1((arguments[(0)]));
 
@@ -28,12 +28,12 @@ return predict_prostate.mixins.arg_local.cljs$core$IFn$_invoke$arity$2(initial,n
 }));
 
 (predict_prostate.mixins.arg_local.cljs$core$IFn$_invoke$arity$2 = (function (initial,key){
-return new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"init","init",-1875481434),(function (p__40250){
-var map__40251 = p__40250;
-var map__40251__$1 = (((((!((map__40251 == null))))?(((((map__40251.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__40251.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__40251):map__40251);
-var state = map__40251__$1;
-var args = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__40251__$1,new cljs.core.Keyword(null,"args","args",1315556576));
-var args__$1 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__40251__$1,new cljs.core.Keyword("rum","args","rum/args",1315791754));
+return new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"init","init",-1875481434),(function (p__46796){
+var map__46797 = p__46796;
+var map__46797__$1 = cljs.core.__destructure_map(map__46797);
+var state = map__46797__$1;
+var args = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__46797__$1,new cljs.core.Keyword(null,"args","args",1315556576));
+var args__$1 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__46797__$1,new cljs.core.Keyword("rum","args","rum/args",1315791754));
 return cljs.core.assoc.cljs$core$IFn$_invoke$arity$3(state,key,cljs.core.atom.cljs$core$IFn$_invoke$arity$1(((cljs.core.fn_QMARK_(initial))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(initial,args__$1):initial)));
 })], null);
 }));
@@ -69,21 +69,21 @@ return state;
  *   any one time. This is so we know when to switch on treatments.
  */
 predict_prostate.mixins.active_monitor = new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"did-mount","did-mount",918232960),(function (state){
-var vec__40253_40330 = new cljs.core.Keyword("rum","args","rum/args",1315791754).cljs$core$IFn$_invoke$arity$1(state);
-var map__40256_40331 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__40253_40330,(0),null);
-var map__40256_40332__$1 = (((((!((map__40256_40331 == null))))?(((((map__40256_40331.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__40256_40331.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__40256_40331):map__40256_40331);
-var key_40333 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__40256_40332__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
-cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$3(predict_prostate.state.run_time.on_screen_inputs_cursor,cljs.core.conj,key_40333);
+var vec__46805_46827 = new cljs.core.Keyword("rum","args","rum/args",1315791754).cljs$core$IFn$_invoke$arity$1(state);
+var map__46808_46828 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__46805_46827,(0),null);
+var map__46808_46829__$1 = cljs.core.__destructure_map(map__46808_46828);
+var key_46830 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__46808_46829__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
+cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$3(predict_prostate.state.run_time.on_screen_inputs_cursor,cljs.core.conj,key_46830);
 
 predict_prostate.state.run_time.force_recalculation.pubsub$feeds$TopicFeed$publish$arity$2(null,null);
 
 return state;
 }),new cljs.core.Keyword(null,"will-unmount","will-unmount",-808051550),(function (state){
-var vec__40258_40336 = new cljs.core.Keyword("rum","args","rum/args",1315791754).cljs$core$IFn$_invoke$arity$1(state);
-var map__40261_40337 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__40258_40336,(0),null);
-var map__40261_40338__$1 = (((((!((map__40261_40337 == null))))?(((((map__40261_40337.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__40261_40337.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__40261_40337):map__40261_40337);
-var key_40339 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__40261_40338__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
-cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$3(predict_prostate.state.run_time.on_screen_inputs_cursor,cljs.core.disj,key_40339);
+var vec__46810_46831 = new cljs.core.Keyword("rum","args","rum/args",1315791754).cljs$core$IFn$_invoke$arity$1(state);
+var map__46813_46832 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__46810_46831,(0),null);
+var map__46813_46833__$1 = cljs.core.__destructure_map(map__46813_46832);
+var key_46834 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__46813_46833__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
+cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$3(predict_prostate.state.run_time.on_screen_inputs_cursor,cljs.core.disj,key_46834);
 
 predict_prostate.state.run_time.force_recalculation.pubsub$feeds$TopicFeed$publish$arity$2(null,null);
 
@@ -95,30 +95,30 @@ return state;
  *   and treatments with this suffix stripped off.
  */
 predict_prostate.mixins.treatment_monitor = new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"did-mount","did-mount",918232960),(function (state){
-var vec__40282_40344 = new cljs.core.Keyword("rum","args","rum/args",1315791754).cljs$core$IFn$_invoke$arity$1(state);
-var map__40285_40345 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__40282_40344,(0),null);
-var map__40285_40346__$1 = (((((!((map__40285_40345 == null))))?(((((map__40285_40345.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__40285_40345.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__40285_40345):map__40285_40345);
-var key_40347 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__40285_40346__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
-var __40348 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__40282_40344,(1),null);
-cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$3(predict_prostate.state.run_time.on_screen_treatments_cursor,cljs.core.conj,key_40347);
+var vec__46815_46836 = new cljs.core.Keyword("rum","args","rum/args",1315791754).cljs$core$IFn$_invoke$arity$1(state);
+var map__46818_46837 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__46815_46836,(0),null);
+var map__46818_46838__$1 = cljs.core.__destructure_map(map__46818_46837);
+var key_46839 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__46818_46838__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
+var __46840 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__46815_46836,(1),null);
+cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$3(predict_prostate.state.run_time.on_screen_treatments_cursor,cljs.core.conj,key_46839);
 
 return state;
 }),new cljs.core.Keyword(null,"will-unmount","will-unmount",-808051550),(function (state){
-var vec__40297_40352 = new cljs.core.Keyword("rum","args","rum/args",1315791754).cljs$core$IFn$_invoke$arity$1(state);
-var map__40300_40353 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__40297_40352,(0),null);
-var map__40300_40354__$1 = (((((!((map__40300_40353 == null))))?(((((map__40300_40353.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__40300_40353.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__40300_40353):map__40300_40353);
-var key_40355 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__40300_40354__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
-var __40356 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__40297_40352,(1),null);
-cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$3(predict_prostate.state.run_time.on_screen_treatments_cursor,cljs.core.disj,cljs.core.PersistentHashSet.createAsIfByAssoc([key_40355]));
+var vec__46819_46841 = new cljs.core.Keyword("rum","args","rum/args",1315791754).cljs$core$IFn$_invoke$arity$1(state);
+var map__46822_46842 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__46819_46841,(0),null);
+var map__46822_46843__$1 = cljs.core.__destructure_map(map__46822_46842);
+var key_46844 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__46822_46843__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
+var __46845 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__46819_46841,(1),null);
+cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$3(predict_prostate.state.run_time.on_screen_treatments_cursor,cljs.core.disj,cljs.core.PersistentHashSet.createAsIfByAssoc([key_46844]));
 
 return state;
 })], null);
 predict_prostate.mixins.set_default = (function predict_prostate$mixins$set_default(key){
 
 return new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"did-mount","did-mount",918232960),(function (state){
-pubsub.feeds.publish(predict_prostate.state.run_time.input_change(key),(function (){var temp__5733__auto__ = cljs.core.deref(predict_prostate.state.run_time.input_cursor(key));
-if(cljs.core.truth_(temp__5733__auto__)){
-var val = temp__5733__auto__;
+pubsub.feeds.publish(predict_prostate.state.run_time.input_change(key),(function (){var temp__5751__auto__ = cljs.core.deref(predict_prostate.state.run_time.input_cursor(key));
+if(cljs.core.truth_(temp__5751__auto__)){
+var val = temp__5751__auto__;
 return val;
 } else {
 return predict_prostate.state.config.get_input_default(predict_prostate.state.config.input_groups,key);

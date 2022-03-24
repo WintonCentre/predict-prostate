@@ -4,6 +4,7 @@ goog.require("goog.debug.errorcontext");
 goog.require("goog.userAgent");
 goog.debug.LOGGING_ENABLED = goog.define("goog.debug.LOGGING_ENABLED", goog.DEBUG);
 goog.debug.FORCE_SLOPPY_STACKS = goog.define("goog.debug.FORCE_SLOPPY_STACKS", false);
+goog.debug.CHECK_FOR_THROWN_EVENT = goog.define("goog.debug.CHECK_FOR_THROWN_EVENT", false);
 goog.debug.catchErrors = function(logFunc, opt_cancel, opt_target) {
   var target = opt_target || goog.global;
   var oldErrorHandler = target.onerror;
@@ -28,7 +29,7 @@ goog.debug.expose = function(obj, opt_showFn) {
   }
   var str = [];
   for (var x in obj) {
-    if (!opt_showFn && goog.isFunction(obj[x])) {
+    if (!opt_showFn && typeof obj[x] === "function") {
       continue;
     }
     var s = x + " \x3d ";
@@ -60,7 +61,7 @@ goog.debug.deepExpose = function(obj, opt_showFn) {
           if (typeof obj === "string") {
             str.push('"' + indentMultiline(obj) + '"');
           } else {
-            if (goog.isFunction(obj)) {
+            if (typeof obj === "function") {
               str.push(indentMultiline(String(obj)));
             } else {
               if (goog.isObject(obj)) {
@@ -74,7 +75,7 @@ goog.debug.deepExpose = function(obj, opt_showFn) {
                   ancestorUids[uid] = true;
                   str.push("{");
                   for (var x in obj) {
-                    if (!opt_showFn && goog.isFunction(obj[x])) {
+                    if (!opt_showFn && typeof obj[x] === "function") {
                       continue;
                     }
                     str.push("\n");
@@ -105,7 +106,7 @@ goog.debug.deepExpose = function(obj, opt_showFn) {
 goog.debug.exposeArray = function(arr) {
   var str = [];
   for (var i = 0; i < arr.length; i++) {
-    if (goog.isArray(arr[i])) {
+    if (Array.isArray(arr[i])) {
       str.push(goog.debug.exposeArray(arr[i]));
     } else {
       str.push(arr[i]);
@@ -131,23 +132,57 @@ goog.debug.normalizeErrorObject = function(err) {
   }
   try {
     fileName = err.fileName || err.filename || err.sourceURL || goog.global["$googDebugFname"] || href;
-  } catch (e$3) {
+  } catch (e) {
     fileName = "Not available";
     threwError = true;
   }
+  var stack = goog.debug.serializeErrorStack_(err);
   if (threwError || !err.lineNumber || !err.fileName || !err.stack || !err.message || !err.name) {
     var message = err.message;
     if (message == null) {
       if (err.constructor && err.constructor instanceof Function) {
         var ctorName = err.constructor.name ? err.constructor.name : goog.debug.getFunctionName(err.constructor);
         message = 'Unknown Error of type "' + ctorName + '"';
+        if (goog.debug.CHECK_FOR_THROWN_EVENT && ctorName == "Event") {
+          try {
+            message = message + ' with Event.type "' + (err.type || "") + '"';
+          } catch (e) {
+          }
+        }
       } else {
         message = "Unknown Error of unknown type";
       }
+      if (typeof err.toString === "function" && Object.prototype.toString !== err.toString) {
+        message += ": " + err.toString();
+      }
     }
-    return {"message":message, "name":err.name || "UnknownError", "lineNumber":lineNumber, "fileName":fileName, "stack":err.stack || "Not available"};
+    return {"message":message, "name":err.name || "UnknownError", "lineNumber":lineNumber, "fileName":fileName, "stack":stack || "Not available"};
   }
+  err.stack = stack;
   return err;
+};
+goog.debug.serializeErrorStack_ = function(e, seen) {
+  if (!seen) {
+    seen = {};
+  }
+  seen[goog.debug.serializeErrorAsKey_(e)] = true;
+  var stack = e["stack"] || "";
+  var cause = e.cause;
+  if (cause && !seen[goog.debug.serializeErrorAsKey_(cause)]) {
+    stack += "\nCaused by: ";
+    if (!cause.stack || cause.stack.indexOf(cause.toString()) != 0) {
+      stack += typeof cause === "string" ? cause : cause.message + "\n";
+    }
+    stack += goog.debug.serializeErrorStack_(cause, seen);
+  }
+  return stack;
+};
+goog.debug.serializeErrorAsKey_ = function(e) {
+  var keyPrefix = "";
+  if (typeof e.toString === "function") {
+    keyPrefix = "" + e;
+  }
+  return keyPrefix + e["stack"];
 };
 goog.debug.enhanceError = function(err, opt_message) {
   var error;
