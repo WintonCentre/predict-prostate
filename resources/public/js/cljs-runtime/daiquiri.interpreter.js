@@ -9,57 +9,57 @@ return React.createElement.apply(null,[type,attrs].concat(children));
 daiquiri.interpreter.component_attributes = (function daiquiri$interpreter$component_attributes(attrs){
 var x = daiquiri.util.camel_case_keys_STAR_(attrs);
 var m = ({});
-var seq__30273_30325 = cljs.core.seq(x);
-var chunk__30274_30326 = null;
-var count__30275_30327 = (0);
-var i__30276_30328 = (0);
+var seq__40857_40911 = cljs.core.seq(x);
+var chunk__40858_40912 = null;
+var count__40859_40913 = (0);
+var i__40860_40914 = (0);
 while(true){
-if((i__30276_30328 < count__30275_30327)){
-var vec__30293_30329 = chunk__30274_30326.cljs$core$IIndexed$_nth$arity$2(null,i__30276_30328);
-var k_30330 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__30293_30329,(0),null);
-var v_30331 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__30293_30329,(1),null);
-goog.object.set(m,cljs.core.name(k_30330),v_30331);
+if((i__40860_40914 < count__40859_40913)){
+var vec__40872_40915 = chunk__40858_40912.cljs$core$IIndexed$_nth$arity$2(null,i__40860_40914);
+var k_40916 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__40872_40915,(0),null);
+var v_40917 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__40872_40915,(1),null);
+goog.object.set(m,cljs.core.name(k_40916),v_40917);
 
 
-var G__30333 = seq__30273_30325;
-var G__30334 = chunk__30274_30326;
-var G__30335 = count__30275_30327;
-var G__30336 = (i__30276_30328 + (1));
-seq__30273_30325 = G__30333;
-chunk__30274_30326 = G__30334;
-count__30275_30327 = G__30335;
-i__30276_30328 = G__30336;
+var G__40918 = seq__40857_40911;
+var G__40919 = chunk__40858_40912;
+var G__40920 = count__40859_40913;
+var G__40921 = (i__40860_40914 + (1));
+seq__40857_40911 = G__40918;
+chunk__40858_40912 = G__40919;
+count__40859_40913 = G__40920;
+i__40860_40914 = G__40921;
 continue;
 } else {
-var temp__5753__auto___30338 = cljs.core.seq(seq__30273_30325);
-if(temp__5753__auto___30338){
-var seq__30273_30340__$1 = temp__5753__auto___30338;
-if(cljs.core.chunked_seq_QMARK_(seq__30273_30340__$1)){
-var c__4638__auto___30341 = cljs.core.chunk_first(seq__30273_30340__$1);
-var G__30342 = cljs.core.chunk_rest(seq__30273_30340__$1);
-var G__30343 = c__4638__auto___30341;
-var G__30344 = cljs.core.count(c__4638__auto___30341);
-var G__30345 = (0);
-seq__30273_30325 = G__30342;
-chunk__30274_30326 = G__30343;
-count__30275_30327 = G__30344;
-i__30276_30328 = G__30345;
+var temp__5753__auto___40922 = cljs.core.seq(seq__40857_40911);
+if(temp__5753__auto___40922){
+var seq__40857_40923__$1 = temp__5753__auto___40922;
+if(cljs.core.chunked_seq_QMARK_(seq__40857_40923__$1)){
+var c__4638__auto___40924 = cljs.core.chunk_first(seq__40857_40923__$1);
+var G__40925 = cljs.core.chunk_rest(seq__40857_40923__$1);
+var G__40926 = c__4638__auto___40924;
+var G__40927 = cljs.core.count(c__4638__auto___40924);
+var G__40928 = (0);
+seq__40857_40911 = G__40925;
+chunk__40858_40912 = G__40926;
+count__40859_40913 = G__40927;
+i__40860_40914 = G__40928;
 continue;
 } else {
-var vec__30296_30346 = cljs.core.first(seq__30273_30340__$1);
-var k_30347 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__30296_30346,(0),null);
-var v_30348 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__30296_30346,(1),null);
-goog.object.set(m,cljs.core.name(k_30347),v_30348);
+var vec__40876_40929 = cljs.core.first(seq__40857_40923__$1);
+var k_40930 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__40876_40929,(0),null);
+var v_40931 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__40876_40929,(1),null);
+goog.object.set(m,cljs.core.name(k_40930),v_40931);
 
 
-var G__30349 = cljs.core.next(seq__30273_30340__$1);
-var G__30350 = null;
-var G__30351 = (0);
-var G__30352 = (0);
-seq__30273_30325 = G__30349;
-chunk__30274_30326 = G__30350;
-count__30275_30327 = G__30351;
-i__30276_30328 = G__30352;
+var G__40932 = cljs.core.next(seq__40857_40923__$1);
+var G__40933 = null;
+var G__40934 = (0);
+var G__40935 = (0);
+seq__40857_40911 = G__40932;
+chunk__40858_40912 = G__40933;
+count__40859_40913 = G__40934;
+i__40860_40914 = G__40935;
 continue;
 }
 } else {
@@ -106,43 +106,43 @@ return ret;
  * Render an element vector as a HTML element.
  */
 daiquiri.interpreter.element = (function daiquiri$interpreter$element(element){
-var vec__30305 = daiquiri.normalize.element(element);
-var type = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__30305,(0),null);
-var attrs = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__30305,(1),null);
-var content = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__30305,(2),null);
+var vec__40885 = daiquiri.normalize.element(element);
+var type = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__40885,(0),null);
+var attrs = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__40885,(1),null);
+var content = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__40885,(2),null);
 return daiquiri.interpreter.create_element(type,daiquiri.interpreter.element_attributes(attrs),daiquiri.interpreter.interpret_seq(content));
 });
-daiquiri.interpreter.fragment = (function daiquiri$interpreter$fragment(p__30308){
-var vec__30309 = p__30308;
-var seq__30310 = cljs.core.seq(vec__30309);
-var first__30311 = cljs.core.first(seq__30310);
-var seq__30310__$1 = cljs.core.next(seq__30310);
-var _ = first__30311;
-var first__30311__$1 = cljs.core.first(seq__30310__$1);
-var seq__30310__$2 = cljs.core.next(seq__30310__$1);
-var attrs = first__30311__$1;
-var children = seq__30310__$2;
-var vec__30312 = ((cljs.core.map_QMARK_(attrs))?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [daiquiri.interpreter.component_attributes(attrs),daiquiri.interpreter.interpret_seq(children)], null):new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [null,daiquiri.interpreter.interpret_seq(cljs.core.into.cljs$core$IFn$_invoke$arity$2(new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [attrs], null),children))], null));
-var attrs__$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__30312,(0),null);
-var children__$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__30312,(1),null);
+daiquiri.interpreter.fragment = (function daiquiri$interpreter$fragment(p__40889){
+var vec__40890 = p__40889;
+var seq__40891 = cljs.core.seq(vec__40890);
+var first__40892 = cljs.core.first(seq__40891);
+var seq__40891__$1 = cljs.core.next(seq__40891);
+var _ = first__40892;
+var first__40892__$1 = cljs.core.first(seq__40891__$1);
+var seq__40891__$2 = cljs.core.next(seq__40891__$1);
+var attrs = first__40892__$1;
+var children = seq__40891__$2;
+var vec__40893 = ((cljs.core.map_QMARK_(attrs))?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [daiquiri.interpreter.component_attributes(attrs),daiquiri.interpreter.interpret_seq(children)], null):new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [null,daiquiri.interpreter.interpret_seq(cljs.core.into.cljs$core$IFn$_invoke$arity$2(new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [attrs], null),children))], null));
+var attrs__$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__40893,(0),null);
+var children__$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__40893,(1),null);
 return daiquiri.interpreter.create_element(React.Fragment,attrs__$1,children__$1);
 });
-daiquiri.interpreter.interop = (function daiquiri$interpreter$interop(p__30315){
-var vec__30316 = p__30315;
-var seq__30317 = cljs.core.seq(vec__30316);
-var first__30318 = cljs.core.first(seq__30317);
-var seq__30317__$1 = cljs.core.next(seq__30317);
-var _ = first__30318;
-var first__30318__$1 = cljs.core.first(seq__30317__$1);
-var seq__30317__$2 = cljs.core.next(seq__30317__$1);
-var component = first__30318__$1;
-var first__30318__$2 = cljs.core.first(seq__30317__$2);
-var seq__30317__$3 = cljs.core.next(seq__30317__$2);
-var attrs = first__30318__$2;
-var children = seq__30317__$3;
-var vec__30319 = ((cljs.core.map_QMARK_(attrs))?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [daiquiri.interpreter.component_attributes(attrs),daiquiri.interpreter.interpret_seq(children)], null):new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [null,daiquiri.interpreter.interpret_seq(cljs.core.into.cljs$core$IFn$_invoke$arity$2(new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [attrs], null),children))], null));
-var attrs__$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__30319,(0),null);
-var children__$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__30319,(1),null);
+daiquiri.interpreter.interop = (function daiquiri$interpreter$interop(p__40897){
+var vec__40899 = p__40897;
+var seq__40900 = cljs.core.seq(vec__40899);
+var first__40901 = cljs.core.first(seq__40900);
+var seq__40900__$1 = cljs.core.next(seq__40900);
+var _ = first__40901;
+var first__40901__$1 = cljs.core.first(seq__40900__$1);
+var seq__40900__$2 = cljs.core.next(seq__40900__$1);
+var component = first__40901__$1;
+var first__40901__$2 = cljs.core.first(seq__40900__$2);
+var seq__40900__$3 = cljs.core.next(seq__40900__$2);
+var attrs = first__40901__$2;
+var children = seq__40900__$3;
+var vec__40902 = ((cljs.core.map_QMARK_(attrs))?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [daiquiri.interpreter.component_attributes(attrs),daiquiri.interpreter.interpret_seq(children)], null):new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [null,daiquiri.interpreter.interpret_seq(cljs.core.into.cljs$core$IFn$_invoke$arity$2(new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [attrs], null),children))], null));
+var attrs__$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__40902,(0),null);
+var children__$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__40902,(1),null);
 return daiquiri.interpreter.create_element(component,attrs__$1,children__$1);
 });
 /**

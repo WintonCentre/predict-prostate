@@ -5,6 +5,51 @@
 ;
 ; Only two-character language codes are currently supported (3 with the keyword colon)
 ;
+ #_[:upsert :tc {:en                   "英語"
+               :de                   "德語"
+               :es                   "西班牙文"
+               :fr                   "法文"
+               :nl                   "荷蘭語"
+               :pt                   "葡萄牙語"
+               :sc                   "簡體字"
+               :tc                   "繁體字"
+               :home/start-button    " 開始預測" 
+               }]
+;
+#_[:upsert :es {:en                   "Inglés"
+               :de                   "Alemán"
+               :es                   "Español"
+               :fr                   "Francesa"
+               :nl                   "Holandesa"
+               :pt                   "Portuguesa"
+               :sc                   "Chino simplificado"
+               :tc                   "Chino tradicional"
+               }]
+;
+#_[:upsert :nl  {:en                   "Engels"
+                :de                   "Duitse"
+                :es                   "Spaanse"
+                :fr                   "Franse"
+                :nl                   "Nederlandse"
+                :pt                   "Portugees"
+                :sc                   "Vereenvoudigd Chinees"
+                :tc                   "Traditioneel Chinees"
+                }]
+;
+#_[:upsert :pt  {:en                   "Inglês"
+                :de                   "Alemão"
+                :es                   "Espanhol"
+                :fr                   "Francês"
+                :nl                   "Holandês"
+                :pt                   "Português"
+                :sc                   "Chinês simplificado"
+                :tc                   "Chinês tradicional"
+                }]
+;
+;
+;
+;
+;
 [[:upsert :en {:en                   "English"
                :de                   "German"
                :es                   "Spanish"
@@ -13,16 +58,6 @@
                :pt                   "Portuguese"
                :sc                   "Chinese (simplified)"
                :tc                   "Chinese (traditional)"   
-               }]
-
- [:upsert :es {:en                   "Inglés"
-               :de                   "Alemán"
-               :es                   "Español"
-               :fr                   "Francesa"
-               :nl                   "Holandesa"
-               :pt                   "Portuguesa"
-               :sc                   "Chino simplificado"
-               :tc                   "Chino tradicional"
                }]
 
  [:upsert :fr {:en                   "Anglais"
@@ -35,26 +70,6 @@
                :tc                   "Chinois traditionnel"
                }]
 
- [:upsert :nl  {:en                   "Engels"
-                :de                   "Duitse"
-                :es                   "Spaanse"
-                :fr                   "Franse"
-                :nl                   "Nederlandse"
-                :pt                   "Portugees"
-                :sc                   "Vereenvoudigd Chinees"
-                :tc                   "Traditioneel Chinees"
-                }]
-                
- [:upsert :pt  {:en                   "Inglês"
-                :de                   "Alemão"
-                :es                   "Espanhol"
-                :fr                   "Francês"
-                :nl                   "Holandês"
-                :pt                   "Português"
-                :sc                   "Chinês simplificado"
-                :tc                   "Chinês tradicional"
-                }]
-
  [:upsert :sc {:en                   "英语"
                :de                   "德语"
                :es                   "西班牙文"
@@ -64,17 +79,6 @@
                :sc                   "简体字"
                :tc                   "繁体字"
                :home/start-button    " 开始预测" 
-               }]
-
- [:upsert :tc {:en                   "英語"
-               :de                   "德語"
-               :es                   "西班牙文"
-               :fr                   "法文"
-               :nl                   "荷蘭語"
-               :pt                   "葡萄牙語"
-               :sc                   "簡體字"
-               :tc                   "繁體字"
-               :home/start-button    " 開始預測" 
                }]
 
 [:upsert :de   {:en                   "Englisch"

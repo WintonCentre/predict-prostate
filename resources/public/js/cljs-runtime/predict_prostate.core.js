@@ -4,13 +4,46 @@ if((typeof predict_prostate !== 'undefined') && (typeof predict_prostate.core !=
 } else {
 predict_prostate.core.once_only_guard = predict_prostate.state.mutations.mutator();
 }
+predict_prostate.core.ok_chan = cljs.core.async.chan.cljs$core$IFn$_invoke$arity$1((0));
+predict_prostate.core.err_chan = cljs.core.async.chan.cljs$core$IFn$_invoke$arity$1((0));
+predict_prostate.core.static_chan = cljs.core.async.chan.cljs$core$IFn$_invoke$arity$1((0));
+predict_prostate.core.init = (function predict_prostate$core$init(){
+try{return navigator.serviceWorker.register("/sw_cache_update.js").then((function (){
+return console.log("service worker registered");
+}));
+}catch (e48618){if((e48618 instanceof Object)){
+var err = e48618;
+return console.error("Failed to register service worker",err);
+} else {
+throw e48618;
+
+}
+}});
+goog.exportSymbol('predict_prostate.core.init', predict_prostate.core.init);
 predict_prostate.core.main = (function predict_prostate$core$main(){
-return rum.core.mount((predict_prostate.pages.root.root.cljs$core$IFn$_invoke$arity$0 ? predict_prostate.pages.root.root.cljs$core$IFn$_invoke$arity$0() : predict_prostate.pages.root.root.call(null)),goog.dom.getElement("app"));
+predict_prostate.core.init();
+
+if(translations.config.predict_edit){
+rum.core.mount(predict_prostate.pages.root.edit_root(),goog.dom.getElement("app"));
+
+cljs.core.println.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2(["edit: loading translations from: ",[translations.tranny_api.base_url,"upserts/all"].join('')], 0));
+
+return translations.tongue_base.load_all_translations(predict_prostate.core.static_chan,predict_prostate.core.ok_chan,predict_prostate.core.err_chan,[translations.tranny_api.base_url,"upserts/all"].join(''),predict_prostate.state.run_time.t_state_cursor);
+} else {
+rum.core.mount(predict_prostate.pages.root.root(),goog.dom.getElement("app"));
+
+cljs.core.println.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2(["prod: publish t-state-change ",translations.config.live_dictionary_url], 0));
+
+return predict_prostate.state.run_time.t_state_change.pubsub$feeds$TopicFeed$publish$arity$2(null,translations.config.live_dictionary_url);
+}
+});
+predict_prostate.core.edit_main = (function predict_prostate$core$edit_main(){
+return rum.core.mount(predict_prostate.pages.root.edit_root(),goog.dom.getElement("app"));
 });
 predict_prostate.core.loaded_id = setInterval((function (){
-if(cljs.core.truth_((function (){var G__35071 = document.readyState;
-var fexpr__35070 = new cljs.core.PersistentHashSet(null, new cljs.core.PersistentArrayMap(null, 2, ["loaded",null,"complete",null], null), null);
-return (fexpr__35070.cljs$core$IFn$_invoke$arity$1 ? fexpr__35070.cljs$core$IFn$_invoke$arity$1(G__35071) : fexpr__35070.call(null,G__35071));
+if(cljs.core.truth_((function (){var G__48620 = document.readyState;
+var fexpr__48619 = new cljs.core.PersistentHashSet(null, new cljs.core.PersistentArrayMap(null, 2, ["loaded",null,"complete",null], null), null);
+return (fexpr__48619.cljs$core$IFn$_invoke$arity$1 ? fexpr__48619.cljs$core$IFn$_invoke$arity$1(G__48620) : fexpr__48619.call(null,G__48620));
 })())){
 clearInterval(predict_prostate.core.loaded_id);
 

@@ -52,12 +52,12 @@ var this__4461__auto____$1 = this;
 return this__4461__auto____$1.cljs$core$ILookup$_lookup$arity$3(null,k__4462__auto__,null);
 }));
 
-(predict_prostate.state.config.Input_group.prototype.cljs$core$ILookup$_lookup$arity$3 = (function (this__4463__auto__,k33814,else__4464__auto__){
+(predict_prostate.state.config.Input_group.prototype.cljs$core$ILookup$_lookup$arity$3 = (function (this__4463__auto__,k43642,else__4464__auto__){
 var self__ = this;
 var this__4463__auto____$1 = this;
-var G__33818 = k33814;
-var G__33818__$1 = (((G__33818 instanceof cljs.core.Keyword))?G__33818.fqn:null);
-switch (G__33818__$1) {
+var G__43650 = k43642;
+var G__43650__$1 = (((G__43650 instanceof cljs.core.Keyword))?G__43650.fqn:null);
+switch (G__43650__$1) {
 case "key":
 return self__.key;
 
@@ -99,7 +99,7 @@ return self__.default$;
 
 break;
 default:
-return cljs.core.get.cljs$core$IFn$_invoke$arity$3(self__.__extmap,k33814,else__4464__auto__);
+return cljs.core.get.cljs$core$IFn$_invoke$arity$3(self__.__extmap,k43642,else__4464__auto__);
 
 }
 }));
@@ -107,10 +107,10 @@ return cljs.core.get.cljs$core$IFn$_invoke$arity$3(self__.__extmap,k33814,else__
 (predict_prostate.state.config.Input_group.prototype.cljs$core$IKVReduce$_kv_reduce$arity$3 = (function (this__4481__auto__,f__4482__auto__,init__4483__auto__){
 var self__ = this;
 var this__4481__auto____$1 = this;
-return cljs.core.reduce.cljs$core$IFn$_invoke$arity$3((function (ret__4484__auto__,p__33819){
-var vec__33820 = p__33819;
-var k__4485__auto__ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__33820,(0),null);
-var v__4486__auto__ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__33820,(1),null);
+return cljs.core.reduce.cljs$core$IFn$_invoke$arity$3((function (ret__4484__auto__,p__43651){
+var vec__43652 = p__43651;
+var k__4485__auto__ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__43652,(0),null);
+var v__4486__auto__ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__43652,(1),null);
 return (f__4482__auto__.cljs$core$IFn$_invoke$arity$3 ? f__4482__auto__.cljs$core$IFn$_invoke$arity$3(ret__4484__auto__,k__4485__auto__,v__4486__auto__) : f__4482__auto__.call(null,ret__4484__auto__,k__4485__auto__,v__4486__auto__));
 }),init__4483__auto__,this__4481__auto____$1);
 }));
@@ -124,10 +124,10 @@ return cljs.core.pr_sequential_writer(writer__4477__auto__,cljs.core.pr_writer,"
 return cljs.core.pr_sequential_writer(writer__4477__auto__,pr_pair__4479__auto__,"#predict-prostate.state.config.Input-group{",", ","}",opts__4478__auto__,cljs.core.concat.cljs$core$IFn$_invoke$arity$2(new cljs.core.PersistentVector(null, 10, 5, cljs.core.PersistentVector.EMPTY_NODE, [(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"key","key",-1516042587),self__.key],null)),(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"label","label",1718410804),self__.label],null)),(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"widget-type","widget-type",1836256899),self__.widget_type],null)),(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"widget-params","widget-params",1462627490),self__.widget_params],null)),(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"read-only","read-only",-191706886),self__.read_only],null)),(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"write-only","write-only",292146609),self__.write_only],null)),(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"unknowable","unknowable",1635948924),self__.unknowable],null)),(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"panel","panel",-558637456),self__.panel],null)),(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"models","models",-1985455662),self__.models],null)),(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"default","default",-1987822328),self__.default$],null))], null),self__.__extmap));
 }));
 
-(predict_prostate.state.config.Input_group.prototype.cljs$core$IIterable$_iterator$arity$1 = (function (G__33813){
+(predict_prostate.state.config.Input_group.prototype.cljs$core$IIterable$_iterator$arity$1 = (function (G__43641){
 var self__ = this;
-var G__33813__$1 = this;
-return (new cljs.core.RecordIter((0),G__33813__$1,10,new cljs.core.PersistentVector(null, 10, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"key","key",-1516042587),new cljs.core.Keyword(null,"label","label",1718410804),new cljs.core.Keyword(null,"widget-type","widget-type",1836256899),new cljs.core.Keyword(null,"widget-params","widget-params",1462627490),new cljs.core.Keyword(null,"read-only","read-only",-191706886),new cljs.core.Keyword(null,"write-only","write-only",292146609),new cljs.core.Keyword(null,"unknowable","unknowable",1635948924),new cljs.core.Keyword(null,"panel","panel",-558637456),new cljs.core.Keyword(null,"models","models",-1985455662),new cljs.core.Keyword(null,"default","default",-1987822328)], null),(cljs.core.truth_(self__.__extmap)?cljs.core._iterator(self__.__extmap):cljs.core.nil_iter())));
+var G__43641__$1 = this;
+return (new cljs.core.RecordIter((0),G__43641__$1,10,new cljs.core.PersistentVector(null, 10, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"key","key",-1516042587),new cljs.core.Keyword(null,"label","label",1718410804),new cljs.core.Keyword(null,"widget-type","widget-type",1836256899),new cljs.core.Keyword(null,"widget-params","widget-params",1462627490),new cljs.core.Keyword(null,"read-only","read-only",-191706886),new cljs.core.Keyword(null,"write-only","write-only",292146609),new cljs.core.Keyword(null,"unknowable","unknowable",1635948924),new cljs.core.Keyword(null,"panel","panel",-558637456),new cljs.core.Keyword(null,"models","models",-1985455662),new cljs.core.Keyword(null,"default","default",-1987822328)], null),(cljs.core.truth_(self__.__extmap)?cljs.core._iterator(self__.__extmap):cljs.core.nil_iter())));
 }));
 
 (predict_prostate.state.config.Input_group.prototype.cljs$core$IMeta$_meta$arity$1 = (function (this__4459__auto__){
@@ -164,10 +164,10 @@ return h__4319__auto____$1;
 }
 }));
 
-(predict_prostate.state.config.Input_group.prototype.cljs$core$IEquiv$_equiv$arity$2 = (function (this33815,other33816){
+(predict_prostate.state.config.Input_group.prototype.cljs$core$IEquiv$_equiv$arity$2 = (function (this43643,other43644){
 var self__ = this;
-var this33815__$1 = this;
-return (((!((other33816 == null)))) && ((((this33815__$1.constructor === other33816.constructor)) && (((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this33815__$1.key,other33816.key)) && (((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this33815__$1.label,other33816.label)) && (((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this33815__$1.widget_type,other33816.widget_type)) && (((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this33815__$1.widget_params,other33816.widget_params)) && (((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this33815__$1.read_only,other33816.read_only)) && (((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this33815__$1.write_only,other33816.write_only)) && (((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this33815__$1.unknowable,other33816.unknowable)) && (((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this33815__$1.panel,other33816.panel)) && (((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this33815__$1.models,other33816.models)) && (((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this33815__$1.default,other33816.default)) && (cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this33815__$1.__extmap,other33816.__extmap)))))))))))))))))))))))));
+var this43643__$1 = this;
+return (((!((other43644 == null)))) && ((((this43643__$1.constructor === other43644.constructor)) && (((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this43643__$1.key,other43644.key)) && (((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this43643__$1.label,other43644.label)) && (((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this43643__$1.widget_type,other43644.widget_type)) && (((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this43643__$1.widget_params,other43644.widget_params)) && (((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this43643__$1.read_only,other43644.read_only)) && (((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this43643__$1.write_only,other43644.write_only)) && (((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this43643__$1.unknowable,other43644.unknowable)) && (((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this43643__$1.panel,other43644.panel)) && (((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this43643__$1.models,other43644.models)) && (((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this43643__$1.default,other43644.default)) && (cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this43643__$1.__extmap,other43644.__extmap)))))))))))))))))))))))));
 }));
 
 (predict_prostate.state.config.Input_group.prototype.cljs$core$IMap$_dissoc$arity$2 = (function (this__4471__auto__,k__4472__auto__){
@@ -180,12 +180,12 @@ return (new predict_prostate.state.config.Input_group(self__.key,self__.label,se
 }
 }));
 
-(predict_prostate.state.config.Input_group.prototype.cljs$core$IAssociative$_contains_key_QMARK_$arity$2 = (function (this__4468__auto__,k33814){
+(predict_prostate.state.config.Input_group.prototype.cljs$core$IAssociative$_contains_key_QMARK_$arity$2 = (function (this__4468__auto__,k43642){
 var self__ = this;
 var this__4468__auto____$1 = this;
-var G__33827 = k33814;
-var G__33827__$1 = (((G__33827 instanceof cljs.core.Keyword))?G__33827.fqn:null);
-switch (G__33827__$1) {
+var G__43666 = k43642;
+var G__43666__$1 = (((G__43666 instanceof cljs.core.Keyword))?G__43666.fqn:null);
+switch (G__43666__$1) {
 case "key":
 case "label":
 case "widget-type":
@@ -200,47 +200,47 @@ return true;
 
 break;
 default:
-return cljs.core.contains_QMARK_(self__.__extmap,k33814);
+return cljs.core.contains_QMARK_(self__.__extmap,k43642);
 
 }
 }));
 
-(predict_prostate.state.config.Input_group.prototype.cljs$core$IAssociative$_assoc$arity$3 = (function (this__4469__auto__,k__4470__auto__,G__33813){
+(predict_prostate.state.config.Input_group.prototype.cljs$core$IAssociative$_assoc$arity$3 = (function (this__4469__auto__,k__4470__auto__,G__43641){
 var self__ = this;
 var this__4469__auto____$1 = this;
-var pred__33828 = cljs.core.keyword_identical_QMARK_;
-var expr__33829 = k__4470__auto__;
-if(cljs.core.truth_((pred__33828.cljs$core$IFn$_invoke$arity$2 ? pred__33828.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"key","key",-1516042587),expr__33829) : pred__33828.call(null,new cljs.core.Keyword(null,"key","key",-1516042587),expr__33829)))){
-return (new predict_prostate.state.config.Input_group(G__33813,self__.label,self__.widget_type,self__.widget_params,self__.read_only,self__.write_only,self__.unknowable,self__.panel,self__.models,self__.default$,self__.__meta,self__.__extmap,null));
+var pred__43667 = cljs.core.keyword_identical_QMARK_;
+var expr__43668 = k__4470__auto__;
+if(cljs.core.truth_((pred__43667.cljs$core$IFn$_invoke$arity$2 ? pred__43667.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"key","key",-1516042587),expr__43668) : pred__43667.call(null,new cljs.core.Keyword(null,"key","key",-1516042587),expr__43668)))){
+return (new predict_prostate.state.config.Input_group(G__43641,self__.label,self__.widget_type,self__.widget_params,self__.read_only,self__.write_only,self__.unknowable,self__.panel,self__.models,self__.default$,self__.__meta,self__.__extmap,null));
 } else {
-if(cljs.core.truth_((pred__33828.cljs$core$IFn$_invoke$arity$2 ? pred__33828.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"label","label",1718410804),expr__33829) : pred__33828.call(null,new cljs.core.Keyword(null,"label","label",1718410804),expr__33829)))){
-return (new predict_prostate.state.config.Input_group(self__.key,G__33813,self__.widget_type,self__.widget_params,self__.read_only,self__.write_only,self__.unknowable,self__.panel,self__.models,self__.default$,self__.__meta,self__.__extmap,null));
+if(cljs.core.truth_((pred__43667.cljs$core$IFn$_invoke$arity$2 ? pred__43667.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"label","label",1718410804),expr__43668) : pred__43667.call(null,new cljs.core.Keyword(null,"label","label",1718410804),expr__43668)))){
+return (new predict_prostate.state.config.Input_group(self__.key,G__43641,self__.widget_type,self__.widget_params,self__.read_only,self__.write_only,self__.unknowable,self__.panel,self__.models,self__.default$,self__.__meta,self__.__extmap,null));
 } else {
-if(cljs.core.truth_((pred__33828.cljs$core$IFn$_invoke$arity$2 ? pred__33828.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"widget-type","widget-type",1836256899),expr__33829) : pred__33828.call(null,new cljs.core.Keyword(null,"widget-type","widget-type",1836256899),expr__33829)))){
-return (new predict_prostate.state.config.Input_group(self__.key,self__.label,G__33813,self__.widget_params,self__.read_only,self__.write_only,self__.unknowable,self__.panel,self__.models,self__.default$,self__.__meta,self__.__extmap,null));
+if(cljs.core.truth_((pred__43667.cljs$core$IFn$_invoke$arity$2 ? pred__43667.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"widget-type","widget-type",1836256899),expr__43668) : pred__43667.call(null,new cljs.core.Keyword(null,"widget-type","widget-type",1836256899),expr__43668)))){
+return (new predict_prostate.state.config.Input_group(self__.key,self__.label,G__43641,self__.widget_params,self__.read_only,self__.write_only,self__.unknowable,self__.panel,self__.models,self__.default$,self__.__meta,self__.__extmap,null));
 } else {
-if(cljs.core.truth_((pred__33828.cljs$core$IFn$_invoke$arity$2 ? pred__33828.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"widget-params","widget-params",1462627490),expr__33829) : pred__33828.call(null,new cljs.core.Keyword(null,"widget-params","widget-params",1462627490),expr__33829)))){
-return (new predict_prostate.state.config.Input_group(self__.key,self__.label,self__.widget_type,G__33813,self__.read_only,self__.write_only,self__.unknowable,self__.panel,self__.models,self__.default$,self__.__meta,self__.__extmap,null));
+if(cljs.core.truth_((pred__43667.cljs$core$IFn$_invoke$arity$2 ? pred__43667.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"widget-params","widget-params",1462627490),expr__43668) : pred__43667.call(null,new cljs.core.Keyword(null,"widget-params","widget-params",1462627490),expr__43668)))){
+return (new predict_prostate.state.config.Input_group(self__.key,self__.label,self__.widget_type,G__43641,self__.read_only,self__.write_only,self__.unknowable,self__.panel,self__.models,self__.default$,self__.__meta,self__.__extmap,null));
 } else {
-if(cljs.core.truth_((pred__33828.cljs$core$IFn$_invoke$arity$2 ? pred__33828.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"read-only","read-only",-191706886),expr__33829) : pred__33828.call(null,new cljs.core.Keyword(null,"read-only","read-only",-191706886),expr__33829)))){
-return (new predict_prostate.state.config.Input_group(self__.key,self__.label,self__.widget_type,self__.widget_params,G__33813,self__.write_only,self__.unknowable,self__.panel,self__.models,self__.default$,self__.__meta,self__.__extmap,null));
+if(cljs.core.truth_((pred__43667.cljs$core$IFn$_invoke$arity$2 ? pred__43667.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"read-only","read-only",-191706886),expr__43668) : pred__43667.call(null,new cljs.core.Keyword(null,"read-only","read-only",-191706886),expr__43668)))){
+return (new predict_prostate.state.config.Input_group(self__.key,self__.label,self__.widget_type,self__.widget_params,G__43641,self__.write_only,self__.unknowable,self__.panel,self__.models,self__.default$,self__.__meta,self__.__extmap,null));
 } else {
-if(cljs.core.truth_((pred__33828.cljs$core$IFn$_invoke$arity$2 ? pred__33828.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"write-only","write-only",292146609),expr__33829) : pred__33828.call(null,new cljs.core.Keyword(null,"write-only","write-only",292146609),expr__33829)))){
-return (new predict_prostate.state.config.Input_group(self__.key,self__.label,self__.widget_type,self__.widget_params,self__.read_only,G__33813,self__.unknowable,self__.panel,self__.models,self__.default$,self__.__meta,self__.__extmap,null));
+if(cljs.core.truth_((pred__43667.cljs$core$IFn$_invoke$arity$2 ? pred__43667.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"write-only","write-only",292146609),expr__43668) : pred__43667.call(null,new cljs.core.Keyword(null,"write-only","write-only",292146609),expr__43668)))){
+return (new predict_prostate.state.config.Input_group(self__.key,self__.label,self__.widget_type,self__.widget_params,self__.read_only,G__43641,self__.unknowable,self__.panel,self__.models,self__.default$,self__.__meta,self__.__extmap,null));
 } else {
-if(cljs.core.truth_((pred__33828.cljs$core$IFn$_invoke$arity$2 ? pred__33828.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"unknowable","unknowable",1635948924),expr__33829) : pred__33828.call(null,new cljs.core.Keyword(null,"unknowable","unknowable",1635948924),expr__33829)))){
-return (new predict_prostate.state.config.Input_group(self__.key,self__.label,self__.widget_type,self__.widget_params,self__.read_only,self__.write_only,G__33813,self__.panel,self__.models,self__.default$,self__.__meta,self__.__extmap,null));
+if(cljs.core.truth_((pred__43667.cljs$core$IFn$_invoke$arity$2 ? pred__43667.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"unknowable","unknowable",1635948924),expr__43668) : pred__43667.call(null,new cljs.core.Keyword(null,"unknowable","unknowable",1635948924),expr__43668)))){
+return (new predict_prostate.state.config.Input_group(self__.key,self__.label,self__.widget_type,self__.widget_params,self__.read_only,self__.write_only,G__43641,self__.panel,self__.models,self__.default$,self__.__meta,self__.__extmap,null));
 } else {
-if(cljs.core.truth_((pred__33828.cljs$core$IFn$_invoke$arity$2 ? pred__33828.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"panel","panel",-558637456),expr__33829) : pred__33828.call(null,new cljs.core.Keyword(null,"panel","panel",-558637456),expr__33829)))){
-return (new predict_prostate.state.config.Input_group(self__.key,self__.label,self__.widget_type,self__.widget_params,self__.read_only,self__.write_only,self__.unknowable,G__33813,self__.models,self__.default$,self__.__meta,self__.__extmap,null));
+if(cljs.core.truth_((pred__43667.cljs$core$IFn$_invoke$arity$2 ? pred__43667.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"panel","panel",-558637456),expr__43668) : pred__43667.call(null,new cljs.core.Keyword(null,"panel","panel",-558637456),expr__43668)))){
+return (new predict_prostate.state.config.Input_group(self__.key,self__.label,self__.widget_type,self__.widget_params,self__.read_only,self__.write_only,self__.unknowable,G__43641,self__.models,self__.default$,self__.__meta,self__.__extmap,null));
 } else {
-if(cljs.core.truth_((pred__33828.cljs$core$IFn$_invoke$arity$2 ? pred__33828.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"models","models",-1985455662),expr__33829) : pred__33828.call(null,new cljs.core.Keyword(null,"models","models",-1985455662),expr__33829)))){
-return (new predict_prostate.state.config.Input_group(self__.key,self__.label,self__.widget_type,self__.widget_params,self__.read_only,self__.write_only,self__.unknowable,self__.panel,G__33813,self__.default$,self__.__meta,self__.__extmap,null));
+if(cljs.core.truth_((pred__43667.cljs$core$IFn$_invoke$arity$2 ? pred__43667.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"models","models",-1985455662),expr__43668) : pred__43667.call(null,new cljs.core.Keyword(null,"models","models",-1985455662),expr__43668)))){
+return (new predict_prostate.state.config.Input_group(self__.key,self__.label,self__.widget_type,self__.widget_params,self__.read_only,self__.write_only,self__.unknowable,self__.panel,G__43641,self__.default$,self__.__meta,self__.__extmap,null));
 } else {
-if(cljs.core.truth_((pred__33828.cljs$core$IFn$_invoke$arity$2 ? pred__33828.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"default","default",-1987822328),expr__33829) : pred__33828.call(null,new cljs.core.Keyword(null,"default","default",-1987822328),expr__33829)))){
-return (new predict_prostate.state.config.Input_group(self__.key,self__.label,self__.widget_type,self__.widget_params,self__.read_only,self__.write_only,self__.unknowable,self__.panel,self__.models,G__33813,self__.__meta,self__.__extmap,null));
+if(cljs.core.truth_((pred__43667.cljs$core$IFn$_invoke$arity$2 ? pred__43667.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"default","default",-1987822328),expr__43668) : pred__43667.call(null,new cljs.core.Keyword(null,"default","default",-1987822328),expr__43668)))){
+return (new predict_prostate.state.config.Input_group(self__.key,self__.label,self__.widget_type,self__.widget_params,self__.read_only,self__.write_only,self__.unknowable,self__.panel,self__.models,G__43641,self__.__meta,self__.__extmap,null));
 } else {
-return (new predict_prostate.state.config.Input_group(self__.key,self__.label,self__.widget_type,self__.widget_params,self__.read_only,self__.write_only,self__.unknowable,self__.panel,self__.models,self__.default$,self__.__meta,cljs.core.assoc.cljs$core$IFn$_invoke$arity$3(self__.__extmap,k__4470__auto__,G__33813),null));
+return (new predict_prostate.state.config.Input_group(self__.key,self__.label,self__.widget_type,self__.widget_params,self__.read_only,self__.write_only,self__.unknowable,self__.panel,self__.models,self__.default$,self__.__meta,cljs.core.assoc.cljs$core$IFn$_invoke$arity$3(self__.__extmap,k__4470__auto__,G__43641),null));
 }
 }
 }
@@ -259,10 +259,10 @@ var this__4474__auto____$1 = this;
 return cljs.core.seq(cljs.core.concat.cljs$core$IFn$_invoke$arity$2(new cljs.core.PersistentVector(null, 10, 5, cljs.core.PersistentVector.EMPTY_NODE, [(new cljs.core.MapEntry(new cljs.core.Keyword(null,"key","key",-1516042587),self__.key,null)),(new cljs.core.MapEntry(new cljs.core.Keyword(null,"label","label",1718410804),self__.label,null)),(new cljs.core.MapEntry(new cljs.core.Keyword(null,"widget-type","widget-type",1836256899),self__.widget_type,null)),(new cljs.core.MapEntry(new cljs.core.Keyword(null,"widget-params","widget-params",1462627490),self__.widget_params,null)),(new cljs.core.MapEntry(new cljs.core.Keyword(null,"read-only","read-only",-191706886),self__.read_only,null)),(new cljs.core.MapEntry(new cljs.core.Keyword(null,"write-only","write-only",292146609),self__.write_only,null)),(new cljs.core.MapEntry(new cljs.core.Keyword(null,"unknowable","unknowable",1635948924),self__.unknowable,null)),(new cljs.core.MapEntry(new cljs.core.Keyword(null,"panel","panel",-558637456),self__.panel,null)),(new cljs.core.MapEntry(new cljs.core.Keyword(null,"models","models",-1985455662),self__.models,null)),(new cljs.core.MapEntry(new cljs.core.Keyword(null,"default","default",-1987822328),self__.default$,null))], null),self__.__extmap));
 }));
 
-(predict_prostate.state.config.Input_group.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (this__4460__auto__,G__33813){
+(predict_prostate.state.config.Input_group.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (this__4460__auto__,G__43641){
 var self__ = this;
 var this__4460__auto____$1 = this;
-return (new predict_prostate.state.config.Input_group(self__.key,self__.label,self__.widget_type,self__.widget_params,self__.read_only,self__.write_only,self__.unknowable,self__.panel,self__.models,self__.default$,G__33813,self__.__extmap,self__.__hash));
+return (new predict_prostate.state.config.Input_group(self__.key,self__.label,self__.widget_type,self__.widget_params,self__.read_only,self__.write_only,self__.unknowable,self__.panel,self__.models,self__.default$,G__43641,self__.__extmap,self__.__hash));
 }));
 
 (predict_prostate.state.config.Input_group.prototype.cljs$core$ICollection$_conj$arity$2 = (function (this__4466__auto__,entry__4467__auto__){
@@ -299,15 +299,15 @@ return (new predict_prostate.state.config.Input_group(key,label,widget_type,widg
 /**
  * Factory function for predict-prostate.state.config/Input-group, taking a map of keywords to field values.
  */
-predict_prostate.state.config.map__GT_Input_group = (function predict_prostate$state$config$map__GT_Input_group(G__33817){
-var extmap__4501__auto__ = (function (){var G__33841 = cljs.core.dissoc.cljs$core$IFn$_invoke$arity$variadic(G__33817,new cljs.core.Keyword(null,"key","key",-1516042587),cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.Keyword(null,"label","label",1718410804),new cljs.core.Keyword(null,"widget-type","widget-type",1836256899),new cljs.core.Keyword(null,"widget-params","widget-params",1462627490),new cljs.core.Keyword(null,"read-only","read-only",-191706886),new cljs.core.Keyword(null,"write-only","write-only",292146609),new cljs.core.Keyword(null,"unknowable","unknowable",1635948924),new cljs.core.Keyword(null,"panel","panel",-558637456),new cljs.core.Keyword(null,"models","models",-1985455662),new cljs.core.Keyword(null,"default","default",-1987822328)], 0));
-if(cljs.core.record_QMARK_(G__33817)){
-return cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentArrayMap.EMPTY,G__33841);
+predict_prostate.state.config.map__GT_Input_group = (function predict_prostate$state$config$map__GT_Input_group(G__43646){
+var extmap__4501__auto__ = (function (){var G__43679 = cljs.core.dissoc.cljs$core$IFn$_invoke$arity$variadic(G__43646,new cljs.core.Keyword(null,"key","key",-1516042587),cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.Keyword(null,"label","label",1718410804),new cljs.core.Keyword(null,"widget-type","widget-type",1836256899),new cljs.core.Keyword(null,"widget-params","widget-params",1462627490),new cljs.core.Keyword(null,"read-only","read-only",-191706886),new cljs.core.Keyword(null,"write-only","write-only",292146609),new cljs.core.Keyword(null,"unknowable","unknowable",1635948924),new cljs.core.Keyword(null,"panel","panel",-558637456),new cljs.core.Keyword(null,"models","models",-1985455662),new cljs.core.Keyword(null,"default","default",-1987822328)], 0));
+if(cljs.core.record_QMARK_(G__43646)){
+return cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentArrayMap.EMPTY,G__43679);
 } else {
-return G__33841;
+return G__43679;
 }
 })();
-return (new predict_prostate.state.config.Input_group(new cljs.core.Keyword(null,"key","key",-1516042587).cljs$core$IFn$_invoke$arity$1(G__33817),new cljs.core.Keyword(null,"label","label",1718410804).cljs$core$IFn$_invoke$arity$1(G__33817),new cljs.core.Keyword(null,"widget-type","widget-type",1836256899).cljs$core$IFn$_invoke$arity$1(G__33817),new cljs.core.Keyword(null,"widget-params","widget-params",1462627490).cljs$core$IFn$_invoke$arity$1(G__33817),new cljs.core.Keyword(null,"read-only","read-only",-191706886).cljs$core$IFn$_invoke$arity$1(G__33817),new cljs.core.Keyword(null,"write-only","write-only",292146609).cljs$core$IFn$_invoke$arity$1(G__33817),new cljs.core.Keyword(null,"unknowable","unknowable",1635948924).cljs$core$IFn$_invoke$arity$1(G__33817),new cljs.core.Keyword(null,"panel","panel",-558637456).cljs$core$IFn$_invoke$arity$1(G__33817),new cljs.core.Keyword(null,"models","models",-1985455662).cljs$core$IFn$_invoke$arity$1(G__33817),new cljs.core.Keyword(null,"default","default",-1987822328).cljs$core$IFn$_invoke$arity$1(G__33817),null,cljs.core.not_empty(extmap__4501__auto__),null));
+return (new predict_prostate.state.config.Input_group(new cljs.core.Keyword(null,"key","key",-1516042587).cljs$core$IFn$_invoke$arity$1(G__43646),new cljs.core.Keyword(null,"label","label",1718410804).cljs$core$IFn$_invoke$arity$1(G__43646),new cljs.core.Keyword(null,"widget-type","widget-type",1836256899).cljs$core$IFn$_invoke$arity$1(G__43646),new cljs.core.Keyword(null,"widget-params","widget-params",1462627490).cljs$core$IFn$_invoke$arity$1(G__43646),new cljs.core.Keyword(null,"read-only","read-only",-191706886).cljs$core$IFn$_invoke$arity$1(G__43646),new cljs.core.Keyword(null,"write-only","write-only",292146609).cljs$core$IFn$_invoke$arity$1(G__43646),new cljs.core.Keyword(null,"unknowable","unknowable",1635948924).cljs$core$IFn$_invoke$arity$1(G__43646),new cljs.core.Keyword(null,"panel","panel",-558637456).cljs$core$IFn$_invoke$arity$1(G__43646),new cljs.core.Keyword(null,"models","models",-1985455662).cljs$core$IFn$_invoke$arity$1(G__43646),new cljs.core.Keyword(null,"default","default",-1987822328).cljs$core$IFn$_invoke$arity$1(G__43646),null,cljs.core.not_empty(extmap__4501__auto__),null));
 });
 
 /**

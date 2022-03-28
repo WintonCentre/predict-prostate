@@ -6,8 +6,8 @@ return cljs.core.keyword.cljs$core$IFn$_invoke$arity$1([cljs.core.str.cljs$core$
  * Wrap text in a ttt call for a particular widget context
  */
 predict_prostate.components.util.widget_ttt = (function predict_prostate$components$util$widget_ttt(ttt,widget_id,widget_key,text){
-var G__46788 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [predict_prostate.components.util.ttt_key(widget_id,widget_key),text], null);
-return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__46788) : ttt.call(null,G__46788));
+var G__45970 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [predict_prostate.components.util.ttt_key(widget_id,widget_key),text], null);
+return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__45970) : ttt.call(null,G__45970));
 });
 
 //# sourceMappingURL=predict_prostate.components.util.js.map

@@ -43,21 +43,21 @@ return cljs.core.apply.cljs$core$IFn$_invoke$arity$2(predict_prostate.results.ut
 predict_prostate.results.util.min_label_percent = (3);
 predict_prostate.results.util.treatment_fills = (function predict_prostate$results$util$treatment_fills(index){
 
-var G__46176 = ((cljs.core.count(predict_prostate.results.util.fills) - (1)) - index);
-return (predict_prostate.results.util.fill.cljs$core$IFn$_invoke$arity$1 ? predict_prostate.results.util.fill.cljs$core$IFn$_invoke$arity$1(G__46176) : predict_prostate.results.util.fill.call(null,G__46176));
+var G__45294 = ((cljs.core.count(predict_prostate.results.util.fills) - (1)) - index);
+return (predict_prostate.results.util.fill.cljs$core$IFn$_invoke$arity$1 ? predict_prostate.results.util.fill.cljs$core$IFn$_invoke$arity$1(G__45294) : predict_prostate.results.util.fill.call(null,G__45294));
 });
 predict_prostate.results.util.treatment_fills_STAR_ = (function predict_prostate$results$util$treatment_fills_STAR_(plot_style,index){
 
 var f = (plot_style.cljs$core$IFn$_invoke$arity$1 ? plot_style.cljs$core$IFn$_invoke$arity$1(predict_prostate.results.util.fills_by_style) : plot_style.call(null,predict_prostate.results.util.fills_by_style));
-var G__46177 = ((cljs.core.count(f) - (1)) - index);
-return (f.cljs$core$IFn$_invoke$arity$1 ? f.cljs$core$IFn$_invoke$arity$1(G__46177) : f.call(null,G__46177));
+var G__45295 = ((cljs.core.count(f) - (1)) - index);
+return (f.cljs$core$IFn$_invoke$arity$1 ? f.cljs$core$IFn$_invoke$arity$1(G__45295) : f.call(null,G__45295));
 });
-predict_prostate.results.util.clip = (function predict_prostate$results$util$clip(p__46178){
-var map__46179 = p__46178;
-var map__46179__$1 = cljs.core.__destructure_map(map__46179);
-var value = cljs.core.get.cljs$core$IFn$_invoke$arity$3(map__46179__$1,new cljs.core.Keyword(null,"value","value",305978217),(0));
-var min = cljs.core.get.cljs$core$IFn$_invoke$arity$3(map__46179__$1,new cljs.core.Keyword(null,"min","min",444991522),(0));
-var max = cljs.core.get.cljs$core$IFn$_invoke$arity$3(map__46179__$1,new cljs.core.Keyword(null,"max","max",61366548),(10));
+predict_prostate.results.util.clip = (function predict_prostate$results$util$clip(p__45296){
+var map__45297 = p__45296;
+var map__45297__$1 = cljs.core.__destructure_map(map__45297);
+var value = cljs.core.get.cljs$core$IFn$_invoke$arity$3(map__45297__$1,new cljs.core.Keyword(null,"value","value",305978217),(0));
+var min = cljs.core.get.cljs$core$IFn$_invoke$arity$3(map__45297__$1,new cljs.core.Keyword(null,"min","min",444991522),(0));
+var max = cljs.core.get.cljs$core$IFn$_invoke$arity$3(map__45297__$1,new cljs.core.Keyword(null,"max","max",61366548),(10));
 
 if((value > max)){
 return max;
@@ -71,14 +71,14 @@ return value;
 });
 predict_prostate.results.util.toPrecision = (function predict_prostate$results$util$toPrecision(var_args){
 var args__4824__auto__ = [];
-var len__4818__auto___46208 = arguments.length;
-var i__4819__auto___46209 = (0);
+var len__4818__auto___45352 = arguments.length;
+var i__4819__auto___45353 = (0);
 while(true){
-if((i__4819__auto___46209 < len__4818__auto___46208)){
-args__4824__auto__.push((arguments[i__4819__auto___46209]));
+if((i__4819__auto___45353 < len__4818__auto___45352)){
+args__4824__auto__.push((arguments[i__4819__auto___45353]));
 
-var G__46210 = (i__4819__auto___46209 + (1));
-i__4819__auto___46209 = G__46210;
+var G__45354 = (i__4819__auto___45353 + (1));
+i__4819__auto___45353 = G__45354;
 continue;
 } else {
 }
@@ -89,32 +89,32 @@ var argseq__4825__auto__ = ((((1) < args__4824__auto__.length))?(new cljs.core.I
 return predict_prostate.results.util.toPrecision.cljs$core$IFn$_invoke$arity$variadic((arguments[(0)]),argseq__4825__auto__);
 });
 
-(predict_prostate.results.util.toPrecision.cljs$core$IFn$_invoke$arity$variadic = (function (f,p__46182){
-var vec__46183 = p__46182;
-var high = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__46183,(0),null);
+(predict_prostate.results.util.toPrecision.cljs$core$IFn$_invoke$arity$variadic = (function (f,p__45312){
+var vec__45313 = p__45312;
+var high = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__45313,(0),null);
 return parseFloat((new Number(f)).toPrecision((((f >= (10)))?(2):(cljs.core.truth_(high)?(2):(1)))));
 }));
 
 (predict_prostate.results.util.toPrecision.cljs$lang$maxFixedArity = (1));
 
 /** @this {Function} */
-(predict_prostate.results.util.toPrecision.cljs$lang$applyTo = (function (seq46180){
-var G__46181 = cljs.core.first(seq46180);
-var seq46180__$1 = cljs.core.next(seq46180);
+(predict_prostate.results.util.toPrecision.cljs$lang$applyTo = (function (seq45302){
+var G__45303 = cljs.core.first(seq45302);
+var seq45302__$1 = cljs.core.next(seq45302);
 var self__4805__auto__ = this;
-return self__4805__auto__.cljs$core$IFn$_invoke$arity$variadic(G__46181,seq46180__$1);
+return self__4805__auto__.cljs$core$IFn$_invoke$arity$variadic(G__45303,seq45302__$1);
 }));
 
 predict_prostate.results.util.avoid_decimals = (function predict_prostate$results$util$avoid_decimals(var_args){
 var args__4824__auto__ = [];
-var len__4818__auto___46222 = arguments.length;
-var i__4819__auto___46223 = (0);
+var len__4818__auto___45356 = arguments.length;
+var i__4819__auto___45357 = (0);
 while(true){
-if((i__4819__auto___46223 < len__4818__auto___46222)){
-args__4824__auto__.push((arguments[i__4819__auto___46223]));
+if((i__4819__auto___45357 < len__4818__auto___45356)){
+args__4824__auto__.push((arguments[i__4819__auto___45357]));
 
-var G__46224 = (i__4819__auto___46223 + (1));
-i__4819__auto___46223 = G__46224;
+var G__45359 = (i__4819__auto___45357 + (1));
+i__4819__auto___45357 = G__45359;
 continue;
 } else {
 }
@@ -125,9 +125,9 @@ var argseq__4825__auto__ = ((((1) < args__4824__auto__.length))?(new cljs.core.I
 return predict_prostate.results.util.avoid_decimals.cljs$core$IFn$_invoke$arity$variadic((arguments[(0)]),argseq__4825__auto__);
 });
 
-(predict_prostate.results.util.avoid_decimals.cljs$core$IFn$_invoke$arity$variadic = (function (d,p__46190){
-var vec__46191 = p__46190;
-var high = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__46191,(0),null);
+(predict_prostate.results.util.avoid_decimals.cljs$core$IFn$_invoke$arity$variadic = (function (d,p__45323){
+var vec__45324 = p__45323;
+var high = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__45324,(0),null);
 
 var p = (((d < (10)))?(cljs.core.truth_(high)?(1):(0)):(0));
 return (new Number(d)).toFixed(p);
@@ -136,11 +136,11 @@ return (new Number(d)).toFixed(p);
 (predict_prostate.results.util.avoid_decimals.cljs$lang$maxFixedArity = (1));
 
 /** @this {Function} */
-(predict_prostate.results.util.avoid_decimals.cljs$lang$applyTo = (function (seq46186){
-var G__46187 = cljs.core.first(seq46186);
-var seq46186__$1 = cljs.core.next(seq46186);
+(predict_prostate.results.util.avoid_decimals.cljs$lang$applyTo = (function (seq45320){
+var G__45321 = cljs.core.first(seq45320);
+var seq45320__$1 = cljs.core.next(seq45320);
 var self__4805__auto__ = this;
-return self__4805__auto__.cljs$core$IFn$_invoke$arity$variadic(G__46187,seq46186__$1);
+return self__4805__auto__.cljs$core$IFn$_invoke$arity$variadic(G__45321,seq45320__$1);
 }));
 
 predict_prostate.results.util.one_dp = (function predict_prostate$results$util$one_dp(d,p){
@@ -154,8 +154,8 @@ predict_prostate.results.util.to_percent = (function predict_prostate$results$ut
 return ((100) * f);
 });
 predict_prostate.results.util.percent = (function predict_prostate$results$util$percent(var_args){
-var G__46200 = arguments.length;
-switch (G__46200) {
+var G__45333 = arguments.length;
+switch (G__45333) {
 case 1:
 return predict_prostate.results.util.percent.cljs$core$IFn$_invoke$arity$1((arguments[(0)]));
 

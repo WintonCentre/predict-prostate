@@ -1,12 +1,12 @@
 goog.provide('predict_prostate.layout.navbar');
-predict_prostate.layout.navbar.clear_all_button = rum.core.lazy_build(rum.core.build_defc,(function (p__35281){
-var map__35282 = p__35281;
-var map__35282__$1 = cljs.core.__destructure_map(map__35282);
-var props = map__35282__$1;
-var ttt = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__35282__$1,new cljs.core.Keyword(null,"ttt","ttt",1858561240));
-var on_click = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__35282__$1,new cljs.core.Keyword(null,"on-click","on-click",1632826543));
-return daiquiri.core.create_element("button",{'onClick':on_click,'className':"btn navbar-btn btn-danger btn-lg"},[" ",daiquiri.interpreter.interpret((function (){var G__35286 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("tool","reset-btn","tool/reset-btn",-2075589013),"Reset"], null);
-return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__35286) : ttt.call(null,G__35286));
+predict_prostate.layout.navbar.clear_all_button = rum.core.lazy_build(rum.core.build_defc,(function (p__46785){
+var map__46786 = p__46785;
+var map__46786__$1 = cljs.core.__destructure_map(map__46786);
+var props = map__46786__$1;
+var ttt = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__46786__$1,new cljs.core.Keyword(null,"ttt","ttt",1858561240));
+var on_click = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__46786__$1,new cljs.core.Keyword(null,"on-click","on-click",1632826543));
+return daiquiri.core.create_element("button",{'onClick':on_click,'className':"btn navbar-btn btn-danger btn-lg"},[" ",daiquiri.interpreter.interpret((function (){var G__46793 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("tool","reset-btn","tool/reset-btn",-2075589013),"Reset"], null);
+return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__46793) : ttt.call(null,G__46793));
 })())]);
 }),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [rum.core.static$], null),"predict-prostate.layout.navbar/clear-all-button");
 predict_prostate.layout.navbar.navbar = rum.core.lazy_build(rum.core.build_defc,(function (){

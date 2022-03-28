@@ -5,7 +5,7 @@ goog.provide('bide.core');
  */
 bide.core.IRouter = function(){};
 
-var bide$core$IRouter$_navigate$dyn_44339 = (function (_,loc,params,query){
+var bide$core$IRouter$_navigate$dyn_43480 = (function (_,loc,params,query){
 var x__4509__auto__ = (((_ == null))?null:_);
 var m__4510__auto__ = (bide.core._navigate[goog.typeOf(x__4509__auto__)]);
 if((!((m__4510__auto__ == null)))){
@@ -23,11 +23,11 @@ bide.core._navigate = (function bide$core$_navigate(_,loc,params,query){
 if((((!((_ == null)))) && ((!((_.bide$core$IRouter$_navigate$arity$4 == null)))))){
 return _.bide$core$IRouter$_navigate$arity$4(_,loc,params,query);
 } else {
-return bide$core$IRouter$_navigate$dyn_44339(_,loc,params,query);
+return bide$core$IRouter$_navigate$dyn_43480(_,loc,params,query);
 }
 });
 
-var bide$core$IRouter$_replace$dyn_44340 = (function (_,loc,params,query){
+var bide$core$IRouter$_replace$dyn_43482 = (function (_,loc,params,query){
 var x__4509__auto__ = (((_ == null))?null:_);
 var m__4510__auto__ = (bide.core._replace[goog.typeOf(x__4509__auto__)]);
 if((!((m__4510__auto__ == null)))){
@@ -45,7 +45,7 @@ bide.core._replace = (function bide$core$_replace(_,loc,params,query){
 if((((!((_ == null)))) && ((!((_.bide$core$IRouter$_replace$arity$4 == null)))))){
 return _.bide$core$IRouter$_replace$arity$4(_,loc,params,query);
 } else {
-return bide$core$IRouter$_replace$dyn_44340(_,loc,params,query);
+return bide$core$IRouter$_replace$dyn_43482(_,loc,params,query);
 }
 });
 
@@ -56,7 +56,7 @@ return bide$core$IRouter$_replace$dyn_44340(_,loc,params,query);
  */
 bide.core.IPathRepr = function(){};
 
-var bide$core$IPathRepr$_repr$dyn_44347 = (function (_){
+var bide$core$IPathRepr$_repr$dyn_43483 = (function (_){
 var x__4509__auto__ = (((_ == null))?null:_);
 var m__4510__auto__ = (bide.core._repr[goog.typeOf(x__4509__auto__)]);
 if((!((m__4510__auto__ == null)))){
@@ -77,7 +77,7 @@ bide.core._repr = (function bide$core$_repr(_){
 if((((!((_ == null)))) && ((!((_.bide$core$IPathRepr$_repr$arity$1 == null)))))){
 return _.bide$core$IPathRepr$_repr$arity$1(_);
 } else {
-return bide$core$IPathRepr$_repr$dyn_44347(_);
+return bide$core$IPathRepr$_repr$dyn_43483(_);
 }
 });
 
@@ -166,10 +166,10 @@ return bide.impl.router.insert(router,path,name);
  *   if the no match is found.
  */
 bide.core.match = (function bide$core$match(router,path){
-var vec__44258 = cljs.core.vec(bide.impl.router.match(router,path));
-var name = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__44258,(0),null);
-var params = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__44258,(1),null);
-var query = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__44258,(2),null);
+var vec__43336 = cljs.core.vec(bide.impl.router.match(router,path));
+var name = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__43336,(0),null);
+var params = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__43336,(1),null);
+var query = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__43336,(2),null);
 if(cljs.core.truth_(name)){
 return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [name,bide.core.js__GT_props(params),bide.core.js__GT_props(query)], null);
 } else {
@@ -185,10 +185,10 @@ if(cljs.core.vector_QMARK_(routes)){
 throw (new Error("Assert failed: (vector? routes)"));
 }
 
-return cljs.core.reduce.cljs$core$IFn$_invoke$arity$3((function (router,p__44266){
-var vec__44267 = p__44266;
-var path = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__44267,(0),null);
-var name = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__44267,(1),null);
+return cljs.core.reduce.cljs$core$IFn$_invoke$arity$3((function (router,p__43352){
+var vec__43356 = p__43352;
+var path = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__43356,(0),null);
+var name = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__43356,(1),null);
 return bide.impl.router.insert(router,path,name);
 }),bide.impl.router.empty(),routes);
 });
@@ -196,8 +196,8 @@ return bide.impl.router.insert(router,path,name);
  * Perform a url resolve operation.
  */
 bide.core.resolve = (function bide$core$resolve(var_args){
-var G__44272 = arguments.length;
-switch (G__44272) {
+var G__43389 = arguments.length;
+switch (G__43389) {
 case 2:
 return bide.core.resolve.cljs$core$IFn$_invoke$arity$2((arguments[(0)]),(arguments[(1)]));
 
@@ -260,20 +260,20 @@ return (new bide.impl.TokenTransformer());
  *   `:html5history` when you need to do some customizations to history instance
  *   used to manage history events.
  */
-bide.core.start_BANG_ = (function bide$core$start_BANG_(router,p__44282){
-var map__44283 = p__44282;
-var map__44283__$1 = cljs.core.__destructure_map(map__44283);
-var opts = map__44283__$1;
-var on_navigate = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__44283__$1,new cljs.core.Keyword(null,"on-navigate","on-navigate",-297227908));
-var default$ = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__44283__$1,new cljs.core.Keyword(null,"default","default",-1987822328));
-var html5_QMARK_ = cljs.core.get.cljs$core$IFn$_invoke$arity$3(map__44283__$1,new cljs.core.Keyword(null,"html5?","html5?",-1008298421),false);
-var html5history = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__44283__$1,new cljs.core.Keyword(null,"html5history","html5history",-1921478143));
+bide.core.start_BANG_ = (function bide$core$start_BANG_(router,p__43428){
+var map__43429 = p__43428;
+var map__43429__$1 = cljs.core.__destructure_map(map__43429);
+var opts = map__43429__$1;
+var on_navigate = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__43429__$1,new cljs.core.Keyword(null,"on-navigate","on-navigate",-297227908));
+var default$ = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__43429__$1,new cljs.core.Keyword(null,"default","default",-1987822328));
+var html5_QMARK_ = cljs.core.get.cljs$core$IFn$_invoke$arity$3(map__43429__$1,new cljs.core.Keyword(null,"html5?","html5?",-1008298421),false);
+var html5history = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__43429__$1,new cljs.core.Keyword(null,"html5history","html5history",-1921478143));
 var default$__$1 = ((cljs.core.vector_QMARK_(default$))?default$:new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [default$,null], null));
 var _on_navigate = (function bide$core$start_BANG__$__on_navigate(event){
-var vec__44289 = _match(event.token);
-var name = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__44289,(0),null);
-var params = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__44289,(1),null);
-var query = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__44289,(2),null);
+var vec__43443 = _match(event.token);
+var name = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__43443,(0),null);
+var params = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__43443,(1),null);
+var query = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__43443,(2),null);
 return (on_navigate.cljs$core$IFn$_invoke$arity$3 ? on_navigate.cljs$core$IFn$_invoke$arity$3(name,params,query) : on_navigate.call(null,name,params,query));
 });
 var _match = (function bide$core$start_BANG__$__match(token){
@@ -299,37 +299,37 @@ return token;
 }
 });
 var html5history__$1 = ((cljs.core.fn_QMARK_(html5history))?(html5history.cljs$core$IFn$_invoke$arity$0 ? html5history.cljs$core$IFn$_invoke$arity$0() : html5history.call(null)):(new goog.history.Html5History(null,bide.core.token_transformer())));
-var history = (cljs.core.truth_(html5_QMARK_)?(function (){var G__44294 = html5history__$1;
-G__44294.setPathPrefix("");
+var history = (cljs.core.truth_(html5_QMARK_)?(function (){var G__43456 = html5history__$1;
+G__43456.setPathPrefix("");
 
-G__44294.setUseFragment(false);
+G__43456.setUseFragment(false);
 
-G__44294.setEnabled(true);
+G__43456.setEnabled(true);
 
-return G__44294;
-})():(function (){var G__44295 = html5history__$1;
-G__44295.setUseFragment(true);
+return G__43456;
+})():(function (){var G__43458 = html5history__$1;
+G__43458.setUseFragment(true);
 
-G__44295.setEnabled(true);
+G__43458.setEnabled(true);
 
-return G__44295;
+return G__43458;
 })());
 var initial_token = _initial_token(history);
 var initial_loc = _match(initial_token);
 var lkey = goog.events.listen(history,goog.history.EventType.NAVIGATE,_on_navigate);
 history.replaceToken(initial_token);
 
-var x44296 = router;
-(x44296.close = (function (){
+var x43460 = router;
+(x43460.close = (function (){
 var _ = this;
 goog.events.unlistenByKey(lkey);
 
 return history.setEnabled(false);
 }));
 
-(x44296.bide$core$IRouter$ = cljs.core.PROTOCOL_SENTINEL);
+(x43460.bide$core$IRouter$ = cljs.core.PROTOCOL_SENTINEL);
 
-(x44296.bide$core$IRouter$_navigate$arity$4 = (function (_,id,params,query){
+(x43460.bide$core$IRouter$_navigate$arity$4 = (function (_,id,params,query){
 var ___$1 = this;
 var temp__5753__auto__ = bide.core.resolve.cljs$core$IFn$_invoke$arity$4(router,id,params,query);
 if(cljs.core.truth_(temp__5753__auto__)){
@@ -340,7 +340,7 @@ return null;
 }
 }));
 
-(x44296.bide$core$IRouter$_replace$arity$4 = (function (_,id,params,query){
+(x43460.bide$core$IRouter$_replace$arity$4 = (function (_,id,params,query){
 var ___$1 = this;
 var temp__5753__auto__ = bide.core.resolve.cljs$core$IFn$_invoke$arity$4(router,id,params,query);
 if(cljs.core.truth_(temp__5753__auto__)){
@@ -351,14 +351,14 @@ return null;
 }
 }));
 
-return x44296;
+return x43460;
 });
 /**
  * Trigger a navigate event to a specific location.
  */
 bide.core.navigate_BANG_ = (function bide$core$navigate_BANG_(var_args){
-var G__44300 = arguments.length;
-switch (G__44300) {
+var G__43466 = arguments.length;
+switch (G__43466) {
 case 2:
 return bide.core.navigate_BANG_.cljs$core$IFn$_invoke$arity$2((arguments[(0)]),(arguments[(1)]));
 
@@ -400,8 +400,8 @@ return bide.core._navigate(router,id,params,query);
  * Trigger a replace event to a specific location.
  */
 bide.core.replace_BANG_ = (function bide$core$replace_BANG_(var_args){
-var G__44306 = arguments.length;
-switch (G__44306) {
+var G__43476 = arguments.length;
+switch (G__43476) {
 case 2:
 return bide.core.replace_BANG_.cljs$core$IFn$_invoke$arity$2((arguments[(0)]),(arguments[(1)]));
 
