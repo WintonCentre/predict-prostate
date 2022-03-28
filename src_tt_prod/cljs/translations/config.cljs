@@ -7,7 +7,7 @@
 ; config file for the live dictionary
 (def live-dictionary-url "/live_dictionary.txt")
 
-(def initial-supported-langs #{:en :es :fr :nl :pt :sc :tc :de})
+(def initial-supported-langs #{:en #_:es :fr #_:nl #_:pt :sc #_:tc :de})
 
 (def predict-edit false)
 
