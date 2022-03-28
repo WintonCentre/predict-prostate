@@ -15,9 +15,9 @@ if(cljs.core.not(window.oldBrowser)){
 if(cljs.core.truth_(window.matchMedia("print").addEventListener)){
 predict_prostate.pages.root.before_after_print();
 } else {
-var mql_49487 = window.matchMedia("print");
-mql_49487.addListener((function (p1__49481_SHARP_){
-if(cljs.core.truth_(goog.object.get(p1__49481_SHARP_,"matches"))){
+var mql_37030 = window.matchMedia("print");
+mql_37030.addListener((function (p1__37022_SHARP_){
+if(cljs.core.truth_(goog.object.get(p1__37022_SHARP_,"matches"))){
 return predict_prostate.pages.root.before_print();
 } else {
 return predict_prostate.pages.root.after_print();
@@ -33,58 +33,58 @@ return state;
 /**
  * Root of site. All components are within this tree
  */
-predict_prostate.pages.root.root_STAR_ = rum.core.build_defc((function (ttt_STAR_){
-var vec__49483 = rum.core.react(predict_prostate.state.run_time.route);
-var page = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__49483,(0),null);
-var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__49483,(1),null);
-var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__49483,(2),null);
-var rt = vec__49483;
+predict_prostate.pages.root.root_STAR_ = rum.core.lazy_build(rum.core.build_defc,(function (ttt_STAR_){
+var vec__37026 = rum.core.react(predict_prostate.state.run_time.route);
+var page = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__37026,(0),null);
+var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__37026,(1),null);
+var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__37026,(2),null);
+var rt = vec__37026;
 var lang = new cljs.core.Keyword(null,"lang","lang",-1819677104).cljs$core$IFn$_invoke$arity$1(rum.core.react(predict_prostate.state.run_time.t_state_cursor));
-var attrs49482 = (function (){var G__49486 = page;
-var G__49486__$1 = (((G__49486 instanceof cljs.core.Keyword))?G__49486.fqn:null);
-switch (G__49486__$1) {
+var attrs37025 = (function (){var G__37029 = page;
+var G__37029__$1 = (((G__37029 instanceof cljs.core.Keyword))?G__37029.fqn:null);
+switch (G__37029__$1) {
 case "home":
-return (predict_prostate.pages.home.home.cljs$core$IFn$_invoke$arity$1 ? predict_prostate.pages.home.home.cljs$core$IFn$_invoke$arity$1(ttt_STAR_) : predict_prostate.pages.home.home.call(null,ttt_STAR_));
+return predict_prostate.pages.home.home(ttt_STAR_);
 
 break;
 case "about":
-return (predict_prostate.pages.about.about.cljs$core$IFn$_invoke$arity$2 ? predict_prostate.pages.about.about.cljs$core$IFn$_invoke$arity$2(ttt_STAR_,rt) : predict_prostate.pages.about.about.call(null,ttt_STAR_,rt));
+return predict_prostate.pages.about.about(ttt_STAR_,rt);
 
 break;
 case "tool":
-return (predict_prostate.pages.tool.tool.cljs$core$IFn$_invoke$arity$1 ? predict_prostate.pages.tool.tool.cljs$core$IFn$_invoke$arity$1(ttt_STAR_) : predict_prostate.pages.tool.tool.call(null,ttt_STAR_));
+return predict_prostate.pages.tool.tool(ttt_STAR_);
 
 break;
 case "contact":
-return (predict_prostate.pages.contact.contact.cljs$core$IFn$_invoke$arity$2 ? predict_prostate.pages.contact.contact.cljs$core$IFn$_invoke$arity$2(ttt_STAR_,rt) : predict_prostate.pages.contact.contact.call(null,ttt_STAR_,rt));
+return predict_prostate.pages.contact.contact(ttt_STAR_,rt);
 
 break;
 case "legal":
-return (predict_prostate.pages.legal.legal.cljs$core$IFn$_invoke$arity$2 ? predict_prostate.pages.legal.legal.cljs$core$IFn$_invoke$arity$2(ttt_STAR_,rt) : predict_prostate.pages.legal.legal.call(null,ttt_STAR_,rt));
+return predict_prostate.pages.legal.legal(ttt_STAR_,rt);
 
 break;
 case "not-found":
-return (predict_prostate.pages.not_found.not_found.cljs$core$IFn$_invoke$arity$1 ? predict_prostate.pages.not_found.not_found.cljs$core$IFn$_invoke$arity$1(ttt_STAR_) : predict_prostate.pages.not_found.not_found.call(null,ttt_STAR_));
+return predict_prostate.pages.not_found.not_found(ttt_STAR_);
 
 break;
 default:
-throw (new Error(["No matching clause: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(G__49486__$1)].join('')));
+throw (new Error(["No matching clause: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(G__37029__$1)].join('')));
 
 }
 })();
-return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(React.createElement,"div",((cljs.core.map_QMARK_(attrs49482))?sablono.interpreter.attributes(attrs49482):null),((cljs.core.map_QMARK_(attrs49482))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret(attrs49482)], null)));
-}),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [rum.core.reactive,predict_prostate.pages.root.media_watch], null),"root*");
+return daiquiri.core.create_element("div",((cljs.core.map_QMARK_(attrs37025))?daiquiri.interpreter.element_attributes(attrs37025):null),((cljs.core.map_QMARK_(attrs37025))?null:[daiquiri.interpreter.interpret(attrs37025)]));
+}),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [rum.core.reactive,predict_prostate.pages.root.media_watch], null),"predict-prostate.pages.root/root*");
 /**
  * Root of site. All components are within this tree
  */
-predict_prostate.pages.root.root = rum.core.build_defc((function (){
-return sablono.interpreter.interpret((predict_prostate.pages.root.root_STAR_.cljs$core$IFn$_invoke$arity$1 ? predict_prostate.pages.root.root_STAR_.cljs$core$IFn$_invoke$arity$1(translations.root.ttt) : predict_prostate.pages.root.root_STAR_.call(null,translations.root.ttt)));
-}),null,"root");
+predict_prostate.pages.root.root = rum.core.lazy_build(rum.core.build_defc,(function (){
+return predict_prostate.pages.root.root_STAR_(translations.root.ttt);
+}),null,"predict-prostate.pages.root/root");
 /**
  * Root of the translation editor site. All components are within this tree
  */
-predict_prostate.pages.root.edit_root = rum.core.build_defc((function (){
-return sablono.interpreter.interpret((predict_prostate.pages.root.root_STAR_.cljs$core$IFn$_invoke$arity$1 ? predict_prostate.pages.root.root_STAR_.cljs$core$IFn$_invoke$arity$1(translations.root.ttt_edit) : predict_prostate.pages.root.root_STAR_.call(null,translations.root.ttt_edit)));
-}),null,"edit-root");
+predict_prostate.pages.root.edit_root = rum.core.lazy_build(rum.core.build_defc,(function (){
+return predict_prostate.pages.root.root_STAR_(translations.root.ttt_edit);
+}),null,"predict-prostate.pages.root/edit-root");
 
 //# sourceMappingURL=predict_prostate.pages.root.js.map

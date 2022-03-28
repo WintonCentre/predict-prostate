@@ -7,7 +7,7 @@
 
  :dependencies
  [;; cljs dependencies
-  [cljs-ajax "0.8.3"]
+  [cljs-ajax "0.8.4"]
   ;[sablono "0.7.4"]
   ;; need to specify this for sablono
   ;; when not using devcards
@@ -16,18 +16,18 @@
   [devcards "0.2.4"]
   ;[figwheel-sidecar "0.5.18"]
 
-  [rum "0.11.3"]
-  [tongue "0.2.7"]
+  [rum "0.12.8"]
+  [tongue "0.4.3"]
   [pubsub "0.2.1"]
   ;[wc-rum-lib "0.1.16"]
   [cljs-css-modules "0.2.1"]
-  [cljsjs/jquery "1.9.1-0"] ; FIXME : I guess that means it's not used here
-  [cljsjs/bootstrap "3.3.6-0"] ; FIXME : I guess that means it's not used here
+  [cljsjs/jquery "3.4.0-0"] ; FIXME : I guess that means it's not used here
+  [cljsjs/bootstrap "3.4.1-0"] ; FIXME : I guess that means it's not used here
   ; routing
   [funcool/bide "1.7.0"]
   
-  [binaryage/devtools "1.0.3"]
-  [binaryage/oops "0.7.0"]]
+  [binaryage/devtools "1.0.4"]
+  [binaryage/oops "0.7.1"]]
 
  :dev-http
  {4000 "resources/public"}
