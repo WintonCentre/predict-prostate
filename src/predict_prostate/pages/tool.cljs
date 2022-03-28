@@ -114,7 +114,8 @@
                                :on-click    #(publish print-change "print")
                                :on-key-down #(when (= "Enter" (.. % -nativeEvent -code))
                                                (publish print-change "print"))
-                               :style       {:width                     70
+                               :style       {:width                     "auto" 
+                                             :display                   "inline-block"
                                              :opacity                   0.5
                                              :position                  "fixed"
                                              :top                       300
@@ -124,8 +125,7 @@
                                              :font-size                 16
                                              :padding                   "15px 5px 15px 5px"
                                              :border-top-left-radius    10
-                                             :border-bottom-left-radius 10
-                                             }} (simple/icon {:family :fa} "print") " " (ttt [:print "Print"])]
+                                             :border-bottom-left-radius 10}} (simple/icon {:family :fa} "print") " " (ttt [:print "Print"])]
 
      ]))
 

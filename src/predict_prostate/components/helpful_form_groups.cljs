@@ -27,7 +27,8 @@
                   :vertical-align "middle"
                   :width          "100px"}}
     [:label.control-label {:style (merge {:textAlign "left"
-                                          :padding   "1px 5px"}
+                                          :padding   "1px 5px"
+                                          :word-break "break-word"}
                                          (when (= (rum/react (input-cursor key)) :disabled) {:color "#CCC"}))
                            :for   (name key)}
      (widget-ttt ttt "help" key label) #_(if (fn? label) (label) label)]]
