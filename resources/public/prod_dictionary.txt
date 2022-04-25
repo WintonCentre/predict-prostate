@@ -36,16 +36,6 @@
                 :tc                   "Traditioneel Chinees"
                 }]
 ;
-#_[:upsert :pt  {:en                   "Inglês"
-                :de                   "Alemão"
-                :es                   "Espanhol"
-                :fr                   "Francês"
-                :nl                   "Holandês"
-                :pt                   "Português"
-                :sc                   "Chinês simplificado"
-                :tc                   "Chinês tradicional"
-                }]
-;
 ;
 ;
 ;
@@ -80,6 +70,16 @@
                :tc                   "繁体字"
                :home/start-button    " 开始预测" 
                }]
+
+[:upsert :pt   {:en                   "Inglês"
+                :de                   "Alemão"
+                :es                   "Espanhol"
+                :fr                   "Francês"
+                :nl                   "Holandês"
+                :pt                   "Português"
+                :sc                   "Chinês simplificado"
+                :tc                   "Chinês tradicional"
+                }]
 
 [:upsert :de   {:en                   "Englisch"
                 :de                   "Deutsch"
