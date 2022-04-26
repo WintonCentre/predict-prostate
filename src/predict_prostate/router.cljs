@@ -35,6 +35,7 @@
      [(rooted "/legal/:page") :legal]
      [(rooted "/legal") :legal]
      [(rooted "/contact") :contact]
+     [(rooted "/model-tests/f04064a489c3a0f32ced64d4bae42e93c6a050fb0ef5aa4d2a701fe3d2671818") :model-tests] ;token is SHA256 of "Winton Centre"
      ]))
 
 (defn set-location [url]

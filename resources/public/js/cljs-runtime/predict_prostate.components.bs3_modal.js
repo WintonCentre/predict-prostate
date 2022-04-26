@@ -12,18 +12,18 @@ var edit_key = new cljs.core.Keyword(null,"edit-key","edit-key",-1833788727).clj
 var old_text = new cljs.core.Keyword(null,"text","text",-1790561697).cljs$core$IFn$_invoke$arity$1(edit_m);
 var new_text = new cljs.core.Keyword(null,"new-text","new-text",962412088).cljs$core$IFn$_invoke$arity$1(edit_m);
 var submit = (function (){
-var temp__5751__auto___47719 = predict_prostate.components.bs3_modal.some_text_QMARK_(new_text);
-if(cljs.core.truth_(temp__5751__auto___47719)){
-var new_text_STAR__47720 = temp__5751__auto___47719;
-predict_prostate.state.run_time.text_change.pubsub$feeds$TopicFeed$publish$arity$2(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [edit_key,new_text_STAR__47720], null));
+var temp__5751__auto___44482 = predict_prostate.components.bs3_modal.some_text_QMARK_(new_text);
+if(cljs.core.truth_(temp__5751__auto___44482)){
+var new_text_STAR__44483 = temp__5751__auto___44482;
+predict_prostate.state.run_time.text_change.pubsub$feeds$TopicFeed$publish$arity$2(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [edit_key,new_text_STAR__44483], null));
 } else {
 }
 
 return $("#editorModal").modal("hide");
 });
-return daiquiri.core.create_element("div",{'id':"editorModal",'role':"dialog",'tabIndex':(-1),'aria-hidden':"true",'className':"modal fade"},[daiquiri.core.create_element("div",{'className':"modal-dialog"},[daiquiri.core.create_element("div",{'className':"modal-content"},[daiquiri.core.create_element("div",{'className':"modal-header"},[daiquiri.core.create_element("button",{'type':"button ",'onClick':submit,'aria-hidden':true,'dangerouslySetInnerHTML':{'__html':"&times;"},'className':"close"},[]),daiquiri.core.create_element("h4",{'className':"modal-title"},[cljs.core.str.cljs$core$IFn$_invoke$arity$1(edit_key)])]),daiquiri.core.create_element("div",{'className':"modal-body"},[daiquiri.core.create_element("h5",null,["English text"]),daiquiri.interpreter.interpret(old_text),daiquiri.core.create_element("hr",null,null),daiquiri.core.create_element("h5",null,["Last translation"]),daiquiri.interpreter.interpret((function (){var G__47612 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [edit_key], null);
-var fexpr__47611 = rum.core.react(predict_prostate.state.run_time.ttt_cursor);
-return (fexpr__47611.cljs$core$IFn$_invoke$arity$1 ? fexpr__47611.cljs$core$IFn$_invoke$arity$1(G__47612) : fexpr__47611.call(null,G__47612));
+return daiquiri.core.create_element("div",{'id':"editorModal",'role':"dialog",'tabIndex':(-1),'aria-hidden':"true",'className':"modal fade"},[daiquiri.core.create_element("div",{'className':"modal-dialog"},[daiquiri.core.create_element("div",{'className':"modal-content"},[daiquiri.core.create_element("div",{'className':"modal-header"},[daiquiri.core.create_element("button",{'type':"button ",'onClick':submit,'aria-hidden':true,'dangerouslySetInnerHTML':{'__html':"&times;"},'className':"close"},[]),daiquiri.core.create_element("h4",{'className':"modal-title"},[cljs.core.str.cljs$core$IFn$_invoke$arity$1(edit_key)])]),daiquiri.core.create_element("div",{'className':"modal-body"},[daiquiri.core.create_element("h5",null,["English text"]),daiquiri.interpreter.interpret(old_text),daiquiri.core.create_element("hr",null,null),daiquiri.core.create_element("h5",null,["Last translation"]),daiquiri.interpreter.interpret((function (){var G__44410 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [edit_key], null);
+var fexpr__44409 = rum.core.react(predict_prostate.state.run_time.ttt_cursor);
+return (fexpr__44409.cljs$core$IFn$_invoke$arity$1 ? fexpr__44409.cljs$core$IFn$_invoke$arity$1(G__44410) : fexpr__44409.call(null,G__44410));
 })()),daiquiri.core.create_element("hr",null,null),daiquiri.core.create_element("h5",null,["New translation"]),daiquiri.core.create_element("textarea",{'style':{'width':"100%",'height':"100%"},'value':(((new_text == null))?(((old_text == null))?"":old_text):new_text),'onChange':rum.core.mark_sync_update((function (e){
 return predict_prostate.state.run_time.new_text_change.pubsub$feeds$TopicFeed$publish$arity$2(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [edit_key,e.currentTarget.value], null));
 }))},[])]),daiquiri.core.create_element("div",{'className':"modal-footer"},[daiquiri.core.create_element("button",{'type':"button",'onClick':submit,'className':"btn btn-default"},["Close"])])])])]);
@@ -53,36 +53,36 @@ return $("#newLanguageModal").modal("hide");
 predict_prostate.components.bs3_modal.top_modal = rum.core.lazy_build(rum.core.build_defc,(function (ttt){
 var help_key = rum.core.react(predict_prostate.state.run_time.help_key_cursor);
 var help = predict_prostate.content_reader.section.cljs$core$IFn$_invoke$arity$2(ttt,help_key);
-var vec__47662 = ((cljs.core.seq(help))?help:new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["help header",new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"p","p",151049309),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"style","style",-496642736),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"color","color",1011675173),"red"], null)], null),"add content for ",help_key], null)], null));
-var seq__47663 = cljs.core.seq(vec__47662);
-var first__47664 = cljs.core.first(seq__47663);
-var seq__47663__$1 = cljs.core.next(seq__47663);
-var help_header = first__47664;
-var help_content = seq__47663__$1;
+var vec__44423 = ((cljs.core.seq(help))?help:new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["help header",new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"p","p",151049309),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"style","style",-496642736),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"color","color",1011675173),"red"], null)], null),"add content for ",help_key], null)], null));
+var seq__44424 = cljs.core.seq(vec__44423);
+var first__44425 = cljs.core.first(seq__44424);
+var seq__44424__$1 = cljs.core.next(seq__44424);
+var help_header = first__44425;
+var help_content = seq__44424__$1;
 var help_text = cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentVector.EMPTY,cljs.core.cons(new cljs.core.Keyword(null,"div","div",1057191632),help_content));
 return daiquiri.core.create_element("div",{'id':"topModal",'role':"dialog",'aria-hidden':"true",'className':"modal fade"},[daiquiri.core.create_element("div",{'className':"modal-dialog"},[daiquiri.core.create_element("div",{'className':"modal-content"},[daiquiri.core.create_element("div",{'className':"modal-header"},[daiquiri.core.create_element("button",{'type':"button ",'onClick':(function (){
 return predict_prostate.state.run_time.help_key_change.pubsub$feeds$TopicFeed$publish$arity$2(null,null);
-}),'aria-hidden':true,'dangerouslySetInnerHTML':{'__html':"&times;"},'className':"close"},[]),(function (){var attrs47666 = help_header;
-return daiquiri.core.create_element("h4",((cljs.core.map_QMARK_(attrs47666))?daiquiri.interpreter.element_attributes(daiquiri.normalize.merge_with_class.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"class","class",-2030961996),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["modal-title"], null)], null),attrs47666], 0))):{'className':"modal-title"}),((cljs.core.map_QMARK_(attrs47666))?null:[daiquiri.interpreter.interpret(attrs47666)]));
-})()]),(function (){var attrs47665 = help_text;
-return daiquiri.core.create_element("div",((cljs.core.map_QMARK_(attrs47665))?daiquiri.interpreter.element_attributes(daiquiri.normalize.merge_with_class.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"class","class",-2030961996),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["modal-body"], null)], null),attrs47665], 0))):{'className':"modal-body"}),((cljs.core.map_QMARK_(attrs47665))?null:[daiquiri.interpreter.interpret(attrs47665)]));
+}),'aria-hidden':true,'dangerouslySetInnerHTML':{'__html':"&times;"},'className':"close"},[]),(function (){var attrs44436 = help_header;
+return daiquiri.core.create_element("h4",((cljs.core.map_QMARK_(attrs44436))?daiquiri.interpreter.element_attributes(daiquiri.normalize.merge_with_class.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"class","class",-2030961996),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["modal-title"], null)], null),attrs44436], 0))):{'className':"modal-title"}),((cljs.core.map_QMARK_(attrs44436))?null:[daiquiri.interpreter.interpret(attrs44436)]));
+})()]),(function (){var attrs44434 = help_text;
+return daiquiri.core.create_element("div",((cljs.core.map_QMARK_(attrs44434))?daiquiri.interpreter.element_attributes(daiquiri.normalize.merge_with_class.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"class","class",-2030961996),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["modal-body"], null)], null),attrs44434], 0))):{'className':"modal-body"}),((cljs.core.map_QMARK_(attrs44434))?null:[daiquiri.interpreter.interpret(attrs44434)]));
 })(),daiquiri.core.create_element("div",{'className':"modal-footer"},[daiquiri.core.create_element("button",{'type':"button",'onClick':(function (){
 return predict_prostate.state.run_time.help_key_change.pubsub$feeds$TopicFeed$publish$arity$2(null,null);
-}),'className':"btn btn-default"},[daiquiri.interpreter.interpret((function (){var G__47671 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"close","close",1835149582),"Close"], null);
-return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__47671) : ttt.call(null,G__47671));
+}),'className':"btn btn-default"},[daiquiri.interpreter.interpret((function (){var G__44446 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"close","close",1835149582),"Close"], null);
+return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__44446) : ttt.call(null,G__44446));
 })())])])])])]);
 }),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [rum.core.reactive], null),"predict-prostate.components.bs3-modal/top-modal");
 predict_prostate.components.bs3_modal.cancel_or_print = rum.core.lazy_build(rum.core.build_defc,(function (ttt){
 return daiquiri.core.create_element("div",{'className':"pull-right"},[daiquiri.core.create_element("button",{'type':"button",'onClick':(function (){
 return $("#printModal").modal("hide");
-}),'className':"btn btn-default"},[daiquiri.interpreter.interpret((function (){var G__47679 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"cancel","cancel",-1964088360),"Cancel"], null);
-return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__47679) : ttt.call(null,G__47679));
+}),'className':"btn btn-default"},[daiquiri.interpreter.interpret((function (){var G__44450 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"cancel","cancel",-1964088360),"Cancel"], null);
+return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__44450) : ttt.call(null,G__44450));
 })())])," ",daiquiri.core.create_element("button",{'type':"button",'onClick':(function (){
 $("printModal").modal("hide");
 
 return print();
-}),'className':"btn btn-primary"},[graphics.simple_icons.icon(new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"family","family",-1313145692),new cljs.core.Keyword(null,"fa","fa",484981183)], null),"print")," ",daiquiri.interpreter.interpret((function (){var G__47695 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"print","print",1299562414),"Print"], null);
-return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__47695) : ttt.call(null,G__47695));
+}),'className':"btn btn-primary"},[graphics.simple_icons.icon(new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"family","family",-1313145692),new cljs.core.Keyword(null,"fa","fa",484981183)], null),"print")," ",daiquiri.interpreter.interpret((function (){var G__44452 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"print","print",1299562414),"Print"], null);
+return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__44452) : ttt.call(null,G__44452));
 })())])]);
 }),null,"predict-prostate.components.bs3-modal/cancel-or-print");
 /**
@@ -90,14 +90,14 @@ return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G_
  *                      are using jQuery to locate it.
  */
 predict_prostate.components.bs3_modal.print_modal = rum.core.lazy_build(rum.core.build_defc,(function (ttt){
-return daiquiri.core.create_element("div",null,[daiquiri.core.create_element("div",{'id':"printModal",'role':"dialog",'tabIndex':(-1),'aria-hidden':"true",'className':"modal fade"},[daiquiri.core.create_element("div",{'className':"modal-dialog screen-only"},[daiquiri.core.create_element("div",{'className':"modal-content"},[daiquiri.core.create_element("div",{'className':"modal-header"},[predict_prostate.components.bs3_modal.cancel_or_print(ttt)]),(function (){var attrs47700 = (cljs.core.truth_((function (){var and__4210__auto__ = rum.core.react(predict_prostate.state.run_time.print_cursor);
+return daiquiri.core.create_element("div",null,[daiquiri.core.create_element("div",{'id':"printModal",'role':"dialog",'tabIndex':(-1),'aria-hidden':"true",'className':"modal fade"},[daiquiri.core.create_element("div",{'className':"modal-dialog screen-only"},[daiquiri.core.create_element("div",{'className':"modal-content"},[daiquiri.core.create_element("div",{'className':"modal-header"},[predict_prostate.components.bs3_modal.cancel_or_print(ttt)]),(function (){var attrs44464 = (cljs.core.truth_((function (){var and__4210__auto__ = rum.core.react(predict_prostate.state.run_time.print_cursor);
 if(cljs.core.truth_(and__4210__auto__)){
 return rum.core.react(predict_prostate.state.run_time.results_cursor);
 } else {
 return and__4210__auto__;
 }
 })())?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),rum.core.with_key(predict_prostate.results.printable.results_in_print(ttt),(2))], null):null);
-return daiquiri.core.create_element("div",((cljs.core.map_QMARK_(attrs47700))?daiquiri.interpreter.element_attributes(daiquiri.normalize.merge_with_class.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"class","class",-2030961996),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["modal-body"], null)], null),attrs47700], 0))):{'className':"modal-body"}),((cljs.core.map_QMARK_(attrs47700))?null:[daiquiri.interpreter.interpret(attrs47700)]));
+return daiquiri.core.create_element("div",((cljs.core.map_QMARK_(attrs44464))?daiquiri.interpreter.element_attributes(daiquiri.normalize.merge_with_class.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"class","class",-2030961996),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["modal-body"], null)], null),attrs44464], 0))):{'className':"modal-body"}),((cljs.core.map_QMARK_(attrs44464))?null:[daiquiri.interpreter.interpret(attrs44464)]));
 })(),daiquiri.core.create_element("div",{'className':"modal-footer"},[predict_prostate.components.bs3_modal.cancel_or_print(ttt)])])])]),daiquiri.core.create_element("div",{'style':{'margin':"0 20px"},'className':"print-only"},[(cljs.core.truth_((function (){var and__4210__auto__ = rum.core.react(predict_prostate.state.run_time.print_cursor);
 if(cljs.core.truth_(and__4210__auto__)){
 return rum.core.react(predict_prostate.state.run_time.results_cursor);
@@ -113,18 +113,18 @@ return and__4210__auto__;
 predict_prostate.components.bs3_modal.settings_modal = rum.core.lazy_build(rum.core.build_defc,(function (ttt){
 return daiquiri.core.create_element("div",{'id':"settingsModal",'role':"dialog",'aria-hidden':"true",'className':"modal fade"},[daiquiri.core.create_element("div",{'className':"modal-dialog"},[daiquiri.core.create_element("div",{'className':"modal-content"},[daiquiri.core.create_element("div",{'className':"modal-header"},[daiquiri.core.create_element("button",{'type':"button ",'onClick':(function (){
 return predict_prostate.state.run_time.settings_change.pubsub$feeds$TopicFeed$publish$arity$2(null,null);
-}),'aria-hidden':true,'dangerouslySetInnerHTML':{'__html':"&times;"},'className':"close"},[]),(function (){var attrs47705 = (function (){var G__47706 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("tool","settings","tool/settings",1559915107),"Settings"], null);
-return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__47706) : ttt.call(null,G__47706));
+}),'aria-hidden':true,'dangerouslySetInnerHTML':{'__html':"&times;"},'className':"close"},[]),(function (){var attrs44474 = (function (){var G__44475 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("tool","settings","tool/settings",1559915107),"Settings"], null);
+return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__44475) : ttt.call(null,G__44475));
 })();
-return daiquiri.core.create_element("h4",((cljs.core.map_QMARK_(attrs47705))?daiquiri.interpreter.element_attributes(daiquiri.normalize.merge_with_class.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"class","class",-2030961996),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["modal-title"], null)], null),attrs47705], 0))):{'className':"modal-title"}),((cljs.core.map_QMARK_(attrs47705))?null:[daiquiri.interpreter.interpret(attrs47705)]));
-})()]),daiquiri.core.create_element("div",{'className':"modal-body"},[(function (){var attrs47711 = (function (){var G__47714 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("settings","caps","settings/caps",-1433746733),"Choose a plot style for treatment benefit"], null);
-return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__47714) : ttt.call(null,G__47714));
+return daiquiri.core.create_element("h4",((cljs.core.map_QMARK_(attrs44474))?daiquiri.interpreter.element_attributes(daiquiri.normalize.merge_with_class.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"class","class",-2030961996),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["modal-title"], null)], null),attrs44474], 0))):{'className':"modal-title"}),((cljs.core.map_QMARK_(attrs44474))?null:[daiquiri.interpreter.interpret(attrs44474)]));
+})()]),daiquiri.core.create_element("div",{'className':"modal-body"},[(function (){var attrs44478 = (function (){var G__44479 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("settings","caps","settings/caps",-1433746733),"Choose a plot style for treatment benefit"], null);
+return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__44479) : ttt.call(null,G__44479));
 })();
-return daiquiri.core.create_element("p",((cljs.core.map_QMARK_(attrs47711))?daiquiri.interpreter.element_attributes(attrs47711):null),((cljs.core.map_QMARK_(attrs47711))?null:[daiquiri.interpreter.interpret(attrs47711)]));
+return daiquiri.core.create_element("p",((cljs.core.map_QMARK_(attrs44478))?daiquiri.interpreter.element_attributes(attrs44478):null),((cljs.core.map_QMARK_(attrs44478))?null:[daiquiri.interpreter.interpret(attrs44478)]));
 })(),daiquiri.interpreter.interpret(predict_prostate.state.load_config.render_widget(ttt,new cljs.core.Keyword(null,"plot-style","plot-style",-113762355))),daiquiri.core.create_element("div",{'className':"modal-footer"},[daiquiri.core.create_element("button",{'type':"button",'onClick':(function (){
 return predict_prostate.state.run_time.settings_change.pubsub$feeds$TopicFeed$publish$arity$2(null,null);
-}),'className':"btn btn-default"},[daiquiri.interpreter.interpret((function (){var G__47717 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"close","close",1835149582),"Close"], null);
-return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__47717) : ttt.call(null,G__47717));
+}),'className':"btn btn-default"},[daiquiri.interpreter.interpret((function (){var G__44481 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"close","close",1835149582),"Close"], null);
+return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__44481) : ttt.call(null,G__44481));
 })())])])])])])]);
 }),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [rum.core.reactive], null),"predict-prostate.components.bs3-modal/settings-modal");
 

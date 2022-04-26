@@ -8,6 +8,7 @@
    [predict-prostate.pages.contact :refer [contact]]
    [predict-prostate.pages.tool :refer [tool]]
    [predict-prostate.pages.not-found :refer [not-found]]
+   [predict-prostate.pages.model-tests :refer [model-tests]]
    [pubsub.feeds :refer [->Topic publish subscribe unsubscribe]]
    [translations.root :refer [ttt ttt-edit]]
    ))
@@ -51,6 +52,7 @@
        :legal (legal ttt* rt) #_(legal rt)
 
        :not-found (not-found ttt*) ;; commented out in predict3...
+       :model-tests (model-tests ttt*)
        ;[:div "404"]
        )]))
 

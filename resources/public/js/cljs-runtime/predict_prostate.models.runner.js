@@ -4,8 +4,8 @@ goog.provide('predict_prostate.models.runner');
  *   Arity 1 is for 10 years
  */
 predict_prostate.models.runner.recalculate_model = (function predict_prostate$models$runner$recalculate_model(var_args){
-var G__43629 = arguments.length;
-switch (G__43629) {
+var G__42999 = arguments.length;
+switch (G__42999) {
 case 2:
 return predict_prostate.models.runner.recalculate_model.cljs$core$IFn$_invoke$arity$2((arguments[(0)]),(arguments[(1)]));
 

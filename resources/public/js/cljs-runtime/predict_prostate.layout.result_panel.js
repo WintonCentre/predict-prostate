@@ -13,8 +13,8 @@ return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMP
  * Check whether kn1 and kn2 share same names (2-arity) or some other property f (3-arity).
  */
 predict_prostate.layout.result_panel.safe_check = (function predict_prostate$layout$result_panel$safe_check(var_args){
-var G__48518 = arguments.length;
-switch (G__48518) {
+var G__44561 = arguments.length;
+switch (G__44561) {
 case 2:
 return predict_prostate.layout.result_panel.safe_check.cljs$core$IFn$_invoke$arity$2((arguments[(0)]),(arguments[(1)]));
 
@@ -42,8 +42,8 @@ return cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2((f.cljs$core$IFn$_invoke$ari
 predict_prostate.layout.result_panel.result_tab_button = rum.core.lazy_build(rum.core.build_defc,(function (ttt,label_key){
 return daiquiri.core.create_element("li",{'role':"presentation",'onClick':(function (){
 return predict_prostate.state.run_time.active_results_change.pubsub$feeds$TopicFeed$publish$arity$2(null,cljs.core.name(label_key));
-}),'style':{'cursor':"pointer",'borderRadius':"3px",'backgroundColor':"#def"},'key':cljs.core.name(label_key),'className':daiquiri.util.join_classes(new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [(cljs.core.truth_(predict_prostate.layout.result_panel.safe_check.cljs$core$IFn$_invoke$arity$2(rum.core.react(predict_prostate.state.run_time.active_results_pane),label_key))?"active":null)], null))},[daiquiri.core.create_element("a",{'aria-controls':cljs.core.name(label_key),'role':"tab"},[daiquiri.interpreter.interpret((function (){var G__48520 = predict_prostate.layout.result_panel.tab_label_key(label_key);
-return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__48520) : ttt.call(null,G__48520));
+}),'style':{'cursor':"pointer",'borderRadius':"3px",'backgroundColor':"#def"},'key':cljs.core.name(label_key),'className':daiquiri.util.join_classes(new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [(cljs.core.truth_(predict_prostate.layout.result_panel.safe_check.cljs$core$IFn$_invoke$arity$2(rum.core.react(predict_prostate.state.run_time.active_results_pane),label_key))?"active":null)], null))},[daiquiri.core.create_element("a",{'aria-controls':cljs.core.name(label_key),'role':"tab"},[daiquiri.interpreter.interpret((function (){var G__44585 = predict_prostate.layout.result_panel.tab_label_key(label_key);
+return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__44585) : ttt.call(null,G__44585));
 })())])]);
 }),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [rum.core.reactive], null),"predict-prostate.layout.result-panel/result-tab-button");
 predict_prostate.layout.result_panel.result_tab_pane = rum.core.lazy_build(rum.core.build_defc,(function (label,content){
@@ -58,14 +58,14 @@ return daiquiri.interpreter.interpret((content.cljs$core$IFn$_invoke$arity$0 ? c
 :daiquiri.core.create_element("p",null,["No content yet"])):null)]);
 }),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [rum.core.reactive], null),"predict-prostate.layout.result-panel/result-tab-pane");
 predict_prostate.layout.result_panel.result_tabs = rum.core.lazy_build(rum.core.build_defc,(function (ttt){
-return daiquiri.core.create_element("ul",{'role':"tablist",'style':{'fontSize':"16px"},'className':"nav nav-pills"},[daiquiri.interpreter.interpret(cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p1__48525_SHARP_){
-return rum.core.with_key(predict_prostate.layout.result_panel.result_tab_button(ttt,p1__48525_SHARP_),cljs.core.name(p1__48525_SHARP_));
+return daiquiri.core.create_element("ul",{'role':"tablist",'style':{'fontSize':"16px"},'className':"nav nav-pills"},[daiquiri.interpreter.interpret(cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p1__44588_SHARP_){
+return rum.core.with_key(predict_prostate.layout.result_panel.result_tab_button(ttt,p1__44588_SHARP_),cljs.core.name(p1__44588_SHARP_));
 }),new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"charts","charts",555258811),new cljs.core.Keyword(null,"icons","icons",-297140977),new cljs.core.Keyword(null,"curves","curves",-510805378),new cljs.core.Keyword(null,"table","table",-564943036),new cljs.core.Keyword(null,"texts","texts",-2031072472)], null)))]);
 }),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [rum.core.static$], null),"predict-prostate.layout.result-panel/result-tabs");
 predict_prostate.layout.result_panel.result_panes = rum.core.lazy_build(rum.core.build_defc,(function (ttt){
 return daiquiri.core.create_element("div",{'className':"tab-content"},[predict_prostate.layout.result_panel.result_tab_pane("charts",(function (){
-return predict_prostate.results.charts.results_in_charts(new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"title","title",636505583),(function (){var G__48531 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("chart","title","chart/title",739030541),"Overall Survival"], null);
-return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__48531) : ttt.call(null,G__48531));
+return predict_prostate.results.charts.results_in_charts(new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"title","title",636505583),(function (){var G__44592 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("chart","title","chart/title",739030541),"Overall Survival"], null);
+return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__44592) : ttt.call(null,G__44592));
 })(),new cljs.core.Keyword(null,"ttt","ttt",1858561240),ttt], null));
 })),predict_prostate.layout.result_panel.result_tab_pane("icons",(function (){
 return predict_prostate.results.icons.results_in_icons_STAR_(new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"ttt","ttt",1858561240),ttt], null));
@@ -78,22 +78,22 @@ return predict_prostate.results.text.results_in_text(new cljs.core.PersistentArr
 }))]);
 }),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [rum.core.static$], null),"predict-prostate.layout.result-panel/result-panes");
 predict_prostate.layout.result_panel.result_panel = rum.core.lazy_build(rum.core.build_defc,(function (ttt){
-return daiquiri.core.create_element("div",{'id':"results"},[daiquiri.core.create_element("h3",{'style':{'marginTop':(20)}},[daiquiri.interpreter.interpret((function (){var G__48535 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("results","title","results/title",-565898779),"Results"], null);
-return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__48535) : ttt.call(null,G__48535));
+return daiquiri.core.create_element("div",{'id':"results"},[daiquiri.core.create_element("h3",{'style':{'marginTop':(20)}},[daiquiri.interpreter.interpret((function (){var G__44594 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("results","title","results/title",-565898779),"Results"], null);
+return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__44594) : ttt.call(null,G__44594));
 })())]),predict_prostate.layout.result_panel.result_tabs(ttt),predict_prostate.layout.treatments_panel.treatments_options(ttt),predict_prostate.layout.result_panel.result_panes(ttt)]);
 }),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [rum.core.reactive], null),"predict-prostate.layout.result-panel/result-panel");
 predict_prostate.layout.result_panel.side_panel = rum.core.lazy_build(rum.core.build_defc,(function (ttt){
-return daiquiri.core.create_element("div",{'style':{'marginTop':(20),'backgroundColor':predict_prostate.results.util.alison_blue_1},'className':"well"},[daiquiri.interpreter.interpret(predict_prostate.content_reader.all_subsections(ttt,"tool-postamble")),(cljs.core.truth_((function (){var G__48539 = cljs.core.deref(predict_prostate.state.run_time.input_cursor(new cljs.core.Keyword(null,"grade-group","grade-group",-1255212518)));
-var fexpr__48538 = new cljs.core.PersistentHashSet(null, new cljs.core.PersistentArrayMap(null, 2, [(4),null,(5),null], null), null);
-return (fexpr__48538.cljs$core$IFn$_invoke$arity$1 ? fexpr__48538.cljs$core$IFn$_invoke$arity$1(G__48539) : fexpr__48538.call(null,G__48539));
+return daiquiri.core.create_element("div",{'style':{'marginTop':(20),'backgroundColor':predict_prostate.results.util.alison_blue_1},'className':"well"},[daiquiri.interpreter.interpret(predict_prostate.content_reader.all_subsections(ttt,"tool-postamble")),(cljs.core.truth_((function (){var G__44596 = cljs.core.deref(predict_prostate.state.run_time.input_cursor(new cljs.core.Keyword(null,"grade-group","grade-group",-1255212518)));
+var fexpr__44595 = new cljs.core.PersistentHashSet(null, new cljs.core.PersistentArrayMap(null, 2, [(4),null,(5),null], null), null);
+return (fexpr__44595.cljs$core$IFn$_invoke$arity$1 ? fexpr__44595.cljs$core$IFn$_invoke$arity$1(G__44596) : fexpr__44595.call(null,G__44596));
 })())?daiquiri.interpreter.interpret(predict_prostate.content_reader.all_subsections(ttt,"high-grade-group-warning")):null),((cljs.core.not_EQ_.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"no","no",-390373634),cljs.core.deref(predict_prostate.state.run_time.input_cursor(new cljs.core.Keyword(null,"metastasis","metastasis",255525950)))))?daiquiri.interpreter.interpret(predict_prostate.content_reader.all_subsections(ttt,"metastasis-warning")):null),daiquiri.interpreter.interpret(predict_prostate.content_reader.all_subsections(ttt,"scroll-down-for"))]);
 }),null,"predict-prostate.layout.result-panel/side-panel");
-predict_prostate.layout.result_panel.results = rum.core.lazy_build(rum.core.build_defc,(function (p__48540){
-var map__48541 = p__48540;
-var map__48541__$1 = cljs.core.__destructure_map(map__48541);
-var props = map__48541__$1;
-var ttt = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__48541__$1,new cljs.core.Keyword(null,"ttt","ttt",1858561240));
-var container_QMARK_ = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__48541__$1,new cljs.core.Keyword(null,"container?","container?",-1563620041));
+predict_prostate.layout.result_panel.results = rum.core.lazy_build(rum.core.build_defc,(function (p__44597){
+var map__44598 = p__44597;
+var map__44598__$1 = cljs.core.__destructure_map(map__44598);
+var props = map__44598__$1;
+var ttt = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__44598__$1,new cljs.core.Keyword(null,"ttt","ttt",1858561240));
+var container_QMARK_ = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__44598__$1,new cljs.core.Keyword(null,"container?","container?",-1563620041));
 return daiquiri.core.create_element("div",null,[daiquiri.core.create_element("div",{'className':"row"},[daiquiri.core.create_element("div",{'className':"col-md-6 col-md-offset-1"},[predict_prostate.layout.result_panel.result_panel(ttt)]),daiquiri.core.create_element("div",{'className':"col-md-4"},[predict_prostate.layout.result_panel.side_panel(ttt)])])]);
 }),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [rum.core.reactive], null),"predict-prostate.layout.result-panel/results");
 
