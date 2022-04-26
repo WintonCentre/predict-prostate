@@ -119,8 +119,6 @@ survival, up to the projected survival of prostate-cancer-free men "
 (defonce help-cursor (rum/cursor rtdb :settings-visible))
 (defonce help-change (make-topic :settings-change))
 
-(defonce test-cursor (rum/cursor rtdb :model-test-cases))
-
 ;; input keys that are currently on-screen
 (defonce on-screen-inputs-cursor (rum/cursor rtdb :on-screen-inputs))
 

@@ -1,7 +1,6 @@
 (ns predict-prostate.models.tests
   (:require [predict-prostate.models.prostate-release :refer [run-prostate]]
             [ajax.core :refer [GET]]
-            [cljs.core.async :refer [put!]]
             [cljs.reader :as edn]))
 
 (defn clj-stata
@@ -20,11 +19,8 @@
   [c]
   (let [failing-cases (filterv #(some (fn [x] (> x 0.000001)) (vals (clj-stata %))) c)]
     (cond
-      (= [] failing-cases) (js/console.log "All " (count c) " model tests are passing.")
-      :else (js/console.log "Some tests are failing." failing-cases))))
-
-
-
+      (= [] failing-cases) (js/console.log "All" (count c) "model tests are passing.")
+      :else (js/console.log "Some tests are failing." (str failing-cases)))))
 
 (defn file-error [{:keys [status status-text]}]
   (.log js/console (str "file error: " status " " status-text)))
@@ -35,6 +31,7 @@
   (GET url {:error-handler file-error                      ;on-error
             :handler       handler
             :format        :transit                        ;:transit
+            :headers {"Cache-Control" "no-store"}
             }))
 
 (comment
@@ -67,4 +64,4 @@
                   {:handler #(println (edn/read-string %))}
                   #_{:on-error #(put! err-chan %)
                      :handler  #(put! static-chan %)})
-  )
+  ,)

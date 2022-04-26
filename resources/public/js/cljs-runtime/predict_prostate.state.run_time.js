@@ -141,10 +141,6 @@ if((typeof predict_prostate !== 'undefined') && (typeof predict_prostate.state !
 } else {
 predict_prostate.state.run_time.help_change = predict_prostate.state.run_time.make_topic(new cljs.core.Keyword(null,"settings-change","settings-change",275047493));
 }
-if((typeof predict_prostate !== 'undefined') && (typeof predict_prostate.state !== 'undefined') && (typeof predict_prostate.state.run_time !== 'undefined') && (typeof predict_prostate.state.run_time.test_cursor !== 'undefined')){
-} else {
-predict_prostate.state.run_time.test_cursor = rum.core.cursor(predict_prostate.state.run_time.rtdb,new cljs.core.Keyword(null,"model-test-cases","model-test-cases",540483205));
-}
 if((typeof predict_prostate !== 'undefined') && (typeof predict_prostate.state !== 'undefined') && (typeof predict_prostate.state.run_time !== 'undefined') && (typeof predict_prostate.state.run_time.on_screen_inputs_cursor !== 'undefined')){
 } else {
 predict_prostate.state.run_time.on_screen_inputs_cursor = rum.core.cursor(predict_prostate.state.run_time.rtdb,new cljs.core.Keyword(null,"on-screen-inputs","on-screen-inputs",-1260802924));
@@ -211,17 +207,17 @@ return cljs.core.get_in.cljs$core$IFn$_invoke$arity$2(cljs.core.deref(predict_pr
  *   Keys are unqualified (i.e. they don't refer to the selected treatment option).
  */
 predict_prostate.state.run_time.input_map = (function predict_prostate$state$run_time$input_map(){
-return cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentArrayMap.EMPTY,cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p__42985){
-var vec__42986 = p__42985;
-var k = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__42986,(0),null);
-var v = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__42986,(1),null);
+return cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentArrayMap.EMPTY,cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p__55253){
+var vec__55254 = p__55253;
+var k = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__55254,(0),null);
+var v = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__55254,(1),null);
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [k,cljs.core.deref(v)], null);
-}),cljs.core.filter.cljs$core$IFn$_invoke$arity$2((function (p__42989){
-var vec__42990 = p__42989;
-var k = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__42990,(0),null);
-var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__42990,(1),null);
-var fexpr__42993 = clojure.set.union.cljs$core$IFn$_invoke$arity$2(cljs.core.deref(predict_prostate.state.run_time.on_screen_inputs_cursor),cljs.core.deref(predict_prostate.state.run_time.on_screen_treatments_cursor));
-return (fexpr__42993.cljs$core$IFn$_invoke$arity$1 ? fexpr__42993.cljs$core$IFn$_invoke$arity$1(k) : fexpr__42993.call(null,k));
+}),cljs.core.filter.cljs$core$IFn$_invoke$arity$2((function (p__55257){
+var vec__55258 = p__55257;
+var k = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__55258,(0),null);
+var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__55258,(1),null);
+var fexpr__55261 = clojure.set.union.cljs$core$IFn$_invoke$arity$2(cljs.core.deref(predict_prostate.state.run_time.on_screen_inputs_cursor),cljs.core.deref(predict_prostate.state.run_time.on_screen_treatments_cursor));
+return (fexpr__55261.cljs$core$IFn$_invoke$arity$1 ? fexpr__55261.cljs$core$IFn$_invoke$arity$1(k) : fexpr__55261.call(null,k));
 }),predict_prostate.state.run_time.input_cursors())));
 });
 predict_prostate.state.run_time.year_selected = (function predict_prostate$state$run_time$year_selected(){

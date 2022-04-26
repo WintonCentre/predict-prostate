@@ -3,10 +3,10 @@ predict_prostate.pages.about.page_components = new cljs.core.PersistentArrayMap(
 predict_prostate.pages.about.save_offsets = (function predict_prostate$pages$about$save_offsets(state){
 cljs.core.println.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2(["*save-offsets* args",new cljs.core.Keyword("rum","args","rum/args",1315791754).cljs$core$IFn$_invoke$arity$1(state)], 0));
 
-var vec__44490 = new cljs.core.Keyword("rum","args","rum/args",1315791754).cljs$core$IFn$_invoke$arity$1(state);
-var k = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__44490,(0),null);
-var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__44490,(1),null);
-var offsets = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__44490,(2),null);
+var vec__56715 = new cljs.core.Keyword("rum","args","rum/args",1315791754).cljs$core$IFn$_invoke$arity$1(state);
+var k = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__56715,(0),null);
+var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__56715,(1),null);
+var offsets = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__56715,(2),null);
 var comp = new cljs.core.Keyword("rum","react-component","rum/react-component",-1879897248).cljs$core$IFn$_invoke$arity$1(state);
 var dom_node = ReactDOM.findDOMNode(comp);
 cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$4(offsets,cljs.core.assoc,k,dom_node.offsetTop);
@@ -24,16 +24,16 @@ return daiquiri.core.create_element("div",{'id':cljs.core.name(k)},[daiquiri.int
 predict_prostate.pages.about.scroller = new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"did-update","did-update",-2143702256),(function (state){
 cljs.core.println.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2(["*scroller* args",new cljs.core.Keyword("rum","args","rum/args",1315791754).cljs$core$IFn$_invoke$arity$1(state)], 0));
 
-var vec__44501_44541 = new cljs.core.Keyword("rum","args","rum/args",1315791754).cljs$core$IFn$_invoke$arity$1(state);
-var __44542 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__44501_44541,(0),null);
-var vec__44504_44543 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__44501_44541,(1),null);
-var __44544__$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__44504_44543,(0),null);
-var map__44507_44545 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__44504_44543,(1),null);
-var map__44507_44546__$1 = cljs.core.__destructure_map(map__44507_44545);
-var page_44547 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__44507_44546__$1,new cljs.core.Keyword(null,"page","page",849072397));
-var scroll_section_44548 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__44507_44546__$1,new cljs.core.Keyword(null,"section","section",-300141526));
-var scroll_section_44549__$1 = cljs.core.keyword.cljs$core$IFn$_invoke$arity$1(scroll_section_44548);
-interop.utils.scrollTo((cljs.core.truth_(scroll_section_44549__$1)?cljs.core.get.cljs$core$IFn$_invoke$arity$2(cljs.core.deref(new cljs.core.Keyword("predict-prostate.pages.about","offsets","predict-prostate.pages.about/offsets",228292490).cljs$core$IFn$_invoke$arity$1(state)),cljs.core.name(scroll_section_44549__$1)):(0)));
+var vec__56724_56742 = new cljs.core.Keyword("rum","args","rum/args",1315791754).cljs$core$IFn$_invoke$arity$1(state);
+var __56743 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__56724_56742,(0),null);
+var vec__56727_56744 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__56724_56742,(1),null);
+var __56745__$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__56727_56744,(0),null);
+var map__56730_56746 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__56727_56744,(1),null);
+var map__56730_56747__$1 = cljs.core.__destructure_map(map__56730_56746);
+var page_56748 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__56730_56747__$1,new cljs.core.Keyword(null,"page","page",849072397));
+var scroll_section_56749 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__56730_56747__$1,new cljs.core.Keyword(null,"section","section",-300141526));
+var scroll_section_56750__$1 = cljs.core.keyword.cljs$core$IFn$_invoke$arity$1(scroll_section_56749);
+interop.utils.scrollTo((cljs.core.truth_(scroll_section_56750__$1)?cljs.core.get.cljs$core$IFn$_invoke$arity$2(cljs.core.deref(new cljs.core.Keyword("predict-prostate.pages.about","offsets","predict-prostate.pages.about/offsets",228292490).cljs$core$IFn$_invoke$arity$1(state)),cljs.core.name(scroll_section_56750__$1)):(0)));
 
 return state;
 })], null);
@@ -41,22 +41,22 @@ return state;
  * Renders a (text) page given the bide parsed route containing a page, and optionally a section.
  */
 predict_prostate.pages.about.about = rum.core.lazy_build(rum.core.build_defcs,(function (state,ttt,route){
-var vec__44514 = route;
-var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__44514,(0),null);
-var map__44517 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__44514,(1),null);
-var map__44517__$1 = cljs.core.__destructure_map(map__44517);
-var page = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__44517__$1,new cljs.core.Keyword(null,"page","page",849072397));
-var scroll_section = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__44517__$1,new cljs.core.Keyword(null,"section","section",-300141526));
+var vec__56733 = route;
+var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__56733,(0),null);
+var map__56736 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__56733,(1),null);
+var map__56736__$1 = cljs.core.__destructure_map(map__56736);
+var page = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__56736__$1,new cljs.core.Keyword(null,"page","page",849072397));
+var scroll_section = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__56736__$1,new cljs.core.Keyword(null,"section","section",-300141526));
 var page__$1 = cljs.core.keyword.cljs$core$IFn$_invoke$arity$1(page);
 var scroll_section__$1 = cljs.core.keyword.cljs$core$IFn$_invoke$arity$1(scroll_section);
-var vec__44518 = predict_prostate.content_reader.section.cljs$core$IFn$_invoke$arity$2(ttt,"tool-preamble");
-var seq__44519 = cljs.core.seq(vec__44518);
-var first__44520 = cljs.core.first(seq__44519);
-var seq__44519__$1 = cljs.core.next(seq__44519);
-var ___$1 = first__44520;
-var preamble = seq__44519__$1;
-return daiquiri.core.create_element("div",{'className':"container-fluid"},[predict_prostate.layout.header.header(ttt),predict_prostate.layout.header.header_banner(ttt,"about-preamble"),daiquiri.core.create_element("div",{'id':"main-content",'tabIndex':(-1),'className':"row"},[daiquiri.core.create_element("div",{'style':{'minHeight':"calc(100vh - 700px)"},'className':"col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2"},[(cljs.core.truth_(page__$1)?(function (){var sec = (cljs.core.truth_(scroll_section__$1)?cljs.core.map_indexed.cljs$core$IFn$_invoke$arity$2((function (p1__44509_SHARP_,p2__44508_SHARP_){
-return rum.core.with_key(predict_prostate.pages.about.sectionc(p2__44508_SHARP_,ttt,new cljs.core.Keyword("predict-prostate.pages.about","offsets","predict-prostate.pages.about/offsets",228292490).cljs$core$IFn$_invoke$arity$1(state)),p1__44509_SHARP_);
+var vec__56737 = predict_prostate.content_reader.section.cljs$core$IFn$_invoke$arity$2(ttt,"tool-preamble");
+var seq__56738 = cljs.core.seq(vec__56737);
+var first__56739 = cljs.core.first(seq__56738);
+var seq__56738__$1 = cljs.core.next(seq__56738);
+var ___$1 = first__56739;
+var preamble = seq__56738__$1;
+return daiquiri.core.create_element("div",{'className':"container-fluid"},[predict_prostate.layout.header.header(ttt),predict_prostate.layout.header.header_banner(ttt,"about-preamble"),daiquiri.core.create_element("div",{'id':"main-content",'tabIndex':(-1),'className':"row"},[daiquiri.core.create_element("div",{'style':{'minHeight':"calc(100vh - 700px)"},'className':"col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2"},[(cljs.core.truth_(page__$1)?(function (){var sec = (cljs.core.truth_(scroll_section__$1)?cljs.core.map_indexed.cljs$core$IFn$_invoke$arity$2((function (p1__56732_SHARP_,p2__56731_SHARP_){
+return rum.core.with_key(predict_prostate.pages.about.sectionc(p2__56731_SHARP_,ttt,new cljs.core.Keyword("predict-prostate.pages.about","offsets","predict-prostate.pages.about/offsets",228292490).cljs$core$IFn$_invoke$arity$1(state)),p1__56732_SHARP_);
 }),(predict_prostate.pages.about.page_components.cljs$core$IFn$_invoke$arity$1 ? predict_prostate.pages.about.page_components.cljs$core$IFn$_invoke$arity$1(page__$1) : predict_prostate.pages.about.page_components.call(null,page__$1))):predict_prostate.content_reader.all_subsections(ttt,cljs.core.name(page__$1)));
 return daiquiri.interpreter.interpret(sec);
 })():null)])]),predict_prostate.components.bs3_modal.editor_modal(),predict_prostate.layout.header.footer_banner(ttt),daiquiri.core.create_element("div",{'className':"row screen-only"},[predict_prostate.layout.header.footer()])]);
