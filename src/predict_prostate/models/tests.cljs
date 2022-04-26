@@ -20,7 +20,7 @@
   (let [failing-cases (filterv #(some (fn [x] (> x 0.000001)) (vals (clj-stata %))) c)]
     (cond
       (= [] failing-cases) (js/console.log "All" (count c) "model tests are passing.")
-      :else (js/console.log "Some tests are failing." (str failing-cases)))))
+      :else (js/console.log "Some (" (count failing-cases) ") tests are failing." (str failing-cases)))))
 
 (defn file-error [{:keys [status status-text]}]
   (.log js/console (str "file error: " status " " status-text)))
