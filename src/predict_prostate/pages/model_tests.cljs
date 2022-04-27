@@ -31,7 +31,7 @@
 
      [:.row
       [:.col-12
-       [:img.img-responsive {:src   "assets/model-tests.png"
+       [:img.img-responsive {:src   "/assets/model-tests.png"
                              :style {:margin-top "3ex"}
                              :alt   "Model tests"}]]]
      [:.row
