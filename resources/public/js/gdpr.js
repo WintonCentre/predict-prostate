@@ -1,17 +1,17 @@
 // Tracking code wrapped
 
 // This replaces previous scripts like ' async src="https://www.google-analytics.com/analytics.js" '
-function loadScript( url, callback) {
-    var script = document.createElement( "script" )
+function loadScript(url, callback) {
+    var script = document.createElement("script")
     script.type = "text/javascript";
-    if(script.readyState) {  // only required for IE <9
+    if (script.readyState) { // only required for IE <9
         script.onreadystatechange = function() {
-            if ( script.readyState === "loaded" || script.readyState === "complete" ) {
+            if (script.readyState === "loaded" || script.readyState === "complete") {
                 script.onreadystatechange = null;
                 callback();
             }
         };
-    } else {  //Others
+    } else { //Others
         script.onload = function() {
             callback();
         };
@@ -19,12 +19,15 @@ function loadScript( url, callback) {
 
     script.src = url;
 
-    document.getElementsByTagName( "head" )[0].appendChild( script );
+    document.getElementsByTagName("head")[0].appendChild(script);
 }
 
 // Contains unique settings for google analytics
 function initializeGAVars() {
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    window.ga = window.ga || function() {
+        (ga.q = ga.q || []).push(arguments)
+    };
+    ga.l = +new Date;
     ga('create', 'UA-1462795-47', 'auto'); // Live
     // ga('create', 'UA-135562362-1', 'auto'); // Dev test tracking
 
@@ -46,14 +49,17 @@ function initializeGAVars() {
 }
 
 function startHotJar() {
-    (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:1191612,hjsv:6};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;
-        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+    (function(h, o, t, j, a, r) {
+        h.hj = h.hj || function() {
+            (h.hj.q = h.hj.q || []).push(arguments)
+        };
+        h._hjSettings = { hjid: 1191612, hjsv: 6 };
+        a = o.getElementsByTagName('head')[0];
+        r = o.createElement('script');
+        r.async = 1;
+        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
         a.appendChild(r);
-    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
 }
 
 // Main function to Enable GA. Loads in two GA script and runs our settings.
@@ -101,7 +107,7 @@ function initialiseGDPRState() {
         var gdprContainer = document.getElementsByClassName('gdpr-container')[0];
         gdprContainer.style.display = 'none';
         startHotJar();
-        startGA();
+        // startGA();
     } else if (userTc == 'true') {
         var gdprContainer = document.getElementsByClassName('gdpr-container')[0];
         gdprContainer.style.display = 'none';
