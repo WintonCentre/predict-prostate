@@ -139,7 +139,7 @@
      " | "
      [:a {:on-click #(publish route-change [:legal {:page "disclaimer"} nil]) :href "javascript:void(0)"} "Disclaimer"]
      ]
-    [:.col-lg-12.build-version.pull-right
+    [:.col-xs-12.build-version
      ;"Build: v0.0-dev-#000-hash"
      [:img {:style {:width 40 :margin-right 5 :border "none"}
             :alt   "LOT mark"
