@@ -732,7 +732,7 @@ Grade Group 2 or from Stage T2 to stage T3). If MRI data and imaging scores are 
        [:p (ttt [:priv/site-text1 "Information entered into the Predict tool never leaves your local machine. The information entered in
      'Settings' is limited to tool configuration settings and is stored on your local machine."])]]
       [:section (ttt [:priv/cp-title "Cookie Policy"])
-       [:p (ttt [:priv/cp-text1 "A cookie is a small amount of data sent your computer that your web browser stores when you visit some
+       [:p (ttt [:priv/cp-text1 "A cookie is a small amount of data sent to your computer that your web browser stores when you visit some
      websites. Cookies allow a website to recognise a user’s device e.g. computer, mobile phone. "])]
        [:p (ttt [:priv/cp-text2 "The law on website cookies changed on 26 May 2011 and requires that sites state which cookies are being used
      and their purpose. It also makes clear that cookies only be used with your consent. You can find out more
@@ -740,9 +740,9 @@ Grade Group 2 or from Stage T2 to stage T3). If MRI data and imaging scores are 
        [:p (ttt [:priv/cp-text4 "In using the Predict website you are implicitly giving consent that cookies may be used, however you may
      disable cookie use, see below for details."])]]
       [:section (ttt [:priv/wc-title "Which cookies does the Predict website use?"])
-       [:p (ttt [:priv/wc-text1 "Predict uses Google Analytics to measure website traffic. All the information collected is anonymous and is
+       [:p (ttt [:priv/wc-text1 "Predict uses Matomo to measure website traffic. All the information collected is anonymous and is
      not used for any other purpose. For more details see the"]) " "
-        [:a {:href "http://www.google.co.uk/intl/en/policies/privacy/" :rel "noopener"} (ttt [:priv/wc-text2 "Google privacy policy."])]]
+        [:a {:href "https://matomo.org/privacy-policy/" :rel "noopener"} (ttt [:priv/wc-text2 "Matomo privacy policy."])]]
        [:p (ttt [:priv/wc-text3 "The following cookies are used"]) ":"]
        [:table.table.table-bordered {:style {:max-width "600px" :margin-top "10px" :font-size "16px"}}
         [:thead
@@ -750,13 +750,13 @@ Grade Group 2 or from Stage T2 to stage T3). If MRI data and imaging scores are 
                        :color            "white"}}
           [:th (ttt [:priv/wc-table-col1 "Name"])] [:th (ttt [:priv/wc-table-col2 "Details"])] [:th (ttt [:priv/wc-table-col3 "Expires"])]]]
         [:tbody
-         [:tr
+         #_[:tr
           [:td "_utma"] [:td (ttt [:priv/wc-table-r1c2 "stores each user’s number of visits, time of visit etc."])] [:td (ttt [:priv/wc-table-r1c3 "two years"])]]
-         [:tr
+         #_[:tr
           [:td "_utmb"] [:td (ttt [:priv/wc-table-r2c2 "checks approximately how long a user stays on the site"])] [:td (ttt [:priv/wc-table-r2c3 "30 minutes"])]]
-         [:tr
+         #_[:tr
           [:td "_utmc"] [:td (ttt [:priv/wc-table-r3c2 "stores each user’s number of visits"])] [:td (ttt [:priv/wc-table-r3c3 "End of browsing session"])]]
-         [:tr
+         #_[:tr
           [:td "_utmz"] [:td (ttt [:priv/wc-table-r4c2 "stores where a visitor came from"])] [:td (ttt [:priv/wc-table-r4c3 "two years"])]]
          [:tr
           [:td "_hjDonePolls"] [:td (ttt [:priv/wc-table-r5c2 "Hotjar cookie. This cookie is set once a visitor completes a poll using the Feedback Poll widget. It is used to ensure that the same poll does not re-appear if it has already been filled in."])] [:td (ttt [:priv/wc-table-r5c3 "one year"])]]
@@ -766,10 +766,8 @@ Grade Group 2 or from Stage T2 to stage T3). If MRI data and imaging scores are 
        ]
       [:section (ttt [:priv/dc-title "Can I disable cookies?"])
        [:p (ttt [:priv/dc-text1 "You can opt out of cookies at any time, following the instructions in your browser. These are typically found
-     under ‘Tools’ and ‘Options’ (PC) or ‘Preferences’ (Mac) though the details vary from browser to browser.
-     Also, Google offers a"]) " " [:a {:href "https://tools.google.com/dlpage/gaoptout" :rel "noopener"} (ttt [:priv/dc-text2 "tool that you can use to opt out"])]
-        " " (ttt [:priv/dc-text3 "of being tracked by Google Analytics. You can add this plugin to your browser by going to Google.
-        For more details about controlling cookies visit the help pages for the browser that you are using."])]]
+     under ‘Tools’ and ‘Options’ (PC) or ‘Preferences’ (Mac) though the details vary from browser to browser."])
+        " " (ttt [:priv/dc-text3 "For more details about controlling cookies visit the help pages for the browser that you are using."])]]
 
       [:section (ttt [:priv/dh-title "Can I disable hotjar?"])
        [:p (ttt [:priv/dh-text1 "Yes you can. Follow this link for up to date instructions:"]) " " [:a {:href "https://www.hotjar.com/legal/compliance/opt-out" :rel "noopener" :target "_blank"} (ttt [:priv/dh-text2 "How to disable Hotjar"])]]
