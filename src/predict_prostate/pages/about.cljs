@@ -17,7 +17,7 @@
                       })
 
 (defn save-offsets [state]
-  (println "*save-offsets* args" (:rum/args state))
+  #_(println "*save-offsets* args" (:rum/args state))
   (let [[k _ offsets] (:rum/args state)
         comp (:rum/react-component state)
         dom-node (js/ReactDOM.findDOMNode comp)]
@@ -36,7 +36,7 @@
      (all-subsections ttt (name k))]))
 
 (def scroller {:did-update (fn [state]
-                             (println "*scroller* args" (:rum/args state))
+                             #_(println "*scroller* args" (:rum/args state))
                              (let [[_ [_ {page :page scroll-section :section}]] (:rum/args state)
                                    scroll-section (keyword scroll-section)]
                                (scrollTo (if scroll-section (get @(::offsets state) (name scroll-section)) 0))
