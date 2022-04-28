@@ -11,11 +11,11 @@ predict_prostate.core.init = (function predict_prostate$core$init(){
 try{return navigator.serviceWorker.register("/sw_cache_update.js").then((function (){
 return console.log("service worker registered");
 }));
-}catch (e33862){if((e33862 instanceof Object)){
-var err = e33862;
+}catch (e45513){if((e45513 instanceof Object)){
+var err = e45513;
 return console.error("Failed to register service worker",err);
 } else {
-throw e33862;
+throw e45513;
 
 }
 }});
@@ -26,13 +26,9 @@ predict_prostate.core.init();
 if(translations.config.predict_edit){
 rum.core.mount(predict_prostate.pages.root.edit_root(),goog.dom.getElement("app"));
 
-cljs.core.println.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2(["edit: loading translations from: ",[translations.tranny_api.base_url,"upserts/all"].join('')], 0));
-
 return translations.tongue_base.load_all_translations(predict_prostate.core.static_chan,predict_prostate.core.ok_chan,predict_prostate.core.err_chan,[translations.tranny_api.base_url,"upserts/all"].join(''),predict_prostate.state.run_time.t_state_cursor);
 } else {
 rum.core.mount(predict_prostate.pages.root.root(),goog.dom.getElement("app"));
-
-cljs.core.println.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2(["prod: publish t-state-change ",translations.config.live_dictionary_url], 0));
 
 return predict_prostate.state.run_time.t_state_change.pubsub$feeds$TopicFeed$publish$arity$2(null,translations.config.live_dictionary_url);
 }
@@ -41,9 +37,9 @@ predict_prostate.core.edit_main = (function predict_prostate$core$edit_main(){
 return rum.core.mount(predict_prostate.pages.root.edit_root(),goog.dom.getElement("app"));
 });
 predict_prostate.core.loaded_id = setInterval((function (){
-if(cljs.core.truth_((function (){var G__33864 = document.readyState;
-var fexpr__33863 = new cljs.core.PersistentHashSet(null, new cljs.core.PersistentArrayMap(null, 2, ["loaded",null,"complete",null], null), null);
-return (fexpr__33863.cljs$core$IFn$_invoke$arity$1 ? fexpr__33863.cljs$core$IFn$_invoke$arity$1(G__33864) : fexpr__33863.call(null,G__33864));
+if(cljs.core.truth_((function (){var G__45515 = document.readyState;
+var fexpr__45514 = new cljs.core.PersistentHashSet(null, new cljs.core.PersistentArrayMap(null, 2, ["loaded",null,"complete",null], null), null);
+return (fexpr__45514.cljs$core$IFn$_invoke$arity$1 ? fexpr__45514.cljs$core$IFn$_invoke$arity$1(G__45515) : fexpr__45514.call(null,G__45515));
 })())){
 clearInterval(predict_prostate.core.loaded_id);
 

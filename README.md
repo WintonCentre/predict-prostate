@@ -91,11 +91,11 @@ The repo contains a couple of scripts that automate these steps:
 
 > You will need to edit the URL in the publish script so it syncs to your server.
 
-## Development Prerequisites and workflow
+## Development prerequisites and workflow
 
-Install JDK 8 and leiningen 2.7.1 or later. See details above.
+Install JDK 11 and leiningen 2.7.1 or later. See details above.
 
-In development, we now use `Shadow-cljs` instead of `Figwheel`to create either the app or the editor build. Whenever code changes, it is recompiled and reloaded into the running program without the need for a screen refresh. We generate a source-map for chrome developer tools so code may be inspected and exercised in the browser in javascript or clojurescript. Similarly, we use the [binaryage devtools](https://github.com/binaryage/cljs-devtools) to allow easy navigation through either javascript or clojurescript data structures.
+In development, we now use `Shadow-cljs` instead of `Figwheel`to create either the app or the editor build. Whenever code changes, it is recompiled and reloaded into the running program without the need for a screen refresh (hot-reloading). We generate a source-map for chrome developer tools so code may be inspected and exercised in the browser in javascript or clojurescript. Similarly, we use the [binaryage devtools](https://github.com/binaryage/cljs-devtools) to allow easy navigation through either javascript or clojurescript data structures.
 
 However as in all clojure programming, the main development tool is
 the REPL (Read Evaluate Print Loop) ideally one which supports code
@@ -103,34 +103,14 @@ evaluation within the editor.
 
 ## Using VsCode/Calva + Shadow-cljs
 
-Click on the REPL button and choose to `Jack-in`.
-Then select `Shadow-cljs` and the :app and/or :editor profile.
-Evaluate/Load any file/ns in the REPL and you can start using it.
+* Click on the REPL button and choose to `Jack-in`.
+* Select the `/predict-prostate`project (not the `bb-script`one).
+* Then select `Shadow-cljs` and the `:app` and/or `:editor` and/or `:test-browser` builds to start.
+* Finally, choose the build to connect the REPL to.
 
-## Using Intellij/Cursive+Figwheel
-
-One other possible clojurescript-aware editor is the free [Intellij community edition](https://www.jetbrains.com/idea/download)
-augmented with the [Cursive plugin](https://cursive-ide.com/) for Clojure/Clojurescript). Other editors
-may be used but some adjustments may be necessary to support hot-loading.
-(For example, if using Emacs with Cider, the figwheel setup is slightly
-different.)
-
-Install Intellij and the Cursive plugin following [these instructions](https://cursive-ide.com/userguide/index.html).
-I recommend enabling the ParEdit option rather than ParInfer for fast
-clojure editing with balanced parenthises.
-
-Start Intellij, and select `File > New Project > From Version Control`.
-This will clone and install the repo and create a new project.
-
-Open `project.clj`. Cursive will prompt you for the path to your Java
-SDK and will register the project file.
-
-You will need to create a [figwheel run configuration](https://github.com/bhauman/lein-figwheel/wiki/Running-figwheel-in-a-Cursive-Clojure-REPL).
-Follow the link for instructions - look for 'Create a clojure.main Cursive REPL Configuration'.
-The `script/repl.clj` file is already in the distribution, so you don't need
-to make it. If you name this configuration 'figwheel' it will appear next
-to the green 'run' arrow in the intellij menu bar.
-> Be aware that the latest build is using shadow-cljs, and getting figwheel to work again might require some adjustments.
+The `shadow dashboard`is available at `localhost:9630`
+The app is available at `localhost:4000`
+The browser tests are available at `localhost:4021`
 
 ## License
 
