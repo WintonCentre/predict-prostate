@@ -94,7 +94,7 @@ function gdprBtnOnClick(e) {
 function initialiseGDPRState() {
     var userAnalytics = localStorage.getItem('user-analytics');
     var userTc = localStorage.getItem('user-tc');
-    console.log(userTc);
+    // console.log(userTc);
 
     // Initial value
     if (userTc == 'false' || userTc == null || userTc == undefined) {

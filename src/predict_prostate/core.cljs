@@ -40,11 +40,11 @@
   (if predict-edit
     (do
       (rum/mount (edit-root) (gdom/getElement "app"))
-      (println "edit: loading translations from: " (str base-url "upserts/all"))
+      #_(println "edit: loading translations from: " (str base-url "upserts/all"))
       (load-all-translations static-chan ok-chan err-chan (str base-url "upserts/all") t-state-cursor))
     (do
       (rum/mount (root) (gdom/getElement "app"))
-      (println "prod: publish t-state-change " live-dictionary-url)
+      #_(println "prod: publish t-state-change " live-dictionary-url)
       (publish t-state-change live-dictionary-url)))
   )
 
