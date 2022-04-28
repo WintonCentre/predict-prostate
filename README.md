@@ -1,7 +1,13 @@
-# predict-prostate
 
-A decision tool to help patients and clinicians decide on whether to go
-for conservative or radical treatments for prostate cancer.
+<h1 align="center">Predict Prostate</h1>
+<p align="center">
+<img src="https://img.shields.io/badge/to--inform-not--persuade-informational">
+<img src="https://img.shields.io/badge/License-EPL_1.0-red.svg">
+</p>
+
+_A decision tool to help patients and clinicians decide on whether to go for conservative or radical treatments for prostate cancer, made by the **[Winton Centre team](https://wintoncentre.maths.cam.ac.uk/)**._
+
+---
 
 ## Status
 
@@ -135,6 +141,6 @@ to the green 'run' arrow in the intellij menu bar.
 
 ## License
 
-Copyright ©2018 University of Cambridge
+Copyright ©2022 University of Cambridge
 
 Distributed under the Eclipse Public License either version 1.0 or (at your option) any later version.
