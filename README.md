@@ -8,6 +8,12 @@
 _A decision tool to help patients and clinicians decide on whether to go for conservative or radical treatments for prostate cancer, made by the **[Winton Centre team](https://wintoncentre.maths.cam.ac.uk/)**._
 
 ---
+This is a single page web application written in
+[clojurescript](https://clojurescript.org/).
+The clojurescript compiler generates javascript which runs in an HTML5
+capable browser (Chrome, Safari, Firefox, Opera, IE11). It uses Bootstrap
+styling to achieve a responsive display that adapts to desktop or mobile
+screen sizes.
 
 The user interface inherits much from the [Winton breast cancer predict](https://github.com/WintonCentre/predict3) interface which is undergoing separate user testing. A similar user testing program has been implemented for this project before release.
 
@@ -15,32 +21,19 @@ The user interface inherits much from the [Winton breast cancer predict](https:/
 <a href="https://ibb.co/Cbyr4BH"><img src="https://i.ibb.co/x1b4wh7/PP.png" alt="PP" border="0" /></a>
 </p>
 
-The site is currently available in five languages (EN, FR, DE, SC and PT).
+The site is currently available in five languages (EN, FR, DE, SC and PT). It is mainly based on [the following paper](https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1002758).
 
 This is a branch dedicated to adding translation capabilities to the application in the form of an editor mode populating a PostgreSQL backend.
-## Overview
-
-Add reference to the [prostate cancer paper](https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1002758) here.
-
-This is a single page web application written in
-[clojurescript](https://clojurescript.org/).
-The clojurescript compiler generates javascript which runs in an HTML5
-capable browser (Chrome, Safari, Firefox, Opera, IE10+). It uses Bootstrap
-styling to achieve a responsive display that adapts to desktop or mobile
-screen sizes.
 ## Installation
 
 These instructions create a production version. To create a development
-version see below.
+version see the next section below.
 
-Ensure you have **Java 1.8** installed. At a terminal try
+Ensure you have **Java 1.11** installed. At a terminal try
 ```sh
 java -version
 ```
-If not, install JDK 8 from [Oracle](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html).
-I would expect [OpenJDK v8](http://openjdk.java.net/install/) to work too, but this is untested.
-
-JDK 9 has also been released, but this project has not yet been tested with it.
+If not, install JDK 11 from [Oracle](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html), [OpenJDK v11](http://openjdk.java.net/install/) or [Azul Zulu](https://www.azul.com/downloads/?package=jdk) for Mac M1.
 
 Ensure you have **leiningen 2.7.1** or later installed.
 Leiningen is a build tool for clojure programming.
@@ -50,7 +43,7 @@ lein --version
 If not, install it from https://leiningen.org/
 
 For production we use the `min-` build ids which runs the code through the advanced optimisation pass of Google's closure compiler. Use `min`build for a production app, and `min-edit`for a production editor.
-> Make sure you comment out the Service Worker in index.html for the editor, as it causes an issue when requesting the API from a Safari browser.
+> You may need to comment out the Service Worker in `predict-prostate.core/init` for the editor, as it could cause an issue when requesting the API from a Safari browser.
 
 To create the production build, download the repository or clone it using git and use the following leiningen command:
 
@@ -67,17 +60,15 @@ lein do clean, cljsbuild with-profile rum-react-patch cljsbuild once min-edit
 >These instructions assume a MacOSX or Unix/Linux development system is to hand.
 >If running Windows, you should be able to load up a unix virtual box first and run things in that.
 
-The first time you run this it will download clojure, clojurescript and
-all project dependencies. Subsequent runs will be faster.
+_The first time you run this it will download Clojure, Clojurescript and
+all project dependencies. Subsequent runs will be faster._
 
 This creates a distribution in the `resources/public` folder which can
-be served as a directory by a simple static file web server.
+be served as a directory by a simple static file web server (e.g. Netlify).
 
-Any server capable of serving files from
-a directory will do. Those that come with python or NodeJS are often near
-to hand. See https://gist.github.com/willurd/5720255 for more options.
-Switch to the resources/public directory, and start a local web server
-to test.
+Any server capable of serving files from a directory will do. Those that come with python or NodeJS are often near to hand (see [here](https://gist.github.com/willurd/5720255) for more options).
+For instance, switch to the resources/public directory, and start a local web server
+to test:
 
 ```
 cd resources/public
@@ -89,13 +80,13 @@ python -m'SimpleHTTPServer'
 python3 -m'http.server'
 
 ```
-For these python examples, the production site may be tested at
-`http://localhost:8000`.
+For these python examples, the production site may be tested at `http://localhost:8000`.
 
 
 The repo contains a couple of scripts that automate these steps:
 
-* `./build.sh` will compile the application. And after testing it, run
+* `./build.sh` will compile the application. 
+* `build_number.sh`updates the version number using the latest annotated tag. After running these, execute:
 * `./publish.sh`
 
 > You will need to edit the URL in the publish script so it syncs to your server.
