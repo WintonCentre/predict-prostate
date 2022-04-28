@@ -743,8 +743,9 @@ Grade Group 2 or from Stage T2 to stage T3). If MRI data and imaging scores are 
        [:p (ttt [:priv/wc-text1 "Predict uses Matomo to measure website traffic. All the information collected is anonymous and is
      not used for any other purpose. For more details see the"]) " "
         [:a {:href "https://matomo.org/privacy-policy/" :rel "noopener"} (ttt [:priv/wc-text2 "Matomo privacy policy."])]]
-       [:p (ttt [:priv/wc-text3 "The following cookies are used"]) ":"]
-       [:table.table.table-bordered {:style {:max-width "600px" :margin-top "10px" :font-size "16px"}}
+       [:p (ttt [:priv/wc-text3 "The following cookies are used"]) ": "
+        [:a {:href "https://help.hotjar.com/hc/en-us/articles/115011789248-Hotjar-Cookie-Information#tracking_code_cookies" :rel "noopener"} (ttt [:priv/wc-text4 "Cookies set by Hotjar"])]]
+       #_[:table.table.table-bordered {:style {:max-width "600px" :margin-top "10px" :font-size "16px"}}
         [:thead
          [:tr {:style {:background-color "#005EB4"
                        :color            "white"}}
@@ -993,7 +994,7 @@ Grade Group 2 or from Stage T2 to stage T3). If MRI data and imaging scores are 
         [:p (ttt [:tool/bio-ex-text2 "2 biopsy cores from 1 target, of which both were negative = 1 additional core taken and 0 additional cores
       with cancer "])]
         [:p (ttt [:tool/bio-ex-text3 "3 biopsy cores from 1 target, of which 2 were positive = 1 additional core taken and 1 additional core with
-      cancer. "])]
+      cancer "])]
         [:p (ttt [:tool/bio-ex-text4 "2 biopsy cores, 1 taken from each of 2 different targets, both of which were positive = 2 additional cores
       taken and 2 additional cores with cancer "])]]]
 
