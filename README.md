@@ -12,7 +12,7 @@ user testing program has been implemented for this project before release.
 This is a branch dedicated to adding translation capabilities to the application in the form of an editor mode populating a PostgreSQL backend.
 ## Overview
 
-Add reference to the prostate cancer paper here.
+Add reference to the [prostate cancer paper](https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1002758) here.
 
 This is a single page web application written in
 [clojurescript](https://clojurescript.org/).
