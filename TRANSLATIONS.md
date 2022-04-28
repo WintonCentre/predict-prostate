@@ -20,7 +20,7 @@ In a **normal** build,
 `ttt` returns a span component containing the text for the selected language found in the dictionary map. That dictionary map is initialised at startup by merging the EDN files `live_dictionary.txt` over `prod_dictionary.txt`.
 `prod_dictionary.txt` contains the basic menus in all production languages.
 
-In an **editor** build, the app first reads in any dictionary it can find from a translations server endpoint. This remote mutable dictionary is merged with `dictionary.txt`. `dictionary.txt` contains the basic menu translations for all languages - including those that are currently being translated. See the `tranny` app for that - the endpoints are published at `https://api-prostate.wintoncentre.uk/`. The language dictionary gets merged with the default dictionary map so `ttt` can find the text for a selected language. If `ttt` finds the translation it is presented to the user inside as a clickable muted pink box. If no translation is found, the text is presented inside a clickable shocking pink box. This makes text that needs to be translated stand out. Either way, clicking on the text calls up a dialog box where a new translation may be entered. 
+In an **editor** build, the app first reads in any dictionary it can find from a translations server endpoint. This remote mutable dictionary is merged with `dictionary.txt`. `dictionary.txt` contains the basic menu translations for all languages - including those that are currently being translated. See the `tranny` app for that - the endpoints are published at `https://api-prostate.wintoncentre.uk/`. The language dictionary gets merged with the default dictionary map so `ttt` can find the text for a selected language. If `ttt` finds the translation it is presented to the user inside as a clickable muted <span style="background-color: #FADADD">pink</span> box. If no translation is found, the text is presented inside a clickable <span style="background-color: #FC0FC0">shocking pink</span> box. This makes text that needs to be translated stand out. Either way, clicking on the text calls up a dialog box where a new translation may be entered. 
 
 There are minimal safeguards here. Old text can be overwritten and is - immediately, and common mistakes such as failing to select the target language before commencing a translation are not caught. This last mistake shows up as the new language appearing when English is selected in the translation editor. It can be corrected by manual manipulation of the SQLite translations database located in the tranny project. See also `https://api-prostate.wintoncentre.uk/translations`. Because of this error it's important to clear the English of any translations before extracting the live dictionary EDN file. 
 
@@ -28,15 +28,15 @@ There are minimal safeguards here. Old text can be overwritten and is - immediat
 In `leiningen` builds, we create a *normal* or a *translation editor* build by selecting either the `min`or`min-edit`profile defined in `project.clj` when calling `lein cljsbuild`. 
 `min-edit` includes the folder `src_tt_edit` in the source path list. `min` includes the folder `src_tt_prod` instead.
 
-In development, when using a `shadow-cljs` build, we have to do this differently. It's easiest to pull in the different ttt definitions by building different targets which use different entry points as defined in `shadow-cljs.edn`. This in turn means that we need different root html to refer to those entry points.
+In development, when using a `shadow-cljs` build, we have to do this differently. It's easiest to pull in the different ttt definitions by building different targets which use different entry points as defined in `shadow-cljs.edn`. This in turn means that we need different root html to refer to those entry points (use `shadow.html`in development).
 
-The Jenkins production builds currently still use leiningen (for IE9 compatibility), so it is only worthwhile going over to shadow-cljs if you are making extensive changes in development. 
-
+> Make sure the script referenced in `index.html` or `shadow.html` is either `app.js`for the app or `editor.js`for the translation editor.
 ### Selecting the languages offered
 Define them in `translations.config/initial-supported-languages`
 
 ### Making the translations 
-Once built, it's over to the translation editors so they can complete the translations. Monitor progress on the translations editor site `https://translation.prostate.wintoncentre.uk/` and on `https://api-prostate.wintoncentre.uk/translations`. Each language needs around 600 translations. Watch out for missed info box translations, and missed texts that only come up on certain input choices, and code changes that demand new translations in all languages. 
+Once built, it's over to the translation editors so they can complete the translations. Monitor progress on the translations editor site `https://translation.prostate.wintoncentre.uk/` and on `https://api-prostate.wintoncentre.uk/translations`. Each language needs around 500 translations. Watch out for missed info box translations, and missed texts that only come up on certain input choices, and code changes that demand new translations in all languages. 
+> The `Biopsy examples`pop up linked to `See examples`in the tool, under the `Biopsy cores`input, isn't accessible from the editor. The translations must be added directly via the api.
 
 ### Building a site with a new language
 The safeguards need to come in before publication of the live site. Here's the checklist:
@@ -55,7 +55,7 @@ menu items translated into all the old languages too.
 ### On git branches
 The translation editor uses the same git branch, `shadow`, which Jenkins uses to create `https://translation.prostate.wintoncentre.uk/`. 
 
-Similarly, there are branches for the live site `master`, the staging site `staging` and the development site `develop`. Changes usually propagate from `develop` through `staging` into `master`. 
+Similarly, there are branches for the live site `master` (or `live`), the staging site `staging` and the development site `develop`. Changes usually propagate from `develop` through `staging` into `master`. 
 
 When the translations are to be put live, all the above mentioned branches should be made equal to the `shadow` branch. Then the development lifecycle should use these three branches again.
 
