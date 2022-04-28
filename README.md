@@ -60,8 +60,7 @@ lein do clean, cljsbuild with-profile rum-react-patch cljsbuild once min-edit
 >These instructions assume a MacOSX or Unix/Linux development system is to hand.
 >If running Windows, you should be able to load up a unix virtual box first and run things in that.
 
-_The first time you run this it will download Clojure, Clojurescript and
-all project dependencies. Subsequent runs will be faster._
+_The first time you run this it will download Clojure, Clojurescript and all project dependencies. Subsequent runs will be faster._
 
 This creates a distribution in the `resources/public` folder which can
 be served as a directory by a simple static file web server (e.g. Netlify).
@@ -86,7 +85,7 @@ For these python examples, the production site may be tested at `http://localhos
 The repo contains a couple of scripts that automate these steps:
 
 * `./build.sh` will compile the application. 
-* `build_number.sh`updates the version number using the latest annotated tag. After running these, execute:
+* `./build_number.sh`updates the version number using the latest annotated tag. After running these, execute:
 * `./publish.sh`
 
 > You will need to edit the URL in the publish script so it syncs to your server.
@@ -101,7 +100,7 @@ However as in all clojure programming, the main development tool is
 the REPL (Read Evaluate Print Loop) ideally one which supports code
 evaluation within the editor.
 
-## Using VsCode/Calva + Shadow-cljs
+### Using VsCode/Calva + Shadow-cljs
 
 * Click on the REPL button and choose to `Jack-in`.
 * Select the `/predict-prostate`project (not the `bb-script`one).
@@ -114,6 +113,6 @@ The browser tests are available at `localhost:4021`
 
 ## License
 
-Copyright ©2022 University of Cambridge
+_Copyright ©2022 University of Cambridge_
 
-Distributed under the Eclipse Public License either version 1.0 or (at your option) any later version.
+_Distributed under the Eclipse Public License either version 1.0 or (at your option) any later version._
