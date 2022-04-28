@@ -9,11 +9,13 @@ _A decision tool to help patients and clinicians decide on whether to go for con
 
 ---
 
-## Status
+The user interface inherits much from the [Winton breast cancer predict](https://github.com/WintonCentre/predict3) interface which is undergoing separate user testing. A similar user testing program has been implemented for this project before release.
 
-The user interface inherits much from the Winton breast cancer
-predict interface which is undergoing separate user testing. A similar
-user testing program has been implemented for this project before release.
+<p align="center">
+<a href="https://ibb.co/Cbyr4BH"><img src="https://i.ibb.co/Cbyr4BH/PP.png" alt="PP home page" border="0" /></a>
+</p>
+
+The site is currently available in five languages (EN, FR, DE, SC and PT).
 
 This is a branch dedicated to adding translation capabilities to the application in the form of an editor mode populating a PostgreSQL backend.
 ## Overview
