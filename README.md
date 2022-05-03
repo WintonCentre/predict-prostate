@@ -111,6 +111,13 @@ The `shadow dashboard`is available at `localhost:9630`
 The app is available at `localhost:4000`
 The browser tests are available at `localhost:4021`
 
+## Model tests
+
+Under `/model-tests/f04064a489c3a0f32ced64d4bae42e93c6a050fb0ef5aa4d2a701fe3d2671818`, there is a button to load and run the tests contained in `test-runs.txt` (currently 5000).
+These tests have been generated using the original model in Stata, and they are here to make sure that the published model gives out the same results as the original model.
+They should be run after every release.
+The result of these tests is output in the console of the browser.
+
 ## License
 
 _Copyright ©2022 University of Cambridge_
