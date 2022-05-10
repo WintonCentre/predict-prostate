@@ -55,7 +55,7 @@ cd predict-prostate
 # For a production app
 lein do clean, cljsbuild once min
 # For a production editor
-lein do clean, cljsbuild with-profile rum-react-patch cljsbuild once min-edit
+lein do clean, with-profile rum-react-patch cljsbuild once min-edit
 ```
 >These instructions assume a MacOSX or Unix/Linux development system is to hand.
 >If running Windows, you should be able to load up a unix virtual box first and run things in that.
