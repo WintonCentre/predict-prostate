@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 echo "===============Building files============="
 lein clean
-lein cljsbuild once min
+lein with-profile rum-react-patch cljsbuild once min

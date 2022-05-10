@@ -53,7 +53,7 @@ git clone https://gitlab.com/gmp26/predict-prostate.git
 
 cd predict-prostate
 # For a production app
-lein do clean, cljsbuild once min
+lein do clean, with-profile rum-react-patch cljsbuild once min
 # For a production editor
 lein do clean, with-profile rum-react-patch cljsbuild once min-edit
 ```
