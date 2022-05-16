@@ -191,9 +191,9 @@
                   val-2))
         ]
     #_(js/console.log "out-value " value)
-    (js/console.log "nmin: " nmin)
-    (js/console.log "val-1: " val-1)
-    (js/console.log "val-2: " val-2)
+    #_(js/console.log "nmin: " nmin)
+    #_(js/console.log "val-1: " val-1)
+    #_(js/console.log "val-2: " val-2)
     (if (js/isNaN value)                                    ; Case when user has deleted value using backspace.
       " :0"                                                 ; and there is no input there.
       val-3                                                 ; Otherwise return
@@ -201,7 +201,7 @@
 
 (defn handle-inc [value onChange nmin nmax precision step]
   (let [v (validate-input value nmin nmax step)]
-    (js/console.log "onChange " v)
+    #_(js/console.log "onChange " v)
     (onChange (num-to-str v #_(if (= v " :0") nmin v) precision))))
 
 
