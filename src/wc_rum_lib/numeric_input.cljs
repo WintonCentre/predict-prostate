@@ -185,12 +185,15 @@
         val-2 (+ step val-1)                                ; do the increment
 
         val-3 (if (< val-2 nmin)                            ; is it too small?
-                (str (num-to-str val-2) ":" val-2)          ; yes
+                (str (num-to-str val-2 0) ":" val-2)          ; yes
                 (if (> val-2 nmax)                          ; no; is it too big?
-                  (str (num-to-str val-2) ":" val-2)        ; yes, return good and bad values, in colon separated string
+                  (str (num-to-str val-2 3) ":" val-2)        ; yes, return good and bad values, in colon separated string
                   val-2))
         ]
     #_(js/console.log "out-value " value)
+    (js/console.log "nmin: " nmin)
+    (js/console.log "val-1: " val-1)
+    (js/console.log "val-2: " val-2)
     (if (js/isNaN value)                                    ; Case when user has deleted value using backspace.
       " :0"                                                 ; and there is no input there.
       val-3                                                 ; Otherwise return
@@ -198,7 +201,7 @@
 
 (defn handle-inc [value onChange nmin nmax precision step]
   (let [v (validate-input value nmin nmax step)]
-    ;(js/console.log "onChange " v)
+    (js/console.log "onChange " v)
     (onChange (num-to-str v #_(if (= v " :0") nmin v) precision))))
 
 
@@ -239,7 +242,7 @@
 
 
 (rum/defc numeric-input < rum/static rum/reactive           ;echo-update
-  [{:keys [key input-ref onChange min max error-color color precision] :or {error-color "red" color "black"} :as props}]
+  [{:keys [key input-ref onChange min max error-color color precision step] :or {error-color "red" color "black"} :as props}]
 
    (let [[good bad] (split (rum/react input-ref) #":")
         value (str-to-num good)
@@ -265,12 +268,12 @@
                              (.preventDefault %))
                            (update-value value nmin nmax precision
                              (cond
-                               (= "ArrowUp" key-code) 1
-                               (= "ArrowDown" key-code) -1
+                               (= "ArrowUp" key-code) step
+                               (= "ArrowDown" key-code) (* -1 step)
                                :else 0)
                              onChange))}
      [:.button-group
-      (inc-dec-button (assoc props :nmin nmin :nmax nmax :precision precision :increment -1 :cursor input-ref))
+      (inc-dec-button (assoc props :nmin nmin :nmax nmax :precision precision :increment (* -1 step) :cursor input-ref))
       [:input
        {:type      "text"
         :value     good
@@ -286,7 +289,7 @@
                     :text-align       "center"
                     #_#_:font-weight "bold"}
         }]
-      (inc-dec-button (assoc props :nmin nmin :nmax nmax :precision precision :increment 1 :cursor input-ref))
+      (inc-dec-button (assoc props :nmin nmin :nmax nmax :precision precision :increment step :cursor input-ref))
       ]]
 
     ))

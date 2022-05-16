@@ -95,7 +95,7 @@
    (->Input-group :psa
                   "PSA (ng/ml)"
                   :numeric-input
-                  {:min 0 :max 100 :step 1 :precision 3}
+                  {:min 0 :max 100 :step 0.1 :precision 3}
                   false false true
                   :prp
                   #{"prostate" "prostate-release"}
