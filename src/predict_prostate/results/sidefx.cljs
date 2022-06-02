@@ -88,8 +88,7 @@
      [:div {:style {:font-size 16 :margin-bottom 10}} (blob {:key "b2" :fill (:radical-harms treatment-fills) :r 7}) " " (ttt [:sidefx/rp "Radical prostatectomy"])]
      [:div {:style {:font-size 16}} (blob {:key "b3" :fill (:radiotherapy treatment-fills) :r 7}) " " (ttt [:sidefx/rr "Radical Radiotherapy"])]]
     [:.col-sm-6
-     [:p {:style {:font-size 14}} (ttt [:sidefx/ppho-text1 "The following estimates assume that the function is normal before treatment and have been taken from large published studies.
-    The estimates are not individualised to you or your local treatment centre or are they derived from the predict calculator.
+     [:p {:style {:font-size 14}} (ttt [:sidefx/ppho-text1 "The following estimates are not individualised to you or your local treatment centre.
     Your local team may have data specific to your centre which you can ask about."])]
      [:p {:style {:font-size 14 :color "#f00"}} (ttt [:sidefx/ppho-text2 "If you are in the UK, centre by centre provider outcomes are provided by
      the National Prostate Cancer Audit which you may find useful:"]) " "
@@ -146,7 +145,7 @@
   (let [quantity [:span (Math/round n) " " (ttt [:sidefx/lin-in "in"]) " 100 "]]
     [:div
      [:span prefix (if fewer [:b quantity] quantity)]
-     [:span (ttt [:sidefx/lin-aft "men have this issue after 3 years."])]
+     [:span (ttt [:sidefx/lin-aft "men have this issue after 6 years."])]
      (sidefx-bar {:fewer fewer :percent n :fill (treatment treatment-fills) :tallies? tallies? :ttt ttt})
      [:br]
      ]))
@@ -167,71 +166,70 @@
 
 (rum/defc erectile-source [ttt]
   [:span
-   (ttt [:sidefx/eresrc-text1 "Estimates for erectile dysfunction have been derived from a large American study. The full research can be
+   (ttt [:sidefx/eresrc-text1 "Estimates for erectile dysfunction have been taken from the UK-based Prostate Testing for Cancer and Treatment (ProtecT) trial. The full research can be
         read here:"]) " "
-   [:a {:href   "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5782813/"
+   [:a {:href   "https://bjui-journals.onlinelibrary.wiley.com/doi/10.1111/bju.15739"
         :target "_blank"}
-    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5782813/"]])
+    "https://bjui-journals.onlinelibrary.wiley.com/doi/10.1111/bju.15739"]])
 
 (rum/defc incontinence-source [ttt]
   [:span
-   (ttt [:sidefx/incsrc-text1 "Estimates for incontinence dysfunction have been taken from the UK-based Prostate Testing for
+   (ttt [:sidefx/incsrc-text1 "Estimates for incontinence have been taken from the UK-based Prostate Testing for
        Cancer and Treatment (ProtecT) trial. The full research can be read here:"]) " "
-   [:a {:href   "https://www.nejm.org/doi/full/10.1056/NEJMoa1606221"
+   [:a {:href   "https://bjuijournals.onlinelibrary.wiley.com/doi/10.1111/bju.15739"
         :target "_blank"}
-    "https://www.nejm.org/doi/full/10.1056/NEJMoa1606221"]])
+    "https://bjuijournals.onlinelibrary.wiley.com/doi/10.1111/bju.15739"]])
 
 (rum/defc bowel-source [ttt]
   [:span {:font-size 12}
-   (ttt [:sidefx/bowsrc-text1 "Estimates for bowel dysfunction have been taken from the UK-based Prostate Testing for
+   (ttt [:sidefx/bowsrc-text1 "Estimates for bowel issues have been taken from the UK-based Prostate Testing for
        Cancer and Treatment (ProtecT) trial. The full research can be read here:"]) " "
-   [:a {:href   "https://www.nejm.org/doi/full/10.1056/NEJMoa1606221"
+   [:a {:href   "https://bjuijournals.onlinelibrary.wiley.com/doi/10.1111/bju.15739"
         :target "_blank"}
-    "https://www.nejm.org/doi/full/10.1056/NEJMoa1606221"]])
+    "https://bjuijournals.onlinelibrary.wiley.com/doi/10.1111/bju.15739"]])
 
 (rum/defc sidefx-discrete
   [tallies? ttt]
   [:div {:style {:border "1px solid #CCCCCC" :border-radius 3 :font-size 16}}
    (sidefx-header ttt)
-   (sidefx-content {:title (ttt [:sidefx/eredys-title "Erectile dysfunction"]) :sub-title (ttt [:sidefx/eredys-subtitle "Defined as: 'Erections insufficient for intercourse'"])
+   (sidefx-content {:title (ttt [:sidefx/eredys-title "Erectile dysfunction"]) :sub-title (ttt [:sidefx/eredys-subtitle "Defined as: 'Lack of firmness for intercourse' - (percentages shown are in addition to men who may already have this problem before a treatment is given)"])
                     :source #(erectile-source ttt)}
 
                    (sidefx-linear {:treatment :conservative
                                    :prefix    [:span (ttt [:sidefx/with "With"]) " " [:b {:style {:color (:conservative treatment-fills)}} (ttt [:sidefx/cons-man "conservative management,"])] " " (ttt [:sidefx/about "about"]) " "]
-                                   :n         27
+                                   :n         21
                                    :tallies?  tallies?
                                    :ttt ttt})
                    (sidefx-linear {:treatment :radical-harms
-                                   :prefix    [:span (ttt [:sidefx/with "With"]) " " [:b {:style {:color (:radical-harms treatment-fills)}} (ttt [:sidefx/nsrp "nerve-sparing radical prostatectomy,"])] " " (ttt [:sidefx/about "about"]) " "]
-                                   :n         56
+                                   :prefix    [:span (ttt [:sidefx/with "With"]) " " [:b {:style {:color (:radical-harms treatment-fills)}} (ttt [:sidefx/nsrp "radical prostatectomy (surgery),"])] " " (ttt [:sidefx/about "about"]) " "]
+                                   :n         50
                                    :tallies?  tallies?
                                    :ttt ttt})
-                   (sidefx-linear {:treatment :radical-harms
+                   #_(sidefx-linear {:treatment :radical-harms
                                    :prefix    [:span (ttt [:sidefx/with "With"]) " " [:b {:style {:color (:radical-harms treatment-fills)}} (ttt [:sidefx/nnsrp "non-nerve-sparing radical prostatectomy,"])] " " (ttt [:sidefx/about "about"]) " "]
                                    :n         66
                                    :tallies?  tallies?
                                    :ttt ttt})
                    (sidefx-linear {:treatment :radiotherapy
-                                   :prefix    [:span (ttt [:sidefx/with "With"]) " " [:b {:style {:color (:radiotherapy treatment-fills)}} (ttt [:sidefx/radio "radiotherapy,"])] " " (ttt [:sidefx/about "about"]) " "]
-                                   :n         39
+                                   :prefix    [:span (ttt [:sidefx/with "With"]) " " [:b {:style {:color (:radiotherapy treatment-fills)}} (ttt [:sidefx/radio "radical radiotherapy (external beam),"])] " " (ttt [:sidefx/about "about"]) " "]
+                                   :n         36
                                    :tallies?  tallies?
                                    :ttt ttt}))
 
-   (sidefx-content {:title (ttt [:sidefx/incon-title "Incontinence"]) :sub-title (ttt [:sidefx/incon-subtitle "Defined as: 'Wore one or more pads in the last 4 weeks'"])
+   (sidefx-content {:title (ttt [:sidefx/incon-title "Incontinence"]) :sub-title (ttt [:sidefx/incon-subtitle "Defined as: 'Use of 1 or more pads per day and assuming this problem does not exist before treatment'"])
                     :source #(incontinence-source ttt)}
                    (sidefx-linear {:treatment :conservative
-                                   :fewer     true
-                                   :prefix    (fewer-helper [:span (ttt [:sidefx/with "With"]) " " [:b {:style {:color (:conservative treatment-fills)}} (ttt [:sidefx/cons-man "conservative management,"])] " "] ttt)
+                                   :prefix    [:span (ttt [:sidefx/with "With"]) " " [:b {:style {:color (:conservative treatment-fills)}} (ttt [:sidefx/cons-man "conservative management,"])] " " (ttt [:sidefx/about "about"]) " "]
                                    :n         1
                                    :tallies?  tallies?
                                    :ttt ttt})
                    (sidefx-linear {:treatment :radical-harms
-                                   :prefix    [:span (ttt [:sidefx/with "With"]) " " [:b {:style {:color (:radical-harms treatment-fills)}} (ttt [:sidefx/radp "radical prostatectomy,"])] " " (ttt [:sidefx/about "about"]) " "]
+                                   :prefix    [:span (ttt [:sidefx/with "With"]) " " [:b {:style {:color (:radical-harms treatment-fills)}} (ttt [:sidefx/radp "radical prostatectomy (surgery),"])] " " (ttt [:sidefx/about "about"]) " "]
                                    :n         20
                                    :tallies?  tallies?
                                    :ttt ttt})
                    (sidefx-linear {:treatment :radiotherapy
-                                   :prefix    [:span (ttt [:sidefx/with "With"]) " " [:b {:style {:color (:radiotherapy treatment-fills)}} (ttt [:sidefx/radio "radiotherapy,"])] " " (ttt [:sidefx/about "about"]) " "]
+                                   :prefix    [:span (ttt [:sidefx/with "With"]) " " [:b {:style {:color (:radiotherapy treatment-fills)}} (ttt [:sidefx/radio "radical radiotherapy (external beam),"])] " " (ttt [:sidefx/about "about"]) " "]
                                    :n         3
                                    :tallies?  tallies?
                                    :ttt ttt}))
@@ -239,20 +237,20 @@
    (sidefx-content {:title (ttt [:sidefx/bowiss-title "Bowel issues"]) :sub-title (ttt [:sidefx/bowiss-subtitle "Defined as: 'Bloody stools about half the time or more frequently'"])
                     :source #(bowel-source ttt)}
                    (sidefx-linear {:treatment :conservative
-                                   :prefix    (fewer-helper [:span (ttt [:sidefx/with "With"]) " " [:b {:style {:color (:conservative treatment-fills)}} (ttt [:sidefx/cons-man "conservative management,"])] " "] ttt)
-                                   :fewer     true
-                                   :n         2
+                                   :prefix    [:span (ttt [:sidefx/with "With"]) " " [:b {:style {:color (:conservative treatment-fills)}} (ttt [:sidefx/cons-man "conservative management,"])] " " (ttt [:sidefx/about "about"]) " "]
+                                   #_#_:fewer     true
+                                   :n         0
                                    :tallies?  tallies?
                                    :ttt ttt})
                    (sidefx-linear {:treatment :radical-harms
-                                   :prefix    (fewer-helper [:span (ttt [:sidefx/with "With"]) " " [:b {:style {:color (:radical-harms treatment-fills)}} (ttt [:sidefx/radp "radical prostatectomy,"])] " "] ttt)
-                                   :fewer     true
-                                   :n         2
+                                   :prefix    [:span (ttt [:sidefx/with "With"]) " " [:b {:style {:color (:radical-harms treatment-fills)}} (ttt [:sidefx/radp "radical prostatectomy (surgery),"])] " " (ttt [:sidefx/about "about"]) " "]
+                                   #_#_:fewer     true
+                                   :n         1
                                    :tallies?  tallies?
                                    :ttt ttt})
                    (sidefx-linear {:treatment :radiotherapy
-                                   :prefix    [:span (ttt [:sidefx/with "With"]) " " [:b {:style {:color (:radiotherapy treatment-fills)}} (ttt [:sidefx/radio "radiotherapy,"])] " " (ttt [:sidefx/about "about"]) " "]
-                                   :n         7
+                                   :prefix    [:span (ttt [:sidefx/with "With"]) " " [:b {:style {:color (:radiotherapy treatment-fills)}} (ttt [:sidefx/radio "radical radiotherapy (external beam),"])] " " (ttt [:sidefx/about "about"]) " "]
+                                   :n         6
                                    :tallies?  tallies?
                                    :ttt ttt}))
    ]
