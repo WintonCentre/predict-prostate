@@ -16,7 +16,7 @@
   [devcards "0.2.4"]
   ;[figwheel-sidecar "0.5.18"]
 
-  [rum "0.12.8"]
+  [rum "0.11.3" #_"0.12.8"]
   [tongue "0.4.3"]
   [pubsub "0.2.1"]
   ;[wc-rum-lib "0.1.16"]

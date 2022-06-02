@@ -1,27 +1,27 @@
 goog.provide('predict_prostate.components.button');
-predict_prostate.components.button.information = rum.core.lazy_build(rum.core.build_defc,(function (p__32163,_){
-var map__32165 = p__32163;
-var map__32165__$1 = cljs.core.__destructure_map(map__32165);
-var values = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__32165__$1,new cljs.core.Keyword(null,"values","values",372645556));
-var ttt = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__32165__$1,new cljs.core.Keyword(null,"ttt","ttt",1858561240));
-var ttt_key = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__32165__$1,new cljs.core.Keyword(null,"ttt-key","ttt-key",-171752593));
-return daiquiri.core.create_element("div",null,[daiquiri.core.create_element("div",null,[(function (){var attrs32176 = (function (){var G__32179 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [ttt_key,values], null);
-return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__32179) : ttt.call(null,G__32179));
+predict_prostate.components.button.information = rum.core.build_defc((function (p__34048,_){
+var map__34049 = p__34048;
+var map__34049__$1 = cljs.core.__destructure_map(map__34049);
+var values = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__34049__$1,new cljs.core.Keyword(null,"values","values",372645556));
+var ttt = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__34049__$1,new cljs.core.Keyword(null,"ttt","ttt",1858561240));
+var ttt_key = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__34049__$1,new cljs.core.Keyword(null,"ttt-key","ttt-key",-171752593));
+return React.createElement("div",null,React.createElement("div",null,(function (){var attrs34050 = (function (){var G__34052 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [ttt_key,values], null);
+return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__34052) : ttt.call(null,G__34052));
 })();
-return daiquiri.core.create_element("div",((cljs.core.map_QMARK_(attrs32176))?daiquiri.interpreter.element_attributes(attrs32176):null),((cljs.core.map_QMARK_(attrs32176))?null:[daiquiri.interpreter.interpret(attrs32176)]));
-})()])]);
-}),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [rum.core.reactive], null),"predict-prostate.components.button/information");
+return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(React.createElement,"div",((cljs.core.map_QMARK_(attrs34050))?sablono.interpreter.attributes(attrs34050):null),((cljs.core.map_QMARK_(attrs34050))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret(attrs34050)], null)));
+})()));
+}),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [rum.core.reactive], null),"information");
 predict_prostate.components.button.button_label = (function predict_prostate$components$button$button_label(t,k,label){
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.keyword.cljs$core$IFn$_invoke$arity$1(["button/",cljs.core.name(new cljs.core.Keyword(null,"topic","topic",-1960480691).cljs$core$IFn$_invoke$arity$1(t)),"-",cljs.core.str.cljs$core$IFn$_invoke$arity$1((((k instanceof cljs.core.Keyword))?cljs.core.name(k):((typeof k === 'number')?["n",cljs.core.str.cljs$core$IFn$_invoke$arity$1(k)].join(''):k)))].join('')),label], null);
 });
-predict_prostate.components.button.toggle_button = rum.core.lazy_build(rum.core.build_defc,(function (p__32189,label){
-var map__32190 = p__32189;
-var map__32190__$1 = cljs.core.__destructure_map(map__32190);
-var ttt = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__32190__$1,new cljs.core.Keyword(null,"ttt","ttt",1858561240));
-var key = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__32190__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
-var value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__32190__$1,new cljs.core.Keyword(null,"value","value",305978217));
-var topic = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__32190__$1,new cljs.core.Keyword(null,"topic","topic",-1960480691));
-var disabled = cljs.core.get.cljs$core$IFn$_invoke$arity$3(map__32190__$1,new cljs.core.Keyword(null,"disabled","disabled",-1529784218),false);
+predict_prostate.components.button.toggle_button = rum.core.build_defc((function (p__34056,label){
+var map__34058 = p__34056;
+var map__34058__$1 = cljs.core.__destructure_map(map__34058);
+var ttt = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__34058__$1,new cljs.core.Keyword(null,"ttt","ttt",1858561240));
+var key = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__34058__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
+var value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__34058__$1,new cljs.core.Keyword(null,"value","value",305978217));
+var topic = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__34058__$1,new cljs.core.Keyword(null,"topic","topic",-1960480691));
+var disabled = cljs.core.get.cljs$core$IFn$_invoke$arity$3(map__34058__$1,new cljs.core.Keyword(null,"disabled","disabled",-1529784218),false);
 if((ttt == null)){
 cljs.core.println.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2(["toggle-button (nil ttt) ",new cljs.core.Keyword(null,"topic","topic",-1960480691).cljs$core$IFn$_invoke$arity$1(topic),key], 0));
 } else {
@@ -34,122 +34,152 @@ return pubsub.feeds.publish(topic,key);
 return null;
 }
 });
-return daiquiri.core.create_element("button",{'className':["btn btn-default btn-sm custom",((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(key,value))?" active":"")].join(''),'disabled':disabled,'type':"button",'key':label,'onKeyDown':(function (p1__32184_SHARP_){
-if(cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(p1__32184_SHARP_.nativeEvent.code,"Enter")){
+return React.createElement("button",({"className": ["btn btn-default btn-sm custom",((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(key,value))?" active":"")].join(''), "disabled": disabled, "type": "button", "key": label, "onKeyDown": (function (p1__34053_SHARP_){
+if(cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(p1__34053_SHARP_.nativeEvent.code,"Enter")){
 return handler();
 } else {
 return null;
 }
-}),'onClick':handler},[((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"result-year","result-year",1413238532),new cljs.core.Keyword(null,"topic","topic",-1960480691).cljs$core$IFn$_invoke$arity$1(topic)))?(function (){var attrs32199 = label;
-return daiquiri.core.create_element("b",((cljs.core.map_QMARK_(attrs32199))?daiquiri.interpreter.element_attributes(attrs32199):null),((cljs.core.map_QMARK_(attrs32199))?null:[daiquiri.interpreter.interpret(attrs32199)]));
-})():daiquiri.interpreter.interpret((function (){var G__32201 = predict_prostate.components.button.button_label(topic,key,label);
-return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__32201) : ttt.call(null,G__32201));
-})()))]);
-}),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [rum.core.static$], null),"predict-prostate.components.button/toggle-button");
-predict_prostate.components.button.radio_button_group = rum.core.lazy_build(rum.core.build_defc,(function (p__32202,group_cursor){
-var map__32203 = p__32202;
-var map__32203__$1 = cljs.core.__destructure_map(map__32203);
-var ttt = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__32203__$1,new cljs.core.Keyword(null,"ttt","ttt",1858561240));
-var key = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__32203__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
-var aria_label = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__32203__$1,new cljs.core.Keyword(null,"aria-label","aria-label",455891514));
-var aria_describedby = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__32203__$1,new cljs.core.Keyword(null,"aria-describedby","aria-describedby",1826540471));
-var values = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__32203__$1,new cljs.core.Keyword(null,"values","values",372645556));
-var unknowable = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__32203__$1,new cljs.core.Keyword(null,"unknowable","unknowable",1635948924));
-var vertical = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__32203__$1,new cljs.core.Keyword(null,"vertical","vertical",718696748));
+}), "onClick": handler}),((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"result-year","result-year",1413238532),new cljs.core.Keyword(null,"topic","topic",-1960480691).cljs$core$IFn$_invoke$arity$1(topic)))?(function (){var attrs34064 = label;
+return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(React.createElement,"b",((cljs.core.map_QMARK_(attrs34064))?sablono.interpreter.attributes(attrs34064):null),((cljs.core.map_QMARK_(attrs34064))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret(attrs34064)], null)));
+})():sablono.interpreter.interpret((function (){var G__34070 = predict_prostate.components.button.button_label(topic,key,label);
+return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__34070) : ttt.call(null,G__34070));
+})())));
+}),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [rum.core.static$], null),"toggle-button");
+predict_prostate.components.button.radio_button_group = rum.core.build_defc((function (p__34098,group_cursor){
+var map__34103 = p__34098;
+var map__34103__$1 = cljs.core.__destructure_map(map__34103);
+var ttt = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__34103__$1,new cljs.core.Keyword(null,"ttt","ttt",1858561240));
+var key = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__34103__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
+var aria_label = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__34103__$1,new cljs.core.Keyword(null,"aria-label","aria-label",455891514));
+var aria_describedby = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__34103__$1,new cljs.core.Keyword(null,"aria-describedby","aria-describedby",1826540471));
+var values = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__34103__$1,new cljs.core.Keyword(null,"values","values",372645556));
+var unknowable = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__34103__$1,new cljs.core.Keyword(null,"unknowable","unknowable",1635948924));
+var vertical = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__34103__$1,new cljs.core.Keyword(null,"vertical","vertical",718696748));
 var group_value = rum.core.react(group_cursor);
-return daiquiri.core.create_element("div",null,[daiquiri.core.create_element("div",null,[daiquiri.core.create_element("div",{'role':"group",'aria-label':aria_label,'aria-describedby':aria_describedby,'className':["btn-group",(cljs.core.truth_(vertical)?"-vertical":"")].join('')},[daiquiri.interpreter.interpret(cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p__32213){
-var vec__32214 = p__32213;
-var val = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__32214,(0),null);
-var label = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__32214,(1),null);
-return rum.core.with_key(predict_prostate.components.button.toggle_button(new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null,"ttt","ttt",1858561240),ttt,new cljs.core.Keyword(null,"key","key",-1516042587),val,new cljs.core.Keyword(null,"value","value",305978217),group_value,new cljs.core.Keyword(null,"topic","topic",-1960480691),predict_prostate.state.run_time.input_change(key),new cljs.core.Keyword(null,"disabled","disabled",-1529784218),cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(group_value,new cljs.core.Keyword(null,"disabled","disabled",-1529784218))], null),label),label);
-}),values)),(cljs.core.truth_(unknowable)?predict_prostate.components.button.toggle_button(new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null,"ttt","ttt",1858561240),ttt,new cljs.core.Keyword(null,"key","key",-1516042587),new cljs.core.Keyword(null,"unknown","unknown",-935977881),new cljs.core.Keyword(null,"value","value",305978217),group_value,new cljs.core.Keyword(null,"topic","topic",-1960480691),predict_prostate.state.run_time.input_change(key),new cljs.core.Keyword(null,"disabled","disabled",-1529784218),cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(group_value,new cljs.core.Keyword(null,"disabled","disabled",-1529784218))], null),predict_prostate.state.run_time.unknown):null)])])]);
-}),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [rum.core.reactive], null),"predict-prostate.components.button/radio-button-group");
-predict_prostate.components.button.horiz_radio_button_group = rum.core.lazy_build(rum.core.build_defc,(function (p__32217,group_cursor){
-var map__32218 = p__32217;
-var map__32218__$1 = cljs.core.__destructure_map(map__32218);
-var ttt = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__32218__$1,new cljs.core.Keyword(null,"ttt","ttt",1858561240));
-var key = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__32218__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
-var aria_label = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__32218__$1,new cljs.core.Keyword(null,"aria-label","aria-label",455891514));
-var aria_describedby = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__32218__$1,new cljs.core.Keyword(null,"aria-describedby","aria-describedby",1826540471));
-var values = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__32218__$1,new cljs.core.Keyword(null,"values","values",372645556));
-var unknowable = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__32218__$1,new cljs.core.Keyword(null,"unknowable","unknowable",1635948924));
+return React.createElement("div",null,React.createElement("div",null,React.createElement("div",({"role": "group", "aria-label": aria_label, "aria-describedby": aria_describedby, "className": ["btn-group",(cljs.core.truth_(vertical)?"-vertical":"")].join('')}),sablono.interpreter.interpret(cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p__34116){
+var vec__34117 = p__34116;
+var val = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__34117,(0),null);
+var label = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__34117,(1),null);
+return rum.core.with_key((function (){var G__34121 = new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null,"ttt","ttt",1858561240),ttt,new cljs.core.Keyword(null,"key","key",-1516042587),val,new cljs.core.Keyword(null,"value","value",305978217),group_value,new cljs.core.Keyword(null,"topic","topic",-1960480691),predict_prostate.state.run_time.input_change(key),new cljs.core.Keyword(null,"disabled","disabled",-1529784218),cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(group_value,new cljs.core.Keyword(null,"disabled","disabled",-1529784218))], null);
+var G__34122 = label;
+return (predict_prostate.components.button.toggle_button.cljs$core$IFn$_invoke$arity$2 ? predict_prostate.components.button.toggle_button.cljs$core$IFn$_invoke$arity$2(G__34121,G__34122) : predict_prostate.components.button.toggle_button.call(null,G__34121,G__34122));
+})(),label);
+}),values)),sablono.interpreter.interpret((cljs.core.truth_(unknowable)?(function (){var G__34124 = new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null,"ttt","ttt",1858561240),ttt,new cljs.core.Keyword(null,"key","key",-1516042587),new cljs.core.Keyword(null,"unknown","unknown",-935977881),new cljs.core.Keyword(null,"value","value",305978217),group_value,new cljs.core.Keyword(null,"topic","topic",-1960480691),predict_prostate.state.run_time.input_change(key),new cljs.core.Keyword(null,"disabled","disabled",-1529784218),cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(group_value,new cljs.core.Keyword(null,"disabled","disabled",-1529784218))], null);
+var G__34125 = predict_prostate.state.run_time.unknown;
+return (predict_prostate.components.button.toggle_button.cljs$core$IFn$_invoke$arity$2 ? predict_prostate.components.button.toggle_button.cljs$core$IFn$_invoke$arity$2(G__34124,G__34125) : predict_prostate.components.button.toggle_button.call(null,G__34124,G__34125));
+})():null)))));
+}),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [rum.core.reactive], null),"radio-button-group");
+predict_prostate.components.button.horiz_radio_button_group = rum.core.build_defc((function (p__34127,group_cursor){
+var map__34128 = p__34127;
+var map__34128__$1 = cljs.core.__destructure_map(map__34128);
+var ttt = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__34128__$1,new cljs.core.Keyword(null,"ttt","ttt",1858561240));
+var key = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__34128__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
+var aria_label = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__34128__$1,new cljs.core.Keyword(null,"aria-label","aria-label",455891514));
+var aria_describedby = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__34128__$1,new cljs.core.Keyword(null,"aria-describedby","aria-describedby",1826540471));
+var values = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__34128__$1,new cljs.core.Keyword(null,"values","values",372645556));
+var unknowable = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__34128__$1,new cljs.core.Keyword(null,"unknowable","unknowable",1635948924));
 var group_value = rum.core.react(group_cursor);
-return daiquiri.core.create_element("div",{'role':"group",'aria-label':aria_label,'aria-describedby':aria_describedby,'style':{'display':"inline-block"},'className':"btn-group"},[daiquiri.interpreter.interpret(cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p__32224){
-var vec__32225 = p__32224;
-var val = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__32225,(0),null);
-var label = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__32225,(1),null);
-return rum.core.with_key(predict_prostate.components.button.toggle_button(new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"ttt","ttt",1858561240),ttt,new cljs.core.Keyword(null,"key","key",-1516042587),val,new cljs.core.Keyword(null,"value","value",305978217),group_value,new cljs.core.Keyword(null,"topic","topic",-1960480691),predict_prostate.state.run_time.input_change(key)], null),label),label);
-}),values)),(cljs.core.truth_(unknowable)?predict_prostate.components.button.toggle_button(new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"ttt","ttt",1858561240),ttt,new cljs.core.Keyword(null,"key","key",-1516042587),new cljs.core.Keyword(null,"unknown","unknown",-935977881),new cljs.core.Keyword(null,"value","value",305978217),group_value,new cljs.core.Keyword(null,"topic","topic",-1960480691),predict_prostate.state.run_time.input_change(key)], null),predict_prostate.state.run_time.unknown):null)]);
-}),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [rum.core.reactive], null),"predict-prostate.components.button/horiz-radio-button-group");
-predict_prostate.components.button.year_picker = rum.core.lazy_build(rum.core.build_defc,(function (ttt){
-return predict_prostate.components.button.horiz_radio_button_group(new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"ttt","ttt",1858561240),ttt,new cljs.core.Keyword(null,"key","key",-1516042587),new cljs.core.Keyword(null,"result-year","result-year",1413238532),new cljs.core.Keyword(null,"values","values",372645556),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(10),"10"], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(15),"15"], null)], null)], null),predict_prostate.state.run_time.input_cursor(new cljs.core.Keyword(null,"result-year","result-year",1413238532)));
-}),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [rum.core.reactive], null),"predict-prostate.components.button/year-picker");
-predict_prostate.components.button.radio_button_group_vertical = rum.core.lazy_build(rum.core.build_defc,(function (props,group_cursor){
-return predict_prostate.components.button.radio_button_group(cljs.core.merge.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([props,new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"vertical","vertical",718696748),true], null)], 0)),group_cursor);
-}),null,"predict-prostate.components.button/radio-button-group-vertical");
-predict_prostate.components.button.small_help_button = rum.core.lazy_build(rum.core.build_defc,(function (p__32235){
-var map__32236 = p__32235;
-var map__32236__$1 = cljs.core.__destructure_map(map__32236);
-var props = map__32236__$1;
-var help_id = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__32236__$1,new cljs.core.Keyword(null,"help-id","help-id",-1064550845));
-var icon_name = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__32236__$1,new cljs.core.Keyword(null,"icon-name","icon-name",152456315));
-var title = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__32236__$1,new cljs.core.Keyword(null,"title","title",636505583));
-var text = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__32236__$1,new cljs.core.Keyword(null,"text","text",-1790561697));
-return daiquiri.core.create_element("button",{'role':"button",'tabIndex':"0",'data-content':"Help TBD",'type':"button",'className':"btn btn-info btn-sm",'title':title,'style':{'cursor':"pointer",'padding':"0px 11px",'fontSize':"20px",'borderRadius':(15)},'aria-label':["info on ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(text)].join(''),'onKeyDown':(function (p1__32234_SHARP_){
-if(cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2("Enter",p1__32234_SHARP_.nativeEvent.code)){
+return React.createElement("div",({"role": "group", "aria-label": aria_label, "aria-describedby": aria_describedby, "style": ({"display": "inline-block"}), "className": "btn-group"}),sablono.interpreter.interpret(cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p__34129){
+var vec__34130 = p__34129;
+var val = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__34130,(0),null);
+var label = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__34130,(1),null);
+return rum.core.with_key((function (){var G__34133 = new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"ttt","ttt",1858561240),ttt,new cljs.core.Keyword(null,"key","key",-1516042587),val,new cljs.core.Keyword(null,"value","value",305978217),group_value,new cljs.core.Keyword(null,"topic","topic",-1960480691),predict_prostate.state.run_time.input_change(key)], null);
+var G__34134 = label;
+return (predict_prostate.components.button.toggle_button.cljs$core$IFn$_invoke$arity$2 ? predict_prostate.components.button.toggle_button.cljs$core$IFn$_invoke$arity$2(G__34133,G__34134) : predict_prostate.components.button.toggle_button.call(null,G__34133,G__34134));
+})(),label);
+}),values)),sablono.interpreter.interpret((cljs.core.truth_(unknowable)?(function (){var G__34135 = new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"ttt","ttt",1858561240),ttt,new cljs.core.Keyword(null,"key","key",-1516042587),new cljs.core.Keyword(null,"unknown","unknown",-935977881),new cljs.core.Keyword(null,"value","value",305978217),group_value,new cljs.core.Keyword(null,"topic","topic",-1960480691),predict_prostate.state.run_time.input_change(key)], null);
+var G__34136 = predict_prostate.state.run_time.unknown;
+return (predict_prostate.components.button.toggle_button.cljs$core$IFn$_invoke$arity$2 ? predict_prostate.components.button.toggle_button.cljs$core$IFn$_invoke$arity$2(G__34135,G__34136) : predict_prostate.components.button.toggle_button.call(null,G__34135,G__34136));
+})():null)));
+}),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [rum.core.reactive], null),"horiz-radio-button-group");
+predict_prostate.components.button.year_picker = rum.core.build_defc((function (ttt){
+return sablono.interpreter.interpret((function (){var G__34137 = new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"ttt","ttt",1858561240),ttt,new cljs.core.Keyword(null,"key","key",-1516042587),new cljs.core.Keyword(null,"result-year","result-year",1413238532),new cljs.core.Keyword(null,"values","values",372645556),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(10),"10"], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(15),"15"], null)], null)], null);
+var G__34138 = predict_prostate.state.run_time.input_cursor(new cljs.core.Keyword(null,"result-year","result-year",1413238532));
+return (predict_prostate.components.button.horiz_radio_button_group.cljs$core$IFn$_invoke$arity$2 ? predict_prostate.components.button.horiz_radio_button_group.cljs$core$IFn$_invoke$arity$2(G__34137,G__34138) : predict_prostate.components.button.horiz_radio_button_group.call(null,G__34137,G__34138));
+})());
+}),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [rum.core.reactive], null),"year-picker");
+predict_prostate.components.button.radio_button_group_vertical = rum.core.build_defc((function (props,group_cursor){
+return sablono.interpreter.interpret((function (){var G__34139 = cljs.core.merge.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([props,new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"vertical","vertical",718696748),true], null)], 0));
+var G__34140 = group_cursor;
+return (predict_prostate.components.button.radio_button_group.cljs$core$IFn$_invoke$arity$2 ? predict_prostate.components.button.radio_button_group.cljs$core$IFn$_invoke$arity$2(G__34139,G__34140) : predict_prostate.components.button.radio_button_group.call(null,G__34139,G__34140));
+})());
+}),null,"radio-button-group-vertical");
+predict_prostate.components.button.small_help_button = rum.core.build_defc((function (p__34142){
+var map__34143 = p__34142;
+var map__34143__$1 = cljs.core.__destructure_map(map__34143);
+var props = map__34143__$1;
+var help_id = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__34143__$1,new cljs.core.Keyword(null,"help-id","help-id",-1064550845));
+var icon_name = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__34143__$1,new cljs.core.Keyword(null,"icon-name","icon-name",152456315));
+var title = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__34143__$1,new cljs.core.Keyword(null,"title","title",636505583));
+var text = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__34143__$1,new cljs.core.Keyword(null,"text","text",-1790561697));
+return React.createElement("button",({"role": "button", "tabIndex": "0", "data-content": "Help TBD", "type": "button", "className": "btn btn-info btn-sm", "title": title, "style": ({"cursor": "pointer", "padding": "0px 11px", "fontSize": "20px", "borderRadius": (15)}), "aria-label": ["info on ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(text)].join(''), "onKeyDown": (function (p1__34141_SHARP_){
+if(cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2("Enter",p1__34141_SHARP_.nativeEvent.code)){
 return predict_prostate.state.run_time.help_key_change.pubsub$feeds$TopicFeed$publish$arity$2(null,help_id);
 } else {
 return null;
 }
-}),'data-target':"#topModal",'onClick':(function (){
+}), "data-target": "#topModal", "onClick": (function (){
 return predict_prostate.state.run_time.help_key_change.pubsub$feeds$TopicFeed$publish$arity$2(null,help_id);
-}),'data-toggle':"modal"},[graphics.simple_icons.icon(new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"family","family",-1313145692),new cljs.core.Keyword(null,"fa","fa",484981183)], null),"info"),""]);
-}),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [rum.core.static$], null),"predict-prostate.components.button/small-help-button");
-predict_prostate.components.button.treatment_help_button = rum.core.lazy_build(rum.core.build_defc,(function (p__32242){
-var map__32243 = p__32242;
-var map__32243__$1 = cljs.core.__destructure_map(map__32243);
-var props = map__32243__$1;
-var help_id = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__32243__$1,new cljs.core.Keyword(null,"help-id","help-id",-1064550845));
-var icon_name = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__32243__$1,new cljs.core.Keyword(null,"icon-name","icon-name",152456315));
-var title = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__32243__$1,new cljs.core.Keyword(null,"title","title",636505583));
-var text = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__32243__$1,new cljs.core.Keyword(null,"text","text",-1790561697));
-return daiquiri.core.create_element("button",{'role':"button",'tabIndex':"0",'data-content':"Help TBD",'type':"button",'className':"btn btn-info btn-sm",'title':title,'onKeyDown':(function (p1__32237_SHARP_){
-if(cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2("Enter",p1__32237_SHARP_.nativeEvent.code)){
+}), "data-toggle": "modal"}),sablono.interpreter.interpret((function (){var G__34144 = new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"family","family",-1313145692),new cljs.core.Keyword(null,"fa","fa",484981183)], null);
+var G__34145 = "info";
+return (graphics.simple_icons.icon.cljs$core$IFn$_invoke$arity$2 ? graphics.simple_icons.icon.cljs$core$IFn$_invoke$arity$2(G__34144,G__34145) : graphics.simple_icons.icon.call(null,G__34144,G__34145));
+})()),"");
+}),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [rum.core.static$], null),"small-help-button");
+predict_prostate.components.button.treatment_help_button = rum.core.build_defc((function (p__34147){
+var map__34148 = p__34147;
+var map__34148__$1 = cljs.core.__destructure_map(map__34148);
+var props = map__34148__$1;
+var help_id = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__34148__$1,new cljs.core.Keyword(null,"help-id","help-id",-1064550845));
+var icon_name = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__34148__$1,new cljs.core.Keyword(null,"icon-name","icon-name",152456315));
+var title = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__34148__$1,new cljs.core.Keyword(null,"title","title",636505583));
+var text = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__34148__$1,new cljs.core.Keyword(null,"text","text",-1790561697));
+return React.createElement("button",({"role": "button", "tabIndex": "0", "data-content": "Help TBD", "type": "button", "className": "btn btn-info btn-sm", "title": title, "onKeyDown": (function (p1__34146_SHARP_){
+if(cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2("Enter",p1__34146_SHARP_.nativeEvent.code)){
 return predict_prostate.state.run_time.help_key_change.pubsub$feeds$TopicFeed$publish$arity$2(null,help_id);
 } else {
 return null;
 }
-}),'data-target':"#topModal",'onClick':(function (){
+}), "data-target": "#topModal", "onClick": (function (){
 return predict_prostate.state.run_time.help_key_change.pubsub$feeds$TopicFeed$publish$arity$2(null,help_id);
-}),'data-toggle':"modal"},[graphics.simple_icons.icon(new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"family","family",-1313145692),new cljs.core.Keyword(null,"fa","fa",484981183)], null),"warning")," Potential harms"]);
-}),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [rum.core.static$], null),"predict-prostate.components.button/treatment-help-button");
-predict_prostate.components.button.settings_button = rum.core.lazy_build(rum.core.build_defc,(function (ttt){
+}), "data-toggle": "modal"}),sablono.interpreter.interpret((function (){var G__34151 = new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"family","family",-1313145692),new cljs.core.Keyword(null,"fa","fa",484981183)], null);
+var G__34152 = "warning";
+return (graphics.simple_icons.icon.cljs$core$IFn$_invoke$arity$2 ? graphics.simple_icons.icon.cljs$core$IFn$_invoke$arity$2(G__34151,G__34152) : graphics.simple_icons.icon.call(null,G__34151,G__34152));
+})())," Potential harms");
+}),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [rum.core.static$], null),"treatment-help-button");
+predict_prostate.components.button.settings_button = rum.core.build_defc((function (ttt){
 var settings = "settings";
-return daiquiri.core.create_element("button",{'role':"button",'tabIndex':"0",'data-content':"Settings content",'type':"button",'className':"btn btn-default",'title':"Settings",'onKeyDown':(function (p1__32267_SHARP_){
-if(cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2("Enter",p1__32267_SHARP_.nativeEvent.code)){
+return React.createElement("button",({"role": "button", "tabIndex": "0", "data-content": "Settings content", "type": "button", "className": "btn btn-default", "title": "Settings", "onKeyDown": (function (p1__34153_SHARP_){
+if(cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2("Enter",p1__34153_SHARP_.nativeEvent.code)){
 return predict_prostate.state.run_time.settings_change.pubsub$feeds$TopicFeed$publish$arity$2(null,settings);
 } else {
 return null;
 }
-}),'data-target':"#settingsModal",'onClick':(function (){
+}), "data-target": "#settingsModal", "onClick": (function (){
 return predict_prostate.state.run_time.settings_change.pubsub$feeds$TopicFeed$publish$arity$2(null,settings);
-}),'data-toggle':"modal"},[graphics.simple_icons.icon(new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"family","family",-1313145692),new cljs.core.Keyword(null,"fa","fa",484981183)], null),"cog")," ",daiquiri.interpreter.interpret((function (){var G__32310 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("tool","settings","tool/settings",1559915107),"Settings"], null);
-return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__32310) : ttt.call(null,G__32310));
-})())]);
-}),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [rum.core.static$], null),"predict-prostate.components.button/settings-button");
-predict_prostate.components.button.print_button = rum.core.lazy_build(rum.core.build_defc,(function (ttt){
-return daiquiri.core.create_element("button",{'role':"button",'tabIndex':"0",'data-content':"Print content",'type':"button",'className':"btn btn-danger btn-lg screen-only pull-right",'title':"Print Results",'style':{'marginRight':(15)},'aria-label':"show printable results",'onKeyDown':(function (p1__32339_SHARP_){
-if(cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2("Enter",p1__32339_SHARP_.nativeEvent.code)){
+}), "data-toggle": "modal"}),sablono.interpreter.interpret((function (){var G__34154 = new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"family","family",-1313145692),new cljs.core.Keyword(null,"fa","fa",484981183)], null);
+var G__34155 = "cog";
+return (graphics.simple_icons.icon.cljs$core$IFn$_invoke$arity$2 ? graphics.simple_icons.icon.cljs$core$IFn$_invoke$arity$2(G__34154,G__34155) : graphics.simple_icons.icon.call(null,G__34154,G__34155));
+})())," ",sablono.interpreter.interpret((function (){var G__34156 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("tool","settings","tool/settings",1559915107),"Settings"], null);
+return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__34156) : ttt.call(null,G__34156));
+})()));
+}),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [rum.core.static$], null),"settings-button");
+predict_prostate.components.button.print_button = rum.core.build_defc((function (ttt){
+return React.createElement("button",({"role": "button", "tabIndex": "0", "data-content": "Print content", "type": "button", "className": "btn btn-danger btn-lg screen-only pull-right", "title": "Print Results", "style": ({"marginRight": (15)}), "aria-label": "show printable results", "onKeyDown": (function (p1__34157_SHARP_){
+if(cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2("Enter",p1__34157_SHARP_.nativeEvent.code)){
 return predict_prostate.state.run_time.print_change.pubsub$feeds$TopicFeed$publish$arity$2(null,"print");
 } else {
 return null;
 }
-}),'data-target':"#printModal",'onClick':(function (){
+}), "data-target": "#printModal", "onClick": (function (){
 return predict_prostate.state.run_time.print_change.pubsub$feeds$TopicFeed$publish$arity$2(null,"print");
-}),'data-toggle':"modal"},[graphics.simple_icons.icon(new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"family","family",-1313145692),new cljs.core.Keyword(null,"fa","fa",484981183)], null),"print")," ",daiquiri.interpreter.interpret((function (){var G__32376 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("home","print-button","home/print-button",303249748),"Print"], null);
-return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__32376) : ttt.call(null,G__32376));
-})())]);
-}),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [rum.core.static$], null),"predict-prostate.components.button/print-button");
+}), "data-toggle": "modal"}),sablono.interpreter.interpret((function (){var G__34166 = new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"family","family",-1313145692),new cljs.core.Keyword(null,"fa","fa",484981183)], null);
+var G__34167 = "print";
+return (graphics.simple_icons.icon.cljs$core$IFn$_invoke$arity$2 ? graphics.simple_icons.icon.cljs$core$IFn$_invoke$arity$2(G__34166,G__34167) : graphics.simple_icons.icon.call(null,G__34166,G__34167));
+})())," ",sablono.interpreter.interpret((function (){var G__34168 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("home","print-button","home/print-button",303249748),"Print"], null);
+return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__34168) : ttt.call(null,G__34168));
+})()));
+}),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [rum.core.static$], null),"print-button");
 predict_prostate.components.button.menu_item = (function predict_prostate$components$button$menu_item(item,lang){
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"li","li",723558921),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"a","a",-2123407586),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"href","href",-793805698),"#",new cljs.core.Keyword(null,"on-click","on-click",1632826543),(function (){
 return predict_prostate.state.run_time.language_change.pubsub$feeds$TopicFeed$publish$arity$2(null,lang);
@@ -158,16 +188,19 @@ return predict_prostate.state.run_time.language_change.pubsub$feeds$TopicFeed$pu
 predict_prostate.components.button.start_button = (function predict_prostate$components$button$start_button(ttt){
 return new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"button.btn.btn-primary.btn-lg","button.btn.btn-primary.btn-lg",613853517),new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"aria-label","aria-label",455891514),"go to predict tool",new cljs.core.Keyword(null,"type","type",1174270348),"button",new cljs.core.Keyword(null,"on-click","on-click",1632826543),(function (){
 return predict_prostate.state.run_time.route_change.pubsub$feeds$TopicFeed$publish$arity$2(null,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"tool","tool",-1298696470),null,null], null));
-})], null),graphics.simple_icons.icon(new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"family","family",-1313145692),new cljs.core.Keyword(null,"fa","fa",484981183)], null),"chevron-right")," ",(function (){var G__32392 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("home","start-button","home/start-button",-934525868),"Start Predict"], null);
-return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__32392) : ttt.call(null,G__32392));
+})], null),(function (){var G__34176 = new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"family","family",-1313145692),new cljs.core.Keyword(null,"fa","fa",484981183)], null);
+var G__34177 = "chevron-right";
+return (graphics.simple_icons.icon.cljs$core$IFn$_invoke$arity$2 ? graphics.simple_icons.icon.cljs$core$IFn$_invoke$arity$2(G__34176,G__34177) : graphics.simple_icons.icon.call(null,G__34176,G__34177));
+})()," ",(function (){var G__34178 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("home","start-button","home/start-button",-934525868),"Start Predict"], null);
+return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__34178) : ttt.call(null,G__34178));
 })()], null);
 });
 predict_prostate.components.button.start_button_group = (function predict_prostate$components$button$start_button_group(ttt,supported_languages){
-return new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,".btn-group",".btn-group",-850887226),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"style","style",-496642736),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"width","width",-384071477),(975),new cljs.core.Keyword(null,"margin-left","margin-left",2015598377),(15),new cljs.core.Keyword(null,"margin-bottom","margin-bottom",388334941),(15),new cljs.core.Keyword(null,"margin-top","margin-top",392161226),(15)], null)], null),predict_prostate.components.button.start_button(ttt),new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"button.btn.btn-default.btn-lg.dropdown-toggle","button.btn.btn-default.btn-lg.dropdown-toggle",539604190),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"type","type",1174270348),"button",new cljs.core.Keyword(null,"data-toggle","data-toggle",436966687),"dropdown",new cljs.core.Keyword(null,"aria-haspopup","aria-haspopup",-1220141412),"true",new cljs.core.Keyword(null,"aria-expanded","aria-expanded",-1360942393),"false"], null),(function (){var G__32404 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("navbar","change-language","navbar/change-language",-1814466745),"Change Language"], null);
-return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__32404) : ttt.call(null,G__32404));
+return new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,".btn-group",".btn-group",-850887226),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"style","style",-496642736),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"width","width",-384071477),(975),new cljs.core.Keyword(null,"margin-left","margin-left",2015598377),(15),new cljs.core.Keyword(null,"margin-bottom","margin-bottom",388334941),(15),new cljs.core.Keyword(null,"margin-top","margin-top",392161226),(15)], null)], null),predict_prostate.components.button.start_button(ttt),new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"button.btn.btn-default.btn-lg.dropdown-toggle","button.btn.btn-default.btn-lg.dropdown-toggle",539604190),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"type","type",1174270348),"button",new cljs.core.Keyword(null,"data-toggle","data-toggle",436966687),"dropdown",new cljs.core.Keyword(null,"aria-haspopup","aria-haspopup",-1220141412),"true",new cljs.core.Keyword(null,"aria-expanded","aria-expanded",-1360942393),"false"], null),(function (){var G__34184 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("navbar","change-language","navbar/change-language",-1814466745),"Change Language"], null);
+return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__34184) : ttt.call(null,G__34184));
 })()," ",new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"span.caret","span.caret",-1405994877)], null)], null),cljs.core.into.cljs$core$IFn$_invoke$arity$2(new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"ul.dropdown-menu.lang","ul.dropdown-menu.lang",-1120672871)], null),cljs.core.mapv.cljs$core$IFn$_invoke$arity$2((function (lang){
-return predict_prostate.components.button.menu_item((function (){var G__32412 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [lang], null);
-return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__32412) : ttt.call(null,G__32412));
+return predict_prostate.components.button.menu_item((function (){var G__34186 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [lang], null);
+return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__34186) : ttt.call(null,G__34186));
 })(),lang);
 }),supported_languages))], null);
 });

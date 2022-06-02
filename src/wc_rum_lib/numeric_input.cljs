@@ -51,7 +51,7 @@
     (= 3 precision)
     ; flexible display up to 3dp
     (if (near-integer? n)
-      (str (js/floor n))
+      (str (js/Math.floor n))
       (-> n
         (.toPrecision (js/Number. 3))
         (trim-trailing-zero)))
@@ -81,7 +81,8 @@
          (str (js/Math.floor n))
          (if precision
            (do
-             ;(println "num-to-str precision " n precision)
+             #_(println "num-to-str precision " n precision)
+             #_(println "at precision: " (at-precision n precision))
              (at-precision n precision))
            (at-precision n 0))
          #_(-> n
@@ -167,10 +168,6 @@
       )))
 
 (defn validate-input [value nmin nmax step]
-  #_(js/console.log "in value " value)
-  #_(js/console.log "nmin " nmin)
-  #_(js/console.log "nmax " nmax)
-  #_(js/console.log "step " step)
   (let [value (str-to-num value)
         nmin (if (fn? nmin) @(nmin) nmin)
         nmax (if (fn? nmax) @(nmax) nmax)                   ;(if (keyword? nmax) @(input-cursor nmax) nmax)
@@ -185,15 +182,10 @@
         val-2 (+ step val-1)                                ; do the increment
 
         val-3 (if (< val-2 nmin)                            ; is it too small?
-                (str (num-to-str val-2 0) ":" val-2)          ; yes
+                (str (num-to-str val-2) ":" val-2)          ; yes
                 (if (> val-2 nmax)                          ; no; is it too big?
-                  (str (num-to-str val-2 3) ":" val-2)        ; yes, return good and bad values, in colon separated string
-                  val-2))
-        ]
-    #_(js/console.log "out-value " value)
-    #_(js/console.log "nmin: " nmin)
-    #_(js/console.log "val-1: " val-1)
-    #_(js/console.log "val-2: " val-2)
+                  (str (num-to-str val-2) ":" val-2)        ; yes, return good and bad values, in colon separated string
+                  val-2))]
     (if (js/isNaN value)                                    ; Case when user has deleted value using backspace.
       " :0"                                                 ; and there is no input there.
       val-3                                                 ; Otherwise return
@@ -201,23 +193,20 @@
 
 (defn handle-inc [value onChange nmin nmax precision step]
   (let [v (validate-input value nmin nmax step)]
-    #_(js/console.log "onChange " v)
     (onChange (num-to-str v #_(if (= v " :0") nmin v) precision))))
-
 
 (defn handle-typed-input [nmin nmax precision onChange e]
   (let [value (.. (-> e .-target) -value)]
-    ;(.log js/console "t:" value)
-    (if (re-matches #"\s*\d*\.?\d*\s*" value)               ; todo: should this be d+ rather than d*?
+    (if (re-matches #"\s*\d*\.?\d*\s*" value)
       (onChange (num-to-str (validate-input (str-to-num value) nmin nmax 0) precision))
-      (onChange ""))                                        ; todo: should this be nil or ##NaN?
-    ))
+      (onChange ""))))
+
 (comment
   (re-matches #"\s*\d*\.?\d*\s*" "6")                       ;"6"
   (re-matches #"\s*\d*\.?\d*\s*" "")                        ;""
-  (re-matches #"\s*\d*\.?\d*\s*" "0.7")                        ;"0.7"
-  (re-matches #"\s*\d*\.?\d*\s*" ".7")                        ;".7"
-  (re-matches #"\s*\d*\.?\d*\s*" "7.")                        ;"7."
+  (re-matches #"\s*\d*\.?\d*\s*" "0.7")                     ;"0.7"
+  (re-matches #"\s*\d*\.?\d*\s*" ".7")                      ;".7"
+  (re-matches #"\s*\d*\.?\d*\s*" "7.")                      ;"7."
   (re-matches #"\s*\d*\.?\d*\s*" "a")                       nil
   )
 
@@ -239,57 +228,65 @@
                :on-click    #(update-value @cursor nmin nmax precision increment onChange)}
       (if (pos? increment) "+" "–")]]))
 
-
+(def counter (atom 0))
 
 (rum/defc numeric-input < rum/static rum/reactive           ;echo-update
   [{:keys [key input-ref onChange min max error-color color precision step] :or {error-color "red" color "black"} :as props}]
 
    (let [[good bad] (split (rum/react input-ref) #":")
-        value (str-to-num good)
-        nmin (str-to-num (if (fn? min) (rum/react (min)) min))
-        nmax (str-to-num (if (fn? max) (rum/react (max)) max))
-         ;_ (js/console.log "store " (rum/react input-ref))
+         value (str-to-num good)
+         nmin (str-to-num (if (fn? min) (rum/react (min)) min))
+         nmax (str-to-num (if (fn? max) (rum/react (max)) max))
+         ;;count is used to trigger the refreshes that won't happen otherwise (45.11 doesn't trigger a refresh from 45.1 as @input-ref is the same)
+         count (rum/react counter) 
 
-        mutate (fn [e]
-                 #_(js/console.log "nativeEvent " e)
-                 #_(js/console.log "inputType " (.. e -nativeEvent -inputType))
-                 (handle-typed-input
+         mutate (fn [e]
+                  (handle-typed-input
                    min
                    max
                    precision
-                   onChange e))]
-
-    [:div {:class       "numeric-input"
-           :style       {:min-width      "100px"
-                         :tab-index  1
-                         :selectable true}
-           :on-key-down #(let [key-code (.. % -nativeEvent -code)]
-                           (when (#{"ArrowUp" "ArrowDown"} key-code)
-                             (.preventDefault %))
-                           (update-value value nmin nmax precision
-                             (cond
-                               (= "ArrowUp" key-code) step
-                               (= "ArrowDown" key-code) (* -1 step)
-                               :else 0)
-                             onChange))}
-     [:.button-group
-      (inc-dec-button (assoc props :nmin nmin :nmax nmax :precision precision :increment (* -1 step) :cursor input-ref))
-      [:input
-       {:type      "text"
-        :value     good
-        :id        key
-        :on-click  mutate
-        :on-change mutate
-        :style     {:width            "58px" :height "36px" :font-size "14px"
-                    :border-top       "2px solid #ddd"
-                    :border-left      "2px solid #ddd"
-                    :background-color (if (js/isNaN value) "#fff" "#CCEEF8")
-                    :color            (if (nil? bad) color error-color)
-                    :padding          "0 0 4px 0"
-                    :text-align       "center"
-                    #_#_:font-weight "bold"}
-        }]
-      (inc-dec-button (assoc props :nmin nmin :nmax nmax :precision precision :increment step :cursor input-ref))
-      ]]
-
-    ))
+                   onChange e))
+         
+         mutate2 (fn [e]
+                  #_(tap> (.. e -nativeEvent -data))
+                  #_(tap> (.. (-> e .-target) -value))
+                  (when-not (and (= (.. e -nativeEvent -data) ".")
+                                 (re-matches #"\s*\d*\.?\d*\s*" (.. (-> e .-target) -value))
+                                 (> precision 0)) ;this ensures we can't input "." for precision 0 inputs such as age
+                    (swap! counter inc)
+                    (handle-typed-input
+                     min
+                     max
+                     precision
+                     onChange e)))]
+    
+     [:div {:class       "numeric-input"
+            :style       {:min-width      "100px"
+                          :tab-index  1
+                          :selectable true}
+            :on-key-down #(let [key-code (.. % -nativeEvent -code)]
+                            (when (#{"ArrowUp" "ArrowDown"} key-code)
+                              (.preventDefault %))
+                            (update-value value nmin nmax precision
+                                          (cond
+                                            (= "ArrowUp" key-code) step
+                                            (= "ArrowDown" key-code) (* -1 step)
+                                            :else 0)
+                                          onChange))}
+      [:.button-group
+       (inc-dec-button (assoc props :nmin nmin :nmax nmax :precision precision :increment (* -1 step) :cursor input-ref))
+       [:input
+        {:type      "text"
+         :value     good
+         :id        key
+         :on-click  mutate
+         :on-change mutate2
+         :style     {:width            "58px" :height "36px" :font-size "14px"
+                     :border-top       "2px solid #ddd"
+                     :border-left      "2px solid #ddd"
+                     :background-color (if (js/isNaN value) "#fff" "#CCEEF8")
+                     :color            (if (nil? bad) color error-color)
+                     :padding          "0 0 4px 0"
+                     :text-align       "center"
+                     #_#_:font-weight "bold"}}]
+       (inc-dec-button (assoc props :nmin nmin :nmax nmax :precision precision :increment step :cursor input-ref))]]))

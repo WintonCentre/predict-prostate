@@ -95,7 +95,7 @@
    (->Input-group :psa
                   "PSA (ng/ml)"
                   :numeric-input
-                  {:min 0 :max 100 :step 0.1 :precision 3}
+                  {:min 0 :max 100 :step 1 :precision 1} ;precision 3 exhibits a different behaviour whether it's 4.56 or 44.56....
                   false false true
                   :prp
                   #{"prostate" "prostate-release"}

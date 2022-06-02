@@ -1,22 +1,25 @@
 goog.provide('predict_prostate.components.bs3_navbar');
-predict_prostate.components.bs3_navbar.collapsing_navbar = rum.core.lazy_build(rum.core.build_defc,(function (p__32164,navbar_menu){
-var map__32166 = p__32164;
-var map__32166__$1 = cljs.core.__destructure_map(map__32166);
-var props = map__32166__$1;
-var id = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__32166__$1,new cljs.core.Keyword(null,"id","id",-1388402092));
-return daiquiri.core.create_element("div",{'id':id,'className':"collapse navbar-collapse"},[daiquiri.interpreter.interpret(navbar_menu)]);
-}),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [rum.core.static$], null),"predict-prostate.components.bs3-navbar/collapsing-navbar");
-predict_prostate.components.bs3_navbar.navbar = rum.core.lazy_build(rum.core.build_defc,(function (p__32177,navbar_menu){
-var map__32178 = p__32177;
-var map__32178__$1 = cljs.core.__destructure_map(map__32178);
-var props = map__32178__$1;
-var id = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__32178__$1,new cljs.core.Keyword(null,"id","id",-1388402092));
-var class_name = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__32178__$1,new cljs.core.Keyword(null,"class-name","class-name",945142584));
-var logo = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__32178__$1,new cljs.core.Keyword(null,"logo","logo",1237980263));
-return daiquiri.core.create_element("nav",{'className':["navbar ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(class_name)].join('')},[daiquiri.core.create_element("div",{'className':"container"},[daiquiri.core.create_element("div",{'className':"navbar-header"},[daiquiri.core.create_element("button",{'type':"button",'data-toggle':"collapse",'data-target':["#",cljs.core.str.cljs$core$IFn$_invoke$arity$1(id)].join(''),'aria-label':"menu",'className':"navbar-toggle"},[daiquiri.interpreter.interpret(cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (i){
+predict_prostate.components.bs3_navbar.collapsing_navbar = rum.core.build_defc((function (p__34023,navbar_menu){
+var map__34024 = p__34023;
+var map__34024__$1 = cljs.core.__destructure_map(map__34024);
+var props = map__34024__$1;
+var id = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__34024__$1,new cljs.core.Keyword(null,"id","id",-1388402092));
+return React.createElement("div",({"id": id, "className": "collapse navbar-collapse"}),sablono.interpreter.interpret(navbar_menu));
+}),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [rum.core.static$], null),"collapsing-navbar");
+predict_prostate.components.bs3_navbar.navbar = rum.core.build_defc((function (p__34029,navbar_menu){
+var map__34030 = p__34029;
+var map__34030__$1 = cljs.core.__destructure_map(map__34030);
+var props = map__34030__$1;
+var id = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__34030__$1,new cljs.core.Keyword(null,"id","id",-1388402092));
+var class_name = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__34030__$1,new cljs.core.Keyword(null,"class-name","class-name",945142584));
+var logo = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__34030__$1,new cljs.core.Keyword(null,"logo","logo",1237980263));
+return React.createElement("nav",({"className": ["navbar ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(class_name)].join('')}),React.createElement("div",({"className": "container"}),React.createElement("div",({"className": "navbar-header"}),React.createElement("button",({"type": "button", "data-toggle": "collapse", "data-target": ["#",cljs.core.str.cljs$core$IFn$_invoke$arity$1(id)].join(''), "aria-label": "menu", "className": "navbar-toggle"}),sablono.interpreter.interpret(cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (i){
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"span.icon-bar","span.icon-bar",618689172),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"key","key",-1516042587),i], null)], null);
-}),cljs.core.range.cljs$core$IFn$_invoke$arity$1((3))))]),(cljs.core.truth_(logo)?daiquiri.core.create_element("img",{'src':logo,'alt':"logo",'className':"navbar-brand"},[]):null)]),predict_prostate.components.bs3_navbar.collapsing_navbar(new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"id","id",-1388402092),id], null),navbar_menu)])]);
-}),null,"predict-prostate.components.bs3-navbar/navbar");
+}),cljs.core.range.cljs$core$IFn$_invoke$arity$1((3))))),sablono.interpreter.interpret((cljs.core.truth_(logo)?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"img.navbar-brand","img.navbar-brand",-283247648),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"src","src",-1651076051),logo,new cljs.core.Keyword(null,"alt","alt",-3214426),"logo"], null)], null):null))),sablono.interpreter.interpret((function (){var G__34033 = new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"id","id",-1388402092),id], null);
+var G__34034 = navbar_menu;
+return (predict_prostate.components.bs3_navbar.collapsing_navbar.cljs$core$IFn$_invoke$arity$2 ? predict_prostate.components.bs3_navbar.collapsing_navbar.cljs$core$IFn$_invoke$arity$2(G__34033,G__34034) : predict_prostate.components.bs3_navbar.collapsing_navbar.call(null,G__34033,G__34034));
+})())));
+}),null,"navbar");
 
 /**
 * @constructor
@@ -52,12 +55,12 @@ var this__4461__auto____$1 = this;
 return this__4461__auto____$1.cljs$core$ILookup$_lookup$arity$3(null,k__4462__auto__,null);
 }));
 
-(predict_prostate.components.bs3_navbar.Nav_item.prototype.cljs$core$ILookup$_lookup$arity$3 = (function (this__4463__auto__,k32183,else__4464__auto__){
+(predict_prostate.components.bs3_navbar.Nav_item.prototype.cljs$core$ILookup$_lookup$arity$3 = (function (this__4463__auto__,k34036,else__4464__auto__){
 var self__ = this;
 var this__4463__auto____$1 = this;
-var G__32188 = k32183;
-var G__32188__$1 = (((G__32188 instanceof cljs.core.Keyword))?G__32188.fqn:null);
-switch (G__32188__$1) {
+var G__34040 = k34036;
+var G__34040__$1 = (((G__34040 instanceof cljs.core.Keyword))?G__34040.fqn:null);
+switch (G__34040__$1) {
 case "text":
 return self__.text;
 
@@ -71,7 +74,7 @@ return self__.target;
 
 break;
 default:
-return cljs.core.get.cljs$core$IFn$_invoke$arity$3(self__.__extmap,k32183,else__4464__auto__);
+return cljs.core.get.cljs$core$IFn$_invoke$arity$3(self__.__extmap,k34036,else__4464__auto__);
 
 }
 }));
@@ -79,10 +82,10 @@ return cljs.core.get.cljs$core$IFn$_invoke$arity$3(self__.__extmap,k32183,else__
 (predict_prostate.components.bs3_navbar.Nav_item.prototype.cljs$core$IKVReduce$_kv_reduce$arity$3 = (function (this__4481__auto__,f__4482__auto__,init__4483__auto__){
 var self__ = this;
 var this__4481__auto____$1 = this;
-return cljs.core.reduce.cljs$core$IFn$_invoke$arity$3((function (ret__4484__auto__,p__32191){
-var vec__32192 = p__32191;
-var k__4485__auto__ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__32192,(0),null);
-var v__4486__auto__ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__32192,(1),null);
+return cljs.core.reduce.cljs$core$IFn$_invoke$arity$3((function (ret__4484__auto__,p__34041){
+var vec__34042 = p__34041;
+var k__4485__auto__ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__34042,(0),null);
+var v__4486__auto__ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__34042,(1),null);
 return (f__4482__auto__.cljs$core$IFn$_invoke$arity$3 ? f__4482__auto__.cljs$core$IFn$_invoke$arity$3(ret__4484__auto__,k__4485__auto__,v__4486__auto__) : f__4482__auto__.call(null,ret__4484__auto__,k__4485__auto__,v__4486__auto__));
 }),init__4483__auto__,this__4481__auto____$1);
 }));
@@ -96,10 +99,10 @@ return cljs.core.pr_sequential_writer(writer__4477__auto__,cljs.core.pr_writer,"
 return cljs.core.pr_sequential_writer(writer__4477__auto__,pr_pair__4479__auto__,"#predict-prostate.components.bs3-navbar.Nav-item{",", ","}",opts__4478__auto__,cljs.core.concat.cljs$core$IFn$_invoke$arity$2(new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"text","text",-1790561697),self__.text],null)),(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"on-click","on-click",1632826543),self__.on_click],null)),(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"target","target",253001721),self__.target],null))], null),self__.__extmap));
 }));
 
-(predict_prostate.components.bs3_navbar.Nav_item.prototype.cljs$core$IIterable$_iterator$arity$1 = (function (G__32182){
+(predict_prostate.components.bs3_navbar.Nav_item.prototype.cljs$core$IIterable$_iterator$arity$1 = (function (G__34035){
 var self__ = this;
-var G__32182__$1 = this;
-return (new cljs.core.RecordIter((0),G__32182__$1,3,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"text","text",-1790561697),new cljs.core.Keyword(null,"on-click","on-click",1632826543),new cljs.core.Keyword(null,"target","target",253001721)], null),(cljs.core.truth_(self__.__extmap)?cljs.core._iterator(self__.__extmap):cljs.core.nil_iter())));
+var G__34035__$1 = this;
+return (new cljs.core.RecordIter((0),G__34035__$1,3,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"text","text",-1790561697),new cljs.core.Keyword(null,"on-click","on-click",1632826543),new cljs.core.Keyword(null,"target","target",253001721)], null),(cljs.core.truth_(self__.__extmap)?cljs.core._iterator(self__.__extmap):cljs.core.nil_iter())));
 }));
 
 (predict_prostate.components.bs3_navbar.Nav_item.prototype.cljs$core$IMeta$_meta$arity$1 = (function (this__4459__auto__){
@@ -136,10 +139,10 @@ return h__4319__auto____$1;
 }
 }));
 
-(predict_prostate.components.bs3_navbar.Nav_item.prototype.cljs$core$IEquiv$_equiv$arity$2 = (function (this32185,other32186){
+(predict_prostate.components.bs3_navbar.Nav_item.prototype.cljs$core$IEquiv$_equiv$arity$2 = (function (this34037,other34038){
 var self__ = this;
-var this32185__$1 = this;
-return (((!((other32186 == null)))) && ((((this32185__$1.constructor === other32186.constructor)) && (((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this32185__$1.text,other32186.text)) && (((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this32185__$1.on_click,other32186.on_click)) && (((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this32185__$1.target,other32186.target)) && (cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this32185__$1.__extmap,other32186.__extmap)))))))))));
+var this34037__$1 = this;
+return (((!((other34038 == null)))) && ((((this34037__$1.constructor === other34038.constructor)) && (((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this34037__$1.text,other34038.text)) && (((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this34037__$1.on_click,other34038.on_click)) && (((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this34037__$1.target,other34038.target)) && (cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(this34037__$1.__extmap,other34038.__extmap)))))))))));
 }));
 
 (predict_prostate.components.bs3_navbar.Nav_item.prototype.cljs$core$IMap$_dissoc$arity$2 = (function (this__4471__auto__,k__4472__auto__){
@@ -152,12 +155,12 @@ return (new predict_prostate.components.bs3_navbar.Nav_item(self__.text,self__.o
 }
 }));
 
-(predict_prostate.components.bs3_navbar.Nav_item.prototype.cljs$core$IAssociative$_contains_key_QMARK_$arity$2 = (function (this__4468__auto__,k32183){
+(predict_prostate.components.bs3_navbar.Nav_item.prototype.cljs$core$IAssociative$_contains_key_QMARK_$arity$2 = (function (this__4468__auto__,k34036){
 var self__ = this;
 var this__4468__auto____$1 = this;
-var G__32205 = k32183;
-var G__32205__$1 = (((G__32205 instanceof cljs.core.Keyword))?G__32205.fqn:null);
-switch (G__32205__$1) {
+var G__34059 = k34036;
+var G__34059__$1 = (((G__34059 instanceof cljs.core.Keyword))?G__34059.fqn:null);
+switch (G__34059__$1) {
 case "text":
 case "on-click":
 case "target":
@@ -165,26 +168,26 @@ return true;
 
 break;
 default:
-return cljs.core.contains_QMARK_(self__.__extmap,k32183);
+return cljs.core.contains_QMARK_(self__.__extmap,k34036);
 
 }
 }));
 
-(predict_prostate.components.bs3_navbar.Nav_item.prototype.cljs$core$IAssociative$_assoc$arity$3 = (function (this__4469__auto__,k__4470__auto__,G__32182){
+(predict_prostate.components.bs3_navbar.Nav_item.prototype.cljs$core$IAssociative$_assoc$arity$3 = (function (this__4469__auto__,k__4470__auto__,G__34035){
 var self__ = this;
 var this__4469__auto____$1 = this;
-var pred__32206 = cljs.core.keyword_identical_QMARK_;
-var expr__32207 = k__4470__auto__;
-if(cljs.core.truth_((pred__32206.cljs$core$IFn$_invoke$arity$2 ? pred__32206.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"text","text",-1790561697),expr__32207) : pred__32206.call(null,new cljs.core.Keyword(null,"text","text",-1790561697),expr__32207)))){
-return (new predict_prostate.components.bs3_navbar.Nav_item(G__32182,self__.on_click,self__.target,self__.__meta,self__.__extmap,null));
+var pred__34060 = cljs.core.keyword_identical_QMARK_;
+var expr__34061 = k__4470__auto__;
+if(cljs.core.truth_((pred__34060.cljs$core$IFn$_invoke$arity$2 ? pred__34060.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"text","text",-1790561697),expr__34061) : pred__34060.call(null,new cljs.core.Keyword(null,"text","text",-1790561697),expr__34061)))){
+return (new predict_prostate.components.bs3_navbar.Nav_item(G__34035,self__.on_click,self__.target,self__.__meta,self__.__extmap,null));
 } else {
-if(cljs.core.truth_((pred__32206.cljs$core$IFn$_invoke$arity$2 ? pred__32206.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"on-click","on-click",1632826543),expr__32207) : pred__32206.call(null,new cljs.core.Keyword(null,"on-click","on-click",1632826543),expr__32207)))){
-return (new predict_prostate.components.bs3_navbar.Nav_item(self__.text,G__32182,self__.target,self__.__meta,self__.__extmap,null));
+if(cljs.core.truth_((pred__34060.cljs$core$IFn$_invoke$arity$2 ? pred__34060.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"on-click","on-click",1632826543),expr__34061) : pred__34060.call(null,new cljs.core.Keyword(null,"on-click","on-click",1632826543),expr__34061)))){
+return (new predict_prostate.components.bs3_navbar.Nav_item(self__.text,G__34035,self__.target,self__.__meta,self__.__extmap,null));
 } else {
-if(cljs.core.truth_((pred__32206.cljs$core$IFn$_invoke$arity$2 ? pred__32206.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"target","target",253001721),expr__32207) : pred__32206.call(null,new cljs.core.Keyword(null,"target","target",253001721),expr__32207)))){
-return (new predict_prostate.components.bs3_navbar.Nav_item(self__.text,self__.on_click,G__32182,self__.__meta,self__.__extmap,null));
+if(cljs.core.truth_((pred__34060.cljs$core$IFn$_invoke$arity$2 ? pred__34060.cljs$core$IFn$_invoke$arity$2(new cljs.core.Keyword(null,"target","target",253001721),expr__34061) : pred__34060.call(null,new cljs.core.Keyword(null,"target","target",253001721),expr__34061)))){
+return (new predict_prostate.components.bs3_navbar.Nav_item(self__.text,self__.on_click,G__34035,self__.__meta,self__.__extmap,null));
 } else {
-return (new predict_prostate.components.bs3_navbar.Nav_item(self__.text,self__.on_click,self__.target,self__.__meta,cljs.core.assoc.cljs$core$IFn$_invoke$arity$3(self__.__extmap,k__4470__auto__,G__32182),null));
+return (new predict_prostate.components.bs3_navbar.Nav_item(self__.text,self__.on_click,self__.target,self__.__meta,cljs.core.assoc.cljs$core$IFn$_invoke$arity$3(self__.__extmap,k__4470__auto__,G__34035),null));
 }
 }
 }
@@ -196,10 +199,10 @@ var this__4474__auto____$1 = this;
 return cljs.core.seq(cljs.core.concat.cljs$core$IFn$_invoke$arity$2(new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [(new cljs.core.MapEntry(new cljs.core.Keyword(null,"text","text",-1790561697),self__.text,null)),(new cljs.core.MapEntry(new cljs.core.Keyword(null,"on-click","on-click",1632826543),self__.on_click,null)),(new cljs.core.MapEntry(new cljs.core.Keyword(null,"target","target",253001721),self__.target,null))], null),self__.__extmap));
 }));
 
-(predict_prostate.components.bs3_navbar.Nav_item.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (this__4460__auto__,G__32182){
+(predict_prostate.components.bs3_navbar.Nav_item.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (this__4460__auto__,G__34035){
 var self__ = this;
 var this__4460__auto____$1 = this;
-return (new predict_prostate.components.bs3_navbar.Nav_item(self__.text,self__.on_click,self__.target,G__32182,self__.__extmap,self__.__hash));
+return (new predict_prostate.components.bs3_navbar.Nav_item(self__.text,self__.on_click,self__.target,G__34035,self__.__extmap,self__.__hash));
 }));
 
 (predict_prostate.components.bs3_navbar.Nav_item.prototype.cljs$core$ICollection$_conj$arity$2 = (function (this__4466__auto__,entry__4467__auto__){
@@ -236,15 +239,15 @@ return (new predict_prostate.components.bs3_navbar.Nav_item(text,on_click,target
 /**
  * Factory function for predict-prostate.components.bs3-navbar/Nav-item, taking a map of keywords to field values.
  */
-predict_prostate.components.bs3_navbar.map__GT_Nav_item = (function predict_prostate$components$bs3_navbar$map__GT_Nav_item(G__32187){
-var extmap__4501__auto__ = (function (){var G__32220 = cljs.core.dissoc.cljs$core$IFn$_invoke$arity$variadic(G__32187,new cljs.core.Keyword(null,"text","text",-1790561697),cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.Keyword(null,"on-click","on-click",1632826543),new cljs.core.Keyword(null,"target","target",253001721)], 0));
-if(cljs.core.record_QMARK_(G__32187)){
-return cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentArrayMap.EMPTY,G__32220);
+predict_prostate.components.bs3_navbar.map__GT_Nav_item = (function predict_prostate$components$bs3_navbar$map__GT_Nav_item(G__34039){
+var extmap__4501__auto__ = (function (){var G__34068 = cljs.core.dissoc.cljs$core$IFn$_invoke$arity$variadic(G__34039,new cljs.core.Keyword(null,"text","text",-1790561697),cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.Keyword(null,"on-click","on-click",1632826543),new cljs.core.Keyword(null,"target","target",253001721)], 0));
+if(cljs.core.record_QMARK_(G__34039)){
+return cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentArrayMap.EMPTY,G__34068);
 } else {
-return G__32220;
+return G__34068;
 }
 })();
-return (new predict_prostate.components.bs3_navbar.Nav_item(new cljs.core.Keyword(null,"text","text",-1790561697).cljs$core$IFn$_invoke$arity$1(G__32187),new cljs.core.Keyword(null,"on-click","on-click",1632826543).cljs$core$IFn$_invoke$arity$1(G__32187),new cljs.core.Keyword(null,"target","target",253001721).cljs$core$IFn$_invoke$arity$1(G__32187),null,cljs.core.not_empty(extmap__4501__auto__),null));
+return (new predict_prostate.components.bs3_navbar.Nav_item(new cljs.core.Keyword(null,"text","text",-1790561697).cljs$core$IFn$_invoke$arity$1(G__34039),new cljs.core.Keyword(null,"on-click","on-click",1632826543).cljs$core$IFn$_invoke$arity$1(G__34039),new cljs.core.Keyword(null,"target","target",253001721).cljs$core$IFn$_invoke$arity$1(G__34039),null,cljs.core.not_empty(extmap__4501__auto__),null));
 });
 
 predict_prostate.components.bs3_navbar.navigate_to = (function predict_prostate$components$bs3_navbar$navigate_to(target){
@@ -259,19 +262,19 @@ return predict_prostate.state.run_time.route_change.pubsub$feeds$TopicFeed$publi
 return null;
 }
 });
-predict_prostate.components.bs3_navbar.make_nav_item = (function predict_prostate$components$bs3_navbar$make_nav_item(key,rt,p__32231){
-var map__32232 = p__32231;
-var map__32232__$1 = cljs.core.__destructure_map(map__32232);
-var item = map__32232__$1;
-var text = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__32232__$1,new cljs.core.Keyword(null,"text","text",-1790561697));
-var on_click = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__32232__$1,new cljs.core.Keyword(null,"on-click","on-click",1632826543));
-var target = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__32232__$1,new cljs.core.Keyword(null,"target","target",253001721));
-var submenus = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__32232__$1,new cljs.core.Keyword(null,"submenus","submenus",-1749389225));
+predict_prostate.components.bs3_navbar.make_nav_item = (function predict_prostate$components$bs3_navbar$make_nav_item(key,rt,p__34073){
+var map__34074 = p__34073;
+var map__34074__$1 = cljs.core.__destructure_map(map__34074);
+var item = map__34074__$1;
+var text = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__34074__$1,new cljs.core.Keyword(null,"text","text",-1790561697));
+var on_click = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__34074__$1,new cljs.core.Keyword(null,"on-click","on-click",1632826543));
+var target = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__34074__$1,new cljs.core.Keyword(null,"target","target",253001721));
+var submenus = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__34074__$1,new cljs.core.Keyword(null,"submenus","submenus",-1749389225));
 if(cljs.core.seq(submenus)){
 return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"li","li",723558921),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"key","key",-1516042587),key,new cljs.core.Keyword(null,"tab-index","tab-index",895755393),(0),new cljs.core.Keyword(null,"style","style",-496642736),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"cursor","cursor",1011937484),"pointer"], null),new cljs.core.Keyword(null,"class-name","class-name",945142584),["dropdown",((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(cljs.core.first(target),cljs.core.first(rt)))?" active":null)].join('')], null),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"a.dropdown-toggle","a.dropdown-toggle",-264466802),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"data-toggle","data-toggle",436966687),"dropdown",new cljs.core.Keyword(null,"on-click","on-click",1632826543),(function (){
 return (on_click.cljs$core$IFn$_invoke$arity$1 ? on_click.cljs$core$IFn$_invoke$arity$1(target) : on_click.call(null,target));
-})], null),text,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"span.caret","span.caret",-1405994877)], null)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"ul.dropdown-menu","ul.dropdown-menu",-867384656),cljs.core.map_indexed.cljs$core$IFn$_invoke$arity$2((function (p1__32229_SHARP_,p2__32230_SHARP_){
-return (predict_prostate.components.bs3_navbar.make_nav_item.cljs$core$IFn$_invoke$arity$3 ? predict_prostate.components.bs3_navbar.make_nav_item.cljs$core$IFn$_invoke$arity$3(p1__32229_SHARP_,rt,p2__32230_SHARP_) : predict_prostate.components.bs3_navbar.make_nav_item.call(null,p1__32229_SHARP_,rt,p2__32230_SHARP_));
+})], null),text,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"span.caret","span.caret",-1405994877)], null)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"ul.dropdown-menu","ul.dropdown-menu",-867384656),cljs.core.map_indexed.cljs$core$IFn$_invoke$arity$2((function (p1__34071_SHARP_,p2__34072_SHARP_){
+return (predict_prostate.components.bs3_navbar.make_nav_item.cljs$core$IFn$_invoke$arity$3 ? predict_prostate.components.bs3_navbar.make_nav_item.cljs$core$IFn$_invoke$arity$3(p1__34071_SHARP_,rt,p2__34072_SHARP_) : predict_prostate.components.bs3_navbar.make_nav_item.call(null,p1__34071_SHARP_,rt,p2__34072_SHARP_));
 }),submenus)], null)], null);
 } else {
 return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"li","li",723558921),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"key","key",-1516042587),key,new cljs.core.Keyword(null,"tab-index","tab-index",895755393),(0),new cljs.core.Keyword(null,"style","style",-496642736),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"cursor","cursor",1011937484),"pointer"], null),new cljs.core.Keyword(null,"class-name","class-name",945142584),((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(cljs.core.first(target),cljs.core.first(rt)))?"active":null)], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"a","a",-2123407586),new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"on-click","on-click",1632826543),(function (){
@@ -280,43 +283,43 @@ return (on_click.cljs$core$IFn$_invoke$arity$1 ? on_click.cljs$core$IFn$_invoke$
 }
 });
 predict_prostate.components.bs3_navbar.nav_items = (function predict_prostate$components$bs3_navbar$nav_items(ttt,_,supported_languages){
-return new cljs.core.PersistentVector(null, 6, 5, cljs.core.PersistentVector.EMPTY_NODE, [(new predict_prostate.components.bs3_navbar.Nav_item((function (){var G__32282 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("navbar","home","navbar/home",-1110215533),"Home"], null);
-return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__32282) : ttt.call(null,G__32282));
-})(),predict_prostate.components.bs3_navbar.navigate_to,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"home","home",-74557309),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"page","page",849072397),new cljs.core.Keyword(null,"home","home",-74557309)], null)], null),null,null,null)),cljs.core.assoc.cljs$core$IFn$_invoke$arity$3((new predict_prostate.components.bs3_navbar.Nav_item((function (){var G__32297 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("navbar","about","navbar/about",-1785070545),"About Predict Prostate"], null);
-return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__32297) : ttt.call(null,G__32297));
-})(),predict_prostate.components.bs3_navbar.navigate_to,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"no-op","no-op",-93046065)], null),null,null,null)),new cljs.core.Keyword(null,"submenus","submenus",-1749389225),new cljs.core.PersistentVector(null, 8, 5, cljs.core.PersistentVector.EMPTY_NODE, [(new predict_prostate.components.bs3_navbar.Nav_item((function (){var G__32302 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("navbar","overview","navbar/overview",-1554595939),"Overview"], null);
-return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__32302) : ttt.call(null,G__32302));
-})(),predict_prostate.components.bs3_navbar.navigate_to,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"about","about",1423892543),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"page","page",849072397),new cljs.core.Keyword(null,"overview","overview",-435037267),new cljs.core.Keyword(null,"section","section",-300141526),new cljs.core.Keyword(null,"about","about",1423892543)], null)], null),null,null,null)),(new predict_prostate.components.bs3_navbar.Nav_item((function (){var G__32311 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("navbar","wiif","navbar/wiif",192569787),"\u2013 Who is it for?"], null);
-return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__32311) : ttt.call(null,G__32311));
-})(),predict_prostate.components.bs3_navbar.navigate_to,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"about","about",1423892543),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"page","page",849072397),new cljs.core.Keyword(null,"overview","overview",-435037267),new cljs.core.Keyword(null,"section","section",-300141526),new cljs.core.Keyword(null,"whoisitfor","whoisitfor",1411917847)], null)], null),null,null,null)),(new predict_prostate.components.bs3_navbar.Nav_item((function (){var G__32313 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("navbar","hppw","navbar/hppw",-990757415),"\u2013 How Predict Prostate works"], null);
-return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__32313) : ttt.call(null,G__32313));
-})(),predict_prostate.components.bs3_navbar.navigate_to,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"about","about",1423892543),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"page","page",849072397),new cljs.core.Keyword(null,"overview","overview",-435037267),new cljs.core.Keyword(null,"section","section",-300141526),new cljs.core.Keyword(null,"howpredictworks","howpredictworks",-1156140842)], null)], null),null,null,null)),(new predict_prostate.components.bs3_navbar.Nav_item((function (){var G__32315 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("navbar","wbpp","navbar/wbpp",584352947),"\u2013 Who built Predict Prostate"], null);
-return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__32315) : ttt.call(null,G__32315));
-})(),predict_prostate.components.bs3_navbar.navigate_to,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"about","about",1423892543),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"page","page",849072397),new cljs.core.Keyword(null,"overview","overview",-435037267),new cljs.core.Keyword(null,"section","section",-300141526),new cljs.core.Keyword(null,"whobuiltpredict","whobuiltpredict",1949196346)], null)], null),null,null,null)),(new predict_prostate.components.bs3_navbar.Nav_item((function (){var G__32317 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("navbar","tech","navbar/tech",1242038797),"Technical"], null);
-return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__32317) : ttt.call(null,G__32317));
-})(),predict_prostate.components.bs3_navbar.navigate_to,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"about","about",1423892543),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"page","page",849072397),new cljs.core.Keyword(null,"technical","technical",-1762752687),new cljs.core.Keyword(null,"section","section",-300141526),new cljs.core.Keyword(null,"technical","technical",-1762752687)], null)], null),null,null,null)),(new predict_prostate.components.bs3_navbar.Nav_item((function (){var G__32320 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("navbar","dh","navbar/dh",-319448525),"\u2013 Development History"], null);
-return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__32320) : ttt.call(null,G__32320));
-})(),predict_prostate.components.bs3_navbar.navigate_to,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"about","about",1423892543),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"page","page",849072397),new cljs.core.Keyword(null,"technical","technical",-1762752687),new cljs.core.Keyword(null,"section","section",-300141526),new cljs.core.Keyword(null,"history","history",-247395220)], null)], null),null,null,null)),(new predict_prostate.components.bs3_navbar.Nav_item((function (){var G__32322 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("navbar","pubs","navbar/pubs",-2134936301),"\u2013 Publications"], null);
-return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__32322) : ttt.call(null,G__32322));
-})(),predict_prostate.components.bs3_navbar.navigate_to,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"about","about",1423892543),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"page","page",849072397),new cljs.core.Keyword(null,"technical","technical",-1762752687),new cljs.core.Keyword(null,"section","section",-300141526),new cljs.core.Keyword(null,"publications","publications",1164590218)], null)], null),null,null,null)),(new predict_prostate.components.bs3_navbar.Nav_item((function (){var G__32324 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("navbar","faqs","navbar/faqs",1739435872),"FAQs"], null);
-return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__32324) : ttt.call(null,G__32324));
-})(),predict_prostate.components.bs3_navbar.navigate_to,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"about","about",1423892543),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"page","page",849072397),new cljs.core.Keyword(null,"faqs","faqs",636275568)], null)], null),null,null,null))], null)),(new predict_prostate.components.bs3_navbar.Nav_item((function (){var G__32326 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("navbar","tool","navbar/tool",1934903994),"Predict Prostate Tool"], null);
-return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__32326) : ttt.call(null,G__32326));
-})(),predict_prostate.components.bs3_navbar.navigate_to,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"tool","tool",-1298696470)], null),null,null,null)),(new predict_prostate.components.bs3_navbar.Nav_item((function (){var G__32329 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("navbar","contact","navbar/contact",-485809396),"Contact"], null);
-return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__32329) : ttt.call(null,G__32329));
-})(),predict_prostate.components.bs3_navbar.navigate_to,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"contact","contact",609093372)], null),null,null,null)),cljs.core.assoc.cljs$core$IFn$_invoke$arity$3((new predict_prostate.components.bs3_navbar.Nav_item((function (){var G__32331 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("navbar","legal","navbar/legal",-818189380),"Legal"], null);
-return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__32331) : ttt.call(null,G__32331));
-})(),predict_prostate.components.bs3_navbar.navigate_to,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"no-op","no-op",-93046065)], null),null,null,null)),new cljs.core.Keyword(null,"submenus","submenus",-1749389225),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [(new predict_prostate.components.bs3_navbar.Nav_item((function (){var G__32333 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("navbar","legal-name","navbar/legal-name",-1277330679),"Predict: Prostate Cancer"], null);
-return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__32333) : ttt.call(null,G__32333));
-})(),predict_prostate.components.bs3_navbar.navigate_to,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"legal","legal",302401964),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"page","page",849072397),new cljs.core.Keyword(null,"product","product",1363474257)], null)], null),null,null,null)),(new predict_prostate.components.bs3_navbar.Nav_item((function (){var G__32336 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("navbar","disclaimer","navbar/disclaimer",-1536104939),"Disclaimer"], null);
-return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__32336) : ttt.call(null,G__32336));
-})(),predict_prostate.components.bs3_navbar.navigate_to,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"legal","legal",302401964),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"page","page",849072397),new cljs.core.Keyword(null,"disclaimer","disclaimer",1605091877)], null)], null),null,null,null)),(new predict_prostate.components.bs3_navbar.Nav_item((function (){var G__32338 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("navbar","alg","navbar/alg",255605842),"Algorithm"], null);
-return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__32338) : ttt.call(null,G__32338));
-})(),predict_prostate.components.bs3_navbar.navigate_to,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"legal","legal",302401964),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"page","page",849072397),new cljs.core.Keyword(null,"algorithm","algorithm",739262820)], null)], null),null,null,null)),(new predict_prostate.components.bs3_navbar.Nav_item((function (){var G__32340 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("navbar","privacy","navbar/privacy",1633419033),"Privacy & Data Protection"], null);
-return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__32340) : ttt.call(null,G__32340));
-})(),predict_prostate.components.bs3_navbar.navigate_to,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"legal","legal",302401964),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"page","page",849072397),new cljs.core.Keyword(null,"privacy","privacy",555299625)], null)], null),null,null,null))], null)),cljs.core.assoc.cljs$core$IFn$_invoke$arity$3((new predict_prostate.components.bs3_navbar.Nav_item((function (){var G__32343 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("navbar","change-language","navbar/change-language",-1814466745),"Change Language"], null);
-var G__32344 = " ";
-return (ttt.cljs$core$IFn$_invoke$arity$2 ? ttt.cljs$core$IFn$_invoke$arity$2(G__32343,G__32344) : ttt.call(null,G__32343,G__32344));
+return new cljs.core.PersistentVector(null, 6, 5, cljs.core.PersistentVector.EMPTY_NODE, [(new predict_prostate.components.bs3_navbar.Nav_item((function (){var G__34086 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("navbar","home","navbar/home",-1110215533),"Home"], null);
+return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__34086) : ttt.call(null,G__34086));
+})(),predict_prostate.components.bs3_navbar.navigate_to,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"home","home",-74557309),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"page","page",849072397),new cljs.core.Keyword(null,"home","home",-74557309)], null)], null),null,null,null)),cljs.core.assoc.cljs$core$IFn$_invoke$arity$3((new predict_prostate.components.bs3_navbar.Nav_item((function (){var G__34087 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("navbar","about","navbar/about",-1785070545),"About Predict Prostate"], null);
+return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__34087) : ttt.call(null,G__34087));
+})(),predict_prostate.components.bs3_navbar.navigate_to,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"no-op","no-op",-93046065)], null),null,null,null)),new cljs.core.Keyword(null,"submenus","submenus",-1749389225),new cljs.core.PersistentVector(null, 8, 5, cljs.core.PersistentVector.EMPTY_NODE, [(new predict_prostate.components.bs3_navbar.Nav_item((function (){var G__34088 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("navbar","overview","navbar/overview",-1554595939),"Overview"], null);
+return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__34088) : ttt.call(null,G__34088));
+})(),predict_prostate.components.bs3_navbar.navigate_to,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"about","about",1423892543),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"page","page",849072397),new cljs.core.Keyword(null,"overview","overview",-435037267),new cljs.core.Keyword(null,"section","section",-300141526),new cljs.core.Keyword(null,"about","about",1423892543)], null)], null),null,null,null)),(new predict_prostate.components.bs3_navbar.Nav_item((function (){var G__34089 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("navbar","wiif","navbar/wiif",192569787),"\u2013 Who is it for?"], null);
+return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__34089) : ttt.call(null,G__34089));
+})(),predict_prostate.components.bs3_navbar.navigate_to,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"about","about",1423892543),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"page","page",849072397),new cljs.core.Keyword(null,"overview","overview",-435037267),new cljs.core.Keyword(null,"section","section",-300141526),new cljs.core.Keyword(null,"whoisitfor","whoisitfor",1411917847)], null)], null),null,null,null)),(new predict_prostate.components.bs3_navbar.Nav_item((function (){var G__34090 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("navbar","hppw","navbar/hppw",-990757415),"\u2013 How Predict Prostate works"], null);
+return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__34090) : ttt.call(null,G__34090));
+})(),predict_prostate.components.bs3_navbar.navigate_to,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"about","about",1423892543),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"page","page",849072397),new cljs.core.Keyword(null,"overview","overview",-435037267),new cljs.core.Keyword(null,"section","section",-300141526),new cljs.core.Keyword(null,"howpredictworks","howpredictworks",-1156140842)], null)], null),null,null,null)),(new predict_prostate.components.bs3_navbar.Nav_item((function (){var G__34091 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("navbar","wbpp","navbar/wbpp",584352947),"\u2013 Who built Predict Prostate"], null);
+return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__34091) : ttt.call(null,G__34091));
+})(),predict_prostate.components.bs3_navbar.navigate_to,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"about","about",1423892543),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"page","page",849072397),new cljs.core.Keyword(null,"overview","overview",-435037267),new cljs.core.Keyword(null,"section","section",-300141526),new cljs.core.Keyword(null,"whobuiltpredict","whobuiltpredict",1949196346)], null)], null),null,null,null)),(new predict_prostate.components.bs3_navbar.Nav_item((function (){var G__34093 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("navbar","tech","navbar/tech",1242038797),"Technical"], null);
+return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__34093) : ttt.call(null,G__34093));
+})(),predict_prostate.components.bs3_navbar.navigate_to,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"about","about",1423892543),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"page","page",849072397),new cljs.core.Keyword(null,"technical","technical",-1762752687),new cljs.core.Keyword(null,"section","section",-300141526),new cljs.core.Keyword(null,"technical","technical",-1762752687)], null)], null),null,null,null)),(new predict_prostate.components.bs3_navbar.Nav_item((function (){var G__34094 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("navbar","dh","navbar/dh",-319448525),"\u2013 Development History"], null);
+return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__34094) : ttt.call(null,G__34094));
+})(),predict_prostate.components.bs3_navbar.navigate_to,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"about","about",1423892543),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"page","page",849072397),new cljs.core.Keyword(null,"technical","technical",-1762752687),new cljs.core.Keyword(null,"section","section",-300141526),new cljs.core.Keyword(null,"history","history",-247395220)], null)], null),null,null,null)),(new predict_prostate.components.bs3_navbar.Nav_item((function (){var G__34095 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("navbar","pubs","navbar/pubs",-2134936301),"\u2013 Publications"], null);
+return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__34095) : ttt.call(null,G__34095));
+})(),predict_prostate.components.bs3_navbar.navigate_to,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"about","about",1423892543),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"page","page",849072397),new cljs.core.Keyword(null,"technical","technical",-1762752687),new cljs.core.Keyword(null,"section","section",-300141526),new cljs.core.Keyword(null,"publications","publications",1164590218)], null)], null),null,null,null)),(new predict_prostate.components.bs3_navbar.Nav_item((function (){var G__34096 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("navbar","faqs","navbar/faqs",1739435872),"FAQs"], null);
+return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__34096) : ttt.call(null,G__34096));
+})(),predict_prostate.components.bs3_navbar.navigate_to,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"about","about",1423892543),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"page","page",849072397),new cljs.core.Keyword(null,"faqs","faqs",636275568)], null)], null),null,null,null))], null)),(new predict_prostate.components.bs3_navbar.Nav_item((function (){var G__34097 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("navbar","tool","navbar/tool",1934903994),"Predict Prostate Tool"], null);
+return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__34097) : ttt.call(null,G__34097));
+})(),predict_prostate.components.bs3_navbar.navigate_to,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"tool","tool",-1298696470)], null),null,null,null)),(new predict_prostate.components.bs3_navbar.Nav_item((function (){var G__34099 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("navbar","contact","navbar/contact",-485809396),"Contact"], null);
+return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__34099) : ttt.call(null,G__34099));
+})(),predict_prostate.components.bs3_navbar.navigate_to,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"contact","contact",609093372)], null),null,null,null)),cljs.core.assoc.cljs$core$IFn$_invoke$arity$3((new predict_prostate.components.bs3_navbar.Nav_item((function (){var G__34100 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("navbar","legal","navbar/legal",-818189380),"Legal"], null);
+return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__34100) : ttt.call(null,G__34100));
+})(),predict_prostate.components.bs3_navbar.navigate_to,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"no-op","no-op",-93046065)], null),null,null,null)),new cljs.core.Keyword(null,"submenus","submenus",-1749389225),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [(new predict_prostate.components.bs3_navbar.Nav_item((function (){var G__34101 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("navbar","legal-name","navbar/legal-name",-1277330679),"Predict: Prostate Cancer"], null);
+return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__34101) : ttt.call(null,G__34101));
+})(),predict_prostate.components.bs3_navbar.navigate_to,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"legal","legal",302401964),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"page","page",849072397),new cljs.core.Keyword(null,"product","product",1363474257)], null)], null),null,null,null)),(new predict_prostate.components.bs3_navbar.Nav_item((function (){var G__34102 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("navbar","disclaimer","navbar/disclaimer",-1536104939),"Disclaimer"], null);
+return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__34102) : ttt.call(null,G__34102));
+})(),predict_prostate.components.bs3_navbar.navigate_to,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"legal","legal",302401964),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"page","page",849072397),new cljs.core.Keyword(null,"disclaimer","disclaimer",1605091877)], null)], null),null,null,null)),(new predict_prostate.components.bs3_navbar.Nav_item((function (){var G__34104 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("navbar","alg","navbar/alg",255605842),"Algorithm"], null);
+return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__34104) : ttt.call(null,G__34104));
+})(),predict_prostate.components.bs3_navbar.navigate_to,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"legal","legal",302401964),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"page","page",849072397),new cljs.core.Keyword(null,"algorithm","algorithm",739262820)], null)], null),null,null,null)),(new predict_prostate.components.bs3_navbar.Nav_item((function (){var G__34105 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("navbar","privacy","navbar/privacy",1633419033),"Privacy & Data Protection"], null);
+return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__34105) : ttt.call(null,G__34105));
+})(),predict_prostate.components.bs3_navbar.navigate_to,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"legal","legal",302401964),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"page","page",849072397),new cljs.core.Keyword(null,"privacy","privacy",555299625)], null)], null),null,null,null))], null)),cljs.core.assoc.cljs$core$IFn$_invoke$arity$3((new predict_prostate.components.bs3_navbar.Nav_item((function (){var G__34106 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("navbar","change-language","navbar/change-language",-1814466745),"Change Language"], null);
+var G__34107 = " ";
+return (ttt.cljs$core$IFn$_invoke$arity$2 ? ttt.cljs$core$IFn$_invoke$arity$2(G__34106,G__34107) : ttt.call(null,G__34106,G__34107));
 })(),predict_prostate.components.bs3_navbar.navigate_to,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"no-op","no-op",-93046065)], null),null,null,null)),new cljs.core.Keyword(null,"submenus","submenus",-1749389225),cljs.core.mapv.cljs$core$IFn$_invoke$arity$2((function (lang){
 return (new predict_prostate.components.bs3_navbar.Nav_item((ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(lang) : ttt.call(null,lang)),(function (){
 return predict_prostate.state.run_time.language_change.pubsub$feeds$TopicFeed$publish$arity$2(null,lang);
@@ -328,14 +331,17 @@ jQuery.SmartMenus.Bootstrap.init();
 
 return state;
 })], null);
-predict_prostate.components.bs3_navbar.simple_navbar = rum.core.lazy_build(rum.core.build_defc,(function (p__32362){
-var vec__32363 = p__32362;
-var menu_items = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__32363,(0),null);
+predict_prostate.components.bs3_navbar.simple_navbar = rum.core.build_defc((function (p__34110){
+var vec__34111 = p__34110;
+var menu_items = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__34111,(0),null);
 var rt = rum.core.react(predict_prostate.state.run_time.route);
-return predict_prostate.components.bs3_navbar.navbar(new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"id","id",-1388402092),"navbar",new cljs.core.Keyword(null,"class-name","class-name",945142584),"navbar-inverse",new cljs.core.Keyword(null,"logo","logo",1237980263),null], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"ul.nav.navbar-nav","ul.nav.navbar-nav",1805559761),cljs.core.map_indexed.cljs$core$IFn$_invoke$arity$2((function (p1__32356_SHARP_,p2__32357_SHARP_){
-return predict_prostate.components.bs3_navbar.make_nav_item(p1__32356_SHARP_,rt,p2__32357_SHARP_);
-}),menu_items)], null));
-}),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [rum.core.static$,rum.core.reactive], null),"predict-prostate.components.bs3-navbar/simple-navbar");
+return sablono.interpreter.interpret((function (){var G__34114 = new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"id","id",-1388402092),"navbar",new cljs.core.Keyword(null,"class-name","class-name",945142584),"navbar-inverse",new cljs.core.Keyword(null,"logo","logo",1237980263),null], null);
+var G__34115 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"ul.nav.navbar-nav","ul.nav.navbar-nav",1805559761),cljs.core.map_indexed.cljs$core$IFn$_invoke$arity$2((function (p1__34108_SHARP_,p2__34109_SHARP_){
+return predict_prostate.components.bs3_navbar.make_nav_item(p1__34108_SHARP_,rt,p2__34109_SHARP_);
+}),menu_items)], null);
+return (predict_prostate.components.bs3_navbar.navbar.cljs$core$IFn$_invoke$arity$2 ? predict_prostate.components.bs3_navbar.navbar.cljs$core$IFn$_invoke$arity$2(G__34114,G__34115) : predict_prostate.components.bs3_navbar.navbar.call(null,G__34114,G__34115));
+})());
+}),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [rum.core.static$,rum.core.reactive], null),"simple-navbar");
 /**
  * Returns a 'sticky' scroll event handler for a dom-node
  */
@@ -369,11 +375,14 @@ removeEventListener("scroll",sh);
 
 return cljs.core.dissoc.cljs$core$IFn$_invoke$arity$variadic(state,new cljs.core.Keyword("predict-prostate.components.bs3-navbar","scroll-handler","predict-prostate.components.bs3-navbar/scroll-handler",-1298580446),cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.Keyword("predict-prostate.components.bs3-navbar","y-off","predict-prostate.components.bs3-navbar/y-off",-479018353)], 0));
 })], null);
-predict_prostate.components.bs3_navbar.hamburger_navbar = rum.core.lazy_build(rum.core.build_defc,(function (ttt){
+predict_prostate.components.bs3_navbar.hamburger_navbar = rum.core.build_defc((function (ttt){
 var t_state = rum.core.react(predict_prostate.state.run_time.t_state_cursor);
 var lang = cljs.core.name((cljs.core.truth_(new cljs.core.Keyword(null,"lang","lang",-1819677104).cljs$core$IFn$_invoke$arity$1(t_state))?new cljs.core.Keyword(null,"lang","lang",-1819677104).cljs$core$IFn$_invoke$arity$1(t_state):new cljs.core.Keyword(null,"en","en",88457073)));
 var supported_languages = new cljs.core.Keyword(null,"languages","languages",1471910331).cljs$core$IFn$_invoke$arity$1(t_state);
-return daiquiri.core.create_element("nav",null,[predict_prostate.components.bs3_navbar.simple_navbar(new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [predict_prostate.components.bs3_navbar.nav_items(ttt,lang,supported_languages)], null))]);
-}),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [predict_prostate.components.bs3_navbar.sticky_mixin,predict_prostate.components.bs3_navbar.smartmenus,rum.core.reactive], null),"predict-prostate.components.bs3-navbar/hamburger-navbar");
+var attrs34123 = (function (){var G__34126 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [predict_prostate.components.bs3_navbar.nav_items(ttt,lang,supported_languages)], null);
+return (predict_prostate.components.bs3_navbar.simple_navbar.cljs$core$IFn$_invoke$arity$1 ? predict_prostate.components.bs3_navbar.simple_navbar.cljs$core$IFn$_invoke$arity$1(G__34126) : predict_prostate.components.bs3_navbar.simple_navbar.call(null,G__34126));
+})();
+return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(React.createElement,"nav",((cljs.core.map_QMARK_(attrs34123))?sablono.interpreter.attributes(attrs34123):null),((cljs.core.map_QMARK_(attrs34123))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret(attrs34123)], null)));
+}),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [predict_prostate.components.bs3_navbar.sticky_mixin,predict_prostate.components.bs3_navbar.smartmenus,rum.core.reactive], null),"hamburger-navbar");
 
 //# sourceMappingURL=predict_prostate.components.bs3_navbar.js.map
