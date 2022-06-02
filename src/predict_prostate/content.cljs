@@ -548,7 +548,8 @@ Grade Group 2 or from Stage T2 to stage T3). If MRI data and imaging scores are 
          [:span (ttt [:faqs/a17-text1 "The website has been built by the"]) " "
           [:a {:href  "https://wintoncentre.maths.cam.ac.uk"
                :rel   "noopener"
-               :style {:text-decoration "underline"}} "Winton Centre for Risk & Evidence Communication"] " " 
+               :style {:text-decoration "underline"}
+               :target "_blank"} "Winton Centre for Risk & Evidence Communication"] " " 
           (ttt [:faqs/a17-text2 "at the University of Cambridge. The site functionality and visualisation software is trademarked by the Winton Centre as
                  4U2C. However, we are happy for others to use it for similar purposes. Do contact us to discuss this at"]) " "
           [:a {:href "mailto:wintoncentre@maths.cam.ac.uk" :rel "noopener"} "wintoncentre@maths.cam.ac.uk"] "."])
@@ -736,15 +737,15 @@ Grade Group 2 or from Stage T2 to stage T3). If MRI data and imaging scores are 
      websites. Cookies allow a website to recognise a user’s device e.g. computer, mobile phone. "])]
        [:p (ttt [:priv/cp-text2 "The law on website cookies changed on 26 May 2011 and requires that sites state which cookies are being used
      and their purpose. It also makes clear that cookies only be used with your consent. You can find out more
-     information about this law by visiting the"]) " " [:a {:href "https://ico.org.uk/for-the-public/online/cookies/" :rel "noopener"} (ttt [:priv/cp-text3 "Information Commissioner’s Office website."])]]
-       [:p (ttt [:priv/cp-text4 "In using the Predict website you are implicitly giving consent that cookies may be used, however you may
+     information about this law by visiting the"]) " " [:a {:href "https://ico.org.uk/for-the-public/online/cookies/" :rel "noopener" :target "_blank"} (ttt [:priv/cp-text3 "Information Commissioner’s Office website."])]]
+       #_[:p (ttt [:priv/cp-text4 "In using the Predict website you are implicitly giving consent that cookies may be used, however you may
      disable cookie use, see below for details."])]]
       [:section (ttt [:priv/wc-title "Which cookies does the Predict website use?"])
        [:p (ttt [:priv/wc-text1 "Predict uses Matomo to measure website traffic. All the information collected is anonymous and is
      not used for any other purpose. For more details see the"]) " "
-        [:a {:href "https://matomo.org/privacy-policy/" :rel "noopener"} (ttt [:priv/wc-text2 "Matomo privacy policy."])]]
+        [:a {:href "https://matomo.org/privacy-policy/" :rel "noopener" :target "_blank"} (ttt [:priv/wc-text2 "Matomo privacy policy."])]]
        [:p (ttt [:priv/wc-text3 "The following cookies are used"]) ": "
-        [:a {:href "https://help.hotjar.com/hc/en-us/articles/115011789248-Hotjar-Cookie-Information#tracking_code_cookies" :rel "noopener"} (ttt [:priv/wc-text4 "Cookies set by Hotjar"])]]
+        [:a {:href "https://help.hotjar.com/hc/en-us/articles/115011789248-Hotjar-Cookie-Information#tracking_code_cookies" :rel "noopener" :target "_blank"} (ttt [:priv/wc-text4 "Cookies set by Hotjar"])]]
        #_[:table.table.table-bordered {:style {:max-width "600px" :margin-top "10px" :font-size "16px"}}
         [:thead
          [:tr {:style {:background-color "#005EB4"
