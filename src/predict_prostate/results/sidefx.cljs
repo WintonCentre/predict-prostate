@@ -152,10 +152,11 @@
 
 
 (rum/defc sidefx-content
-  [{:keys [title sub-title source]} & content]
+  [{:keys [title sub-title subsub-title source]} & content]
   [:div {:style {:padding "0 15px 0 15px" :font-size 16}}
    [:h4 title]
    [:h5 sub-title]
+   [:h6 subsub-title]
    (map-indexed #(rum/with-key %2 %1) content)
    (when source [:.alert.alert-info {:style {:font-size 12}} (source)])]
   #_(into [] (conj [:div {:style {:padding "0 15px 0 15px" :font-size 16}}
@@ -192,7 +193,8 @@
   [tallies? ttt]
   [:div {:style {:border "1px solid #CCCCCC" :border-radius 3 :font-size 16}}
    (sidefx-header ttt)
-   (sidefx-content {:title (ttt [:sidefx/eredys-title "Erectile dysfunction"]) :sub-title (ttt [:sidefx/eredys-subtitle "Defined as: 'Lack of firmness for intercourse' - (percentages shown are in addition to men who may already have this problem before a treatment is given)"])
+   (sidefx-content {:title (ttt [:sidefx/eredys-title "Erectile dysfunction"]) :sub-title (ttt [:sidefx/eredys-subtitle "Defined as: 'Lack of firmness for intercourse'"])
+                    :subsub-title (ttt [:sidefx/eredys-subsubtitle "Percentages shown are in addition to men who may already have this problem before a treatment is given"])
                     :source #(erectile-source ttt)}
 
                    (sidefx-linear {:treatment :conservative
@@ -237,9 +239,9 @@
    (sidefx-content {:title (ttt [:sidefx/bowiss-title "Bowel issues"]) :sub-title (ttt [:sidefx/bowiss-subtitle "Defined as: 'Bloody stools about half the time or more frequently'"])
                     :source #(bowel-source ttt)}
                    (sidefx-linear {:treatment :conservative
-                                   :prefix    [:span (ttt [:sidefx/with "With"]) " " [:b {:style {:color (:conservative treatment-fills)}} (ttt [:sidefx/cons-man "conservative management,"])] " " (ttt [:sidefx/about "about"]) " "]
-                                   #_#_:fewer     true
-                                   :n         0
+                                   :prefix    (fewer-helper [:span (ttt [:sidefx/with "With"]) " " [:b {:style {:color (:conservative treatment-fills)}} (ttt [:sidefx/cons-man "conservative management,"])] " "] ttt)
+                                   :fewer     true
+                                   :n         1
                                    :tallies?  tallies?
                                    :ttt ttt})
                    (sidefx-linear {:treatment :radical-harms
