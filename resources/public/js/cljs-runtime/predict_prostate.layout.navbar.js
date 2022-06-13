@@ -1,12 +1,12 @@
 goog.provide('predict_prostate.layout.navbar');
-predict_prostate.layout.navbar.clear_all_button = rum.core.build_defc((function (p__34399){
-var map__34400 = p__34399;
-var map__34400__$1 = cljs.core.__destructure_map(map__34400);
-var props = map__34400__$1;
-var ttt = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__34400__$1,new cljs.core.Keyword(null,"ttt","ttt",1858561240));
-var on_click = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__34400__$1,new cljs.core.Keyword(null,"on-click","on-click",1632826543));
-return React.createElement("button",({"onClick": on_click, "className": "btn navbar-btn btn-danger btn-lg"})," ",sablono.interpreter.interpret((function (){var G__34401 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("tool","reset-btn","tool/reset-btn",-2075589013),"Reset"], null);
-return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__34401) : ttt.call(null,G__34401));
+predict_prostate.layout.navbar.clear_all_button = rum.core.build_defc((function (p__35043){
+var map__35044 = p__35043;
+var map__35044__$1 = cljs.core.__destructure_map(map__35044);
+var props = map__35044__$1;
+var ttt = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__35044__$1,new cljs.core.Keyword(null,"ttt","ttt",1858561240));
+var on_click = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__35044__$1,new cljs.core.Keyword(null,"on-click","on-click",1632826543));
+return React.createElement("button",({"onClick": on_click, "className": "btn navbar-btn btn-danger btn-lg"})," ",sablono.interpreter.interpret((function (){var G__35045 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("tool","reset-btn","tool/reset-btn",-2075589013),"Reset"], null);
+return (ttt.cljs$core$IFn$_invoke$arity$1 ? ttt.cljs$core$IFn$_invoke$arity$1(G__35045) : ttt.call(null,G__35045));
 })()));
 }),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [rum.core.static$], null),"clear-all-button");
 predict_prostate.layout.navbar.navbar = rum.core.build_defc((function (){

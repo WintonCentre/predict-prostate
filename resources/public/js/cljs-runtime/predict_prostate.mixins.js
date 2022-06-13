@@ -7,8 +7,8 @@ goog.provide('predict_prostate.mixins');
  *   else it is treated as an initial value.
  */
 predict_prostate.mixins.arg_local = (function predict_prostate$mixins$arg_local(var_args){
-var G__33471 = arguments.length;
-switch (G__33471) {
+var G__33646 = arguments.length;
+switch (G__33646) {
 case 1:
 return predict_prostate.mixins.arg_local.cljs$core$IFn$_invoke$arity$1((arguments[(0)]));
 
@@ -28,12 +28,12 @@ return predict_prostate.mixins.arg_local.cljs$core$IFn$_invoke$arity$2(initial,n
 }));
 
 (predict_prostate.mixins.arg_local.cljs$core$IFn$_invoke$arity$2 = (function (initial,key){
-return new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"init","init",-1875481434),(function (p__33473){
-var map__33474 = p__33473;
-var map__33474__$1 = cljs.core.__destructure_map(map__33474);
-var state = map__33474__$1;
-var args = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__33474__$1,new cljs.core.Keyword(null,"args","args",1315556576));
-var args__$1 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__33474__$1,new cljs.core.Keyword("rum","args","rum/args",1315791754));
+return new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"init","init",-1875481434),(function (p__33654){
+var map__33655 = p__33654;
+var map__33655__$1 = cljs.core.__destructure_map(map__33655);
+var state = map__33655__$1;
+var args = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__33655__$1,new cljs.core.Keyword(null,"args","args",1315556576));
+var args__$1 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__33655__$1,new cljs.core.Keyword("rum","args","rum/args",1315791754));
 return cljs.core.assoc.cljs$core$IFn$_invoke$arity$3(state,key,cljs.core.atom.cljs$core$IFn$_invoke$arity$1(((cljs.core.fn_QMARK_(initial))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(initial,args__$1):initial)));
 })], null);
 }));
@@ -69,21 +69,21 @@ return state;
  *   any one time. This is so we know when to switch on treatments.
  */
 predict_prostate.mixins.active_monitor = new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"did-mount","did-mount",918232960),(function (state){
-var vec__33482_33512 = new cljs.core.Keyword("rum","args","rum/args",1315791754).cljs$core$IFn$_invoke$arity$1(state);
-var map__33485_33513 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__33482_33512,(0),null);
-var map__33485_33514__$1 = cljs.core.__destructure_map(map__33485_33513);
-var key_33515 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__33485_33514__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
-cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$3(predict_prostate.state.run_time.on_screen_inputs_cursor,cljs.core.conj,key_33515);
+var vec__33673_33721 = new cljs.core.Keyword("rum","args","rum/args",1315791754).cljs$core$IFn$_invoke$arity$1(state);
+var map__33676_33722 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__33673_33721,(0),null);
+var map__33676_33723__$1 = cljs.core.__destructure_map(map__33676_33722);
+var key_33724 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__33676_33723__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
+cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$3(predict_prostate.state.run_time.on_screen_inputs_cursor,cljs.core.conj,key_33724);
 
 predict_prostate.state.run_time.force_recalculation.pubsub$feeds$TopicFeed$publish$arity$2(null,null);
 
 return state;
 }),new cljs.core.Keyword(null,"will-unmount","will-unmount",-808051550),(function (state){
-var vec__33487_33516 = new cljs.core.Keyword("rum","args","rum/args",1315791754).cljs$core$IFn$_invoke$arity$1(state);
-var map__33490_33517 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__33487_33516,(0),null);
-var map__33490_33518__$1 = cljs.core.__destructure_map(map__33490_33517);
-var key_33519 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__33490_33518__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
-cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$3(predict_prostate.state.run_time.on_screen_inputs_cursor,cljs.core.disj,key_33519);
+var vec__33687_33725 = new cljs.core.Keyword("rum","args","rum/args",1315791754).cljs$core$IFn$_invoke$arity$1(state);
+var map__33690_33726 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__33687_33725,(0),null);
+var map__33690_33727__$1 = cljs.core.__destructure_map(map__33690_33726);
+var key_33728 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__33690_33727__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
+cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$3(predict_prostate.state.run_time.on_screen_inputs_cursor,cljs.core.disj,key_33728);
 
 predict_prostate.state.run_time.force_recalculation.pubsub$feeds$TopicFeed$publish$arity$2(null,null);
 
@@ -95,21 +95,21 @@ return state;
  *   and treatments with this suffix stripped off.
  */
 predict_prostate.mixins.treatment_monitor = new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"did-mount","did-mount",918232960),(function (state){
-var vec__33491_33524 = new cljs.core.Keyword("rum","args","rum/args",1315791754).cljs$core$IFn$_invoke$arity$1(state);
-var map__33494_33525 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__33491_33524,(0),null);
-var map__33494_33526__$1 = cljs.core.__destructure_map(map__33494_33525);
-var key_33527 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__33494_33526__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
-var __33528 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__33491_33524,(1),null);
-cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$3(predict_prostate.state.run_time.on_screen_treatments_cursor,cljs.core.conj,key_33527);
+var vec__33695_33729 = new cljs.core.Keyword("rum","args","rum/args",1315791754).cljs$core$IFn$_invoke$arity$1(state);
+var map__33698_33730 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__33695_33729,(0),null);
+var map__33698_33731__$1 = cljs.core.__destructure_map(map__33698_33730);
+var key_33732 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__33698_33731__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
+var __33733 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__33695_33729,(1),null);
+cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$3(predict_prostate.state.run_time.on_screen_treatments_cursor,cljs.core.conj,key_33732);
 
 return state;
 }),new cljs.core.Keyword(null,"will-unmount","will-unmount",-808051550),(function (state){
-var vec__33495_33530 = new cljs.core.Keyword("rum","args","rum/args",1315791754).cljs$core$IFn$_invoke$arity$1(state);
-var map__33498_33531 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__33495_33530,(0),null);
-var map__33498_33532__$1 = cljs.core.__destructure_map(map__33498_33531);
-var key_33533 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__33498_33532__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
-var __33534 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__33495_33530,(1),null);
-cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$3(predict_prostate.state.run_time.on_screen_treatments_cursor,cljs.core.disj,cljs.core.PersistentHashSet.createAsIfByAssoc([key_33533]));
+var vec__33704_33734 = new cljs.core.Keyword("rum","args","rum/args",1315791754).cljs$core$IFn$_invoke$arity$1(state);
+var map__33707_33735 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__33704_33734,(0),null);
+var map__33707_33736__$1 = cljs.core.__destructure_map(map__33707_33735);
+var key_33737 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__33707_33736__$1,new cljs.core.Keyword(null,"key","key",-1516042587));
+var __33738 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__33704_33734,(1),null);
+cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$3(predict_prostate.state.run_time.on_screen_treatments_cursor,cljs.core.disj,cljs.core.PersistentHashSet.createAsIfByAssoc([key_33737]));
 
 return state;
 })], null);

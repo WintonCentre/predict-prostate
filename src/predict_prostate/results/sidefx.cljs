@@ -203,7 +203,7 @@
                                    :tallies?  tallies?
                                    :ttt ttt})
                    (sidefx-linear {:treatment :radical-harms
-                                   :prefix    [:span (ttt [:sidefx/with "With"]) " " [:b {:style {:color (:radical-harms treatment-fills)}} (ttt [:sidefx/nsrp "radical prostatectomy (surgery),"])] " " (ttt [:sidefx/about "about"]) " "]
+                                   :prefix    [:span (ttt [:sidefx/with "With"]) " " [:b {:style {:color (:radical-harms treatment-fills)}} (ttt [:sidefx/radp "radical prostatectomy (surgery),"])] " " (ttt [:sidefx/about "about"]) " "]
                                    :n         50
                                    :tallies?  tallies?
                                    :ttt ttt})
