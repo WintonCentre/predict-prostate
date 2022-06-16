@@ -193,13 +193,13 @@
   [tallies? ttt]
   [:div {:style {:border "1px solid #CCCCCC" :border-radius 3 :font-size 16}}
    (sidefx-header ttt)
-   (sidefx-content {:title (ttt [:sidefx/eredys-title "Erectile dysfunction"]) :sub-title (ttt [:sidefx/eredys-subtitle "Defined as: 'Lack of firmness for intercourse'"])
+   (sidefx-content {:title (ttt [:sidefx/eredys-title "Erectile dysfunction"]) :sub-title (ttt [:sidefx/eredys-subtitle "Defined as: 'Men reporting moderate or big problems with erectile dysfunction'"])
                     :subsub-title (ttt [:sidefx/eredys-subsubtitle "Percentages shown are in addition to men who may already have this problem before a treatment is given"])
                     :source #(erectile-source ttt)}
 
                    (sidefx-linear {:treatment :conservative
                                    :prefix    [:span (ttt [:sidefx/with "With"]) " " [:b {:style {:color (:conservative treatment-fills)}} (ttt [:sidefx/cons-man "conservative management,"])] " " (ttt [:sidefx/about "about"]) " "]
-                                   :n         21
+                                   :n         26
                                    :tallies?  tallies?
                                    :ttt ttt})
                    (sidefx-linear {:treatment :radical-harms
@@ -214,7 +214,7 @@
                                    :ttt ttt})
                    (sidefx-linear {:treatment :radiotherapy
                                    :prefix    [:span (ttt [:sidefx/with "With"]) " " [:b {:style {:color (:radiotherapy treatment-fills)}} (ttt [:sidefx/radio "radical radiotherapy (external beam),"])] " " (ttt [:sidefx/about "about"]) " "]
-                                   :n         36
+                                   :n         39
                                    :tallies?  tallies?
                                    :ttt ttt}))
 
@@ -232,7 +232,7 @@
                                    :ttt ttt})
                    (sidefx-linear {:treatment :radiotherapy
                                    :prefix    [:span (ttt [:sidefx/with "With"]) " " [:b {:style {:color (:radiotherapy treatment-fills)}} (ttt [:sidefx/radio "radical radiotherapy (external beam),"])] " " (ttt [:sidefx/about "about"]) " "]
-                                   :n         3
+                                   :n         1
                                    :tallies?  tallies?
                                    :ttt ttt}))
 
