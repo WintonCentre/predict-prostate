@@ -359,7 +359,21 @@
               [:a {:href   "https://www.sciencedirect.com/science/article/pii/S0302283821019333?via%3Dihub"
                    :rel    "noopener"
                    :style  {:text-decoration "underline"}
-                   :target "_blank"} (ttt [:tech/pub5-text2 "Full paper online."])]]]]
+                   :target "_blank"} (ttt [:tech/pub5-text2 "Full paper online."])]]]
+        [:li [:p (ttt [:tech/pub6-text1 "Improving Clinical Risk Stratification at Diagnosis in Primary Prostate Cancer: A Prognostic Modelling Study 
+                  by Gnanapragasam VJ, Lophatananon A, Wright KA, Muir KR, Gavin A, Greenberg DC. 
+                  PLoS Med. 2016 Aug 2"]) " "
+              [:a {:href   "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1002758"
+                   :rel    "noopener"
+                   :style  {:text-decoration "underline"}
+                   :target "_blank"} (ttt [:tech/pub6-text2 "Full paper online."])]]]
+        [:li [:p (ttt [:tech/pub7-text1 "Assessing the impact of MRI based diagnostics on pre-treatment disease classification and prognostic model performance in men diagnosed with new prostate cancer from an unscreened population  
+                  by Lophatananon A, Byrne MHV, Barrett T, Warren A, Muir K, Dokubo I, Georgiades F, Sheba M, Bibby L, Gnanapragasam VJ.
+                  BMC Cancer. 2022 Aug 11"]) " "
+              [:a {:href   "https://bmccancer.biomedcentral.com/articles/10.1186/s12885-022-09955-w"
+                   :rel    "noopener"
+                   :style  {:text-decoration "underline"}
+                   :target "_blank"} (ttt [:tech/pub7-text2 "Full paper online."])]]]]
        ]
 
       ]
