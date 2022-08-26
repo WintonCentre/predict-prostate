@@ -957,9 +957,19 @@
       [:section#t-stage (ttt [:tool/stage-title "Clinical stage"])
        [:p (ttt [:tool/stage-text1 "The clinical tumour stage according to the TNM classification. This relates to how the prostate feels on
      examination. Select T-stage 1, 2, 3, or 4."])]
-       [:p (ttt [:tool/stage-text2 "The model does not differentiate between sub-classifications such as T2b and T2c. It is currently untested as
-     to how MRI based staging changes prognostic predictions. The highest known stage is recommended to be used for the
-     Predict Prostate model (from any modality). Please see the"]) " " (page-link [:about {:page :faqs}] (ttt [:tool/stage-text3 "FAQ section."]))]]
+       [:p (ttt [:tool/stage-text2 "The model does not differentiate between sub-classifications of T2a, T2b and T2c. 
+                                    The lack of prognostic and clinical utility of the T2 subdivision is supported by the change in the AJCC TNM 
+                                    classifications since 2017 which only uses T2"]) " " [:a {:href   "https://doi.org/10.3322/caac.21391"
+                                                                                              :rel    "noopener"
+                                                                                              :style  {:text-decoration "underline"}
+                                                                                              :target "_blank"} "(https://doi.org/10.3322/caac.21391)."]]
+       [:p (ttt [:tool/stage-text4 "If using MRI for staging it is advised to use the stage as reported by the radiologist.
+                                    The model will be updated in future when long term survival outcomes from men diagnosed 
+                                    and staged through MRI is available."])]
+       [:p (ttt [:tool/stage-text5 "In the meantime, a recent publication has explored and compared using MRI based staging 
+                                    versus clinical staging and this does not appear alter Predict Prostate prediction estimates 
+                                    of overall survival or treatment gain much. Please see Lophatananon et al 2022 in Publications."])]
+       [:p (ttt [:tool/stage-text6 "For more details, please also see the"]) " " (page-link [:about {:page :faqs}] (ttt [:tool/stage-text3 "FAQ section."]))]]
        
 
       [:section#histological-grade-group (ttt [:tool/histo-title "Histological grade group"])
