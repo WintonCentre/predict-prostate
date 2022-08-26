@@ -563,8 +563,8 @@ Grade Group 2 or from Stage T2 to stage T3). If MRI data and imaging scores are 
 
      [:section#contact "Contact"
       [:section (ttt [:contact/title "Contact"])
-       [:p "National Cancer Registration and Analysis Service" [:br] "East Regional Office, Victoria House, Capital Park,
-     Fulbourn, Cambridge CB21 5XB, UK" [:br] (ttt [:contact/email "Email:"]) " " [:a {:href "mailto:prostate@predict.nhs.uk"} "prostate@predict.nhs.uk"]]]]
+       [:p "University of Cambridge Department of Surgery (Division of Urology)" [:br] "Box 202, Level E9 Addenbrooke’s Hospital,
+     Hills Road, Cambridge CB2 0QQ, UK" [:br] (ttt [:contact/email "Email:"]) " " [:a {:href "mailto:prostate@predict.nhs.uk"} "prostate@predict.nhs.uk"]]]]
 
      [:section#legal-preamble "Preamble"
       [:p.screen-only {:key   0
