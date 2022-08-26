@@ -6,9 +6,9 @@
             [predict-prostate.router :refer [navigate-to iref docroot]]
     ;[predict-prostate.results.sidefx :refer [sidefx-table2]]
             [predict-prostate.results.util :refer [alison-blue-1 alison-blue-2 alison-blue-3]]
-            [clojure.string :refer [split]]
-            )
-  )
+            [clojure.string :refer [split]]))
+            
+  
 
 ;
 ; place save for ttt when we copy translated content over from Breast Cancer
@@ -102,8 +102,8 @@
 (defn page-link [route text]
   [:button.btn-link {:on-click #(navigate-to route)}
    [:span {:style {:color     alison-blue-3
-                   :font-size 18}} text]]
-  )
+                   :font-size 18}} text]])
+  
 
 (defn content
   "Text for the site"
@@ -125,8 +125,8 @@
      [:section#home-strap-line "What is Predict Prostate for?"
 
       [:p {:key 1} (ttt [:home/prognostic-model "An individualised prognostic model for men newly diagnosed with non-metastatic prostate cancer"])]
-      [:p {:key 3} ""]
-      ]
+      [:p {:key 3} ""]]
+      
 
      ; block 1
      [:section#home-what-is (ttt [:home/wippf-title "What is Predict Prostate for?"])
@@ -156,8 +156,8 @@
         [:a {:href "https://www.nice.org.uk/guidance/qs91/chapter/List-of-quality-statements" :target "_blank"} "NICE
       quality standard for prostate cancer. "]]
        [:p {:key 2} "This tool is for comparing the outcomes of conservative management and radical treatment, in men
-     with non-metastatic prostate cancer. "]]
-      ]
+     with non-metastatic prostate cancer. "]]]
+      
 
 
 
@@ -183,8 +183,8 @@
       [:section#where (copied "Where can I find more information on Prostate Cancer?")
        [:p (copied "There is a great deal of information on Prostate Cancer online. One of best and most reliable sources
      is Cancer
-    Research UK. The information is written by experts, is up to date and in a style that is easy to understand.")]]
-      ]
+    Research UK. The information is written by experts, is up to date and in a style that is easy to understand.")]]]
+      
 
      ;;
      ;; about page texts
@@ -195,13 +195,13 @@
        [:ul {:style {:list-style-image "url(/assets/bullet-plus.png)"}}
         [:li (page-link [:about {:page :overview :section :whoisitfor}] (ttt [:about/wiif-title "Who is it for?"]))]
         [:li (page-link [:about {:page :overview :section :howpredictworks}] (ttt [:about/hppw-title "How Predict Prostate works"]))]
-        [:li (page-link [:about {:page :overview :section :whobuiltpredict}] (ttt [:about/wbpp-title "Who built Predict Prostate?"]))]
-        ]
+        [:li (page-link [:about {:page :overview :section :whobuiltpredict}] (ttt [:about/wbpp-title "Who built Predict Prostate?"]))]]
+        
 
        [:section
         [:p
-         ""]]
-       ]]
+         ""]]]]
+       
 
      [:section#whoisitfor "Who is it for?"
       [:section (ttt [:about/wiif-title "Who is it for?"])
@@ -235,8 +235,8 @@
      certainty whether an individual patient will survive their cancer or not."])]
        [:p (page-link [:about {:page :technical :section :technical}] (ttt [:about/hppw-text5 "The technical section"])) " " (ttt [:about/hppw-text6 "has more detail on how
      Predict Prostate was developed and tested. "])]
-       (hr)
-       ]]
+       (hr)]]
+       
 
 
      [:section#whobuiltpredict "Who built Predict Prostate?"
@@ -276,14 +276,14 @@
         [:li (page-link [:about {:page :technical :section :history}] (ttt [:tech/dev-title "Development History"]))]
         #_[:li (page-link [:about {:page :technical :section :preversions}] "Previous Versions")]
         [:li (page-link [:about {:page :technical :section :publications}] (ttt [:tech/pub-title "Publications"]))]
-        [:li (page-link [:about {:page :faqs}] (ttt [:tech/faqs-title "FAQs"]))]
+        [:li (page-link [:about {:page :faqs}] (ttt [:tech/faqs-title "FAQs"]))]]
         ;[:li (page-link [:about {:page :technical :section :faqs}] "FAQs")]
-        ]
+        
 
        [:p (ttt [:tech/tech-text1 "Click here to"]) " " (page-link [:legal {:page :algorithm} nil] (ttt [:tech/tech-text2 "find out more about the algorithm."]))]
        #_[:p "See also these papers on " [:a {:href " https://www.nature.com/articles/s41416-019-0569-4" :target "_blank"} "Clinician impact studies "]
-          "and " [:a {:href "https://www.eusupplements.europeanurology.com/article/S1569-9056(19)30161-7/pdf"} "International cohorts"]]
-       ]]
+          "and " [:a {:href "https://www.eusupplements.europeanurology.com/article/S1569-9056(19)30161-7/pdf"} "International cohorts"]]]]
+       
 
 
      [:section#history "Development History"
@@ -298,8 +298,8 @@
         [:a {:href   "http://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1002758"
              :style  {:text-decoration "underline"}
              :rel    "noopener"
-             :target "blank"} (ttt [:tech/dev-text2 "PLoS Medicine, March 2019."])]
-        ]]
+             :target "blank"} (ttt [:tech/dev-text2 "PLoS Medicine, March 2019."])]]]
+        
 
       [:section (ttt [:tech/modval-title "Model validation"])
        [:p (ttt [:tech/modval-text1 "Predict Prostate was validated using a dataset of another 3,000 prostate cancer patients from the Eastern
@@ -310,15 +310,15 @@
 
       [:section (ttt [:tech/modext-title "Model Extension: BRCA status and biopsy reparameterisation (version 1.1)"])
        [:p (ttt [:tech/modext-text1 "The web-model was updated in March 2019 to include BRCA status and to model the impact of biopsy core
-     involvement continuously."])]
-       ]
+     involvement continuously."])]]
+       
 
 
       [:section (ttt [:tech/futver-title "Future versions"])
        [:p (ttt [:tech/futver-text1 "Predict Prostate will be updated over time as new information and evidence becomes available. The model has 
             completed clinician and patient impact studies and been validated in other international cohorts - the 
-            publications from these can be found here below."])]
-       ]]
+            publications from these can be found here below."])]]]
+       
 
      [:section#publications "Publications"
       [:section (ttt [:tech/pub-title "Publications"])
@@ -355,28 +355,28 @@
         [:li [:p (ttt [:tech/pub5-text1 "Clinical Impact of the Predict Prostate Risk Communication Tool in Men Newly Diagnosed with Nonmetastatic Prostate Cancer: A Multicentre Randomised Controlled Trial  
                   by David Thurtle, Val Jenkins, Alex Freeman, Mike Pearson, Gabriel Recchia, Priya Tamer, Kelly Leonard, Paul Pharoah, Jonathan Aning, Sanjeev Madaan, Chee Goh, Serena Hilman, Stuart McCracken, Petre Cristian Ilie,
                   Henry Lazarowicz, Vincent Gnanapragasam. 
-                  European Urology 2021"]) " "
+                  European Urology 2021."]) " "
               [:a {:href   "https://www.sciencedirect.com/science/article/pii/S0302283821019333?via%3Dihub"
                    :rel    "noopener"
                    :style  {:text-decoration "underline"}
                    :target "_blank"} (ttt [:tech/pub5-text2 "Full paper online."])]]]
         [:li [:p (ttt [:tech/pub6-text1 "Improving Clinical Risk Stratification at Diagnosis in Primary Prostate Cancer: A Prognostic Modelling Study 
                   by Gnanapragasam VJ, Lophatananon A, Wright KA, Muir KR, Gavin A, Greenberg DC. 
-                  PLoS Med. 2016 Aug 2"]) " "
+                  PLoS Med. 2016 Aug 2."]) " "
               [:a {:href   "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1002758"
                    :rel    "noopener"
                    :style  {:text-decoration "underline"}
                    :target "_blank"} (ttt [:tech/pub6-text2 "Full paper online."])]]]
         [:li [:p (ttt [:tech/pub7-text1 "Assessing the impact of MRI based diagnostics on pre-treatment disease classification and prognostic model performance in men diagnosed with new prostate cancer from an unscreened population  
                   by Lophatananon A, Byrne MHV, Barrett T, Warren A, Muir K, Dokubo I, Georgiades F, Sheba M, Bibby L, Gnanapragasam VJ.
-                  BMC Cancer. 2022 Aug 11"]) " "
+                  BMC Cancer. 2022 Aug 11."]) " "
               [:a {:href   "https://bmccancer.biomedcentral.com/articles/10.1186/s12885-022-09955-w"
                    :rel    "noopener"
                    :style  {:text-decoration "underline"}
-                   :target "_blank"} (ttt [:tech/pub7-text2 "Full paper online."])]]]]
-       ]
+                   :target "_blank"} (ttt [:tech/pub7-text2 "Full paper online."])]]]]]]
+       
 
-      ]
+      
 
      [:section#faqs "FAQS"
       [:section (ttt [:tech/faqs-title "FAQs"])
@@ -412,8 +412,8 @@
             [:a {:href   "https://www.nhs.uk/conditions/prostate-cancer/treatment/#radiotherapy"
                  :rel    "noopener"
                  :style  {:text-decoration "underline"}
-                 :target "blank"} (ttt [:faqs/a1-text7 "Radiotherapy"])]]
-           ]
+                 :target "blank"} (ttt [:faqs/a1-text7 "Radiotherapy"])]]]
+           
           [:h4 (ttt [:faqs/a1-text8 "Further advice and support:"])]
           [:ul {:style {:font-size       "120%"
                         :list-style-type "none"}}
@@ -431,10 +431,10 @@
             [:a {:href   "https://www.nhs.uk/pages/home.aspx"
                  :rel    "noopener"
                  :style  {:text-decoration "underline"}
-                 :target "_blank"} (ttt [:faqs/a1-text11 "NHS Choices"])]]
-           ]]
+                 :target "_blank"} (ttt [:faqs/a1-text11 "NHS Choices"])]]]])
+           
 
-         )
+         
 
        (hr)
        (faq-item (ttt [:faqs/q2 "What if I don’t have all the details needed for the input section?"])
@@ -469,13 +469,39 @@
          Potential survival benefits can then be weighed against the possible harms from treatment."]))
        (hr)
        (faq-item (ttt [:faqs/q7 "What about MRI?"])
-         (ttt [:faqs/a7-text1 "Magnetic Resonance Imaging (MRI) is increasingly being used in prostate cancer diagnosis. The data used for this model were from men diagnosed between 2000 and 2010 when MRI was rarely used,
-         and we did not have data on MRI-defined lesions, imaging scores (e.g. PIRADS) or MRI targeted biopsies. However, it is important to note that as yet using MRI data has not been shown to directly improve survival.
-         Its main benefit is in reducing the number of men investigated, better staging the cancer and to guide biopsies. Hence, we expect that the current use of MRI will provide a much more accurate assessment of where a man is in terms of disease extent and histological grade at diagnosis.
-         This in turn will better inform the prognostic predictions from Predict Prostate (e.g. moving a man from Grade Group 1 to
-Grade Group 2 or from Stage T2 to stage T3). If MRI data and imaging scores are shown in the
-         future to add independent value as a survival indicator then we will update
-         it into a future version of Predict Prostate. We are currently investigating this."]))
+         (ttt [:faqs/a7-text1 "Magnetic Resonance Imaging (MRI) is now a standard tool used in prostate cancer diagnosis. 
+          The data used for this model were from men diagnosed between 2000 and 2010 when MRI was rarely used, and we did 
+          not have data on MRI-defined lesions, imaging scores (e.g. PIRADS) or MRI targeted biopsies. However, it is 
+          important to note that as yet using MRI data has not been shown to directly improve survival. Its main benefit 
+          so far is in reducing the number of men investigated, better staging the cancer and to guide biopsies."])
+         [:br] 
+         (ttt [:faqs/a7-text2 "We have recently assessed how using MRI to stage tumours (determine where they are and extent) and to guide biopsies, may impact the results from Predict Prostate compared 
+          to using clinical staging and systematic biopsies."])
+         [:br]
+         (ttt [:faqs/a7-text3 "In this study the impact of MRI on estimates produced from the model were modest and 
+                              overall not very different from using non-MRI based information. Amongst 354 individual 
+                              cases the median difference in predicted overall survival was 1% and 2% at 10 and 15 years 
+                              respectively. Only 1.6% and 2.3% of patients had a ≥ 10% difference in predicted 10 year 
+                              and 15-year overall survival estimates."])
+         [:br]
+         (ttt [:faqs/a7-text4 "Estimated treatment benefit was also unchanged for the majority of cases. Where there was 
+                              a discrepancy, the median difference in predicted treatment benefit was 1% at both 10- and 
+                              15-years’ time frame. Only 1.4% and 0.6% of patients had a ≥ 5% difference in estimated 
+                              10- and 15-year treatment benefit (Lophatananon et al 2022, reference 7 in publications)."])
+         [:br]
+         (ttt [:faqs/a7-text5 "Therefore, we believe that the estimates from Predict Prostate both for estimated overall survival 
+                               and gain from a treatment can be used whether your diagnosis is made with or without the use of MRI."])
+         [:br]
+         (ttt [:faqs/a7-text6 "A final definitive answer on how MRI will change risk and prognosis prediction will need to await 
+                               long-term real-world clinical outcomes from large numbers of men who have had good quality MRI as part 
+                               of their diagnostic assessments and this is likely to take many years to be available (10-15 years). 
+                               We are expecting that the use of MRI will provide even better assessment of where a man is in terms of 
+                               disease extent and histological grade at diagnosis. This in turn will better inform the prognostic 
+                               predictions from Predict Prostate (e.g. moving a man from Grade Group 1 to Grade Group 2 or from 
+                               Stage T2 to stage T3)."])
+         [:br]
+         (ttt [:faqs/a7-text7 "If MRI data and imaging scores are shown in the future to add independent value as a survival 
+                               indicator then we will update it into a future version of Predict Prostate."]))
 
        (hr)
        (faq-item (ttt [:faqs/q8 "What if I only had biopsies of the suspicious area seen on my MRI?"])
@@ -497,8 +523,8 @@ Grade Group 2 or from Stage T2 to stage T3). If MRI data and imaging scores are 
           [:li {:style {:font-size 16}}
            (ttt [:faqs/a9-text4 "Samaratunga H, et al. Intraductal carcinoma of the prostate is an aggressive form of invasive carcinoma and should be graded. Pathology. 2020 Feb;52(2):192-196."])]
           [:li {:style {:font-size 16}}
-           (ttt [:faqs/a9-text5 "Epstein JI. Is There Enough Support for a New Prostate Grading System Factoring in Intraductal Carcinoma and Cribriform Cancer? Eur Urol. 2020 Feb;77(2):199-200."])]]
-         )
+           (ttt [:faqs/a9-text5 "Epstein JI. Is There Enough Support for a New Prostate Grading System Factoring in Intraductal Carcinoma and Cribriform Cancer? Eur Urol. 2020 Feb;77(2):199-200."])]])
+         
 
        (hr)
        (faq-item (ttt [:faqs/q10 "What if I never had any prostate biopsies and my prostate cancer was diagnosed incidentally by an operation to help me urinate (such as by 'trans-urethral resection of the prostate 'TURP' or 'HoLeP')?"])
@@ -572,8 +598,8 @@ Grade Group 2 or from Stage T2 to stage T3). If MRI data and imaging scores are 
        (faq-item (ttt [:faqs/q18 "Where can I find more information on prostate cancer?"])
          (ttt [:faqs/a18-text1 "There is a great deal of information on prostate cancer on the web. One of best and most reliable
          sources is Cancer Research UK, along with those from Macmillan and Prostate Cancer UK. Their information is written by experts, is up to date and in a style
-         that is easy to understand."]))
-       ]]
+         that is easy to understand."]))]]
+       
 
      [:section#contact "Contact"
       [:section (ttt [:contact/title "Contact"])
@@ -599,8 +625,8 @@ Grade Group 2 or from Stage T2 to stage T3). If MRI data and imaging scores are 
          [:.row {:style {:margin-bottom 10}}
           [:.col-sm-1 [:img {:src "/assets/ce.png" :alt "CE mark" :width 50}]]
           [:.col-sm-10.col-sm-offset-1
-           [:p "The Winton Centre for Risk and Evidence Communication"]
-           ]]
+           [:p "The Winton Centre for Risk and Evidence Communication"]]]
+           
          [:.row {:style {:margin-bottom 10}}
           [:.col-sm-1 [:img {:src "/assets/ref.png" :alt "REF mark" :width 50}]]
           [:.col-sm-10.col-sm-offset-1 [:p "Predict: Prostate Cancer"]]]
@@ -617,8 +643,8 @@ Grade Group 2 or from Stage T2 to stage T3). If MRI data and imaging scores are 
                                                         :text-decoration "underline"
                                                         :cursor          "pointer"}}
                                          (ttt [:navbar/about "About Predict"])]
-                                        (ttt [:legal/lot-2 " for instructions before use"])
-                                        ]]]
+                                        (ttt [:legal/lot-2 " for instructions before use"])]]]
+                                        
 
          [:.row {:style {:margin-bottom 10}}
           [:.col-sm-1 [:img {:src "/assets/factory.png" :alt "Manufacturer" :width 50}]]
@@ -638,8 +664,8 @@ Grade Group 2 or from Stage T2 to stage T3). If MRI data and imaging scores are 
            [:p {:style {:margin-top -10}} (ttt [:prod-label/safety "Application of clinical safety risk management to the manufacture of health IT systems."])]]
           [:li [:p [:b "IEC 62304:2006 Amd 1:2015"]]
            [:p {:style {:margin-top -10}} (ttt [:prod-label/slc "Medical device software – Software lifecycle processes.\n\nBS EN 62366-1:2015\n\nApplication of usability engineering to medical devices."])]]]
-         [:p (ttt [:prod-label/strict "This device has been developed under the strict quality system of The Winton Centre for Risk & Evidence Communication, and released for publication by Public Health England."])]]
-        ]]]
+         [:p (ttt [:prod-label/strict "This device has been developed under the strict quality system of The Winton Centre for Risk & Evidence Communication, and released for publication by Public Health England."])]]]]]
+        
 
      [:section#disclaimer "Disclaimer"
       [:section (ttt [:disc/title "Disclaimer"])
@@ -673,8 +699,8 @@ Grade Group 2 or from Stage T2 to stage T3). If MRI data and imaging scores are 
    "])]
        [:p (ttt [:disc/text9 "The trademarks of the University of Cambridge and others that appear in this tool are the property of the University of Cambridge or their respective owners.
    You may not use any trademark displayed in the tool without the written permission of the University of Cambridge or the respective owner. 
-   Copyright © 2019 University of Cambridge. All rights reserved."])]
-       ]]
+   Copyright © 2019 University of Cambridge. All rights reserved."])]]]
+       
 
      [:section#algorithm "Algorithm"
       [:section (ttt [:alg/expl-title "Explanation of the Predict Prostate Algorithm"])
@@ -715,8 +741,8 @@ Grade Group 2 or from Stage T2 to stage T3). If MRI data and imaging scores are 
            [:td "+.956 " (ttt [:alg/table1-r6c2-1 "if"]) " " [:i (ttt [:alg/table1-r6c2-2 "BRCA"])] " " (ttt [:alg/table1-r6c2-3 "= Positive"])]]
           [:tr
            [:th (ttt [:alg/table1-r7c1 "Primary treatment"])]
-           [:td "-0.68 " (ttt [:alg/table1-r7c2-1 "if"]) " " [:i (ttt [:alg/table1-r7c2-2 "Prc1imary treatment"])] " " (ttt [:alg/table1-r7c2-3 "= radical treatment"])]
-           ]]]]
+           [:td "-0.68 " (ttt [:alg/table1-r7c2-1 "if"]) " " [:i (ttt [:alg/table1-r7c2-2 "Prc1imary treatment"])] " " (ttt [:alg/table1-r7c2-3 "= radical treatment"])]]]]]
+           
 
        [:.table-responsive
         [:table.table.table-bordered {:style {:max-width 600}}
@@ -731,8 +757,8 @@ Grade Group 2 or from Stage T2 to stage T3). If MRI data and imaging scores are 
            [:td "0.12*(" [:i (ttt [:alg/table2-r1c2 "age"])] " - 69.8743)"]]
           [:tr
            [:th (ttt [:alg/table2-r2c1 "Comorbidity"])]
-           [:td "+ 0.6382 " (ttt [:alg/table2-r2c2-1 "if"]) " " [:i (ttt [:alg/table2-r2c2-2 "Charlson comorbidity is 1 or more & a hospital admission in the prior 2 years"])]]]
-          ]]]]
+           [:td "+ 0.6382 " (ttt [:alg/table2-r2c2-1 "if"]) " " [:i (ttt [:alg/table2-r2c2-2 "Charlson comorbidity is 1 or more & a hospital admission in the prior 2 years"])]]]]]]]
+          
 
 
 
@@ -761,25 +787,25 @@ Grade Group 2 or from Stage T2 to stage T3). If MRI data and imaging scores are 
        [:p (ttt [:priv/wc-text3 "The following cookies are used"]) ": "
         [:a {:href "https://help.hotjar.com/hc/en-us/articles/115011789248-Hotjar-Cookie-Information#tracking_code_cookies" :rel "noopener" :target "_blank"} (ttt [:priv/wc-text4 "Cookies set by Hotjar"])]]
        #_[:table.table.table-bordered {:style {:max-width "600px" :margin-top "10px" :font-size "16px"}}
-        [:thead
-         [:tr {:style {:background-color "#005EB4"
-                       :color            "white"}}
-          [:th (ttt [:priv/wc-table-col1 "Name"])] [:th (ttt [:priv/wc-table-col2 "Details"])] [:th (ttt [:priv/wc-table-col3 "Expires"])]]]
-        [:tbody
-         #_[:tr
-          [:td "_utma"] [:td (ttt [:priv/wc-table-r1c2 "stores each user’s number of visits, time of visit etc."])] [:td (ttt [:priv/wc-table-r1c3 "two years"])]]
-         #_[:tr
-          [:td "_utmb"] [:td (ttt [:priv/wc-table-r2c2 "checks approximately how long a user stays on the site"])] [:td (ttt [:priv/wc-table-r2c3 "30 minutes"])]]
-         #_[:tr
-          [:td "_utmc"] [:td (ttt [:priv/wc-table-r3c2 "stores each user’s number of visits"])] [:td (ttt [:priv/wc-table-r3c3 "End of browsing session"])]]
-         #_[:tr
-          [:td "_utmz"] [:td (ttt [:priv/wc-table-r4c2 "stores where a visitor came from"])] [:td (ttt [:priv/wc-table-r4c3 "two years"])]]
-         [:tr
-          [:td "_hjDonePolls"] [:td (ttt [:priv/wc-table-r5c2 "Hotjar cookie. This cookie is set once a visitor completes a poll using the Feedback Poll widget. It is used to ensure that the same poll does not re-appear if it has already been filled in."])] [:td (ttt [:priv/wc-table-r5c3 "one year"])]]
-         [:tr
-          [:td "_hjMinimizedPolls"] [:td (ttt [:priv/wc-table-r6c2 "Hotjar cookie. This cookie is set once a visitor minimizes a Feedback Poll widget. It is used to ensure that the widget stays minimizes when the visitor navigates through the site."])] [:td (ttt [:priv/wc-table-r6c3 "one year"])]]
-         ]]
-       ]
+          [:thead
+           [:tr {:style {:background-color "#005EB4"
+                         :color            "white"}}
+            [:th (ttt [:priv/wc-table-col1 "Name"])] [:th (ttt [:priv/wc-table-col2 "Details"])] [:th (ttt [:priv/wc-table-col3 "Expires"])]]]
+          [:tbody
+           #_[:tr
+              [:td "_utma"] [:td (ttt [:priv/wc-table-r1c2 "stores each user’s number of visits, time of visit etc."])] [:td (ttt [:priv/wc-table-r1c3 "two years"])]]
+           #_[:tr
+              [:td "_utmb"] [:td (ttt [:priv/wc-table-r2c2 "checks approximately how long a user stays on the site"])] [:td (ttt [:priv/wc-table-r2c3 "30 minutes"])]]
+           #_[:tr
+              [:td "_utmc"] [:td (ttt [:priv/wc-table-r3c2 "stores each user’s number of visits"])] [:td (ttt [:priv/wc-table-r3c3 "End of browsing session"])]]
+           #_[:tr
+              [:td "_utmz"] [:td (ttt [:priv/wc-table-r4c2 "stores where a visitor came from"])] [:td (ttt [:priv/wc-table-r4c3 "two years"])]]
+           [:tr
+            [:td "_hjDonePolls"] [:td (ttt [:priv/wc-table-r5c2 "Hotjar cookie. This cookie is set once a visitor completes a poll using the Feedback Poll widget. It is used to ensure that the same poll does not re-appear if it has already been filled in."])] [:td (ttt [:priv/wc-table-r5c3 "one year"])]]
+           [:tr
+            [:td "_hjMinimizedPolls"] [:td (ttt [:priv/wc-table-r6c2 "Hotjar cookie. This cookie is set once a visitor minimizes a Feedback Poll widget. It is used to ensure that the widget stays minimizes when the visitor navigates through the site."])] [:td (ttt [:priv/wc-table-r6c3 "one year"])]]]]]
+         
+       
       [:section (ttt [:priv/dc-title "Can I disable cookies?"])
        [:p (ttt [:priv/dc-text1 "You can opt out of cookies at any time, following the instructions in your browser. These are typically found
      under ‘Tools’ and ‘Options’ (PC) or ‘Preferences’ (Mac) though the details vary from browser to browser."])
@@ -806,8 +832,8 @@ Grade Group 2 or from Stage T2 to stage T3). If MRI data and imaging scores are 
 
       [:section#what-it-says "What does it tell me?"
        [:p "This web tool aims to give men who have been diagnosed with prostate cancer as accurate information as is
-    possible about the potential effects of further treatment options available to them. "]
-       ]
+    possible about the potential effects of further treatment options available to them. "]]
+       
 
       [:section#how-does-it-know "How does it know what a treatment will do for me?"
        [:p "It can’t tell you what will happen to you, but it will look at the evidence to tell you a ‘best guess’ at the
@@ -820,9 +846,9 @@ Grade Group 2 or from Stage T2 to stage T3). If MRI data and imaging scores are 
 
       [:section#how-accurate "How accurate is it?"
        [:p "This work has shown that this tool gives as good a guess as we currently can as to what is likely to happen to men
-     opting for different management strategies."]
+     opting for different management strategies."]]]
 
-       ]]
+       
 
      [:section#clinician-information "Clinician Information"
 
@@ -903,15 +929,15 @@ Grade Group 2 or from Stage T2 to stage T3). If MRI data and imaging scores are 
        [:section#dummy ""
         [:h4 {:style {:margin-top 50}}
          [:i.fa.fa-exclamation-triangle {:style {:padding-right 10 :color "orange"}}] (ttt [:res/warmeta-title "Warning"])]
-        [:p (ttt [:res/warmeta-text1 "This tool is only for use in men without metastatic disease. "])]
-        ]]
+        [:p (ttt [:res/warmeta-text1 "This tool is only for use in men without metastatic disease. "])]]]
+        
 
       [:section#scroll-down-for (ttt [:res/scr-title "Scroll down"])
        [:section#dummy ""
         [:h4.screen-only {:style {:margin-top 50}}
          [:i.fa.fa-arrow-down {:aria-hidden "true" :style {:padding-right 10}}]
-         (ttt [:res/scr-text1 "Scroll down for potential harms"])
-         ]]]
+         (ttt [:res/scr-text1 "Scroll down for potential harms"])]]]
+         
 
 
       [:section#age (ttt [:tool/age-title "Age"])
@@ -933,8 +959,8 @@ Grade Group 2 or from Stage T2 to stage T3). If MRI data and imaging scores are 
      examination. Select T-stage 1, 2, 3, or 4."])]
        [:p (ttt [:tool/stage-text2 "The model does not differentiate between sub-classifications such as T2b and T2c. It is currently untested as
      to how MRI based staging changes prognostic predictions. The highest known stage is recommended to be used for the
-     Predict Prostate model (from any modality). Please see the"]) " " (page-link [:about {:page :faqs}] (ttt [:tool/stage-text3 "FAQ section."]))]
-       ]
+     Predict Prostate model (from any modality). Please see the"]) " " (page-link [:about {:page :faqs}] (ttt [:tool/stage-text3 "FAQ section."]))]]
+       
 
       [:section#histological-grade-group (ttt [:tool/histo-title "Histological grade group"])
        [:p (ttt [:tool/histo-text1 "The highest reported grade group from the diagnostic prostate biopsies. If this is not known, the highest
@@ -1056,6 +1082,6 @@ Grade Group 2 or from Stage T2 to stage T3). If MRI data and imaging scores are 
       treatment benefits to 1 decimal place instead of rounding the percentages to the nearest whole number."])]
        [:p (ttt [:tool/mored-text4 "The default values are the best estimate of the benefit. In the more detailed table, a 95% prediction
      interval is added alongside the additional benefit. The true value of the benefit is very unlikely be outside
-     this range"])]]]])
+     this range"])]]]]))
 
-  )
+  
