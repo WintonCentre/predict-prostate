@@ -487,7 +487,7 @@
          (ttt [:faqs/a7-text4 "Estimated treatment benefit was also unchanged for the majority of cases. Where there was 
                               a discrepancy, the median difference in predicted treatment benefit was 1% at both 10- and 
                               15-years’ time frame. Only 1.4% and 0.6% of patients had a ≥ 5% difference in estimated 
-                              10- and 15-year treatment benefit (Lophatananon et al 2022, reference 7 in publications)."])
+                              10- and 15-year treatment benefit (See Lophatananon et al 2022 in Publications)."])
          [:br]
          (ttt [:faqs/a7-text5 "Therefore, we believe that the estimates from Predict Prostate both for estimated overall survival 
                                and gain from a treatment can be used whether your diagnosis is made with or without the use of MRI."])

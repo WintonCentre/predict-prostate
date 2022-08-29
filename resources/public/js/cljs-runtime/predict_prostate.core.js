@@ -11,11 +11,11 @@ predict_prostate.core.init = (function predict_prostate$core$init(){
 try{return navigator.serviceWorker.register("/sw_cache_update.js").then((function (){
 return console.log("service worker registered");
 }));
-}catch (e35589){if((e35589 instanceof Object)){
-var err = e35589;
+}catch (e35331){if((e35331 instanceof Object)){
+var err = e35331;
 return console.error("Failed to register service worker",err);
 } else {
-throw e35589;
+throw e35331;
 
 }
 }});
@@ -37,9 +37,9 @@ predict_prostate.core.edit_main = (function predict_prostate$core$edit_main(){
 return rum.core.mount((predict_prostate.pages.root.edit_root.cljs$core$IFn$_invoke$arity$0 ? predict_prostate.pages.root.edit_root.cljs$core$IFn$_invoke$arity$0() : predict_prostate.pages.root.edit_root.call(null)),goog.dom.getElement("app"));
 });
 predict_prostate.core.loaded_id = setInterval((function (){
-if(cljs.core.truth_((function (){var G__35591 = document.readyState;
-var fexpr__35590 = new cljs.core.PersistentHashSet(null, new cljs.core.PersistentArrayMap(null, 2, ["loaded",null,"complete",null], null), null);
-return (fexpr__35590.cljs$core$IFn$_invoke$arity$1 ? fexpr__35590.cljs$core$IFn$_invoke$arity$1(G__35591) : fexpr__35590.call(null,G__35591));
+if(cljs.core.truth_((function (){var G__35333 = document.readyState;
+var fexpr__35332 = new cljs.core.PersistentHashSet(null, new cljs.core.PersistentArrayMap(null, 2, ["loaded",null,"complete",null], null), null);
+return (fexpr__35332.cljs$core$IFn$_invoke$arity$1 ? fexpr__35332.cljs$core$IFn$_invoke$arity$1(G__35333) : fexpr__35332.call(null,G__35333));
 })())){
 clearInterval(predict_prostate.core.loaded_id);
 
