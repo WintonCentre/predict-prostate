@@ -334,20 +334,20 @@
                    :target "_blank"} (ttt [:tech/pub1-text2 "Full paper online."])]]]
         [:li [:p (ttt [:tech/pub2-text1 "Understanding of prognosis in non-metastatic prostate cancer: a randomised comparative study of clinician
        estimates measured against the PREDICT prostate prognostic model by
-       David R. Thurtle, Valerie Jenkins, Paul D. Pharoah & Vincent J. Gnanapragasam."]) " "
+       David R. Thurtle, Valerie Jenkins, Paul D. Pharoah & Vincent J. Gnanapragasam. BJ Cancer 2019."]) " "
               [:a {:href   "https://www.nature.com/articles/s41416-019-0569-4"
                    :rel    "noopener"
                    :style  {:text-decoration "underline"}
                    :target "_blank"} (ttt [:tech/pub2-text2 "Full paper online."])]]]
         [:li [:p (ttt [:tech/pub3-text1 "External validation of the PREDICT Prostate tool for prognostication in non-metastatic prostate cancer:
        A study in 69,206 men from prostate cancer data base Sweden by
-       Thurtle D, Bratt O, Stattin P, Pharoah P.D, Gnanapragasam V.J."]) " "
+       Thurtle D, Bratt O, Stattin P, Pharoah P.D, Gnanapragasam V.J. BMC Medicine 2020."]) " "
               [:a {:href   "https://bmcmedicine.biomedcentral.com/articles/10.1186/s12916-020-01606-w"
                    #_"https://www.eusupplements.europeanurology.com/article/S1569-9056(19)30161-7/pdf"
                    :rel    "noopener"
                    :style  {:text-decoration "underline"}
                    :target "_blank"} (ttt [:tech/pub3-text2 "Full paper online."])]]]
-        [:li [:p (ttt [:tech/pub4-text1 "Application of a novel machine learning framework for predicting non-metastatic prostate cancer-specific mortality in men using the Surveillance, Epidemiology, and End Results (SEER) database by Lee, C., Light, A., Alaa, A., Thurtle, D., van der Schaar, M., & Gnanapragasam, V. J.  The Lancet Digital Health 2021, 3(3), e158-e165."]) " "
+        [:li [:p (ttt [:tech/pub4-text1 "Application of a novel machine learning framework for predicting non-metastatic prostate cancer-specific mortality in men using the Surveillance, Epidemiology, and End Results (SEER) database by Lee, C., Light, A., Alaa, A., Thurtle, D., van der Schaar, M., & Gnanapragasam, V. J.  The Lancet Digital Health 2021."]) " "
               [:a {:href   "https://doi.org/10.1016/S2589-7500(20)30314-9"
                    :rel    "noopener"
                    :style  {:text-decoration "underline"}
@@ -360,16 +360,9 @@
                    :rel    "noopener"
                    :style  {:text-decoration "underline"}
                    :target "_blank"} (ttt [:tech/pub5-text2 "Full paper online."])]]]
-        [:li [:p (ttt [:tech/pub6-text1 "Improving Clinical Risk Stratification at Diagnosis in Primary Prostate Cancer: A Prognostic Modelling Study 
-                  by Gnanapragasam VJ, Lophatananon A, Wright KA, Muir KR, Gavin A, Greenberg DC. 
-                  PLoS Med. 2016 Aug 2."]) " "
-              [:a {:href   "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1002758"
-                   :rel    "noopener"
-                   :style  {:text-decoration "underline"}
-                   :target "_blank"} (ttt [:tech/pub6-text2 "Full paper online."])]]]
         [:li [:p (ttt [:tech/pub7-text1 "Assessing the impact of MRI based diagnostics on pre-treatment disease classification and prognostic model performance in men diagnosed with new prostate cancer from an unscreened population  
                   by Lophatananon A, Byrne MHV, Barrett T, Warren A, Muir K, Dokubo I, Georgiades F, Sheba M, Bibby L, Gnanapragasam VJ.
-                  BMC Cancer. 2022 Aug 11."]) " "
+                  BMC Cancer 2022."]) " "
               [:a {:href   "https://bmccancer.biomedcentral.com/articles/10.1186/s12885-022-09955-w"
                    :rel    "noopener"
                    :style  {:text-decoration "underline"}
