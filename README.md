@@ -118,6 +118,20 @@ These tests have been generated using the original model in Stata, and they are 
 They should be run after every release.
 The result of these tests is output in the console of the browser.
 
+## Creating build number for releases
+As seen on bottom right of predict webpage, version number to track is generated through git tag system. See https://git-scm.com/book/en/v2/Git-Basics-Tagging for detailed information
+
+### Create tag
+Create annotated tag: git tag -a v1.0-1.09 -m "EE release. Contains translations also."
+
+### Format
+Format: v1.0-1.09
+
+v1.0 is Vincent's versioning. 1.09 is our software versioning. '-' is used as separator.
+
+### Git describe
+git describe is used to generate our build number shown on webpage. Contains useful information such as how many commits current branch you are on from initial tag.
+
 ## License
 
 _Copyright ©2022 University of Cambridge_
