@@ -1,5 +1,5 @@
 let CACHE = 'cache-and-update';
-let VERSION_CUR = 'v1.021';
+let VERSION_CUR = 'v1.022';
 // Internal tested. First live version
 let LATEST_CACHE_ID = CACHE + '--' + VERSION_CUR;
 // console.log(VERSION_CUR);
@@ -7,18 +7,19 @@ let LATEST_CACHE_ID = CACHE + '--' + VERSION_CUR;
 // On install, cache some resources.
 self.addEventListener('install', function(evt) {
     // console.log('The service worker is being installed. ');
-    // console.log('The service worker is being installed. ' + LATEST_CACHE_ID);
+    console.log('The service worker is being installed. ' + LATEST_CACHE_ID);
     self.skipWaiting()
 
     // Ask the service worker to keep installing until the returning promise
     // resolves.
+    // console.log('Precaching...');
     evt.waitUntil(precache());
 });
 
-// On fetch, use cache but update the entry with the latest contents
-// from the server.
+//On fetch, use cache but update the entry with the latest contents
+//from the server.
 // self.addEventListener('fetch', function(evt) {
-//     // console.debug('The service worker is serving the asset.');
+//     console.debug('The service worker is serving the asset.');
 //     // You can use `respondWith()` to answer immediately, without waiting for the
 //     // network response to reach the service worker...
 //     evt.respondWith(fromCache(evt.request));
@@ -37,6 +38,7 @@ self.addEventListener('fetch', event => {
         // If we didn't find a match in the cache, use the network.
         return fetch(event.request);
     }());
+    event.waitUntil(update(event.request));
 });
 
 // different fetch
@@ -132,7 +134,7 @@ addEventListener('activate', activateEvent => {
             }
         })))
         .then(() => {
-            console.debug('Activating now via self.skipWaiting()')
+            // console.debug('Activating now via self.skipWaiting()')
             return self.skipWaiting()
         })
     );
