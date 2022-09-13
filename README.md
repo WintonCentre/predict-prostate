@@ -122,12 +122,12 @@ The result of these tests is output in the console of the browser.
 As seen on bottom right of predict webpage, version number to track is generated through git tag system. See https://git-scm.com/book/en/v2/Git-Basics-Tagging for detailed information
 
 ### Create tag
-Create annotated tag: git tag -a v1.00-1.09 -m "EE release. Contains translations also."
+Create annotated tag: git tag -a v-1.00-1.09 -m "EE release. Contains translations also."
 
 ### Format
-Format: v1.00-1.09
+Format: v-1.00-1.09
 
-v1.00 is Vincent's versioning. 1.09 is our software versioning. '-' is used as separator.
+1.00 is Vincent's versioning. 1.09 is our software versioning. '-' is used as separator.
 
 ### Git describe
 git describe is used to generate our build number shown on webpage. Contains useful information such as how many commits current branch you are on from initial tag.
