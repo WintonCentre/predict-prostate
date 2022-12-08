@@ -986,13 +986,13 @@
       [:section#number-of-biopsy-cores-taken (ttt [:tool/nbcores-title "Biopsy cores taken"])
        [:p (ttt [:tool/nbcores-text1 "The total number of biopsy cores taken. Extra biopsies taken from each target site should be considered as 1
      core, regardless of how many biopsy cores were
-      taken from that target. *See examples*"])]]
+      taken from that target."])]]
 
       [:section#number-of-biopsy-cores-with-prostate-cancer (ttt [:tool/nbcanc-title "Biopsy cores with prostate cancer"])
        [:p (ttt [:tool/nbcanc-text1 "The total number of positive biopsy cores. Even cores with a lower grade should be counted here, if they have
       any prostate cancer within them.
       Positive cores taken from a single target site should be considered as 1 core, regardless of how many positive
-      cores were taken from that target *See examples*."])]]
+      cores were taken from that target."])]]
 
       [:section#h-admissions (ttt [:tool/hosp-title "Hospital admissions in the last 2 years"])
        [:p (ttt [:tool/hosp-text1 "This refers to any inpatient admission to hospital in the 2 years before prostate cancer diagnosis. Anything
