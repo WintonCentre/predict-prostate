@@ -16,7 +16,7 @@
                :home/start-button    " 開始預測" 
                }]
 ;
-#_[:upsert :es {:en                   "Inglés"
+[:upsert :es {:en                   "Inglés"
                :de                   "Alemán"
                :es                   "Español"
                :fr                   "Francesa"

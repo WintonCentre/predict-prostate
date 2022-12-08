@@ -45,7 +45,12 @@ translations in the database. If there are, it's easiest to download the Tranny 
 Yes - this should be automated further! ** It now is - see `getdictionary.clj` **
 2. Back in the Predict repo, edit `public/resources/prod_dictionary.txt`. This file is a minimal translation dictionary that is just enough to allow every language to be selected. Any new languages must appear here with their
 menu items translated into all the old languages too.
-3. Back in the Predict repo, run `getdictionary.sh`. This pulls the tranny database and creates the `live_dictionary.txt` that will be used in the production code. The production code only uses static files and has no database connection. The implementation is a babashka script - it sits in bb-scripts. It imports trasplants.config/initial-supported-languages from src-tt-prod to filter the live-dictionary for the published languages. It will not import any new English definitions - as these must be hard coded.
+3. Back in the Predict repo, run `getdictionary.sh` via the bb script:
+```sh
+cd bb-scripts
+./getdictionary.sh
+```
+This pulls the tranny database and creates the `live_dictionary.txt` that will be used in the production code. The production code only uses static files and has no database connection. The implementation is a babashka script - it sits in bb-scripts. It imports `translations.config/initial-supported-languages` from `src-tt-prod` to filter the live-dictionary for the published languages. It will not import any new English definitions - as these must be hard coded.
 4. Merge develop, staging, translation so they are one and the same.
 5. Build a **normal** system - either a dev or a production build. You will want to remove refs to shadow.debug at this time if you are developing with shadow. I usually do a local build first and follow it up with a develo build.
 6. If all good publish on staging and move items in JIRA to 'STAGED FOR REVIEW'
