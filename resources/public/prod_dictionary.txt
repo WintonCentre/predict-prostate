@@ -13,17 +13,7 @@
                :pt                   "葡萄牙語"
                :sc                   "簡體字"
                :tc                   "繁體字"
-               :home/start-button    " 開始預測" 
-               }]
-;
-[:upsert :es {:en                   "Inglés"
-               :de                   "Alemán"
-               :es                   "Español"
-               :fr                   "Francesa"
-               :nl                   "Holandesa"
-               :pt                   "Portuguesa"
-               :sc                   "Chino simplificado"
-               :tc                   "Chino tradicional"
+               :home/start-button    "開始預測" 
                }]
 ;
 #_[:upsert :nl  {:en                   "Engels"
@@ -90,5 +80,15 @@
                 :sc                   "Vereinfachtes Chinesisch"
                 :tc                   "Traditionelles Chinesisch"
                 }]
+
+[:upsert :es {:en                   "Inglés"
+               :de                   "Alemán"
+               :es                   "Español"
+               :fr                   "Francesa"
+               :nl                   "Holandesa"
+               :pt                   "Portuguesa"
+               :sc                   "Chino simplificado"
+               :tc                   "Chino tradicional"
+               }]
 
  [:switch :en]]
