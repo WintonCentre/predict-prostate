@@ -38,7 +38,8 @@ bower_components
 .idea/inspectionProfiles/
 tmp/
 .lein-git-deps/
-#project.clj#
+
+# project.clj:
 .idea/
 *.iml
 src/cards/#side_panel.cljs#
@@ -71,3 +72,6 @@ __pycache__/
 .clj-kondo/.cache
 .lsp
 .rebel_readline_history
+
+# shadow-cljs:
+.shadow-cljs/
