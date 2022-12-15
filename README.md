@@ -21,9 +21,9 @@ The user interface inherits much from the [Winton breast cancer predict](https:/
 <a href="https://ibb.co/Cbyr4BH"><img src="https://i.ibb.co/x1b4wh7/PP.png" alt="PP" border="0" /></a>
 </p>
 
-The site is currently available in five languages (EN, FR, DE, SC and PT). It is mainly based on [the following paper](https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1002758).
+The site is currently available in six languages (EN, FR, DE, SC, PT and ES). It is mainly based on [the following paper](https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1002758).
 
-This is a branch dedicated to adding translation capabilities to the application in the form of an editor mode populating a PostgreSQL backend.
+This codebase can also be used to add translations in different languages to the application, by building an editor mode populating a PostgreSQL backend.
 ## Installation
 
 These instructions create a production version. To create a development
@@ -63,7 +63,7 @@ lein do clean, with-profile rum-react-patch cljsbuild once min-edit
 _The first time you run this it will download Clojure, Clojurescript and all project dependencies. Subsequent runs will be faster._
 
 This creates a distribution in the `resources/public` folder which can
-be served as a directory by a simple static file web server (e.g. Netlify).
+be served as a directory by a simple static file web server (e.g. Netlify, Surge.sh).
 
 Any server capable of serving files from a directory will do. Those that come with python or NodeJS are often near to hand (see [here](https://gist.github.com/willurd/5720255) for more options).
 For instance, switch to the resources/public directory, and start a local web server
