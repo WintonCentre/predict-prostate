@@ -11,7 +11,7 @@ _A decision tool to help patients and clinicians decide on whether to go for con
 This is a single page web application written in
 [clojurescript](https://clojurescript.org/).
 The clojurescript compiler generates javascript which runs in an HTML5
-capable browser (Chrome, Safari, Firefox, Opera, IE11). It uses Bootstrap
+capable browser (Chrome, Safari, Firefox, Opera, IE11, Edge). It uses Bootstrap
 styling to achieve a responsive display that adapts to desktop or mobile
 screen sizes.
 
@@ -134,6 +134,6 @@ git describe is used to generate our build number shown on webpage. Contains use
 
 ## License
 
-_Copyright ©2022 University of Cambridge_
+_Copyright ©2022 Winton Centre for Risk & Evidence Communication_
 
 _Distributed under the Eclipse Public License either version 1.0 or (at your option) any later version._

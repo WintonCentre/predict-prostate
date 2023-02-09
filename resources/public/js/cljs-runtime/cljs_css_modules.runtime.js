@@ -19,8 +19,8 @@ return cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$4(cljs_css_modules.runti
 });
 cljs_css_modules.runtime.inject_style_BANG_ = (function cljs_css_modules$runtime$inject_style_BANG_(style,ns,name){
 var id = cljs.core.symbol.cljs$core$IFn$_invoke$arity$1([cljs.core.str.cljs$core$IFn$_invoke$arity$1(ns),"-",cljs.core.str.cljs$core$IFn$_invoke$arity$1(name)].join(''));
-var injected_style = (function (){var G__45868 = cljs.core.deref(cljs_css_modules.runtime.injected_styles);
-return (id.cljs$core$IFn$_invoke$arity$1 ? id.cljs$core$IFn$_invoke$arity$1(G__45868) : id.call(null,G__45868));
+var injected_style = (function (){var G__46612 = cljs.core.deref(cljs_css_modules.runtime.injected_styles);
+return (id.cljs$core$IFn$_invoke$arity$1 ? id.cljs$core$IFn$_invoke$arity$1(G__46612) : id.call(null,G__46612));
 })();
 if(cljs.core.truth_(injected_style)){
 return cljs_css_modules.runtime.update_style_BANG_(injected_style,style);
