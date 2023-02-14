@@ -21,7 +21,7 @@ The user interface inherits much from the [Winton breast cancer predict](https:/
 <a href="https://ibb.co/Cbyr4BH"><img src="https://i.ibb.co/x1b4wh7/PP.png" alt="PP" border="0" /></a>
 </p>
 
-The site is currently available in six languages (EN, FR, DE, SC, PT and ES). It is mainly based on [the following paper](https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1002758). The site is deployed and maintained at the following URL: [https://prostate.predict.nhs.uk/](https://prostate.predict.nhs.uk/)
+The site is currently available in seven languages (EN, FR, DE, SC, PT, ES and IT). It is mainly based on [the following paper](https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1002758). The site is deployed and maintained at the following URL: [https://prostate.predict.nhs.uk/](https://prostate.predict.nhs.uk/)
 
 This codebase can also be used to add translations in different languages to the application, by building an editor mode populating a PostgreSQL backend.
 ## Installation
