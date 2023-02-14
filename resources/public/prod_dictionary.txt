@@ -37,7 +37,8 @@
                :nl                   "Dutch"
                :pt                   "Portuguese"
                :sc                   "Chinese (simplified)"
-               :tc                   "Chinese (traditional)"   
+               :tc                   "Chinese (traditional)"
+               :it                   "Italian"   
                }]
 
  [:upsert :fr {:en                   "Anglais"
@@ -48,6 +49,7 @@
                :pt                   "Portugais"
                :sc                   "Chinois simplifié"
                :tc                   "Chinois traditionnel"
+               :it                   "Italien"
                }]
 
  [:upsert :sc {:en                   "英语"
@@ -58,7 +60,8 @@
                :pt                   "葡萄牙语"
                :sc                   "简体字"
                :tc                   "繁体字"
-               :home/start-button    " 开始预测" 
+               :home/start-button    "开始预测"
+               :it                   "意大利"
                }]
 
 [:upsert :pt   {:en                   "Inglês"
@@ -69,6 +72,7 @@
                 :pt                   "Português"
                 :sc                   "Chinês simplificado"
                 :tc                   "Chinês tradicional"
+                :it                   "Italiano"
                 }]
 
 [:upsert :de   {:en                   "Englisch"
@@ -79,6 +83,7 @@
                 :pt                   "Portugiesisch"
                 :sc                   "Vereinfachtes Chinesisch"
                 :tc                   "Traditionelles Chinesisch"
+                :it                   "Italienisch"
                 }]
 
 [:upsert :es {:en                   "Inglés"
@@ -89,6 +94,18 @@
                :pt                   "Portuguesa"
                :sc                   "Chino simplificado"
                :tc                   "Chino tradicional"
+               :it                   "Italiano"
+               }]
+
+[:upsert :it {:en                   "Inglese"
+               :de                   "Tedesco"
+               :es                   "Spagnolo"
+               :fr                   "Francese"
+               :nl                   "Olandese"
+               :pt                   "Portoghese"
+               :sc                   "Cinese semplificato"
+               :tc                   "Cinese tradizionale"
+               :it                   "Italiano"
                }]
 
  [:switch :en]]
