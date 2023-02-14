@@ -97,7 +97,7 @@
                :it                   "Italiano"
                }]
 
-[:upsert :it {:en                   "Inglese"
+[:upsert :it  {:en                   "Inglese"
                :de                   "Tedesco"
                :es                   "Spagnolo"
                :fr                   "Francese"
