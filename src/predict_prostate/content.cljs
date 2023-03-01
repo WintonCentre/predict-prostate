@@ -734,7 +734,7 @@
            [:td "+.956 " (ttt [:alg/table1-r6c2-1 "if"]) " " [:i (ttt [:alg/table1-r6c2-2 "BRCA"])] " " (ttt [:alg/table1-r6c2-3 "= Positive"])]]
           [:tr
            [:th (ttt [:alg/table1-r7c1 "Primary treatment"])]
-           [:td "-0.68 " (ttt [:alg/table1-r7c2-1 "if"]) " " [:i (ttt [:alg/table1-r7c2-2 "Prc1imary treatment"])] " " (ttt [:alg/table1-r7c2-3 "= radical treatment"])]]]]]
+           [:td "-0.68 " (ttt [:alg/table1-r7c2-1 "if"]) " " [:i (ttt [:alg/table1-r7c2-2 "Primary treatment"])] " " (ttt [:alg/table1-r7c2-3 "= radical treatment"])]]]]]
            
 
        [:.table-responsive
