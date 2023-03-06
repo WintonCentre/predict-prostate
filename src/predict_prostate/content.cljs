@@ -192,7 +192,7 @@
      [:section#overview "Overview"
       [:section (ttt [:about/overview "Overview"])
 
-       [:ul {:style {:list-style-image "url(/assets/bullet-plus.png)"}}
+       [:ul #_{:style {:list-style-image "url(/assets/bullet-plus.png)"}}
         [:li (page-link [:about {:page :overview :section :whoisitfor}] (ttt [:about/wiif-title "Who is it for?"]))]
         [:li (page-link [:about {:page :overview :section :howpredictworks}] (ttt [:about/hppw-title "How Predict Prostate works"]))]
         [:li (page-link [:about {:page :overview :section :whobuiltpredict}] (ttt [:about/wbpp-title "Who built Predict Prostate?"]))]]
@@ -272,7 +272,7 @@
      [:section#technical "Technical"
       [:section (ttt [:tech/tech-title "Technical"])
 
-       [:ul {:style {:list-style-image "url(/assets/bullet-plus.png)"}}
+       [:ul #_{:style {:list-style-image "url(/assets/bullet-plus.png)"}}
         [:li (page-link [:about {:page :technical :section :history}] (ttt [:tech/dev-title "Development History"]))]
         #_[:li (page-link [:about {:page :technical :section :preversions}] "Previous Versions")]
         [:li (page-link [:about {:page :technical :section :publications}] (ttt [:tech/pub-title "Publications"]))]

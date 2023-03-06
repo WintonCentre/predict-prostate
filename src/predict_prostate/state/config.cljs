@@ -248,6 +248,18 @@
                   :tables
                   #{"v2.1"}
                   :no)
+   
+   (->Input-group :sidefx-maturities
+                  "Years after treatment"
+                  :radio-group
+                  [[3 "3 years"
+                    6 "6 years"
+                    9 "9 years"
+                    12 "12 years"]]
+                  false false false
+                  :tables
+                  #{"v2.1"}
+                  6)
 
 
 

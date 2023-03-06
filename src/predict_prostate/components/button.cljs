@@ -96,6 +96,15 @@
                                       ]}
                             (input-cursor :result-year)))
 
+(rum/defc maturity-picker < rum/reactive [ttt]
+  (horiz-radio-button-group {:ttt    ttt
+                             :key    :sidefx-maturities
+                             :values [[3 "3"]
+                                      [6 "6"]
+                                      [9 "9"]
+                                      [12 "12"]]}
+                            (input-cursor :sidefx-maturities)))
+
 (rum/defc radio-button-group-vertical
   [props group-cursor]
   (radio-button-group (merge props {:vertical true}) group-cursor))
