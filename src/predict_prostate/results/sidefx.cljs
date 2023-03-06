@@ -147,8 +147,8 @@
         m (rum/react (input-cursor :sidefx-maturities))]
     [:div
      [:span prefix (if fewer [:b quantity] quantity)]
-     [:span.print-only (ttt [:sidefx/lin-aft-1 "men have this issue after "]) m " " (ttt [:sidefx/lin-aft-2 "years"]) "."  #_[:sidefx/lin-aft "men have this issue after 6 years."]] 
-     [:span.screen-only (ttt [:sidefx/lin-aft-1 "men have this issue after "] #_[:sidefx/lin-aft "men have this issue after 6 years."])]
+     [:span.print-only (ttt [:sidefx/lin-aft-1 "men have this issue after"]) " " m " " (ttt [:sidefx/lin-aft-2 "years"]) "."  #_[:sidefx/lin-aft "men have this issue after 6 years."]] 
+     [:span.screen-only (ttt [:sidefx/lin-aft-1 "men have this issue after"]) " " #_[:sidefx/lin-aft "men have this issue after 6 years."]]
      [:span.screen-only (maturity-picker ttt) " "]
      [:span.screen-only (ttt [:sidefx/lin-aft-2 "years"]) "."]
      (sidefx-bar {:fewer fewer :percent n :fill (treatment treatment-fills) :tallies? tallies? :ttt ttt})
