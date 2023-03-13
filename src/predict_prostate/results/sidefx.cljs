@@ -173,25 +173,25 @@
   [:span
    (ttt [:sidefx/eresrc-text1 "Estimates for erectile dysfunction have been taken from the UK-based Prostate Testing for Cancer and Treatment (ProtecT) trial. The full research can be
         read here:"]) " "
-   [:a {:href   "https://bjui-journals.onlinelibrary.wiley.com/doi/10.1111/bju.15739"
+   [:a {:href   "https://evidence.nejm.org/doi/10.1056/EVIDoa2300018"
         :target "_blank"}
-    "https://bjui-journals.onlinelibrary.wiley.com/doi/10.1111/bju.15739"]])
+    "https://evidence.nejm.org/doi/10.1056/EVIDoa2300018"]])
 
 (rum/defc incontinence-source [ttt]
   [:span
    (ttt [:sidefx/incsrc-text1 "Estimates for incontinence have been taken from the UK-based Prostate Testing for
        Cancer and Treatment (ProtecT) trial. The full research can be read here:"]) " "
-   [:a {:href   "https://bjuijournals.onlinelibrary.wiley.com/doi/10.1111/bju.15739"
+   [:a {:href   "https://evidence.nejm.org/doi/10.1056/EVIDoa2300018"
         :target "_blank"}
-    "https://bjuijournals.onlinelibrary.wiley.com/doi/10.1111/bju.15739"]])
+    "https://evidence.nejm.org/doi/10.1056/EVIDoa2300018"]])
 
 (rum/defc bowel-source [ttt]
   [:span {:font-size 12}
    (ttt [:sidefx/bowsrc-text1 "Estimates for bowel issues have been taken from the UK-based Prostate Testing for
        Cancer and Treatment (ProtecT) trial. The full research can be read here:"]) " "
-   [:a {:href   "https://bjuijournals.onlinelibrary.wiley.com/doi/10.1111/bju.15739"
+   [:a {:href   "https://evidence.nejm.org/doi/10.1056/EVIDoa2300018"
         :target "_blank"}
-    "https://bjuijournals.onlinelibrary.wiley.com/doi/10.1111/bju.15739"]])
+    "https://evidence.nejm.org/doi/10.1056/EVIDoa2300018"]])
 
 (rum/defc sidefx-discrete < rum/reactive
   [tallies? ttt]
