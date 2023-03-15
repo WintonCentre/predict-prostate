@@ -205,19 +205,19 @@
                     (sidefx-linear {:treatment :conservative
                                     :prefix    [:span (ttt [:sidefx/with "With"]) " " [:b {:style {:color (:conservative treatment-fills)}} (ttt [:sidefx/cons-man "conservative management,"])] " " (ttt [:sidefx/about "about"]) " "]
                                     :n         (case m
-                                                 3 47
-                                                 6 34
-                                                 9 31
-                                                 12 23)
+                                                 3 53
+                                                 6 66
+                                                 9 69
+                                                 12 77)
                                     :tallies?  tallies?
                                     :ttt ttt})
                     (sidefx-linear {:treatment :radical-harms
                                     :prefix    [:span (ttt [:sidefx/with "With"]) " " [:b {:style {:color (:radical-harms treatment-fills)}} (ttt [:sidefx/radp "radical prostatectomy (surgery),"])] " " (ttt [:sidefx/about "about"]) " "]
                                     :n         (case m
-                                                 3 21
-                                                 6 16
-                                                 9 15
-                                                 12 13)
+                                                 3 79
+                                                 6 84
+                                                 9 85
+                                                 12 87)
                                     :tallies?  tallies?
                                     :ttt ttt})
                     #_(sidefx-linear {:treatment :radical-harms
@@ -228,10 +228,10 @@
                     (sidefx-linear {:treatment :radiotherapy
                                     :prefix    [:span (ttt [:sidefx/with "With"]) " " [:b {:style {:color (:radiotherapy treatment-fills)}} (ttt [:sidefx/radio "radical radiotherapy (external beam),"])] " " (ttt [:sidefx/about "about"]) " "]
                                     :n         (case m
-                                                 3 34
-                                                 6 27
-                                                 9 21
-                                                 12 15)
+                                                 3 66
+                                                 6 73
+                                                 9 79
+                                                 12 85)
                                     :tallies?  tallies?
                                     :ttt ttt}))
 
