@@ -198,7 +198,7 @@
   (let [m (rum/react (input-cursor :sidefx-maturities))]
    [:div {:style {:border "1px solid #CCCCCC" :border-radius 3 :font-size 16}}
     (sidefx-header ttt) 
-    (sidefx-content {:title (ttt [:sidefx/eredys-title "Erectile dysfunction"]) :sub-title (ttt [:sidefx/eredys-subtitle "Defined as: 'Men reporting moderate or big problems with erectile dysfunction'"])
+    (sidefx-content {:title (ttt [:sidefx/eredys-title "Erectile dysfunction"]) :sub-title (ttt [:sidefx/eredys-subtitle "Defined as: 'Erections not firm enough for intercourse'" #_"Defined as: 'Men reporting moderate or big problems with erectile dysfunction'"])
                      :subsub-title (ttt [:sidefx/eredys-subsubtitle "Percentages shown are in addition to men who may already have this problem before a treatment is given"])
                      :source #(erectile-source ttt)}
 
@@ -235,7 +235,7 @@
                                     :tallies?  tallies?
                                     :ttt ttt}))
 
-    (sidefx-content {:title (ttt [:sidefx/incon-title "Incontinence"]) :sub-title (ttt [:sidefx/incon-subtitle "Defined as: 'Use of 1 or more pads per day and assuming this problem does not exist before treatment'"])
+    (sidefx-content {:title (ttt [:sidefx/incon-title "Incontinence"]) :sub-title (ttt [:sidefx/incon-subtitle "Defined as: 'Use of 1 or more pads per day in the past 4 weeks and assuming this problem does not exist before treatment'"])
                      :source #(incontinence-source ttt)}
                     (sidefx-linear {:treatment :conservative
                                     :prefix    [:span (ttt [:sidefx/with "With"]) " " [:b {:style {:color (:conservative treatment-fills)}} (ttt [:sidefx/cons-man "conservative management,"])] " " (ttt [:sidefx/about "about"]) " "]
