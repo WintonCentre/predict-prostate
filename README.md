@@ -106,6 +106,7 @@ evaluation within the editor.
 * Select the `/predict-prostate`project (not the `bb-script`one).
 * Then select `Shadow-cljs` and the `:app` and/or `:editor` and/or `:test-browser` builds to start.
 * Finally, choose the build to connect the REPL to.
+> We recommend using `"cider-nrepl": "0.28.5"` to jack-in as it may fail on later versions.
 
 The `shadow dashboard`is available at `localhost:9630`
 The app is available at `localhost:4000`
