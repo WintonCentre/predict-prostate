@@ -203,7 +203,7 @@
                      :source #(erectile-source ttt)}
 
                     (sidefx-linear {:treatment :conservative
-                                    :prefix    [:span (ttt [:sidefx/with "With"]) " " [:b {:style {:color (:conservative treatment-fills)}} (ttt [:sidefx/cons-man "conservative management,"])] " " (ttt [:sidefx/about "about"]) " "]
+                                    :prefix    [:span (ttt [:sidefx/with "With"]) " " [:b {:style {:color (:conservative treatment-fills)}} (ttt [:sidefx/cons-man2 "conservative management (men who did not subsequently change to radical treatment),"])] " " (ttt [:sidefx/about "about"]) " "]
                                     :n         (case m
                                                  3 53
                                                  6 66
@@ -238,7 +238,7 @@
     (sidefx-content {:title (ttt [:sidefx/incon-title "Incontinence"]) :sub-title (ttt [:sidefx/incon-subtitle "Defined as: 'Use of 1 or more pads per day in the past 4 weeks and assuming this problem does not exist before treatment'"])
                      :source #(incontinence-source ttt)}
                     (sidefx-linear {:treatment :conservative
-                                    :prefix    [:span (ttt [:sidefx/with "With"]) " " [:b {:style {:color (:conservative treatment-fills)}} (ttt [:sidefx/cons-man "conservative management,"])] " " (ttt [:sidefx/about "about"]) " "]
+                                    :prefix    [:span (ttt [:sidefx/with "With"]) " " [:b {:style {:color (:conservative treatment-fills)}} (ttt [:sidefx/cons-man2 "conservative management (men who did not subsequently change to radical treatment),"])] " " (ttt [:sidefx/about "about"]) " "]
                                     :n         (case m
                                                  3 1
                                                  6 2
