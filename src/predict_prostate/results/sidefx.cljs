@@ -199,7 +199,8 @@
    [:div {:style {:border "1px solid #CCCCCC" :border-radius 3 :font-size 16}}
     (sidefx-header ttt) 
     (sidefx-content {:title (ttt [:sidefx/eredys-title "Erectile dysfunction"]) :sub-title (ttt [:sidefx/eredys-subtitle "Defined as: 'Erections not firm enough for intercourse'" #_"Defined as: 'Men reporting moderate or big problems with erectile dysfunction'"])
-                     :subsub-title (ttt [:sidefx/eredys-subsubtitle "Percentages shown are in addition to men who may already have this problem before a treatment is given"])
+                     :subsub-title (ttt [:sidefx/eredys-subsubtitle2 "Percentages shown include men who may already have this problem before any treatment is given"] 
+                                    #_[:sidefx/eredys-subsubtitle "Percentages shown are in addition to men who may already have this problem before a treatment is given"])
                      :source #(erectile-source ttt)}
 
                     (sidefx-linear {:treatment :conservative
