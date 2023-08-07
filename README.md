@@ -49,7 +49,7 @@ To create the production build, download the repository or clone it using git an
 
 ```sh
 # if using git...
-git clone https://gitlab.com/gmp26/predict-prostate.git
+git clone https://github.com/WintonCentre/predict-prostate.git
 
 cd predict-prostate
 # For a production app
