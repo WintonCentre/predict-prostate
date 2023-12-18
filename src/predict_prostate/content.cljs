@@ -324,7 +324,6 @@
       [:section (ttt [:tech/pub-title "Publications"])
        [:a {:name "publications"}]
        [:ol
-
         [:li [:p (ttt [:tech/pub1-text1 "Individual prognosis at diagnosis in non-metastatic prostate cancer: Development and external validation
       of the PREDICT Prostate multivariable model by D Thurtle, D Greenberg, LS Lee, H Huang, PD Pharoah,
       VJ Gnanapragasam. PLOS Medicine 2019."]) " "
@@ -366,7 +365,13 @@
               [:a {:href   "https://bmccancer.biomedcentral.com/articles/10.1186/s12885-022-09955-w"
                    :rel    "noopener"
                    :style  {:text-decoration "underline"}
-                   :target "_blank"} (ttt [:tech/pub7-text2 "Full paper online."])]]]]]]
+                   :target "_blank"} (ttt [:tech/pub7-text2 "Full paper online."])]]]
+        [:li [:p (ttt [:tech/pub8-text1 "Utilisation and impact of Predict Prostate on decision-making among clinicians and patients in a specialist tertiary referral centre: A retrospective cohort study
+                                         by Pandiaraja M,  Pryle I,  West L,  Gardner L,  Shallcross O,  Tay J, Shah N,  Gnanapragasam V,  Lamb BW.  BJUI Compass 2023."]) " "
+              [:a {:href   "https://doi.org/10.1002/bco2.311"
+                   :rel    "noopener"
+                   :style  {:text-decoration "underline"}
+                   :target "_blank"} (ttt [:tech/pub1-text2 "Full paper online."])]]]]]]
        
 
       
