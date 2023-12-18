@@ -618,8 +618,8 @@
          [:.row {:style {:margin-bottom 10}}
           [:.col-sm-1 [:img {:src "/assets/ce.png" :alt "CE mark" :width 50}]]
           [:.col-sm-10.col-sm-offset-1
-           [:p "The Winton Centre for Risk and Evidence Communication"]]]
-           
+           [:p "The Chancellor, Masters, and Scholars of the University of Cambridge"]]] 
+         
          [:.row {:style {:margin-bottom 10}}
           [:.col-sm-1 [:img {:src "/assets/ref.png" :alt "REF mark" :width 50}]]
           [:.col-sm-10.col-sm-offset-1 [:p "Predict: Prostate Cancer"]]]
@@ -641,7 +641,7 @@
 
          [:.row {:style {:margin-bottom 10}}
           [:.col-sm-1 [:img {:src "/assets/factory.png" :alt "Manufacturer" :width 50}]]
-          [:.col-sm-10.col-sm-offset-1 [:p "The Winton Centre for Risk & Evidence Communication, Centre for Mathematical Sciences, Wilberforce Road, Cambridge. CB3 0WA"]]]]
+          [:.col-sm-10.col-sm-offset-1 [:p "University of Cambridge, Trinity Lane, The Old Schools, Cambridge, Cambridgeshire, CB2 1TS England, United Kingdom"]]]]
         [:.col-sm-12
          [:p (ttt [:prod-label/fulfils "This device fulfils the provisions of the European Commission (EC) Directive 93/42/EEC (Medical Devices Directive)."])]
          [:p (ttt [:prod-label/conformance "This software product has been designed according to"])]
@@ -657,7 +657,7 @@
            [:p {:style {:margin-top -10}} (ttt [:prod-label/safety "Application of clinical safety risk management to the manufacture of health IT systems."])]]
           [:li [:p [:b "IEC 62304:2006 Amd 1:2015"]]
            [:p {:style {:margin-top -10}} (ttt [:prod-label/slc "Medical device software – Software lifecycle processes.\n\nBS EN 62366-1:2015\n\nApplication of usability engineering to medical devices."])]]]
-         [:p (ttt [:prod-label/strict "This device has been developed under the strict quality system of The Winton Centre for Risk & Evidence Communication, and released for publication by Public Health England."])]]]]]
+         [:p (ttt [:prod-label/strict "This device has been developed under the strict quality system of The University of Cambridge."])]]]]]
         
 
      [:section#disclaimer "Disclaimer"
