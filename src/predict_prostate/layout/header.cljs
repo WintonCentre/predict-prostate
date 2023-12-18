@@ -90,38 +90,43 @@
 (rum/defc footer []
   [:div
    [:.row.print-only
-    [:.col-xs-12
-     [:img {:src "/assets/print-footer.png"
-            :alt "Footer Logo"}]]]
+    [:.col-sm-4
+     [:img.img-responsive.pull-left {:style {:width 140 :margin-top 15 :border "none"}
+                                     :src   "/assets/uni-logo-transparent.png"
+                                     :alt   "University of Cambridge Logo"}]]
+    [:.col-sm-4
+     [:img.img-responsive.pull-right {:style {:width 160 :margin-right 10 :border "none"}
+                                      :src   "/assets/wc-logo-transparent.png"
+                                      :alt   "Winton Centre Logo"}]]]
 
    [:.row.screen-only {:style {:clear "both"
-                         :color "white"}}
+                               :color "white"}}
 
     [:.col.footer
      {:style {:width            "100%"
               :min-height       "200px"
               :background-color "#1F3754"                   ;NHS-blue
               :border-radius    "0px"
-              :padding          "30px"
-              }}
+              :padding          "30px"}}
      [:.row
       [:.col-sm-10.col-sm-offset-1
        [:.row
+        #_[:.col-sm-4
+           [:img.img-responsive {:src   "/assets/phe-neg.png"
+                                 :alt   "Public Health Logo"
+                                 :style {:margin-top  10
+                                         :margin-left "auto"
+                                         :margin-right "auto"
+                                         :max-width   "120px" #_"70%"}}]]
         [:.col-sm-4
-         [:img.img-responsive {:src   "/assets/phe-neg.png"
-                               :alt   "Public Health Logo"
-                               :style {:margin-top  10
-                                       :margin-left "auto"
-                                       :margin-right "auto"
-                                       :max-width   "120px" #_"70%"}}]]
-        [:.col-sm-4
-         [:img.img-responsive {:src   "/assets/urology-white-text.png"
-                               :alt   "University of Cam Urology Group Logo"
-                               :style {:margin-top 10
+         [:img.img-responsive {:src   "/assets/u-of-c-neg.png"
+                               :alt   "University of Cambridge Logo"
+                               :style {:margin-top 15
                                        ;:margin-bottom "3ex"
                                        :margin-left "auto"
                                        :margin-right "auto"
                                        :max-width  "175px" #_"90%"}}]]
+        [:.col-sm-4]
         [:.col-sm-4
          [:img.img-responsive {:src   "/assets/ucs-winton-transparent.png"
                                :alt   "Winton Centre Logo"
@@ -129,16 +134,13 @@
                                        :margin-left "auto"
                                        :margin-right "auto"
                                        ;:margin-bottom "3ex"
-                                       :max-width  "175px"}}]]
-        ]]
-      ]]]
+                                       :max-width  "175px"}}]]]]]]]
    [:.row.copy-footer-container
     [:.col-lg-9.col-md-6.col-md-offset-3.col-lg-offset-1.copy-footer
      (str "Copyright Ⓒ " (.getFullYear (js/Date.)) " University of Cambridge. All Rights Reserved | ")
      [:a {:on-click #(publish route-change [:legal {:page "privacy"} nil]) :href "javascript:void(0)"} "Privacy & Data Protection"]
      " | "
-     [:a {:on-click #(publish route-change [:legal {:page "disclaimer"} nil]) :href "javascript:void(0)"} "Disclaimer"]
-     ]
+     [:a {:on-click #(publish route-change [:legal {:page "disclaimer"} nil]) :href "javascript:void(0)"} "Disclaimer"]]
     [:.col-xs-12.build-version
      ;"Build: v0.0-dev-#000-hash"
      [:img {:style {:width 40 :margin-right 5 :border "none"}
@@ -148,6 +150,4 @@
 
      [:img {:style {:width 30 :margin-left 10 :margin-right 5 :border "none"}
             :alt   "CE mark"
-            :src   "/assets/ce2.png"}]]
-    ]
-   ])
+            :src   "/assets/ce2.png"}]]]])
