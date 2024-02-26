@@ -52,12 +52,15 @@
        [:p {:style {:font-size 18 :margin-left 15}} [:a {:href "https://www.nice.org.uk/guidance/ng131/resources/endorsed-resource-predict-prostate-6898604077" :target "_blank"} (ttt [:home/endorsement "Endorsed by the National Institute for Health and Care Excellence in the UK"])]]
        #_[:p {:style {:font-size 14 :margin-left 15}} [:a {:href "#" :on-click #(publish help-key-change "endorsement")} "Endorsed by the National Institute for Health and Care Excellence in the UK"]]
 
-      (start-button-group ttt supported-languages)
+       (start-button-group ttt supported-languages)
 
-       [:p {:style {:margin-left 15}} [:i (ttt [:home/dymtv "Did you mean to visit"]) " "] [:a {:href "https://breast.predict.nhs.uk"} "Predict Breast Cancer"] (ttt [:home/qmark "?"])]]
+       [:p {:style {:margin-left 15}}
+        [:i (ttt [:home/dymtv "Did you mean to visit"]) " "] [:a {:href "https://breast.predict.nhs.uk"} "Predict Breast Cancer"] (ttt [:home/qmark "?"])]
+       [:p {:style {:margin-left 15
+                    :color "#4c4c6b"}}
+        "As Predict's usage grows, we are moving to a new URL. Please adjust your bookmarks."]]
       [:.col-sm-6
-       [:img.img-responsive {
-                             :src         "assets/icon-imagery.png"
+       [:img.img-responsive {:src         "assets/icon-imagery.png"
                              ;:src         "assets/del-temp-smiley-scaled.jpg"
                              :alt         "banner imagery"
                              :aria-hidden true
