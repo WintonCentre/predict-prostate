@@ -70,7 +70,7 @@
   ;(banner)
   [:.row
    [:.col-sm-10.col-sm-offset-1.col-xs-12
-    [:img.img-responsive.pull-right {:src   "/assets/NHS.jpg"
+    #_[:img.img-responsive.pull-right {:src   "/assets/NHS.jpg"
                                      :alt   "NHS logo"
                                      :style {:width         "85px"
                                              :margin-top    "30px"
