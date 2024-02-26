@@ -166,7 +166,7 @@
       [:p {:key 4} (ttt [:home/wwpptm-text1 "The Predict Prostate tool shows you how different initial management strategies affect the percentage
     of men that survive ten and fifteen years after diagnosis. Non-individualised data is also shown on the potential
     harms of each treatment type."]) " "
-       [:a {:href "https://www.youtube.com/watch?v=-6UR6gAeYxI&t=10s" :target "_blank"} (ttt [:home/wwpptm-video "This short video"])] " "
+       [:a {:href "https://youtu.be/TL53pULR-94" :target "_blank"} (ttt [:home/wwpptm-video "This short video"])] " "
        (ttt [:home/wwpptm-text2 "may help explain how Predict Prostate works."])]]
 
      [:section#about-page "About"
@@ -222,7 +222,7 @@
 
      [:section#howpredictworks "How Predict Prostate works"
       [:section (ttt [:about/hppw-title "How Predict Prostate works"])
-       [:p [:a {:href "https://www.youtube.com/watch?v=-6UR6gAeYxI&t=10s" :target "_blank"} (ttt [:about/hppw-text1 "This short video"])]
+       [:p [:a {:href "https://youtu.be/TL53pULR-94" :target "_blank"} (ttt [:about/hppw-text1 "This short video"])]
         " " (ttt [:about/hppw-text2 "may help explain how Predict Prostate works."])]
        [:p (ttt [:about/hppw-text3 "The estimates that Predict Prostate produces are based on observational data from thousands of men previously
      diagnosed with non-metastatic prostate cancer from the East of England, UK. It provides the average survival rate
