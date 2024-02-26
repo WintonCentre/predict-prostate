@@ -58,7 +58,7 @@
         [:i (ttt [:home/dymtv "Did you mean to visit"]) " "] [:a {:href "https://breast.predict.nhs.uk"} "Predict Breast Cancer"] (ttt [:home/qmark "?"])]
        [:p {:style {:margin-left 15
                     :color "#4c4c6b"}}
-        "As Predict's usage grows, we are moving to a new URL. Please adjust your bookmarks."]]
+        (ttt [:home/notice "As Predict's usage grows, we are moving to a new URL. Please adjust your bookmarks."])]]
       [:.col-sm-6
        [:img.img-responsive {:src         "assets/icon-imagery.png"
                              ;:src         "assets/del-temp-smiley-scaled.jpg"

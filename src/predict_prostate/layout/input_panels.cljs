@@ -125,7 +125,7 @@
    [:div {:style {:color       "#686868"
                   :margin-left "145px"
                   :margin-top  (str top-offset "px")}}
-    (ttt [:bio/cores "Biopsy cores taken from a target site are considered as 1 core regardless of the number of biopsy cores taken. "])
+    (ttt [:bio/cores "Biopsy cores taken from a MRI directed target site are considered as 1 core regardless of the number of biopsy cores taken. "])
     (biopsy-core-examples ttt)]))
 
 

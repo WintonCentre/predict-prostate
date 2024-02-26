@@ -990,15 +990,25 @@
       If this information is not known, or if biopsy cores were ONLY taken from target lesions select 'no'."])]]
 
       [:section#number-of-biopsy-cores-taken (ttt [:tool/nbcores-title "Biopsy cores taken"])
-       [:p (ttt [:tool/nbcores-text1 "The total number of biopsy cores taken. Extra biopsies taken from each target site should be considered as 1
-     core, regardless of how many biopsy cores were
-      taken from that target."])]]
+       [:p (ttt [:tool/nbcores-text1-v2 "The total number of biopsy cores taken from the biopsy 
+                                         procedure. Biopsy methods and sampling can vary from unit 
+                                         to unit but typically include systematic biopsies +/- MRI 
+                                         targeted biopsies. This input box should be used/advised 
+                                         by health care professionals who have performed the biopsy. 
+                                         Extra biopsies taken from an MRI directed target site 
+                                         (if taken) should be considered as 1 core, regardless of 
+                                         how many biopsy cores were taken from that specific target 
+                                         site."])]]
 
       [:section#number-of-biopsy-cores-with-prostate-cancer (ttt [:tool/nbcanc-title "Biopsy cores with prostate cancer"])
-       [:p (ttt [:tool/nbcanc-text1 "The total number of positive biopsy cores. Even cores with a lower grade should be counted here, if they have
-      any prostate cancer within them.
-      Positive cores taken from a single target site should be considered as 1 core, regardless of how many positive
-      cores were taken from that target."])]]
+       [:p (ttt [:tool/nbcanc-text1-v2 "The total number of positive biopsy cores i.e with cancer 
+                                        in them. Biopsy methods and sampling can vary from unit to 
+                                        unit but typically include systematic biopsies +/- MRI targeted 
+                                        biopsies. This input box should be used/advised by health 
+                                        care professionals who have performed the biopsy. Extra biopsies 
+                                        with cancer in them taken from an MRI directed target site 
+                                        (if taken) should be considered as 1 core, regardless of how 
+                                        many biopsy cores were positive from that specific target site."])]]
 
       [:section#h-admissions (ttt [:tool/hosp-title "Hospital admissions in the last 2 years"])
        [:p (ttt [:tool/hosp-text1 "This refers to any inpatient admission to hospital in the 2 years before prostate cancer diagnosis. Anything
