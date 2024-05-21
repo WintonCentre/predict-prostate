@@ -50,6 +50,7 @@
           [el2 {:style {:font-size 14 :margin-left 15}} p2]])
 
        [:p {:style {:font-size 18 :margin-left 15}} [:a {:href "https://www.nice.org.uk/guidance/ng131/resources/endorsed-resource-predict-prostate-6898604077" :target "_blank"} (ttt [:home/endorsement "Endorsed by the National Institute for Health and Care Excellence in the UK"])]]
+       [:p {:style {:font-size 18 :margin-left 15}} [:a {:href "https://uroweb.org/guidelines/prostate-cancer/chapter/treatment" :target "_blank"} (ttt [:home/endorsement-2 "Recommended by the European Association of Urology Prostate cancer guidelines"])]]
        #_[:p {:style {:font-size 14 :margin-left 15}} [:a {:href "#" :on-click #(publish help-key-change "endorsement")} "Endorsed by the National Institute for Health and Care Excellence in the UK"]]
 
        (start-button-group ttt supported-languages)
