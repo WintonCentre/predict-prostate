@@ -622,7 +622,7 @@
                        :padding    "20px 20px 20px 20px"}}
         [:.col-sm-12
          [:.row {:style {:margin-bottom 10}}
-          [:.col-sm-1 [:img {:src "/assets/ce.png" :alt "CE mark" :width 50}]]
+          [:.col-sm-1 [:img {:src "/assets/logos/logos/UKCA-black-fill.png"#_"/assets/ce.png" :alt "CE mark" :width 50}]]
           [:.col-sm-10.col-sm-offset-1
            [:p "The Chancellor, Masters, and Scholars of the University of Cambridge"]]] 
          
@@ -649,13 +649,13 @@
           [:.col-sm-1 [:img {:src "/assets/factory.png" :alt "Manufacturer" :width 50}]]
           [:.col-sm-10.col-sm-offset-1 [:p "University of Cambridge, Trinity Lane, The Old Schools, Cambridge, Cambridgeshire, CB2 1TS England, United Kingdom"]]]]
         [:.col-sm-12
-         [:p (ttt [:prod-label/fulfils "This device fulfils the provisions of the European Commission (EC) Directive 93/42/EEC (Medical Devices Directive)."])]
+         [:p (ttt [:prod-label/fulfils "This device fulfills the provisions of the UK Medical Devices Regulation 2002."])]
          [:p (ttt [:prod-label/conformance "This software product has been designed according to"])]
          [:ul
           [:li
            [:p [:b "ISO 13485:2016"]]
            [:p {:style {:margin-top -10}} (ttt [:prod-label/qms "Medical devices - Quality management systems - Requirements for regulatory purposes."])]]
-          [:li [:p [:b "ISO 14971:2012"]]
+          [:li [:p [:b "ISO 14971:2019"]]
            [:p {:style {:margin-top -10}} (ttt [:prod-label/rm "Medical Devices - Application of risk management to medical devices."])]]
           [:li [:p [:b "IEC/TR 80002-1:2009"]]
            [:p {:style {:margin-top -10}} (ttt [:prod-label/sw "Medical device software – Part 1: Guidance on the application of ISO 14971 to medical device software."])]]
