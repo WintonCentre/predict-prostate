@@ -622,7 +622,7 @@
                        :padding    "20px 20px 20px 20px"}}
         [:.col-sm-12
          [:.row {:style {:margin-bottom 10}}
-          [:.col-sm-1 [:img {:src "/assets/logos/logos/UKCA-black-fill.png"#_"/assets/ce.png" :alt "CE mark" :width 50}]]
+          [:.col-sm-1 [:img {:src "/assets/logos/logos/UKCA-black-fill.png" :alt "UKCA mark" :width 50}]]
           [:.col-sm-10.col-sm-offset-1
            [:p "The Chancellor, Masters, and Scholars of the University of Cambridge"]]] 
          

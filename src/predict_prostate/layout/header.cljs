@@ -163,6 +163,7 @@
             :src   "/assets/lot2.png"}]
      "v-0.0-0.00-0-hash"
 
-     [:img {:style {:width 30 :margin-left 10 :margin-right 5 :border "none"}
-            :alt   "CE mark"
-            :src   "/assets/ce2.png"}]]]])
+     [:img {:style {:width 30 :margin-left 10 :margin-right 5 :border "none"
+                    :background-color "white"}
+            :alt   "UKCA mark"
+            :src   "/assets/logos/logos/UKCA-black-fill.png"}]]]])
