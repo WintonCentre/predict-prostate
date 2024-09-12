@@ -302,7 +302,18 @@
         
 
       [:section (ttt [:tech/modval-title "Model validation"])
-       [:p (ttt [:tech/modval-text1 "Predict Prostate was validated using a dataset of another 3,000 prostate cancer patients from the Eastern
+       [:p (ttt [:tech/modval-text11 "Predict Prostate was first validated using a dataset of another 3,000 prostate cancer 
+                                      patients from the Eastern England data and a further 2,546 men from a separate independent 
+                                      dataset from Singapore and followed up for a median of 5.1 years (ref 1). Discrimination 
+                                      (c-index) in these two datasets was 0.84 for prostate cancer survival, and 0.77 and 0.76 
+                                      for overall survival over 15 years maximum follow-up. The model was further validated in 
+                                      a cohort of 69,206 men from prostate cancer data base Sweden in 2020 with 13.9 years of 
+                                      median follow-up (ref 3). Overall discrimination of Predict Prostate was 0.85 for PCSM 
+                                      and 0.79 for ACM. A further validation of the model for prostate cancer survival was done 
+                                      in a paper from Lee at al in 2021 which included 171 942 men of diverse ethnicities from 
+                                      the US SEER database. Here Predict Prostate maintained a high discrimination index of 0.82 (ref 4). 
+                                      Details are available via the publication below."])]
+       #_[:p (ttt [:tech/modval-text1 "Predict Prostate was validated using a dataset of another 3,000 prostate cancer patients from the Eastern
      England data and a further 2,546 men from a separate independent dataset from Singapore diagnosed between 1990 and
      2015 and followed up for a median of 5.1 years. Discrimination in these two datasets was 0.84 for prostate cancer
      survival, and 0.77 and 0.76 for overall survival over 15 years maximum follow-up. Further details are available via
