@@ -382,6 +382,12 @@
               [:a {:href   "https://doi.org/10.1002/bco2.311"
                    :rel    "noopener"
                    :style  {:text-decoration "underline"}
+                   :target "_blank"} (ttt [:tech/pub1-text2 "Full paper online."])]]]
+        [:li [:p (ttt [:tech/pub9-text1 "How Do Urologists Interpret Risk? Differences in Appropriateness of Active Surveillance Based on Clinical-Based vs Probability-Based Risk Assessments
+                                         by Moser AM, Morrison C, Nelson A, Vercnocke J, Zamani A, Liaw A, Gnanapragasam VJ, Ginsburg KB. Urol Pract. 2025 Jun 2."]) " "
+              [:a {:href   "https://www.auajournals.org/doi/abs/10.1097/UPJ.0000000000000845"
+                   :rel    "noopener"
+                   :style  {:text-decoration "underline"}
                    :target "_blank"} (ttt [:tech/pub1-text2 "Full paper online."])]]]]]]
        
 
@@ -693,6 +699,9 @@
      All results must be understood in the context of each patient’s specific condition.
      In particular, the model does not adjust for factors such as family history (apart from BRCA status), race, tumour volume or any predisposing genetic factor.
      "])]
+       [:p (ttt [:disc/text4-2 "Predict Prostate carries the UKCA marking for use by healthcare 
+                                professionals in the UK. Regulatory approvals for other countries 
+                                [have not yet been sought / will be added as obtained]."])]
        [:p (ttt [:disc/text5 "TERMS OF USE: Results provided by this tool are for informational purposes only and are not intended as a substitute for professional medical advice and counselling.
    Predict Prostate is a reference guide only and cannot replace standard clinical counselling. 
    Please read the referenced papers for the study derivation and context. 
