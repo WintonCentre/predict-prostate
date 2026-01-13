@@ -405,10 +405,14 @@
               [:a {:href   "https://www.auajournals.org/doi/abs/10.1097/UPJ.0000000000000845"
                    :rel    "noopener"
                    :style  {:text-decoration "underline"}
+                   :target "_blank"} (ttt [:tech/pub1-text2 "Full paper online."])]]]
+        [:li [:p (ttt [:tech/pub10-text1 "Incorporating the NICE Cambridge Prognostic Groups and Predict Prostate into a structured informed‐decision making clinic reduces over‐treatment rates of early prostate cancer
+                                          by Gnanapragasam, Vincent J., and Vineetha Thankapannair. BJUI Compass 2025 May 27."]) " "
+              [:a {:href   "https://pmc.ncbi.nlm.nih.gov/articles/PMC12116330/"
+                   :rel    "noopener"
+                   :style  {:text-decoration "underline"}
                    :target "_blank"} (ttt [:tech/pub1-text2 "Full paper online."])]]]]]]
-       
-
-      
+     
 
      [:section#faqs "FAQS"
       [:section (ttt [:tech/faqs-title "FAQs"])
