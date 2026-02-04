@@ -675,7 +675,7 @@
       [:section (ttt [:contact/title "Contact"])
        [:p "Cambridge Urology Translational Research and Clinical Trials Office" [:br] 
         "Cambridge Biomedical Campus, Addenbrooke's Hospital Site, S Wards Building, Keith Day Rd, Cambridge CB2, UK" [:br] 
-        (ttt [:contact/email "Email:"]) " " [:a {:href "mailto:cutract@nhs.net"} "cutract@nhs.net"]]]]
+        (ttt [:contact/email "Email:"]) " " [:a {:href "mailto:cuh.cutract@nhs.net?cc=cambridgeprostatecancer@gmail.com"} "cuh.cutract@nhs.net"]]]]
 
      [:section#legal-preamble "Preamble"
       [:p.screen-only {:key   0
@@ -939,7 +939,7 @@
 
 
        [:p "We welcome any feedback you may have about Predict. If you have questions about its development or there are
-     features you would like to have added to the model please let us know by emailing us at cutract@nhs.net."]]
+     features you would like to have added to the model please let us know by emailing us at cuh.cutract@nhs.net."]]
 
       [:section#model-development "Model development"
        [:p "The model is derived from 7063 men diagnosed in Eastern England between 2000 and 2010.
