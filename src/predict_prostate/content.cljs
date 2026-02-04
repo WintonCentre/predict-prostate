@@ -673,7 +673,7 @@
 
      [:section#contact "Contact"
       [:section (ttt [:contact/title "Contact"])
-       [:p "Cambridge Urology Translational Research and Clinical Trials Office" [:br] 
+       [:p "Cambridge Prostate Cancer Research and Clinical Trials Office" [:br] 
         "Cambridge Biomedical Campus, Addenbrooke's Hospital Site, S Wards Building, Keith Day Rd, Cambridge CB2, UK" [:br] 
         (ttt [:contact/email "Email:"]) " " [:a {:href "mailto:cuh.cutract@nhs.net?cc=cambridgeprostatecancer@gmail.com"} "cuh.cutract@nhs.net"]]]]
 
