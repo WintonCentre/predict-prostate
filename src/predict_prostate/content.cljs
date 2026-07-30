@@ -222,12 +222,23 @@
 
      [:section#whoisitfor "Who is it for?"
       [:section (ttt [:about/wiif-title "Who is it for?"])
-       [:p (ttt [:about/wiif-text1 "The tool is intended for men with non-metastatic prostate cancer who are deciding between conservative and
+       #_[:p (ttt [:about/wiif-text1 "The tool is intended for men with non-metastatic prostate cancer who are deciding between conservative and
      radical management regimes. The tool is not for use in cases where prostate cancer has spread beyond the prostate.
      The tool is also less well tested and likely to be less reliable in men with very high PSA, high grade group or
      high stage
      as very few men with these characteristics were managed with conservative management in our development or
      validation data.  "])]
+       
+       [:p (ttt [:about/wiif-text1-v2 "The tool is intended for men with non-metastatic prostate 
+                                       cancer who are deciding between conservative and any 
+                                       treatment for management of prostate cancer. The tool is 
+                                       not for use in cases where prostate cancer has spread beyond
+                                       the prostate.
+                                       The tool is also less well tested and likely to be less 
+                                       reliable in men with very high PSA, high grade group or high
+                                       stage as very few men with these characteristics were managed
+                                       with conservative management in our development or validation
+                                       data."])]
 
        [:p (ttt [:about/wiif-text2 "Nothing can ever tell an individual man exactly what is going to happen to him in the future but this tool
      will provide a realistic estimate or ‘best guess’ about the potential survival benefits of different treatment
@@ -601,9 +612,22 @@
                  (ttt [:faqs/a10-text1 "Predict Prostate should not be used in this situation. We suggest you speak to your health care provider. "]))
        (hr)
        (faq-item (ttt [:faqs/q11 "What about other treatments?"])
-                 (ttt [:faqs/a11-text1 "Predict Prostate focuses on whole gland or radical treatment (radical prostatectomy or radiotherapy) compared to conservative management (including active surveillance or watchful waiting).
+                 #_(ttt [:faqs/a11-text1 "Predict Prostate focuses on whole gland or radical treatment (radical prostatectomy or radiotherapy) compared to conservative management (including active surveillance or watchful waiting).
          Other treatments (e.g. partial or focal treatments) have not been considered by this model as there is little or no long-term comparative data of the treatment against conservative management.
-         Your own prostate cancer specialist should be able to advise you how effective another treatment type is. "]))
+         Your own prostate cancer specialist should be able to advise you how effective another treatment type is. "])
+                 (ttt [:faqs/a11-text1-v2 "Predict Prostate was based on whole gland or radical 
+                                           treatment (radical prostatectomy or radiotherapy) 
+                                           compared to conservative management (including active 
+                                           surveillance or watchful waiting). However there is no 
+                                           reason to believe that other treatments (e.g. partial 
+                                           or focal treatments) would be any different in impact 
+                                           on survival gains especially as publications have 
+                                           suggested they show similar outcomes to radical 
+                                           treatments. Focal, partial or other treatments 
+                                           can be considered the same as radical treatment in 
+                                           Predict Prostate. If randomised controlled trials 
+                                           show different data in the future, the tool will be 
+                                           updated."]))
 
        (hr)
        (faq-item (ttt [:faqs/q12 "What about metastatic cancer?"])
@@ -614,8 +638,15 @@
            These are not for use by men with HGPIN (high grade prostatic intra-epithelial neoplasia).")
        (hr)
        (faq-item (ttt [:faqs/q13 "Does Predict Prostate account for different types of surgery or radiotherapy?"])
-                 (ttt [:faqs/a13-text1 "No. Predict Prostate does not attempt to differentiate between surgery and radiotherapy, nor between different surgical or radiotherapy techniques.
-         Please see other publications or speak to your specialist about any impact of surgical or radiotherapy approach on treatment survival benefits. "]))
+                 #_(ttt [:faqs/a13-text1 "No. Predict Prostate does not attempt to differentiate between surgery and radiotherapy, nor between different surgical or radiotherapy techniques.
+         Please see other publications or speak to your specialist about any impact of surgical or radiotherapy approach on treatment survival benefits. "])
+                 (ttt [:faqs/a13-text1-v2 "No. Predict Prostate does not attempt to differentiate 
+                                           between surgery and radiotherapy, nor between different
+                                           surgical or radiotherapy techniques. There is no data 
+                                           that different types of surgery or radiotherapy or any 
+                                           other treatments would materially impact the key 
+                                           functions of comparisons in Predict Prostate against 
+                                           conservative management."]))
        (hr)
        (faq-item (ttt [:faqs/q14 "What about side effects?"])
                  (ttt [:faqs/a14-text1 "Information about potential treatment side effects, or harms, is on the 'Predict Prostate Tool' page.
@@ -1161,10 +1192,19 @@
        [:p (ttt [:tool/trec-text1 "This tool is useful in helping to decide on additional therapies after any surgery has taken place"])]]
 
       [:section#regime (ttt [:tool/treg-title "Treatment Regime"])
-       [:p (ttt [:tool/treg-text1 "Conservative management refers to monitoring or observing the disease, without any upfront active treatment.
+       #_[:p (ttt [:tool/treg-text1 "Conservative management refers to monitoring or observing the disease, without any upfront active treatment.
       In modern practice this is often referred to as 'active surveillance' which may involve more intensive monitoring. 
       Treatment may be required later if the disease characteristics change during monitoring.
-      Radical treatment here refers to radical prostatectomy (surgery) or radical radiotherapy"])]]
+      Radical treatment here refers to radical prostatectomy (surgery) or radical radiotherapy"])]
+       [:p (ttt [:tool/treg-text1-v2 "Conservative management refers to monitoring without any 
+                                      upfront active treatment. In modern practice this is often 
+                                      referred to as 'active surveillance’. Treatment may be 
+                                      required later if the disease characteristics change 
+                                      during monitoring. Radical treatment here refers to any 
+                                      treatment for prostate cancer given instead of surveillance 
+                                      including focal therapies, brachytherapy or any whole gland 
+                                      therapy like prostatectomy (surgery) or external beam 
+                                      radiotherapy."])]]
 
       ;; Treatment potential harms
 
